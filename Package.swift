@@ -9,10 +9,10 @@ let package = Package(
         .library(name: "DcoreKit", targets: ["DcoreKit"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/ReactiveCocoa/ReactiveSwift.git", from: "3.0.0"),
+        .package(url: "https://github.com/ReactiveX/RxSwift.git", "4.0.0" ..< "5.0.0"),
     ],
     targets: [
-        .target(name: "DcoreKit", dependencies: ["ReactiveSwift"]),
+        .target(name: "DcoreKit", dependencies: ["RxSwift"]),
         .testTarget(name: "DcoreKitTests", dependencies: ["DcoreKit"]),
     ]
 )

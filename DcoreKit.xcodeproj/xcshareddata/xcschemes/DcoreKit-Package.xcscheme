@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ReactiveSwift::ReactiveSwift"
-               BuildableName = "ReactiveSwift.framework"
-               BlueprintName = "ReactiveSwift"
+               BlueprintIdentifier = "RxSwift::RxSwift"
+               BuildableName = "RxSwift.framework"
+               BlueprintName = "RxSwift"
                ReferencedContainer = "container:DcoreKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -31,20 +31,6 @@
                BlueprintIdentifier = "DcoreKit::DcoreKit"
                BuildableName = "DcoreKit.framework"
                BlueprintName = "DcoreKit"
-               ReferencedContainer = "container:DcoreKit.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Result::Result"
-               BuildableName = "Result.framework"
-               BlueprintName = "Result"
                ReferencedContainer = "container:DcoreKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -83,9 +69,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ReactiveSwift::ReactiveSwift"
-            BuildableName = "ReactiveSwift.framework"
-            BlueprintName = "ReactiveSwift"
+            BlueprintIdentifier = "RxSwift::RxSwift"
+            BuildableName = "RxSwift.framework"
+            BlueprintName = "RxSwift"
             ReferencedContainer = "container:DcoreKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
