@@ -8,18 +8,26 @@
 
 import Foundation
 
-public struct ChainObject: Hashable {
+public struct ChainObject: Hashable, Codable {
     
     public static let None = "0.0.0".toChainObject()
     
     public var hashValue: Int { return 0 }
     
-    
+    public init(from decoder: Decoder) throws {
+        
+    }
+}
+
+extension ChainObject: ByteSerializable {
+    public var bytes: Data {
+        return Data([])
+    }
 }
 
 extension String {
     
     public func toChainObject() -> ChainObject {
-        return ChainObject()
+        fatalError("Not implemented")
     }
 }

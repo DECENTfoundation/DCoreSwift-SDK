@@ -24,6 +24,9 @@
 		A104081D20879390009DCE47 /* SearchAccountHistoryOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104081C20879390009DCE47 /* SearchAccountHistoryOrder.swift */; };
 		A104081F208793BE009DCE47 /* SearchPurchasesOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104081E208793BE009DCE47 /* SearchPurchasesOrder.swift */; };
 		A10408212087965F009DCE47 /* ByteSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10408202087965F009DCE47 /* ByteSerializable.swift */; };
+		A10408232087CB49009DCE47 /* Authority.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10408222087CB49009DCE47 /* Authority.swift */; };
+		A10408252087CB69009DCE47 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10408242087CB69009DCE47 /* Options.swift */; };
+		A10408272087CB97009DCE47 /* Publishing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10408262087CB97009DCE47 /* Publishing.swift */; };
 		OBJ_195 /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Contract.swift */; };
 		OBJ_196 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Credentials.swift */; };
 		OBJ_197 /* ECKeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* ECKeyPair.swift */; };
@@ -230,6 +233,9 @@
 		A104081C20879390009DCE47 /* SearchAccountHistoryOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAccountHistoryOrder.swift; sourceTree = "<group>"; };
 		A104081E208793BE009DCE47 /* SearchPurchasesOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPurchasesOrder.swift; sourceTree = "<group>"; };
 		A10408202087965F009DCE47 /* ByteSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteSerializable.swift; sourceTree = "<group>"; };
+		A10408222087CB49009DCE47 /* Authority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authority.swift; sourceTree = "<group>"; };
+		A10408242087CB69009DCE47 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
+		A10408262087CB97009DCE47 /* Publishing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publishing.swift; sourceTree = "<group>"; };
 		"DcoreKit::DcoreKit::Product" /* DcoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DcoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DcoreKit::DcoreKitTests::Product" /* DcoreKitTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = DcoreKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_100 /* LockOwnerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockOwnerType.swift; sourceTree = "<group>"; };
@@ -468,6 +474,9 @@
 				OBJ_21 /* Purchase.swift */,
 				OBJ_22 /* TransactionConfirmation.swift */,
 				OBJ_23 /* TransactionDetail.swift */,
+				A10408222087CB49009DCE47 /* Authority.swift */,
+				A10408242087CB69009DCE47 /* Options.swift */,
+				A10408262087CB97009DCE47 /* Publishing.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -870,10 +879,13 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_195 /* Contract.swift in Sources */,
+				A10408232087CB49009DCE47 /* Authority.swift in Sources */,
 				A104081F208793BE009DCE47 /* SearchPurchasesOrder.swift in Sources */,
 				OBJ_196 /* Credentials.swift in Sources */,
+				A10408252087CB69009DCE47 /* Options.swift in Sources */,
 				OBJ_197 /* ECKeyPair.swift in Sources */,
 				A104081D20879390009DCE47 /* SearchAccountHistoryOrder.swift in Sources */,
+				A10408272087CB97009DCE47 /* Publishing.swift in Sources */,
 				OBJ_198 /* Dcore.swift in Sources */,
 				OBJ_199 /* Account.swift in Sources */,
 				OBJ_200 /* AssetAmount.swift in Sources */,
