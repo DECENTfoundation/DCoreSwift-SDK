@@ -3,482 +3,943 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		"DcoreKit::DcoreKitPackageTests::ProductTarget" /* DcoreKitPackageTests */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = OBJ_70 /* Build configuration list for PBXAggregateTarget "DcoreKitPackageTests" */;
+			buildPhases = (
+			);
+			dependencies = (
+				OBJ_73 /* PBXTargetDependency */,
+			);
+			name = DcoreKitPackageTests;
+			productName = DcoreKitPackageTests;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		A1582609208741C10075E5E1 /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1582608208741C10075E5E1 /* Contract.swift */; };
-		A158260B2087428B0075E5E1 /* Dcore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A158260A2087428B0075E5E1 /* Dcore.swift */; };
-		A1BF3D7E20873F4000E3889E /* DcoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1BF3D7420873F4000E3889E /* DcoreKit.framework */; };
-		A1BF3D8320873F4000E3889E /* DcoreKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BF3D8220873F4000E3889E /* DcoreKitTests.swift */; };
-		A1BF3D8520873F4000E3889E /* DcoreKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A1BF3D7720873F4000E3889E /* DcoreKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		OBJ_100 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* FoundationExtensions.swift */; };
+		OBJ_101 /* Lifetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* Lifetime.swift */; };
+		OBJ_102 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* Observer.swift */; };
+		OBJ_103 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* Optional.swift */; };
+		OBJ_104 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* Property.swift */; };
+		OBJ_105 /* Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* Reactive.swift */; };
+		OBJ_106 /* ResultExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* ResultExtensions.swift */; };
+		OBJ_107 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* Scheduler.swift */; };
+		OBJ_108 /* Signal.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* Signal.swift */; };
+		OBJ_109 /* SignalProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* SignalProducer.swift */; };
+		OBJ_110 /* UnidirectionalBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* UnidirectionalBinding.swift */; };
+		OBJ_111 /* UninhabitedTypeGuards.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* UninhabitedTypeGuards.swift */; };
+		OBJ_112 /* ValidatingProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* ValidatingProperty.swift */; };
+		OBJ_114 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Result::Result::Product" /* Result.framework */; };
+		OBJ_121 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Package.swift */; };
+		OBJ_126 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* Result.swift */; };
+		OBJ_127 /* ResultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* ResultProtocol.swift */; };
+		OBJ_134 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* Package.swift */; };
+		OBJ_54 /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Contract.swift */; };
+		OBJ_55 /* DcoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* DcoreKit.swift */; };
+		OBJ_57 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "ReactiveSwift::ReactiveSwift::Product" /* ReactiveSwift.framework */; };
+		OBJ_58 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Result::Result::Product" /* Result.framework */; };
+		OBJ_68 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_79 /* DcoreKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* DcoreKitTests.swift */; };
+		OBJ_80 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* XCTestManifests.swift */; };
+		OBJ_82 /* DcoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DcoreKit::DcoreKit::Product" /* DcoreKit.framework */; };
+		OBJ_83 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "ReactiveSwift::ReactiveSwift::Product" /* ReactiveSwift.framework */; };
+		OBJ_84 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Result::Result::Product" /* Result.framework */; };
+		OBJ_92 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Action.swift */; };
+		OBJ_93 /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Atomic.swift */; };
+		OBJ_94 /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* Bag.swift */; };
+		OBJ_95 /* Deprecations+Removals.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* Deprecations+Removals.swift */; };
+		OBJ_96 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Disposable.swift */; };
+		OBJ_97 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* Event.swift */; };
+		OBJ_98 /* EventLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* EventLogger.swift */; };
+		OBJ_99 /* Flatten.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* Flatten.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A1BF3D7F20873F4000E3889E /* PBXContainerItemProxy */ = {
+		A10D68C0208760340028092A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A1BF3D6B20873F4000E3889E /* Project object */;
+			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A1BF3D7320873F4000E3889E;
+			remoteGlobalIDString = "Result::Result";
+			remoteInfo = Result;
+		};
+		A10D68C1208760340028092A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "ReactiveSwift::ReactiveSwift";
+			remoteInfo = ReactiveSwift;
+		};
+		A10D68C2208760340028092A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Result::Result";
+			remoteInfo = Result;
+		};
+		A10D68C3208760340028092A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "DcoreKit::DcoreKit";
 			remoteInfo = DcoreKit;
+		};
+		A10D68C4208760340028092A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "ReactiveSwift::ReactiveSwift";
+			remoteInfo = ReactiveSwift;
+		};
+		A10D68C5208760340028092A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Result::Result";
+			remoteInfo = Result;
+		};
+		A10D68C6208760350028092A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "DcoreKit::DcoreKitTests";
+			remoteInfo = DcoreKitTests;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A1582608208741C10075E5E1 /* Contract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contract.swift; sourceTree = "<group>"; };
-		A158260A2087428B0075E5E1 /* Dcore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dcore.swift; sourceTree = "<group>"; };
-		A1BF3D7420873F4000E3889E /* DcoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DcoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1BF3D7720873F4000E3889E /* DcoreKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DcoreKit.h; sourceTree = "<group>"; };
-		A1BF3D7820873F4000E3889E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A1BF3D7D20873F4000E3889E /* DcoreKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DcoreKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1BF3D8220873F4000E3889E /* DcoreKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DcoreKitTests.swift; sourceTree = "<group>"; };
-		A1BF3D8420873F4000E3889E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		"DcoreKit::DcoreKit::Product" /* DcoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DcoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"DcoreKit::DcoreKitTests::Product" /* DcoreKitTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = DcoreKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_10 /* DcoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DcoreKit.swift; sourceTree = "<group>"; };
+		OBJ_13 /* DcoreKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DcoreKitTests.swift; sourceTree = "<group>"; };
+		OBJ_14 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
+		OBJ_17 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/michalgrman/_workspace/_swift/dcore-sdk/DcoreKit/.build/checkouts/ReactiveSwift.git-5417491714505190452/Package.swift"; sourceTree = "<group>"; };
+		OBJ_18 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		OBJ_19 /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
+		OBJ_20 /* Bag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bag.swift; sourceTree = "<group>"; };
+		OBJ_21 /* Deprecations+Removals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Deprecations+Removals.swift"; sourceTree = "<group>"; };
+		OBJ_22 /* Disposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
+		OBJ_23 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		OBJ_24 /* EventLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLogger.swift; sourceTree = "<group>"; };
+		OBJ_25 /* Flatten.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flatten.swift; sourceTree = "<group>"; };
+		OBJ_26 /* FoundationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
+		OBJ_27 /* Lifetime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lifetime.swift; sourceTree = "<group>"; };
+		OBJ_28 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		OBJ_29 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
+		OBJ_30 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
+		OBJ_31 /* Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reactive.swift; sourceTree = "<group>"; };
+		OBJ_32 /* ResultExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultExtensions.swift; sourceTree = "<group>"; };
+		OBJ_33 /* Scheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
+		OBJ_34 /* Signal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signal.swift; sourceTree = "<group>"; };
+		OBJ_35 /* SignalProducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalProducer.swift; sourceTree = "<group>"; };
+		OBJ_36 /* UnidirectionalBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnidirectionalBinding.swift; sourceTree = "<group>"; };
+		OBJ_37 /* UninhabitedTypeGuards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UninhabitedTypeGuards.swift; sourceTree = "<group>"; };
+		OBJ_38 /* ValidatingProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatingProperty.swift; sourceTree = "<group>"; };
+		OBJ_41 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		OBJ_42 /* ResultProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultProtocol.swift; sourceTree = "<group>"; };
+		OBJ_43 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/michalgrman/_workspace/_swift/dcore-sdk/DcoreKit/.build/checkouts/Result.git-8684547452332391156/Package.swift"; sourceTree = "<group>"; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		OBJ_9 /* Contract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contract.swift; sourceTree = "<group>"; };
+		"ReactiveSwift::ReactiveSwift::Product" /* ReactiveSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ReactiveSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Result::Result::Product" /* Result.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A1BF3D7020873F4000E3889E /* Frameworks */ = {
+		OBJ_113 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
+			files = (
+				OBJ_114 /* Result.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_128 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A1BF3D7A20873F4000E3889E /* Frameworks */ = {
+		OBJ_56 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				A1BF3D7E20873F4000E3889E /* DcoreKit.framework in Frameworks */,
+				OBJ_57 /* ReactiveSwift.framework in Frameworks */,
+				OBJ_58 /* Result.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_82 /* DcoreKit.framework in Frameworks */,
+				OBJ_83 /* ReactiveSwift.framework in Frameworks */,
+				OBJ_84 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A15826062087413B0075E5E1 /* classes */ = {
+		OBJ_11 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				A1582607208741970075E5E1 /* models */,
-				A1582608208741C10075E5E1 /* Contract.swift */,
-				A158260A2087428B0075E5E1 /* Dcore.swift */,
+				OBJ_12 /* DcoreKitTests */,
 			);
-			path = classes;
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_12 /* DcoreKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_13 /* DcoreKitTests.swift */,
+				OBJ_14 /* XCTestManifests.swift */,
+			);
+			name = DcoreKitTests;
+			path = Tests/DcoreKitTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_15 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_16 /* ReactiveSwift 3.1.0 */,
+				OBJ_39 /* Result 3.2.4 */,
+			);
+			name = Dependencies;
 			sourceTree = "<group>";
 		};
-		A1582607208741970075E5E1 /* models */ = {
+		OBJ_16 /* ReactiveSwift 3.1.0 */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_17 /* Package.swift */,
+				OBJ_18 /* Action.swift */,
+				OBJ_19 /* Atomic.swift */,
+				OBJ_20 /* Bag.swift */,
+				OBJ_21 /* Deprecations+Removals.swift */,
+				OBJ_22 /* Disposable.swift */,
+				OBJ_23 /* Event.swift */,
+				OBJ_24 /* EventLogger.swift */,
+				OBJ_25 /* Flatten.swift */,
+				OBJ_26 /* FoundationExtensions.swift */,
+				OBJ_27 /* Lifetime.swift */,
+				OBJ_28 /* Observer.swift */,
+				OBJ_29 /* Optional.swift */,
+				OBJ_30 /* Property.swift */,
+				OBJ_31 /* Reactive.swift */,
+				OBJ_32 /* ResultExtensions.swift */,
+				OBJ_33 /* Scheduler.swift */,
+				OBJ_34 /* Signal.swift */,
+				OBJ_35 /* SignalProducer.swift */,
+				OBJ_36 /* UnidirectionalBinding.swift */,
+				OBJ_37 /* UninhabitedTypeGuards.swift */,
+				OBJ_38 /* ValidatingProperty.swift */,
 			);
-			path = models;
-			sourceTree = "<group>";
+			name = "ReactiveSwift 3.1.0";
+			path = ".build/checkouts/ReactiveSwift.git-5417491714505190452/Sources";
+			sourceTree = SOURCE_ROOT;
 		};
-		A1BF3D6A20873F4000E3889E = {
+		OBJ_39 /* Result 3.2.4 */ = {
 			isa = PBXGroup;
 			children = (
-				A1BF3D7620873F4000E3889E /* DcoreKit */,
-				A1BF3D8120873F4000E3889E /* DcoreKitTests */,
-				A1BF3D7520873F4000E3889E /* Products */,
+				OBJ_40 /* Result */,
+				OBJ_43 /* Package.swift */,
 			);
-			sourceTree = "<group>";
+			name = "Result 3.2.4";
+			sourceTree = SOURCE_ROOT;
 		};
-		A1BF3D7520873F4000E3889E /* Products */ = {
+		OBJ_40 /* Result */ = {
 			isa = PBXGroup;
 			children = (
-				A1BF3D7420873F4000E3889E /* DcoreKit.framework */,
-				A1BF3D7D20873F4000E3889E /* DcoreKitTests.xctest */,
+				OBJ_41 /* Result.swift */,
+				OBJ_42 /* ResultProtocol.swift */,
+			);
+			name = Result;
+			path = ".build/checkouts/Result.git-8684547452332391156/Result";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_44 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"ReactiveSwift::ReactiveSwift::Product" /* ReactiveSwift.framework */,
+				"DcoreKit::DcoreKit::Product" /* DcoreKit.framework */,
+				"DcoreKit::DcoreKitTests::Product" /* DcoreKitTests.xctest */,
+				"Result::Result::Product" /* Result.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
+			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		A1BF3D7620873F4000E3889E /* DcoreKit */ = {
+		OBJ_5 /*  */ = {
 			isa = PBXGroup;
 			children = (
-				A15826062087413B0075E5E1 /* classes */,
-				A1BF3D7720873F4000E3889E /* DcoreKit.h */,
-				A1BF3D7820873F4000E3889E /* Info.plist */,
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_11 /* Tests */,
+				OBJ_15 /* Dependencies */,
+				OBJ_44 /* Products */,
 			);
-			path = DcoreKit;
+			name = "";
 			sourceTree = "<group>";
 		};
-		A1BF3D8120873F4000E3889E /* DcoreKitTests */ = {
+		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				A1BF3D8220873F4000E3889E /* DcoreKitTests.swift */,
-				A1BF3D8420873F4000E3889E /* Info.plist */,
+				OBJ_8 /* DcoreKit */,
 			);
-			path = DcoreKitTests;
-			sourceTree = "<group>";
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_8 /* DcoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_9 /* Contract.swift */,
+				OBJ_10 /* DcoreKit.swift */,
+			);
+			name = DcoreKit;
+			path = Sources/DcoreKit;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		A1BF3D7120873F4000E3889E /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A1BF3D8520873F4000E3889E /* DcoreKit.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		A1BF3D7320873F4000E3889E /* DcoreKit */ = {
+		"DcoreKit::DcoreKit" /* DcoreKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1BF3D8820873F4000E3889E /* Build configuration list for PBXNativeTarget "DcoreKit" */;
+			buildConfigurationList = OBJ_50 /* Build configuration list for PBXNativeTarget "DcoreKit" */;
 			buildPhases = (
-				A1BF3D6F20873F4000E3889E /* Sources */,
-				A1BF3D7020873F4000E3889E /* Frameworks */,
-				A1BF3D7120873F4000E3889E /* Headers */,
-				A1BF3D7220873F4000E3889E /* Resources */,
+				OBJ_53 /* Sources */,
+				OBJ_56 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				OBJ_59 /* PBXTargetDependency */,
+				OBJ_61 /* PBXTargetDependency */,
 			);
 			name = DcoreKit;
 			productName = DcoreKit;
-			productReference = A1BF3D7420873F4000E3889E /* DcoreKit.framework */;
+			productReference = "DcoreKit::DcoreKit::Product" /* DcoreKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A1BF3D7C20873F4000E3889E /* DcoreKitTests */ = {
+		"DcoreKit::DcoreKitTests" /* DcoreKitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1BF3D8B20873F4000E3889E /* Build configuration list for PBXNativeTarget "DcoreKitTests" */;
+			buildConfigurationList = OBJ_75 /* Build configuration list for PBXNativeTarget "DcoreKitTests" */;
 			buildPhases = (
-				A1BF3D7920873F4000E3889E /* Sources */,
-				A1BF3D7A20873F4000E3889E /* Frameworks */,
-				A1BF3D7B20873F4000E3889E /* Resources */,
+				OBJ_78 /* Sources */,
+				OBJ_81 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A1BF3D8020873F4000E3889E /* PBXTargetDependency */,
+				OBJ_85 /* PBXTargetDependency */,
+				OBJ_86 /* PBXTargetDependency */,
+				OBJ_87 /* PBXTargetDependency */,
 			);
 			name = DcoreKitTests;
 			productName = DcoreKitTests;
-			productReference = A1BF3D7D20873F4000E3889E /* DcoreKitTests.xctest */;
+			productReference = "DcoreKit::DcoreKitTests::Product" /* DcoreKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		"DcoreKit::SwiftPMPackageDescription" /* DcoreKitPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_64 /* Build configuration list for PBXNativeTarget "DcoreKitPackageDescription" */;
+			buildPhases = (
+				OBJ_67 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DcoreKitPackageDescription;
+			productName = DcoreKitPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+		"ReactiveSwift::ReactiveSwift" /* ReactiveSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_88 /* Build configuration list for PBXNativeTarget "ReactiveSwift" */;
+			buildPhases = (
+				OBJ_91 /* Sources */,
+				OBJ_113 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_115 /* PBXTargetDependency */,
+			);
+			name = ReactiveSwift;
+			productName = ReactiveSwift;
+			productReference = "ReactiveSwift::ReactiveSwift::Product" /* ReactiveSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"ReactiveSwift::SwiftPMPackageDescription" /* ReactiveSwiftPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_117 /* Build configuration list for PBXNativeTarget "ReactiveSwiftPackageDescription" */;
+			buildPhases = (
+				OBJ_120 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReactiveSwiftPackageDescription;
+			productName = ReactiveSwiftPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+		"Result::Result" /* Result */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_122 /* Build configuration list for PBXNativeTarget "Result" */;
+			buildPhases = (
+				OBJ_125 /* Sources */,
+				OBJ_128 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Result;
+			productName = Result;
+			productReference = "Result::Result::Product" /* Result.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"Result::SwiftPMPackageDescription" /* ResultPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_130 /* Build configuration list for PBXNativeTarget "ResultPackageDescription" */;
+			buildPhases = (
+				OBJ_133 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ResultPackageDescription;
+			productName = ResultPackageDescription;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A1BF3D6B20873F4000E3889E /* Project object */ = {
+		OBJ_1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
-				ORGANIZATIONNAME = Decent;
-				TargetAttributes = {
-					A1BF3D7320873F4000E3889E = {
-						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 0930;
-					};
-					A1BF3D7C20873F4000E3889E = {
-						CreatedOnToolsVersion = 9.3;
-					};
-				};
+				LastUpgradeCheck = 9999;
 			};
-			buildConfigurationList = A1BF3D6E20873F4000E3889E /* Build configuration list for PBXProject "DcoreKit" */;
-			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = en;
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "DcoreKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = A1BF3D6A20873F4000E3889E;
-			productRefGroup = A1BF3D7520873F4000E3889E /* Products */;
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_44 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A1BF3D7320873F4000E3889E /* DcoreKit */,
-				A1BF3D7C20873F4000E3889E /* DcoreKitTests */,
+				"DcoreKit::DcoreKit" /* DcoreKit */,
+				"DcoreKit::SwiftPMPackageDescription" /* DcoreKitPackageDescription */,
+				"DcoreKit::DcoreKitPackageTests::ProductTarget" /* DcoreKitPackageTests */,
+				"DcoreKit::DcoreKitTests" /* DcoreKitTests */,
+				"ReactiveSwift::ReactiveSwift" /* ReactiveSwift */,
+				"ReactiveSwift::SwiftPMPackageDescription" /* ReactiveSwiftPackageDescription */,
+				"Result::Result" /* Result */,
+				"Result::SwiftPMPackageDescription" /* ResultPackageDescription */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		A1BF3D7220873F4000E3889E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A1BF3D7B20873F4000E3889E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		A1BF3D6F20873F4000E3889E /* Sources */ = {
+		OBJ_120 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				A158260B2087428B0075E5E1 /* Dcore.swift in Sources */,
-				A1582609208741C10075E5E1 /* Contract.swift in Sources */,
+				OBJ_121 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A1BF3D7920873F4000E3889E /* Sources */ = {
+		OBJ_125 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				A1BF3D8320873F4000E3889E /* DcoreKitTests.swift in Sources */,
+				OBJ_126 /* Result.swift in Sources */,
+				OBJ_127 /* ResultProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_133 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_134 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_53 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_54 /* Contract.swift in Sources */,
+				OBJ_55 /* DcoreKit.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_68 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_78 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_79 /* DcoreKitTests.swift in Sources */,
+				OBJ_80 /* XCTestManifests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_92 /* Action.swift in Sources */,
+				OBJ_93 /* Atomic.swift in Sources */,
+				OBJ_94 /* Bag.swift in Sources */,
+				OBJ_95 /* Deprecations+Removals.swift in Sources */,
+				OBJ_96 /* Disposable.swift in Sources */,
+				OBJ_97 /* Event.swift in Sources */,
+				OBJ_98 /* EventLogger.swift in Sources */,
+				OBJ_99 /* Flatten.swift in Sources */,
+				OBJ_100 /* FoundationExtensions.swift in Sources */,
+				OBJ_101 /* Lifetime.swift in Sources */,
+				OBJ_102 /* Observer.swift in Sources */,
+				OBJ_103 /* Optional.swift in Sources */,
+				OBJ_104 /* Property.swift in Sources */,
+				OBJ_105 /* Reactive.swift in Sources */,
+				OBJ_106 /* ResultExtensions.swift in Sources */,
+				OBJ_107 /* Scheduler.swift in Sources */,
+				OBJ_108 /* Signal.swift in Sources */,
+				OBJ_109 /* SignalProducer.swift in Sources */,
+				OBJ_110 /* UnidirectionalBinding.swift in Sources */,
+				OBJ_111 /* UninhabitedTypeGuards.swift in Sources */,
+				OBJ_112 /* ValidatingProperty.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A1BF3D8020873F4000E3889E /* PBXTargetDependency */ = {
+		OBJ_115 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A1BF3D7320873F4000E3889E /* DcoreKit */;
-			targetProxy = A1BF3D7F20873F4000E3889E /* PBXContainerItemProxy */;
+			target = "Result::Result" /* Result */;
+			targetProxy = A10D68C0208760340028092A /* PBXContainerItemProxy */;
+		};
+		OBJ_59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "ReactiveSwift::ReactiveSwift" /* ReactiveSwift */;
+			targetProxy = A10D68C1208760340028092A /* PBXContainerItemProxy */;
+		};
+		OBJ_61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Result::Result" /* Result */;
+			targetProxy = A10D68C2208760340028092A /* PBXContainerItemProxy */;
+		};
+		OBJ_73 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "DcoreKit::DcoreKitTests" /* DcoreKitTests */;
+			targetProxy = A10D68C6208760350028092A /* PBXContainerItemProxy */;
+		};
+		OBJ_85 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "DcoreKit::DcoreKit" /* DcoreKit */;
+			targetProxy = A10D68C3208760340028092A /* PBXContainerItemProxy */;
+		};
+		OBJ_86 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "ReactiveSwift::ReactiveSwift" /* ReactiveSwift */;
+			targetProxy = A10D68C4208760340028092A /* PBXContainerItemProxy */;
+		};
+		OBJ_87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Result::Result" /* Result */;
+			targetProxy = A10D68C5208760340028092A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		A1BF3D8620873F4000E3889E /* Debug */ = {
+		OBJ_118 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		OBJ_119 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		OBJ_123 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
+				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = DcoreKit.xcodeproj/Result_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Result;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGET_NAME = Result;
 			};
 			name = Debug;
 		};
-		A1BF3D8720873F4000E3889E /* Release */ = {
+		OBJ_124 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = DcoreKit.xcodeproj/Result_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Result;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGET_NAME = Result;
+			};
+			name = Release;
+		};
+		OBJ_131 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 3 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/3 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		OBJ_132 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 3 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/3 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		A1BF3D8920873F4000E3889E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = DcoreKit/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DcoreKit;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
-		A1BF3D8A20873F4000E3889E /* Release */ = {
+		OBJ_4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = DcoreKit/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DcoreKit;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				GCC_OPTIMIZATION_LEVEL = s;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_SWIFT_FLAGS = "-DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};
-		A1BF3D8C20873F4000E3889E /* Debug */ = {
+		OBJ_51 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = DcoreKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DcoreKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = DcoreKit.xcodeproj/DcoreKit_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = DcoreKit;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGET_NAME = DcoreKit;
 			};
 			name = Debug;
 		};
-		A1BF3D8D20873F4000E3889E /* Release */ = {
+		OBJ_52 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = DcoreKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DcoreKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = DcoreKit.xcodeproj/DcoreKit_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = DcoreKit;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGET_NAME = DcoreKit;
+			};
+			name = Release;
+		};
+		OBJ_65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		OBJ_66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		OBJ_71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		OBJ_72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		OBJ_76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = DcoreKit.xcodeproj/DcoreKitTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = DcoreKitTests;
+			};
+			name = Debug;
+		};
+		OBJ_77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = DcoreKit.xcodeproj/DcoreKitTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = DcoreKitTests;
+			};
+			name = Release;
+		};
+		OBJ_89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = DcoreKit.xcodeproj/ReactiveSwift_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = ReactiveSwift;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = ReactiveSwift;
+			};
+			name = Debug;
+		};
+		OBJ_90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = DcoreKit.xcodeproj/ReactiveSwift_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = ReactiveSwift;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = ReactiveSwift;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A1BF3D6E20873F4000E3889E /* Build configuration list for PBXProject "DcoreKit" */ = {
+		OBJ_117 /* Build configuration list for PBXNativeTarget "ReactiveSwiftPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A1BF3D8620873F4000E3889E /* Debug */,
-				A1BF3D8720873F4000E3889E /* Release */,
+				OBJ_118 /* Debug */,
+				OBJ_119 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1BF3D8820873F4000E3889E /* Build configuration list for PBXNativeTarget "DcoreKit" */ = {
+		OBJ_122 /* Build configuration list for PBXNativeTarget "Result" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A1BF3D8920873F4000E3889E /* Debug */,
-				A1BF3D8A20873F4000E3889E /* Release */,
+				OBJ_123 /* Debug */,
+				OBJ_124 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1BF3D8B20873F4000E3889E /* Build configuration list for PBXNativeTarget "DcoreKitTests" */ = {
+		OBJ_130 /* Build configuration list for PBXNativeTarget "ResultPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A1BF3D8C20873F4000E3889E /* Debug */,
-				A1BF3D8D20873F4000E3889E /* Release */,
+				OBJ_131 /* Debug */,
+				OBJ_132 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_2 /* Build configuration list for PBXProject "DcoreKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_50 /* Build configuration list for PBXNativeTarget "DcoreKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_51 /* Debug */,
+				OBJ_52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_64 /* Build configuration list for PBXNativeTarget "DcoreKitPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_65 /* Debug */,
+				OBJ_66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_70 /* Build configuration list for PBXAggregateTarget "DcoreKitPackageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_71 /* Debug */,
+				OBJ_72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_75 /* Build configuration list for PBXNativeTarget "DcoreKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_76 /* Debug */,
+				OBJ_77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_88 /* Build configuration list for PBXNativeTarget "ReactiveSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_89 /* Debug */,
+				OBJ_90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A1BF3D6B20873F4000E3889E /* Project object */;
+	rootObject = OBJ_1 /* Project object */;
 }

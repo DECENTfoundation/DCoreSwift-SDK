@@ -1,5 +1,5 @@
 //
-//  Dcore.swift
+//  Contract.swift
 //  DcoreKit
 //
 //  Created by Michal Grman on 18/04/2018.
@@ -7,7 +7,13 @@
 //
 
 import Foundation
+import ReactiveSwift
 
-public class Dcore: Contract {
+public protocol Contract {
+    
+}
 
+
+extension Contract {
+    
 }
