@@ -34,6 +34,6 @@ public struct Account: Codable {
 
 extension Account: ByteSerializable {
     public var bytes: Data {
-        return Data([])
+        return Data([]) + topControlFlags.bytes
     }
 }
