@@ -10,10 +10,11 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/ReactiveX/RxSwift.git", "4.0.0" ..< "5.0.0"),
-        .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", .upToNextMinor(from: "0.8.0"))
+        .package(url: "https://github.com/attaswift/BigInt.git", from: "3.1.0"),
+        .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", .upToNextMinor(from: "0.13.0"))
     ],
     targets: [
-        .target(name: "DcoreKit", dependencies: ["RxSwift", "CryptoSwift"]),
+        .target(name: "DcoreKit", dependencies: ["RxSwift", "CryptoSwift", "BigInt"]),
         .testTarget(name: "DcoreKitTests", dependencies: ["DcoreKit"]),
     ]
 )
