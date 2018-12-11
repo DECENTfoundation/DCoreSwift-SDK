@@ -24,6 +24,10 @@ public struct Account: Codable {
         statistics,
         topControlFlags = "top_n_control_flags"
     }
+    
+    static func isValid(with name: String) -> Bool {
+        return true
+    }
 }
 
  /*
