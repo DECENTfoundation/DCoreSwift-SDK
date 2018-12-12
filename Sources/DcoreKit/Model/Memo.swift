@@ -3,8 +3,8 @@ import BigInt
 
 public struct Memo: Codable {
     
-    public let from: Address?
-    public let to: Address?
+    public var from: Address? = nil
+    public var to: Address? = nil
     public let message: String
     public let nonce: BigInt
     
@@ -18,14 +18,15 @@ public struct Memo: Codable {
     
     public init(usingMessage msg: String) {
         message = "" //(ByteArray(4, { 0 }) + message.toByteArray()).hex()
-        nonce = BigInt(0)
+        nonce = 0
     }
     
     public init(usingMessage msg: String, keyPair: ECKeyPair, recipient: Address, nonce: BigInt) {
         guard nonce.signum() > 0 else { preconditionFailure("nonce must be a positive number") }
         
+        self.message = msg
         self.nonce = nonce
-        self.from = Address(keyPair.public)
+        self.from = nil // Address(from: keyPair.public)
         self.to = recipient
     }
 }

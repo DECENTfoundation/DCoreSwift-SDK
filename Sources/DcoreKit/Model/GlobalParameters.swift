@@ -19,7 +19,7 @@ public struct GlobalParameters: Codable {
     public let cashbackVestingThreshold: BigInt
     public let maxPredicateOpcode: Int
     public let maxAuthorityDepth: UInt16
-    public let extensions: [Any]
+    public let extensions: AnyValue?
 
     private enum CodingKeys: String, CodingKey {
         case

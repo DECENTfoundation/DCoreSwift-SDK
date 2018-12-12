@@ -165,7 +165,28 @@
 		A13014DB21C10B2B0030EE90 /* VerifyAccountAuthority.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13014DA21C10B2B0030EE90 /* VerifyAccountAuthority.swift */; };
 		A13014DD21C10B850030EE90 /* VerifyAuthority.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13014DC21C10B850030EE90 /* VerifyAuthority.swift */; };
 		A13014DF21C10BD30030EE90 /* WithCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13014DE21C10BD30030EE90 /* WithCallback.swift */; };
-		A1CAF906219E97AE000C2D0D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CAF904219E97A6000C2D0D /* Constants.swift */; };
+		A13014E321C10CFA0030EE90 /* RpcService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13014E221C10CFA0030EE90 /* RpcService.swift */; };
+		A13014E521C10F380030EE90 /* RxWebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13014E421C10F380030EE90 /* RxWebSocket.swift */; };
+		A13014E921C1102C0030EE90 /* DCoreSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13014E821C1102C0030EE90 /* DCoreSdk.swift */; };
+		A13014EB21C110410030EE90 /* DCoreApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13014EA21C110410030EE90 /* DCoreApi.swift */; };
+		A13014EE21C111D80030EE90 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13014ED21C111D80030EE90 /* BaseApi.swift */; };
+		A13014F021C112C70030EE90 /* AccountApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13014EF21C112C70030EE90 /* AccountApi.swift */; };
+		A13014F221C1141C0030EE90 /* AssetApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13014F121C1141C0030EE90 /* AssetApi.swift */; };
+		A13014F421C1143A0030EE90 /* BalanceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13014F321C1143A0030EE90 /* BalanceApi.swift */; };
+		A13014F621C114590030EE90 /* BlockApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13014F521C114590030EE90 /* BlockApi.swift */; };
+		A13014F821C114A90030EE90 /* BroadcastApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13014F721C114A90030EE90 /* BroadcastApi.swift */; };
+		A13014FA21C114C50030EE90 /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13014F921C114C50030EE90 /* ContentApi.swift */; };
+		A13014FC21C114E10030EE90 /* GeneralApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13014FB21C114E10030EE90 /* GeneralApi.swift */; };
+		A13014FE21C114FC0030EE90 /* HistoryApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13014FD21C114FC0030EE90 /* HistoryApi.swift */; };
+		A130150021C115150030EE90 /* MiningApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13014FF21C115150030EE90 /* MiningApi.swift */; };
+		A130150221C115460030EE90 /* PurchaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A130150121C115460030EE90 /* PurchaseApi.swift */; };
+		A130150421C115620030EE90 /* SeedersApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A130150321C115620030EE90 /* SeedersApi.swift */; };
+		A130150621C1157C0030EE90 /* SubscriptionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A130150521C1157C0030EE90 /* SubscriptionApi.swift */; };
+		A130150821C115990030EE90 /* TransactionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A130150721C115990030EE90 /* TransactionApi.swift */; };
+		A130150A21C115BB0030EE90 /* ValidationApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A130150921C115BB0030EE90 /* ValidationApi.swift */; };
+		A130150C21C11C7A0030EE90 /* AnyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A130150B21C11C7A0030EE90 /* AnyValue.swift */; };
+		A130150E21C11FCC0030EE90 /* VoteId.swift in Sources */ = {isa = PBXBuildFile; fileRef = A130150D21C11FCC0030EE90 /* VoteId.swift */; };
+		A1CAF906219E97AE000C2D0D /* DCoreConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CAF904219E97A6000C2D0D /* DCoreConstants.swift */; };
 		A1CAF909219E97F0000C2D0D /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CAF907219E97E2000C2D0D /* Namespace.swift */; };
 		A1CAF90C219EA817000C2D0D /* ChainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CAF90B219EA817000C2D0D /* ChainError.swift */; };
 		OBJ_316 /* Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_112 /* Addition.swift */; };
@@ -645,6 +666,27 @@
 		A13014DA21C10B2B0030EE90 /* VerifyAccountAuthority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAccountAuthority.swift; sourceTree = "<group>"; };
 		A13014DC21C10B850030EE90 /* VerifyAuthority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAuthority.swift; sourceTree = "<group>"; };
 		A13014DE21C10BD30030EE90 /* WithCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithCallback.swift; sourceTree = "<group>"; };
+		A13014E221C10CFA0030EE90 /* RpcService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RpcService.swift; sourceTree = "<group>"; };
+		A13014E421C10F380030EE90 /* RxWebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxWebSocket.swift; sourceTree = "<group>"; };
+		A13014E821C1102C0030EE90 /* DCoreSdk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCoreSdk.swift; sourceTree = "<group>"; };
+		A13014EA21C110410030EE90 /* DCoreApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCoreApi.swift; sourceTree = "<group>"; };
+		A13014ED21C111D80030EE90 /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
+		A13014EF21C112C70030EE90 /* AccountApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountApi.swift; sourceTree = "<group>"; };
+		A13014F121C1141C0030EE90 /* AssetApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetApi.swift; sourceTree = "<group>"; };
+		A13014F321C1143A0030EE90 /* BalanceApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceApi.swift; sourceTree = "<group>"; };
+		A13014F521C114590030EE90 /* BlockApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockApi.swift; sourceTree = "<group>"; };
+		A13014F721C114A90030EE90 /* BroadcastApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastApi.swift; sourceTree = "<group>"; };
+		A13014F921C114C50030EE90 /* ContentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentApi.swift; sourceTree = "<group>"; };
+		A13014FB21C114E10030EE90 /* GeneralApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralApi.swift; sourceTree = "<group>"; };
+		A13014FD21C114FC0030EE90 /* HistoryApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryApi.swift; sourceTree = "<group>"; };
+		A13014FF21C115150030EE90 /* MiningApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningApi.swift; sourceTree = "<group>"; };
+		A130150121C115460030EE90 /* PurchaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseApi.swift; sourceTree = "<group>"; };
+		A130150321C115620030EE90 /* SeedersApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedersApi.swift; sourceTree = "<group>"; };
+		A130150521C1157C0030EE90 /* SubscriptionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionApi.swift; sourceTree = "<group>"; };
+		A130150721C115990030EE90 /* TransactionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionApi.swift; sourceTree = "<group>"; };
+		A130150921C115BB0030EE90 /* ValidationApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationApi.swift; sourceTree = "<group>"; };
+		A130150B21C11C7A0030EE90 /* AnyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyValue.swift; sourceTree = "<group>"; };
+		A130150D21C11FCC0030EE90 /* VoteId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteId.swift; sourceTree = "<group>"; };
 		A173630321BE8D1100266C0D /* KeyParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyParts.swift; sourceTree = "<group>"; };
 		A173630521BE8DE000266C0D /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		A173630721BE903B00266C0D /* Miner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Miner.swift; sourceTree = "<group>"; };
@@ -680,7 +722,7 @@
 		A1C6266C21A151EA00BC7DE7 /* ContentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentKeys.swift; sourceTree = "<group>"; };
 		A1C6266E21A1532100BC7DE7 /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
 		A1C6267021A1549F00BC7DE7 /* CustodyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustodyData.swift; sourceTree = "<group>"; };
-		A1CAF904219E97A6000C2D0D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A1CAF904219E97A6000C2D0D /* DCoreConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCoreConstants.swift; sourceTree = "<group>"; };
 		A1CAF907219E97E2000C2D0D /* Namespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Namespace.swift; sourceTree = "<group>"; };
 		A1CAF90B219EA817000C2D0D /* ChainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainError.swift; sourceTree = "<group>"; };
 		A1CAF90D219EAA40000C2D0D /* AssetFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetFormatter.swift; sourceTree = "<group>"; };
@@ -1138,6 +1180,44 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		A13014E021C10CA80030EE90 /* Rpc */ = {
+			isa = PBXGroup;
+			children = (
+				A13014E221C10CFA0030EE90 /* RpcService.swift */,
+			);
+			path = Rpc;
+			sourceTree = "<group>";
+		};
+		A13014E121C10CA80030EE90 /* Ws */ = {
+			isa = PBXGroup;
+			children = (
+				A13014E421C10F380030EE90 /* RxWebSocket.swift */,
+			);
+			path = Ws;
+			sourceTree = "<group>";
+		};
+		A13014EC21C111B60030EE90 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				A13014ED21C111D80030EE90 /* BaseApi.swift */,
+				A13014EF21C112C70030EE90 /* AccountApi.swift */,
+				A13014F121C1141C0030EE90 /* AssetApi.swift */,
+				A13014F321C1143A0030EE90 /* BalanceApi.swift */,
+				A13014F521C114590030EE90 /* BlockApi.swift */,
+				A13014F721C114A90030EE90 /* BroadcastApi.swift */,
+				A13014F921C114C50030EE90 /* ContentApi.swift */,
+				A13014FB21C114E10030EE90 /* GeneralApi.swift */,
+				A13014FD21C114FC0030EE90 /* HistoryApi.swift */,
+				A13014FF21C115150030EE90 /* MiningApi.swift */,
+				A130150121C115460030EE90 /* PurchaseApi.swift */,
+				A130150321C115620030EE90 /* SeedersApi.swift */,
+				A130150521C1157C0030EE90 /* SubscriptionApi.swift */,
+				A130150721C115990030EE90 /* TransactionApi.swift */,
+				A130150921C115BB0030EE90 /* ValidationApi.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
 		A1CAF90A219EA72B000C2D0D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -1200,6 +1280,7 @@
 				A130141E21BFBDAE0030EE90 /* TransactionConfirmation.swift */,
 				A130142021BFBE3F0030EE90 /* TransactionDetail.swift */,
 				A130142221BFBF1A0030EE90 /* VestingBalance.swift */,
+				A130150D21C11FCC0030EE90 /* VoteId.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1482,6 +1563,8 @@
 		OBJ_19 /* Net */ = {
 			isa = PBXGroup;
 			children = (
+				A13014E021C10CA80030EE90 /* Rpc */,
+				A13014E121C10CA80030EE90 /* Ws */,
 				A130142621BFDCD60030EE90 /* Model */,
 				OBJ_20 /* Serialization */,
 			);
@@ -1493,6 +1576,7 @@
 			children = (
 				OBJ_22 /* ByteSerializable.swift */,
 				OBJ_23 /* DataConversion.swift */,
+				A130150B21C11C7A0030EE90 /* AnyValue.swift */,
 			);
 			path = Serialization;
 			sourceTree = "<group>";
@@ -1681,12 +1765,15 @@
 		OBJ_8 /* DcoreKit */ = {
 			isa = PBXGroup;
 			children = (
+				A13014EC21C111B60030EE90 /* Api */,
 				A1CAF90A219EA72B000C2D0D /* Utils */,
 				OBJ_9 /* Crypto */,
 				OBJ_11 /* Model */,
 				OBJ_19 /* Net */,
-				A1CAF904219E97A6000C2D0D /* Constants.swift */,
 				A1CAF907219E97E2000C2D0D /* Namespace.swift */,
+				A1CAF904219E97A6000C2D0D /* DCoreConstants.swift */,
+				A13014E821C1102C0030EE90 /* DCoreSdk.swift */,
+				A13014EA21C110410030EE90 /* DCoreApi.swift */,
 			);
 			name = DcoreKit;
 			path = Sources/DcoreKit;
@@ -2129,6 +2216,7 @@
 				A130145B21BFF7C20030EE90 /* GetContentById.swift in Sources */,
 				A13014BD21C0199D0030EE90 /* PriceToDct.swift in Sources */,
 				A130148521C003D20030EE90 /* GetRequiredFees.swift in Sources */,
+				A130150621C1157C0030EE90 /* SubscriptionApi.swift in Sources */,
 				A130143921BFE6FC0030EE90 /* GetAccountBalanceForTransaction.swift in Sources */,
 				A130141521BFBADD0030EE90 /* PubKey.swift in Sources */,
 				A13014A921C013EE0030EE90 /* ListSeedersByUpload.swift in Sources */,
@@ -2143,18 +2231,22 @@
 				A130142B21BFDDAC0030EE90 /* BaseRequest.swift in Sources */,
 				A1CAF909219E97F0000C2D0D /* Namespace.swift in Sources */,
 				A130145521BFF6B80030EE90 /* GetChainId.swift in Sources */,
+				A13014F621C114590030EE90 /* BlockApi.swift in Sources */,
 				A13013F121BFBADD0030EE90 /* Asset.swift in Sources */,
 				A130143121BFE2F50030EE90 /* BroadcastTransactionSynchronous.swift in Sources */,
 				A130140B21BFBADD0030EE90 /* MinerVotes.swift in Sources */,
+				A130150221C115460030EE90 /* PurchaseApi.swift in Sources */,
 				A130147D21C001B10030EE90 /* GetProposedTransactions.swift in Sources */,
 				A130141F21BFBDAE0030EE90 /* TransactionConfirmation.swift in Sources */,
 				A13013F321BFBADD0030EE90 /* AssetFormatter.swift in Sources */,
+				A13014F021C112C70030EE90 /* AccountApi.swift in Sources */,
 				A130149321C0107C0030EE90 /* GetTransactionHex.swift in Sources */,
 				A130146721BFFABD0030EE90 /* GetHistoryBuyingsByConsumer.swift in Sources */,
 				A130143F21BFE9B30030EE90 /* GetAccountByName.swift in Sources */,
 				A13013EF21BFBADD0030EE90 /* AccountBalance.swift in Sources */,
 				A13014DF21C10BD30030EE90 /* WithCallback.swift in Sources */,
 				A13013F921BFBADD0030EE90 /* ChainParameters.swift in Sources */,
+				A13014FE21C114FC0030EE90 /* HistoryApi.swift in Sources */,
 				A130147B21C0015E0030EE90 /* GetPotentialSignatures.swift in Sources */,
 				A130149121C0101E0030EE90 /* GetTransactionById.swift in Sources */,
 				A13014D321C109B70030EE90 /* SetContentUpdateCallback.swift in Sources */,
@@ -2172,7 +2264,8 @@
 				A130144721BFEC310030EE90 /* GetActualVotes.swift in Sources */,
 				A130147121BFFD8C0030EE90 /* GetNamedAccountBalances.swift in Sources */,
 				A130147521BFFF300030EE90 /* GetOpenBuyings.swift in Sources */,
-				A1CAF906219E97AE000C2D0D /* Constants.swift in Sources */,
+				A1CAF906219E97AE000C2D0D /* DCoreConstants.swift in Sources */,
+				A130150421C115620030EE90 /* SeedersApi.swift in Sources */,
 				A130140821BFBADD0030EE90 /* Miner.swift in Sources */,
 				A13014B721C0183A0030EE90 /* LookupMinerAccounts.swift in Sources */,
 				A130142D21BFDFF70030EE90 /* GetObjects.swift in Sources */,
@@ -2186,14 +2279,19 @@
 				A130142121BFBE3F0030EE90 /* TransactionDetail.swift in Sources */,
 				A13014CB21C105490030EE90 /* SearchContent.swift in Sources */,
 				A130146B21BFFC4D0030EE90 /* GetMinerByAccount.swift in Sources */,
+				A130150E21C11FCC0030EE90 /* VoteId.swift in Sources */,
 				A13014D121C109130030EE90 /* SetBlockAppliedCallback.swift in Sources */,
 				A130141421BFBADD0030EE90 /* ProcessedTransaction.swift in Sources */,
+				A130150A21C115BB0030EE90 /* ValidationApi.swift in Sources */,
 				A13013FF21BFBADD0030EE90 /* CustodyData.swift in Sources */,
 				A130140C21BFBADD0030EE90 /* MinerVotingInfo.swift in Sources */,
+				A130150021C115150030EE90 /* MiningApi.swift in Sources */,
+				A13014E321C10CFA0030EE90 /* RpcService.swift in Sources */,
 				OBJ_448 /* ByteSerializable.swift in Sources */,
 				A13014C721C01ECA0030EE90 /* SearchAccounts.swift in Sources */,
 				A13014AD21C0149F0030EE90 /* ListSubscriptionsByConsumer.swift in Sources */,
 				A13013F221BFBADD0030EE90 /* AssetAmount.swift in Sources */,
+				A13014F421C1143A0030EE90 /* BalanceApi.swift in Sources */,
 				A130147721BFFF780030EE90 /* GetOpenBuyingsByConsumer.swift in Sources */,
 				A130149B21C011A10030EE90 /* ListActiveSubscriptionsByAuthor.swift in Sources */,
 				A13014B521C017D20030EE90 /* LookupAssets.swift in Sources */,
@@ -2201,6 +2299,7 @@
 				A13014DB21C10B2B0030EE90 /* VerifyAccountAuthority.swift in Sources */,
 				A130141621BFBADD0030EE90 /* Publishing.swift in Sources */,
 				A130143721BFE4FC0030EE90 /* GenerateContentKeys.swift in Sources */,
+				A130150C21C11C7A0030EE90 /* AnyValue.swift in Sources */,
 				A130140621BFBADD0030EE90 /* KeyParts.swift in Sources */,
 				A130140221BFBADD0030EE90 /* FeeSchedule.swift in Sources */,
 				A130141121BFBADD0030EE90 /* Options.swift in Sources */,
@@ -2208,6 +2307,9 @@
 				A13014A521C0134A0030EE90 /* ListSeedersByRating.swift in Sources */,
 				OBJ_449 /* DataConversion.swift in Sources */,
 				A130148921C007CD0030EE90 /* GetSeeder.swift in Sources */,
+				A13014FC21C114E10030EE90 /* GeneralApi.swift in Sources */,
+				A13014EE21C111D80030EE90 /* BaseApi.swift in Sources */,
+				A13014F821C114A90030EE90 /* BroadcastApi.swift in Sources */,
 				A130141D21BFBADD0030EE90 /* Transaction.swift in Sources */,
 				A130140E21BFBADD0030EE90 /* OperationHistory.swift in Sources */,
 				A130141321BFBADD0030EE90 /* PricePerRegion.swift in Sources */,
@@ -2215,6 +2317,7 @@
 				A13014C321C01CFE0030EE90 /* SearchAccountBalanceHistory.swift in Sources */,
 				A13014BF21C01BD40030EE90 /* RequestApiAccess.swift in Sources */,
 				A13014A321C012FF0030EE90 /* ListSeedersByPrice.swift in Sources */,
+				A13014E521C10F380030EE90 /* RxWebSocket.swift in Sources */,
 				A130149921C0116B0030EE90 /* Info.swift in Sources */,
 				A130145921BFF74F0030EE90 /* GetConfig.swift in Sources */,
 				A13013FB21BFBADD0030EE90 /* Config.swift in Sources */,
@@ -2223,6 +2326,7 @@
 				A130141221BFBADD0030EE90 /* Order.swift in Sources */,
 				A130144321BFEAE10030EE90 /* GetAccountHistory.swift in Sources */,
 				A130145F21BFF9070030EE90 /* GetDynamicGlobalProps.swift in Sources */,
+				A13014FA21C114C50030EE90 /* ContentApi.swift in Sources */,
 				A13013F021BFBADD0030EE90 /* AccountStatistics.swift in Sources */,
 				A130147F21C002020030EE90 /* GetRealSupply.swift in Sources */,
 				A130149D21C011F40030EE90 /* ListActiveSubscriptionsByConsumer.swift in Sources */,
@@ -2233,14 +2337,18 @@
 				A130143B21BFE7BA0030EE90 /* GetAccountBalances.swift in Sources */,
 				A13014DD21C10B850030EE90 /* VerifyAuthority.swift in Sources */,
 				A130146F21BFFCF70030EE90 /* GetMiners.swift in Sources */,
+				A13014F221C1141C0030EE90 /* AssetApi.swift in Sources */,
 				A130145D21BFF8420030EE90 /* GetContentByUri.swift in Sources */,
 				A130140521BFBADD0030EE90 /* GlobalProperty.swift in Sources */,
+				A130150821C115990030EE90 /* TransactionApi.swift in Sources */,
 				A130144521BFEBD90030EE90 /* GetAccountReferences.swift in Sources */,
 				A130147921C000710030EE90 /* GetOpenBuyingsByUri.swift in Sources */,
 				A130140F21BFBADD0030EE90 /* Operations.swift in Sources */,
 				A130148721C006060030EE90 /* GetRequiredSignatures.swift in Sources */,
 				A130144F21BFEE5D0030EE90 /* GetBlockHeader.swift in Sources */,
 				A130149521C010CA0030EE90 /* GetVestingBalances.swift in Sources */,
+				A13014EB21C110410030EE90 /* DCoreApi.swift in Sources */,
+				A13014E921C1102C0030EE90 /* DCoreSdk.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

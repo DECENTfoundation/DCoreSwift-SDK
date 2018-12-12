@@ -1,6 +1,6 @@
 import Foundation
 
-public enum OperationType: Int {
+public enum OperationType: Int, Codable {
     case
     TRANSFER_OPERATION,
     ACCOUNT_CREATE_OPERATION,

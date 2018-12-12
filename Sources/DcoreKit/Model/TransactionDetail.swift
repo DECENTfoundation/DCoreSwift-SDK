@@ -17,7 +17,7 @@ public struct TransactionDetail: Codable {
         id,
         from = "m_from_account",
         to = "m_to_account",
-        type = "m_operation_type"
+        type = "m_operation_type",
         amount = "m_transaction_amount",
         memo = "m_transaction_encrypted_memo",
         fee = "m_transaction_fee",

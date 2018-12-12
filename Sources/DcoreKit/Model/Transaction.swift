@@ -2,19 +2,20 @@ import Foundation
 
 public struct Transaction: Codable {
     
-    private let blockData: BlockData
-    private let chainId: String
+    private var blockData: BlockData? = nil
+    private var chainId: String? = nil
     
     public let operations: [BaseOperation]
     public var signatures: [String]?
     public let expiration: Date
     public let refBlockNum: Int
     public let refBlockPrefix: UInt64
-    public var extensions: [Any] = [Any]()
+    public var extensions: AnyValue?
     
     public init(blockData: BlockData, operations: [BaseOperation], chainId: String, signatures: [String]? = nil) {
         self.blockData = blockData
         self.chainId = chainId
+        self.operations = operations
         self.expiration = Date(timeIntervalSince1970: TimeInterval(blockData.expiration))
         self.refBlockNum = blockData.refBlockNum
         self.refBlockPrefix = blockData.refBlockPrefix

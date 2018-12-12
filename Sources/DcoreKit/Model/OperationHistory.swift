@@ -1,10 +1,10 @@
 import Foundation
 
-public struct OperationHistory {
+public struct OperationHistory: Codable {
     
     public let id: ChainObject
     public let operation: BaseOperation
-    public let result: [Any]
+    public let result: AnyValue?
     public let blockNum: UInt64
     public let trxInBlock: UInt64
     public let operationNumInTrx: UInt64

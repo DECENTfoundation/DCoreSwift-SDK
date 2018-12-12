@@ -8,7 +8,7 @@ public struct SignedBlock: Codable {
     public let transactionMerkleRoot: String
     public let minerSignature: String
     public let transactions: [ProcessedTransaction]
-    public let extensions: [Any]
+    public let extensions: AnyValue?
     
     private enum CodingKeys: String, CodingKey {
         case

@@ -58,7 +58,7 @@ extension Asset {
         public var maxSupply: UInt64 = 0
         public var exchangeRate: ExchangeRate = ExchangeRate()
         public var exchangeable: Bool = false
-        public var extensions: [Any] = [Any]()
+        public var extensions: AnyValue?
         
         private enum CodingKeys: String, CodingKey {
             case

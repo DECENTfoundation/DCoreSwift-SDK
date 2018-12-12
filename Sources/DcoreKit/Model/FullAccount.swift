@@ -6,8 +6,8 @@ public struct FullAccount: Codable {
     public let registrarName: String
     public let votes: [Miner]
     public let balances: [AccountBalance]
-    public let vestingBalances: [Any]
-    public let proposals: [Any]
+    public let vestingBalances: AnyValue?
+    public let proposals: AnyValue?
     
     private enum CodingKeys: String, CodingKey {
         case

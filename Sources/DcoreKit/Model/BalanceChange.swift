@@ -8,7 +8,7 @@ public struct BalanceChange: Codable {
     
     private enum CodingKeys: String, CodingKey {
         case
-        weightThreshold = "hist_object",
+        operation = "hist_object",
         balance,
         fee
     }

@@ -3,8 +3,8 @@ import Foundation
 public struct Publishing: Codable {
     
     public let isPublishingManager: Bool
-    public let publishRightsReceived: [Any]
-    public let publishRightsForwarded: [Any]
+    public let publishRightsReceived: AnyValue?
+    public let publishRightsForwarded: AnyValue?
     
     private enum CodingKeys: String, CodingKey {
         case

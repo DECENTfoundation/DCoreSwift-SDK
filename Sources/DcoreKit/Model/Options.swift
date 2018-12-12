@@ -6,7 +6,7 @@ public struct Options: Codable {
     public let votingAccount: ChainObject
     public let numMiner: UInt16
     public let votes: Set<VoteId>
-    public let extensions: [Any]
+    public var extensions: AnyValue? = nil
     public let allowSubscription: Bool
     public let pricePerSubscribe: AssetAmount
     public let subscriptionPeriod: Int
@@ -28,7 +28,6 @@ public struct Options: Codable {
         votingAccount = "1.2.3".toChainObject()
         numMiner = 0
         votes = Set<VoteId>()
-        extensions = [Any]()
         allowSubscription = false
         pricePerSubscribe = AssetAmount(amount:0)
         subscriptionPeriod = 0

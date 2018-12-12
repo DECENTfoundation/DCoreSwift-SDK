@@ -9,8 +9,8 @@ public protocol AssetFormatter {
     
     func from(raw value: BigInt) -> Decimal
     func to(raw value: Decimal) -> BigInt
-    func format(_ value: Decimal, maxDecimals: Int) -> String
-    func format(raw value: BigInt, maxDecimals: Int) -> String
+    func format(_ value: Decimal, maxDecimals: Int?) -> String
+    func format(raw value: BigInt, maxDecimals: Int?) -> String
     
     func amount(_ value: String) -> AssetAmount
     func amount(_ value: Double) -> AssetAmount
@@ -33,11 +33,11 @@ extension AssetFormatter {
         return val
     }
     
-    public func format(_ value: Decimal, maxDecimals: Int?) -> String {
+    public func format(_ value: Decimal, maxDecimals: Int? = nil) -> String {
         return "\(maxDecimals ?? precision) \(symbol)"
     }
     
-    public func format(raw value: BigInt, maxDecimals: Int?) -> String {
+    public func format(raw value: BigInt, maxDecimals: Int? = nil) -> String {
         return "\(maxDecimals ?? precision) \(symbol)"
     }
     

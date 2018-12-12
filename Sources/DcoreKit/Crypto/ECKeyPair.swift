@@ -8,8 +8,10 @@ public struct ECKeyPair {
     
     public let publicKey: Any
     
-    fileprivate init(usingPrivate key: BigInt, public publicKey: Any, compressed: Bool? = nil) {
-        self.privateKey = key
+    fileprivate init(usingPrivate privateKey: BigInt, public publicKey: Any, compressed: Bool? = nil) {
+        self.privateKey = privateKey
+        self.publicKey = publicKey
+        self.compressed = compressed
     }
 }
 

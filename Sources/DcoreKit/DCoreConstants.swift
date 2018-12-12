@@ -1,6 +1,7 @@
 import Foundation
 
 extension DCore {
+    
     public struct Constants {
         
         public struct Defaults {

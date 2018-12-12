@@ -3,7 +3,7 @@ import Foundation
 public struct Authority: Codable {
     
     public let weightThreshold: Int
-    public let accountAuths: [Any]
+    public let accountAuths: AnyValue?
     public let keyAuths: [AuthMap]
     
     private enum CodingKeys: String, CodingKey {

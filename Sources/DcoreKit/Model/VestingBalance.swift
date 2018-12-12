@@ -4,7 +4,7 @@ public struct VestingBalance: Codable {
     
     public let owner: ChainObject
     public let balance: AssetAmount
-    public let policy: Any
+    public let policy: AnyValue?
     
     private enum CodingKeys: String, CodingKey {
         case
