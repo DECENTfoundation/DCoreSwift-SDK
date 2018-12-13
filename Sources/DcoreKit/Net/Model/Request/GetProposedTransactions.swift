@@ -1,8 +1,8 @@
 import Foundation
 
-class GetProposedTransactions: BaseRequest<[Any]> {
+class GetProposedTransactions: BaseRequest<AnyValue> {
     
-    required init(account: ChainObject) {
-        super.init(api: .DATABASE, method: "get_proposed_transactions", returnClass: [Any].self, params: [account])
+    required init(accountId: ChainObject) {
+        super.init(api: .DATABASE, method: "get_proposed_transactions", returnClass: AnyValue.self, params: [accountId])
     }
 }

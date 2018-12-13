@@ -49,3 +49,9 @@ public enum OperationType: Int, Codable {
     FINISH_BUYING_OPERATION,                               // VIRTUAL
     RENEWAL_OF_SUBSCRIPTION_OPERATION                      // VIRTUAL 45
 }
+
+extension OperationType: CustomStringConvertible {
+    public var description: String {
+        return "\(self)"
+    }
+}

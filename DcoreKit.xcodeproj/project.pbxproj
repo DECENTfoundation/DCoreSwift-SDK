@@ -186,9 +186,11 @@
 		A130150A21C115BB0030EE90 /* ValidationApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A130150921C115BB0030EE90 /* ValidationApi.swift */; };
 		A130150C21C11C7A0030EE90 /* AnyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A130150B21C11C7A0030EE90 /* AnyValue.swift */; };
 		A130150E21C11FCC0030EE90 /* VoteId.swift in Sources */ = {isa = PBXBuildFile; fileRef = A130150D21C11FCC0030EE90 /* VoteId.swift */; };
+		A130151421C161720030EE90 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A130151321C161720030EE90 /* Utils.swift */; };
 		A1CAF906219E97AE000C2D0D /* DCoreConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CAF904219E97A6000C2D0D /* DCoreConstants.swift */; };
 		A1CAF909219E97F0000C2D0D /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CAF907219E97E2000C2D0D /* Namespace.swift */; };
 		A1CAF90C219EA817000C2D0D /* ChainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CAF90B219EA817000C2D0D /* ChainError.swift */; };
+		A1F1E6B221C2991900F86D95 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = A185D53821C1968F005D90AE /* Credentials.swift */; };
 		OBJ_316 /* Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_112 /* Addition.swift */; };
 		OBJ_317 /* BigInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_113 /* BigInt.swift */; };
 		OBJ_318 /* BigUInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_114 /* BigUInt.swift */; };
@@ -687,6 +689,7 @@
 		A130150921C115BB0030EE90 /* ValidationApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationApi.swift; sourceTree = "<group>"; };
 		A130150B21C11C7A0030EE90 /* AnyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyValue.swift; sourceTree = "<group>"; };
 		A130150D21C11FCC0030EE90 /* VoteId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteId.swift; sourceTree = "<group>"; };
+		A130151321C161720030EE90 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A173630321BE8D1100266C0D /* KeyParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyParts.swift; sourceTree = "<group>"; };
 		A173630521BE8DE000266C0D /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		A173630721BE903B00266C0D /* Miner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Miner.swift; sourceTree = "<group>"; };
@@ -707,6 +710,7 @@
 		A173632521BEB23E00266C0D /* Seeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seeder.swift; sourceTree = "<group>"; };
 		A173632721BEB30600266C0D /* SignedBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedBlock.swift; sourceTree = "<group>"; };
 		A173632921BEB3D200266C0D /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
+		A185D53821C1968F005D90AE /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		A19D0ADA21A3BF86004D543F /* DynamicGlobalProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicGlobalProps.swift; sourceTree = "<group>"; };
 		A19D0ADC21A3C16E004D543F /* FeeParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeParameter.swift; sourceTree = "<group>"; };
 		A19D0ADE21A3C1D5004D543F /* FeeSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeSchedule.swift; sourceTree = "<group>"; };
@@ -1222,6 +1226,7 @@
 			isa = PBXGroup;
 			children = (
 				A1CAF90B219EA817000C2D0D /* ChainError.swift */,
+				A130151321C161720030EE90 /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1796,6 +1801,7 @@
 			children = (
 				OBJ_10 /* Address.swift */,
 				A130142421BFC9230030EE90 /* ECKeyPair.swift */,
+				A185D53821C1968F005D90AE /* Credentials.swift */,
 			);
 			path = Crypto;
 			sourceTree = "<group>";
@@ -2187,6 +2193,7 @@
 				A130148B21C00C4B0030EE90 /* GetSubscription.swift in Sources */,
 				A13013F721BFBADD0030EE90 /* BlockHeader.swift in Sources */,
 				A130142521BFC9230030EE90 /* ECKeyPair.swift in Sources */,
+				A130151421C161720030EE90 /* Utils.swift in Sources */,
 				A13013F821BFBADD0030EE90 /* ChainObject.swift in Sources */,
 				A130145321BFEF3A0030EE90 /* GetBuyingByUri.swift in Sources */,
 				A130140121BFBADD0030EE90 /* FeeParameter.swift in Sources */,
@@ -2302,6 +2309,7 @@
 				A130150C21C11C7A0030EE90 /* AnyValue.swift in Sources */,
 				A130140621BFBADD0030EE90 /* KeyParts.swift in Sources */,
 				A130140221BFBADD0030EE90 /* FeeSchedule.swift in Sources */,
+				A1F1E6B221C2991900F86D95 /* Credentials.swift in Sources */,
 				A130141121BFBADD0030EE90 /* Options.swift in Sources */,
 				A130142F21BFE0DD0030EE90 /* BroadcastTransaction.swift in Sources */,
 				A13014A521C0134A0030EE90 /* ListSeedersByRating.swift in Sources */,

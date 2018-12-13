@@ -35,7 +35,7 @@ public struct Asset: Codable, AssetFormatter {
             return AssetAmount(amount: amount, assetId: id)
         }
         
-        throw ChainError.runtime("cannot convert \(assetAmount.assetId) with \(symbol):\(id)")
+        throw ChainError.illegal("cannot convert \(assetAmount.assetId) with \(symbol):\(id)")
     }
 }
 

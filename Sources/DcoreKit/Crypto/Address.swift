@@ -14,6 +14,10 @@ public struct Address: Codable {
         fatalError("Not implemented")
     }
     
+    public static func isValid(using address: String) -> Bool {
+        return false
+    }
+    
     private static let PREFIX: String = "DCT"
 }
 

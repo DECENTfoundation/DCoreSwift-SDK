@@ -4,6 +4,6 @@ public enum ChainError: Error {
     case unknown
     case notFound
     case addressFormat(String)
-    case runtime(String)
+    case illegal(String)
     case underlying(Error)
 }

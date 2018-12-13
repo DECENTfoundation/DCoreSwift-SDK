@@ -13,6 +13,10 @@ public struct ECKeyPair {
         self.publicKey = publicKey
         self.compressed = compressed
     }
+    
+    public static func from(base58 value: String) -> ECKeyPair {
+        fatalError("Not Implemeted")
+    }
 }
 
 /*

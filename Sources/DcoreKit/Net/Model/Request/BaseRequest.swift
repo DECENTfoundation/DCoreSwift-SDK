@@ -1,4 +1,5 @@
 import Foundation
+import RxSwift
 
 class BaseRequest<T> {
     
@@ -15,5 +16,11 @@ class BaseRequest<T> {
         self.method = method
         self.returnClass = returnClass
         self.params = params
+    }
+}
+
+extension BaseRequest {
+    func toRequest(core: DCore.Sdk) -> Single<T> {
+        return core.make(request: self)
     }
 }

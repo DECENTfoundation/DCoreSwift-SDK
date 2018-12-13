@@ -24,6 +24,12 @@ public struct AssetAmount: Codable {
     public init(with amount: UInt64, asset: String) { self.init(amount: BigInt(amount), assetId: asset.toChainObject()) }
 }
 
+extension AssetAmount: Equatable {
+    public static func == (lhs: AssetAmount, rhs: AssetAmount) -> Bool {
+        return lhs.assetId == rhs.assetId && lhs.amount == rhs.amount
+    }
+}
+
 extension AssetAmount: ByteSerializable {
     public var bytes: [UInt8] {
         fatalError("Not implemeted Bytes.concat(amount.toLong().bytes(), assetId.bytes)")
