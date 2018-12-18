@@ -32,7 +32,7 @@ public struct Memo: Codable {
 }
 
 /*
-class Memo : ByteSerializable {
+class Memo : DataSerializable {
     @SerializedName("from") val from: Address?
     @SerializedName("to") val to: Address?
     @SerializedName("message") val message: String

@@ -1,7 +1,7 @@
 import Foundation
 
 
-public enum ContentType: CustomStringConvertible {
+public enum ContentCategory: CustomStringConvertible {
     
     case id(Application, Category)
     

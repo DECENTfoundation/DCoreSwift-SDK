@@ -1,6 +1,6 @@
 import Foundation
 
-public enum SearchAccountHistoryOrder: String {
+public enum SearchAccountHistoryOrder: String, Codable {
     case
     TYPE_ASC = "+type",
     TO_ASC = "+to",
@@ -18,7 +18,7 @@ public enum SearchAccountHistoryOrder: String {
     TIME_DESC = "-time"
 }
 
-public enum SearchContentOrder: String {
+public enum SearchContentOrder: String, Codable {
     case
     AUTHOR_ASC = "+author",
     RATING_ASC = "+rating",
@@ -34,7 +34,7 @@ public enum SearchContentOrder: String {
     EXPIRATION_DESC = "-expiration"
 }
 
-public enum SearchPurchasesOrder: String {
+public enum SearchPurchasesOrder: String, Codable {
     case
     SIZE_ASC = "+size",
     PRICE_ASC = "+price",
@@ -46,7 +46,7 @@ public enum SearchPurchasesOrder: String {
     PURCHASED_DESC = "-purchased"
 }
 
-public enum SearchAccountsOrder: String {
+public enum SearchAccountsOrder: String, Codable {
     case
     ID_ASC = "+id",
     NAME_ASC = "+name",
@@ -54,7 +54,7 @@ public enum SearchAccountsOrder: String {
     NAME_DESC = "-name"
 }
 
-public enum SearchMinerVotingOrder: String {
+public enum SearchMinerVotingOrder: String, Codable {
     case
     NAME_ASC = "+name",
     NAME_DESC = "-name"

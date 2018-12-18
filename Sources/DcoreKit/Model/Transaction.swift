@@ -32,8 +32,8 @@ public struct Transaction: Codable {
     }
 }
 
-extension Transaction: ByteSerializable {
-    public var bytes: [UInt8] {
+extension Transaction: DataSerializable {
+    public var serialized: Data {
         fatalError("Not Implemeted")
     }
 }

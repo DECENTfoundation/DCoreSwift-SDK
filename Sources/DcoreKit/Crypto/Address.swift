@@ -1,44 +1,53 @@
 import Foundation
 
-public struct Address: Codable {
+public struct Address {
+    let prefix: String
+    let publicKey: PublicKey
     
-    public let publicKey: String
-    public var prefix: String = PREFIX
-    
-    
-    public func encode() -> String {
-        fatalError("Not implemented")
+    init(fromPublicKey data: Data, prefix: String = "DCT") {
+        self.prefix = prefix
+        self.publicKey = PublicKey(data: data)
     }
     
-    public static func decode(from address: String) throws -> Address {
-        fatalError("Not implemented")
-    }
-    
-    public static func isValid(using address: String) -> Bool {
-        return false
-    }
-    
-    private static let PREFIX: String = "DCT"
-}
-
-extension Address: CustomStringConvertible, CustomDebugStringConvertible {
-    public var description: String {
-        return encode()
-    }
-    
-    public var debugDescription: String {
-        return description
+    init(from value: String) throws {
+ 
+        guard let prefix = value[safe: 0...3], let suffix = value[safe: 3...value.count], let decoded = Base58.decode(suffix) else {
+            throw CryptoError.invalidFormat
+        }
+        
+        let key = decoded.prefix(decoded.count - 4)
+        
+        let h = CryptoUtils.sha256sha256(key)
+        let calculatedChecksum = h.prefix(4)
+        let originalChecksum = decoded.suffix(4)
+        
+        guard calculatedChecksum == originalChecksum else {
+            throw CryptoError.invalidChecksum
+        }
+        
+        self.init(fromPublicKey: key, prefix: prefix)
     }
 }
 
-extension Address: ByteSerializable {
-    public var bytes: [UInt8] {
-        fatalError("Not implemented")
+extension Address: Codable {
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        try self.init(from: try container.decode(String.self))
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        fatalError("Not Implemented")
+    }
+}
+
+extension Address: DataSerializable {
+    public var serialized: Data {
+        return publicKey.data
     }
 }
 
 extension String {
     public var address: Address? {
-        return try? Address.decode(from: self)
+        return try? Address(from: self)
     }
 }

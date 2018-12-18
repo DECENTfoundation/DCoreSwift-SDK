@@ -25,14 +25,14 @@ public struct AuthMap: Codable {
     }
 }
 
-extension Authority: ByteSerializable {
-    public var bytes: [UInt8] {
+extension Authority: DataSerializable {
+    public var serialized: Data {
         fatalError("Bytes.concat(weightThreshold.bytes(),byteArrayOf(0), keyAuths.bytes()")
     }
 }
 
-extension AuthMap: ByteSerializable {
-    public var bytes: [UInt8] {
+extension AuthMap: DataSerializable {
+    public var serialized: Data {
         fatalError("Bytes.concat(value.bytes(),weight.bytes()")
     }
 }

@@ -11,12 +11,21 @@
         }
       },
       {
+        "package": "COpenSSL",
+        "repositoryURL": "https://github.com/vapor-community/copenssl.git",
+        "state": {
+          "branch": null,
+          "revision": "a347e9ec038b134aecf42e0c21f2deb9035adf3f",
+          "version": "1.0.0-rc.1"
+        }
+      },
+      {
         "package": "CryptoSwift",
         "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
         "state": {
           "branch": null,
-          "revision": "874280173e082cdd7ac6602be235914efe3f4dbc",
-          "version": "0.13.0"
+          "revision": "c5ee516c9616ec7dc2a000007ddb8bf5d9543c74",
+          "version": "0.13.1"
         }
       },
       {
@@ -29,12 +38,30 @@
         }
       },
       {
+        "package": "secp256k1",
+        "repositoryURL": "https://github.com/Boilertalk/secp256k1.swift",
+        "state": {
+          "branch": null,
+          "revision": "823281fe9def21b384099b72a9a53ca988317b20",
+          "version": "0.1.4"
+        }
+      },
+      {
         "package": "SipHash",
         "repositoryURL": "https://github.com/attaswift/SipHash",
         "state": {
           "branch": null,
           "revision": "e325083424688055363bbfcb7f1a440d7d7a1bae",
           "version": "1.2.2"
+        }
+      },
+      {
+        "package": "Starscream",
+        "repositoryURL": "https://github.com/daltoniam/starscream",
+        "state": {
+          "branch": null,
+          "revision": "ebdc260ea64e68f7569c62e8744b5cd15d3a49d6",
+          "version": "3.0.6"
         }
       }
     ]

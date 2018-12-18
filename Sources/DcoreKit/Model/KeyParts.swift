@@ -12,8 +12,8 @@ public struct KeyParts: Codable {
     }
 }
 
-extension KeyParts: ByteSerializable {
-    public var bytes: [UInt8] {
+extension KeyParts: DataSerializable {
+    public var serialized: Data {
         fatalError("Not Implemented get() = Bytes.concat(keyC1.bytes, keyD1.bytes)")
     }
 }

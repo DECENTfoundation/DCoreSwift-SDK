@@ -3,19 +3,36 @@ import BigInt
 
 public struct ECKeyPair {
 
-    public let privateKey: BigInt?
-    public let compressed: Bool?
+    let privateKey: PrivateKey
+    let publicKey: PublicKey
     
-    public let publicKey: Any
-    
-    fileprivate init(usingPrivate privateKey: BigInt, public publicKey: Any, compressed: Bool? = nil) {
-        self.privateKey = privateKey
-        self.publicKey = publicKey
-        self.compressed = compressed
+    init(fromPrivateKey value: PrivateKey) {
+        self.privateKey = value
+        self.publicKey = value.toPublicKey()
     }
     
-    public static func from(base58 value: String) -> ECKeyPair {
-        fatalError("Not Implemeted")
+    init(fromWif wif: String) throws {
+        self.init(fromPrivateKey: try PrivateKey(fromWif: wif))
+    }
+    
+    public func sign(_ message: Data) throws -> Data {
+        return try privateKey.sign(message)
+    }
+    
+    public static func verify(signature: Data, message: Data, publicKey: Data) throws -> Bool {
+        return try PublicKey(data: publicKey).verify(signature: signature, message: message)
+    }
+}
+
+extension ECKeyPair: Equatable {
+    public static func == (lhs: ECKeyPair, rhs: ECKeyPair) -> Bool {
+        return lhs.privateKey == rhs.privateKey
+    }
+}
+
+extension ECKeyPair {
+    public var address: Address {
+        return Address(fromPublicKey: publicKey.data)
     }
 }
 

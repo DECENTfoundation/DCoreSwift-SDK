@@ -15,7 +15,7 @@ public class ContentApi: BaseApi {
                        order: SearchContentOrder = .CREATED_DESC,
                        user: String = "",
                        regionCode: String = Regions.ALL.code,
-                       type: String = ContentType.id(.DECENT_CORE, .NONE).description,
+                       type: String = ContentCategory.id(.DECENT_CORE, .NONE).description,
                        startId: ChainObject = ObjectType.NULL_OBJECT.genericId,
                        limit: Int = 100) -> Single<[Content]> {
         

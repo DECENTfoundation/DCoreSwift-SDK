@@ -11,7 +11,7 @@ extension DCore {
         
         private lazy var chainId = GetChainId().toRequest(core: self).cache()
         
-        init(socket: URLTransform? = nil, http: URLTransform? = nil, client: URLSession? = nil) {
+        init(socket: URLConvertible? = nil, http: URLConvertible? = nil, client: URLSession? = nil) {
             self.client = client ?? URLSession(configuration: URLSessionConfiguration.default)
             
             if let url = socket { self.socketUrl = url.toURL() }
@@ -20,15 +20,15 @@ extension DCore {
             guard self.httpUrl != nil || self.socketUrl != nil else { preconditionFailure("at least one url must be set") }
         }
         
-        public static func create(forHttp uri: URLTransform, client: URLSession? = nil) -> Api {
+        public static func create(forHttp uri: URLConvertible, client: URLSession? = nil) -> Api {
             return Api(core: Sdk(http: uri, client: client))
         }
         
-        public static func create(forWebSocket uri: URLTransform, client: URLSession? = nil) -> Api {
+        public static func create(forWebSocket uri: URLConvertible, client: URLSession? = nil) -> Api {
             return Api(core: Sdk(socket: uri, client: client))
         }
         
-        public static func create(forSocketUri uri: URLTransform, httpUri: URLTransform, client: URLSession? = nil) -> Api {
+        public static func create(forSocketUri uri: URLConvertible, httpUri: URLConvertible, client: URLSession? = nil) -> Api {
             return Api(core: Sdk(socket: uri, http: httpUri, client: client))
         }
         

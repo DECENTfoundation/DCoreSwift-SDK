@@ -14,8 +14,8 @@ public struct Publishing: Codable {
     }
 }
 
-extension Publishing: ByteSerializable {
-    public var bytes: [UInt8] {
+extension Publishing: DataSerializable {
+    public var serialized: Data {
         fatalError("Not implemented")
         
         /*

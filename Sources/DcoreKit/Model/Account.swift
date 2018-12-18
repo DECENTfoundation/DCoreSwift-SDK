@@ -25,15 +25,7 @@ public struct Account: Codable {
         topControlFlags = "top_n_control_flags"
     }
     
-    static func isValid(with name: String) -> Bool {
-        return true
+    static func hasValid(name: String) -> Bool {
+        return !name.matches(regex: "^[a-z][a-z0-9-]+[a-z0-9](?:\\.[a-z][a-z0-9-]+[a-z0-9])*\\$").isEmpty && (5...63).contains(name.count)
     }
 }
-
- /*
- companion object {
- private val pattern = Pattern.compile("^[a-z][a-z0-9-]+[a-z0-9](?:\\.[a-z][a-z0-9-]+[a-z0-9])*\$")
- 
- fun isValidName(name: String) = pattern.matcher(name).matches() && name.length in 5..63
- }
- */

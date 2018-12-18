@@ -25,7 +25,7 @@ public struct Options: Codable {
     
     public init(usingPublic address: Address) {
         memoKey = address
-        votingAccount = "1.2.3".toChainObject()
+        votingAccount = "1.2.3".chainObject
         numMiner = 0
         votes = Set<VoteId>()
         allowSubscription = false
@@ -35,8 +35,8 @@ public struct Options: Codable {
 }
 
 
-extension Options: ByteSerializable {
-    public var bytes: [UInt8] {
+extension Options: DataSerializable {
+    public var serialized: Data {
         fatalError("Not implemented")
         
         /*

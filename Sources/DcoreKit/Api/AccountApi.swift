@@ -12,7 +12,7 @@ public class AccountApi: BaseApi {
     }
     
     public func getAccountIds(byAddresses addresses: [Address]) -> Single<[[ChainObject]]> {
-        return GetKeyReferences(address: addresses).toRequest(core: self.api.core)
+        return GetKeyReferences(addresses: addresses).toRequest(core: self.api.core)
     }
     
     public func existAccount(byName name: String) -> Single<Bool> {
@@ -21,20 +21,24 @@ public class AccountApi: BaseApi {
     
     public func getAccount(byReference reference: String) -> Single<Account> {
         return Single.deferred({ [unowned self] in
-            switch true {
-            case ChainObject.isValid(usingObjectId: reference):
-                return self.getAccounts(byIds: [reference.toChainObject()]).map({ $0.first! })
-            case Address.isValid(using: reference):
-                return self.getAccountIds(byAddresses: [try! Address.decode(from: reference)])
+            
+            if let object = try? ChainObject(from: reference) {
+                return self.getAccounts(byIds: [object]).map({ $0.first! })
+            }
+            
+            if let address = try? Address(from: reference) {
+                return self.getAccountIds(byAddresses: [address])
                     .map({ $0.first! })
                     .flatMap({ [unowned self] ids in
                         return self.getAccounts(byIds: ids).map({ $0.first! })
                     })
-            case Account.isValid(with: reference):
-                return self.getAccount(byName: reference)
-            default:
-                return Single.error(ChainError.illegal("not a valid account reference"))
             }
+            
+            if Account.hasValid(name: reference) {
+                return self.getAccount(byName: reference)
+            }
+            
+            return Single.error(DCoreError.illegal("not a valid account reference"))
         })
     }
     
@@ -45,8 +49,8 @@ public class AccountApi: BaseApi {
         return SearchAccountHistory(accountId: accoundId, order: order, startId: from, limit: limit).toRequest(core: self.api.core)
     }
     
-    public func createCredentials(account: String, privateKey: String) -> Single<Credentials> {
-        return self.getAccount(byName: account).map({ Credentials(account: $0.id, encodedPrivateKey: privateKey) })
+    public func createCredentials(accountName: String, wif: String) -> Single<Credentials> {
+        return self.getAccount(byName: accountName).map({ try Credentials(accountId: $0.id, wif: wif) })
     }
     
     public func getFullAccounts(byNamesOrIds ref: [String], subscribe: Bool = false) -> Single<[String:FullAccount]>{

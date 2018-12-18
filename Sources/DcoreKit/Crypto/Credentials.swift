@@ -2,15 +2,21 @@ import Foundation
 
 public struct Credentials {
     
-    public let account: ChainObject
+    public let accountId: ChainObject
     public let keyPair: ECKeyPair
     
-    init(account: ChainObject, encodedPrivateKey: String) {
-        self.init(account: account, keyPair: ECKeyPair.from(base58: encodedPrivateKey))
+    init(accountId id: ChainObject, wif: String) throws {
+        self.init(accountId: id, keyPair: try ECKeyPair(fromWif: wif))
     }
     
-    init(account: ChainObject, keyPair: ECKeyPair) {
-        self.account = account
+    init(accountId id: ChainObject, keyPair: ECKeyPair) {
+        self.accountId = id
         self.keyPair = keyPair
+    }
+}
+
+extension Credentials: Equatable {
+    public static func == (lhs: Credentials, rhs: Credentials) -> Bool {
+        return lhs.accountId == rhs.accountId && lhs.keyPair == rhs.keyPair
     }
 }

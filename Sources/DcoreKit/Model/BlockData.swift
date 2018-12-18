@@ -20,8 +20,8 @@ public struct BlockData {
     }
 }
 
-extension BlockData: ByteSerializable {
-    public var bytes: [UInt8] {
+extension BlockData: DataSerializable {
+    public var serialized: Data {
         fatalError("Not Implemeted")
     }
 }

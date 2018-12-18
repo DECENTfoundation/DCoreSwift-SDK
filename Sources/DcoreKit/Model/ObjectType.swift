@@ -1,6 +1,6 @@
 import Foundation
 
-public enum ObjectType: UInt8, CaseIterable {
+public enum ObjectType: UInt8, CaseIterable, Codable {
     
     public static func from(space: Int, type: Int) -> ObjectType {
         return ObjectType.allCases[max(space - 1, 0) * 10 + type]
@@ -50,6 +50,6 @@ public enum ObjectType: UInt8, CaseIterable {
     }
     
     public var genericId: ChainObject {
-        return ChainObject(usingObjectType: self)
+        return ChainObject(from: self)
     }
 }

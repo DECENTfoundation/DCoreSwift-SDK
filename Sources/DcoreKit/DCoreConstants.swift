@@ -6,7 +6,7 @@ extension DCore {
         
         public struct Defaults {
             public static let EXPIRATION = 30 //seconds
-            public static let DCT_ASSET_ID = "1.3.0".toChainObject()
+            public static let DCT_ASSET_ID = "1.3.0".chainObject
         }
         
         public struct Symbols {

@@ -13,14 +13,13 @@ public class BalanceApi: BaseApi {
     
     public func getBalance(byReference ref: String, assets: [ChainObject] = []) -> Single<[AssetAmount]> {
         return Single.deferred({ [unowned self] in
-            switch true {
-            case Account.isValid(with: ref):
+            if Account.hasValid(name: ref) {
                 return GetNamedAccountBalances(account: ref, assets: assets).toRequest(core: self.api.core)
-            default:
-                return self.api.accountApi.getAccount(byReference: ref).flatMap({ [unowned self] account in
-                    return self.getBalance(byAccountId: account.id, assets: assets)
-                })
             }
+           
+            return self.api.accountApi.getAccount(byReference: ref).flatMap({ [unowned self] account in
+                return self.getBalance(byAccountId: account.id, assets: assets)
+            })
         })
     }
     

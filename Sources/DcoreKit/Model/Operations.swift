@@ -11,9 +11,19 @@ public class BaseOperation: Codable {
         self.type = type
         self.fee = fee
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case
+        type,
+        fee
+    }
 }
 
-extension BaseOperation: ByteSerializable {}
+extension BaseOperation: DataSerializable {
+    public var serialized: Data {
+        return Data(bytes: [])
+    }
+}
 
 final class EmptyOperation: BaseOperation {}
 

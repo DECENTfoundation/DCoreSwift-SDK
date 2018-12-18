@@ -1,6 +1,6 @@
 import Foundation
 
-public enum ChainError: Error {
+public enum DCoreError: Error {
     case notFound(String)
     case runtime(Any)
     case addressFormat(String)

@@ -15,8 +15,8 @@ public struct CustodyData: Codable {
     }
 }
 
-extension CustodyData: ByteSerializable {
-    public var bytes: [UInt8] {
+extension CustodyData: DataSerializable {
+    public var serialized: Data {
         fatalError("Not Implemented")
     }
 }

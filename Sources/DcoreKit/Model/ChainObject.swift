@@ -9,49 +9,32 @@ public struct ChainObject {
         return "\(objectType.space).\(objectType.type).\(instance)"
     }
     
-    var objectTypeIdBytes: [UInt8] {
-        fatalError("Not Implemented get() = (objectType.space.toLong().shl(56) or objectType.type.toLong().shl(48) or instance).bytes()")
+    public var objectTypeId: Data {
+        return Data(bytes: [objectType.space << 56 | objectType.type << 48 | UInt8.with(value: instance)])
     }
     
-    init(usingObjectType type: ObjectType) {
+    public init(from type: ObjectType) {
         objectType = type
         instance = 0
     }
     
-    fileprivate init(usingObjectId id: String) throws {
-        let parts = try id.toChainObjectParts()
-        objectType = ObjectType.from(space: Int(parts[0])!, type: Int(parts[1])!)
-        instance = UInt64(parts[2])!
-    }
-    
-    public static func parse(usingObjectId id: String) throws -> ChainObject {
-        fatalError("Not implemeted")
-    }
-
-    public static func isValid(usingObjectId id: String) -> Bool {
-        return false
+    public init(from id: String) throws {
+        let result = id.matches(regex: "(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+))?")
+        guard !result.isEmpty else { throw DCoreError.illegal("chain boject invalid format") }
+        
+        objectType = ObjectType.from(space: Int(result[0])!, type: Int(result[1])!)
+        instance = UInt64(result[2])!
     }
 }
 
-extension ChainObject: CustomStringConvertible, CustomDebugStringConvertible {
-    public var description: String {
-        return objectId
-    }
-    
-    public var debugDescription: String {
-        return description
-    }
-}
-
-
-extension ChainObject: ByteSerializable {
-    public var bytes: [UInt8] {
-        fatalError("Not Implemented get() = Varint.writeUnsignedVarLong(instance)")
+extension ChainObject: DataSerializable {
+    public var serialized: Data {
+        return VarInt(integerLiteral: instance).serialized
     }
 }
 
 extension ChainObject: Equatable {
-    public static func ==(lhs: ChainObject, rhs: ChainObject) -> Bool {
+    public static func == (lhs: ChainObject, rhs: ChainObject) -> Bool {
         return lhs.objectId == rhs.objectId
     }
 }
@@ -65,7 +48,7 @@ extension ChainObject: Hashable {
 extension ChainObject: Codable {
     public init(from decoder: Decoder) throws {
         let id = try decoder.singleValueContainer().decode(String.self)
-        try self.init(usingObjectId: id)
+        try self.init(from: id)
     }
     
     public func encode(to encoder: Encoder) throws {
@@ -75,14 +58,8 @@ extension ChainObject: Codable {
 }
 
 extension String {
-    public func toChainObject() -> ChainObject {
-        return try! ChainObject.parse(usingObjectId: self)
-    }
-    
-    fileprivate func toChainObjectParts() throws -> [String] {
-        let regex = try NSRegularExpression(pattern: "(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+))?")
-        return regex.matches(in: self, range: NSRange(self.startIndex..., in: self)).map {
-            String(self[Range($0.range, in: self)!])
-        }
+    public var chainObject: ChainObject {
+        guard let obj = try? ChainObject(from: self) else { fatalError("chain boject invalid format") }
+        return obj
     }
 }

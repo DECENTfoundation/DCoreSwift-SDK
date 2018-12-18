@@ -23,8 +23,8 @@ extension PubKey: CustomStringConvertible {
     }
 }
 
-extension PubKey: ByteSerializable {
-    public var bytes: [UInt8] {
+extension PubKey: DataSerializable {
+    public var serialized: Data {
         fatalError("Not Implemented - Varint.writeUnsignedVarInt(keyString.toByteArray().size) + keyString.toByteArray()")
     }
 }
