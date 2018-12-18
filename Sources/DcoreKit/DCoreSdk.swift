@@ -3,7 +3,7 @@ import RxSwift
 
 extension DCore {
     
-    public class Sdk {
+    public final class Sdk {
         
         private let client: URLSession
         private var socketUrl: URL? = nil

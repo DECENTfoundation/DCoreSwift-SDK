@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public class BlockApi: BaseApi {
+public final class BlockApi: BaseApi {
 
     public func getBlockHeader(byBlockNum num: UInt64) -> Single<BlockHeader> {
         return GetBlockHeader(blockNum: num).toRequest(core: self.api.core)

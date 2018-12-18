@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public class HistoryApi: BaseApi {
+public final class HistoryApi: BaseApi {
     
     public func getAccountHistory(byAccountId id: ChainObject,
                                   startId: ChainObject = ObjectType.OPERATION_HISTORY_OBJECT.genericId,

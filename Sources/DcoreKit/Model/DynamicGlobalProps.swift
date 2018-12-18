@@ -1,7 +1,6 @@
 import Foundation
 
 public struct DynamicGlobalProps: Codable {
-    
     public let id: ChainObject
     public let headBlockNumber: UInt64
     public let headBlockId: String

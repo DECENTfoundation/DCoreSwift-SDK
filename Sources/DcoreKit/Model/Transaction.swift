@@ -1,12 +1,15 @@
 import Foundation
 
 public struct Transaction: Codable {
-    
     private var blockData: BlockData? = nil
     private var chainId: String? = nil
     
+    public var id: String {
+        return CryptoUtils.sha256(serialized).prefix(20).toHex()
+    }
+    
     public let operations: [BaseOperation]
-    public var signatures: [String]?
+    public var signatures: [String]? = nil
     public let expiration: Date
     public let refBlockNum: Int
     public let refBlockPrefix: UInt64
@@ -30,10 +33,21 @@ public struct Transaction: Codable {
         refBlockPrefix = "ref_block_prefix",
         extensions
     }
+    
+    public mutating func with(signature keyPair: ECKeyPair) throws -> Transaction {
+        let data = CryptoUtils.sha256(Data(hex: chainId!)! + self)
+        self.signatures = [try keyPair.sign(data).toHex()]
+        
+        return self
+    }
 }
 
 extension Transaction: DataSerializable {
     public var serialized: Data {
-        fatalError("Not Implemeted")
+        var data = Data()
+        data += blockData!
+        data += operations
+        data += Data(count: 1) // extensions
+        return data
     }
 }

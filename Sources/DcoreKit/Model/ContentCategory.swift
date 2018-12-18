@@ -1,24 +1,16 @@
 import Foundation
 
 
-public enum ContentCategory: CustomStringConvertible {
-    
-    case id(Application, Category)
-    
-    public var description: String {
-        switch self {
-        case .id(let app, let category): return  "\(app.rawValue).\(category.rawValue).0"
-        }
-    }
-    
-    public enum Application: Int {
+public enum ContentCategory {
+
+    public enum Application: Int, Codable {
         case
         DECENT_CORE,
         DECENT_GO,
         ALAX
     }
     
-    public enum Category: Int {
+    public enum Category: Int, Codable {
         case
         NONE,
         MUSIC,
@@ -29,5 +21,27 @@ public enum ContentCategory: CustomStringConvertible {
         GAME,
         PICTURE,
         DOCUMENT
+    }
+    
+    case id(Application, Category)
+    
+}
+
+extension ContentCategory: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .id(let app, let category): return  "\(app.rawValue).\(category.rawValue).0"
+        }
+    }
+}
+
+extension ContentCategory: Codable {
+    public init(from decoder: Decoder) throws {
+        fatalError("Not Implemented")
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(self.description)
     }
 }

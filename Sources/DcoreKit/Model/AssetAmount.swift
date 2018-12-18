@@ -13,8 +13,8 @@ public struct AssetAmount: Codable {
     }
     
     public init(amount: BigInt, assetId: ChainObject = DCore.Constants.Defaults.DCT_ASSET_ID) {
-        guard amount >= 0 else { preconditionFailure("Amount must be greater or equal to 0") }
-        guard assetId.objectType == ObjectType.ASSET_OBJECT else { preconditionFailure("Object type is not an asset") }
+        guard amount >= 0 else { preconditionFailure("amount must be greater or equal to 0") }
+        guard assetId.objectType == ObjectType.ASSET_OBJECT else { preconditionFailure("object type is not an asset") }
         
         self.amount = amount
         self.assetId = assetId
@@ -40,7 +40,7 @@ extension AssetAmount: DataSerializable {
     public var serialized: Data {
         var data = Data()
         data += amount
-        data += assetId.serialized
+        data += assetId
         return data
     }
 }

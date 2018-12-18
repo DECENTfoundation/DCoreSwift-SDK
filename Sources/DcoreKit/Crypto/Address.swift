@@ -4,9 +4,14 @@ public struct Address {
     let prefix: String
     let publicKey: PublicKey
     
+    
     init(fromPublicKey data: Data, prefix: String = "DCT") {
         self.prefix = prefix
         self.publicKey = PublicKey(data: data)
+    }
+    
+    init(fromKeyPair pair: ECKeyPair) {
+        self.init(fromPublicKey: pair.publicKey.data)
     }
     
     init(from value: String) throws {

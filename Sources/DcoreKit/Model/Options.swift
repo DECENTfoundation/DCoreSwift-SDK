@@ -1,12 +1,11 @@
 import Foundation
 
 public struct Options: Codable {
-    
     public let memoKey: Address
     public let votingAccount: ChainObject
     public let numMiner: UInt16
     public let votes: Set<VoteId>
-    public var extensions: AnyValue? = nil
+    public var extensions: AnyValue?
     public let allowSubscription: Bool
     public let pricePerSubscribe: AssetAmount
     public let subscriptionPeriod: Int
@@ -28,6 +27,7 @@ public struct Options: Codable {
         votingAccount = "1.2.3".chainObject
         numMiner = 0
         votes = Set<VoteId>()
+        extensions = .array([])
         allowSubscription = false
         pricePerSubscribe = AssetAmount(amount:0)
         subscriptionPeriod = 0
@@ -37,19 +37,15 @@ public struct Options: Codable {
 
 extension Options: DataSerializable {
     public var serialized: Data {
-        fatalError("Not implemented")
-        
-        /*
-         get() = Bytes.concat(
-         memoKey.bytes(),
-         votingAccount.bytes,
-         numMiner.bytes(),
-         votes.bytes(),
-         byteArrayOf(0),
-         allowSubscription.bytes(),
-         pricePerSubscribe.bytes,
-         subscriptionPeriod.bytes()
-         )
-         */
+        var data = Data()
+        data += memoKey
+        data += votingAccount
+        data += numMiner
+        data += votes
+        data += Data(count: 1)
+        data += allowSubscription
+        data += pricePerSubscribe
+        data += subscriptionPeriod
+        return data
     }
 }

@@ -1,7 +1,6 @@
 import Foundation
 
 public struct FeeSchedule: Codable {
-    
     public let parameters: [OperationType:FeeParameter]
     public let scale: UInt64
     

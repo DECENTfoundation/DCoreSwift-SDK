@@ -1,7 +1,6 @@
 import Foundation
 
 public struct KeyParts: Codable {
-    
     public let keyC1: PubKey
     public let keyD1: PubKey
     
@@ -14,6 +13,9 @@ public struct KeyParts: Codable {
 
 extension KeyParts: DataSerializable {
     public var serialized: Data {
-        fatalError("Not Implemented get() = Bytes.concat(keyC1.bytes, keyD1.bytes)")
+        var data = Data()
+        data += keyC1
+        data += keyD1
+        return data
     }
 }

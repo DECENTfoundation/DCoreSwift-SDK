@@ -1,7 +1,6 @@
 import Foundation
 
 public struct RegionalPrice: Codable {
-    
     public let price: AssetAmount
     public let region: Int
     
@@ -9,6 +8,15 @@ public struct RegionalPrice: Codable {
         case
         price,
         region
+    }
+}
+
+extension RegionalPrice: DataSerializable {
+    public var serialized: Data {
+        var data = Data()
+        data += region
+        data += price
+        return data
     }
 }
 

@@ -39,6 +39,7 @@
 		A16B964E21C7B70300D55273 /* DCoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B964D21C7B70300D55273 /* DCoreError.swift */; };
 		A16B965021C8F55200D55273 /* CryptoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B964F21C8F55200D55273 /* CryptoError.swift */; };
 		A16B965221C92D1200D55273 /* UInt8+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B965121C92D1200D55273 /* UInt8+Extension.swift */; };
+		A16B965621C98F4500D55273 /* JsonSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B965521C98F4500D55273 /* JsonSerializable.swift */; };
 		OBJ_1000 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "RxSwift::RxSwift::Product" /* RxSwift.framework */; };
 		OBJ_1001 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "RxSwift::RxAtomic::Product" /* RxAtomic.framework */; };
 		OBJ_1017 /* RxAtomic.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_603 /* RxAtomic.c */; };
@@ -858,9 +859,10 @@
 		A16B964D21C7B70300D55273 /* DCoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCoreError.swift; sourceTree = "<group>"; };
 		A16B964F21C8F55200D55273 /* CryptoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoError.swift; sourceTree = "<group>"; };
 		A16B965121C92D1200D55273 /* UInt8+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt8+Extension.swift"; sourceTree = "<group>"; };
+		A16B965521C98F4500D55273 /* JsonSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonSerializable.swift; sourceTree = "<group>"; };
 		"BigInt::BigInt::Product" /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BigInt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"CryptoSwift::CryptoSwift::Product" /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"DcoreKit::DcoreKit::Product" /* DcoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DcoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"DcoreKit::DcoreKit::Product" /* DcoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DcoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DcoreKit::DcoreKitTests::Product" /* DcoreKitTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = DcoreKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* AccountApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountApi.swift; sourceTree = "<group>"; };
 		OBJ_100 /* GetAccountById.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAccountById.swift; sourceTree = "<group>"; };
@@ -1575,6 +1577,7 @@
 				OBJ_189 /* DataSerializable.swift */,
 				OBJ_190 /* DataConvertible.swift */,
 				A1581D7521C4F2430033036F /* VarInt.swift */,
+				A16B965521C98F4500D55273 /* JsonSerializable.swift */,
 			);
 			path = Serialization;
 			sourceTree = "<group>";
@@ -3445,6 +3448,7 @@
 				OBJ_795 /* ChainObject.swift in Sources */,
 				OBJ_796 /* ChainParameters.swift in Sources */,
 				OBJ_797 /* ChainProperty.swift in Sources */,
+				A16B965621C98F4500D55273 /* JsonSerializable.swift in Sources */,
 				A1581D6E21C4E7450033036F /* CryptoUtils.swift in Sources */,
 				OBJ_798 /* Config.swift in Sources */,
 				OBJ_799 /* Content.swift in Sources */,
@@ -4500,7 +4504,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = DcoreKit;
 			};
 			name = Debug;
@@ -4541,7 +4545,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = DcoreKit;
 			};
 			name = Release;

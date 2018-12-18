@@ -2,7 +2,7 @@ import Foundation
 import RxSwift
 import BigInt
 
-public class MiningApi: BaseApi {
+public final class MiningApi: BaseApi {
     
     public func getNewAssetPerBlock() -> Single<BigInt> {
         return GetNewAssetPerBlock().toRequest(core: self.api.core)

@@ -2,8 +2,8 @@ import Foundation
 
 public enum ObjectType: UInt8, CaseIterable, Codable {
     
-    public static func from(space: Int, type: Int) -> ObjectType {
-        return ObjectType.allCases[max(space - 1, 0) * 10 + type]
+    public init(fromSpace space: Int, type: Int) {
+        self = ObjectType.allCases[max(space - 1, 0) * 10 + type]
     }
     
     // dcore/libraries/chain/include/graphene/chain/protocol/types.hpp

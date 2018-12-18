@@ -4,14 +4,15 @@ public struct Asset: Codable, AssetFormatter {
 
     public var id: ChainObject = ObjectType.ASSET_OBJECT.genericId {
         willSet {
-            guard newValue.objectType == ObjectType.ASSET_OBJECT else { preconditionFailure("Asset id is not object asset type") }
+            guard newValue.objectType == ObjectType.ASSET_OBJECT else { preconditionFailure("asset id is not object asset type") }
         }
     }
+    
     public var symbol: String = "UIA"
     public var precision: Int = 0
     public var issuer: ChainObject = ObjectType.NULL_OBJECT.genericId
     public var description: String = ""
-    public var options: Options = Options()
+    public var options: Asset.Options = Asset.Options()
     public var dataId: ChainObject = ObjectType.NULL_OBJECT.genericId
     
     private enum CodingKeys: String, CodingKey {
@@ -35,7 +36,7 @@ public struct Asset: Codable, AssetFormatter {
             return AssetAmount(amount: amount, assetId: id)
         }
         
-        throw ChainError.illegal("cannot convert \(assetAmount.assetId) with \(symbol):\(id)")
+        throw DCoreError.illegal("cannot convert \(assetAmount.assetId) with \(symbol):\(id)")
     }
 }
 

@@ -9,11 +9,15 @@ public struct PubKey: Codable {
     }
     
     public init(from decoder: Decoder) throws {
-        fatalError("Not implemented")
+        let container = try decoder.singleValueContainer()
+        let key = try container.decode(String.self)
+        
+        self.init(key: key)
     }
     
     public func encode(to encoder: Encoder) throws {
-        fatalError("Not implemented")
+        var container = encoder.singleValueContainer()
+        try container.encode(description)
     }
 }
 
@@ -25,6 +29,9 @@ extension PubKey: CustomStringConvertible {
 
 extension PubKey: DataSerializable {
     public var serialized: Data {
-        fatalError("Not Implemented - Varint.writeUnsignedVarInt(keyString.toByteArray().size) + keyString.toByteArray()")
+        var data = Data()
+        data += VarInt(description.data(using: .ascii)!.count)
+        data += description.data(using: .ascii)!
+        return data
     }
 }

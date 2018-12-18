@@ -2,7 +2,6 @@ import Foundation
 import BigInt
 
 public struct Seeder: Codable {
-    
     public let id: ChainObject
     public let freeSpace: BigInt
     public let price: AssetAmount

@@ -29,6 +29,34 @@ extension Int64: DataConvertible {}
 extension Int: DataConvertible {}
 extension BigInt: DataConvertible {}
 
+extension Array where Element: DataConvertible {
+    static func +(lhs: Data, rhs: Array) -> Data {
+        return lhs + rhs.reduce(into: Data(), { data, el in
+            data += el
+        })
+    }
+    
+    static func +=(lhs: inout Data, rhs: Array) {
+        lhs = lhs + rhs.reduce(into: Data(), { data, el in
+            data += el
+        })
+    }
+}
+
+extension Set where Element: DataConvertible {
+    static func +(lhs: Data, rhs: Set) -> Data {
+        return lhs + rhs.reduce(into: Data(), { data, el in
+            data += el
+        })
+    }
+    
+    static func +=(lhs: inout Data, rhs: Set) {
+        lhs = lhs + rhs.reduce(into: Data(), { data, el in
+            data += el
+        })
+    }
+}
+
 extension Bool: DataConvertible {
     static func +(lhs: Data, rhs: Bool) -> Data {
         return lhs + (rhs ? UInt8(0x01) : UInt8(0x00)).littleEndian
@@ -50,6 +78,7 @@ extension Data: DataConvertible {
         return data
     }
 }
+
 
 extension Data {
     init<T>(from value: T) {

@@ -1,7 +1,6 @@
 import Foundation
 
 public struct BlockHeader: Codable {
-    
     public let previous: String
     public let timestamp: Date
     public let miner: ChainObject

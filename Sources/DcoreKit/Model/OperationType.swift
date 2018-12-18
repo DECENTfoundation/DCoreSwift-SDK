@@ -2,7 +2,7 @@ import Foundation
 
 public enum OperationType: Int, Codable {
     case
-    TRANSFER_OPERATION,
+    TRANSFER_OPERATION = 0,
     ACCOUNT_CREATE_OPERATION,
     ACCOUNT_UPDATE_OPERATION,
     ASSET_CREATE_OPERATION,

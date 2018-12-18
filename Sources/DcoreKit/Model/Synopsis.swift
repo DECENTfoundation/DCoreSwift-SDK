@@ -1,7 +1,6 @@
 import Foundation
 
 public struct Synopsis: Codable {
-    
     public let title: String
     public let description: String
     public let type: ChainObject

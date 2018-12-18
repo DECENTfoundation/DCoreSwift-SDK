@@ -1,7 +1,6 @@
 import Foundation
 
 public struct VestingBalance: Codable {
-    
     public let owner: ChainObject
     public let balance: AssetAmount
     public let policy: AnyValue?

@@ -1,7 +1,6 @@
 import Foundation
 
 public struct Purchase: Codable {
-    
     public let id: ChainObject
     public let author: String
     public let uri: String
@@ -45,7 +44,7 @@ public struct Purchase: Codable {
         regionFrom = "region_code_from"
     }
     
-    public func synopsis() -> Synopsis {
-        fatalError("Not Implemented")
+    public func synopsis() throws -> Synopsis? {
+        return try JSONDecoder().decode(Synopsis.self, from: synopsisJson.data(using: .utf8)!)
     }
 }

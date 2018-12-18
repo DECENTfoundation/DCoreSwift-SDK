@@ -2,7 +2,6 @@ import Foundation
 
 
 public struct CustodyData: Codable {
-    
     public let n: Int
     public let uSeed: [UInt16] // Fixed size 16
     public let pubKey: UInt64
@@ -17,15 +16,10 @@ public struct CustodyData: Codable {
 
 extension CustodyData: DataSerializable {
     public var serialized: Data {
-        fatalError("Not Implemented")
+        var data = Data()
+        data += n
+        data += Data(count: 16)
+        data += Data(count: 33)
+        return data
     }
 }
-
-/*
- override val bytes: ByteArray
- get() = Bytes.concat(
- n.bytes(),
- ByteArray(16, { 0 }),
- ByteArray(33, { 0 })
- )
- */

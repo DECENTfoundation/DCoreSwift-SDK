@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public class TransactionApi: BaseApi {
+public final class TransactionApi: BaseApi {
     
     public func getRecentTransaction(byTrxId id: String) -> Single<ProcessedTransaction> {
         return GetRecentTransactionById(id: id).toRequest(core: self.api.core)

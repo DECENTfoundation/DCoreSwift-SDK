@@ -1,7 +1,6 @@
 import Foundation
 
 public struct Publishing: Codable {
-    
     public let isPublishingManager: Bool
     public let publishRightsReceived: AnyValue?
     public let publishRightsForwarded: AnyValue?
@@ -16,14 +15,10 @@ public struct Publishing: Codable {
 
 extension Publishing: DataSerializable {
     public var serialized: Data {
-        fatalError("Not implemented")
-        
-        /*
-         get() = Bytes.concat(
-         isPublishingManager.bytes(),
-         byteArrayOf(0),
-         byteArrayOf(0)
-         */
+        var data = Data()
+        data += isPublishingManager
+        data += Data(count: 1)
+        data += Data(count: 1)
+        return data
     }
 }
-

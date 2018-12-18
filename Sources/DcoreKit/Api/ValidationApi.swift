@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public class ValidationApi: BaseApi {
+public final class ValidationApi: BaseApi {
     
     public func getRequiredSignatures(byTrx trx: Transaction, keys: [Address]) -> Single<[Address]> {
         return GetRequiredSignatures(transaction: trx, keys: keys).toRequest(core: self.api.core)
@@ -37,7 +37,7 @@ public class ValidationApi: BaseApi {
             OperationType.PROPOSAL_UPDATE_OPERATION,
             OperationType.WITHDRAW_PERMISSION_CLAIM_OPERATION,
             OperationType.CUSTOM_OPERATION
-            ].contains(type) else { preconditionFailure("not supported op type") }
+            ].contains(type) else { preconditionFailure("not supported operation type") }
         
         return getFee(forOperation: EmptyOperation(type: type))
     }

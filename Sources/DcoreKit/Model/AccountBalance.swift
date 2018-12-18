@@ -2,7 +2,6 @@ import Foundation
 import BigInt
 
 public struct AccountBalance: Codable {
-    
     public let id: ChainObject
     public let owner: ChainObject
     public let assetType: ChainObject

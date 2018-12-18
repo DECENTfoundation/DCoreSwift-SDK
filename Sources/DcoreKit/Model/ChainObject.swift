@@ -1,7 +1,6 @@
 import Foundation
 
 public struct ChainObject {
-    
     public let objectType: ObjectType
     public let instance: UInt64
 
@@ -22,8 +21,14 @@ public struct ChainObject {
         let result = id.matches(regex: "(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+))?")
         guard !result.isEmpty else { throw DCoreError.illegal("chain boject invalid format") }
         
-        objectType = ObjectType.from(space: Int(result[0])!, type: Int(result[1])!)
+        objectType = ObjectType(fromSpace: Int(result[0])!, type: Int(result[1])!)
         instance = UInt64(result[2])!
+    }
+}
+
+extension ChainObject: CustomStringConvertible {
+    public var description: String {
+        return objectId
     }
 }
 

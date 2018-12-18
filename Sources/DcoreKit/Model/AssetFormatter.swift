@@ -1,6 +1,8 @@
 import Foundation
 import BigInt
 
+// TODO: check conversion agains android
+
 public protocol AssetFormatter {
     
     var id: ChainObject { get set }

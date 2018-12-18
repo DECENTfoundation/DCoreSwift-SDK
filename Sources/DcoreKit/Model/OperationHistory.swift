@@ -1,7 +1,6 @@
 import Foundation
 
 public struct OperationHistory: Codable {
-    
     public let id: ChainObject
     public let operation: BaseOperation
     public let result: AnyValue?

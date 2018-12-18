@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public class AccountApi: BaseApi {
+public final class AccountApi: BaseApi {
     
     public func getAccount(byName name: String) -> Single<Account> {
         return GetAccountByName(name: name).toRequest(core: self.api.core)

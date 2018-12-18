@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public class SeedersApi: BaseApi {
+public final class SeedersApi: BaseApi {
     
     public func getSeeder(byAccountId id: ChainObject) -> Single<Seeder> {
         return GetSeeder(accountId: id).toRequest(core: self.api.core)

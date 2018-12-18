@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public class ContentApi: BaseApi {
+public final class ContentApi: BaseApi {
     
     public func getContent(byId id: ChainObject) -> Single<Content> {
         return GetContentById(contentId: id).toRequest(core: self.api.core).map({ $0.first! })

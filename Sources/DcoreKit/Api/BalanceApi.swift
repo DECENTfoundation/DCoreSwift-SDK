@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public class BalanceApi: BaseApi {
+public final class BalanceApi: BaseApi {
     
     public func getBalance(byAccountId id: ChainObject, assets: [ChainObject] = []) -> Single<[AssetAmount]>  {
         return GetAccountBalances(accountId: id, assets: assets).toRequest(core: self.api.core)

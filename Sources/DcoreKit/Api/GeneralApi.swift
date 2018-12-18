@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public class GeneralApi: BaseApi {
+public final class GeneralApi: BaseApi {
 
     public func info() -> Single<String> {
         return Info().toRequest(core: self.api.core)

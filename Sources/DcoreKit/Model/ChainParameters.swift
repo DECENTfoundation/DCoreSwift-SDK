@@ -1,7 +1,6 @@
 import Foundation
 
 public struct ChainParameters: Codable {
-    
     public let minMinerCount: Int
     public let specialAccounts: Int
     public let specialAssets: Int

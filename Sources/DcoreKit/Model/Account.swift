@@ -1,7 +1,6 @@
 import Foundation
 
 public struct Account: Codable {
-    
     public let id: ChainObject
     public let registrar: ChainObject
     public let name: String

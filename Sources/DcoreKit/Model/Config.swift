@@ -2,7 +2,6 @@ import Foundation
 import BigInt
 
 public struct Config: Codable {
-    
     public let grapheneSymbol: String
     public let grapheneAddressPrefix: String
     public let grapheneMinAccountNameLength: Int

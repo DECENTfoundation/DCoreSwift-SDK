@@ -1,5 +1,5 @@
 import Foundation
 
-public class BroadcastApi: BaseApi {
+public final class BroadcastApi: BaseApi {
     
 }

@@ -1,7 +1,6 @@
 import Foundation
 
 public struct Content: Codable {
-    
     public let id: ChainObject
     public let author: String
     public let regionalPrice: PricePerRegion
@@ -18,7 +17,7 @@ public struct Content: Codable {
         case
         id,
         author,
-        regionalPrice,
+        regionalPrice = "price",
         synopsis,
         uri = "URI",
         hash = "_hash",
@@ -30,7 +29,7 @@ public struct Content: Codable {
     }
     
     public var price: AssetAmount {
-        guard let value =  regionalPrice.prices[Regions.NONE.id] else {
+        guard let value = regionalPrice.prices[Regions.NONE.id] else {
             fatalError("Regions price NONE does not exist")
         }
         

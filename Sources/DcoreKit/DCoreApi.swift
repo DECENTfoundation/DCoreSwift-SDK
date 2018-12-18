@@ -2,7 +2,7 @@ import Foundation
 
 extension DCore {
     
-    public class Api {
+    public final class Api {
         
         public var transactionExpiration: Int = 30
         

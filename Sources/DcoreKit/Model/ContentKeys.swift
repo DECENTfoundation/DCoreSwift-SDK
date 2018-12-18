@@ -1,13 +1,12 @@
 import Foundation
 
-public struct ContentKeys {
-    
+public struct ContentKeys: Codable {
     public let key: String
     public let keyParts: [KeyParts]
     
     private enum CodingKeys: String, CodingKey {
         case
         key,
-        parts
+        keyParts = "parts"
     }    
 }

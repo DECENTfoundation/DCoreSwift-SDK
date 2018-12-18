@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public class SubscriptionApi: BaseApi {
+public final class SubscriptionApi: BaseApi {
 
     public func cancelAllSubscriptions() -> Completable {
         return CancelAllSubscriptions().toRequest(core: self.api.core).asCompletable()

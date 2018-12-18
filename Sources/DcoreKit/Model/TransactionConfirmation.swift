@@ -1,7 +1,6 @@
 import Foundation
 
 public struct TransactionConfirmation: Codable {
-    
     public let id: String
     public let blockNum: UInt64
     public let trxNum: UInt64

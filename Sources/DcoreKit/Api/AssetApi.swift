@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public class AssetApi: BaseApi {
+public final class AssetApi: BaseApi {
  
     public func getAssets(byIds ids: [ChainObject]) -> Single<[Asset]> {
         return GetAssets(ids: ids).toRequest(core: self.api.core)

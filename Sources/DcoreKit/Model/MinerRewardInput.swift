@@ -1,8 +1,7 @@
 import Foundation
 import BigInt
 
-public struct MinerRewardInput {
-    
+public struct MinerRewardInput: Codable {
     public let timeToMaintenance: UInt64
     public let fromAccumulatedFees: BigInt
     public let blockInterval: UInt16
