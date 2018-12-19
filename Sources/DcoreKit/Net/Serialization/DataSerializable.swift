@@ -5,6 +5,12 @@ public protocol DataSerializable {
 }
 
 extension DataSerializable {
+    public var serialized: Data {
+        fatalError("missing serialization implementation")
+    }
+}
+
+extension DataSerializable {
     static func +(lhs: Data, rhs: Self) -> Data {
         return lhs + rhs.serialized
     }

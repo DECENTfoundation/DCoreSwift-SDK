@@ -17,9 +17,6 @@ struct PrivateKey {
             throw CryptoError.invalidFormat
         }
         
-        let addressPrefix = checksumDropped[0]
-        print("Prefix \(addressPrefix)")
-        
         let h = CryptoUtils.sha256sha256(checksumDropped)
         let calculatedChecksum = h.prefix(4)
         let originalChecksum = decoded.suffix(4)

@@ -4,8 +4,8 @@ import BigInt
 public struct PubKey: Codable {
     public var key: BigInt = 0
     
-    public init(key: String) {
-        self.key = BigInt(key)!
+    public init(key: String? = nil) {
+        self.key = BigInt(key!) ?? 0
     }
     
     public init(from decoder: Decoder) throws {

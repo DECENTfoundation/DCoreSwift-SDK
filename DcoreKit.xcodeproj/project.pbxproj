@@ -31,6 +31,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		A109F56521CA1FE700E1F3B8 /* SerializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109F56421CA1FE700E1F3B8 /* SerializationTests.swift */; };
 		A1581D6821C4E4F90033036F /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1581D6721C4E4F90033036F /* PrivateKey.swift */; };
 		A1581D6C21C4E6830033036F /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1581D6B21C4E6830033036F /* PublicKey.swift */; };
 		A1581D6E21C4E7450033036F /* CryptoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1581D6D21C4E7450033036F /* CryptoUtils.swift */; };
@@ -624,7 +625,7 @@
 		OBJ_953 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "RxSwift::RxSwift::Product" /* RxSwift.framework */; };
 		OBJ_954 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "RxSwift::RxAtomic::Product" /* RxAtomic.framework */; };
 		OBJ_977 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_988 /* DcoreKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_201 /* DcoreKitTests.swift */; };
+		OBJ_988 /* CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_201 /* CryptoTests.swift */; };
 		OBJ_989 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_202 /* XCTestManifests.swift */; };
 		OBJ_991 /* DcoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DcoreKit::DcoreKit::Product" /* DcoreKit.framework */; };
 		OBJ_992 /* secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "secp256k1::secp256k1::Product" /* secp256k1.framework */; };
@@ -851,6 +852,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A109F56421CA1FE700E1F3B8 /* SerializationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationTests.swift; sourceTree = "<group>"; };
 		A1581D6721C4E4F90033036F /* PrivateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
 		A1581D6B21C4E6830033036F /* PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
 		A1581D6D21C4E7450033036F /* CryptoUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtils.swift; sourceTree = "<group>"; };
@@ -970,7 +972,7 @@
 		OBJ_197 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		OBJ_198 /* URLConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConvertible.swift; sourceTree = "<group>"; };
 		OBJ_20 /* PurchaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseApi.swift; sourceTree = "<group>"; };
-		OBJ_201 /* DcoreKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DcoreKitTests.swift; sourceTree = "<group>"; };
+		OBJ_201 /* CryptoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoTests.swift; sourceTree = "<group>"; };
 		OBJ_202 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_206 /* Exporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exporter.swift; sourceTree = "<group>"; };
 		OBJ_21 /* SeedersApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedersApi.swift; sourceTree = "<group>"; };
@@ -1617,7 +1619,8 @@
 		OBJ_200 /* DcoreKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_201 /* DcoreKitTests.swift */,
+				OBJ_201 /* CryptoTests.swift */,
+				A109F56421CA1FE700E1F3B8 /* SerializationTests.swift */,
 				OBJ_202 /* XCTestManifests.swift */,
 			);
 			name = DcoreKitTests;
@@ -3615,7 +3618,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_988 /* DcoreKitTests.swift in Sources */,
+				OBJ_988 /* CryptoTests.swift in Sources */,
+				A109F56521CA1FE700E1F3B8 /* SerializationTests.swift in Sources */,
 				OBJ_989 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

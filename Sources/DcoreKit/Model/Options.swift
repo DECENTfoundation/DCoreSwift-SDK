@@ -29,7 +29,7 @@ public struct Options: Codable {
         votes = Set<VoteId>()
         extensions = .array([])
         allowSubscription = false
-        pricePerSubscribe = AssetAmount(amount:0)
+        pricePerSubscribe = AssetAmount(0)
         subscriptionPeriod = 0
     }
 }

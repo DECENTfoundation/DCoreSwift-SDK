@@ -29,11 +29,11 @@ public struct Asset: Codable, AssetFormatter {
     public func convert(from assetAmount: AssetAmount) throws -> AssetAmount {
         if (options.exchangeRate.base.assetId == assetAmount.assetId) {
             let amount = options.exchangeRate.quote.amount / options.exchangeRate.base.amount * assetAmount.amount
-            return AssetAmount(amount: amount, assetId: id)
+            return AssetAmount(amount, assetId: id)
         }
         if (options.exchangeRate.base.assetId == assetAmount.assetId) {
             let amount = options.exchangeRate.base.amount / options.exchangeRate.quote.amount * assetAmount.amount
-            return AssetAmount(amount: amount, assetId: id)
+            return AssetAmount(amount, assetId: id)
         }
         
         throw DCoreError.illegal("cannot convert \(assetAmount.assetId) with \(symbol):\(id)")

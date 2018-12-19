@@ -44,7 +44,7 @@ extension AssetFormatter {
     }
     
     public func amount(_ value: Decimal) -> AssetAmount {
-        return AssetAmount(amount: to(raw: value), assetId: id)
+        return AssetAmount(to(raw: value), assetId: id)
     }
     
     public func amount(_ value: String) -> AssetAmount {

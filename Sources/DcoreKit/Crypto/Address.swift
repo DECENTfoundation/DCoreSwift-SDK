@@ -1,11 +1,13 @@
 import Foundation
 
 public struct Address {
+    
+    static let PREFIX = "DCT"
+    
     let prefix: String
     let publicKey: PublicKey
     
-    
-    init(fromPublicKey data: Data, prefix: String = "DCT") {
+    init(fromPublicKey data: Data, prefix: String = PREFIX) {
         self.prefix = prefix
         self.publicKey = PublicKey(data: data)
     }
@@ -15,22 +17,35 @@ public struct Address {
     }
     
     init(from value: String) throws {
- 
-        guard let prefix = value[safe: 0...3], let suffix = value[safe: 3...value.count], let decoded = Base58.decode(suffix) else {
+        guard let prefix = value[safe: 0..<3], let suffix = value[safe: 3..<value.count], let decoded = Base58.decode(suffix) else {
             throw CryptoError.invalidFormat
         }
-        
+ 
         let key = decoded.prefix(decoded.count - 4)
-        
-        let h = CryptoUtils.sha256sha256(key)
-        let calculatedChecksum = h.prefix(4)
+        let calculated = CryptoUtils.ripemd160(key)
+        let calculatedChecksum = calculated.prefix(4)
         let originalChecksum = decoded.suffix(4)
-        
+     
         guard calculatedChecksum == originalChecksum else {
             throw CryptoError.invalidChecksum
         }
         
         self.init(fromPublicKey: key, prefix: prefix)
+    }
+}
+
+extension Address: Equatable {
+    public static func == (lhs: Address, rhs: Address) -> Bool {
+        return lhs.publicKey == rhs.publicKey && lhs.prefix == rhs.prefix
+    }
+}
+
+extension Address: CustomStringConvertible {
+    public var description: String {
+        let calculated = CryptoUtils.ripemd160(serialized)
+        let calculatedChecksum = calculated.prefix(4)
+        
+        return prefix + Base58.encode(serialized+calculatedChecksum)
     }
 }
 
@@ -41,7 +56,8 @@ extension Address: Codable {
     }
     
     public func encode(to encoder: Encoder) throws {
-        fatalError("Not Implemented")
+        var container = encoder.singleValueContainer()
+        try container.encode(description)
     }
 }
 

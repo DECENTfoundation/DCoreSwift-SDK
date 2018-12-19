@@ -7,7 +7,7 @@ public enum ObjectType: UInt8, CaseIterable, Codable {
     }
     
     // dcore/libraries/chain/include/graphene/chain/protocol/types.hpp
-    //  enum object_type, space = 1
+    // enum object_type, space = 1
     case
     NULL_OBJECT = 0, // ordinal = 0, type = 0, space = any
     BASE_OBJECT,

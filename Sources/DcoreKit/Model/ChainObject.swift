@@ -21,8 +21,10 @@ public struct ChainObject {
         let result = id.matches(regex: "(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+))?")
         guard !result.isEmpty else { throw DCoreError.illegal("chain boject invalid format") }
         
-        objectType = ObjectType(fromSpace: Int(result[0])!, type: Int(result[1])!)
-        instance = UInt64(result[2])!
+        let parts = id.components(separatedBy: ".")
+        
+        objectType = ObjectType(fromSpace: Int(parts[0])!, type: Int(parts[1])!)
+        instance = UInt64(parts[2])!
     }
 }
 
