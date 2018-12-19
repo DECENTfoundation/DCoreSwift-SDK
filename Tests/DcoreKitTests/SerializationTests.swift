@@ -11,7 +11,20 @@ final class SerializationTests: XCTestCase {
         XCTAssertEqual(true, true)
     }
     
+    func testTransferOperationDataSerialization() {
+        
+        let serialized = "278813000000000000001e1f000000000002018096980000000000000102c03f8e840c1699fd7808c2bb858e249c688c5be8acf0a0c1c484ab0cfb27f0a802e0ced80260630f641f61f6d6959f32b5c43b1a38be55666b98abfe8bafcc556b5521e507000000001086d54a9e1f8fc6e5319dbae0b087b6cc00"
+        
+        let kp = "5Jd7zdvxXYNdUfnEXt5XokrE3zwJSs734yQ36a1YaqioRTGGLtn".keyPair!
+        let recipient = "DCT6bVmimtYSvWQtwdrkVVQGHkVsTJZVKtBiUqf4YmJnrJPnk89QP".address!
+        let memo = Memo("hello memo", keyPair: kp, recipient: recipient, nonce: BigInt(132456789))
+        let op = TransferOperation(from: "1.2.30".chainObject, to: "1.2.31".chainObject, amount: AssetAmount(10000000), memo: memo, fee: AssetAmount(5000))
+        
+        XCTAssertEqual(op.serialized.toHex(), serialized)
+    }
+    
     static var allTests = [
         ("testTransferOperationJsonSerialization", testTransferOperationJsonSerialization),
+        ("testTransferOperationDataSerialization", testTransferOperationDataSerialization),
     ]
 }

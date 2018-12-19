@@ -15,14 +15,14 @@ public struct Memo: Codable {
         nonce
     }
     
-    public init(message: String) {
+    public init(_ message: String) {
         self.message = (Data(count: 4) + message).toHex()
         self.nonce = 0
         self.from = nil
         self.to = nil
     }
     
-    public init(message: String, keyPair: ECKeyPair, recipient: Address, nonce: BigInt?) {
+    public init(_ message: String, keyPair: ECKeyPair, recipient: Address, nonce: BigInt?) {
         
         self.nonce = nonce ?? 0
         guard self.nonce.signum() > 0 else { preconditionFailure("nonce must be a positive number") }

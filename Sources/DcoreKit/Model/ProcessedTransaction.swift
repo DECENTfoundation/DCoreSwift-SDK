@@ -10,7 +10,7 @@ public struct ProcessedTransaction: Codable {
     public let opResults: AnyValue?
     
     public var id: String {
-        return CryptoUtils.sha256(serialized).prefix(20).toHex()
+        return CryptoUtils.hash256(serialized).prefix(20).toHex()
     }
     
     private enum CodingKeys: String, CodingKey {
