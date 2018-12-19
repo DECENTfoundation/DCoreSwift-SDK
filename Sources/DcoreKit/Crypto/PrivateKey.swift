@@ -22,7 +22,7 @@ struct PrivateKey {
         let version = Int(checksumDropped.first!) & 0xFF
         guard version == PrivateKey.VERSION else { preconditionFailure("\(version) is not a valid private key version byte") }
         
-        // 1 + 32 + 1 = version + key + compresed
+        // 1 + 32 + 1 = version + key + compressed
         // 1 + 32 = version + key
         
         guard checksumDropped.count == (1 + 32) || checksumDropped.count == (1 + 32 + 1) else { throw CryptoError.invalidFormat }

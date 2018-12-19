@@ -35,7 +35,7 @@ public struct Transaction: Codable {
     }
     
     public mutating func with(signature keyPair: ECKeyPair) throws -> Transaction {
-        let data = CryptoUtils.hash256(Data(hex: chainId!)! + self)
+        let data = CryptoUtils.hash256(chainId!.unhex()! + self)
         self.signatures = [try keyPair.sign(data).toHex()]
         
         return self

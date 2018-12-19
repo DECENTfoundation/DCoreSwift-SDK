@@ -7,7 +7,7 @@ struct PublicKey {
     let data: Data
     
     init(fromPrivateKey privateKey: Data, compressed: Bool) {
-        self.init(data: PublicKey.compute(fromPrivateKey: privateKey, compression: compressed))
+        self.init(data: PublicKey.compute(fromPrivateKey: privateKey, compression: true)) // DCore has compressed
     }
     
     init(data: Data) {
@@ -37,6 +37,38 @@ struct PublicKey {
         }
         
         return true
+    }
+    
+    func multiply(_ privateKey: PrivateKey) throws -> Data {
+        /*
+        let ctx = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_NONE))!
+        defer { secp256k1_context_destroy(ctx) }
+        
+        let prv = BN_new()
+        defer {
+            BN_free(prv)
+        }
+        
+        privateKey.data.withUnsafeBytes { (ptr: UnsafePointer<UInt8>) in
+            BN_bin2bn(ptr, Int32(privateKey.data.count), prv)
+            return
+        }
+        
+        let pubkeyPointer = UnsafeMutablePointer<secp256k1_pubkey>.allocate(capacity: 1)
+        defer { pubkeyPointer.deallocate() }
+
+        guard data.withUnsafeBytes({ secp256k1_ec_pubkey_parse(ctx, pubkeyPointer, $0, data.count) }) == 1 else {
+            throw CryptoError.parseFailed
+        }
+        
+       
+        guard data.withUnsafeBytes({ (ptr: UnsafePointer<UInt8>) in
+            return secp256k1_ec_pubkey_tweak_mul(ctx, pubkeyPointer, prv)
+        }) == 1 else {
+            throw CryptoError.parseFailed
+        }
+        */
+        throw CryptoError.parseFailed
     }
     
     private static func compute(fromPrivateKey privateKey: Data, compression: Bool) -> Data {

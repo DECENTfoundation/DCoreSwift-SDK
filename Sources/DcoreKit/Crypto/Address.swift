@@ -26,9 +26,7 @@ public struct Address {
         let calculatedChecksum = calculated.prefix(4)
         let originalChecksum = decoded.suffix(4)
      
-        guard calculatedChecksum == originalChecksum else {
-            throw CryptoError.invalidChecksum
-        }
+        guard calculatedChecksum == originalChecksum else { throw CryptoError.invalidChecksum }
         
         self.init(fromPublicKey: key, prefix: prefix)
     }

@@ -17,8 +17,19 @@ final class CryptoTests: XCTestCase {
         XCTAssertEqual(kp.description, value)
     }
     
+    func testKeyPairToAddress() throws {
+        
+        let value = "5HvjjE1arorzNLdgRCUrhwzocDJWSdp4sLxSrSkTkA1pVwf9qzy"
+        let address = "DCT5mQypBKZvMsMACxkwpqDAgABFYYzRjMSMUWVVLog25cw2jwPHk"
+        
+        let kp = value.keyPair!
+ 
+        XCTAssertEqual(kp.address.description, address)
+    }
+    
     static var allTests = [
         ("testAddress", testAddress),
         ("testKeyPair", testKeyPair),
+        ("testKeyPairToAddress", testKeyPairToAddress),
     ]
 }

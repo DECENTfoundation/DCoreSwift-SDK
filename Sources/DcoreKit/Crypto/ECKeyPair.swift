@@ -11,12 +11,21 @@ public struct ECKeyPair {
         self.publicKey = value.toPublicKey()
     }
     
+    init() {
+        self.init(fromPrivateKey: PrivateKey(data: CryptoUtils.secureRandom()))
+    }
+    
     init(fromWif wif: String) throws {
         self.init(fromPrivateKey: try PrivateKey(fromWif: wif))
     }
     
     public func sign(_ message: Data) throws -> Data {
         return try privateKey.sign(message)
+    }
+    
+    public func secret(_ address: Address, nonce: BigInt) -> Data {
+        // CryptoUtils.hash512(<#T##data: Data##Data#>)
+        fatalError("")
     }
     
     public static func verify(signature: Data, message: Data, publicKey: Data) throws -> Bool {

@@ -22,17 +22,19 @@ public struct Memo: Codable {
         self.to = nil
     }
     
-    public init(_ message: String, keyPair: ECKeyPair, recipient: Address, nonce: BigInt?) {
+    public init(_ message: String, keyPair: ECKeyPair, recipient: Address, nonce: BigInt = CryptoUtils.generateNonce()) {
         
-        self.nonce = nonce ?? 0
-        guard self.nonce.signum() > 0 else { preconditionFailure("nonce must be a positive number") }
+        guard nonce.signum() > 0 else { preconditionFailure("nonce must be a positive number") }
         
-        self.from = Address(fromKeyPair: keyPair)
+        self.nonce = nonce
+        self.from = keyPair.address
         self.to = recipient
-        self.message = message
-        // val checksummed = Sha256Hash.hash(message.toByteArray()).copyOfRange(0, 4) + message.toByteArray()
-        // val secret = keyPair.secret(recipient, this.nonce)
-        // this.message = encryptAes(secret, checksummed).hex()
+        
+        let data = message.data(using: .ascii)!
+        let checksumed = CryptoUtils.hash256(data).prefix(4) + data
+        let secret = keyPair.secret(recipient, nonce: self.nonce)
+        
+        self.message = CryptoUtils.encrypt(secret, message: checksumed).toHex()
     }
 }
 
@@ -42,7 +44,7 @@ extension Memo: DataSerializable {
         data += from!
         data += to!
         data += nonce
-        data += Data(hex: message)!
+        data += message.unhex()!
         return data
     }
 }

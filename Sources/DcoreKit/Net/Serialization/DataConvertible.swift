@@ -115,13 +115,7 @@ extension Data {
     }
 }
 
-
-public protocol HexConvertible {
-    init?(hex: String)
-    func toHex() -> String
-}
-
-extension Data: HexConvertible {
+extension Data {
     public init?(hex: String) {
         let len = hex.count / 2
         var data = Data(capacity: len)
@@ -140,5 +134,11 @@ extension Data: HexConvertible {
     
     public func toHex() -> String {
         return reduce("") { $0 + String(format: "%02x", $1) }
+    }
+}
+
+extension String {
+    public func unhex() -> Data? {
+        return Data(hex: self)
     }
 }
