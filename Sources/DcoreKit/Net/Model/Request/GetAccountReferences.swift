@@ -2,7 +2,7 @@ import Foundation
 
 class GetAccountReferences: BaseRequest<[ChainObject]> {
     
-    required init(accountId: ChainObject) {
-        super.init(api: .DATABASE, method: "get_account_references", returnClass: [ChainObject].self, params: [accountId])
+    required init(_ accountId: ChainObject) {
+        super.init(.database, api: "get_account_references", returnClass: [ChainObject].self, params: [accountId])
     }
 }

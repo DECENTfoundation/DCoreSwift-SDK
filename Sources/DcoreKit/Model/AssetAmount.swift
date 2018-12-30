@@ -12,9 +12,9 @@ public struct AssetAmount: Codable {
         assetId = "asset_id"
     }
     
-    public init(_ amount: BigInt, assetId: ChainObject = DCore.Constants.Defaults.DCT_ASSET_ID) {
+    public init(_ amount: BigInt, assetId: ChainObject = DCore.Constant.Default.dct) {
         guard amount >= 0 else { preconditionFailure("amount must be greater or equal to 0") }
-        guard assetId.objectType == ObjectType.ASSET_OBJECT else { preconditionFailure("object type is not an asset") }
+        guard assetId.objectType == ObjectType.assetObject else { preconditionFailure("object type is not an asset") }
         
         self.amount = amount
         self.assetId = assetId
@@ -38,8 +38,8 @@ public struct AssetAmount: Codable {
     
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(self.amount.description, forKey: .amount)
-        try container.encode(self.assetId, forKey: .assetId)
+        try container.encode(amount.description, forKey: .amount)
+        try container.encode(assetId, forKey: .assetId)
     }
 }
 

@@ -2,6 +2,7 @@ import Foundation
 
 
 public struct CustodyData: Codable {
+    
     public let n: Int
     public let uSeed: [UInt16] // Fixed size 16
     public let pubKey: UInt64

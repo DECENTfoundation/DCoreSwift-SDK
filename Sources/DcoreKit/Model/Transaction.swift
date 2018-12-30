@@ -1,6 +1,7 @@
 import Foundation
 
 public struct Transaction: Codable {
+    
     private var blockData: BlockData? = nil
     private var chainId: String? = nil
     
@@ -36,7 +37,7 @@ public struct Transaction: Codable {
     
     public mutating func with(signature keyPair: ECKeyPair) throws -> Transaction {
         let data = CryptoUtils.hash256(chainId!.unhex()! + self)
-        self.signatures = [try keyPair.sign(data).toHex()]
+        signatures = [try keyPair.sign(data).toHex()]
         
         return self
     }

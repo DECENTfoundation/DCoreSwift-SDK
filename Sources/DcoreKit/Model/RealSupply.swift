@@ -2,6 +2,7 @@ import Foundation
 import BigInt
 
 public struct RealSupply: Codable {
+    
     public let accountBalances: BigInt
     public let vestingBalances: BigInt
     public let escrows: BigInt

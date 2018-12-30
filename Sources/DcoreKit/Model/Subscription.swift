@@ -1,6 +1,7 @@
 import Foundation
 
 public struct Subscription: Codable {
+    
     public let from: ChainObject
     public let to: ChainObject
     public let expiration: Date

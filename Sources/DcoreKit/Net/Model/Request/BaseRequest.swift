@@ -1,70 +1,57 @@
 import Foundation
 import RxSwift
 
-class BaseRequest<T> {
+class BaseRequest<Output: Codable>: Encodable, CoreRequestConvertible, URLRequestConvertible {
+    typealias Request = BaseRequest
     
-    let apiGroup: ApiGroup
-    let method: String
-    let returnClass: T.Type
-    let params: [Any]
+    private let group: ApiGroup
+    private let api: String
     
-    var jsonrpc: String = "2.0"
+    let returnClass: Output.Type
+    let params: [AnyEncodable]
+    
+    var base: BaseRequest<Output> { return self }
+    var method: String = DCore.Constant.Api.method
+    var jsonrpc: String = DCore.Constant.Api.jsonrpc
     var id: Int = 1
     
-    init(api group: ApiGroup, method: String, returnClass: T.Type, params: [Any] = []) {
-        self.apiGroup = group
-        self.method = method
+    init(_ group: ApiGroup, api: String, returnClass: Output.Type, params: [Encodable] = []) {
+        self.group = group
+        self.api = api
         self.returnClass = returnClass
-        self.params = params
+        self.params = params.map({ AnyEncodable($0) })
     }
-}
-
-extension BaseRequest: Encodable {
     
     private enum CodingKeys: String, CodingKey {
         case
-        method,
         jsonrpc,
+        method,
         params,
         id
     }
     
-    public func encode(to encoder: Encoder) throws {
-        var keyed = encoder.container(keyedBy: CodingKeys.self)
-        try keyed.encode(self.method, forKey: .method)
-        try keyed.encode(self.id, forKey: .id)
+    func encode(to encoder: Encoder) throws {
         
+        // json rpc root
+        var keyed = encoder.container(keyedBy: CodingKeys.self)
+        try keyed.encode(jsonrpc, forKey: .jsonrpc)
+        try keyed.encode(method, forKey: .method)
+        try keyed.encode(id, forKey: .id)
+        
+        // json rpc id and api
+        var unkeyed = keyed.nestedUnkeyedContainer(forKey: .params)
+        
+        try unkeyed.encode(group.id)
+        try unkeyed.encode(api)
+        
+        // json rpc params
+        var nestedUnkeyed = unkeyed.nestedUnkeyedContainer()
+        try nestedUnkeyed.encode(contentsOf: params)
     }
 }
 
 extension BaseRequest: CustomStringConvertible {
     var description: String {
-        return "\(self.method)"
+        return "\(group.description):\(api)"
     }
 }
-
-extension BaseRequest {
-    func toRequest(core: DCore.Sdk) -> Single<T> {
-        return core.make(request: self)
-    }
-}
-
-enum Params: Encodable {
-    case string(String)
-    case int(Int)
-    case double(Double)
-    case bool(Bool)
-    case array([Params])
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.unkeyedContainer()
-        switch self {
-        case .string(let value):    try container.encode(value)
-        case .int(let value):       try container.encode(value)
-        case .double(let value):    try container.encode(value)
-        case .bool(let value):      try container.encode(value)
-        case .array(let value):     try container.encode(contentsOf: value)
-        }
-    }
-}
-

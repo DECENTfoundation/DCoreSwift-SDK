@@ -2,7 +2,7 @@ import Foundation
 
 class LookupAccountNames:  BaseRequest<[Account]> {
     
-    required init(names: [String]) {
-        super.init(api: .DATABASE, method: "lookup_account_names", returnClass: [Account].self, params: [names])
+    required init(_ names: [String]) {
+        super.init(.database, api: "lookup_account_names", returnClass: [Account].self, params: [names])
     }
 }

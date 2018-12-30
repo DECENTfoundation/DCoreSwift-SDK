@@ -2,6 +2,7 @@ import Foundation
 import BigInt
 
 public struct MinerVotingInfo: Codable {
+    
     public let id: ChainObject
     public let name: String
     public let url: String

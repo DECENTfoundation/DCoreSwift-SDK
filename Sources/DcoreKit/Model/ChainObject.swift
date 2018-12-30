@@ -1,6 +1,7 @@
 import Foundation
 
 public struct ChainObject {
+    
     public let objectType: ObjectType
     public let instance: UInt64
 
@@ -19,7 +20,7 @@ public struct ChainObject {
     
     public init(from id: String) throws {
         let result = id.matches(regex: "(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+))?")
-        guard !result.isEmpty else { throw DCoreError.illegal("chain boject invalid format") }
+        guard !result.isEmpty else { throw DCoreError.illegal("Chain object has invalid format") }
         
         let parts = id.components(separatedBy: ".")
         
@@ -66,7 +67,7 @@ extension ChainObject: Codable {
 
 extension String {
     public var chainObject: ChainObject {
-        guard let obj = try? ChainObject(from: self) else { fatalError("chain boject invalid format") }
+        guard let obj = try? ChainObject(from: self) else { fatalError("Chain object has invalid format") }
         return obj
     }
 }

@@ -1,6 +1,7 @@
 import Foundation
 
 public struct Account: Codable {
+    
     public let id: ChainObject
     public let registrar: ChainObject
     public let name: String
@@ -27,4 +28,8 @@ public struct Account: Codable {
     static func hasValid(name: String) -> Bool {
         return !name.matches(regex: "^[a-z][a-z0-9-]+[a-z0-9](?:\\.[a-z][a-z0-9-]+[a-z0-9])*\\$").isEmpty && (5...63).contains(name.count)
     }
+}
+
+extension Account {
+    public typealias Reference = String
 }

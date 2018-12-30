@@ -2,10 +2,10 @@ import Foundation
 
 class GetRequiredFees: BaseRequest<[AssetAmount]> {
     
-    required init(operations: [BaseOperation], assetId: ChainObject = DCore.Constants.Defaults.DCT_ASSET_ID) {
-        guard assetId.objectType == ObjectType.ASSET_OBJECT else { preconditionFailure("not a valid asset object id") }
-        super.init(api: .DATABASE, method: "get_required_fees", returnClass: [AssetAmount].self, params: [
-            operations.map({ [$0.type, $0] }), assetId
+    required init(operations: [BaseOperation], assetId: ChainObject = DCore.Constant.Default.dct) {
+        guard assetId.objectType == ObjectType.assetObject else { preconditionFailure("not a valid asset object id") }
+        super.init(.database, api: "get_required_fees", returnClass: [AssetAmount].self, params: [
+            operations.map({ RequiredFee($0) }), assetId
         ])
     }
 }

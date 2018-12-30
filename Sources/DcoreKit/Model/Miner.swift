@@ -2,6 +2,7 @@ import Foundation
 import BigInt
 
 public struct Miner: Codable {
+    
     public let id: ChainObject
     public let minerAccount: ChainObject
     public let lastAslot: Int

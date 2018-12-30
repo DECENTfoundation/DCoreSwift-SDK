@@ -1,6 +1,7 @@
 import Foundation
 
 public struct BalanceChange: Codable {
+    
     public let operation: OperationHistory
     public let balance: Balance
     public let fee: AssetAmount

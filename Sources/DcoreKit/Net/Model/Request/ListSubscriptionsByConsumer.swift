@@ -2,7 +2,7 @@ import Foundation
 
 class ListSubscriptionsByConsumer: BaseRequest<[Subscription]> {
 
-    required init(consumer: ChainObject, count: Int) {
-        super.init(api: .DATABASE, method: "list_subscriptions_by_consumer", returnClass: [Subscription].self, params: [consumer, count])
+    required init(_ consumerId: ChainObject, count: Int) {
+        super.init(.database, api: "list_subscriptions_by_consumer", returnClass: [Subscription].self, params: [consumerId, count])
     }
 }

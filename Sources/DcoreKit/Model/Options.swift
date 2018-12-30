@@ -1,6 +1,7 @@
 import Foundation
 
 public struct Options: Codable {
+    
     public let memoKey: Address
     public let votingAccount: ChainObject
     public let numMiner: UInt16
@@ -22,7 +23,7 @@ public struct Options: Codable {
         subscriptionPeriod = "subscription_period"
     }
     
-    public init(usingPublic address: Address) {
+    public init(fromAddress address: Address) {
         memoKey = address
         votingAccount = "1.2.3".chainObject
         numMiner = 0

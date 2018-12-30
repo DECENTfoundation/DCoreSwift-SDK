@@ -1,6 +1,7 @@
 import Foundation
 
 public struct KeyParts: Codable {
+    
     public let keyC1: PubKey
     public let keyD1: PubKey
     

@@ -47,13 +47,15 @@ public struct CryptoUtils {
     }
 
     static func encrypt(_ keyWithIV: Data, message: Data) -> Data {
-        fatalError()
+        fatalError("Not Implemented")
     }
     
-    static func secureRandom() -> Data {
-        var bytes = [UInt8](repeating: 0, count: 32)
-        _ = SecRandomCopyBytes(kSecRandomDefault, bytes.count, &bytes)
-        return Data(bytes: bytes)
+    static func secureRandom(_ count: Int = 32) -> Data {
+        var bytes = Data(count: count)
+        let result = bytes.withUnsafeMutableBytes { SecRandomCopyBytes(kSecRandomDefault, count, $0) }
+        guard result == 0 else { preconditionFailure("cannot generate secure random bytes") }
+
+        return bytes
     }
 
     public static func generateNonce() -> BigInt {

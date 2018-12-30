@@ -7,9 +7,9 @@ class SearchContent: BaseRequest<[Content]> {
                   user: String,
                   regionCode: String,
                   type: String,
-                  startId: ChainObject = ObjectType.NULL_OBJECT.genericId,
+                  startId: ChainObject = ObjectType.nullObject.genericId,
                   limit: Int = 100) {
-        super.init(api: .DATABASE, method: "search_content", returnClass: [Content].self, params: [
+        super.init(.database, api: "search_content", returnClass: [Content].self, params: [
             term, order.rawValue, user, regionCode, type, startId, limit
         ])
     }

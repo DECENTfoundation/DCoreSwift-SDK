@@ -1,6 +1,7 @@
 import Foundation
 
 public struct FullAccount: Codable {
+    
     public let account: Account
     public let statistics: AccountStatistics
     public let registrarName: String

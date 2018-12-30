@@ -6,24 +6,24 @@ extension DCore {
         
         public var transactionExpiration: Int = 30
         
-        public lazy var accountApi = AccountApi(using: self)
-        public lazy var assetApi = AssetApi(using: self)
-        public lazy var validationApi = ValidationApi(using: self)
-        public lazy var balanceApi = BalanceApi(using: self)
-        public lazy var blockApi = BlockApi(using: self)
-        public lazy var broadcastApi = BroadcastApi(using: self)
-        public lazy var contentApi = ContentApi(using: self)
-        public lazy var generalApi = GeneralApi(using: self)
-        public lazy var historyApi = HistoryApi(using: self)
-        public lazy var miningApi = MiningApi(using: self)
-        public lazy var purchaseApi = PurchaseApi(using: self)
-        public lazy var seedersApi = SeedersApi(using: self)
-        public lazy var subscriptionApi = SubscriptionApi(using: self)
-        public lazy var transactionApi = TransactionApi(using: self)
+        public lazy var account = AccountApi(using: self)
+        public lazy var asset = AssetApi(using: self)
+        public lazy var validation = ValidationApi(using: self)
+        public lazy var balance = BalanceApi(using: self)
+        public lazy var block = BlockApi(using: self)
+        public lazy var broadcast = BroadcastApi(using: self)
+        public lazy var content = ContentApi(using: self)
+        public lazy var general = GeneralApi(using: self)
+        public lazy var history = HistoryApi(using: self)
+        public lazy var mining = MiningApi(using: self)
+        public lazy var purchase = PurchaseApi(using: self)
+        public lazy var seeders = SeedersApi(using: self)
+        public lazy var subscription = SubscriptionApi(using: self)
+        public lazy var transaction = TransactionApi(using: self)
         
         let core: Sdk
         
-        init(core: Sdk) {
+        required init(core: Sdk) {
             self.core = core
         }
     }

@@ -1,8 +1,8 @@
 import Foundation
 
-class SetSubscribeCallback: BaseRequest<Void>, WithCallback {
+class SetSubscribeCallback: BaseRequest<UnitValue>, WithCallback {
     
     required init(clearFilter: Bool) {
-        super.init(api: .DATABASE, method: "set_subscribe_callback", returnClass: Void.self, params: [clearFilter])
+        super.init(.database, api: "set_subscribe_callback", returnClass: UnitValue.self, params: [clearFilter])
     }
 }

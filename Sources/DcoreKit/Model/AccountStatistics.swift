@@ -2,6 +2,7 @@ import Foundation
 import BigInt
 
 public struct AccountStatistics: Codable {
+    
     public let id: ChainObject
     public let owner: ChainObject
     public let mostRecentOp: ChainObject

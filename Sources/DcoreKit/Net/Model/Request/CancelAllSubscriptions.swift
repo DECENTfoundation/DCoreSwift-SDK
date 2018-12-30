@@ -1,8 +1,8 @@
 import Foundation
 
-class CancelAllSubscriptions: BaseRequest<Void> {
+class CancelAllSubscriptions: BaseRequest<UnitValue> {
     
     required init() {
-        super.init(api: .DATABASE, method: "cancel_all_subscriptions", returnClass: Void.self)
+        super.init(.database, api: "cancel_all_subscriptions", returnClass: UnitValue.self)
     }
 }

@@ -1,6 +1,7 @@
 import Foundation
 
 public struct ProcessedTransaction: Codable {
+    
     public let signatures: [String]
     public let extensions: AnyValue?
     public let operations: [BaseOperation]

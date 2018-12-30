@@ -1,9 +1,9 @@
 import Foundation
 
 public enum DCoreError: Error {
+    
+    case failure(Any)
     case notFound(String)
-    case runtime(Any)
-    case addressFormat(String)
     case illegal(String)
     case underlying(Error)
 }

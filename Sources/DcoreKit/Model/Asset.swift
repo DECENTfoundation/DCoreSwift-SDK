@@ -1,19 +1,19 @@
 import Foundation
 
 public struct Asset: Codable, AssetFormatter {
-
-    public var id: ChainObject = ObjectType.ASSET_OBJECT.genericId {
+    
+    public var id: ChainObject = ObjectType.assetObject.genericId {
         willSet {
-            guard newValue.objectType == ObjectType.ASSET_OBJECT else { preconditionFailure("asset id is not object asset type") }
+            guard newValue.objectType == ObjectType.assetObject else { preconditionFailure("asset id is not object asset type") }
         }
     }
     
     public var symbol: String = "UIA"
     public var precision: Int = 0
-    public var issuer: ChainObject = ObjectType.NULL_OBJECT.genericId
+    public var issuer: ChainObject = ObjectType.nullObject.genericId
     public var description: String = ""
     public var options: Asset.Options = Asset.Options()
-    public var dataId: ChainObject = ObjectType.NULL_OBJECT.genericId
+    public var dataId: ChainObject = ObjectType.nullObject.genericId
     
     private enum CodingKeys: String, CodingKey {
         case
@@ -41,7 +41,35 @@ public struct Asset: Codable, AssetFormatter {
 }
 
 extension Asset {
-
+    
+    public enum Symbol: CustomStringConvertible, Encodable {
+        
+        public static let alxt: Symbol = .from(DCore.Constant.Symbol.alxt.rawValue)
+        public static let alat: Symbol = .from(DCore.Constant.Symbol.alat.rawValue)
+        public static let alx: Symbol = .from(DCore.Constant.Symbol.alx.rawValue)
+        public static let aia: Symbol = .from(DCore.Constant.Symbol.aia.rawValue)
+        public static let dct: Symbol = .from(DCore.Constant.Symbol.dct.rawValue)
+        
+        case
+        from(String)
+        
+        public var description: String {
+            switch self {
+            case .from(let value): return value
+            }
+        }
+        
+        public var chainObject: ChainObject {
+            return description.chainObject
+        }
+        
+        public func encode(to encoder: Encoder) throws {
+            var container = encoder.singleValueContainer()
+            try container.encode(self.description)
+        }
+    }
+    
+    
     public struct ExchangeRate: Codable {
         
         public var base: AssetAmount = AssetAmount(with: 1)

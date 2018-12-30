@@ -1,6 +1,7 @@
 import Foundation
 
 public struct GlobalProperty: Codable {
+    
     public let id: ChainObject
     public let parameters: GlobalParameters
     public let nextAvailableVoteId: UInt64

@@ -5,14 +5,14 @@ public enum ContentCategory {
 
     public enum Application: Int, Codable {
         case
-        DECENT_CORE,
+        DECENT_CORE = 0,
         DECENT_GO,
         ALAX
     }
     
     public enum Category: Int, Codable {
         case
-        NONE,
+        NONE = 0,
         MUSIC,
         MOVIE,
         BOOK,
@@ -24,7 +24,6 @@ public enum ContentCategory {
     }
     
     case id(Application, Category)
-    
 }
 
 extension ContentCategory: CustomStringConvertible {
@@ -42,6 +41,6 @@ extension ContentCategory: Codable {
     
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
-        try container.encode(self.description)
+        try container.encode(description)
     }
 }

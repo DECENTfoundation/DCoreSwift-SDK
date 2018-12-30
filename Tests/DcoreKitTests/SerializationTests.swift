@@ -3,6 +3,37 @@ import BigInt
 @testable import DcoreKit
 
 final class SerializationTests: XCTestCase {
+    func testGetAccountHistoryJsonSerialization() {
+        let api =
+        """
+        {"jsonrpc":"2.0","method":"call","id":1,"params":[3,"get_account_history",["1.2.3","1.7.0",100,"1.7.0"]]}
+        """
+        let result = try? GetAccountHistory(accountId: "1.2.3".chainObject).toJson()
+        XCTAssertEqual(result, api)
+    }
+    
+    func testGetRelativeAccountHistoryJsonSerialization() {
+        let api =
+        """
+        {"jsonrpc":"2.0","method":"call","id":1,"params":[3,"get_relative_account_history",["1.2.3",0,100,0]]}
+        """
+        let result = try? GetRelativeAccountHistory(accountId: "1.2.3".chainObject).toJson()
+        XCTAssertEqual(result, api)
+    }
+    
+    func testGetRequiredFeesJsonSerialization() {
+        let api =
+        """
+        {"jsonrpc":"2.0","method":"call","id":1,"params":[0,"get_required_fees",[[[39,{"type":39,"fee":{"amount":"0","asset_id":"1.3.0"}}],[1,{"type":1,"fee":{"amount":"0","asset_id":"1.3.0"}}]],"1.3.0"]]}
+        """
+        let result = try? GetRequiredFees(operations: [
+            EmptyOperation(type: OperationType.TRANSFER2_OPERATION),
+            EmptyOperation(type: OperationType.ACCOUNT_CREATE_OPERATION)
+        ]).toJson()
+        
+        XCTAssertEqual(result, api)
+    }
+    
     func testTransferOperationJsonSerialization() {
         
         let op = TransferOperation(from: "1.2.3".chainObject, to: "1.2.3".chainObject, amount: AssetAmount(with: "895438905348905349949490330940943"))
@@ -24,6 +55,9 @@ final class SerializationTests: XCTestCase {
     }
     
     static var allTests = [
+        ("testGetAccountHistoryJsonSerialization", testGetAccountHistoryJsonSerialization),
+        ("testGetRelativeAccountHistoryJsonSerialization", testGetRelativeAccountHistoryJsonSerialization),
+        ("testGetRequiredFeesJsonSerialization", testGetRequiredFeesJsonSerialization),
         ("testTransferOperationJsonSerialization", testTransferOperationJsonSerialization),
         ("testTransferOperationDataSerialization", testTransferOperationDataSerialization),
     ]

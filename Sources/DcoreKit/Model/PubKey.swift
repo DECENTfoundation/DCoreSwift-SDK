@@ -2,6 +2,7 @@ import Foundation
 import BigInt
 
 public struct PubKey: Codable {
+    
     public var key: BigInt = 0
     
     public init(key: String? = nil) {

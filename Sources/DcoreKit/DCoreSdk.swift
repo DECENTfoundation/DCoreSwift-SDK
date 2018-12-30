@@ -5,27 +5,27 @@ extension DCore {
     
     public final class Sdk {
         
-        private let client: URLSession
-        private var socketUrl: URL? = nil
-        private var httpUrl: URL? = nil
+        private var rpc: RpcService? = nil
+        private var wss: WssService? = nil
+        private var logger: LoggerConvertible? = nil
         
         private lazy var chainId = GetChainId().toRequest(core: self).cache()
         
-        init(socket: URLConvertible? = nil, http: URLConvertible? = nil, client: URLSession? = nil) {
-            self.client = client ?? URLSession(configuration: URLSessionConfiguration.default)
+        required init(socket: URLConvertible? = nil, http: URLConvertible? = nil, client: URLSession? = nil, logger: LoggerConvertible? = nil) {
+            self.logger = logger
             
-            if let url = socket { self.socketUrl = url.toURL() }
-            if let url = http { self.httpUrl = url.toURL() }
+            if let url = socket { self.rpc = RpcService(url.toURL()!, client: client) }
+            if let url = http { self.wss = WssService(url.toURL()!) }
             
-            guard self.httpUrl != nil || self.socketUrl != nil else { preconditionFailure("at least one url must be set") }
+            guard self.rpc != nil || self.wss != nil else { preconditionFailure("At least one url must be set correctly") }
         }
         
         public static func create(forHttp uri: URLConvertible, client: URLSession? = nil) -> Api {
             return Api(core: Sdk(http: uri, client: client))
         }
         
-        public static func create(forWebSocket uri: URLConvertible, client: URLSession? = nil) -> Api {
-            return Api(core: Sdk(socket: uri, client: client))
+        public static func create(forWebSocket uri: URLConvertible) -> Api {
+            return Api(core: Sdk(socket: uri))
         }
         
         public static func create(forSocketUri uri: URLConvertible, httpUri: URLConvertible, client: URLSession? = nil) -> Api {
@@ -47,11 +47,7 @@ extension DCore {
             })
         }
      
-        func make<T, R>(requestStream stream: T) -> Observable<T> where T: BaseRequest<R>, T: WithCallback {
-            fatalError("bla")
-        }
-        
-        func make<T>(request: BaseRequest<T>) -> Single<T> {
+        func make<T: Codable>(request: BaseRequest<T>) -> Single<T> {
             fatalError("bla")
         }
     }

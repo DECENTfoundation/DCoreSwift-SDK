@@ -22,16 +22,12 @@ public protocol AssetFormatter {
 extension AssetFormatter {
     
     public func from(raw value: BigInt) -> Decimal {
-        guard let val = Decimal(string: value.description) else {
-            preconditionFailure("Value is not Decimal")
-        }
+        guard let val = Decimal(string: value.description) else { preconditionFailure("value is not Decimal") }
         return val
     }
     
     public func to(raw value: Decimal) -> BigInt {
-        guard let val = BigInt(value.description) else {
-            preconditionFailure("Value is not BigInt")
-        }
+        guard let val = BigInt(value.description) else { preconditionFailure("value is not BigInt") }
         return val
     }
     
@@ -48,10 +44,7 @@ extension AssetFormatter {
     }
     
     public func amount(_ value: String) -> AssetAmount {
-        guard let val = Decimal(string: value) else {
-            preconditionFailure("Value is not decimal")
-        }
-        
+        guard let val = Decimal(string: value) else { preconditionFailure("value is not decimal") }
         return amount(val)
     }
     

@@ -3,6 +3,6 @@ import Foundation
 class Info: BaseRequest<String> {
  
     required init() {
-        super.init(api: .DATABASE, method: "info", returnClass: String.self)
+        super.init(.database, api: "info", returnClass: String.self)
     }
 }

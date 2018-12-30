@@ -41,6 +41,21 @@
 		A16B965021C8F55200D55273 /* CryptoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B964F21C8F55200D55273 /* CryptoError.swift */; };
 		A16B965221C92D1200D55273 /* UInt8+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B965121C92D1200D55273 /* UInt8+Extension.swift */; };
 		A16B965621C98F4500D55273 /* JsonSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B965521C98F4500D55273 /* JsonSerializable.swift */; };
+		A171EFE221CE2548001834F1 /* URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A171EFE121CE2548001834F1 /* URLRequestConvertible.swift */; };
+		A171EFE421CE2C00001834F1 /* HttpHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A171EFE321CE2C00001834F1 /* HttpHeader.swift */; };
+		A1778C8F21CE153500A37F2A /* CoreRequestSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1778C8E21CE153500A37F2A /* CoreRequestSource.swift */; };
+		A186EF7E21CAD979000C519A /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186EF7D21CAD979000C519A /* BaseOperation.swift */; };
+		A186EF8021CAD984000C519A /* TransferOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186EF7F21CAD984000C519A /* TransferOperation.swift */; };
+		A186EF8221CAD9A2000C519A /* BuyContentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186EF8121CAD9A2000C519A /* BuyContentOperation.swift */; };
+		A186EF8421CADA2C000C519A /* EmptyOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186EF8321CADA2C000C519A /* EmptyOperation.swift */; };
+		A1A3DB6B21D779840009F201 /* Enum+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A3DB6A21D779840009F201 /* Enum+Extension.swift */; };
+		A1C3559321CDB7B000E50E1D /* RpcResponseConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C3559221CDB7B000E50E1D /* RpcResponseConvertible.swift */; };
+		A1C3559521CDBA0F00E50E1D /* CoreRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C3559421CDBA0F00E50E1D /* CoreRequestConvertible.swift */; };
+		A1E6C92B21CD9B1100469076 /* RequiredFee.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6C92A21CD9B1100469076 /* RequiredFee.swift */; };
+		A1FB1D3321CB80D900F7706D /* RpcResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FB1D3221CB80D900F7706D /* RpcResponse.swift */; };
+		A1FB1D3721CD1C9600F7706D /* UnitValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FB1D3621CD1C9600F7706D /* UnitValue.swift */; };
+		A1FB1D3B21CD325600F7706D /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FB1D3A21CD325600F7706D /* AnyEncodable.swift */; };
+		A1FB1D3D21CD824900F7706D /* LoggerConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FB1D3C21CD824900F7706D /* LoggerConvertible.swift */; };
 		OBJ_1000 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "RxSwift::RxSwift::Product" /* RxSwift.framework */; };
 		OBJ_1001 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "RxSwift::RxAtomic::Product" /* RxAtomic.framework */; };
 		OBJ_1017 /* RxAtomic.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_603 /* RxAtomic.c */; };
@@ -489,7 +504,6 @@
 		OBJ_816 /* ObjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_64 /* ObjectType.swift */; };
 		OBJ_817 /* OperationHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_65 /* OperationHistory.swift */; };
 		OBJ_818 /* OperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_66 /* OperationType.swift */; };
-		OBJ_819 /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_67 /* Operations.swift */; };
 		OBJ_820 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* Options.swift */; };
 		OBJ_821 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* Order.swift */; };
 		OBJ_822 /* PricePerRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* PricePerRegion.swift */; };
@@ -602,15 +616,12 @@
 		OBJ_929 /* VerifyAccountAuthority.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_180 /* VerifyAccountAuthority.swift */; };
 		OBJ_930 /* VerifyAuthority.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_181 /* VerifyAuthority.swift */; };
 		OBJ_931 /* WithCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_182 /* WithCallback.swift */; };
-		OBJ_932 /* ResponseKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_183 /* ResponseKey.swift */; };
-		OBJ_933 /* RpcRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* RpcRequestBuilder.swift */; };
 		OBJ_934 /* RpcService.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_186 /* RpcService.swift */; };
 		OBJ_935 /* AnyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_188 /* AnyValue.swift */; };
 		OBJ_936 /* DataSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_189 /* DataSerializable.swift */; };
 		OBJ_937 /* DataConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_190 /* DataConvertible.swift */; };
-		OBJ_938 /* RxWebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_192 /* RxWebSocket.swift */; };
+		OBJ_938 /* WssService.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_192 /* WssService.swift */; };
 		OBJ_939 /* Rx+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_194 /* Rx+Extension.swift */; };
-		OBJ_940 /* ChainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_195 /* ChainError.swift */; };
 		OBJ_941 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_196 /* Sequence+Extension.swift */; };
 		OBJ_942 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_197 /* String+Extension.swift */; };
 		OBJ_943 /* URLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_198 /* URLConvertible.swift */; };
@@ -862,6 +873,21 @@
 		A16B964F21C8F55200D55273 /* CryptoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoError.swift; sourceTree = "<group>"; };
 		A16B965121C92D1200D55273 /* UInt8+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt8+Extension.swift"; sourceTree = "<group>"; };
 		A16B965521C98F4500D55273 /* JsonSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonSerializable.swift; sourceTree = "<group>"; };
+		A171EFE121CE2548001834F1 /* URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestConvertible.swift; sourceTree = "<group>"; };
+		A171EFE321CE2C00001834F1 /* HttpHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHeader.swift; sourceTree = "<group>"; };
+		A1778C8E21CE153500A37F2A /* CoreRequestSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreRequestSource.swift; sourceTree = "<group>"; };
+		A186EF7D21CAD979000C519A /* BaseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
+		A186EF7F21CAD984000C519A /* TransferOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferOperation.swift; sourceTree = "<group>"; };
+		A186EF8121CAD9A2000C519A /* BuyContentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyContentOperation.swift; sourceTree = "<group>"; };
+		A186EF8321CADA2C000C519A /* EmptyOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyOperation.swift; sourceTree = "<group>"; };
+		A1A3DB6A21D779840009F201 /* Enum+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Extension.swift"; sourceTree = "<group>"; };
+		A1C3559221CDB7B000E50E1D /* RpcResponseConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RpcResponseConvertible.swift; sourceTree = "<group>"; };
+		A1C3559421CDBA0F00E50E1D /* CoreRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreRequestConvertible.swift; sourceTree = "<group>"; };
+		A1E6C92A21CD9B1100469076 /* RequiredFee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequiredFee.swift; sourceTree = "<group>"; };
+		A1FB1D3221CB80D900F7706D /* RpcResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RpcResponse.swift; sourceTree = "<group>"; };
+		A1FB1D3621CD1C9600F7706D /* UnitValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitValue.swift; sourceTree = "<group>"; };
+		A1FB1D3A21CD325600F7706D /* AnyEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodable.swift; sourceTree = "<group>"; };
+		A1FB1D3C21CD824900F7706D /* LoggerConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerConvertible.swift; sourceTree = "<group>"; };
 		"BigInt::BigInt::Product" /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BigInt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"CryptoSwift::CryptoSwift::Product" /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DcoreKit::DcoreKit::Product" /* DcoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DcoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -958,16 +984,13 @@
 		OBJ_180 /* VerifyAccountAuthority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAccountAuthority.swift; sourceTree = "<group>"; };
 		OBJ_181 /* VerifyAuthority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAuthority.swift; sourceTree = "<group>"; };
 		OBJ_182 /* WithCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithCallback.swift; sourceTree = "<group>"; };
-		OBJ_183 /* ResponseKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseKey.swift; sourceTree = "<group>"; };
-		OBJ_185 /* RpcRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RpcRequestBuilder.swift; sourceTree = "<group>"; };
 		OBJ_186 /* RpcService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RpcService.swift; sourceTree = "<group>"; };
 		OBJ_188 /* AnyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyValue.swift; sourceTree = "<group>"; };
 		OBJ_189 /* DataSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSerializable.swift; sourceTree = "<group>"; };
 		OBJ_19 /* MiningApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningApi.swift; sourceTree = "<group>"; };
 		OBJ_190 /* DataConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConvertible.swift; sourceTree = "<group>"; };
-		OBJ_192 /* RxWebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxWebSocket.swift; sourceTree = "<group>"; };
+		OBJ_192 /* WssService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WssService.swift; sourceTree = "<group>"; };
 		OBJ_194 /* Rx+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+Extension.swift"; sourceTree = "<group>"; };
-		OBJ_195 /* ChainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainError.swift; sourceTree = "<group>"; };
 		OBJ_196 /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
 		OBJ_197 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		OBJ_198 /* URLConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConvertible.swift; sourceTree = "<group>"; };
@@ -1406,7 +1429,6 @@
 		OBJ_64 /* ObjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectType.swift; sourceTree = "<group>"; };
 		OBJ_65 /* OperationHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationHistory.swift; sourceTree = "<group>"; };
 		OBJ_66 /* OperationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationType.swift; sourceTree = "<group>"; };
-		OBJ_67 /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
 		OBJ_68 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		OBJ_69 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		OBJ_70 /* PricePerRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricePerRegion.swift; sourceTree = "<group>"; };
@@ -1563,10 +1585,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A186EF7C21CAD961000C519A /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				A186EF7D21CAD979000C519A /* BaseOperation.swift */,
+				A186EF7F21CAD984000C519A /* TransferOperation.swift */,
+				A186EF8121CAD9A2000C519A /* BuyContentOperation.swift */,
+				A186EF8321CADA2C000C519A /* EmptyOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
 		OBJ_184 /* Rpc */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_185 /* RpcRequestBuilder.swift */,
+				A1C3559221CDB7B000E50E1D /* RpcResponseConvertible.swift */,
+				A1FB1D3221CB80D900F7706D /* RpcResponse.swift */,
 				OBJ_186 /* RpcService.swift */,
 			);
 			path = Rpc;
@@ -1576,9 +1610,11 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_188 /* AnyValue.swift */,
+				A1FB1D3A21CD325600F7706D /* AnyEncodable.swift */,
+				A1FB1D3621CD1C9600F7706D /* UnitValue.swift */,
+				A1581D7521C4F2430033036F /* VarInt.swift */,
 				OBJ_189 /* DataSerializable.swift */,
 				OBJ_190 /* DataConvertible.swift */,
-				A1581D7521C4F2430033036F /* VarInt.swift */,
 				A16B965521C98F4500D55273 /* JsonSerializable.swift */,
 			);
 			path = Serialization;
@@ -1587,7 +1623,7 @@
 		OBJ_191 /* Ws */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_192 /* RxWebSocket.swift */,
+				OBJ_192 /* WssService.swift */,
 			);
 			path = Ws;
 			sourceTree = "<group>";
@@ -1596,14 +1632,14 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_194 /* Rx+Extension.swift */,
-				OBJ_195 /* ChainError.swift */,
 				OBJ_196 /* Sequence+Extension.swift */,
 				OBJ_197 /* String+Extension.swift */,
-				OBJ_198 /* URLConvertible.swift */,
 				A1581D6D21C4E7450033036F /* CryptoUtils.swift */,
 				A1581D7321C4E9BC0033036F /* BaseCodable.swift */,
 				A16B964D21C7B70300D55273 /* DCoreError.swift */,
 				A16B965121C92D1200D55273 /* UInt8+Extension.swift */,
+				A1FB1D3C21CD824900F7706D /* LoggerConvertible.swift */,
+				A1A3DB6A21D779840009F201 /* Enum+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1897,6 +1933,7 @@
 		OBJ_32 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A186EF7C21CAD961000C519A /* Operations */,
 				OBJ_33 /* Account.swift */,
 				OBJ_34 /* AccountBalance.swift */,
 				OBJ_35 /* AccountStatistics.swift */,
@@ -1931,7 +1968,6 @@
 				OBJ_64 /* ObjectType.swift */,
 				OBJ_65 /* OperationHistory.swift */,
 				OBJ_66 /* OperationType.swift */,
-				OBJ_67 /* Operations.swift */,
 				OBJ_68 /* Options.swift */,
 				OBJ_69 /* Order.swift */,
 				OBJ_70 /* PricePerRegion.swift */,
@@ -1940,6 +1976,7 @@
 				OBJ_73 /* Publishing.swift */,
 				OBJ_74 /* Purchase.swift */,
 				OBJ_75 /* RealSupply.swift */,
+				A1E6C92A21CD9B1100469076 /* RequiredFee.swift */,
 				OBJ_76 /* Seeder.swift */,
 				OBJ_77 /* SignedBlock.swift */,
 				OBJ_78 /* Subscription.swift */,
@@ -2392,6 +2429,10 @@
 				OBJ_184 /* Rpc */,
 				OBJ_187 /* Serialization */,
 				OBJ_191 /* Ws */,
+				A1C3559421CDBA0F00E50E1D /* CoreRequestConvertible.swift */,
+				A1778C8E21CE153500A37F2A /* CoreRequestSource.swift */,
+				OBJ_198 /* URLConvertible.swift */,
+				A171EFE121CE2548001834F1 /* URLRequestConvertible.swift */,
 			);
 			path = Net;
 			sourceTree = "<group>";
@@ -2402,8 +2443,8 @@
 				OBJ_88 /* ApiGroup.swift */,
 				OBJ_89 /* ContentType.swift */,
 				OBJ_90 /* HttpMethod.swift */,
+				A171EFE321CE2C00001834F1 /* HttpHeader.swift */,
 				OBJ_91 /* Request */,
-				OBJ_183 /* ResponseKey.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3425,21 +3466,25 @@
 				OBJ_771 /* GeneralApi.swift in Sources */,
 				OBJ_772 /* HistoryApi.swift in Sources */,
 				OBJ_773 /* MiningApi.swift in Sources */,
+				A1A3DB6B21D779840009F201 /* Enum+Extension.swift in Sources */,
 				OBJ_774 /* PurchaseApi.swift in Sources */,
 				OBJ_775 /* SeedersApi.swift in Sources */,
 				OBJ_776 /* SubscriptionApi.swift in Sources */,
 				OBJ_777 /* TransactionApi.swift in Sources */,
+				A186EF7E21CAD979000C519A /* BaseOperation.swift in Sources */,
 				OBJ_778 /* ValidationApi.swift in Sources */,
 				OBJ_779 /* Address.swift in Sources */,
 				OBJ_780 /* Credentials.swift in Sources */,
 				OBJ_781 /* ECKeyPair.swift in Sources */,
 				OBJ_782 /* DCoreApi.swift in Sources */,
 				A1581D7621C4F2430033036F /* VarInt.swift in Sources */,
+				A171EFE221CE2548001834F1 /* URLRequestConvertible.swift in Sources */,
 				OBJ_783 /* DCoreConstants.swift in Sources */,
 				OBJ_784 /* DCoreSdk.swift in Sources */,
 				OBJ_785 /* Account.swift in Sources */,
 				A1581D6821C4E4F90033036F /* PrivateKey.swift in Sources */,
 				OBJ_786 /* AccountBalance.swift in Sources */,
+				A1FB1D3721CD1C9600F7706D /* UnitValue.swift in Sources */,
 				OBJ_787 /* AccountStatistics.swift in Sources */,
 				OBJ_788 /* Asset.swift in Sources */,
 				OBJ_789 /* AssetAmount.swift in Sources */,
@@ -3460,6 +3505,7 @@
 				OBJ_802 /* CustodyData.swift in Sources */,
 				OBJ_803 /* DynamicGlobalProps.swift in Sources */,
 				OBJ_804 /* FeeParameter.swift in Sources */,
+				A186EF8421CADA2C000C519A /* EmptyOperation.swift in Sources */,
 				OBJ_805 /* FeeSchedule.swift in Sources */,
 				OBJ_806 /* FullAccount.swift in Sources */,
 				OBJ_807 /* GlobalParameters.swift in Sources */,
@@ -3475,9 +3521,9 @@
 				OBJ_816 /* ObjectType.swift in Sources */,
 				OBJ_817 /* OperationHistory.swift in Sources */,
 				OBJ_818 /* OperationType.swift in Sources */,
-				OBJ_819 /* Operations.swift in Sources */,
 				OBJ_820 /* Options.swift in Sources */,
 				OBJ_821 /* Order.swift in Sources */,
+				A1C3559321CDB7B000E50E1D /* RpcResponseConvertible.swift in Sources */,
 				OBJ_822 /* PricePerRegion.swift in Sources */,
 				OBJ_823 /* ProcessedTransaction.swift in Sources */,
 				OBJ_824 /* PubKey.swift in Sources */,
@@ -3499,6 +3545,7 @@
 				OBJ_840 /* HttpMethod.swift in Sources */,
 				OBJ_841 /* BaseRequest.swift in Sources */,
 				OBJ_842 /* BroadcastTransaction.swift in Sources */,
+				A186EF8021CAD984000C519A /* TransferOperation.swift in Sources */,
 				OBJ_843 /* BroadcastTransactionSynchronous.swift in Sources */,
 				OBJ_844 /* BroadcastTransactionWithCallback.swift in Sources */,
 				OBJ_845 /* CancelAllSubscriptions.swift in Sources */,
@@ -3513,6 +3560,7 @@
 				OBJ_854 /* GetActualVotes.swift in Sources */,
 				OBJ_855 /* GetAssetPerBlock.swift in Sources */,
 				OBJ_856 /* GetAssets.swift in Sources */,
+				A1778C8F21CE153500A37F2A /* CoreRequestSource.swift in Sources */,
 				OBJ_857 /* GetBlock.swift in Sources */,
 				OBJ_858 /* GetBlockHeader.swift in Sources */,
 				OBJ_859 /* GetBuyingByConsumer.swift in Sources */,
@@ -3533,8 +3581,10 @@
 				OBJ_873 /* GetMinerCount.swift in Sources */,
 				OBJ_874 /* GetMiners.swift in Sources */,
 				OBJ_875 /* GetNamedAccountBalances.swift in Sources */,
+				A1FB1D3D21CD824900F7706D /* LoggerConvertible.swift in Sources */,
 				OBJ_876 /* GetNewAssetPerBlock.swift in Sources */,
 				OBJ_877 /* GetObjects.swift in Sources */,
+				A186EF8221CAD9A2000C519A /* BuyContentOperation.swift in Sources */,
 				OBJ_878 /* GetOpenBuyings.swift in Sources */,
 				OBJ_879 /* GetOpenBuyingsByConsumer.swift in Sources */,
 				OBJ_880 /* GetOpenBuyingsByUri.swift in Sources */,
@@ -3559,6 +3609,7 @@
 				OBJ_899 /* ListAssets.swift in Sources */,
 				OBJ_900 /* ListPublishingManagers.swift in Sources */,
 				A1581D7421C4E9BC0033036F /* BaseCodable.swift in Sources */,
+				A1FB1D3B21CD325600F7706D /* AnyEncodable.swift in Sources */,
 				OBJ_901 /* ListSeedersByPrice.swift in Sources */,
 				OBJ_902 /* ListSeedersByRating.swift in Sources */,
 				OBJ_903 /* ListSeedersByRegion.swift in Sources */,
@@ -3585,24 +3636,25 @@
 				OBJ_923 /* SearchMinerVoting.swift in Sources */,
 				OBJ_924 /* SetBlockAppliedCallback.swift in Sources */,
 				OBJ_925 /* SetContentUpdateCallback.swift in Sources */,
+				A1FB1D3321CB80D900F7706D /* RpcResponse.swift in Sources */,
 				OBJ_926 /* SetPendingTransactionCallback.swift in Sources */,
 				OBJ_927 /* SetSubscribeCallback.swift in Sources */,
 				OBJ_928 /* ValidateTransaction.swift in Sources */,
 				OBJ_929 /* VerifyAccountAuthority.swift in Sources */,
 				OBJ_930 /* VerifyAuthority.swift in Sources */,
 				OBJ_931 /* WithCallback.swift in Sources */,
-				OBJ_932 /* ResponseKey.swift in Sources */,
-				OBJ_933 /* RpcRequestBuilder.swift in Sources */,
+				A1E6C92B21CD9B1100469076 /* RequiredFee.swift in Sources */,
 				OBJ_934 /* RpcService.swift in Sources */,
 				OBJ_935 /* AnyValue.swift in Sources */,
 				OBJ_936 /* DataSerializable.swift in Sources */,
 				OBJ_937 /* DataConvertible.swift in Sources */,
-				OBJ_938 /* RxWebSocket.swift in Sources */,
+				OBJ_938 /* WssService.swift in Sources */,
+				A1C3559521CDBA0F00E50E1D /* CoreRequestConvertible.swift in Sources */,
 				OBJ_939 /* Rx+Extension.swift in Sources */,
-				OBJ_940 /* ChainError.swift in Sources */,
 				OBJ_941 /* Sequence+Extension.swift in Sources */,
 				OBJ_942 /* String+Extension.swift in Sources */,
 				OBJ_943 /* URLConvertible.swift in Sources */,
+				A171EFE421CE2C00001834F1 /* HttpHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

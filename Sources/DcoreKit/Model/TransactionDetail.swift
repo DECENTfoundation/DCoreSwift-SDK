@@ -1,6 +1,7 @@
 import Foundation
 
 public struct TransactionDetail: Codable {
+    
     public let id: ChainObject
     public let from: ChainObject
     public let to: ChainObject

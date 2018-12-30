@@ -2,19 +2,36 @@ import Foundation
 
 extension DCore {
     
-    public struct Constants {
+    public enum Constant {
         
-        public struct Defaults {
-            public static let EXPIRATION = 30 //seconds
-            public static let DCT_ASSET_ID = "1.3.0".chainObject
+        public enum Api {
+            public static var jsonrpc: String = "2.0"
+            public static var method: String = "call"
+            public static var timeout: TimeInterval = 30 // seconds
+            
+            enum Group: String, CaseIterable {
+                case
+                database,
+                login = "",
+                broadcast = "network_broadcast",
+                history,
+                crypto,
+                messaging
+            }
         }
         
-        public struct Symbols {
-            public static let ALXT = "ALXT"
-            public static let ALAT = "ALAT"
-            public static let ALX = "ALX"
-            public static let AIA = "AIA"
-            public static let DCT = "DCT"
+        public enum Default {
+            public static var expiration: Int = 30 // seconds
+            public static var dct: ChainObject = "1.3.0".chainObject
+        }
+        
+        enum Symbol: String {
+            case
+            alxt = "ALXT",
+            alat = "ALAT",
+            alx = "ALX",
+            aia = "AIA",
+            dct = "DCT"
         }
     }
 }

@@ -1,8 +1,7 @@
 import Foundation
 
-class SetContentUpdateCallback: BaseRequest<Void>, WithCallback {
-    
+class SetContentUpdateCallback: BaseRequest<UnitValue>, WithCallback {
     required init(uri: String) {
-        super.init(api: .DATABASE, method: "set_content_update_callback", returnClass: Void.self, params: [uri])
+        super.init(.database, api: "set_content_update_callback", returnClass: UnitValue.self, params: [uri])
     }
 }

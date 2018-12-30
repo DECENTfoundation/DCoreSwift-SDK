@@ -1,6 +1,7 @@
 import Foundation
 
 public struct Authority: Codable {
+    
     public let weightThreshold: Int
     public let accountAuths: AnyValue?
     public let keyAuths: [AuthMap]
@@ -12,7 +13,7 @@ public struct Authority: Codable {
         keyAuths = "key_auths"
     }
     
-    init(address: Address) {
+    init(withAddress address: Address) {
         self.weightThreshold = 1
         self.accountAuths = .array([])
         self.keyAuths = [AuthMap(value: address)]

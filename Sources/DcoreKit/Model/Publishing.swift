@@ -1,6 +1,7 @@
 import Foundation
 
 public struct Publishing: Codable {
+    
     public let isPublishingManager: Bool
     public let publishRightsReceived: AnyValue?
     public let publishRightsForwarded: AnyValue?
@@ -14,6 +15,7 @@ public struct Publishing: Codable {
 }
 
 extension Publishing: DataSerializable {
+    
     public var serialized: Data {
         var data = Data()
         data += isPublishingManager

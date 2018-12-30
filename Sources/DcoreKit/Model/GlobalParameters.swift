@@ -2,6 +2,7 @@ import Foundation
 import BigInt
 
 public struct GlobalParameters: Codable {
+    
     public let fees: FeeSchedule
     public let blockInterval: UInt16
     public let maintenanceInterval: UInt64

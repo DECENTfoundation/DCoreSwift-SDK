@@ -1,6 +1,7 @@
 import Foundation
 
 public struct RegionalPrice: Codable {
+    
     public let price: AssetAmount
     public let region: Int
     

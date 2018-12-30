@@ -1,6 +1,7 @@
 import Foundation
 
 public struct Purchase: Codable {
+    
     public let id: ChainObject
     public let author: String
     public let uri: String

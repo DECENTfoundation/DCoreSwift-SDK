@@ -2,6 +2,7 @@ import Foundation
 import BigInt
 
 public struct Memo: Codable {
+    
     public var from: Address?
     public var to: Address?
     public let message: String
