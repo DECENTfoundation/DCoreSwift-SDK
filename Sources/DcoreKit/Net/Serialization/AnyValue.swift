@@ -33,3 +33,16 @@ public enum AnyValue: Codable {
         fatalError("Not implemented")
     }
 }
+
+extension AnyValue: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .string(let value): return value
+        case .int(let value): return "\(value)"
+        case .double(let value): return "\(value)"
+        case .bool(let value): return "\(value)"
+        case .object(let value): return "\(value)"
+        case .array(let value): return "\(value)"
+        }
+    }
+}

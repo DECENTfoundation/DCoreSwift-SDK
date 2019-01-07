@@ -1,6 +1,6 @@
 import Foundation
 
-public extension String {
+extension String {
     
     public subscript(safe range: CountableRange<Int>) -> String? {
         guard let lowerIndex = index(startIndex, offsetBy: max(0, range.lowerBound), limitedBy: endIndex) else { return nil }

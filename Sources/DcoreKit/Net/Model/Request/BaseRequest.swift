@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-class BaseRequest<Output: Codable>: Encodable, CoreRequestConvertible, URLRequestConvertible {
+class BaseRequest<Output: Codable>: Encodable, CoreRequestConvertible, RpcRequestConvertible {
     typealias Request = BaseRequest
     
     private let group: ApiGroup

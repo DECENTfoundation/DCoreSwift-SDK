@@ -11,13 +11,17 @@ struct PrivateKey {
     let compressed: Bool
     
     init(fromWif wif: String) throws {
-        guard let decoded = Base58.decode(wif) else { throw CryptoError.invalidFormat }
+        guard let decoded = Base58.decode(wif) else {
+            throw CoreError.crypto(.failDecode("Wif \(wif) has invalid format"))
+        }
         
         let checksumDropped = decoded.prefix(decoded.count - 4)
         let calculatedChecksum = CryptoUtils.hashTwice256(checksumDropped).prefix(4)
         let originalChecksum = decoded.suffix(4)
 
-        guard calculatedChecksum == originalChecksum else { throw CryptoError.invalidChecksum }
+        guard calculatedChecksum == originalChecksum else {
+            throw CoreError.crypto(.failDecode("Wif \(wif) has invalid checksum"))
+        }
         
         let version = Int(checksumDropped.first!) & 0xFF
         guard version == PrivateKey.VERSION else { preconditionFailure("\(version) is not a valid private key version byte") }
@@ -25,7 +29,10 @@ struct PrivateKey {
         // 1 + 32 + 1 = version + key + compressed
         // 1 + 32 = version + key
         
-        guard checksumDropped.count == (1 + 32) || checksumDropped.count == (1 + 32 + 1) else { throw CryptoError.invalidFormat }
+        guard checksumDropped.count == (1 + 32) || checksumDropped.count == (1 + 32 + 1) else {
+            throw CoreError.crypto(.failDecode("Wif \(wif) has invalid checksum count \(checksumDropped.count)"))
+        }
+        
         self.init(data: checksumDropped.dropFirst().prefix(32), version: version, compressed: (checksumDropped.count == (1 + 32 + 1)))
     }
     
@@ -64,7 +71,7 @@ struct PrivateKey {
             data.withUnsafeBytes { secp256k1_ecdsa_sign(ctx, signature, ptr, $0, nil, nil) }
         }
         
-        guard status == 1 else { throw CryptoError.signFailed }
+        guard status == 1 else { throw CoreError.crypto(.failSigning) }
         
         let normalizedsig = UnsafeMutablePointer<secp256k1_ecdsa_signature>.allocate(capacity: 1)
         defer { normalizedsig.deallocate() }
@@ -75,7 +82,7 @@ struct PrivateKey {
         var der = Data(count: length)
         
         guard der.withUnsafeMutableBytes({ return secp256k1_ecdsa_signature_serialize_der(ctx, $0, &length, normalizedsig) }) == 1 else {
-            throw CryptoError.noEnoughSpace
+            throw CoreError.crypto(.notEnoughSpace)
         }
         
         der.count = length

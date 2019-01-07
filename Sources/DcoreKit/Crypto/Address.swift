@@ -18,7 +18,7 @@ public struct Address {
     
     init(from value: String) throws {
         guard let prefix = value[safe: 0..<3], let suffix = value[safe: 3..<value.count], let decoded = Base58.decode(suffix) else {
-            throw CryptoError.invalidFormat
+            throw CoreError.crypto(.failDecode("Address \(value) has invalid format"))
         }
  
         let key = decoded.prefix(decoded.count - 4)
@@ -26,7 +26,9 @@ public struct Address {
         let calculatedChecksum = calculated.prefix(4)
         let originalChecksum = decoded.suffix(4)
      
-        guard calculatedChecksum == originalChecksum else { throw CryptoError.invalidChecksum }
+        guard calculatedChecksum == originalChecksum else {
+            throw CoreError.crypto(.failDecode("Address \(value) has invalid checksum"))
+        }
         
         self.init(fromPublicKey: key, prefix: prefix)
     }
@@ -65,8 +67,8 @@ extension Address: DataSerializable {
     }
 }
 
-extension String {
+extension Core where Base == String {
     public var address: Address? {
-        return try? Address(from: self)
+        return try? Address(from: self.base)
     }
 }

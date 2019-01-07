@@ -3,8 +3,7 @@ import Foundation
 enum RpcResponse<T: Codable> {
     
     case
-    result(T),
-    failure(Error)
+    result(T)
     
     init(_ request: BaseRequest<T>, data: Data) throws {
         

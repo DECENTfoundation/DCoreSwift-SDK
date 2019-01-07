@@ -4,15 +4,15 @@ import RxSwift
 public final class AccountApi: BaseApi {
     
     public func getAccount(byName name: String) -> Single<Account> {
-        return GetAccountByName(name).toRequest(core: api.core)
+        return GetAccountByName(name).toCoreRequest(api.core)
     }
     
     public func getAccounts(byIds ids: [ChainObject]) -> Single<[Account]> {
-        return GetAccountById(ids).toRequest(core: api.core)
+        return GetAccountById(ids).toCoreRequest(api.core)
     }
     
     public func getAccountIds(byAddressList list: [Address]) -> Single<[[ChainObject]]> {
-        return GetKeyReferences(list).toRequest(core: api.core)
+        return GetKeyReferences(list).toCoreRequest(api.core)
     }
     
     public func existAccount(byName name: String) -> Single<Bool> {
@@ -38,7 +38,7 @@ public final class AccountApi: BaseApi {
                 return self.getAccount(byName: value)
             }
             
-            return Single.error(DCoreError.illegal("\(value) is not a valid account reference"))
+            return Single.error(CoreError.unexpected("Value \(value) is not a valid account reference"))
         })
     }
     
@@ -46,7 +46,7 @@ public final class AccountApi: BaseApi {
                        from: ChainObject = ObjectType.nullObject.genericId,
                        order: SearchAccountHistoryOrder = .TIME_DESC,
                        limit: Int = 100) -> Single<[TransactionDetail]> {
-        return SearchAccountHistory(accountId: accoundId, order: order, startId: from, limit: limit).toRequest(core: api.core)
+        return SearchAccountHistory(accountId: accoundId, order: order, startId: from, limit: limit).toCoreRequest(api.core)
     }
     
     public func createCredentials(accountName: String, wif: String) -> Single<Credentials> {
@@ -54,19 +54,19 @@ public final class AccountApi: BaseApi {
     }
     
     public func getFullAccounts(byNamesOrIds ref: [String], subscribe: Bool = false) -> Single<[String:FullAccount]>{
-        return GetFullAccounts(namesOrIds: ref, subscribe: subscribe).toRequest(core: api.core)
+        return GetFullAccounts(namesOrIds: ref, subscribe: subscribe).toCoreRequest(api.core)
     }
     
     public func getAccountReferences(byId id: ChainObject) -> Single<[ChainObject]> {
-        return GetAccountReferences(id).toRequest(core: api.core)
+        return GetAccountReferences(id).toCoreRequest(api.core)
     }
     
     public func lookupAccount(byNames names: [String]) -> Single<[Account]> {
-        return LookupAccountNames(names).toRequest(core: api.core)
+        return LookupAccountNames(names).toCoreRequest(api.core)
     }
     
     public func lookupAccounts(byLowerBound bound: String, limit: Int = 1000) -> Single<[String:ChainObject]> {
-        return LookupAccounts(bound, limit: limit).toRequest(core: api.core)
+        return LookupAccounts(bound, limit: limit).toCoreRequest(api.core)
     }
     
     public func search(accountsByTerm term: String,
@@ -74,11 +74,11 @@ public final class AccountApi: BaseApi {
                        id: ChainObject = ObjectType.nullObject.genericId,
                        limit: Int = 1000) -> Single<[Account]> {
         
-        return SearchAccounts(searchTerm: term, order: order, id: id, limit: limit).toRequest(core: api.core)
+        return SearchAccounts(searchTerm: term, order: order, id: id, limit: limit).toCoreRequest(api.core)
     }
     
     public func getAccountCount() -> Single<UInt64> {
-        return GetAccountCount().toRequest(core: api.core)
+        return GetAccountCount().toCoreRequest(api.core)
     }
     
 }

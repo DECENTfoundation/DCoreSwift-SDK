@@ -4,7 +4,7 @@ public struct Asset: Codable, AssetFormatter {
     
     public var id: ChainObject = ObjectType.assetObject.genericId {
         willSet {
-            guard newValue.objectType == ObjectType.assetObject else { preconditionFailure("asset id is not object asset type") }
+            guard newValue.objectType == ObjectType.assetObject else { preconditionFailure("Asset id \(newValue) is not object asset type") }
         }
     }
     
@@ -36,7 +36,7 @@ public struct Asset: Codable, AssetFormatter {
             return AssetAmount(amount, assetId: id)
         }
         
-        throw DCoreError.illegal("cannot convert \(assetAmount.assetId) with \(symbol):\(id)")
+        throw CoreError.chain(.failConversion("Cannot convert \(assetAmount.assetId) with \(symbol):\(id)"))
     }
 }
 
@@ -60,7 +60,7 @@ extension Asset {
         }
         
         public var chainObject: ChainObject {
-            return description.chainObject
+            return description.core.chainObject!
         }
         
         public func encode(to encoder: Encoder) throws {

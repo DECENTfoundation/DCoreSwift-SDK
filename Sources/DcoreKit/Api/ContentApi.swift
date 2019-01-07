@@ -4,11 +4,11 @@ import RxSwift
 public final class ContentApi: BaseApi {
     
     public func getContent(byId id: ChainObject) -> Single<Content> {
-        return GetContentById(contentId: id).toRequest(core: api.core).map({ $0.first! })
+        return GetContentById(contentId: id).toCoreRequest(api.core).map({ $0.first! })
     }
 
     public func getContent(byUri uri: String) -> Single<Content> {
-        return GetContentByUri(uri: uri).toRequest(core: api.core)
+        return GetContentByUri(uri: uri).toCoreRequest(api.core)
     }
     
     public func search(contentByTerm term: String,
@@ -19,18 +19,18 @@ public final class ContentApi: BaseApi {
                        startId: ChainObject = ObjectType.nullObject.genericId,
                        limit: Int = 100) -> Single<[Content]> {
         
-        return SearchContent(term: term, order: order, user: user, regionCode: regionCode, type: type, startId: startId, limit: limit).toRequest(core: api.core)
+        return SearchContent(term: term, order: order, user: user, regionCode: regionCode, type: type, startId: startId, limit: limit).toCoreRequest(api.core)
     }
     
     public func listPublishingManagers(lowerBound: String, limit: Int = 100) -> Single<[ChainObject]> {
-        return ListPublishingManagers(lowerBound: lowerBound, limit: limit).toRequest(core: api.core)
+        return ListPublishingManagers(lowerBound: lowerBound, limit: limit).toCoreRequest(api.core)
     }
     
     public func generateContentKeys(forSeeders ids: [ChainObject]) -> Single<ContentKeys> {
-        return GenerateContentKeys(seeders: ids).toRequest(core: api.core)
+        return GenerateContentKeys(seeders: ids).toCoreRequest(api.core)
     }
     
     public func restoreEncryptionKey(elGamalPrivate: PubKey, purchaseId: ChainObject) -> Single<String> {
-        return RestoreEncryptionKey(elGamalPrivate: elGamalPrivate, purchaseId: purchaseId).toRequest(core: api.core)
+        return RestoreEncryptionKey(elGamalPrivate: elGamalPrivate, purchaseId: purchaseId).toCoreRequest(api.core)
     }
 }

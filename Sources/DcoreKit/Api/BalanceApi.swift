@@ -4,7 +4,7 @@ import RxSwift
 public final class BalanceApi: BaseApi {
     
     public func getBalance(byAccountId id: ChainObject, assets: [ChainObject] = []) -> Single<[AssetAmount]>  {
-        return GetAccountBalances(accountId: id, assets: assets).toRequest(core: api.core)
+        return GetAccountBalances(accountId: id, assets: assets).toCoreRequest(api.core)
     }
     
     public func getBalance(byAccountId id: ChainObject, asset: ChainObject) -> Single<AssetAmount> {
@@ -14,7 +14,7 @@ public final class BalanceApi: BaseApi {
     public func getBalance(byReference ref: String, assets: [ChainObject] = []) -> Single<[AssetAmount]> {
         return Single.deferred({ [unowned self] in
             if Account.hasValid(name: ref) {
-                return GetNamedAccountBalances(account: ref, assets: assets).toRequest(core: self.api.core)
+                return GetNamedAccountBalances(account: ref, assets: assets).toCoreRequest(self.api.core)
             }
            
             return self.api.account.getAccount(byReference: ref).flatMap({ [unowned self] account in
@@ -54,6 +54,6 @@ public final class BalanceApi: BaseApi {
     }
     
     public func getVestingBalances(byAccountId id: ChainObject) -> Single<[VestingBalance]> {
-        return GetVestingBalances(accountId: id).toRequest(core: api.core)
+        return GetVestingBalances(accountId: id).toCoreRequest(api.core)
     }
 }
