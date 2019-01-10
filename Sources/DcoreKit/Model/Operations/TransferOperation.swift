@@ -1,10 +1,11 @@
 import Foundation
 
 public final class TransferOperation: BaseOperation {
+    
     public let from: ChainObject
     public let to: ChainObject
     public let amount: AssetAmount
-    public let memo: Memo?
+    public var memo: Memo?
     
     public init(from: ChainObject, to: ChainObject, amount: AssetAmount, memo: Memo? = nil, fee: AssetAmount? = nil) {
         self.from = from

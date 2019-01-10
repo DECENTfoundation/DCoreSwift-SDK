@@ -19,11 +19,11 @@ public final class TransactionApi: BaseApi {
         return getTransaction(byBlockNum: conf.blockNum, trxInBlock: conf.trxNum)
     }
     
-    public func createTransaction(operations: [BaseOperation], expiration: Int? = nil) -> Single<Transaction> {
+    public func createTransaction(_ operations: [BaseOperation], expiration: Int? = nil) -> Single<Transaction> {
         return api.core.prepareTransaction(forOperations: operations, expiration: expiration ?? self.api.transactionExpiration)
     }
     
-    public func createTransaction(operation: BaseOperation, expiration: Int? = nil) -> Single<Transaction> {
+    public func createTransaction(_ operation: BaseOperation, expiration: Int? = nil) -> Single<Transaction> {
         return api.core.prepareTransaction(forOperations: [operation], expiration: expiration ?? self.api.transactionExpiration)
     }
     

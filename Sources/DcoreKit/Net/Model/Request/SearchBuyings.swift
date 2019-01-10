@@ -8,8 +8,8 @@ class SearchBuyings: BaseRequest<[Purchase]> {
                   term: String = "",
                   limit: Int = 100) {
         
-        precondition(consumer.objectType == ObjectType.accountObject, "Not a valid account object id")
-        precondition(startId == ObjectType.nullObject.genericId || startId.objectType == ObjectType.buyingObject,
+        precondition(consumer.objectType == .accountObject, "Not a valid account object id")
+        precondition(startId == ObjectType.nullObject.genericId || startId.objectType == .buyingObject,
             "Not a valid null or buying object id"
         )
         

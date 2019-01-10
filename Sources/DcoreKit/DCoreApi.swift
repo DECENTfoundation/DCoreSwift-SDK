@@ -4,7 +4,7 @@ extension DCore {
     
     public final class Api {
         
-        public var transactionExpiration: Int = 30
+        public var transactionExpiration: Int = DCore.Constant.Default.expiration
         
         public lazy var account = AccountApi(using: self)
         public lazy var asset = AssetApi(using: self)
@@ -12,6 +12,7 @@ extension DCore {
         public lazy var balance = BalanceApi(using: self)
         public lazy var block = BlockApi(using: self)
         public lazy var broadcast = BroadcastApi(using: self)
+        public lazy var operation = OperationApi(using: self)
         public lazy var content = ContentApi(using: self)
         public lazy var general = GeneralApi(using: self)
         public lazy var history = HistoryApi(using: self)

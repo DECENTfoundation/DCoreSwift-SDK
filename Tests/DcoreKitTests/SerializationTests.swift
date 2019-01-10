@@ -28,8 +28,8 @@ final class SerializationTests: XCTestCase {
         {"jsonrpc":"2.0","method":"call","id":1,"params":[0,"get_required_fees",[[[39,{"type":39,"fee":{"amount":"0","asset_id":"1.3.0"}}],[1,{"type":1,"fee":{"amount":"0","asset_id":"1.3.0"}}]],"1.3.0"]]}
         """
         let result = try? GetRequiredFees(operations: [
-            EmptyOperation(type: OperationType.TRANSFER2_OPERATION),
-            EmptyOperation(type: OperationType.ACCOUNT_CREATE_OPERATION)
+            EmptyOperation(type: OperationType.transferTwoOperation),
+            EmptyOperation(type: OperationType.accountCreateOperation)
         ]).asJson()
         
         XCTAssertEqual(result, api)

@@ -32,6 +32,7 @@
 
 /* Begin PBXBuildFile section */
 		A160B3DA21E75A2900981550 /* Json+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160B3D821E758F100981550 /* Json+Context.swift */; };
+		A160B3DE21E76D3E00981550 /* OperationApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160B3DD21E76D3E00981550 /* OperationApi.swift */; };
 		OBJ_1000 /* RestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_194 /* RestConvertible.swift */; };
 		OBJ_1001 /* RestResultValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_195 /* RestResultValidator.swift */; };
 		OBJ_1002 /* RestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_196 /* RestService.swift */; };
@@ -948,6 +949,7 @@
 
 /* Begin PBXFileReference section */
 		A160B3D821E758F100981550 /* Json+Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Json+Context.swift"; sourceTree = "<group>"; };
+		A160B3DD21E76D3E00981550 /* OperationApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationApi.swift; sourceTree = "<group>"; };
 		"BigInt::BigInt::Product" /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BigInt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"CryptoSwift::CryptoSwift::Product" /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DcoreKit::DcoreKit::Product" /* DcoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DcoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2711,6 +2713,7 @@
 				OBJ_15 /* BroadcastApi.swift */,
 				OBJ_16 /* ContentApi.swift */,
 				OBJ_17 /* GeneralApi.swift */,
+				A160B3DD21E76D3E00981550 /* OperationApi.swift */,
 				OBJ_18 /* HistoryApi.swift */,
 				OBJ_19 /* MiningApi.swift */,
 				OBJ_20 /* PurchaseApi.swift */,
@@ -3805,6 +3808,7 @@
 				OBJ_889 /* Publishing.swift in Sources */,
 				OBJ_890 /* Purchase.swift in Sources */,
 				OBJ_891 /* RealSupply.swift in Sources */,
+				A160B3DE21E76D3E00981550 /* OperationApi.swift in Sources */,
 				OBJ_892 /* RequiredFee.swift in Sources */,
 				OBJ_893 /* Seeder.swift in Sources */,
 				OBJ_894 /* SignedBlock.swift in Sources */,
