@@ -4,6 +4,8 @@ import BigInt
 protocol DataConvertible {
     static func +(lhs: Data, rhs: Self) -> Data
     static func +=(lhs: inout Data, rhs: Self)
+    
+    func asData() -> Data
 }
 
 extension DataConvertible {
@@ -16,6 +18,8 @@ extension DataConvertible {
     static func +=(lhs: inout Data, rhs: Self) {
         lhs = lhs + rhs
     }
+    
+    func asData() -> Data { fatalError("Not implemeted") }
 }
 
 extension UInt8: DataConvertible {}
@@ -27,7 +31,18 @@ extension Int16: DataConvertible {}
 extension Int32: DataConvertible {}
 extension Int64: DataConvertible {}
 extension Int: DataConvertible {}
-extension BigInt: DataConvertible {}
+
+extension BigInt: DataConvertible {
+    static func +(lhs: Data, rhs: BigInt) -> Data {
+        return lhs + rhs.magnitude.serialize()
+    }
+    
+    static func +=(lhs: inout Data, rhs: BigInt) {
+        lhs = lhs + rhs.magnitude.serialize()
+    }
+    
+    func asData() -> Data { return self.magnitude.serialize() }
+}
 
 extension Array where Element: DataConvertible {
     static func +(lhs: Data, rhs: Array) -> Data {
@@ -68,6 +83,10 @@ extension String: DataConvertible {
         guard let data = rhs.data(using: .ascii) else { return lhs }
         return lhs + data
     }
+    
+    func asData() -> Data {
+        return (try? JSONSerialization.data(withJSONObject: self, options: [])) ?? Data(count: 0)
+    }
 }
 
 extension Data: DataConvertible {
@@ -77,6 +96,8 @@ extension Data: DataConvertible {
         data.append(rhs)
         return data
     }
+    
+    func asData() -> Data { return self }
 }
 
 

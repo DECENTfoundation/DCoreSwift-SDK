@@ -8,14 +8,14 @@ public final class HistoryApi: BaseApi {
                                   stopId: ChainObject = ObjectType.operationHistoryObject.genericId,
                                   limit: Int = 100) -> Single<[OperationHistory]> {
         
-        return GetAccountHistory(accountId: id, stopId: stopId, limit: limit, startId: startId).toCoreRequest(api.core)
+        return GetAccountHistory(accountId: id, stopId: stopId, limit: limit, startId: startId).asCoreRequest(api.core)
     }
     
     public func getAccountHistoryRelative(byAccountId id: ChainObject,
                                           start: Int = 0,
                                           limit: Int = 100) -> Single<[OperationHistory]> {
     
-        return GetRelativeAccountHistory(accountId: id, stop: 0, limit: limit, start: start).toCoreRequest(api.core)
+        return GetRelativeAccountHistory(accountId: id, stop: 0, limit: limit, start: start).asCoreRequest(api.core)
     }
     
     public func search(accountBalanceHistoryById id: ChainObject,
@@ -31,10 +31,10 @@ public final class HistoryApi: BaseApi {
                                            recipientAccount: recipientAccount,
                                            fromBlock: fromBlock,
                                            toBlock: toBlock,
-                                           startOffset: startOffset, limit: limit).toCoreRequest(api.core)
+                                           startOffset: startOffset, limit: limit).asCoreRequest(api.core)
     }
     
     public func getAccountBalanceForTransaction(byAccountId id: ChainObject, operationId: ChainObject) -> Single<BalanceChange> {
-        return GetAccountBalanceForTransaction(accountId: id, operationId: operationId).toCoreRequest(api.core)
+        return GetAccountBalanceForTransaction(accountId: id, operationId: operationId).asCoreRequest(api.core)
     }
 }

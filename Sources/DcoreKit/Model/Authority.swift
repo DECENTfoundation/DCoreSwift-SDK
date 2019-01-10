@@ -30,6 +30,13 @@ public struct AuthMap: Codable {
         weight
     }
     
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        
+        self.value = try container.decode(Address.self)
+        self.weight = try container.decode(UInt16.self)
+    }
+    
     init(value: Address, weight: UInt16 = 1) {
         self.value = value
         self.weight = weight

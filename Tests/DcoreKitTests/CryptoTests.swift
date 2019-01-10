@@ -4,7 +4,7 @@ import XCTest
 final class CryptoTests: XCTestCase {
     func testAddress() {
         let value = "DCT6bVmimtYSvWQtwdrkVVQGHkVsTJZVKtBiUqf4YmJnrJPnk89QP"
-        let address = value.core.address!
+        let address = value.chain.address!
         
         XCTAssertEqual(address.description, value)
     }
@@ -12,7 +12,7 @@ final class CryptoTests: XCTestCase {
     func testKeyPair() {
         
         let value = "5HvjjE1arorzNLdgRCUrhwzocDJWSdp4sLxSrSkTkA1pVwf9qzy"
-        let kp = value.core.keyPair!
+        let kp = value.chain.keyPair!
         
         XCTAssertEqual(kp.description, value)
     }
@@ -22,7 +22,7 @@ final class CryptoTests: XCTestCase {
         let value = "5HvjjE1arorzNLdgRCUrhwzocDJWSdp4sLxSrSkTkA1pVwf9qzy"
         let address = "DCT5mQypBKZvMsMACxkwpqDAgABFYYzRjMSMUWVVLog25cw2jwPHk"
         
-        let kp = value.core.keyPair!
+        let kp = value.chain.keyPair!
  
         XCTAssertEqual(kp.address.description, address)
     }

@@ -8,7 +8,7 @@ import Foundation
 // 5 - messaging
 
 enum ApiGroup {
-
+    
     static let database: ApiGroup =  ApiGroup(group: .database)
     static let login: ApiGroup =     ApiGroup(group: .login)
     static let broadcast: ApiGroup = ApiGroup(group: .broadcast)
@@ -16,7 +16,17 @@ enum ApiGroup {
     static let crypto: ApiGroup =    ApiGroup(group: .crypto)
     static let messaging: ApiGroup = ApiGroup(group: .messaging)
 
-    private init(group: DCore.Constant.Api.Group) {
+    private enum Category: String, CaseIterable {
+        case
+        database,
+        login = "",
+        broadcast = "network_broadcast",
+        history,
+        crypto,
+        messaging
+    }
+    
+    private init(group: Category) {
         self = .from(group.rawValue, group.offset!)
     }
     

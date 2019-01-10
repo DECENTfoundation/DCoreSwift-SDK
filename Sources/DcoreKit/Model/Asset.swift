@@ -1,10 +1,11 @@
 import Foundation
+import BigInt
 
 public struct Asset: Codable, AssetFormatter {
     
     public var id: ChainObject = ObjectType.assetObject.genericId {
         willSet {
-            guard newValue.objectType == ObjectType.assetObject else { preconditionFailure("Asset id \(newValue) is not object asset type") }
+            precondition(newValue.objectType == ObjectType.assetObject, "Asset id \(newValue) is not object asset type")
         }
     }
     
@@ -36,7 +37,7 @@ public struct Asset: Codable, AssetFormatter {
             return AssetAmount(amount, assetId: id)
         }
         
-        throw CoreError.chain(.failConversion("Cannot convert \(assetAmount.assetId) with \(symbol):\(id)"))
+        throw ChainException.chain(.failConvert("Cannot convert \(assetAmount.assetId) with \(symbol):\(id)"))
     }
 }
 
@@ -44,14 +45,28 @@ extension Asset {
     
     public enum Symbol: CustomStringConvertible, Encodable {
         
-        public static let alxt: Symbol = .from(DCore.Constant.Symbol.alxt.rawValue)
-        public static let alat: Symbol = .from(DCore.Constant.Symbol.alat.rawValue)
-        public static let alx: Symbol = .from(DCore.Constant.Symbol.alx.rawValue)
-        public static let aia: Symbol = .from(DCore.Constant.Symbol.aia.rawValue)
-        public static let dct: Symbol = .from(DCore.Constant.Symbol.dct.rawValue)
+        public static let alxt: Symbol = Symbol(name:.alxt)
+        public static let alat: Symbol = Symbol(name:.alat)
+        public static let alx: Symbol = Symbol(name:.alx)
+        public static let aia: Symbol = Symbol(name:.aia)
+        public static let dct: Symbol = Symbol(name:.dct)
+        
+        private enum SymbolName: String {
+            case
+            alxt = "ALXT",
+            alat = "ALAT",
+            alx = "ALX",
+            aia = "AIA",
+            dct = "DCT"
+        }
+        
+        private init(name: SymbolName) {
+            self = .from(name.rawValue)
+        }
         
         case
         from(String)
+        
         
         public var description: String {
             switch self {
@@ -60,7 +75,7 @@ extension Asset {
         }
         
         public var chainObject: ChainObject {
-            return description.core.chainObject!
+            return description.chain.chainObject!
         }
         
         public func encode(to encoder: Encoder) throws {
@@ -84,7 +99,7 @@ extension Asset {
     
     public struct Options: Codable {
         
-        public var maxSupply: UInt64 = 0
+        public var maxSupply: BigInt = 0
         public var exchangeRate: ExchangeRate = ExchangeRate()
         public var exchangeable: Bool = false
         public var extensions: AnyValue?
@@ -96,5 +111,7 @@ extension Asset {
             exchangeable = "is_exchangeable",
             extensions
         }
+        
+        public init() {}
     }
 }

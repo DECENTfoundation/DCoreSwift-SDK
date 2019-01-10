@@ -1,17 +1,17 @@
 import Foundation
 
 public protocol URLConvertible {
-    func toURL() -> URL?
+    func asURL() -> URL?
 }
 
 extension URL: URLConvertible {
-    public func toURL() -> URL? {
+    public func asURL() -> URL? {
         return self
     }
 }
 
 extension String: URLConvertible {
-    public func toURL() -> URL? {
+    public func asURL() -> URL? {
         return URL(string: self)
     }
 }

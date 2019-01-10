@@ -1,37 +1,33 @@
 import Foundation
 
-public enum CoreError: Error {
+public enum ChainException: Error {
 
-    public enum Network: Error {
+    public enum Network: Error, Equatable {
         case
         notFound,
-        failResult(AnyValue),
+        failAny(AnyValue),
         failDecode(String),
         failEncode(String)
     }
     
-    public enum Chain: Error {
+    public enum Chain: Error, Equatable {
         case
-        failConversion(String)
+        failConvert(String)
     }
     
-    public enum Crypto: Error {
+    public enum Crypto: Error, Equatable {
         case
         failSigning,
         failDecode(String),
         notEnoughSpace
     }
     
-    init(from underlying: Error) {
+    init(from error: Error) {
         switch true {
-        case underlying is Network:
-            self = .network(underlying as! Network)
-        case underlying is Chain:
-            self = .chain(underlying as! Chain)
-        case underlying is Crypto:
-            self = .crypto(underlying as! Crypto)
+        case error is ChainException:
+            self = error as! ChainException
         default:
-            self = .underlying(underlying)
+            self = .underlying(error)
         }
     }
     
@@ -44,7 +40,7 @@ public enum CoreError: Error {
     underlying(Error)
 }
 
-extension CoreError: CustomStringConvertible {
+extension ChainException: CustomStringConvertible {
     public var description: String {
         switch self {
         case .network(let network): return network.description
@@ -56,31 +52,45 @@ extension CoreError: CustomStringConvertible {
     }
 }
 
-extension CoreError.Network: CustomStringConvertible {
+extension ChainException.Network: CustomStringConvertible {
     public var description: String {
         switch self {
         case .notFound: return "Result not found"
-        case .failResult(let value): return value.description
+        case .failAny(let value): return value.description
         case .failDecode(let message): return message
         case .failEncode(let message): return message
         }
     }
 }
 
-extension CoreError.Chain: CustomStringConvertible {
+extension ChainException.Chain: CustomStringConvertible {
     public var description: String {
         switch self {
-        case .failConversion(let message): return message
+        case .failConvert(let message): return message
         }
     }
 }
 
-extension CoreError.Crypto: CustomStringConvertible {
+extension ChainException.Crypto: CustomStringConvertible {
     public var description: String {
         switch self {
         case .failSigning: return "Singing failed"
         case .failDecode(let message): return message
         case .notEnoughSpace: return "Not enough space"
+        }
+    }
+}
+
+extension ChainException: Equatable {
+    public static func == (lhs: ChainException, rhs: ChainException) -> Bool {
+        switch (lhs, rhs) {
+        case (.chain(let a), .chain(let b)): return a == b
+        case (.network(let a), .network(let b)): return a == b
+        case (.crypto(let a), .crypto(let b)): return a == b
+        case (.unexpected(let a), .unexpected(let b)): return a == b
+            
+        default:
+            return false
         }
     }
 }

@@ -23,7 +23,7 @@
 
 import Foundation
 
-private protocol BaseCodable {
+private protocol BaseConvertible {
     
     static var baseAlphabets: String { get }
     static var zeroAlphabet: Character { get }
@@ -40,7 +40,7 @@ private protocol BaseCodable {
 
 // The Base encoding used is home made, and has some differences. Especially,
 // leading zeros are kept as single zeros when conversion happens.
-extension BaseCodable {
+extension BaseConvertible {
     
     static func convertBytesToBase(_ bytes: Data) -> [UInt8] {
         
@@ -143,7 +143,7 @@ extension BaseCodable {
 
 public struct Base58 {
     
-    private struct BaseCoder: BaseCodable {
+    private struct BaseCoder: BaseConvertible {
         
         static let baseAlphabets = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
         static var zeroAlphabet: Character = "1"

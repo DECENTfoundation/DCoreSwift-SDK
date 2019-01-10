@@ -20,7 +20,7 @@ public struct ChainObject {
     
     public init(from id: String) throws {
         let result = id.matches(regex: "(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+))?")
-        guard !result.isEmpty else { throw CoreError.unexpected("Chain object \(id) has invalid format") }
+        guard !result.isEmpty else { throw ChainException.unexpected("Chain object \(id) has invalid format") }
         
         let parts = id.components(separatedBy: ".")
         
@@ -65,7 +65,7 @@ extension ChainObject: Codable {
     }
 }
 
-extension Core where Base == String {
+extension Chain where Base == String {
     public var chainObject: ChainObject? {
         return try? ChainObject(from: self.base)
     }

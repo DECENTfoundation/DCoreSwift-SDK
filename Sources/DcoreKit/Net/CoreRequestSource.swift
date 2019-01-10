@@ -2,8 +2,11 @@ import Foundation
 import RxSwift
 
 protocol CoreRequestSource {
-    associatedtype Response: Codable
-    associatedtype ResponseRelay: ObservableType where ResponseRelay.E == Response
-    
-    func request<Response>(using req: BaseRequest<Response>) -> ResponseRelay
+    func request<Output>(using req: BaseRequest<Output>) -> Single<Output> where Output: Codable
+}
+
+extension CoreRequestSource {
+    func request<Output>(using req: BaseRequest<Output>) -> Single<Output> where Output: Codable {
+        return Single.error(ChainException.unexpected("Api call not implemented"))
+    }
 }

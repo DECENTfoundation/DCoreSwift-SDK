@@ -1,13 +1,15 @@
 import Foundation
 
-public enum AnyValue: Codable {
+public enum AnyValue: Codable, Equatable {
     
-    case string(String)
-    case int(Int)
-    case double(Double)
-    case bool(Bool)
-    case object([String:AnyValue])
-    case array([AnyValue])
+    case
+    string(String),
+    int(Int),
+    double(Double),
+    bool(Bool),
+    object([String:AnyValue]),
+    array([AnyValue]),
+    null
     
     public init(from decoder: Decoder) throws {
         
@@ -24,6 +26,8 @@ public enum AnyValue: Codable {
             self = .object(value)
         } else if let value = try? container.decode([AnyValue].self) {
             self = .array(value)
+        } else if container.decodeNil() {
+            self = .null
         } else {
             throw DecodingError.typeMismatch(AnyValue.self, DecodingError.Context(codingPath: container.codingPath, debugDescription: "Not a JSON"))
         }
@@ -43,6 +47,7 @@ extension AnyValue: CustomStringConvertible {
         case .bool(let value): return "\(value)"
         case .object(let value): return "\(value)"
         case .array(let value): return "\(value)"
+        case .null: return "null"
         }
     }
 }

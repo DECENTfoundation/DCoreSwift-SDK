@@ -53,7 +53,8 @@ public struct CryptoUtils {
     static func secureRandom(_ count: Int = 32) -> Data {
         var bytes = Data(count: count)
         let result = bytes.withUnsafeMutableBytes { SecRandomCopyBytes(kSecRandomDefault, count, $0) }
-        guard result == 0 else { preconditionFailure("cannot generate secure random bytes") }
+        
+        precondition(result == 0, "Cannot generate secure random bytes")
 
         return bytes
     }

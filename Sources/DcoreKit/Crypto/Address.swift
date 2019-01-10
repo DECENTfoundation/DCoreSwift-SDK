@@ -18,7 +18,7 @@ public struct Address {
     
     init(from value: String) throws {
         guard let prefix = value[safe: 0..<3], let suffix = value[safe: 3..<value.count], let decoded = Base58.decode(suffix) else {
-            throw CoreError.crypto(.failDecode("Address \(value) has invalid format"))
+            throw ChainException.crypto(.failDecode("Address \(value) has invalid format"))
         }
  
         let key = decoded.prefix(decoded.count - 4)
@@ -27,7 +27,7 @@ public struct Address {
         let originalChecksum = decoded.suffix(4)
      
         guard calculatedChecksum == originalChecksum else {
-            throw CoreError.crypto(.failDecode("Address \(value) has invalid checksum"))
+            throw ChainException.crypto(.failDecode("Address \(value) has invalid checksum"))
         }
         
         self.init(fromPublicKey: key, prefix: prefix)
@@ -40,12 +40,16 @@ extension Address: Equatable {
     }
 }
 
-extension Address: CustomStringConvertible {
+extension Address: CustomStringConvertible, CustomDebugStringConvertible {
     public var description: String {
         let calculated = CryptoUtils.ripemd160(serialized)
         let calculatedChecksum = calculated.prefix(4)
         
         return prefix + Base58.encode(serialized+calculatedChecksum)
+    }
+    
+    public var debugDescription: String {
+        return description
     }
 }
 
@@ -67,7 +71,7 @@ extension Address: DataSerializable {
     }
 }
 
-extension Core where Base == String {
+extension Chain where Base == String {
     public var address: Address? {
         return try? Address(from: self.base)
     }

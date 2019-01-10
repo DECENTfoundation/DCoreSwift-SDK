@@ -8,8 +8,8 @@ class GetAccountHistory: BaseRequest<[OperationHistory]> {
                   startId: ChainObject = ObjectType.operationHistoryObject.genericId
         ) {
         
-        guard accountId.objectType == ObjectType.accountObject else { preconditionFailure("not a valid account object id") }
-        guard startId.objectType == ObjectType.operationHistoryObject else { preconditionFailure("not a valid history object id") }
+        precondition(accountId.objectType == ObjectType.accountObject, "Not a valid account object id")
+        precondition(startId.objectType == ObjectType.operationHistoryObject,"Not a valid history object id")
         
         super.init(.history, api: "get_account_history", returnClass: [OperationHistory].self, params: [
             accountId.objectId, stopId.objectId, max(0, min(100, limit)), startId.objectId

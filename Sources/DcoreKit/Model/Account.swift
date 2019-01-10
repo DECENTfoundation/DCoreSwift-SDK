@@ -26,7 +26,13 @@ public struct Account: Codable {
     }
     
     static func hasValid(name: String) -> Bool {
-        return !name.matches(regex: "^[a-z][a-z0-9-]+[a-z0-9](?:\\.[a-z][a-z0-9-]+[a-z0-9])*\\$").isEmpty && (5...63).contains(name.count)
+        return !name.matches(regex: "^(?=.{5,63}$)([a-z][a-z0-9-]+[a-z0-9])(\\.[a-z][a-z0-9-]+[a-z0-9])*$").isEmpty
+    }
+}
+
+extension Account: Equatable {
+    public static func == (lhs: Account, rhs: Account) -> Bool {
+        return lhs.id == rhs.id
     }
 }
 

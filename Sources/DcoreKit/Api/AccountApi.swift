@@ -4,15 +4,15 @@ import RxSwift
 public final class AccountApi: BaseApi {
     
     public func getAccount(byName name: String) -> Single<Account> {
-        return GetAccountByName(name).toCoreRequest(api.core)
+        return GetAccountByName(name).asCoreRequest(api.core)
     }
     
     public func getAccounts(byIds ids: [ChainObject]) -> Single<[Account]> {
-        return GetAccountById(ids).toCoreRequest(api.core)
+        return GetAccountById(ids).asCoreRequest(api.core)
     }
     
     public func getAccountIds(byAddressList list: [Address]) -> Single<[[ChainObject]]> {
-        return GetKeyReferences(list).toCoreRequest(api.core)
+        return GetKeyReferences(list).asCoreRequest(api.core)
     }
     
     public func existAccount(byName name: String) -> Single<Bool> {
@@ -28,9 +28,8 @@ public final class AccountApi: BaseApi {
             
             if let address = try? Address(from: value) {
                 return self.getAccountIds(byAddressList: [address])
-                    .map({ $0.first! })
-                    .flatMap({ [unowned self] ids in
-                        return self.getAccounts(byIds: ids).map({ $0.first! })
+                    .flatMap({ [unowned self] result in
+                        return self.getAccounts(byIds: result.first!).map({ $0.first! })
                     })
             }
             
@@ -38,7 +37,7 @@ public final class AccountApi: BaseApi {
                 return self.getAccount(byName: value)
             }
             
-            return Single.error(CoreError.unexpected("Value \(value) is not a valid account reference"))
+            return Single.error(ChainException.unexpected("Value \(value) is not a valid account reference"))
         })
     }
     
@@ -46,7 +45,7 @@ public final class AccountApi: BaseApi {
                        from: ChainObject = ObjectType.nullObject.genericId,
                        order: SearchAccountHistoryOrder = .TIME_DESC,
                        limit: Int = 100) -> Single<[TransactionDetail]> {
-        return SearchAccountHistory(accountId: accoundId, order: order, startId: from, limit: limit).toCoreRequest(api.core)
+        return SearchAccountHistory(accountId: accoundId, order: order, startId: from, limit: limit).asCoreRequest(api.core)
     }
     
     public func createCredentials(accountName: String, wif: String) -> Single<Credentials> {
@@ -54,19 +53,19 @@ public final class AccountApi: BaseApi {
     }
     
     public func getFullAccounts(byNamesOrIds ref: [String], subscribe: Bool = false) -> Single<[String:FullAccount]>{
-        return GetFullAccounts(namesOrIds: ref, subscribe: subscribe).toCoreRequest(api.core)
+        return GetFullAccounts(namesOrIds: ref, subscribe: subscribe).asCoreRequest(api.core)
     }
     
     public func getAccountReferences(byId id: ChainObject) -> Single<[ChainObject]> {
-        return GetAccountReferences(id).toCoreRequest(api.core)
+        return GetAccountReferences(id).asCoreRequest(api.core)
     }
     
     public func lookupAccount(byNames names: [String]) -> Single<[Account]> {
-        return LookupAccountNames(names).toCoreRequest(api.core)
+        return LookupAccountNames(names).asCoreRequest(api.core)
     }
     
     public func lookupAccounts(byLowerBound bound: String, limit: Int = 1000) -> Single<[String:ChainObject]> {
-        return LookupAccounts(bound, limit: limit).toCoreRequest(api.core)
+        return LookupAccounts(bound, limit: limit).asCoreRequest(api.core)
     }
     
     public func search(accountsByTerm term: String,
@@ -74,11 +73,11 @@ public final class AccountApi: BaseApi {
                        id: ChainObject = ObjectType.nullObject.genericId,
                        limit: Int = 1000) -> Single<[Account]> {
         
-        return SearchAccounts(searchTerm: term, order: order, id: id, limit: limit).toCoreRequest(api.core)
+        return SearchAccounts(searchTerm: term, order: order, id: id, limit: limit).asCoreRequest(api.core)
     }
     
     public func getAccountCount() -> Single<UInt64> {
-        return GetAccountCount().toCoreRequest(api.core)
+        return GetAccountCount().asCoreRequest(api.core)
     }
     
 }

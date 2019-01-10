@@ -5,35 +5,35 @@ extension DCore {
     
     public final class Sdk {
         
-        private var rpc: RpcService? = nil
+        private var rest: RestService? = nil
         private var wss: WssService? = nil
         private var logger: LoggerConvertible? = nil
         
-        private lazy var chainId = GetChainId().toCoreRequest(self).cache()
+        private lazy var chainId = GetChainId().asCoreRequest(self).cache()
         
-        required init(socket: URLConvertible? = nil, http: URLConvertible? = nil, session: URLSession? = nil, logger: LoggerConvertible? = nil) {
+        internal required init(wssUri: URLConvertible? = nil, restUri: URLConvertible? = nil, session: URLSession? = nil, logger: LoggerConvertible? = nil) {
             self.logger = logger
             
-            if let path = socket, let url = path.toURL() { self.rpc = RpcService(url, session: session) }
-            if let path = http, let url = path.toURL() { self.wss = WssService(url) }
+            if let path = restUri, let url = path.asURL() { rest = RestService(url, session: session) }
+            if let path = wssUri, let url = path.asURL() { wss = WssService(url) }
             
-            guard self.rpc != nil || self.wss != nil else { preconditionFailure("At least one uri have to be set correctly") }
+            guard rest != nil || wss != nil else { preconditionFailure("At least one uri have to be set correctly") }
         }
         
-        public static func create(forHttp uri: URLConvertible, session: URLSession? = nil) -> Api {
-            return Api(core: Sdk(http: uri, session: session))
+        public static func create(forRest uri: URLConvertible, session: URLSession? = nil) -> Api {
+            return Api(core: Sdk(restUri: uri, session: session))
         }
         
-        public static func create(forWebSocket uri: URLConvertible) -> Api {
-            return Api(core: Sdk(socket: uri))
+        public static func create(forWss uri: URLConvertible) -> Api {
+            return Api(core: Sdk(wssUri: uri))
         }
         
-        public static func create(forSocketUri uri: URLConvertible, httpUri: URLConvertible, session: URLSession? = nil) -> Api {
-            return Api(core: Sdk(socket: uri, http: httpUri, session: session))
+        public static func create(forWss uri: URLConvertible, andRest restUri: URLConvertible, session: URLSession? = nil) -> Api {
+            return Api(core: Sdk(wssUri: uri, restUri: restUri, session: session))
         }
         
-        func prepareTransaction<T: BaseOperation>(forOperations operations: [T], expiration: Int) -> Single<Transaction> {
-            return Single.zip(chainId, GetDynamicGlobalProps().toCoreRequest(self)).flatMap({ (id, props) in
+        func prepareTransaction<Operation>(forOperations operations: [Operation], expiration: Int) -> Single<Transaction> where Operation: BaseOperation {
+            return Single.zip(chainId, GetDynamicGlobalProps().asCoreRequest(self)).flatMap({ (id, props) in
                 
                 // var ops = operations
                 // let idx = ops.partition(by: { $0.fee != BaseOperation.FEE_UNSET })
@@ -47,8 +47,15 @@ extension DCore {
             })
         }
      
-        func make<T: Codable>(request: BaseRequest<T>) -> Single<T> {
-            fatalError("bla")
+        func make<Output>(request: BaseRequest<Output>) -> Single<Output> where Output: Codable {
+            if let wss = wss, rest == nil || (request is WithCallback) {
+                return wss.request(using: request)
+            } else {
+                guard let rest = rest, !(request is WithCallback) else {
+                    return Single.error(ChainException.unexpected("Callbacks are not available through rest api"))
+                }
+                return rest.request(using: request)
+            }
         }
     }
 }

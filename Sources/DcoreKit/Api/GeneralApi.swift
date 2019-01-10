@@ -4,30 +4,30 @@ import RxSwift
 public final class GeneralApi: BaseApi {
 
     public func info() -> Single<String> {
-        return Info().toCoreRequest(api.core)
+        return Info().asCoreRequest(api.core)
     }
     
     public func getChainProperties() -> Single<ChainProperty> {
-        return GetChainProperties().toCoreRequest(api.core)
+        return GetChainProperties().asCoreRequest(api.core)
     }
     
     public func getGlobalProperties() -> Single<GlobalProperty> {
-        return GetGlobalProperties().toCoreRequest(api.core)
+        return GetGlobalProperties().asCoreRequest(api.core)
     }
     
     public func getConfig() -> Single<Config> {
-        return GetConfig().toCoreRequest(api.core)
+        return GetConfig().asCoreRequest(api.core)
     }
     
     public func getChainId() -> Single<String> {
-        return GetChainId().toCoreRequest(api.core)
+        return GetChainId().asCoreRequest(api.core)
     }
     
     public func getDynamicGlobalProperties() -> Single<DynamicGlobalProps> {
-        return GetDynamicGlobalProps().toCoreRequest(api.core)
+        return GetDynamicGlobalProps().asCoreRequest(api.core)
     }
     
     public func getTimeToMaintenance(time: Date) -> Single<MinerRewardInput> {
-        return GetTimeToMaintenance(time: time).toCoreRequest(api.core)
+        return GetTimeToMaintenance(time: time).asCoreRequest(api.core)
     }
 }

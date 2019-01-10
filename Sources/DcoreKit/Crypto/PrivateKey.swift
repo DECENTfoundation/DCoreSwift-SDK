@@ -12,7 +12,7 @@ struct PrivateKey {
     
     init(fromWif wif: String) throws {
         guard let decoded = Base58.decode(wif) else {
-            throw CoreError.crypto(.failDecode("Wif \(wif) has invalid format"))
+            throw ChainException.crypto(.failDecode("Wif \(wif) has invalid format"))
         }
         
         let checksumDropped = decoded.prefix(decoded.count - 4)
@@ -20,7 +20,7 @@ struct PrivateKey {
         let originalChecksum = decoded.suffix(4)
 
         guard calculatedChecksum == originalChecksum else {
-            throw CoreError.crypto(.failDecode("Wif \(wif) has invalid checksum"))
+            throw ChainException.crypto(.failDecode("Wif \(wif) has invalid checksum"))
         }
         
         let version = Int(checksumDropped.first!) & 0xFF
@@ -30,7 +30,7 @@ struct PrivateKey {
         // 1 + 32 = version + key
         
         guard checksumDropped.count == (1 + 32) || checksumDropped.count == (1 + 32 + 1) else {
-            throw CoreError.crypto(.failDecode("Wif \(wif) has invalid checksum count \(checksumDropped.count)"))
+            throw ChainException.crypto(.failDecode("Wif \(wif) has invalid checksum count \(checksumDropped.count)"))
         }
         
         self.init(data: checksumDropped.dropFirst().prefix(32), version: version, compressed: (checksumDropped.count == (1 + 32 + 1)))
@@ -71,7 +71,7 @@ struct PrivateKey {
             data.withUnsafeBytes { secp256k1_ecdsa_sign(ctx, signature, ptr, $0, nil, nil) }
         }
         
-        guard status == 1 else { throw CoreError.crypto(.failSigning) }
+        guard status == 1 else { throw ChainException.crypto(.failSigning) }
         
         let normalizedsig = UnsafeMutablePointer<secp256k1_ecdsa_signature>.allocate(capacity: 1)
         defer { normalizedsig.deallocate() }
@@ -82,7 +82,7 @@ struct PrivateKey {
         var der = Data(count: length)
         
         guard der.withUnsafeMutableBytes({ return secp256k1_ecdsa_signature_serialize_der(ctx, $0, &length, normalizedsig) }) == 1 else {
-            throw CoreError.crypto(.notEnoughSpace)
+            throw ChainException.crypto(.notEnoughSpace)
         }
         
         der.count = length

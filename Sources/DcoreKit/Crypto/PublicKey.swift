@@ -22,14 +22,14 @@ struct PublicKey {
         defer { signaturePointer.deallocate() }
         
         guard signature.withUnsafeBytes({ secp256k1_ecdsa_signature_parse_der(ctx, signaturePointer, $0, signature.count) }) == 1 else {
-            throw CoreError.crypto(.failDecode("Could not parse ECDSA signature"))
+            throw ChainException.crypto(.failDecode("Could not parse ECDSA signature"))
         }
         
         let pubkeyPointer = UnsafeMutablePointer<secp256k1_pubkey>.allocate(capacity: 1)
         defer { pubkeyPointer.deallocate() }
         
         guard data.withUnsafeBytes({ secp256k1_ec_pubkey_parse(ctx, pubkeyPointer, $0, data.count) }) == 1 else {
-            throw CoreError.crypto(.failDecode("Could not parse EC Public key"))
+            throw ChainException.crypto(.failDecode("Could not parse EC Public key"))
         }
         
         guard message.withUnsafeBytes ({ secp256k1_ecdsa_verify(ctx, signaturePointer, $0, pubkeyPointer) }) == 1 else {
@@ -68,7 +68,7 @@ struct PublicKey {
             throw CryptoError.parseFailed
         }
         */
-        throw CoreError.crypto(.failDecode("Could not multiply PK"))
+        throw ChainException.crypto(.failDecode("Could not multiply PK"))
     }
     
     private static func compute(fromPrivateKey privateKey: Data, compression: Bool) -> Data {

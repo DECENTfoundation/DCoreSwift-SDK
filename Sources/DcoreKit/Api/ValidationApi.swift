@@ -4,27 +4,27 @@ import RxSwift
 public final class ValidationApi: BaseApi {
     
     public func getRequiredSignatures(byTrx trx: Transaction, keys: [Address]) -> Single<[Address]> {
-        return GetRequiredSignatures(transaction: trx, keys: keys).toCoreRequest(api.core)
+        return GetRequiredSignatures(transaction: trx, keys: keys).asCoreRequest(api.core)
     }
     
     public func getPotentialSignatures(byTrx trx: Transaction) -> Single<[Address]> {
-        return GetPotentialSignatures(transaction: trx).toCoreRequest(api.core)
+        return GetPotentialSignatures(transaction: trx).asCoreRequest(api.core)
     }
     
     public func verifyAuthority(byTrx trx: Transaction) -> Single<Bool> {
-        return VerifyAuthority(transaction: trx).toCoreRequest(api.core).catchErrorJustReturn(false)
+        return VerifyAuthority(transaction: trx).asCoreRequest(api.core).catchErrorJustReturn(false)
     }
     
     public func verifyAccountAuthority(account: String, keys: [Address]) -> Single<Bool> {
-        return VerifyAccountAuthority(account: account, keys: keys).toCoreRequest(api.core)
+        return VerifyAccountAuthority(account: account, keys: keys).asCoreRequest(api.core)
     }
     
     public func validateTransaction(byTrx trx: Transaction) -> Single<ProcessedTransaction> {
-        return ValidateTransaction(transaction: trx).toCoreRequest(api.core)
+        return ValidateTransaction(transaction: trx).asCoreRequest(api.core)
     }
     
     public func getFees(forOperations operations: [BaseOperation]) -> Single<[AssetAmount]> {
-        return GetRequiredFees(operations: operations).toCoreRequest(api.core)
+        return GetRequiredFees(operations: operations).asCoreRequest(api.core)
     }
     
     public func getFee(forOperation operation: BaseOperation) -> Single<AssetAmount> {
