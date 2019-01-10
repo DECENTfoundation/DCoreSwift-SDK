@@ -17,8 +17,8 @@ extension JSONDecoder {
 
 extension JSONEncoder {
     
-    public static func codingContext() -> JSONDecoder{
-        return JSONDecoder(context: [
+    public static func codingContext() -> JSONEncoder{
+        return JSONEncoder(context: [
             BigInt.CodingContext.key: BigInt.CodingContext.decimal
             ])
     }

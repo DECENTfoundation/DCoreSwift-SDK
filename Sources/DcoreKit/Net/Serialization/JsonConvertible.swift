@@ -40,7 +40,7 @@ extension Data: JsonConvertible {}
 
 extension Encodable {
     func asJsonData() throws -> Data {
-        return try JSONEncoder().encode(self)
+        return try JSONEncoder.codingContext().encode(self)
     }
     
     func asJson() throws -> String {
