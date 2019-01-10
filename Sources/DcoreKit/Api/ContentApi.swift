@@ -12,10 +12,10 @@ public final class ContentApi: BaseApi {
     }
     
     public func search(contentByTerm term: String,
-                       order: SearchContentOrder = .CREATED_DESC,
+                       order: SearchOrder.Content = .createdDesc,
                        user: String = "",
                        regionCode: String = Regions.ALL.code,
-                       type: String = ContentCategory.id(.DECENT_CORE, .NONE).description,
+                       type: String = ContentCategory.id(.decentCore, .none).description,
                        startId: ChainObject = ObjectType.nullObject.genericId,
                        limit: Int = 100) -> Single<[Content]> {
         

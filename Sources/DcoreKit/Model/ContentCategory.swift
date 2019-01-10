@@ -5,22 +5,22 @@ public enum ContentCategory {
 
     public enum Application: Int, Codable {
         case
-        DECENT_CORE = 0,
-        DECENT_GO,
-        ALAX
+        decentCore = 0,
+        decentGo,
+        alax
     }
     
     public enum Category: Int, Codable {
         case
-        NONE = 0,
-        MUSIC,
-        MOVIE,
-        BOOK,
-        AUDIO_BOOK,
-        SOFTWARE,
-        GAME,
-        PICTURE,
-        DOCUMENT
+        none = 0,
+        music,
+        movie,
+        book,
+        audioBook,
+        software,
+        game,
+        picture,
+        document
     }
     
     case id(Application, Category)

@@ -3,7 +3,7 @@ import Foundation
 class SearchContent: BaseRequest<[Content]> {
     
     required init(term: String,
-                  order: SearchContentOrder = .CREATED_DESC,
+                  order: SearchOrder.Content = .createdDesc,
                   user: String,
                   regionCode: String,
                   type: String,

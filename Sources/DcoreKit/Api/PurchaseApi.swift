@@ -6,7 +6,7 @@ public final class PurchaseApi: BaseApi {
     public func search(purchasesByConsumerId id: ChainObject,
                        term: String = "",
                        from: ChainObject = ObjectType.nullObject.genericId,
-                       order: SearchPurchasesOrder = .PURCHASED_DESC,
+                       order: SearchOrder.Purchases = .purchasedDesc,
                        limit: Int = 100) -> Single<[Purchase]> {
         
         return SearchBuyings(consumer: id, order: order, startId: from, term: term, limit: limit).asCoreRequest(api.core)

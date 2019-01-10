@@ -33,10 +33,10 @@ public final class ValidationApi: BaseApi {
     
     public func getFee(forType type: OperationType) -> Single<AssetAmount>  {
         guard ![
-            OperationType.PROPOSAL_CREATE_OPERATION,
-            OperationType.PROPOSAL_UPDATE_OPERATION,
-            OperationType.WITHDRAW_PERMISSION_CLAIM_OPERATION,
-            OperationType.CUSTOM_OPERATION
+            .proposalCreateOperation,
+            .proposalUpdateOperation,
+            .withdrawPermissionClaimOperation,
+            .customOperation
             ].contains(type) else { preconditionFailure("not supported operation type") }
         
         return getFee(forOperation: EmptyOperation(type: type))

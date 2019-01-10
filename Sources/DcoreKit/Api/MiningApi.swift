@@ -42,7 +42,7 @@ public final class MiningApi: BaseApi {
     }
 
     public func search(minerVotingByTerm term: String,
-                       order: SearchMinerVotingOrder = .NAME_DESC,
+                       order: SearchOrder.MinerVoting = .nameDesc,
                        id: ChainObject? = nil,
                        accountName: String? = nil,
                        onlyMyVotes: Bool = false,

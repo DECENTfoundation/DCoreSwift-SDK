@@ -17,7 +17,7 @@ public final class BuyContentOperation: BaseOperation {
         self.publicElGamal = publicElGamal
         self.regionCode = regionCode
         
-        super.init(type: .REQUEST_TO_BUY_OPERATION, fee: fee)
+        super.init(type: .requestToBuyOperation, fee: fee)
     }
     
     public convenience init(credentials: Credentials, content: Content) {

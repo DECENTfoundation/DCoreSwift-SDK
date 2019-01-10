@@ -9,11 +9,19 @@ final class BalanceApiTests: XCTestCase {
     
     func testGetBalanceByAccountId() {
    
-        // let b = try? self.api.balance.getBalance(byReference: "").to
-        XCTAssert(true)
+        let balance = try? api.balance.getBalance(byAccountId: "1.2.34".chain.chainObject!).debug().toBlocking().single()
+        XCTAssertEqual(balance?.asset.id, DCore.Constant.Default.dct)
+        XCTAssertEqual(balance?.amount.assetId, DCore.Constant.Default.dct)
+    }
+    
+    func testGetBalanceByAccountIdAndAssetId() {
+        
+        let balance = try? api.balance.getBalance(byAccountId: "1.2.34".chain.chainObject!, asset: DCore.Constant.Default.dct).debug().toBlocking().single()
+        XCTAssertEqual(balance?.assetId, DCore.Constant.Default.dct)
     }
     
     static var allTests = [
         ("testGetBalanceByAccountId", testGetBalanceByAccountId),
+        ("testGetBalanceByAccountIdAndAssetId", testGetBalanceByAccountIdAndAssetId),
     ]
 }

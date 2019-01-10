@@ -1,61 +1,65 @@
 import Foundation
 
-public enum SearchAccountHistoryOrder: String, Codable {
-    case
-    TYPE_ASC = "+type",
-    TO_ASC = "+to",
-    FROM_ASC = "+from",
-    PRICE_ASC = "+price",
-    FEE_ASC = "+fee",
-    DESCRIPTION_ASC = "+description",
-    TIME_ASC = "+time",
-    TYPE_DESC = "-type",
-    TO_DESC = "-to",
-    FROM_DESC = "-from",
-    PRICE_DESC = "-price",
-    FEE_DESC = "-fee",
-    DESCRIPTION_DESC = "-description",
-    TIME_DESC = "-time"
-}
+public enum SearchOrder {
+    
+    public enum AccountHistory: String, Codable {
+        case
+        typeAsc = "+type",
+        toAsc = "+to",
+        fromAsc = "+from",
+        priceAsc = "+price",
+        feeAsc = "+fee",
+        descriptionAsc = "+description",
+        timeAsc = "+time",
+        typeDesc = "-type",
+        toDesc = "-to",
+        fromDesc = "-from",
+        priceDesc = "-price",
+        feeDesc = "-fee",
+        descriptionDesc = "-description",
+        timeDesc = "-time"
+    }
+    
+    public enum Content: String, Codable {
+        case
+        authorAsc = "+author",
+        ratingAsc = "+rating",
+        sizeAsc = "+size",
+        priceAsc = "+price",
+        createdAsc = "+created",
+        expirationAsc = "+expiration",
+        authorDesc = "-author",
+        ratingDesc = "-rating",
+        sizeDesc = "-size",
+        priceDesc = "-price",
+        createdDesc = "-created",
+        expirationDesc = "-expiration"
+    }
+    
+    public enum Purchases: String, Codable {
+        case
+        sizeAsc = "+size",
+        priceAsc = "+price",
+        createdAsc = "+created",
+        purchasedAsc = "+purchased",
+        sizeDesc = "-size",
+        priceDesc = "-price",
+        createdDesc = "-created",
+        purchasedDesc = "-purchased"
+    }
+    
+    public enum Accounts: String, Codable {
+        case
+        idAsc = "+id",
+        nameAsc = "+name",
+        idDesc = "-id",
+        nameDesc = "-name"
+    }
+    
+    public enum MinerVoting: String, Codable {
+        case
+        nameAsc = "+name",
+        nameDesc = "-name"
+    }
 
-public enum SearchContentOrder: String, Codable {
-    case
-    AUTHOR_ASC = "+author",
-    RATING_ASC = "+rating",
-    SIZE_ASC = "+size",
-    PRICE_ASC = "+price",
-    CREATED_ASC = "+created",
-    EXPIRATION_ASC = "+expiration",
-    AUTHOR_DESC = "-author",
-    RATING_DESC = "-rating",
-    SIZE_DESC = "-size",
-    PRICE_DESC = "-price",
-    CREATED_DESC = "-created",
-    EXPIRATION_DESC = "-expiration"
-}
-
-public enum SearchPurchasesOrder: String, Codable {
-    case
-    SIZE_ASC = "+size",
-    PRICE_ASC = "+price",
-    CREATED_ASC = "+created",
-    PURCHASED_ASC = "+purchased",
-    SIZE_DESC = "-size",
-    PRICE_DESC = "-price",
-    CREATED_DESC = "-created",
-    PURCHASED_DESC = "-purchased"
-}
-
-public enum SearchAccountsOrder: String, Codable {
-    case
-    ID_ASC = "+id",
-    NAME_ASC = "+name",
-    ID_DESC = "-id",
-    NAME_DESC = "-name"
-}
-
-public enum SearchMinerVotingOrder: String, Codable {
-    case
-    NAME_ASC = "+name",
-    NAME_DESC = "-name"
 }

@@ -17,6 +17,11 @@ final class AssetApiTests: XCTestCase {
         let asset = try? api.asset.getAsset(bySymbol: .dct).debug().toBlocking().single()
         XCTAssertEqual(asset?.id, DCore.Constant.Default.dct)
     }
+    
+    func testGetAssetsBySymbols() {
+        let assets = try? api.asset.getAssets(bySymbols: [.alat, .alxt, .dct]).debug().toBlocking().single()
+        XCTAssertEqual(assets?.count, 3)
+    }
    
     
     static var allTests = [

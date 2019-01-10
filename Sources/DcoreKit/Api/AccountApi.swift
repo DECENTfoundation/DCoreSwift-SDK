@@ -43,7 +43,7 @@ public final class AccountApi: BaseApi {
     
     public func search(accountHistory accoundId: ChainObject,
                        from: ChainObject = ObjectType.nullObject.genericId,
-                       order: SearchAccountHistoryOrder = .TIME_DESC,
+                       order: SearchOrder.AccountHistory = .timeDesc,
                        limit: Int = 100) -> Single<[TransactionDetail]> {
         return SearchAccountHistory(accountId: accoundId, order: order, startId: from, limit: limit).asCoreRequest(api.core)
     }
@@ -69,7 +69,7 @@ public final class AccountApi: BaseApi {
     }
     
     public func search(accountsByTerm term: String,
-                       order: SearchAccountsOrder = .NAME_DESC,
+                       order: SearchOrder.Accounts = .nameDesc,
                        id: ChainObject = ObjectType.nullObject.genericId,
                        limit: Int = 1000) -> Single<[Account]> {
         

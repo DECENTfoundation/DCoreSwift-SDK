@@ -12,7 +12,7 @@ public final class TransferOperation: BaseOperation {
         self.amount = amount
         self.memo = memo
         
-        super.init(type: .TRANSFER2_OPERATION, fee: fee)
+        super.init(type: .transferTwoOperation, fee: fee)
     }
     
     public required init(from decoder: Decoder) throws {
