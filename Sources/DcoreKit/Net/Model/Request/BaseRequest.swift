@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-struct BaseRequest<Output: Codable>: Encodable, CoreRequestConvertible, RestConvertible, WssConvertible {
+struct BaseRequest<Output: Codable>: Encodable, ChainRequestConvertible, RestConvertible, WssConvertible {
     
     typealias Request = BaseRequest
     var base: BaseRequest<Output> { return self }
@@ -58,11 +58,13 @@ struct BaseRequest<Output: Codable>: Encodable, CoreRequestConvertible, RestConv
         try nestedUnkeyed.encode(contentsOf: params)
     }
     
-    mutating func with(id: UInt64, useCallback: Bool) -> BaseRequest<Output> {
-        if useCallback { self.callbackId = id }
-        self.callId = id
+    func with(id: UInt64) -> BaseRequest<Output> {
+        var request = self
         
-        return self
+        if callback { request.callbackId = id }
+        request.callId = id
+        
+        return request
     }
 }
 

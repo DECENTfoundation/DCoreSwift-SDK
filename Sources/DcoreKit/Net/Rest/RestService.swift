@@ -2,7 +2,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class RestService: CoreRequestSource {
+final class RestService: ChainRequestSource {
 
     private let url: URL
     private let session: URLSession

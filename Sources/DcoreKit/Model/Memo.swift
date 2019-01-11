@@ -25,7 +25,7 @@ public struct Memo: Codable {
     
     public init(_ message: String, keyPair: ECKeyPair, recipient: Address, nonce: BigInt = CryptoUtils.generateNonce()) {
         
-        precondition(nonce.signum() > 0, "Nonce must be a positive number")
+        precondition(nonce.sign == .plus, "Nonce must be a positive number")
         
         self.nonce = nonce
         self.from = keyPair.address

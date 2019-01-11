@@ -2,18 +2,20 @@ import Foundation
 
 protocol WssConvertible {
 
-    func with(id: UInt64, useCallback: Bool) -> Self
-    func asWss(id: UInt64, useCallback: Bool) throws -> String
+    func with(id: UInt64) -> Self
+    func asWss(id: UInt64) throws -> String
 }
 
 extension WssConvertible where Self: Encodable {
-    func with(id: UInt64, useCallback: Bool) -> Self {
-        fatalError("Not Implemented")
+    func with(id: UInt64) -> Self {
+        fatalError("Override required")
     }
     
-    func asWss(id: UInt64, useCallback: Bool = false) throws -> String {
+    func asWss(id: UInt64) throws -> String {
         
-        // TODO: log json requests
-        return try with(id: id, useCallback: useCallback).asJson()
+        let request = try with(id: id).asJson()
+        Logger.debug(network: "RPC wss request:\n%{private}s") { request }
+        
+        return request
     }
 }

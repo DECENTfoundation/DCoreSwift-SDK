@@ -4,15 +4,15 @@ import RxSwift
 public final class AccountApi: BaseApi {
     
     public func getAccount(byName name: String) -> Single<Account> {
-        return GetAccountByName(name).base.asCoreRequest(api.core)
+        return GetAccountByName(name).base.asChainRequest(api.core)
     }
     
     public func getAccounts(byIds ids: [ChainObject]) -> Single<[Account]> {
-        return GetAccountById(ids).base.asCoreRequest(api.core)
+        return GetAccountById(ids).base.asChainRequest(api.core)
     }
     
     public func getAccountIds(byAddressList list: [Address]) -> Single<[[ChainObject]]> {
-        return GetKeyReferences(list).base.asCoreRequest(api.core)
+        return GetKeyReferences(list).base.asChainRequest(api.core)
     }
     
     public func existAccount(byName name: String) -> Single<Bool> {
@@ -45,7 +45,7 @@ public final class AccountApi: BaseApi {
                        from: ChainObject = ObjectType.nullObject.genericId,
                        order: SearchOrder.AccountHistory = .timeDesc,
                        limit: Int = 100) -> Single<[TransactionDetail]> {
-        return SearchAccountHistory(accoundId, order: order, startId: from, limit: limit).base.asCoreRequest(api.core)
+        return SearchAccountHistory(accoundId, order: order, startId: from, limit: limit).base.asChainRequest(api.core)
     }
     
     public func createCredentials(accountName: String, wif: String) -> Single<Credentials> {
@@ -53,19 +53,19 @@ public final class AccountApi: BaseApi {
     }
     
     public func getFullAccounts(byNamesOrIds ref: [String], subscribe: Bool = false) -> Single<[String:FullAccount]>{
-        return GetFullAccounts(ref, subscribe: subscribe).base.asCoreRequest(api.core)
+        return GetFullAccounts(ref, subscribe: subscribe).base.asChainRequest(api.core)
     }
     
     public func getAccountReferences(byId id: ChainObject) -> Single<[ChainObject]> {
-        return GetAccountReferences(id).base.asCoreRequest(api.core)
+        return GetAccountReferences(id).base.asChainRequest(api.core)
     }
     
     public func lookupAccount(byNames names: [String]) -> Single<[Account]> {
-        return LookupAccountNames(names).base.asCoreRequest(api.core)
+        return LookupAccountNames(names).base.asChainRequest(api.core)
     }
     
     public func lookupAccounts(byLowerBound bound: String, limit: Int = 1000) -> Single<[String:ChainObject]> {
-        return LookupAccounts(bound, limit: limit).base.asCoreRequest(api.core)
+        return LookupAccounts(bound, limit: limit).base.asChainRequest(api.core)
     }
     
     public func search(accountsByTerm term: String,
@@ -73,11 +73,11 @@ public final class AccountApi: BaseApi {
                        id: ChainObject = ObjectType.nullObject.genericId,
                        limit: Int = 1000) -> Single<[Account]> {
         
-        return SearchAccounts(term, order: order, id: id, limit: limit).base.asCoreRequest(api.core)
+        return SearchAccounts(term, order: order, id: id, limit: limit).base.asChainRequest(api.core)
     }
     
     public func getAccountCount() -> Single<UInt64> {
-        return GetAccountCount().base.asCoreRequest(api.core)
+        return GetAccountCount().base.asChainRequest(api.core)
     }
     
 }

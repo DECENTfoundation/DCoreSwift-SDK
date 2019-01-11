@@ -8,7 +8,7 @@ extension DCore {
         
         private var rest: RestService? = nil
         private var wss: WssService? = nil
-        private lazy var chainId = GetChainId().base.asCoreRequest(self).cache()
+        private lazy var chainId = GetChainId().base.asChainRequest(self).cache()
         
         internal required init(wssUri: URLConvertible? = nil, restUri: URLConvertible? = nil, session: URLSession? = nil) {
         
@@ -31,7 +31,7 @@ extension DCore {
         }
         
         func prepareTransaction<Operation>(forOperations operations: [Operation], expiration: Int) -> Single<Transaction> where Operation: BaseOperation {
-            return Single.zip(chainId, GetDynamicGlobalProps().base.asCoreRequest(self)).flatMap({ (id, props) in
+            return Single.zip(chainId, GetDynamicGlobalProps().base.asChainRequest(self)).flatMap({ (id, props) in
                 
                 // var ops = operations
                 // let idx = ops.partition(by: { $0.fee != BaseOperation.FEE_UNSET })
@@ -46,9 +46,8 @@ extension DCore {
         }
      
         func make<Output>(streamRequest req: BaseRequest<Output>) -> Observable<Output> where Output: Codable {
-            guard let _ = wss, req.callback else { return Observable.error(ChainException.unexpected("Only callbacks calls available through wss stream api")) }
-            // return wss.request(using: req)
-            fatalError("Not impl")
+            guard let wss = wss, req.callback else { return Observable.error(ChainException.unexpected("Only callbacks calls available through wss stream api")) }
+            return wss.request(usingStream: req)
         }
         
         func make<Output>(request req: BaseRequest<Output>) -> Single<Output> where Output: Codable {

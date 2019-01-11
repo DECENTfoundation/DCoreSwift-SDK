@@ -12,12 +12,11 @@ struct OnMessageEvent: SocketEvent {
     private(set) var value: String
 }
 
-struct OnDataEvent: SocketEvent {
-    private(set) var value: Data
+struct OnEvent: SocketEvent {
+    static let empty: SocketEvent = OnEvent()
+    
+    private init() {}
 }
-
-struct OnCloseEvent: SocketEvent {}
-struct OnEmitEvent: SocketEvent {}
 
 struct WssEmitter {
 
@@ -37,7 +36,6 @@ struct WssEmitter {
         let source = WebSocket(url: url, writeQueueQOS: .userInitiated)
         source.onConnect = { observer.onNext(OnOpenEvent(value: source)) }
         source.onText = { observer.onNext(OnMessageEvent(value: $0)) }
-        source.onData = { observer.onNext(OnDataEvent(value: $0)) }
         source.onDisconnect = { error in
             if let error = error {
                 observer.onError(error.asChainException())

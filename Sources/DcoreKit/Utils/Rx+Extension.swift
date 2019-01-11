@@ -15,6 +15,13 @@ extension Single {
     }
 }
 
+extension AsyncSubject {
+    func applySingle(_ value: E) {
+        onNext(value)
+        onCompleted()
+    }
+}
+
 extension CompositeDisposable {
     
     @discardableResult
