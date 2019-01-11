@@ -1,8 +1,11 @@
 import Foundation
 
-class SetBlockAppliedCallback : BaseRequest<String>, WithCallback {
+struct SetBlockAppliedCallback: BaseRequestConvertible {
     
-    required init() {
-        super.init(.database, api: "set_block_applied_callback", returnClass: String.self)
+    typealias Output = String
+    private(set) var base: BaseRequest<String>
+    
+    init() {
+        self.base = SetBlockAppliedCallback.toBaseCallback(.database, api: "set_block_applied_callback", returnClass: String.self)
     }
 }

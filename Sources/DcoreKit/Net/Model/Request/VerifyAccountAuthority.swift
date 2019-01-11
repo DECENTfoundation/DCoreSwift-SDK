@@ -1,8 +1,11 @@
 import Foundation
 
-class VerifyAccountAuthority: BaseRequest<Bool> {
+struct VerifyAccountAuthority: BaseRequestConvertible {
     
-    required init(account: String, keys: [Address]) {
-        super.init(.database, api: "verify_account_authority", returnClass: Bool.self, params: [account, keys])
+    typealias Output = Bool
+    private(set) var base: BaseRequest<Bool>
+    
+    init(_ account: String, keys: [Address]) {
+        self.base = VerifyAccountAuthority.toBase(.database, api: "verify_account_authority", returnClass: Bool.self, params: [account, keys])
     }
 }

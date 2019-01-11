@@ -1,9 +1,11 @@
 import Foundation
 
-
-class GetMinerByAccount: BaseRequest<Miner> {
+struct GetMinerByAccount: BaseRequestConvertible {
     
-    required init(account: ChainObject) {
-        super.init(.database, api: "get_miner_by_account", returnClass: Miner.self, params: [account])
+    typealias Output = Miner
+    private(set) var base: BaseRequest<Miner>
+    
+    init(_ accountId: ChainObject) {
+        self.base = GetMinerByAccount.toBase(.database, api: "get_miner_by_account", returnClass: Miner.self, params: [accountId])
     }
 }

@@ -4,15 +4,15 @@ import RxSwift
 public final class TransactionApi: BaseApi {
     
     public func getRecentTransaction(byTrxId id: String) -> Single<ProcessedTransaction> {
-        return GetRecentTransactionById(id: id).asCoreRequest(api.core)
+        return GetRecentTransactionById(id).base.asCoreRequest(api.core)
     }
 
     public func getTransaction(byTrxId id: String) -> Single<ProcessedTransaction> {
-        return GetTransactionById(id: id).asCoreRequest(api.core)
+        return GetTransactionById(id).base.asCoreRequest(api.core)
     }
     
     public func getTransaction(byBlockNum num: UInt64, trxInBlock: UInt64) -> Single<ProcessedTransaction> {
-        return GetTransaction(blockNum: num, trxInBlock: trxInBlock).asCoreRequest(api.core)
+        return GetTransaction(num, trxInBlock: trxInBlock).base.asCoreRequest(api.core)
     }
 
     public func getTransaction(byConfirmation conf: TransactionConfirmation) -> Single<ProcessedTransaction> {
@@ -28,10 +28,10 @@ public final class TransactionApi: BaseApi {
     }
     
     public func getTransactionHex(byTrx trx: Transaction) -> Single<String> {
-        return GetTransactionHex(transaction: trx).asCoreRequest(api.core)
+        return GetTransactionHex(trx).base.asCoreRequest(api.core)
     }
     
     public func getProposedTransactions(byAccountId id: ChainObject) -> Single<AnyValue> {
-        return  GetProposedTransactions(accountId: id).asCoreRequest(api.core)
+        return  GetProposedTransactions(id).base.asCoreRequest(api.core)
     }
 }

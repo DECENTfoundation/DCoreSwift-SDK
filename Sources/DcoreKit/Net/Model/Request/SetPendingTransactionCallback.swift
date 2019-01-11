@@ -1,8 +1,11 @@
 import Foundation
 
-class SetPendingTransactionCallback: BaseRequest<UnitValue>, WithCallback {
- 
-    required init() {
-        super.init(.database, api: "set_pending_transaction_callback", returnClass: UnitValue.self)
+struct SetPendingTransactionCallback: BaseRequestConvertible {
+    
+    typealias Output = UnitValue
+    private(set) var base: BaseRequest<UnitValue>
+    
+    init() {
+        self.base = SetPendingTransactionCallback.toBaseCallback(.database, api: "set_pending_transaction_callback", returnClass: UnitValue.self)
     }
 }

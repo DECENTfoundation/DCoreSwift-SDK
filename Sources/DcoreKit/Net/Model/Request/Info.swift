@@ -1,8 +1,11 @@
 import Foundation
 
-class Info: BaseRequest<String> {
- 
-    required init() {
-        super.init(.database, api: "info", returnClass: String.self)
+struct Info: BaseRequestConvertible {
+    
+    typealias Output = String
+    private(set) var base: BaseRequest<String>
+    
+    init() {
+        self.base = Info.toBase(.database, api: "info", returnClass: String.self)
     }
 }

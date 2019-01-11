@@ -5,40 +5,40 @@ import BigInt
 public final class MiningApi: BaseApi {
     
     public func getNewAssetPerBlock() -> Single<BigInt> {
-        return GetNewAssetPerBlock().asCoreRequest(api.core)
+        return GetNewAssetPerBlock().base.asCoreRequest(api.core)
     }
 
     public func getAssetPerBlock(byBlockNum num: UInt64) -> Single<BigInt> {
-        return GetAssetPerBlock(blockNum: num).asCoreRequest(api.core)
+        return GetAssetPerBlock(num).base.asCoreRequest(api.core)
     }
     
     public func getMiners(byIds ids: [ChainObject]) -> Single<[Miner]> {
-        return GetMiners(minerIds: ids).asCoreRequest(api.core)
+        return GetMiners(ids).base.asCoreRequest(api.core)
     }
     
     public func getMiner(byAccountId id: ChainObject) -> Single<Miner> {
-        return GetMinerByAccount(account: id).asCoreRequest(api.core)
+        return GetMinerByAccount(id).base.asCoreRequest(api.core)
     }
     
     public func lookupMiners(byTerm term: String = "", limit: Int = 1000) -> Single<[MinerId]> {
-        return LookupMinerAccounts(lookupTerm: term, limit: limit).asCoreRequest(api.core)
+        return LookupMinerAccounts(term, limit: limit).base.asCoreRequest(api.core)
     }
 
     public func getMinerCount() -> Single<UInt64> {
-        return GetMinerCount().asCoreRequest(api.core)
+        return GetMinerCount().base.asCoreRequest(api.core)
     }
     
 
     public func getFeedsByMiner(byAccountId id: ChainObject, count: UInt64 = 100) -> Single<AnyValue> {
-        return GetFeedsByMiner(account: id, count: count).asCoreRequest(api.core)
+        return GetFeedsByMiner(id, count: count).base.asCoreRequest(api.core)
     }
     
     public func lookupVoteIds(byVoteIds ids: [VoteId]) -> Single<[Miner]> {
-        return LookupVoteIds(voteIds: ids).asCoreRequest(api.core)
+        return LookupVoteIds(ids).base.asCoreRequest(api.core)
     }
     
     public func getActualVotes() -> Single<[MinerVotes]> {
-        return GetActualVotes().asCoreRequest(api.core)
+        return GetActualVotes().base.asCoreRequest(api.core)
     }
 
     public func search(minerVotingByTerm term: String,
@@ -48,7 +48,7 @@ public final class MiningApi: BaseApi {
                        onlyMyVotes: Bool = false,
                        limit: Int = 1000) -> Single<[MinerVotingInfo]> {
         
-        return SearchMinerVoting(accountName: accountName, searchTerm: term, onlyMyVotes: onlyMyVotes, order: order, id: id, limit: limit).asCoreRequest(api.core)
+        return SearchMinerVoting(accountName, searchTerm: term, onlyMyVotes: onlyMyVotes, order: order, id: id, limit: limit).base.asCoreRequest(api.core)
     }
  
     public func getMiners() -> Single<[String:Miner]> {

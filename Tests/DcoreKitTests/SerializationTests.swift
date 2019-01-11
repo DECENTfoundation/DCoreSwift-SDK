@@ -9,7 +9,7 @@ final class SerializationTests: XCTestCase {
         """
         {"jsonrpc":"2.0","method":"call","id":1,"params":[3,"get_account_history",["1.2.3","1.7.0",100,"1.7.0"]]}
         """
-        let result = try? GetAccountHistory(accountId: "1.2.3".chain.chainObject!).asJson()
+        let result = try? GetAccountHistory("1.2.3".chain.chainObject!).base.asJson()
         XCTAssertEqual(result, api)
     }
     
@@ -18,7 +18,7 @@ final class SerializationTests: XCTestCase {
         """
         {"jsonrpc":"2.0","method":"call","id":1,"params":[3,"get_relative_account_history",["1.2.3",0,100,0]]}
         """
-        let result = try? GetRelativeAccountHistory(accountId: "1.2.3".chain.chainObject!).asJson()
+        let result = try? GetRelativeAccountHistory("1.2.3".chain.chainObject!).base.asJson()
         XCTAssertEqual(result, api)
     }
     
@@ -27,10 +27,10 @@ final class SerializationTests: XCTestCase {
         """
         {"jsonrpc":"2.0","method":"call","id":1,"params":[0,"get_required_fees",[[[39,{"type":39,"fee":{"amount":"0","asset_id":"1.3.0"}}],[1,{"type":1,"fee":{"amount":"0","asset_id":"1.3.0"}}]],"1.3.0"]]}
         """
-        let result = try? GetRequiredFees(operations: [
+        let result = try? GetRequiredFees([
             EmptyOperation(type: OperationType.transferTwoOperation),
             EmptyOperation(type: OperationType.accountCreateOperation)
-        ]).asJson()
+        ]).base.asJson()
         
         XCTAssertEqual(result, api)
     }

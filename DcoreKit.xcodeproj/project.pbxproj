@@ -34,7 +34,9 @@
 		A160B3DA21E75A2900981550 /* Json+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160B3D821E758F100981550 /* Json+Context.swift */; };
 		A160B3DE21E76D3E00981550 /* OperationApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160B3DD21E76D3E00981550 /* OperationApi.swift */; };
 		A160B3E021E7768D00981550 /* SubscriptionApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160B3DF21E7768D00981550 /* SubscriptionApiTests.swift */; };
-		A19CA59B21E88D2E003CFB81 /* BaseRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19CA59921E88D22003CFB81 /* BaseRequestConvertible.swift */; };
+		A18E2E9F21E8C17C00B387FC /* Rpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18E2E9D21E8C0CC00B387FC /* Rpc.swift */; };
+		A19CA59D21E89494003CFB81 /* BaseRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19CA59C21E89494003CFB81 /* BaseRequestConvertible.swift */; };
+		A19CA59F21E895D4003CFB81 /* ApiMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19CA59E21E895D4003CFB81 /* ApiMethod.swift */; };
 		OBJ_1000 /* RestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_194 /* RestConvertible.swift */; };
 		OBJ_1001 /* RestResultValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_195 /* RestResultValidator.swift */; };
 		OBJ_1002 /* RestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_196 /* RestService.swift */; };
@@ -690,7 +692,6 @@
 		OBJ_996 /* ValidateTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_189 /* ValidateTransaction.swift */; };
 		OBJ_997 /* VerifyAccountAuthority.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_190 /* VerifyAccountAuthority.swift */; };
 		OBJ_998 /* VerifyAuthority.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_191 /* VerifyAuthority.swift */; };
-		OBJ_999 /* WithCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_192 /* WithCallback.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -952,7 +953,9 @@
 		A160B3D821E758F100981550 /* Json+Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Json+Context.swift"; sourceTree = "<group>"; };
 		A160B3DD21E76D3E00981550 /* OperationApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationApi.swift; sourceTree = "<group>"; };
 		A160B3DF21E7768D00981550 /* SubscriptionApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionApiTests.swift; sourceTree = "<group>"; };
-		A19CA59921E88D22003CFB81 /* BaseRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequestConvertible.swift; sourceTree = "<group>"; };
+		A18E2E9D21E8C0CC00B387FC /* Rpc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rpc.swift; sourceTree = "<group>"; };
+		A19CA59C21E89494003CFB81 /* BaseRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequestConvertible.swift; sourceTree = "<group>"; };
+		A19CA59E21E895D4003CFB81 /* ApiMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMethod.swift; sourceTree = "<group>"; };
 		"BigInt::BigInt::Product" /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BigInt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"CryptoSwift::CryptoSwift::Product" /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DcoreKit::DcoreKit::Product" /* DcoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DcoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1058,7 +1061,6 @@
 		OBJ_19 /* MiningApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningApi.swift; sourceTree = "<group>"; };
 		OBJ_190 /* VerifyAccountAuthority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAccountAuthority.swift; sourceTree = "<group>"; };
 		OBJ_191 /* VerifyAuthority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAuthority.swift; sourceTree = "<group>"; };
-		OBJ_192 /* WithCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithCallback.swift; sourceTree = "<group>"; };
 		OBJ_194 /* RestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestConvertible.swift; sourceTree = "<group>"; };
 		OBJ_195 /* RestResultValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestResultValidator.swift; sourceTree = "<group>"; };
 		OBJ_196 /* RestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestService.swift; sourceTree = "<group>"; };
@@ -1824,8 +1826,6 @@
 				OBJ_189 /* ValidateTransaction.swift */,
 				OBJ_190 /* VerifyAccountAuthority.swift */,
 				OBJ_191 /* VerifyAuthority.swift */,
-				OBJ_192 /* WithCallback.swift */,
-				A19CA59921E88D22003CFB81 /* BaseRequestConvertible.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -2730,6 +2730,7 @@
 		OBJ_93 /* Net */ = {
 			isa = PBXGroup;
 			children = (
+				A19CA59C21E89494003CFB81 /* BaseRequestConvertible.swift */,
 				OBJ_94 /* CoreRequestConvertible.swift */,
 				OBJ_95 /* CoreRequestSource.swift */,
 				OBJ_96 /* CoreResultConvertible.swift */,
@@ -2749,7 +2750,9 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_99 /* ApiGroup.swift */,
+				A19CA59E21E895D4003CFB81 /* ApiMethod.swift */,
 				OBJ_100 /* Http.swift */,
+				A18E2E9D21E8C0CC00B387FC /* Rpc.swift */,
 				OBJ_101 /* Request */,
 			);
 			path = Model;
@@ -3814,6 +3817,7 @@
 				A160B3DE21E76D3E00981550 /* OperationApi.swift in Sources */,
 				OBJ_892 /* RequiredFee.swift in Sources */,
 				OBJ_893 /* Seeder.swift in Sources */,
+				A19CA59D21E89494003CFB81 /* BaseRequestConvertible.swift in Sources */,
 				OBJ_894 /* SignedBlock.swift in Sources */,
 				OBJ_895 /* Subscription.swift in Sources */,
 				OBJ_896 /* Synopsis.swift in Sources */,
@@ -3874,8 +3878,10 @@
 				OBJ_951 /* GetRealSupply.swift in Sources */,
 				OBJ_952 /* GetRecentTransactionById.swift in Sources */,
 				OBJ_953 /* GetRelativeAccountHistory.swift in Sources */,
+				A18E2E9F21E8C17C00B387FC /* Rpc.swift in Sources */,
 				OBJ_954 /* GetRequiredFees.swift in Sources */,
 				OBJ_955 /* GetRequiredSignatures.swift in Sources */,
+				A19CA59F21E895D4003CFB81 /* ApiMethod.swift in Sources */,
 				OBJ_956 /* GetSeeder.swift in Sources */,
 				OBJ_957 /* GetSubscription.swift in Sources */,
 				OBJ_958 /* GetTimeToMaintenance.swift in Sources */,
@@ -3917,10 +3923,8 @@
 				OBJ_994 /* SetPendingTransactionCallback.swift in Sources */,
 				OBJ_995 /* SetSubscribeCallback.swift in Sources */,
 				OBJ_996 /* ValidateTransaction.swift in Sources */,
-				A19CA59B21E88D2E003CFB81 /* BaseRequestConvertible.swift in Sources */,
 				OBJ_997 /* VerifyAccountAuthority.swift in Sources */,
 				OBJ_998 /* VerifyAuthority.swift in Sources */,
-				OBJ_999 /* WithCallback.swift in Sources */,
 				OBJ_1000 /* RestConvertible.swift in Sources */,
 				OBJ_1001 /* RestResultValidator.swift in Sources */,
 				OBJ_1002 /* RestService.swift in Sources */,

@@ -1,9 +1,11 @@
 import Foundation
 
-class GetTransactionHex: BaseRequest<String> {
+struct GetTransactionHex: BaseRequestConvertible {
     
-    required init(transaction: Transaction) {
-        
-        super.init(.database, api: "get_transaction_hex", returnClass: String.self, params: [transaction])
+    typealias Output = String
+    private(set) var base: BaseRequest<String>
+    
+    init(_ trx: Transaction) {
+        self.base = GetTransactionHex.toBase(.database, api: "get_transaction_hex", returnClass: String.self, params: [trx])
     }
 }

@@ -9,15 +9,17 @@ protocol CoreRequestConvertible {
     func asCoreRequest(_ core: DCore.Sdk) -> Single<Output>
 }
 
-extension CoreRequestConvertible where Request: BaseRequest<Output> {
+extension CoreRequestConvertible where Request == BaseRequest<Output> {
     func asCoreRequest(_ core: DCore.Sdk) -> Single<Output> {
         return core.make(request: self.base)
     }
 }
 
+/*
 extension CoreRequestConvertible where Request: WithCallback & BaseRequest<Output>  {
     func asCoreRequest(_ core: DCore.Sdk) -> Single<Output> {
         return core.make(streamRequest: self.base).asSingle()
     }
 }
+*/
 

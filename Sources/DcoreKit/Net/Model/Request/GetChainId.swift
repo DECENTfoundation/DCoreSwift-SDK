@@ -1,8 +1,11 @@
 import Foundation
 
-class GetChainId: BaseRequest<String> {
+struct GetChainId: BaseRequestConvertible {
     
-    required init() {
-        super.init(.database, api: "get_chain_id", returnClass: String.self)
+    typealias Output = String
+    private(set) var base: BaseRequest<String>
+    
+    init() {
+        self.base = GetChainId.toBase(.database, api: "get_chain_id", returnClass: String.self)
     }
 }

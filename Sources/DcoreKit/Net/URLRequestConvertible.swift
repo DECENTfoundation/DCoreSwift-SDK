@@ -6,7 +6,7 @@ protocol URLRequestConvertible {
 
 extension URLRequestConvertible {
     func asURLRequest(_ url: URL) -> URLRequest {
-        return URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: DCore.Constant.Api.timeout)
+        return URLRequest(url: url, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: DCore.Constant.Api.timeout)
     }
 }
 

@@ -12,6 +12,8 @@ extension WssConvertible where Self: Encodable {
     }
     
     func asWss(id: UInt64, useCallback: Bool = false) throws -> String {
+        
+        // TODO: log json requests
         return try with(id: id, useCallback: useCallback).asJson()
     }
 }

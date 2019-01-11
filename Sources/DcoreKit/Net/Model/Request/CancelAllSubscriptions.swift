@@ -1,8 +1,11 @@
 import Foundation
 
-final class CancelAllSubscriptions: BaseRequest<UnitValue> {
+struct CancelAllSubscriptions: BaseRequestConvertible {
     
-    required init() {
-        super.init(.database, api: "cancel_all_subscriptions", returnClass: UnitValue.self)
+    typealias Output = UnitValue
+    private(set) var base: BaseRequest<UnitValue>
+    
+    init(){
+        self.base = CancelAllSubscriptions.toBase(.database, api: "cancel_all_subscriptions", returnClass: UnitValue.self)
     }
 }

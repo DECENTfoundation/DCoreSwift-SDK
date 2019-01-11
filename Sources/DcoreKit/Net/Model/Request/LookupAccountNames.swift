@@ -1,8 +1,11 @@
 import Foundation
 
-class LookupAccountNames:  BaseRequest<[Account]> {
+struct LookupAccountNames: BaseRequestConvertible {
     
-    required init(_ names: [String]) {
-        super.init(.database, api: "lookup_account_names", returnClass: [Account].self, params: [names])
+    typealias Output = [Account]
+    private(set) var base: BaseRequest<[Account]>
+    
+    init(_ names: [String]) {
+        self.base = LookupAccountNames.toBase(.database, api: "lookup_account_names", returnClass: [Account].self, params: [names])
     }
 }

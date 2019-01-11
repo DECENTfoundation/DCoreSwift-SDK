@@ -1,8 +1,11 @@
 import Foundation
 
-class Login : BaseRequest<Bool> {
- 
-    required init() {
-        super.init(.login, api: "login", returnClass: Bool.self, params: ["", ""])
+struct Login: BaseRequestConvertible {
+    
+    typealias Output = Bool
+    private(set) var base: BaseRequest<Bool>
+    
+    init(_ consumerId: ChainObject, count: Int) {
+        self.base = Login.toBase(.login, api: "login", returnClass: Bool.self, params: ["", ""])
     }
 }

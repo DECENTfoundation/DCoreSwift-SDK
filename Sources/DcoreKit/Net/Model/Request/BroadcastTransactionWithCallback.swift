@@ -1,10 +1,15 @@
 import Foundation
 
-final class BroadcastTransactionWithCallback: BaseRequest<TransactionConfirmation> {
+struct BroadcastTransactionWithCallback: BaseRequestConvertible {
     
-    required init(transaction: Transaction) {
+    typealias Output = TransactionConfirmation
+    private(set) var base: BaseRequest<TransactionConfirmation>
+    
+    init(_ trx: Transaction){
         
-        precondition(!transaction.signatures!.isEmpty, "Transaction not signed, forgot to call .withSignature(key) ?")
-        super.init(.broadcast, api: "broadcast_transaction_with_callback", returnClass: TransactionConfirmation.self, params: [transaction])
+        precondition(!trx.signatures!.isEmpty, "Transaction not signed, forgot to call .withSignature(key) ?")
+        self.base = BroadcastTransactionWithCallback.toBaseCallback(
+            .broadcast, api: "broadcast_transaction_with_callback", returnClass: TransactionConfirmation.self, params: [trx]
+        )
     }
 }

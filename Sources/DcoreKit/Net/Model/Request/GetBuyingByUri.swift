@@ -1,10 +1,13 @@
 import Foundation
 
-class GetBuyingByUri: BaseRequest<Purchase> {
+struct GetBuyingByUri: BaseRequestConvertible {
     
-    required init(consumer: ChainObject, uri: String) {
+    typealias Output = Purchase
+    private(set) var base: BaseRequest<Purchase>
+    
+    init(_ consumerId: ChainObject, uri: String) {
         
-        precondition(consumer.objectType == .accountObject, "Not a valid asset object id")
-        super.init(.database, api: "get_buying_by_consumer_uri", returnClass: Purchase.self, params: [consumer, uri])
+        precondition(consumerId.objectType == .accountObject, "Not a valid account object id")
+        self.base = GetBuyingByUri.toBase(.database, api: "get_buying_by_consumer_uri", returnClass: Purchase.self, params: [consumerId, uri])
     }
 }

@@ -1,8 +1,11 @@
 import Foundation
 
-class GetActualVotes: BaseRequest<[MinerVotes]> {
+struct GetActualVotes: BaseRequestConvertible {
     
-    required init() {
-        super.init(.database, api: "get_actual_votes", returnClass: [MinerVotes].self)
+    typealias Output = [MinerVotes]
+    private(set) var base: BaseRequest<[MinerVotes]>
+    
+    init() {
+        self.base = GetActualVotes.toBase(.database, api: "get_actual_votes", returnClass: [MinerVotes].self)
     }
 }

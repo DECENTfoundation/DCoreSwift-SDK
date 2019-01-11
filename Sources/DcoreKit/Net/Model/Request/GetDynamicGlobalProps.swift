@@ -1,8 +1,11 @@
 import Foundation
 
-class GetDynamicGlobalProps: BaseRequest<DynamicGlobalProps> {
+struct GetDynamicGlobalProps: BaseRequestConvertible {
     
-    required init() {
-        super.init(.database, api: "get_dynamic_global_properties", returnClass: DynamicGlobalProps.self)
+    typealias Output = DynamicGlobalProps
+    private(set) var base: BaseRequest<DynamicGlobalProps>
+    
+    init() {
+        self.base = GetDynamicGlobalProps.toBase(.database, api: "get_dynamic_global_properties", returnClass: DynamicGlobalProps.self)
     }
 }

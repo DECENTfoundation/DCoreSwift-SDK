@@ -6,8 +6,6 @@ extension DCore {
     public enum Constant {
         
         public enum Api {
-            public static var jsonrpc: String = "2.0"
-            public static var method: String = "call"
             public static var timeout: TimeInterval = 30 // seconds
         }
         

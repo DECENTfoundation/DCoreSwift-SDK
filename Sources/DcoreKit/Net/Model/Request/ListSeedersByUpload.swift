@@ -1,9 +1,11 @@
 import Foundation
 
-class ListSeedersByUpload: BaseRequest<[Seeder]> {
+struct ListSeedersByUpload: BaseRequestConvertible {
     
-    required init(count: Int = 100) {
-        super.init(.database, api: "list_seeders_by_upload", returnClass: [Seeder].self, params: [count])
+    typealias Output = [Seeder]
+    private(set) var base: BaseRequest<[Seeder]>
+    
+    init(_ count: Int = 100) {
+        self.base = ListSeedersByUpload.toBase(.database, api: "list_seeders_by_upload", returnClass: [Seeder].self, params: [count])
     }
 }
-

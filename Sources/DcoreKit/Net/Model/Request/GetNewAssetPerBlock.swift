@@ -1,9 +1,12 @@
 import Foundation
 import BigInt
 
-class GetNewAssetPerBlock : BaseRequest<BigInt> {
+struct GetNewAssetPerBlock: BaseRequestConvertible {
     
-    required init() {
-        super.init(.database, api: "get_new_asset_per_block", returnClass: BigInt.self)
+    typealias Output = BigInt
+    private(set) var base: BaseRequest<BigInt>
+    
+    init() {
+        self.base = GetNewAssetPerBlock.toBase(.database, api: "get_new_asset_per_block", returnClass: BigInt.self)
     }
 }

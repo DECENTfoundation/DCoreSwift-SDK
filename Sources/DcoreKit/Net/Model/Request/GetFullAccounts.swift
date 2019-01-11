@@ -1,8 +1,11 @@
 import Foundation
 
-class GetFullAccounts: BaseRequest<[String:FullAccount]> {
+struct GetFullAccounts: BaseRequestConvertible {
     
-    required init(namesOrIds: [String], subscribe: Bool) {
-        super.init(.database, api: "get_full_accounts", returnClass: [String:FullAccount].self, params:[namesOrIds, subscribe])
+    typealias Output = [String:FullAccount]
+    private(set) var base: BaseRequest<[String:FullAccount]>
+    
+    init(_ namesOrIds: [String], subscribe: Bool) {
+        self.base = GetFullAccounts.toBase(.database, api: "get_full_accounts", returnClass: [String:FullAccount].self, params:[namesOrIds, subscribe])
     }
 }

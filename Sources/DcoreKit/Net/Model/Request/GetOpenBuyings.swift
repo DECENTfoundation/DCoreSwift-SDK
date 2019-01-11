@@ -1,8 +1,11 @@
 import Foundation
 
-class GetOpenBuyings : BaseRequest<[Purchase]> {
+struct GetOpenBuyings: BaseRequestConvertible {
     
-    required init() {
-        super.init(.database, api: "get_open_buyings", returnClass: [Purchase].self)
+    typealias Output = [Purchase]
+    private(set) var base: BaseRequest<[Purchase]>
+    
+    init() {
+        self.base = GetOpenBuyings.toBase(.database, api: "get_open_buyings", returnClass: [Purchase].self)
     }
 }

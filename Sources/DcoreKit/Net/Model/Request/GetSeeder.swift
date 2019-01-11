@@ -1,10 +1,13 @@
 import Foundation
 
-class GetSeeder: BaseRequest<Seeder> {
+struct GetSeeder: BaseRequestConvertible {
     
-    required init(accountId: ChainObject) {
+    typealias Output = Seeder
+    private(set) var base: BaseRequest<Seeder>
+    
+    init(_ accountId: ChainObject) {
         
         precondition(accountId.objectType == .accountObject, "Not a valid account object id")
-        super.init(.database, api: "get_seeder", returnClass: Seeder.self, params: [accountId])
+        self.base = GetSeeder.toBase(.database, api: "get_seeder", returnClass: Seeder.self, params: [accountId])
     }
 }

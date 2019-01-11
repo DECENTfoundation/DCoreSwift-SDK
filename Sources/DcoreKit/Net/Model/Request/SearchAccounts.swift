@@ -1,11 +1,15 @@
 import Foundation
 
-class SearchAccounts: BaseRequest<[Account]> {
+struct SearchAccounts: BaseRequestConvertible {
     
-    required init(searchTerm: String,
-                  order: SearchOrder.Accounts = .nameDesc,
-                  id: ChainObject = ObjectType.nullObject.genericId,
-                  limit: Int = 1000) {
-        super.init(.database, api: "search_accounts", returnClass: [Account].self, params: [searchTerm, order.rawValue, id, limit])
+    typealias Output = [Account]
+    private(set) var base: BaseRequest<[Account]>
+    
+    init(_ term: String,
+         order: SearchOrder.Accounts = .nameDesc,
+         id: ChainObject = ObjectType.nullObject.genericId,
+         limit: Int = 1000) {
+        
+        self.base = SearchAccounts.toBase(.database, api: "search_accounts", returnClass: [Account].self, params: [term, order, id, limit])
     }
 }

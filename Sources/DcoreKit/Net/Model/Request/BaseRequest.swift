@@ -1,28 +1,30 @@
 import Foundation
 import RxSwift
 
-class BaseRequest<Output: Codable>: Encodable, CoreRequestConvertible, RestConvertible, WssConvertible {
+struct BaseRequest<Output: Codable>: Encodable, CoreRequestConvertible, RestConvertible, WssConvertible {
+    
     typealias Request = BaseRequest
-
+    var base: BaseRequest<Output> { return self }
+    
+    private let method: ApiMethod = .call
+    private let jsonrpc: Rpc = .version
     private let group: ApiGroup
     private let api: String
-    
-    let params: [AnyEncodable]
+    private let params: [AnyEncodable]
+
     let returnClass: Output.Type
     let returnKeypath: String = "result"
-    
-    var base: BaseRequest<Output> { return self }
-    var method: String = DCore.Constant.Api.method
-    var jsonrpc: String = DCore.Constant.Api.jsonrpc
+    let callback: Bool
     
     var callId: UInt64 = 1
     var callbackId: UInt64? = nil
-    
-    init(_ group: ApiGroup, api: String, returnClass: Output.Type, params: [Encodable] = []) {
+   
+    init(_ group: ApiGroup, api: String, returnClass: Output.Type, params: [Encodable] = [], callback: Bool = false) {
         self.group = group
         self.api = api
         self.returnClass = returnClass
         self.params = params.map({ AnyEncodable($0) })
+        self.callback = callback
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -56,7 +58,7 @@ class BaseRequest<Output: Codable>: Encodable, CoreRequestConvertible, RestConve
         try nestedUnkeyed.encode(contentsOf: params)
     }
     
-    func with(id: UInt64, useCallback: Bool) -> Self {
+    mutating func with(id: UInt64, useCallback: Bool) -> BaseRequest<Output> {
         if useCallback { self.callbackId = id }
         self.callId = id
         
@@ -66,6 +68,7 @@ class BaseRequest<Output: Codable>: Encodable, CoreRequestConvertible, RestConve
 
 extension BaseRequest: CustomStringConvertible {
     var description: String {
-        return "\(group.description):\(api)"
+        guard let json = try? asJson() else { fatalError("Base request description not supported") }
+        return json
     }
 }

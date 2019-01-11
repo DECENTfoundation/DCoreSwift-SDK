@@ -1,10 +1,15 @@
 import Foundation
 
-class GetHistoryBuyingsByConsumer: BaseRequest<[Purchase]> {
+struct GetHistoryBuyingsByConsumer: BaseRequestConvertible {
     
-    required init(consumer: ChainObject) {
+    typealias Output = [Purchase]
+    private(set) var base: BaseRequest<[Purchase]>
+    
+    init(_ consumerId: ChainObject) {
         
-        precondition(consumer.objectType == .accountObject, "Not a valid asset object id")
-        super.init(.database, api: "get_buying_history_objects_by_consumer", returnClass: [Purchase].self, params: [consumer])
+        precondition(consumerId.objectType == .accountObject, "Not a valid account object id")
+        self.base = GetHistoryBuyingsByConsumer.toBase(
+            .database, api: "get_buying_history_objects_by_consumer", returnClass: [Purchase].self, params: [consumerId]
+        )
     }
 }

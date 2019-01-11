@@ -1,10 +1,12 @@
 import Foundation
 
-class RestoreEncryptionKey: BaseRequest<String> {
+struct RestoreEncryptionKey: BaseRequestConvertible {
     
-    required init(elGamalPrivate: PubKey, purchaseId: ChainObject) {
-        
+    typealias Output = String
+    private(set) var base: BaseRequest<String>
+    
+    init(_ elGamalPrivate: PubKey, purchaseId: ChainObject) {
         precondition(purchaseId.objectType == .buyingObject, "Not a valid purchase object id")
-        super.init(.database, api: "restore_encryption_key", returnClass: String.self, params: [elGamalPrivate, purchaseId])
+        self.base = RestoreEncryptionKey.toBase(.database, api: "restore_encryption_key", returnClass: String.self, params: [elGamalPrivate, purchaseId])
     }
 }

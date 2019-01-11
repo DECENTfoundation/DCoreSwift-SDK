@@ -1,8 +1,11 @@
 import Foundation
 
-class GetRequiredSignatures: BaseRequest<[Address]> {
- 
-    required init(transaction: Transaction, keys: [Address]) {
-        super.init(.database, api: "get_required_signatures", returnClass: [Address].self, params: [transaction, keys])
+struct GetRequiredSignatures: BaseRequestConvertible {
+    
+    typealias Output = [Address]
+    private(set) var base: BaseRequest<[Address]>
+    
+    init(_ trx: Transaction, keys: [Address]) {
+        self.base = GetRequiredSignatures.toBase(.database, api: "get_required_signatures", returnClass: [Address].self, params: [trx, keys])
     }
 }

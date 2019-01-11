@@ -1,8 +1,11 @@
 import Foundation
 
-class LookupMiners: BaseRequest<[String:ChainObject]> {
+struct LookupMiners: BaseRequestConvertible {
     
-    required init(lowerBound: String, limit: Int = 1000) {
-        super.init(.database, api: "lookup_miners", returnClass: [String:ChainObject].self, params: [lowerBound, limit])
+    typealias Output = [String:ChainObject]
+    private(set) var base: BaseRequest<[String:ChainObject]>
+    
+    init(_ bound: String, limit: Int = 1000) {
+        self.base = LookupMiners.toBase(.database, api: "lookup_miners", returnClass: [String:ChainObject].self, params: [bound, limit])
     }
 }

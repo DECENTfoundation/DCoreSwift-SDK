@@ -14,13 +14,12 @@ final class RestService: CoreRequestSource {
     
     func request<Output>(using req: BaseRequest<Output>) -> Single<Output> where Output: Codable {
         return session.rx.data(request: req.asRest(url))
-            .asSingle()
             .map { data in
                 do {
                     return try data.asJsonDecoded(to: req) { try RestResultValidator($0) }
                 } catch let error {
                     throw error.asChainException()
                 }
-            }
+            }.asSingle()
     }
 }

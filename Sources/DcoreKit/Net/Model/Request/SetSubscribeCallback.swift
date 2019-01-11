@@ -1,8 +1,11 @@
 import Foundation
 
-class SetSubscribeCallback: BaseRequest<UnitValue>, WithCallback {
+struct SetSubscribeCallback: BaseRequestConvertible {
     
-    required init(clearFilter: Bool) {
-        super.init(.database, api: "set_subscribe_callback", returnClass: UnitValue.self, params: [clearFilter])
+    typealias Output = UnitValue
+    private(set) var base: BaseRequest<UnitValue>
+    
+    init(_ clear: Bool) {
+        self.base = SetSubscribeCallback.toBaseCallback(.database, api: "set_subscribe_callback", returnClass: UnitValue.self, params: [clear])
     }
 }

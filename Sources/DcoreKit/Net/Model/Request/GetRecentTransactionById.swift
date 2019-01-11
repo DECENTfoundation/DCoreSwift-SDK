@@ -1,10 +1,13 @@
 import Foundation
 
-class GetRecentTransactionById: BaseRequest<ProcessedTransaction> {
+struct GetRecentTransactionById: BaseRequestConvertible {
     
-    required init(id: String) {
+    typealias Output = ProcessedTransaction
+    private(set) var base: BaseRequest<ProcessedTransaction>
+    
+    init(_ id: String) {
         
         precondition(id.unhex()?.count == 20, "Invalid transaction id")
-        super.init(.database, api: "get_recent_transaction_by_id", returnClass: ProcessedTransaction.self, params: [id])
+        self.base = GetRecentTransactionById.toBase(.database, api: "get_recent_transaction_by_id", returnClass: ProcessedTransaction.self, params: [id])
     }
 }

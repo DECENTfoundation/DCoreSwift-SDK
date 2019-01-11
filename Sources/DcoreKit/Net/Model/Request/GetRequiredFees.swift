@@ -1,11 +1,14 @@
 import Foundation
 
-class GetRequiredFees: BaseRequest<[AssetAmount]> {
+struct GetRequiredFees: BaseRequestConvertible {
     
-    required init(operations: [BaseOperation], assetId: ChainObject = DCore.Constant.Default.dct) {
+    typealias Output = [AssetAmount]
+    private(set) var base: BaseRequest<[AssetAmount]>
+    
+    init(_ operations: [BaseOperation], assetId: ChainObject = DCore.Constant.Default.dct) {
         
         precondition(assetId.objectType == .assetObject, "Not a valid asset object id")
-        super.init(.database, api: "get_required_fees", returnClass: [AssetAmount].self, params: [
+        self.base = GetRequiredFees.toBase(.database, api: "get_required_fees", returnClass: [AssetAmount].self, params: [
             operations.map({ RequiredFee($0) }), assetId
         ])
     }

@@ -8,14 +8,14 @@ public final class HistoryApi: BaseApi {
                                   stopId: ChainObject = ObjectType.operationHistoryObject.genericId,
                                   limit: Int = 100) -> Single<[OperationHistory]> {
         
-        return GetAccountHistory(accountId: id, stopId: stopId, limit: limit, startId: startId).asCoreRequest(api.core)
+        return GetAccountHistory(id, stopId: stopId, limit: limit, startId: startId).base.asCoreRequest(api.core)
     }
     
     public func getAccountHistoryRelative(byAccountId id: ChainObject,
                                           start: Int = 0,
                                           limit: Int = 100) -> Single<[OperationHistory]> {
     
-        return GetRelativeAccountHistory(accountId: id, stop: 0, limit: limit, start: start).asCoreRequest(api.core)
+        return GetRelativeAccountHistory(id, stop: 0, limit: limit, start: start).base.asCoreRequest(api.core)
     }
     
     public func search(accountBalanceHistoryById id: ChainObject,
@@ -26,15 +26,15 @@ public final class HistoryApi: BaseApi {
                        startOffset: UInt64 = 0,
                        limit: Int = 100) -> Single<[BalanceChange]> {
      
-        return SearchAccountBalanceHistory(accountId: id,
+        return SearchAccountBalanceHistory(id,
                                            assets: assets,
                                            recipientAccount: recipientAccount,
                                            fromBlock: fromBlock,
                                            toBlock: toBlock,
-                                           startOffset: startOffset, limit: limit).asCoreRequest(api.core)
+                                           startOffset: startOffset, limit: limit).base.asCoreRequest(api.core)
     }
     
     public func getAccountBalanceForTransaction(byAccountId id: ChainObject, operationId: ChainObject) -> Single<BalanceChange> {
-        return GetAccountBalanceForTransaction(accountId: id, operationId: operationId).asCoreRequest(api.core)
+        return GetAccountBalanceForTransaction(id, operationId: operationId).base.asCoreRequest(api.core)
     }
 }

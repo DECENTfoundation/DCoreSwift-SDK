@@ -1,8 +1,11 @@
 import Foundation
 
-class LookupVoteIds: BaseRequest<[Miner]> {
+struct LookupVoteIds: BaseRequestConvertible {
     
-    required init(voteIds: [VoteId]) {
-        super.init(.database, api: "lookup_vote_ids", returnClass: [Miner].self, params: [voteIds])
+    typealias Output = [Miner]
+    private(set) var base: BaseRequest<[Miner]>
+    
+    init(_ ids: [VoteId]) {
+        self.base = LookupVoteIds.toBase(.database, api: "lookup_vote_ids", returnClass: [Miner].self, params: [ids])
     }
 }

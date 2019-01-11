@@ -1,9 +1,11 @@
 import Foundation
 
-
-class GetKeyReferences: BaseRequest<[[ChainObject]]> {
+struct GetKeyReferences: BaseRequestConvertible {
     
-    required init(_ references: [Address]) {
-        super.init(.database, api: "get_key_references", returnClass: [[ChainObject]].self, params: [references])
+    typealias Output = [[ChainObject]]
+    private(set) var base: BaseRequest<[[ChainObject]]>
+    
+    init(_ references: [Address]) {
+        self.base = GetKeyReferences.toBase(.database, api: "get_key_references", returnClass: [[ChainObject]].self, params: [references])
     }
 }

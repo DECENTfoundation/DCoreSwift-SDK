@@ -1,8 +1,11 @@
 import Foundation
 
-class ListSeedersByRegion: BaseRequest<[Seeder]> {
+struct ListSeedersByRegion: BaseRequestConvertible {
     
-    required init(region: String) {
-        super.init(.database, api: "list_seeders_by_region", returnClass: [Seeder].self, params: [region])
+    typealias Output = [Seeder]
+    private(set) var base: BaseRequest<[Seeder]>
+    
+    init(_ region: String) {
+        self.base = ListSeedersByRegion.toBase(.database, api: "list_seeders_by_region", returnClass: [Seeder].self, params: [region])
     }
 }

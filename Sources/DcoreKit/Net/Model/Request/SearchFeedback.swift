@@ -1,11 +1,15 @@
 import Foundation
 
-class SearchFeedback: BaseRequest<[Purchase]> {
+struct SearchFeedback: BaseRequestConvertible {
     
-    required init(user: String?,
-                  uri: String,
-                  startId: ChainObject = ObjectType.nullObject.genericId,
-                  count: Int) {
-        super.init(.database, api: "search_feedback", returnClass: [Purchase].self, params: [user ?? "", uri, startId, count])
+    typealias Output = [Purchase]
+    private(set) var base: BaseRequest<[Purchase]>
+    
+    init(_ user: String?,
+         uri: String,
+         startId: ChainObject = ObjectType.nullObject.genericId,
+         count: Int) {
+        
+        self.base = SearchFeedback.toBase(.database, api: "search_feedback", returnClass: [Purchase].self, params: [user ?? "", uri, startId, count])
     }
 }

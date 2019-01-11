@@ -1,8 +1,11 @@
 import Foundation
 
-class GetChainProperties: BaseRequest<ChainProperty> {
+struct GetChainProperties: BaseRequestConvertible {
     
-    required init() {
-        super.init(.database, api: "get_chain_properties", returnClass: ChainProperty.self)
+    typealias Output = ChainProperty
+    private(set) var base: BaseRequest<ChainProperty>
+    
+    init() {
+        self.base = GetChainProperties.toBase(.database, api: "get_chain_properties", returnClass: ChainProperty.self)
     }
 }

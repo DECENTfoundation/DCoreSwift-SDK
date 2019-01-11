@@ -1,10 +1,13 @@
 import Foundation
 
-class GetBuyingByConsumer: BaseRequest<Purchase> {
+struct GetBuyingByConsumer: BaseRequestConvertible {
     
-    required init(consumer: ChainObject) {
+    typealias Output = Purchase
+    private(set) var base: BaseRequest<Purchase>
+    
+    init(_ consumerId: ChainObject) {
         
-        precondition(consumer.objectType == .accountObject, "Not a valid asset object id")
-        super.init(.database, api: "get_buying_by_consumer", returnClass: Purchase.self, params: [consumer])
+        precondition(consumerId.objectType == .accountObject, "Not a valid account object id")
+        self.base = GetBuyingByConsumer.toBase(.database, api: "get_buying_by_consumer", returnClass: Purchase.self, params: [consumerId])
     }
 }

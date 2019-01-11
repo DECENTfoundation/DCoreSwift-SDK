@@ -1,8 +1,11 @@
 import Foundation
 
-class PriceToDct: BaseRequest<AssetAmount> {
+struct PriceToDct: BaseRequestConvertible {
     
-    required init(amount: AssetAmount) {
-        super.init(.database, api: "price_to_dct", returnClass: AssetAmount.self, params: [amount])
+    typealias Output = AssetAmount
+    private(set) var base: BaseRequest<AssetAmount>
+    
+    init(_ amount: AssetAmount) {
+        self.base = PriceToDct.toBase(.database, api: "price_to_dct", returnClass: AssetAmount.self, params: [amount])
     }
 }

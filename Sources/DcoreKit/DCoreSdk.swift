@@ -1,5 +1,6 @@
 import Foundation
 import RxSwift
+import os.log
 
 extension DCore {
     
@@ -7,13 +8,10 @@ extension DCore {
         
         private var rest: RestService? = nil
         private var wss: WssService? = nil
-        private var logger: LoggerConvertible? = nil
+        private lazy var chainId = GetChainId().base.asCoreRequest(self).cache()
         
-        private lazy var chainId = GetChainId().asCoreRequest(self).cache()
+        internal required init(wssUri: URLConvertible? = nil, restUri: URLConvertible? = nil, session: URLSession? = nil) {
         
-        internal required init(wssUri: URLConvertible? = nil, restUri: URLConvertible? = nil, session: URLSession? = nil, logger: LoggerConvertible? = nil) {
-            self.logger = logger
-            
             if let path = restUri, let url = path.asURL() { rest = RestService(url, session: session) }
             if let path = wssUri, let url = path.asURL() { wss = WssService(url) }
             
@@ -33,7 +31,7 @@ extension DCore {
         }
         
         func prepareTransaction<Operation>(forOperations operations: [Operation], expiration: Int) -> Single<Transaction> where Operation: BaseOperation {
-            return Single.zip(chainId, GetDynamicGlobalProps().asCoreRequest(self)).flatMap({ (id, props) in
+            return Single.zip(chainId, GetDynamicGlobalProps().base.asCoreRequest(self)).flatMap({ (id, props) in
                 
                 // var ops = operations
                 // let idx = ops.partition(by: { $0.fee != BaseOperation.FEE_UNSET })
@@ -48,16 +46,16 @@ extension DCore {
         }
      
         func make<Output>(streamRequest req: BaseRequest<Output>) -> Observable<Output> where Output: Codable {
-            guard let _ = wss, (req is WithCallback) else { return Observable.error(ChainException.unexpected("Only callbacks calls available through wss stream api")) }
+            guard let _ = wss, req.callback else { return Observable.error(ChainException.unexpected("Only callbacks calls available through wss stream api")) }
             // return wss.request(using: req)
             fatalError("Not impl")
         }
         
         func make<Output>(request req: BaseRequest<Output>) -> Single<Output> where Output: Codable {
-            if let wss = wss, rest == nil || (req is WithCallback) {
+            if let wss = wss, rest == nil || req.callback {
                 return wss.request(using: req)
             } else {
-                guard let rest = rest, !(req is WithCallback) else {
+                guard let rest = rest, !req.callback else {
                     return Single.error(ChainException.unexpected("Calls with callbacks are not available through rest api"))
                 }
                 return rest.request(using: req)

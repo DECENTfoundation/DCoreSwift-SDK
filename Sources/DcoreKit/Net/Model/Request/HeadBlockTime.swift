@@ -1,8 +1,11 @@
 import Foundation
 
-class HeadBlockTime : BaseRequest<Date> {
+struct HeadBlockTime: BaseRequestConvertible {
     
-    required init() {
-        super.init(.database, api: "head_block_time", returnClass: Date.self)
+    typealias Output = Date
+    private(set) var base: BaseRequest<Date>
+    
+    init() {
+        self.base = HeadBlockTime.toBase(.database, api: "head_block_time", returnClass: Date.self)
     }
 }

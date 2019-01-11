@@ -1,8 +1,11 @@
 import Foundation
 
-class GetGlobalProperties : BaseRequest<GlobalProperty> {
+struct GetGlobalProperties: BaseRequestConvertible {
     
-    required init() {
-        super.init(.database, api: "get_global_properties", returnClass: GlobalProperty.self)
+    typealias Output = GlobalProperty
+    private(set) var base: BaseRequest<GlobalProperty>
+    
+    init() {
+        self.base = GetGlobalProperties.toBase(.database, api: "get_global_properties", returnClass: GlobalProperty.self)
     }
 }

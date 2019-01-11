@@ -1,8 +1,11 @@
 import Foundation
 
-class GetSubscription: BaseRequest<Subscription> {
+struct GetSubscription: BaseRequestConvertible {
     
-    required init(subscriptionId: ChainObject) {
-        super.init(.database, api: "get_subscription", returnClass: Subscription.self, params: [subscriptionId])
+    typealias Output = Subscription
+    private(set) var base: BaseRequest<Subscription>
+    
+    init(_ subscriptionId: ChainObject) {
+        self.base = GetSubscription.toBase(.database, api: "get_subscription", returnClass: Subscription.self, params: [subscriptionId])
     }
 }

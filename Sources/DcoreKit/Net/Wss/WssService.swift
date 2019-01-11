@@ -26,14 +26,14 @@ final class WssService: CoreRequestSource {
     }
     
     func request<Output>(using req: BaseRequest<Output>) -> Single<Output> where Output: Codable {
-        return request(using: req, callId: self.increment(), useCallback: (req is WithCallback)).asSingle()
+        return request(using: req, callId: self.increment(), callback: req.callback).asSingle()
     }
     
     func request<Output>(usingStream req: BaseRequest<Output>) -> Observable<Output> where Output: Codable {
-        return request(using: req, callId: self.increment(), useCallback: (req is WithCallback))
+        return request(using: req, callId: self.increment(), callback: req.callback)
     }
     
-    private func request<Output>(using req: BaseRequest<Output>, callId: UInt64, useCallback: Bool = false) -> Observable<Output> where Output: Codable {
+    private func request<Output>(using req: BaseRequest<Output>, callId: UInt64, callback: Bool = false) -> Observable<Output> where Output: Codable {
         return Observable.merge([
             events
         ])

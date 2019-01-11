@@ -1,8 +1,11 @@
 import Foundation
 
-class GetTransaction: BaseRequest<ProcessedTransaction> {
- 
-    required init(blockNum: UInt64, trxInBlock: UInt64) {
-        super.init(.database, api: "get_transaction", returnClass: ProcessedTransaction.self, params: [blockNum, trxInBlock])
+struct GetTransaction: BaseRequestConvertible {
+    
+    typealias Output = ProcessedTransaction
+    private(set) var base: BaseRequest<ProcessedTransaction>
+    
+    init(_ blockNum: UInt64, trxInBlock: UInt64) {
+        self.base = GetTransaction.toBase(.database, api: "get_transaction", returnClass: ProcessedTransaction.self, params: [blockNum, trxInBlock])
     }
 }

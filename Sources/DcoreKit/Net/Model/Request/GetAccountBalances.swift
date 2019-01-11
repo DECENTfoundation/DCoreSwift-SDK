@@ -1,10 +1,15 @@
 import Foundation
 
-class GetAccountBalances: BaseRequest<[AssetAmount]> {
+struct GetAccountBalances: BaseRequestConvertible {
     
-    required init(accountId: ChainObject, assets:[ChainObject] = []) {
+    typealias Output = [AssetAmount]
+    private(set) var base: BaseRequest<[AssetAmount]>
+    
+    init(_ accountId: ChainObject, assets:[ChainObject]) {
         
         precondition(accountId.objectType == .accountObject, "Not a valid account object id")
-        super.init(.database, api: "get_account_balances", returnClass: [AssetAmount].self, params: [accountId.objectId, assets])
+        self.base = GetAccountBalances.toBase(
+            .database, api: "get_account_balances", returnClass: [AssetAmount].self, params: [accountId.objectId, assets]
+        )
     }
 }

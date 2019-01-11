@@ -1,12 +1,15 @@
 import Foundation
 
-class GetNamedAccountBalances: BaseRequest<[AssetAmount]> {
+struct GetNamedAccountBalances: BaseRequestConvertible {
     
-    required init(account: String, assets: [ChainObject] = []) {
+    typealias Output = [AssetAmount]
+    private(set) var base: BaseRequest<[AssetAmount]>
+    
+    init(_ name: String, assets: [ChainObject]) {
         
-        precondition(Account.hasValid(name: account), "Invalid account name")
+        precondition(Account.hasValid(name: name), "Invalid account name")
         precondition(assets.allSatisfy{ $0.objectType == .assetObject },"Not a valid asset object id")
-            
-        super.init(.database, api: "get_named_account_balances", returnClass: [AssetAmount].self, params: [account, assets])
+        
+        self.base = GetNamedAccountBalances.toBase(.database, api: "get_named_account_balances", returnClass: [AssetAmount].self, params: [name, assets])
     }
 }

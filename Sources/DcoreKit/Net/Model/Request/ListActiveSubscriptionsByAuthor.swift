@@ -1,8 +1,13 @@
 import Foundation
 
-class ListActiveSubscriptionsByAuthor: BaseRequest<[Subscription]> {
- 
-    required init(_ authorid: ChainObject, count: Int) {
-        super.init(.database, api: "list_active_subscriptions_by_author", returnClass: [Subscription].self, params: [authorid, count])
+struct ListActiveSubscriptionsByAuthor: BaseRequestConvertible {
+    
+    typealias Output = [Subscription]
+    private(set) var base: BaseRequest<[Subscription]>
+    
+    init(_ authorId: ChainObject, count: Int) {
+        self.base = ListActiveSubscriptionsByAuthor.toBase(
+            .database, api: "list_active_subscriptions_by_author", returnClass: [Subscription].self, params: [authorId, count]
+        )
     }
 }

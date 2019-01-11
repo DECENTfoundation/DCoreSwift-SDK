@@ -1,8 +1,11 @@
 import Foundation
 
-class RequestApiAccess: BaseRequest<Int> {
- 
-    required init(api group: ApiGroup) {
-        super.init(.login, api: group.name, returnClass: Int.self, params: [])
+struct RequestApiAccess: BaseRequestConvertible {
+    
+    typealias Output = Int
+    private(set) var base: BaseRequest<Int>
+    
+    init(_ group: ApiGroup) {
+        self.base = RequestApiAccess.toBase(.login, api: group.name, returnClass: Int.self, params: [])
     }
 }

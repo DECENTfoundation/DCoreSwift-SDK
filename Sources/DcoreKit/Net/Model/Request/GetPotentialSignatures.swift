@@ -1,8 +1,11 @@
 import Foundation
 
-class GetPotentialSignatures: BaseRequest<[Address]> {
+struct GetPotentialSignatures: BaseRequestConvertible {
     
-    required init(transaction: Transaction) {
-        super.init(.database, api: "get_potential_signatures", returnClass: [Address].self, params: [transaction])
+    typealias Output = [Address]
+    private(set) var base: BaseRequest<[Address]>
+    
+    init(_ trx: Transaction) {
+        self.base = GetPotentialSignatures.toBase(.database, api: "get_potential_signatures", returnClass: [Address].self, params: [trx])
     }
 }

@@ -4,7 +4,7 @@ import RxSwift
 public final class AssetApi: BaseApi {
  
     public func getAssets(byIds ids: [ChainObject]) -> Single<[Asset]> {
-        return GetAssets(ids: ids).asCoreRequest(api.core)
+        return GetAssets(ids).base.asCoreRequest(api.core)
     }
     
     public func getAsset(byId id: ChainObject) -> Single<Asset> {
@@ -12,7 +12,7 @@ public final class AssetApi: BaseApi {
     }
     
     public func getAssets(bySymbols symbols: [Asset.Symbol]) -> Single<[Asset]> {
-        return LookupAssets(symbols: symbols).asCoreRequest(api.core)
+        return LookupAssets(symbols).base.asCoreRequest(api.core)
     }
     
     public func getAsset(bySymbol symbol: Asset.Symbol) -> Single<Asset> {
@@ -20,15 +20,15 @@ public final class AssetApi: BaseApi {
     }
     
     public func getAssets(byLowerBound bound: String, limit: Int = 100) -> Single<[Asset]> {
-        return ListAssets(lowerBound: bound, limit:limit).asCoreRequest(api.core)
+        return ListAssets(bound, limit:limit).base.asCoreRequest(api.core)
     }
     
     public func priceToDct(amount: AssetAmount) -> Single<AssetAmount> {
-        return PriceToDct(amount: amount).asCoreRequest(api.core)
+        return PriceToDct(amount).base.asCoreRequest(api.core)
     }
     
     public func getRealSupply() -> Single<RealSupply> {
-        return GetRealSupply().asCoreRequest(api.core)
+        return GetRealSupply().base.asCoreRequest(api.core)
     }
    
 }

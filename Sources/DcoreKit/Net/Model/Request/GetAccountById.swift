@@ -1,10 +1,13 @@
 import Foundation
 
-class GetAccountById: GetObjects<[Account]> {
+struct GetAccountById: BaseRequestConvertible {
     
-    required init(_ ids: [ChainObject]) {
+    typealias Output = [Account]
+    private(set) var base: BaseRequest<[Account]>
+    
+    init(_ ids: [ChainObject]) {
         
         precondition(ids.allSatisfy{ $0.objectType == .accountObject },"Not a valid account object id")
-        super.init(objects: ids, returnClass: [Account].self)
+        self.base = GetObjects(ids, returnClass: [Account].self).base
     }
 }

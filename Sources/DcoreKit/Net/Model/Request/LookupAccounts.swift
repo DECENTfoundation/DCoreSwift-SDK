@@ -1,8 +1,11 @@
 import Foundation
 
-class LookupAccounts: BaseRequest<[String:ChainObject]> {
- 
-    required init(_ lowerBound: String, limit: Int = 1000) {
-        super.init(.database, api: "lookup_accounts", returnClass: [String:ChainObject].self, params: [lowerBound, limit])
+struct LookupAccounts: BaseRequestConvertible {
+    
+    typealias Output = [String:ChainObject]
+    private(set) var base: BaseRequest<[String:ChainObject]>
+    
+    init(_ bound: String, limit: Int = 1000) {
+        self.base = LookupAccounts.toBase(.database, api: "lookup_accounts", returnClass: [String:ChainObject].self, params: [bound, limit])
     }
 }

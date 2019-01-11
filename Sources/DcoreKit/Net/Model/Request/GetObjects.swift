@@ -1,8 +1,11 @@
 import Foundation
 
-class GetObjects<T: Codable>: BaseRequest<T> {
+struct GetObjects<Object>: BaseRequestConvertible where Object: Codable {
     
-    init(objects: [ChainObject], returnClass: T.Type) {
-        super.init(.database, api: "get_objects", returnClass: returnClass, params: [objects])
+    typealias Output = Object
+    private(set) var base: BaseRequest<Object>
+    
+    init(_ ids: [ChainObject], returnClass: Object.Type) {
+        self.base = GetObjects.toBase(.database, api: "get_objects", returnClass: returnClass, params: [ids])
     }
 }
