@@ -16,7 +16,7 @@ class BaseRequest<Output: Codable>: Encodable, CoreRequestConvertible, RestConve
     var jsonrpc: String = DCore.Constant.Api.jsonrpc
     
     var callId: UInt64 = 1
-    var callbackId: UInt64?
+    var callbackId: UInt64? = nil
     
     init(_ group: ApiGroup, api: String, returnClass: Output.Type, params: [Encodable] = []) {
         self.group = group
@@ -56,9 +56,9 @@ class BaseRequest<Output: Codable>: Encodable, CoreRequestConvertible, RestConve
         try nestedUnkeyed.encode(contentsOf: params)
     }
     
-    func with(callback id: UInt64) -> Self {
+    func with(id: UInt64, useCallback: Bool) -> Self {
+        if useCallback { self.callbackId = id }
         self.callId = id
-        self.callbackId = id
         
         return self
     }

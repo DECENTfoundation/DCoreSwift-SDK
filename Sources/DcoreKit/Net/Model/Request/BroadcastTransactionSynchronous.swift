@@ -1,6 +1,6 @@
 import Foundation
 
-class BroadcastTransactionSynchronous: BaseRequest<TransactionConfirmation> {
+final class BroadcastTransactionSynchronous: BaseRequest<TransactionConfirmation> {
     
     required init(transaction: Transaction) {
         

@@ -1,6 +1,6 @@
 import Foundation
 
-class GenerateContentKeys: BaseRequest<ContentKeys> {
+final class GenerateContentKeys: BaseRequest<ContentKeys> {
     
     required init(seeders: [ChainObject]) {
         

@@ -1,6 +1,6 @@
 import Foundation
 
-class BroadcastTransactionWithCallback: BaseRequest<TransactionConfirmation> {
+final class BroadcastTransactionWithCallback: BaseRequest<TransactionConfirmation> {
     
     required init(transaction: Transaction) {
         

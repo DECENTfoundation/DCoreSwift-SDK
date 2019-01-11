@@ -1,6 +1,8 @@
 import Foundation
 
-class BroadcastTransaction: BaseRequest<UnitValue> {
+
+
+final class BroadcastTransaction: BaseRequest<UnitValue> {
     
     required init(transaction: Transaction) {
         

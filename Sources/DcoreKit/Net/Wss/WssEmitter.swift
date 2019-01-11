@@ -2,32 +2,55 @@ import Foundation
 import Starscream
 import RxSwift
 
-final class WssEmitter {
-    
-    private let socket: WebSocket
-    private let emitter: AnyObserver<WssEvent>
-    
-    var source: Single<WssEmitter> {
-        fatalError()
+protocol SocketEvent {}
+
+struct OnOpenEvent: SocketEvent {
+     private(set) weak var value: WebSocket?
+}
+
+struct OnMessageEvent: SocketEvent {
+    private(set) var value: String
+}
+
+struct OnDataEvent: SocketEvent {
+    private(set) var value: Data
+}
+
+struct OnCloseEvent: SocketEvent {}
+struct OnEmitEvent: SocketEvent {}
+
+struct WssEmitter {
+
+    static func connect(to url: URL) -> ConnectableObservable<SocketEvent> {
+        return Observable.create { observer -> Disposable in
+            let emitter = WssEmitter(url, observer: observer)
+            return Disposables.create {
+                emitter.disconnect()
+            }
+        }.publish()
     }
     
-    init(_ url: URL, emitter: AnyObserver<WssEvent>) {
-        self.emitter = emitter
+    private let source: WebSocket
+    
+    init(_ url: URL, observer: AnyObserver<SocketEvent>) {
         
-        socket = WebSocket(url: url, writeQueueQOS: .userInitiated)
-
-        socket.onConnect = { [unowned self] in self.emitter.onNext(.onSocket(self.socket)) }
-        socket.onText = { [unowned self] in self.emitter.onNext(.onText($0)) }
-        socket.onData = { [unowned self] in self.emitter.onNext(.onData($0)) }
-        
-        socket.onDisconnect = { [unowned self] (error: Error?) in
+        let source = WebSocket(url: url, writeQueueQOS: .userInitiated)
+        source.onConnect = { observer.onNext(OnOpenEvent(value: source)) }
+        source.onText = { observer.onNext(OnMessageEvent(value: $0)) }
+        source.onData = { observer.onNext(OnDataEvent(value: $0)) }
+        source.onDisconnect = { error in
             if let error = error {
-                self.emitter.onError(error.asChainException())
+                observer.onError(error.asChainException())
             } else {
-                self.emitter.onCompleted()
+                observer.onCompleted()
             }
         }
+        
+        self.source = source
+        self.source.connect()
     }
-
+    
+    private func disconnect() { source.disconnect() }
 }
+
 

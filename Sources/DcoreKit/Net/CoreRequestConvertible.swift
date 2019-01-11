@@ -15,3 +15,9 @@ extension CoreRequestConvertible where Request: BaseRequest<Output> {
     }
 }
 
+extension CoreRequestConvertible where Request: WithCallback & BaseRequest<Output>  {
+    func asCoreRequest(_ core: DCore.Sdk) -> Single<Output> {
+        return core.make(streamRequest: self.base).asSingle()
+    }
+}
+

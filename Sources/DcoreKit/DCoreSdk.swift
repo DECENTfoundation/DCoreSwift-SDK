@@ -17,7 +17,7 @@ extension DCore {
             if let path = restUri, let url = path.asURL() { rest = RestService(url, session: session) }
             if let path = wssUri, let url = path.asURL() { wss = WssService(url) }
             
-            guard rest != nil || wss != nil else { preconditionFailure("At least one uri have to be set correctly") }
+            precondition(rest != nil || wss != nil , "At least one uri have to be set correctly")
         }
         
         public static func create(forRest uri: URLConvertible, session: URLSession? = nil) -> Api {
@@ -47,14 +47,20 @@ extension DCore {
             })
         }
      
-        func make<Output>(request: BaseRequest<Output>) -> Single<Output> where Output: Codable {
-            if let wss = wss, rest == nil || (request is WithCallback) {
-                return wss.request(using: request)
+        func make<Output>(streamRequest req: BaseRequest<Output>) -> Observable<Output> where Output: Codable {
+            guard let _ = wss, (req is WithCallback) else { return Observable.error(ChainException.unexpected("Only callbacks calls available through wss stream api")) }
+            // return wss.request(using: req)
+            fatalError("Not impl")
+        }
+        
+        func make<Output>(request req: BaseRequest<Output>) -> Single<Output> where Output: Codable {
+            if let wss = wss, rest == nil || (req is WithCallback) {
+                return wss.request(using: req)
             } else {
-                guard let rest = rest, !(request is WithCallback) else {
-                    return Single.error(ChainException.unexpected("Callbacks are not available through rest api"))
+                guard let rest = rest, !(req is WithCallback) else {
+                    return Single.error(ChainException.unexpected("Calls with callbacks are not available through rest api"))
                 }
-                return rest.request(using: request)
+                return rest.request(using: req)
             }
         }
     }

@@ -3,7 +3,7 @@ import BigInt
 
 extension JSONDecoder {
     
-    public static func codingContext() -> JSONDecoder{
+    static func codingContext() -> JSONDecoder{
         return JSONDecoder(context: [
             BigInt.CodingContext.key: BigInt.CodingContext.decimal
         ])
@@ -17,7 +17,7 @@ extension JSONDecoder {
 
 extension JSONEncoder {
     
-    public static func codingContext() -> JSONEncoder{
+    static func codingContext() -> JSONEncoder{
         return JSONEncoder(context: [
             BigInt.CodingContext.key: BigInt.CodingContext.decimal
             ])

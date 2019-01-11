@@ -6,6 +6,7 @@ public func allTests() -> [XCTestCaseEntry] {
         testCase(AccountApiTests.allTests),
         testCase(BalanceApiTests.allTests),
         testCase(AssetApiTests.allTests),
+        testCase(SubscriptionApiTests.allTests),
         testCase(CryptoTests.allTests),
         testCase(SerializationTests.allTests),
     ]
