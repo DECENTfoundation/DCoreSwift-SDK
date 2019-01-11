@@ -8,7 +8,7 @@ extension DCore {
         
         private var rest: RestService? = nil
         private var wss: WssService? = nil
-        private lazy var chainId = GetChainId().base.asChainRequest(self).cache()
+        private lazy var chainId = GetChainId().base.toResponse(self).cache()
         
         internal required init(wssUri: URLConvertible? = nil, restUri: URLConvertible? = nil, session: URLSession? = nil) {
         
@@ -31,7 +31,7 @@ extension DCore {
         }
         
         func prepareTransaction<Operation>(forOperations operations: [Operation], expiration: Int) -> Single<Transaction> where Operation: BaseOperation {
-            return Single.zip(chainId, GetDynamicGlobalProps().base.asChainRequest(self)).flatMap({ (id, props) in
+            return Single.zip(chainId, GetDynamicGlobalProps().base.toResponse(self)).flatMap({ (id, props) in
                 
                 // var ops = operations
                 // let idx = ops.partition(by: { $0.fee != BaseOperation.FEE_UNSET })

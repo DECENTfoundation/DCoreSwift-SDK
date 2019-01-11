@@ -596,9 +596,9 @@
 		OBJ_900 /* VestingBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_90 /* VestingBalance.swift */; };
 		OBJ_901 /* VoteId.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_91 /* VoteId.swift */; };
 		OBJ_902 /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_92 /* Namespace.swift */; };
-		OBJ_903 /* ChainRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_94 /* ChainRequestConvertible.swift */; };
-		OBJ_904 /* ChainRequestSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_95 /* ChainRequestSource.swift */; };
-		OBJ_905 /* ChainResultConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_96 /* ChainResultConvertible.swift */; };
+		OBJ_903 /* CoreResponseConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_94 /* CoreResponseConvertible.swift */; };
+		OBJ_904 /* CoreRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_95 /* CoreRequestConvertible.swift */; };
+		OBJ_905 /* CoreResultConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_96 /* CoreResultConvertible.swift */; };
 		OBJ_906 /* HttpConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_97 /* HttpConfigurable.swift */; };
 		OBJ_907 /* ApiGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_99 /* ApiGroup.swift */; };
 		OBJ_908 /* Http.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_100 /* Http.swift */; };
@@ -1579,9 +1579,9 @@
 		OBJ_90 /* VestingBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VestingBalance.swift; sourceTree = "<group>"; };
 		OBJ_91 /* VoteId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteId.swift; sourceTree = "<group>"; };
 		OBJ_92 /* Namespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Namespace.swift; sourceTree = "<group>"; };
-		OBJ_94 /* ChainRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainRequestConvertible.swift; sourceTree = "<group>"; };
-		OBJ_95 /* ChainRequestSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainRequestSource.swift; sourceTree = "<group>"; };
-		OBJ_96 /* ChainResultConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainResultConvertible.swift; sourceTree = "<group>"; };
+		OBJ_94 /* CoreResponseConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreResponseConvertible.swift; sourceTree = "<group>"; };
+		OBJ_95 /* CoreRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreRequestConvertible.swift; sourceTree = "<group>"; };
+		OBJ_96 /* CoreResultConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreResultConvertible.swift; sourceTree = "<group>"; };
 		OBJ_97 /* HttpConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpConfigurable.swift; sourceTree = "<group>"; };
 		OBJ_99 /* ApiGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGroup.swift; sourceTree = "<group>"; };
 		"RxSwift::RxAtomic::Product" /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxAtomic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2731,9 +2731,9 @@
 			isa = PBXGroup;
 			children = (
 				A19CA59C21E89494003CFB81 /* BaseRequestConvertible.swift */,
-				OBJ_94 /* ChainRequestConvertible.swift */,
-				OBJ_95 /* ChainRequestSource.swift */,
-				OBJ_96 /* ChainResultConvertible.swift */,
+				OBJ_94 /* CoreResponseConvertible.swift */,
+				OBJ_95 /* CoreRequestConvertible.swift */,
+				OBJ_96 /* CoreResultConvertible.swift */,
 				OBJ_97 /* HttpConfigurable.swift */,
 				OBJ_98 /* Model */,
 				OBJ_193 /* Rest */,
@@ -3827,9 +3827,9 @@
 				OBJ_900 /* VestingBalance.swift in Sources */,
 				OBJ_901 /* VoteId.swift in Sources */,
 				OBJ_902 /* Namespace.swift in Sources */,
-				OBJ_903 /* ChainRequestConvertible.swift in Sources */,
-				OBJ_904 /* ChainRequestSource.swift in Sources */,
-				OBJ_905 /* ChainResultConvertible.swift in Sources */,
+				OBJ_903 /* CoreResponseConvertible.swift in Sources */,
+				OBJ_904 /* CoreRequestConvertible.swift in Sources */,
+				OBJ_905 /* CoreResultConvertible.swift in Sources */,
 				OBJ_906 /* HttpConfigurable.swift in Sources */,
 				OBJ_907 /* ApiGroup.swift in Sources */,
 				OBJ_908 /* Http.swift in Sources */,

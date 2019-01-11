@@ -1,6 +1,6 @@
 import Foundation
 
-enum WssResultValidator<Output>: ChainResultConvertible where Output: Codable {
+enum WssResultValidator<Output>: CoreResultConvertible where Output: Codable {
     
     var result: Data {
         guard case .result(let value) = self else { fatalError("Unexpected result of wss validator") }

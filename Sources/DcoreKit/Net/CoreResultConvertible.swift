@@ -1,9 +1,9 @@
 import Foundation
 
-protocol ChainResultConvertible: Decodable {
+protocol CoreResultConvertible: Decodable {
     var result: Data { get }
 }
 
-extension ChainResultConvertible {
+extension CoreResultConvertible {
     var result: Data { fatalError("Override required") }
 }

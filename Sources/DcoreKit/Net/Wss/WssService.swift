@@ -3,7 +3,7 @@ import RxSwift
 import RxCocoa
 import Starscream
 
-final class WssService: ChainRequestSource {
+final class WssService: CoreRequestConvertible {
     
     private let disposableBag = DisposeBag()
     private let disposable = CompositeDisposable()

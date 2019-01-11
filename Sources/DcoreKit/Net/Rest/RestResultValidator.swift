@@ -1,6 +1,6 @@
 import Foundation
 
-enum RestResultValidator: ChainResultConvertible {
+enum RestResultValidator: CoreResultConvertible {
     
     var result: Data {
         guard case .result(let value) = self else { fatalError("Unexpected result of rest validator") }

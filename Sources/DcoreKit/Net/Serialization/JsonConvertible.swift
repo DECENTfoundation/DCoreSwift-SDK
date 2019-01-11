@@ -3,7 +3,7 @@ import BigInt
 
 protocol JsonConvertible {
     func asJsonDecoded<Output>(to type: Output.Type, at path: String?) throws -> Output where Output: Decodable
-    func asJsonDecoded<Output>(to req: BaseRequest<Output>, _ validate: ((Data) throws -> ChainResultConvertible)?) throws -> Output where Output: Decodable
+    func asJsonDecoded<Output>(to req: BaseRequest<Output>, _ validate: ((Data) throws -> CoreResultConvertible)?) throws -> Output where Output: Decodable
 }
 
 extension JsonConvertible where Self: DataConvertible {
@@ -30,7 +30,7 @@ extension JsonConvertible where Self: DataConvertible {
         return try JSONDecoder.codingContext().decode(type, from: asData())
     }
     
-    func asJsonDecoded<Output>(to req: BaseRequest<Output>, _ validate: ((Data) throws -> ChainResultConvertible)? = nil) throws -> Output where Output: Decodable {
+    func asJsonDecoded<Output>(to req: BaseRequest<Output>, _ validate: ((Data) throws -> CoreResultConvertible)? = nil) throws -> Output where Output: Decodable {
         guard let validate = validate else { return try asData().asJsonDecoded(to: req.returnClass, at: req.returnKeypath) }
         
         let data = try validate(asData())

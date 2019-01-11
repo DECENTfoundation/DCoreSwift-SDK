@@ -1,12 +1,12 @@
 import Foundation
 import RxSwift
 
-protocol ChainRequestSource {
+protocol CoreRequestConvertible {
     func request<Output>(using req: BaseRequest<Output>) -> Single<Output> where Output: Codable
     func request<Output>(usingStream req: BaseRequest<Output>) -> Observable<Output> where Output: Codable
 }
 
-extension ChainRequestSource {
+extension CoreRequestConvertible {
     func request<Output>(using req: BaseRequest<Output>) -> Single<Output> where Output: Codable {
         return Single.error(ChainException.unexpected("Api calls not implemented"))
     }

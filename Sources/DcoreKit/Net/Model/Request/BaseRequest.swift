@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-struct BaseRequest<Output: Codable>: Encodable, ChainRequestConvertible, RestConvertible, WssConvertible {
+struct BaseRequest<Output: Codable>: Encodable, CoreResponseConvertible, RestConvertible, WssConvertible {
     
     typealias Request = BaseRequest
     var base: BaseRequest<Output> { return self }
