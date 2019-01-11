@@ -1,4 +1,6 @@
 github "ReactiveX/RxSwift" ~> 4.0
-github "attaswift/BigInt" ~> 3.1
-github "krzyzanowskim/CryptoSwift"
-github "daltoniam/Starscream" >= 3.0.2
+github "krzyzanowskim/CryptoSwift" ~> 0.13.0
+github "fl3xman/BigInt"
+github "daltoniam/Starscream" ~> 3.0.6
+github "vapor-community/copenssl" "1.0.0-rc.1"
+github "Boilertalk/secp256k1.swift" ~> 0.1.0
