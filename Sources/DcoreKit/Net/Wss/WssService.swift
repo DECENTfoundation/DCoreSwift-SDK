@@ -46,12 +46,16 @@ final class WssService: CoreRequestConvertible {
                 .asObservableMapTo(OnEvent.empty)
         ])
         .ofType(OnMessageEvent.self)
-        .map({ event in
-            return try event.value.asData().asJsonDecoded(to: req) { try WssResultValidator(req, data:$0) }
+        .filterMap({ res -> FilterMap<Output> in
+            
+            let (valid, result) = res.value.asData().parse(validResponse: req)
+            guard let value = result, valid else { return .ignore }
+            
+            return .map(value)
         })
         .timeout(self.timeout, scheduler: SerialDispatchQueueScheduler(qos: .default))
-        .do(onError: { [unowned self] error in
-            if case RxError.timeout = error { self.clearConnection() }
+        .do(onError: { [weak self] error in
+            if case RxError.timeout = error { self?.clearConnection() }
         })
     }
    
@@ -66,20 +70,22 @@ final class WssService: CoreRequestConvertible {
                 self.clearConnection()
             }).subscribe(),
             events.ofType(OnOpenEvent.self).single().do(onNext: { [unowned self] event in
-                guard let value = event.value, let socket = self.socket else { fatalError("WebSocket was deallocated") }
-                socket.applySingle(value)
+                if let value = event.value, let socket = self.socket { socket.applySingle(value) }
             }).asObservable().catchErrorJustComplete().ignoreElements().subscribe()
         ])
+        
         disposable.add(events.connect())
     }
     
     private func connectedSocket() -> Single<WebSocket> {
-        if (socket == nil) {
-            socket = AsyncSubject()
-            
-            connect()
-        }
-        return socket!.asSingle()
+        
+        if let socket = socket { return socket.asSingle() }
+        
+        socket = AsyncSubject()
+        connect()
+        
+        Logger.debug(network: "WebSocket is connected")
+        return connectedSocket()
     }
     
     private func clearConnection() {

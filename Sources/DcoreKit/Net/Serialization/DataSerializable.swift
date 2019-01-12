@@ -6,7 +6,7 @@ public protocol DataSerializable {
 
 extension DataSerializable {
     public var serialized: Data {
-        fatalError("missing serialization implementation")
+        fatalError("Missing override: \(self)")
     }
 }
 

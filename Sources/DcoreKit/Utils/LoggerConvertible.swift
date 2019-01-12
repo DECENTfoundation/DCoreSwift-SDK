@@ -4,7 +4,7 @@ import os.log
 enum Logger: LoggerConvertible {}
 
 @available(OSX 10.14, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
-fileprivate enum LoggerConfig {
+fileprivate enum LoggerDefaults {
     static let network = OSLog(subsystem: "ch.decent.DcoreKit", category: "Network")
     static let chain = OSLog(subsystem: "ch.decent.DcoreKit", category: "Chain")
     static let crypto = OSLog(subsystem: "ch.decent.DcoreKit", category: "Crypto")
@@ -65,21 +65,21 @@ extension LoggerConvertible {
         }
     }
     
-    static func debug(network message: StaticString, args: (() -> CVarArg?)?) {
+    static func debug(network message: StaticString, args: (() -> CVarArg?)? = nil) {
         if #available(OSX 10.14, iOS 10.0, watchOS 3.0, tvOS 10.0, *) {
-            debug(LoggerConfig.network, message: message, args: args)
+            debug(LoggerDefaults.network, message: message, args: args)
         }
     }
     
-    static func debug(chain message: StaticString, args: (() -> CVarArg?)?) {
+    static func debug(chain message: StaticString, args: (() -> CVarArg?)? = nil) {
         if #available(OSX 10.14, iOS 10.0, watchOS 3.0, tvOS 10.0, *) {
-            debug(LoggerConfig.chain, message: message, args: args)
+            debug(LoggerDefaults.chain, message: message, args: args)
         }
     }
     
-    static func debug(crypto message: StaticString, args: (() -> CVarArg?)?) {
+    static func debug(crypto message: StaticString, args: (() -> CVarArg?)? = nil) {
         if #available(OSX 10.14, iOS 10.0, watchOS 3.0, tvOS 10.0, *) {
-            debug(LoggerConfig.crypto, message: message, args: args)
+            debug(LoggerDefaults.crypto, message: message, args: args)
         }
         
     }

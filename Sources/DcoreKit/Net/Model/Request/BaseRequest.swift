@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-struct BaseRequest<Output: Codable>: Encodable, CoreResponseConvertible, RestConvertible, WssConvertible {
+struct BaseRequest<Output: Codable>: CoreResponseConvertible, RestConvertible, WssConvertible {
     
     typealias Request = BaseRequest
     var base: BaseRequest<Output> { return self }
@@ -13,7 +13,6 @@ struct BaseRequest<Output: Codable>: Encodable, CoreResponseConvertible, RestCon
     private let params: [AnyEncodable]
 
     let returnClass: Output.Type
-    let returnKeypath: String = "result"
     let callback: Bool
     
     var callId: UInt64 = 1
@@ -26,6 +25,18 @@ struct BaseRequest<Output: Codable>: Encodable, CoreResponseConvertible, RestCon
         self.params = params.map({ AnyEncodable($0) })
         self.callback = callback
     }
+    
+    func with(id: UInt64) -> BaseRequest<Output> {
+        var request = self
+        
+        if callback { request.callbackId = id }
+        request.callId = id
+        
+        return request
+    }
+}
+
+extension BaseRequest: Encodable {
     
     private enum CodingKeys: String, CodingKey {
         case
@@ -57,20 +68,10 @@ struct BaseRequest<Output: Codable>: Encodable, CoreResponseConvertible, RestCon
         
         try nestedUnkeyed.encode(contentsOf: params)
     }
-    
-    func with(id: UInt64) -> BaseRequest<Output> {
-        var request = self
-        
-        if callback { request.callbackId = id }
-        request.callId = id
-        
-        return request
-    }
 }
 
 extension BaseRequest: CustomStringConvertible {
     var description: String {
-        guard let json = try? asJson() else { fatalError("Base request description not supported") }
-        return json
+        return asJson() ?? ""
     }
 }

@@ -19,7 +19,7 @@ extension DataConvertible {
         lhs = lhs + rhs
     }
     
-    func asData() -> Data { fatalError("Not implemeted") }
+    func asData() -> Data { fatalError("Missing override: \(self)") }
 }
 
 extension UInt8: DataConvertible {}
@@ -85,7 +85,7 @@ extension String: DataConvertible {
     }
     
     func asData() -> Data {
-        return (try? JSONSerialization.data(withJSONObject: self, options: [])) ?? Data(count: 0)
+        return data(using: .utf8) ?? Data(count: 0)
     }
 }
 

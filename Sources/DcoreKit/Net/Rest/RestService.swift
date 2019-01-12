@@ -14,10 +14,8 @@ final class RestService: CoreRequestConvertible {
     
     func request<Output>(using req: BaseRequest<Output>) -> Single<Output> where Output: Codable {
         return session.rx.data(request: req.asRest(url))
-            .map { data in
-                do {
-                    return try data.asJsonDecoded(to: req) { try RestResultValidator($0) }
-                } catch let error {
+            .map { res in
+                do { return try res.parse(response: req) } catch let error {
                     throw error.asChainException()
                 }
             }.asSingle()

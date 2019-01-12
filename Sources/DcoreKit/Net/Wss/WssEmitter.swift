@@ -23,9 +23,7 @@ struct WssEmitter {
     static func connect(to url: URL) -> ConnectableObservable<SocketEvent> {
         return Observable.create { observer -> Disposable in
             let emitter = WssEmitter(url, observer: observer)
-            return Disposables.create {
-                emitter.disconnect()
-            }
+            return Disposables.create(with: emitter.disconnect)
         }.publish()
     }
     
