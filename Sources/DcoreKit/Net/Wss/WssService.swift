@@ -44,14 +44,14 @@ final class WssService: CoreRequestConvertible {
     }
     
     func request<Output>(usingStream req: BaseRequest<Output>) -> Observable<Output> where Output: Codable {
-        return request(using: req, callId: self.increment())
+        return request(req.apply(id: self.increment()))
     }
     
-    private func request<Output>(using req: BaseRequest<Output>, callId: UInt64) -> Observable<Output> where Output: Codable {
+    private func request<Output>(_ req: BaseRequest<Output>) -> Observable<Output> where Output: Codable {
         return Observable.merge([
             events, Single
                 .deferred({ [unowned self] in self.connectedSocket() })
-                .do(onSuccess: { $0.write(string: try req.asWss(id: callId)) })
+                .do(onSuccess: { $0.write(string: try req.asWss()) })
                 .asObservableMapTo(OnEvent.empty)
         ])
         .ofType(OnMessageEvent.self)

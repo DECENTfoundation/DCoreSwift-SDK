@@ -26,13 +26,13 @@ struct BaseRequest<Output: Codable>: CoreResponseConvertible, RestConvertible, W
         self.callback = callback
     }
     
-    func with(id: UInt64) -> BaseRequest<Output> {
-        var request = self
+    func apply(id: UInt64) -> BaseRequest<Output> {
         
-        if callback { request.callbackId = id }
-        request.callId = id
+        var req = self
+        if callback { req.callbackId = id }
+        req.callId = id
         
-        return request
+        return req
     }
 }
 

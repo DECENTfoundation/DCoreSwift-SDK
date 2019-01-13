@@ -50,6 +50,16 @@ final class AccountApiTests: XCTestCase {
         XCTAssertEqual(account?.id, "1.2.34".chain.chainObject)
     }
     
+    func testGetAccountByReferenceUsingWss() {
+        let account = try? wss.account.getAccount(byReference: "1.2.34").debug().toBlocking().single()
+        XCTAssertEqual(account?.name, "u961279ec8b7ae7bd62f304f7c1c3d345")
+    }
+    
+    func testGetAccountByAddressUsingWss() {
+        let account = try? wss.account.getAccount(byReference: "DCT6MA5TQQ6UbMyMaLPmPXE2Syh5G3ZVhv5SbFedqLPqdFChSeqTz").debug().toBlocking().single()
+        XCTAssertEqual(account?.name, "u961279ec8b7ae7bd62f304f7c1c3d345")
+    }
+    
     static var allTests = [
         ("testGetAccountByNameUsingRest", testGetAccountByNameUsingRest),
         ("testGetAccountByReferenceUsingRest", testGetAccountByReferenceUsingRest),
@@ -58,6 +68,9 @@ final class AccountApiTests: XCTestCase {
         ("testGetAccountByIdsUsingRest", testGetAccountByIdsUsingRest),
         ("testGetAccountByNameAndIdUsingRest", testGetAccountByNameAndIdUsingRest),
         ("testGetAccountByNameNotFoundUsingRest", testGetAccountByNameNotFoundUsingRest),
+        ("testGetAccountByNameUsingWss", testGetAccountByNameUsingWss),
+        ("testGetAccountByReferenceUsingWss", testGetAccountByReferenceUsingWss),
+        ("testGetAccountByAddressUsingWss", testGetAccountByAddressUsingWss),
     ]
 
 }
