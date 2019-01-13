@@ -7,19 +7,19 @@ public final class SubscriptionApi: BaseApi {
         return CancelAllSubscriptions().base.toResponse(api.core).asCompletable()
     }
 
-    public func setBlockAppliedCallback() -> Single<String> {
-        return SetBlockAppliedCallback().base.toResponse(api.core)
+    public func setBlockAppliedCallback() -> Observable<String> {
+        return SetBlockAppliedCallback().base.toStreamResponse(api.core)
     }
     
-    public func setContentUpdateCallback(uri: String) -> Completable {
-        return SetContentUpdateCallback(uri).base.toResponse(api.core).asCompletable()
+    public func setContentUpdateCallback(uri: String) -> Observable<UnitValue> {
+        return SetContentUpdateCallback(uri).base.toStreamResponse(api.core)
     }
 
-    public func setPendingTransactionCallback() -> Completable {
-        return SetPendingTransactionCallback().base.toResponse(api.core).asCompletable()
+    public func setPendingTransactionCallback() -> Observable<UnitValue> {
+        return SetPendingTransactionCallback().base.toStreamResponse(api.core)
     }
     
-    public func setSubscribeCallback(clearFilter: Bool) -> Completable {
-        return SetSubscribeCallback(clearFilter).base.toResponse(api.core).asCompletable()
+    public func setSubscribeCallback(clearFilter: Bool) -> Observable<UnitValue> {
+        return SetSubscribeCallback(clearFilter).base.toStreamResponse(api.core)
     }
 }
