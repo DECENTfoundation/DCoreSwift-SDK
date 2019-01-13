@@ -6,6 +6,7 @@ public enum ChainException: Error {
     public enum Network: Error, Equatable {
         case
         notFound,
+        closed,
         fail(JSON),
         failDecode(String),
         failEncode(String)
@@ -57,6 +58,7 @@ extension ChainException.Network: CustomStringConvertible {
     public var description: String {
         switch self {
         case .notFound: return "Result not found"
+        case .closed: return "Network was closed"
         case .fail(let value): return value.description
         case .failDecode(let message): return message
         case .failEncode(let message): return message

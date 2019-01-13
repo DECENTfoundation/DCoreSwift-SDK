@@ -31,7 +31,16 @@ final class WssService: CoreRequestConvertible {
     }
     
     func request<Output>(using req: BaseRequest<Output>) -> Single<Output> where Output: Codable {
-        return request(using: req, callId: self.increment()).asSingle()
+        return Single.create(subscribe: { [unowned self] single in
+            return self.request(usingStream: req)
+                .single()
+                .do(onNext: { single(.success($0)) }, onError: {
+                    if case RxError.noElements = $0 { single(.error(ChainException.network(.closed))) } else {
+                        single(.error($0.asChainException()))
+                    }
+                })
+                .subscribe()
+        })
     }
     
     func request<Output>(usingStream req: BaseRequest<Output>) -> Observable<Output> where Output: Codable {
@@ -46,12 +55,18 @@ final class WssService: CoreRequestConvertible {
                 .asObservableMapTo(OnEvent.empty)
         ])
         .ofType(OnMessageEvent.self)
-        .filterMap({ res -> FilterMap<Output> in
+        .filterMap({ res -> FilterMap<ResponseResult<Output>> in
             
             let (valid, result) = res.value.asData().parse(validResponse: req)
-            guard let value = result, valid else { return .ignore }
+            guard valid else { return .ignore }
             
-            return .map(value)
+            return .map(result)
+        })
+        .map({ result in
+            switch result {
+            case .success(let value): return value
+            case .failure(let error): throw error
+            }
         })
         .timeout(self.timeout, scheduler: SerialDispatchQueueScheduler(qos: .default))
         .do(onError: { [weak self] error in

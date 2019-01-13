@@ -1,10 +1,19 @@
 import Foundation
 import SwiftyJSON
 
-fileprivate enum Key: String {
+enum ResponseResult<Output> where Output: Codable {
+    case
+    success(Output),
+    failure(ChainException)
+}
+
+enum ResponseKeypath: String {
     case
     result,
-    error
+    error,
+    method,
+    params,
+    id
 }
 
 protocol CoreResponseParser {
@@ -21,8 +30,8 @@ extension CoreResponseParser {
     
     func parse<Output>(response req: BaseRequest<Output>, from json: JSON) throws -> Output where Output: Codable {
         
-        let error = json[Key.error.rawValue]
-        let result = json[Key.result.rawValue]
+        let error = json[ResponseKeypath.error.rawValue]
+        let result = json[ResponseKeypath.result.rawValue]
         
         guard !error.exists() else { throw ChainException.network(.fail(error)) }
         
