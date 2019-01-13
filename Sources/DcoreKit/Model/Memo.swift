@@ -16,7 +16,7 @@ public struct Memo: Codable {
         nonce
     }
     
-    public init(_ message: String) {
+    public init(_ message: String = "") {
         self.message = (Data(count: 4) + message).toHex()
         self.nonce = 0
         self.from = nil
