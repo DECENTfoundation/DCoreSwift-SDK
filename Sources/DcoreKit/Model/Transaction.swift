@@ -35,11 +35,13 @@ public struct Transaction: Codable {
         extensions
     }
     
-    public mutating func with(signature keyPair: ECKeyPair) throws -> Transaction {
-        let data = CryptoUtils.hash256(chainId!.unhex()! + self)
-        signatures = [try keyPair.sign(data).toHex()]
+    public func with(signature keyPair: ECKeyPair) throws -> Transaction {
+        var trx = self
         
-        return self
+        let data = CryptoUtils.hash256(chainId!.unhex()! + trx)
+        trx.signatures = [try keyPair.sign(data).toHex()]
+        
+        return trx
     }
 }
 

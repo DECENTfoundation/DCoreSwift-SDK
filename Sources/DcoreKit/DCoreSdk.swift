@@ -1,6 +1,5 @@
 import Foundation
 import RxSwift
-import os.log
 
 extension DCore {
     
@@ -8,6 +7,7 @@ extension DCore {
         
         private var rest: RestService? = nil
         private var wss: WssService? = nil
+        
         private lazy var chainId = GetChainId().base.toResponse(self).cache()
         
         internal required init(wssUri: URLConvertible? = nil, restUri: URLConvertible? = nil, session: URLSession? = nil) {
