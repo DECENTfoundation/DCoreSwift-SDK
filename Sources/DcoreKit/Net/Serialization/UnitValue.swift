@@ -5,10 +5,10 @@ import Foundation
 
 public enum UnitValue: Codable {
  
-    case Void
+    case void
     
     public init(from decoder: Decoder) throws {
-        self = .Void
+        self = .void
     }
     
     public func encode(to encoder: Encoder) throws {

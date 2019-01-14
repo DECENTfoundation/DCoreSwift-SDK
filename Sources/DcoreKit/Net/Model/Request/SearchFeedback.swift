@@ -10,6 +10,11 @@ struct SearchFeedback: BaseRequestConvertible {
          startId: ChainObject = ObjectType.nullObject.genericId,
          count: Int) {
         
-        self.base = SearchFeedback.toBase(.database, api: "search_feedback", returnClass: [Purchase].self, params: [user ?? "", uri, startId, count])
+        self.base = SearchFeedback.toBase(
+            .database,
+            api: "search_feedback",
+            returnClass: [Purchase].self,
+            params: [user ?? "", uri, startId, count]
+        )
     }
 }

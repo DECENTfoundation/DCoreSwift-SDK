@@ -8,6 +8,8 @@ struct GetTransactionById: BaseRequestConvertible {
     init(_ id: String) {
         
         precondition(id.unhex()?.count == 20, "Invalid transaction id")
-        self.base = GetTransactionById.toBase(.database, api: "get_transaction_by_id", returnClass: ProcessedTransaction.self, params: [id])
+        self.base = GetTransactionById.toBase(
+            .database, api: "get_transaction_by_id", returnClass: ProcessedTransaction.self, params: [id]
+        )
     }
 }

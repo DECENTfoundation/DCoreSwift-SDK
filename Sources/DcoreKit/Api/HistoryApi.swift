@@ -34,7 +34,8 @@ public final class HistoryApi: BaseApi {
                                            startOffset: startOffset, limit: limit).base.toResponse(api.core)
     }
     
-    public func getAccountBalanceForTransaction(byAccountId id: ChainObject, operationId: ChainObject) -> Single<BalanceChange> {
+    public func getAccountBalanceForTransaction(byAccountId id: ChainObject,
+                                                operationId: ChainObject) -> Single<BalanceChange> {
         return GetAccountBalanceForTransaction(id, operationId: operationId).base.toResponse(api.core)
     }
 }

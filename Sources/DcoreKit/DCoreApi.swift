@@ -4,7 +4,7 @@ extension DCore {
     
     public final class Api {
         
-        public var transactionExpiration: Int = DCore.Constant.Default.expiration
+        public var transactionExpiration: Int = DCore.Constant.expiration
         
         public lazy var account = AccountApi(using: self)
         public lazy var asset = AssetApi(using: self)

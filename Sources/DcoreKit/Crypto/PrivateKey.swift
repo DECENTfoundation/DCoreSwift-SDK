@@ -3,7 +3,6 @@ import COpenSSL
 import secp256k1
 
 struct PrivateKey {
-    
     static let VERSION = 0x80
     
     let data: Data
@@ -33,7 +32,9 @@ struct PrivateKey {
             throw ChainException.crypto(.failDecode("Wif \(wif) has invalid checksum count \(checksumDropped.count)"))
         }
         
-        self.init(data: checksumDropped.dropFirst().prefix(32), version: version, compressed: (checksumDropped.count == (1 + 32 + 1)))
+        self.init(data: checksumDropped.dropFirst().prefix(32),
+                  version: version,
+                  compressed: (checksumDropped.count == (1 + 32 + 1)))
     }
     
     init(data: Data, version: Int = PrivateKey.VERSION, compressed: Bool = true) {
@@ -41,7 +42,6 @@ struct PrivateKey {
         self.version = version
         self.compressed = compressed
     }
-    
     
     func toWif() -> String {
         var payload = Data()
@@ -81,7 +81,9 @@ struct PrivateKey {
         var length: size_t = 128
         var der = Data(count: length)
         
-        guard der.withUnsafeMutableBytes({ return secp256k1_ecdsa_signature_serialize_der(ctx, $0, &length, normalizedsig) }) == 1 else {
+        guard der.withUnsafeMutableBytes({
+            return secp256k1_ecdsa_signature_serialize_der(ctx, $0, &length, normalizedsig)
+        }) == 1 else {
             throw ChainException.crypto(.notEnoughSpace)
         }
         
@@ -90,10 +92,8 @@ struct PrivateKey {
     }
 }
 
-
 extension PrivateKey: Equatable {
     static func == (lhs: PrivateKey, rhs: PrivateKey) -> Bool {
         return lhs.data == rhs.data
     }
 }
-

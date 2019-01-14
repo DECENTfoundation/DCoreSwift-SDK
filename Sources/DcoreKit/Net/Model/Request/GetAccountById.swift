@@ -7,7 +7,7 @@ struct GetAccountById: BaseRequestConvertible {
     
     init(_ ids: [ChainObject]) {
         
-        precondition(ids.allSatisfy{ $0.objectType == .accountObject },"Not a valid account object id")
+        precondition(ids.allSatisfy { $0.objectType == .accountObject }, "Not a valid account object id")
         self.base = GetObjects(ids, returnClass: [Account].self).base
     }
 }

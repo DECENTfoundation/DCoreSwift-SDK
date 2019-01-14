@@ -10,6 +10,11 @@ struct SearchAccounts: BaseRequestConvertible {
          id: ChainObject = ObjectType.nullObject.genericId,
          limit: Int = 1000) {
         
-        self.base = SearchAccounts.toBase(.database, api: "search_accounts", returnClass: [Account].self, params: [term, order, id, limit])
+        self.base = SearchAccounts.toBase(
+            .database,
+            api: "search_accounts",
+            returnClass: [Account].self,
+            params: [term, order, id, limit]
+        )
     }
 }

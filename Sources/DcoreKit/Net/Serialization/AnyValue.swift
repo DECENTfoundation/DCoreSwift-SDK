@@ -12,7 +12,6 @@ public enum AnyValue: Codable, Equatable {
     null
     
     public init(from decoder: Decoder) throws {
-        
         let container = try decoder.singleValueContainer()
         if let value = try? container.decode(String.self) {
             self = .string(value)
@@ -29,7 +28,9 @@ public enum AnyValue: Codable, Equatable {
         } else if container.decodeNil() {
             self = .null
         } else {
-            throw DecodingError.typeMismatch(AnyValue.self, DecodingError.Context(codingPath: container.codingPath, debugDescription: "Not a JSON"))
+            throw DecodingError.typeMismatch(
+                AnyValue.self, DecodingError.Context(codingPath: container.codingPath, debugDescription: "Not a JSON")
+            )
         }
     }
     

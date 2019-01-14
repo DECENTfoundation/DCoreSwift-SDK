@@ -19,7 +19,13 @@ public final class ContentApi: BaseApi {
                        startId: ChainObject = ObjectType.nullObject.genericId,
                        limit: Int = 100) -> Single<[Content]> {
         
-        return SearchContent(term, order: order, user: user, regionCode: regionCode, type: type, startId: startId, limit: limit).base.toResponse(api.core)
+        return SearchContent(term,
+                             order: order,
+                             user: user,
+                             regionCode: regionCode,
+                             type: type,
+                             startId: startId,
+                             limit: limit).base.toResponse(api.core)
     }
     
     public func listPublishingManagers(lowerBound: String, limit: Int = 100) -> Single<[ChainObject]> {

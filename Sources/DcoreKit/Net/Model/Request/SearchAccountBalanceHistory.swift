@@ -14,8 +14,10 @@ struct SearchAccountBalanceHistory: BaseRequestConvertible {
          limit: Int = 100) {
         
         precondition(accountId.objectType == .accountObject, "Not a valid account object id")
-        self.base = SearchAccountBalanceHistory.toBase(.history, api: "search_account_balance_history", returnClass: [BalanceChange].self, params: [
-            accountId, assets, recipientAccount ?? "", fromBlock, toBlock, startOffset, limit
-            ])
+        self.base = SearchAccountBalanceHistory.toBase(
+            .history, api: "search_account_balance_history", returnClass: [BalanceChange].self, params: [
+                accountId, assets, recipientAccount ?? "", fromBlock, toBlock, startOffset, limit
+            ]
+        )
     }
 }

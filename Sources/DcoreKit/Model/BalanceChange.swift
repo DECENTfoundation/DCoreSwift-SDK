@@ -14,8 +14,6 @@ public struct BalanceChange: Codable {
     }
 }
 
-
-
 public struct Balance: Codable {
     public let primaryAsset: AssetAmount
     public let sencodaryAsset: AssetAmount

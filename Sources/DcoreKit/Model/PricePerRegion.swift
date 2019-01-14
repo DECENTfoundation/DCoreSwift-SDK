@@ -23,7 +23,7 @@ extension RegionalPrice: DataSerializable {
 
 public struct PricePerRegion: Codable {
     
-    public let prices: [Int:AssetAmount]
+    public let prices: [Int: AssetAmount]
     
     private enum CodingKeys: String, CodingKey {
         case

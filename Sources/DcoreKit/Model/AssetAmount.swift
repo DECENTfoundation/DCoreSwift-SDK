@@ -12,7 +12,7 @@ public struct AssetAmount: Codable {
         assetId = "asset_id"
     }
     
-    public init(_ amount: BigInt, assetId: ChainObject = DCore.Constant.Default.dct) {
+    public init(_ amount: BigInt, assetId: ChainObject = DCore.Constant.dct) {
         precondition(amount >= 0, "Amount must be greater or equal to 0")
         precondition(assetId.objectType == ObjectType.assetObject, "Object type is not an asset")
         
@@ -51,22 +51,22 @@ extension AssetAmount: Equatable {
 
 extension AssetAmount: Comparable {
     public static func < (lhs: AssetAmount, rhs: AssetAmount) -> Bool {
-        precondition(lhs.assetId == rhs.assetId,"Cannot compare different asset id")
+        precondition(lhs.assetId == rhs.assetId, "Cannot compare different asset id")
         return lhs.amount < rhs.amount
     }
     
     public static func <= (lhs: AssetAmount, rhs: AssetAmount) -> Bool {
-        precondition(lhs.assetId == rhs.assetId,"Cannot compare different asset id")
+        precondition(lhs.assetId == rhs.assetId, "Cannot compare different asset id")
         return lhs.amount <= rhs.amount
     }
     
     public static func >= (lhs: AssetAmount, rhs: AssetAmount) -> Bool {
-        precondition(lhs.assetId == rhs.assetId,"Cannot compare different asset id")
+        precondition(lhs.assetId == rhs.assetId, "Cannot compare different asset id")
         return lhs.amount >= rhs.amount
     }
     
     public static func > (lhs: AssetAmount, rhs: AssetAmount) -> Bool {
-        precondition(lhs.assetId == rhs.assetId,"Cannot compare different asset id")
+        precondition(lhs.assetId == rhs.assetId, "Cannot compare different asset id")
         return lhs.amount > rhs.amount
     }
     

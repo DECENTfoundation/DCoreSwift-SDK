@@ -28,7 +28,6 @@ public final class MiningApi: BaseApi {
         return GetMinerCount().base.toResponse(api.core)
     }
     
-
     public func getFeedsByMiner(byAccountId id: ChainObject, count: UInt64 = 100) -> Single<AnyValue> {
         return GetFeedsByMiner(id, count: count).base.toResponse(api.core)
     }
@@ -48,13 +47,18 @@ public final class MiningApi: BaseApi {
                        onlyMyVotes: Bool = false,
                        limit: Int = 1000) -> Single<[MinerVotingInfo]> {
         
-        return SearchMinerVoting(accountName, searchTerm: term, onlyMyVotes: onlyMyVotes, order: order, id: id, limit: limit).base.toResponse(api.core)
+        return SearchMinerVoting(accountName,
+                                 searchTerm: term,
+                                 onlyMyVotes: onlyMyVotes,
+                                 order: order,
+                                 id: id,
+                                 limit: limit).base.toResponse(api.core)
     }
  
-    public func getMiners() -> Single<[String:Miner]> {
+    public func getMiners() -> Single<[String: Miner]> {
         return self.lookupMiners().flatMap({ [unowned self] minerIds in
             return self.getMiners(byIds: minerIds.map({ $0.id })).map({ miners in
-                return miners.reduce(into: [String:Miner](), { map, miner in
+                return miners.reduce(into: [String: Miner](), { map, miner in
                     map[minerIds.first(where: { $0.id == miner.id })!.name] = miner
                 })
             })

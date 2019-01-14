@@ -6,6 +6,11 @@ struct GetRequiredSignatures: BaseRequestConvertible {
     private(set) var base: BaseRequest<[Address]>
     
     init(_ trx: Transaction, keys: [Address]) {
-        self.base = GetRequiredSignatures.toBase(.database, api: "get_required_signatures", returnClass: [Address].self, params: [trx, keys])
+        self.base = GetRequiredSignatures.toBase(
+            .database,
+            api: "get_required_signatures",
+            returnClass: [Address].self,
+            params: [trx, keys]
+        )
     }
 }

@@ -5,17 +5,19 @@ extension DCore {
     
     public final class Sdk {
         
-        private var rest: RestService? = nil
-        private var wss: WssService? = nil
+        private var rest: RestService?
+        private var wss: WssService?
         
         private lazy var chainId = GetChainId().base.toResponse(self).cache()
         
-        internal required init(wssUri: URLConvertible? = nil, restUri: URLConvertible? = nil, session: URLSession? = nil) {
+        internal required init(wssUri: URLConvertible? = nil,
+                               restUri: URLConvertible? = nil,
+                               session: URLSession? = nil) {
         
             if let path = restUri, let url = path.asURL() { rest = RestService(url, session: session) }
-            if let path = wssUri, let url = path.asURL() { wss = WssService(url, timeout: Constant.Api.timeout) }
+            if let path = wssUri, let url = path.asURL() { wss = WssService(url, timeout: Constant.timeout) }
             
-            precondition(rest != nil || wss != nil , "At least one uri have to be set correctly")
+            precondition(rest != nil || wss != nil, "At least one uri have to be set correctly")
         }
         
         public static func create(forRest uri: URLConvertible, session: URLSession? = nil) -> Api {
@@ -26,13 +28,15 @@ extension DCore {
             return Api(core: Sdk(wssUri: uri))
         }
         
-        public static func create(forWss uri: URLConvertible, andRest restUri: URLConvertible, session: URLSession? = nil) -> Api {
+        public static func create(forWss uri: URLConvertible,
+                                  andRest restUri: URLConvertible,
+                                  session: URLSession? = nil) -> Api {
             return Api(core: Sdk(wssUri: uri, restUri: restUri, session: session))
         }
         
-        func prepareTransaction<Operation>(forOperations operations: [Operation], expiration: Int) -> Single<Transaction> where Operation: BaseOperation {
+        func prepareTransaction<Operation>(forOperations operations: [Operation],
+                                           expiration: Int) -> Single<Transaction> where Operation: BaseOperation {
             return Single.zip(chainId, GetDynamicGlobalProps().base.toResponse(self)).flatMap({ (id, props) in
-                
                 // var ops = operations
                 // let idx = ops.partition(by: { $0.fee != BaseOperation.FEE_UNSET })
                 
@@ -40,13 +44,19 @@ extension DCore {
                 // first == [30, 10, 20, 30, 30]
                 // let fees = ops[idx...]
                 // second == [60, 40]
-                
-                return Single.just(Transaction(blockData: BlockData(props: props, expiration: expiration), operations: operations, chainId: id))
+                let block = BlockData(props: props, expiration: expiration)
+                return Single.just(
+                    Transaction(blockData: block, operations: operations, chainId: id)
+                )
             })
         }
      
         func make<Output>(streamRequest req: BaseRequest<Output>) -> Observable<Output> where Output: Codable {
-            guard let wss = wss, req.callback else { return Observable.error(ChainException.unexpected("Only callbacks calls available through wss stream api")) }
+            guard let wss = wss, req.callback else {
+                return Observable.error(
+                    ChainException.unexpected("Only callbacks calls available through wss stream api")
+                )
+            }
             return wss.request(usingStream: req)
         }
         
@@ -55,7 +65,9 @@ extension DCore {
                 return wss.request(using: req)
             } else {
                 guard let rest = rest, !req.callback else {
-                    return Single.error(ChainException.unexpected("Calls with callbacks are not available through rest api"))
+                    return Single.error(
+                        ChainException.unexpected("Calls with callbacks are not available through rest api")
+                    )
                 }
                 return rest.request(using: req)
             }

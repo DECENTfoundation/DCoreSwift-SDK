@@ -29,7 +29,10 @@ public struct ProcessedTransaction: Codable {
 extension ProcessedTransaction: DataSerializable {
     public var serialized: Data {
         var data = Data()
-        data += BlockData(refBlockNum: refBlockNum, refBlockPrefix: refBlockPrefix, expiration: UInt64(expiration.timeIntervalSince1970))
+        data += BlockData(refBlockNum: refBlockNum,
+                          refBlockPrefix: refBlockPrefix,
+                          expiration: UInt64(expiration.timeIntervalSince1970)
+        )
         data += operations
         data += Data(count: 1) // extensions
         return data

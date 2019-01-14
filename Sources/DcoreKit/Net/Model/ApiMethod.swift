@@ -5,4 +5,3 @@ enum ApiMethod: String, Codable {
     call,
     notice
 }
-

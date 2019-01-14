@@ -48,8 +48,8 @@ extension ChainObject: Equatable {
 }
 
 extension ChainObject: Hashable {
-    public var hashValue: Int {
-        return 31 * objectType.hashValue + instance.hashValue
+    public func hash(into hasher: inout Hasher) {
+        (31 * objectType.hashValue + instance.hashValue).hash(into: &hasher)
     }
 }
 

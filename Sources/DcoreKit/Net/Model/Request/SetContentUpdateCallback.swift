@@ -6,6 +6,8 @@ struct SetContentUpdateCallback: BaseRequestConvertible {
     private(set) var base: BaseRequest<UnitValue>
     
     init(_ uri: String) {
-        self.base = SetContentUpdateCallback.toBaseCallback(.database, api: "set_content_update_callback", returnClass: UnitValue.self, params: [uri])
+        self.base = SetContentUpdateCallback.toBaseCallback(
+            .database, api: "set_content_update_callback", returnClass: UnitValue.self, params: [uri]
+        )
     }
 }

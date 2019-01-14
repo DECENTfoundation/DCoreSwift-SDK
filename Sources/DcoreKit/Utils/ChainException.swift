@@ -27,7 +27,7 @@ public enum ChainException: Error {
     init(from error: Error) {
         switch true {
         case error is ChainException:
-            self = error as! ChainException
+            self = error as! ChainException // swiftlint:disable:this force_cast
         default:
             self = .underlying(error)
         }
@@ -37,7 +37,6 @@ public enum ChainException: Error {
     network(Network),
     chain(Chain),
     crypto(Crypto),
-    
     unexpected(String),
     underlying(Error)
 }
@@ -87,10 +86,10 @@ extension ChainException.Crypto: CustomStringConvertible {
 extension ChainException: Equatable {
     public static func == (lhs: ChainException, rhs: ChainException) -> Bool {
         switch (lhs, rhs) {
-        case (.chain(let a), .chain(let b)): return a == b
-        case (.network(let a), .network(let b)): return a == b
-        case (.crypto(let a), .crypto(let b)): return a == b
-        case (.unexpected(let a), .unexpected(let b)): return a == b
+        case (.chain(let left), .chain(let right)): return left == right
+        case (.network(let left), .network(let right)): return left == right
+        case (.crypto(let left), .crypto(let right)): return left == right
+        case (.unexpected(let left), .unexpected(let right)): return left == right
             
         default:
             return false

@@ -51,4 +51,3 @@ extension ApiGroup: CustomStringConvertible {
         return name
     }
 }
-

@@ -9,12 +9,18 @@ public struct BlockData {
     init(props: DynamicGlobalProps, expiration: Int) {
         self.init(headBlockNumber: props.headBlockNumber,
                   headBlockId: props.headBlockId,
-                  relativeExpiration: UInt64(props.time.addingTimeInterval(TimeInterval(expiration)).timeIntervalSince1970))
+                  relativeExpiration: UInt64(props.time.addingTimeInterval(
+                    TimeInterval(expiration)).timeIntervalSince1970
+            )
+        )
     }
     
     init(headBlockNumber: UInt64, headBlockId: String, relativeExpiration: UInt64) {
         self.init(refBlockNum: Int(headBlockNumber) & 0xFFFF,
-                  refBlockPrefix: UInt64(String(headBlockId[safe: 8...16]!.chunked(2).reversed().joined(separator: "")), radix: 16)!,
+                  refBlockPrefix: UInt64(String(headBlockId[safe: 8...16]!
+                    .chunked(2)
+                    .reversed()
+                    .joined(separator: "")), radix: 16)!,
                   expiration: relativeExpiration)
     }
     

@@ -13,4 +13,3 @@ public struct Synopsis: Codable {
         type = "content_type_id"
     }
 }
-

@@ -52,7 +52,7 @@ public final class AccountApi: BaseApi {
         return self.getAccount(byName: accountName).map({ try Credentials(accountId: $0.id, wif: wif) })
     }
     
-    public func getFullAccounts(byNamesOrIds ref: [String], subscribe: Bool = false) -> Single<[String:FullAccount]>{
+    public func getFullAccounts(byNamesOrIds ref: [String], subscribe: Bool = false) -> Single<[String: FullAccount]> {
         return GetFullAccounts(ref, subscribe: subscribe).base.toResponse(api.core)
     }
     
@@ -64,7 +64,7 @@ public final class AccountApi: BaseApi {
         return LookupAccountNames(names).base.toResponse(api.core)
     }
     
-    public func lookupAccounts(byLowerBound bound: String, limit: Int = 1000) -> Single<[String:ChainObject]> {
+    public func lookupAccounts(byLowerBound bound: String, limit: Int = 1000) -> Single<[String: ChainObject]> {
         return LookupAccounts(bound, limit: limit).base.toResponse(api.core)
     }
     

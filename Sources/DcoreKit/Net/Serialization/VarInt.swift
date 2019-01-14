@@ -67,7 +67,7 @@ public struct VarInt: ExpressibleByIntegerLiteral {
             length = 4
             data = Data() + UInt8(0xfe).littleEndian + UInt32(value).littleEndian
         case 0x100000000...0xffffffffffffffff:
-            fallthrough
+            fallthrough // swiftlint:disable:this no_fallthrough_only
         default:
             length = 8
             data = Data() + UInt8(0xff).littleEndian + UInt64(value).littleEndian

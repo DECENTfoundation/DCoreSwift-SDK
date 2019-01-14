@@ -7,7 +7,7 @@ public final class BlockApi: BaseApi {
         return GetBlockHeader(num).base.toResponse(api.core)
     }
 
-    public func headBlockTime() -> Single<Date>{
+    public func headBlockTime() -> Single<Date> {
         return HeadBlockTime().base.toResponse(api.core)
     }
 

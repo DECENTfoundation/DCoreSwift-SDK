@@ -3,14 +3,26 @@ import Foundation
 extension String {
     
     public subscript(safe range: CountableRange<Int>) -> String? {
-        guard let lowerIndex = index(startIndex, offsetBy: max(0, range.lowerBound), limitedBy: endIndex) else { return nil }
-        guard let upperIndex = index(lowerIndex, offsetBy: range.upperBound - range.lowerBound, limitedBy: endIndex) else { return nil }
+        guard let lowerIndex = index(startIndex, offsetBy: max(0, range.lowerBound), limitedBy: endIndex) else {
+            return nil
+        }
+        guard let upperIndex = index(lowerIndex,
+                                     offsetBy: range.upperBound - range.lowerBound,
+                                     limitedBy: endIndex) else {
+            return nil
+        }
         return String(self[lowerIndex..<upperIndex])
     }
     
     public subscript(safe range: ClosedRange<Int>) -> String? {
-        guard let lowerIndex = index(startIndex, offsetBy: max(0, range.lowerBound), limitedBy: endIndex) else { return nil }
-        guard let upperIndex = index(lowerIndex, offsetBy: range.upperBound - range.lowerBound + 1, limitedBy: endIndex) else { return nil }
+        guard let lowerIndex = index(startIndex, offsetBy: max(0, range.lowerBound), limitedBy: endIndex) else {
+            return nil
+        }
+        guard let upperIndex = index(lowerIndex,
+                                     offsetBy: range.upperBound - range.lowerBound + 1,
+                                     limitedBy: endIndex) else {
+            return nil
+        }
         return String(self[lowerIndex..<upperIndex])
     }
     

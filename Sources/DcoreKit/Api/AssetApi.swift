@@ -20,7 +20,7 @@ public final class AssetApi: BaseApi {
     }
     
     public func getAssets(byLowerBound bound: String, limit: Int = 100) -> Single<[Asset]> {
-        return ListAssets(bound, limit:limit).base.toResponse(api.core)
+        return ListAssets(bound, limit: limit).base.toResponse(api.core)
     }
     
     public func priceToDct(amount: AssetAmount) -> Single<AssetAmount> {

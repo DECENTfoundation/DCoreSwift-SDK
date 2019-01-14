@@ -6,6 +6,8 @@ struct SetPendingTransactionCallback: BaseRequestConvertible {
     private(set) var base: BaseRequest<UnitValue>
     
     init() {
-        self.base = SetPendingTransactionCallback.toBaseCallback(.database, api: "set_pending_transaction_callback", returnClass: UnitValue.self)
+        self.base = SetPendingTransactionCallback.toBaseCallback(
+            .database, api: "set_pending_transaction_callback", returnClass: UnitValue.self
+        )
     }
 }

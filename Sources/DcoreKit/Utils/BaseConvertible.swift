@@ -48,24 +48,24 @@ extension BaseConvertible {
         let size = sizeFromByte(size: bytes.count)
         var encodedBytes: [UInt8] = Array(repeating: 0, count: size)
         
-        for b in bytes {
-            var carry = Int(b)
-            var i = 0
-            for j in (0...encodedBytes.count - 1).reversed() where carry != 0 || i < length {
-                carry += 256 * Int(encodedBytes[j])
-                encodedBytes[j] = UInt8(carry % base)
+        for byte in bytes {
+            var carry = Int(byte)
+            var index = 0
+            for encodedIndex in (0...encodedBytes.count - 1).reversed() where carry != 0 || index < length {
+                carry += 256 * Int(encodedBytes[encodedIndex])
+                encodedBytes[encodedIndex] = UInt8(carry % base)
                 carry /= base
-                i += 1
+                index += 1
             }
             
             assert(carry == 0)
             
-            length = i
+            length = index
         }
         
         var zerosToRemove = 0
-        for b in encodedBytes {
-            if b != 0 { break }
+        for byte in encodedBytes {
+            if byte != 0 { break }
             zerosToRemove += 1
         }
         
@@ -78,8 +78,8 @@ extension BaseConvertible {
         var bytes = bytes
         var zerosCount = 0
         
-        for b in bytes {
-            if b != 0 { break }
+        for byte in bytes {
+            if byte != 0 { break }
             zerosCount += 1
         }
         
@@ -93,8 +93,8 @@ extension BaseConvertible {
             zerosCount -= 1
         }
         
-        for b in encodedBytes {
-            str += String(baseAlphabets[String.Index(encodedOffset: Int(b))])
+        for byte in encodedBytes {
+            str += String(baseAlphabets[String.Index(encodedOffset: Int(byte))])
         }
         
         return str
@@ -106,33 +106,33 @@ extension BaseConvertible {
         
         var zerosCount = 0
         var length = 0
-        for c in string {
-            if c != zeroAlphabet { break }
+        for char in string {
+            if char != zeroAlphabet { break }
             zerosCount += 1
         }
         let size = sizeFromBase(size: string.lengthOfBytes(using: .utf8) - zerosCount)
         var decodedBytes: [UInt8] = Array(repeating: 0, count: size)
-        for c in string {
-            guard let baseIndex = baseAlphabets.index(of: c) else { return nil }
+        for char in string {
+            guard let baseIndex = baseAlphabets.index(of: char) else { return nil }
             
             var carry = baseIndex.encodedOffset
-            var i = 0
-            for j in (0...decodedBytes.count - 1).reversed() where carry != 0 || i < length {
-                carry += base * Int(decodedBytes[j])
-                decodedBytes[j] = UInt8(carry % 256)
+            var index = 0
+            for decodedIndex in (0...decodedBytes.count - 1).reversed() where carry != 0 || index < length {
+                carry += base * Int(decodedBytes[decodedIndex])
+                decodedBytes[decodedIndex] = UInt8(carry % 256)
                 carry /= 256
-                i += 1
+                index += 1
             }
             
             assert(carry == 0)
-            length = i
+            length = index
         }
         
         // skip leading zeros
         var zerosToRemove = 0
         
-        for b in decodedBytes {
-            if b != 0 { break }
+        for byte in decodedBytes {
+            if byte != 0 { break }
             zerosToRemove += 1
         }
         decodedBytes.removeFirst(zerosToRemove)

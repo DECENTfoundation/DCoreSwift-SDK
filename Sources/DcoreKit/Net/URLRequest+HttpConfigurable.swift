@@ -1,6 +1,5 @@
 import Foundation
 
-
 extension URLRequest: HttpConfigurable {
     typealias Request = URLRequest
     

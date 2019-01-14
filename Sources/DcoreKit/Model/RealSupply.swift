@@ -8,7 +8,6 @@ public struct RealSupply: Codable {
     public let escrows: BigInt
     public let pools: BigInt
     
-    
     private enum CodingKeys: String, CodingKey {
         case
         accountBalances = "account_balances",

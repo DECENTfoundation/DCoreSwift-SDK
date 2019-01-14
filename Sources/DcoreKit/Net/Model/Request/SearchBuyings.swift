@@ -15,8 +15,13 @@ struct SearchBuyings: BaseRequestConvertible {
         precondition(startId == ObjectType.nullObject.genericId || startId.objectType == .buyingObject,
                      "Not a valid null or buying object id"
         )
-        self.base = SearchBuyings.toBase(.database, api: "get_buying_objects_by_consumer", returnClass: [Purchase].self, params: [
-            consumerId, order, startId, term, max(0, min(100, limit))
-            ])
+        self.base = SearchBuyings.toBase(
+            .database,
+            api: "get_buying_objects_by_consumer",
+            returnClass: [Purchase].self,
+            params: [
+                consumerId, order, startId, term, max(0, min(100, limit))
+            ]
+        )
     }
 }

@@ -28,11 +28,11 @@ public struct Asset: Codable, AssetFormatter {
     }
     
     public func convert(from assetAmount: AssetAmount) throws -> AssetAmount {
-        if (options.exchangeRate.base.assetId == assetAmount.assetId) {
+        if options.exchangeRate.base.assetId == assetAmount.assetId {
             let amount = options.exchangeRate.quote.amount / options.exchangeRate.base.amount * assetAmount.amount
             return AssetAmount(amount, assetId: id)
         }
-        if (options.exchangeRate.base.assetId == assetAmount.assetId) {
+        if options.exchangeRate.base.assetId == assetAmount.assetId {
             let amount = options.exchangeRate.base.amount / options.exchangeRate.quote.amount * assetAmount.amount
             return AssetAmount(amount, assetId: id)
         }
@@ -45,11 +45,11 @@ extension Asset {
     
     public enum Symbol: CustomStringConvertible, Encodable {
         
-        public static let alxt: Symbol = Symbol(name:.alxt)
-        public static let alat: Symbol = Symbol(name:.alat)
-        public static let alx: Symbol = Symbol(name:.alx)
-        public static let aia: Symbol = Symbol(name:.aia)
-        public static let dct: Symbol = Symbol(name:.dct)
+        public static let alxt: Symbol = Symbol(name: .alxt)
+        public static let alat: Symbol = Symbol(name: .alat)
+        public static let alx: Symbol = Symbol(name: .alx)
+        public static let aia: Symbol = Symbol(name: .aia)
+        public static let dct: Symbol = Symbol(name: .dct)
         
         private enum SymbolName: String {
             case
@@ -67,7 +67,6 @@ extension Asset {
         case
         from(String)
         
-        
         public var description: String {
             switch self {
             case .from(let value): return value
@@ -83,7 +82,6 @@ extension Asset {
             try container.encode(self.description)
         }
     }
-    
     
     public struct ExchangeRate: Codable {
         

@@ -16,7 +16,7 @@ struct BaseRequest<Output: Codable>: CoreResponseConvertible, RestConvertible, W
     let callback: Bool
     
     var callId: UInt64 = 1
-    var callbackId: UInt64? = nil
+    var callbackId: UInt64?
    
     init(_ group: ApiGroup, api: String, returnClass: Output.Type, params: [Encodable] = [], callback: Bool = false) {
         self.group = group

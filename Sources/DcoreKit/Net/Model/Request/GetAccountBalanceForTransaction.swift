@@ -11,7 +11,9 @@ struct GetAccountBalanceForTransaction: BaseRequestConvertible {
         precondition(operationId.objectType == .operationHistoryObject, "Not a valid history object id \(operationId)")
         
         self.base = GetAccountBalanceForTransaction.toBase(
-            .history, api: "get_account_balance_for_transaction", returnClass: BalanceChange.self, params: [accountId, operationId]
+            .history, api: "get_account_balance_for_transaction", returnClass: BalanceChange.self, params: [
+                accountId, operationId
+            ]
         )
     }
 }

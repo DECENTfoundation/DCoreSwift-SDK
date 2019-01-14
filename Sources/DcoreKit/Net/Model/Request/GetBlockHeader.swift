@@ -6,6 +6,8 @@ struct GetBlockHeader: BaseRequestConvertible {
     private(set) var base: BaseRequest<BlockHeader>
     
     init(_ blockNum: UInt64) {
-        self.base = GetBlockHeader.toBase(.database, api: "get_block_header", returnClass: BlockHeader.self, params: [blockNum])
+        self.base = GetBlockHeader.toBase(
+            .database, api: "get_block_header", returnClass: BlockHeader.self, params: [blockNum]
+        )
     }
 }

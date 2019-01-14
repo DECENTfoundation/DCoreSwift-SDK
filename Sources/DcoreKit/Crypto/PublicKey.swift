@@ -21,7 +21,9 @@ struct PublicKey {
         let signaturePointer = UnsafeMutablePointer<secp256k1_ecdsa_signature>.allocate(capacity: 1)
         defer { signaturePointer.deallocate() }
         
-        guard signature.withUnsafeBytes({ secp256k1_ecdsa_signature_parse_der(ctx, signaturePointer, $0, signature.count) }) == 1 else {
+        guard signature.withUnsafeBytes({
+            secp256k1_ecdsa_signature_parse_der(ctx, signaturePointer, $0, signature.count)
+        }) == 1 else {
             throw ChainException.crypto(.failDecode("Could not parse ECDSA signature"))
         }
         
@@ -76,7 +78,7 @@ struct PublicKey {
         defer {
             BN_CTX_free(ctx)
         }
-        
+
         let key = EC_KEY_new_by_curve_name(NID_secp256k1)
         defer {
             EC_KEY_free(key)
@@ -104,17 +106,17 @@ struct PublicKey {
         
         if compression {
             EC_KEY_set_conv_form(key, POINT_CONVERSION_COMPRESSED)
-            var ptr: UnsafeMutablePointer<UInt8>? = nil
+            var ptr: UnsafeMutablePointer<UInt8>?
             let length = i2o_ECPublicKey(key, &ptr)
             return Data(bytes: ptr!, count: Int(length))
         } else {
             var result = [UInt8](repeating: 0, count: 65)
-            let n = BN_new()
+            let val = BN_new()
             defer {
-                BN_free(n)
+                BN_free(val)
             }
-            EC_POINT_point2bn(group, pub, POINT_CONVERSION_UNCOMPRESSED, n, ctx)
-            BN_bn2bin(n, &result)
+            EC_POINT_point2bn(group, pub, POINT_CONVERSION_UNCOMPRESSED, val, ctx)
+            BN_bn2bin(val, &result)
             return Data(result)
         }
     }

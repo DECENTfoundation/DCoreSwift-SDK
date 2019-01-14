@@ -7,7 +7,12 @@ public final class BuyContentOperation: BaseOperation {
     public let publicElGamal: PubKey
     public let regionCode: Int
     
-    public init(uri: String, consumer: ChainObject, price: AssetAmount, publicElGamal: PubKey, regionCode: Int = Regions.NONE.id, fee: AssetAmount? = nil) {
+    public init(uri: String,
+                consumer: ChainObject,
+                price: AssetAmount,
+                publicElGamal: PubKey,
+                regionCode: Int = Regions.NONE.id,
+                fee: AssetAmount? = nil) {
         guard consumer.objectType == ObjectType.accountObject else { preconditionFailure("not an account object id") }
         guard price >= 0 else { preconditionFailure("price must be >= 0") }
         // require(Pattern.compile("^(https?|ipfs|magnet):.*").matcher(uri).matches()) { "unsupported uri scheme" }

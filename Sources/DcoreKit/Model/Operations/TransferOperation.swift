@@ -33,8 +33,11 @@ public final class TransferOperation: BaseOperation {
         try container.encode(to, forKey: .to)
         try container.encode(amount, forKey: .amount)
         
-        if let memo = memo { try container.encode(memo, forKey: .memo) }
-        else { try container.encodeNil(forKey: .memo) }
+        if let memo = memo {
+            try container.encode(memo, forKey: .memo)
+        } else {
+            try container.encodeNil(forKey: .memo)
+        }
         
         try super.encode(to: encoder)
     }

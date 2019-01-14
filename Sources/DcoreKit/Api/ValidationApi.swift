@@ -31,14 +31,13 @@ public final class ValidationApi: BaseApi {
         return getFees(forOperations: [operation]).map({ $0.first! })
     }
     
-    public func getFee(forType type: OperationType) -> Single<AssetAmount>  {
+    public func getFee(forType type: OperationType) -> Single<AssetAmount> {
         precondition(![
             .proposalCreateOperation,
             .proposalUpdateOperation,
             .withdrawPermissionClaimOperation,
             .customOperation
             ].contains(type), "Not supported operation type")
-        
         return getFee(forOperation: EmptyOperation(type: type))
     }
 }

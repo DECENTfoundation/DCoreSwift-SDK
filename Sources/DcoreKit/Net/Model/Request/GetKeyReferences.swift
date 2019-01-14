@@ -6,6 +6,8 @@ struct GetKeyReferences: BaseRequestConvertible {
     private(set) var base: BaseRequest<[[ChainObject]]>
     
     init(_ references: [Address]) {
-        self.base = GetKeyReferences.toBase(.database, api: "get_key_references", returnClass: [[ChainObject]].self, params: [references])
+        self.base = GetKeyReferences.toBase(
+            .database, api: "get_key_references", returnClass: [[ChainObject]].self, params: [references]
+        )
     }
 }

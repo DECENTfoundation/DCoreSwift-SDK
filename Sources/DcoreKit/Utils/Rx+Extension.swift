@@ -30,7 +30,7 @@ extension CompositeDisposable {
     }
     
     func add(many disposables: [Disposable]) {
-        disposables.forEach{ [unowned self] in self.add($0) }
+        disposables.forEach { [unowned self] in self.add($0) }
     }
 }
 

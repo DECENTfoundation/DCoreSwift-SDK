@@ -6,6 +6,11 @@ struct GetAccountReferences: BaseRequestConvertible {
     private(set) var base: BaseRequest<[ChainObject]>
     
     init(_ accountId: ChainObject) {
-        self.base = GetAccountReferences.toBase(.database, api: "get_account_references", returnClass: [ChainObject].self, params: [accountId])
+        self.base = GetAccountReferences.toBase(
+            .database,
+            api: "get_account_references",
+            returnClass: [ChainObject].self,
+            params: [accountId]
+        )
     }
 }

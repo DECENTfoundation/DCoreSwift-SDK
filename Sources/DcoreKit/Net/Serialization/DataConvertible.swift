@@ -2,21 +2,21 @@ import Foundation
 import BigInt
 
 protocol DataConvertible {
-    static func +(lhs: Data, rhs: Self) -> Data
-    static func +=(lhs: inout Data, rhs: Self)
+    static func + (lhs: Data, rhs: Self) -> Data
+    static func += (lhs: inout Data, rhs: Self)
     
     func asData() -> Data
 }
 
 extension DataConvertible {
-    static func +(lhs: Data, rhs: Self) -> Data {
+    static func + (lhs: Data, rhs: Self) -> Data {
         var value = rhs
         let data = Data(buffer: UnsafeBufferPointer(start: &value, count: 1))
         return lhs + data
     }
     
-    static func +=(lhs: inout Data, rhs: Self) {
-        lhs = lhs + rhs
+    static func += (lhs: inout Data, rhs: Self) {
+        lhs += rhs
     }
     
     func asData() -> Data { fatalError("Missing override: \(self)") }
@@ -33,53 +33,53 @@ extension Int64: DataConvertible {}
 extension Int: DataConvertible {}
 
 extension BigInt: DataConvertible {
-    static func +(lhs: Data, rhs: BigInt) -> Data {
+    static func + (lhs: Data, rhs: BigInt) -> Data {
         return lhs + rhs.magnitude.serialize()
     }
     
-    static func +=(lhs: inout Data, rhs: BigInt) {
-        lhs = lhs + rhs.magnitude.serialize()
+    static func += (lhs: inout Data, rhs: BigInt) {
+        lhs += rhs.magnitude.serialize()
     }
     
     func asData() -> Data { return self.magnitude.serialize() }
 }
 
 extension Array where Element: DataConvertible {
-    static func +(lhs: Data, rhs: Array) -> Data {
-        return lhs + rhs.reduce(into: Data(), { data, el in
-            data += el
+    static func + (lhs: Data, rhs: Array) -> Data {
+        return lhs + rhs.reduce(into: Data(), { data, element in
+            data += element
         })
     }
     
-    static func +=(lhs: inout Data, rhs: Array) {
-        lhs = lhs + rhs.reduce(into: Data(), { data, el in
-            data += el
+    static func += (lhs: inout Data, rhs: Array) {
+        lhs += rhs.reduce(into: Data(), { data, element in
+            data += element
         })
     }
 }
 
 extension Set where Element: DataConvertible {
-    static func +(lhs: Data, rhs: Set) -> Data {
-        return lhs + rhs.reduce(into: Data(), { data, el in
-            data += el
+    static func + (lhs: Data, rhs: Set) -> Data {
+        return lhs + rhs.reduce(into: Data(), { data, element in
+            data += element
         })
     }
     
-    static func +=(lhs: inout Data, rhs: Set) {
-        lhs = lhs + rhs.reduce(into: Data(), { data, el in
-            data += el
+    static func += (lhs: inout Data, rhs: Set) {
+        lhs += rhs.reduce(into: Data(), { data, element in
+            data += element
         })
     }
 }
 
 extension Bool: DataConvertible {
-    static func +(lhs: Data, rhs: Bool) -> Data {
+    static func + (lhs: Data, rhs: Bool) -> Data {
         return lhs + (rhs ? UInt8(0x01) : UInt8(0x00)).littleEndian
     }
 }
 
 extension String: DataConvertible {
-    static func +(lhs: Data, rhs: String) -> Data {
+    static func + (lhs: Data, rhs: String) -> Data {
         guard let data = rhs.data(using: .ascii) else { return lhs }
         return lhs + data
     }
@@ -90,7 +90,7 @@ extension String: DataConvertible {
 }
 
 extension Data: DataConvertible {
-    static func +(lhs: Data, rhs: Data) -> Data {
+    static func + (lhs: Data, rhs: Data) -> Data {
         var data = Data()
         data.append(lhs)
         data.append(rhs)
@@ -99,7 +99,6 @@ extension Data: DataConvertible {
     
     func asData() -> Data { return self }
 }
-
 
 extension Data {
     init<T>(from value: T) {
@@ -116,7 +115,6 @@ extension Data {
     }
     
     func to(type: VarInt.Type) -> VarInt {
-        
         let value: UInt64
         let length = self[0..<1].to(type: UInt8.self)
         
@@ -128,7 +126,7 @@ extension Data {
         case 0xfe:
             value = UInt64(self[1...4].to(type: UInt32.self))
         case 0xff:
-            fallthrough
+            fallthrough // swiftlint:disable:this no_fallthrough_only
         default:
             value = self[1...8].to(type: UInt64.self)
         }
@@ -140,10 +138,10 @@ extension Data {
     public init?(hex: String) {
         let len = hex.count / 2
         var data = Data(capacity: len)
-        for i in 0..<len {
-            let j = hex.index(hex.startIndex, offsetBy: i * 2)
-            let k = hex.index(j, offsetBy: 2)
-            let bytes = hex[j..<k]
+        for index in 0..<len {
+            let minIndex = hex.index(hex.startIndex, offsetBy: index * 2)
+            let maxIndex = hex.index(minIndex, offsetBy: 2)
+            let bytes = hex[minIndex..<maxIndex]
             if var num = UInt8(bytes, radix: 16) {
                 data.append(&num, count: 1)
             } else {

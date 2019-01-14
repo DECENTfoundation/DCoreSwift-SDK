@@ -8,6 +8,11 @@ struct GetAccountByName: BaseRequestConvertible {
     init(_ name: String) {
         
         precondition(Account.hasValid(name: name), "Not a valid account name")
-        self.base = GetAccountByName.toBase(.database, api: "get_account_by_name", returnClass: Account.self, params: [name])
+        self.base = GetAccountByName.toBase(
+            .database,
+            api: "get_account_by_name",
+            returnClass: Account.self,
+            params: [name]
+        )
     }
 }

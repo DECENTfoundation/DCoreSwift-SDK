@@ -1,6 +1,5 @@
 import Foundation
 
-
 public enum ContentCategory {
 
     public enum Application: Int, Codable {

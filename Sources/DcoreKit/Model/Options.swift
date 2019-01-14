@@ -35,7 +35,6 @@ public struct Options: Codable {
     }
 }
 
-
 extension Options: DataSerializable {
     public var serialized: Data {
         var data = Data()

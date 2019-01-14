@@ -2,15 +2,15 @@ import Foundation
 
 public struct Transaction: Codable {
     
-    private var blockData: BlockData? = nil
-    private var chainId: String? = nil
+    private var blockData: BlockData?
+    private var chainId: String?
     
     public var id: String {
         return CryptoUtils.hash256(serialized).prefix(20).toHex()
     }
     
     public let operations: [BaseOperation]
-    public var signatures: [String]? = nil
+    public var signatures: [String]?
     public let expiration: Date
     public let refBlockNum: Int
     public let refBlockPrefix: UInt64

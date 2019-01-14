@@ -11,11 +11,19 @@ public final class OperationApi: BaseApi {
         return api.account.getAccount(byReference: to).map {
             
             guard !(message ?? "").isEmpty && encrypted else {
-                return TransferOperation(from: creds.accountId, to: $0.id, amount: amount, memo: Memo(message ?? ""), fee: fee ?? BaseOperation.feeUnset)
+                return TransferOperation(from: creds.accountId,
+                                         to: $0.id,
+                                         amount: amount,
+                                         memo: Memo(message ?? ""),
+                                         fee: fee ?? BaseOperation.feeUnset)
             }
             
             let memo = Memo(message!, keyPair: creds.keyPair, recipient: $0.active.keyAuths.first!.value)
-            return TransferOperation(from: creds.accountId, to: $0.id, amount: amount, memo: memo, fee: fee ?? BaseOperation.feeUnset)
+            return TransferOperation(from: creds.accountId,
+                                     to: $0.id,
+                                     amount: amount,
+                                     memo: memo,
+                                     fee: fee ?? BaseOperation.feeUnset)
         }
     }
     

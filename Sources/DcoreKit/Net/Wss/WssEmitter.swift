@@ -48,5 +48,3 @@ struct WssEmitter {
     
     private func disconnect() { source.disconnect() }
 }
-
-

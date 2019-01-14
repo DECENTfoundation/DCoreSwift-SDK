@@ -42,7 +42,7 @@ public enum OperationType: Int, Codable {
     updateMonitoredAssetOperation,
     readyToPublishTwoOperation,
     transferTwoOperation,
-    disallowAutomaticRenewalOfSubscriptionOperation,    // VIRTUAL 40
+    disallowAutomaticRenewalOfSubscriptionOperation,    // swiftlint:disable:this identifier_name // VIRTUAL 40
     returnEscrowSubmissionOperation,                    // VIRTUAL
     returnEscrowBuyingOperation,                        // VIRTUAL
     paySeederOperation,                                 // VIRTUAL
