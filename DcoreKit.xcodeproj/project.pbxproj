@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A11F6D6821ECB61A008C8525 /* secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6121ECB61A008C8525 /* secp256k1.framework */; };
 		A11F6D6921ECB61A008C8525 /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6221ECB61A008C8525 /* BigInt.framework */; };
 		A11F6D6A21ECB61A008C8525 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6321ECB61A008C8525 /* RxCocoa.framework */; };
 		A11F6D6B21ECB61A008C8525 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6421ECB61A008C8525 /* Starscream.framework */; };
@@ -223,7 +222,6 @@
 		A1CEFCFB21ECC29A004FED2B /* String+ChainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_226 /* String+ChainProvider.swift */; };
 		A1CEFCFC21ECC29A004FED2B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_227 /* String+Extension.swift */; };
 		A1CEFCFD21ECC29A004FED2B /* UInt8+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_228 /* UInt8+Extension.swift */; };
-		A1CEFD0021ECC29A004FED2B /* secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6121ECB61A008C8525 /* secp256k1.framework */; };
 		A1CEFD0121ECC29A004FED2B /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6221ECB61A008C8525 /* BigInt.framework */; };
 		A1CEFD0221ECC29A004FED2B /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6321ECB61A008C8525 /* RxCocoa.framework */; };
 		A1CEFD0321ECC29A004FED2B /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6421ECB61A008C8525 /* Starscream.framework */; };
@@ -475,7 +473,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A11F6D6121ECB61A008C8525 /* secp256k1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = secp256k1.framework; path = Carthage/Build/iOS/secp256k1.framework; sourceTree = "<group>"; };
 		A11F6D6221ECB61A008C8525 /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BigInt.framework; path = Carthage/Build/iOS/BigInt.framework; sourceTree = "<group>"; };
 		A11F6D6321ECB61A008C8525 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		A11F6D6421ECB61A008C8525 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
@@ -1128,7 +1125,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				A1CEFD0021ECC29A004FED2B /* secp256k1.framework in Frameworks */,
 				A1CEFD0121ECC29A004FED2B /* BigInt.framework in Frameworks */,
 				A1CEFD0221ECC29A004FED2B /* RxCocoa.framework in Frameworks */,
 				A1CEFD0321ECC29A004FED2B /* Starscream.framework in Frameworks */,
@@ -1150,7 +1146,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				A11F6D6821ECB61A008C8525 /* secp256k1.framework in Frameworks */,
 				A11F6D6921ECB61A008C8525 /* BigInt.framework in Frameworks */,
 				A11F6D6A21ECB61A008C8525 /* RxCocoa.framework in Frameworks */,
 				A11F6D6B21ECB61A008C8525 /* Starscream.framework in Frameworks */,
@@ -1180,7 +1175,6 @@
 				A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */,
 				A11F6D6321ECB61A008C8525 /* RxCocoa.framework */,
 				A11F6D6721ECB61A008C8525 /* RxSwift.framework */,
-				A11F6D6121ECB61A008C8525 /* secp256k1.framework */,
 				A11F6D6421ECB61A008C8525 /* Starscream.framework */,
 				A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */,
 			);
@@ -2279,6 +2273,7 @@
 			buildConfigurationList = OBJ_1083 /* Build configuration list for PBXNativeTarget "DcoreKit iOS Tests" */;
 			buildPhases = (
 				OBJ_1086 /* Sources */,
+				A1AF65D521ED02AE0090157D /* Carthage */,
 				OBJ_1094 /* Frameworks */,
 			);
 			buildRules = (
@@ -2344,7 +2339,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ ! -d \"$SRCROOT/Libraries/openssl/lib\" ]; then\n    env -i PATH=$PATH sh \"$SRCROOT/Scripts/build_libraries.sh\"\nfi\n";
+			shellScript = "if [ ! -d \"$SRCROOT/Libraries/secp256k1/lib\" ] || [ ! -d \"$SRCROOT/Libraries/openssl/lib\" ]; then\n    env -i PATH=$PATH sh \"$SRCROOT/Scripts/build_libraries.sh\"\nfi \n";
 		};
 		A11F6D5F21ECB420008C8525 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2358,7 +2353,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/secp256k1.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Starscream.framework",
 			);
@@ -2370,9 +2364,44 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CryptoSwift.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/secp256k1.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Starscream.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		A1AF65D521ED02AE0090157D /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/BigInt.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Starscream.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SipHash.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxAtomic.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxBlocking.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/BigInt.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Starscream.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CryptoSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SipHash.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxAtomic.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3123,27 +3152,21 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = DcoreKit.xcodeproj/DcoreKitTests_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-I/usr/local/Cellar/openssl/1.0.2p/include",
 					"-I/usr/local/Cellar/openssl/1.0.2p/include",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-L/usr/local/Cellar/openssl/1.0.2p/lib",
-					"-lssl",
-					"-L/usr/local/Cellar/openssl/1.0.2p/lib",
-					"-lcrypto",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
 				TARGET_NAME = DcoreKitTests;
 			};
@@ -3156,27 +3179,21 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = DcoreKit.xcodeproj/DcoreKitTests_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-I/usr/local/Cellar/openssl/1.0.2p/include",
 					"-I/usr/local/Cellar/openssl/1.0.2p/include",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-L/usr/local/Cellar/openssl/1.0.2p/lib",
-					"-lssl",
-					"-L/usr/local/Cellar/openssl/1.0.2p/lib",
-					"-lcrypto",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
 				TARGET_NAME = DcoreKitTests;
 			};
@@ -3231,39 +3248,36 @@
 		OBJ_828 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEFINES_MODULE = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Libraries/openssl/include",
-					"$(SRCROOT)/.build/checkouts/secp256k1.swift--6867032278246738452/secp256k1/Classes/secp256k1/include",
+					"$(SRCROOT)/Libraries/secp256k1/include",
 					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxCocoaRuntime/include",
 					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxAtomic/include",
-					"$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1",
 				);
 				INFOPLIST_FILE = "DcoreKit-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/Libraries/openssl/lib";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/Libraries/openssl/lib",
+					"$(SRCROOT)/Libraries/secp256k1/lib",
+				);
 				MODULEMAP_FILE = "";
 				MODULEMAP_PRIVATE_FILE = "";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-I/usr/local/Cellar/openssl/1.0.2p/include",
 					"-I/usr/local/Cellar/openssl/1.0.2p/include",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-L/usr/local/Cellar/openssl/1.0.2p/lib",
-					"-lssl",
-					"-L/usr/local/Cellar/openssl/1.0.2p/lib",
-					"-lcrypto",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DcoreKit;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -3275,31 +3289,34 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TARGET_NAME = DcoreKit;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 			};
 			name = Debug;
 		};
 		OBJ_829 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEFINES_MODULE = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Libraries/openssl/include",
-					"$(SRCROOT)/.build/checkouts/secp256k1.swift--6867032278246738452/secp256k1/Classes/secp256k1/include",
+					"$(SRCROOT)/Libraries/secp256k1/include",
 					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxCocoaRuntime/include",
 					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxAtomic/include",
-					"$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1",
 				);
 				INFOPLIST_FILE = "DcoreKit-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/Libraries/openssl/lib";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/Libraries/openssl/lib",
+					"$(SRCROOT)/Libraries/secp256k1/lib",
+				);
 				MODULEMAP_FILE = "";
 				MODULEMAP_PRIVATE_FILE = "";
 				OTHER_CFLAGS = (
@@ -3307,13 +3324,7 @@
 					"-I/usr/local/Cellar/openssl/1.0.2p/include",
 					"-I/usr/local/Cellar/openssl/1.0.2p/include",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-L/usr/local/Cellar/openssl/1.0.2p/lib",
-					"-lssl",
-					"-L/usr/local/Cellar/openssl/1.0.2p/lib",
-					"-lcrypto",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DcoreKit;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -3325,6 +3336,7 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TARGET_NAME = DcoreKit;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 			};
 			name = Release;
 		};
