@@ -1,0 +1,79 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "BigInt",
+        "repositoryURL": "https://github.com/fl3xman/BigInt",
+        "state": {
+          "branch": "master",
+          "revision": "2c74ff21b0c677986a295866438c6daeedb9d168",
+          "version": null
+        }
+      },
+      {
+        "package": "COpenSSL",
+        "repositoryURL": "https://github.com/vapor-community/copenssl.git",
+        "state": {
+          "branch": null,
+          "revision": "a347e9ec038b134aecf42e0c21f2deb9035adf3f",
+          "version": "1.0.0-rc.1"
+        }
+      },
+      {
+        "package": "CryptoSwift",
+        "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "c5ee516c9616ec7dc2a000007ddb8bf5d9543c74",
+          "version": "0.13.1"
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "e8aa1d892a0d8a153a28b74cbad25be534926f49",
+          "version": "4.4.0"
+        }
+      },
+      {
+        "package": "secp256k1",
+        "repositoryURL": "https://github.com/Boilertalk/secp256k1.swift",
+        "state": {
+          "branch": null,
+          "revision": "823281fe9def21b384099b72a9a53ca988317b20",
+          "version": "0.1.4"
+        }
+      },
+      {
+        "package": "SipHash",
+        "repositoryURL": "https://github.com/attaswift/SipHash",
+        "state": {
+          "branch": null,
+          "revision": "e325083424688055363bbfcb7f1a440d7d7a1bae",
+          "version": "1.2.2"
+        }
+      },
+      {
+        "package": "Starscream",
+        "repositoryURL": "https://github.com/daltoniam/starscream",
+        "state": {
+          "branch": null,
+          "revision": "ebdc260ea64e68f7569c62e8744b5cd15d3a49d6",
+          "version": "3.0.6"
+        }
+      },
+      {
+        "package": "SwiftyJSON",
+        "repositoryURL": "https://github.com/SwiftyJSON/SwiftyJSON.git",
+        "state": {
+          "branch": null,
+          "revision": "184c6884998c41f71a73c459f9b525b7121be846",
+          "version": "4.2.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

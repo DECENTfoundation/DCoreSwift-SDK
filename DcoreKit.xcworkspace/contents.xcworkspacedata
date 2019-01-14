@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:DcoreKit.xcodeproj">
+      location = "group:DcoreKit.xcodeproj">
    </FileRef>
 </Workspace>

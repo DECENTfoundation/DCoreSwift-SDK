@@ -139,6 +139,7 @@ xcuserdata/
 *.xccheckout
 
 ## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
+.build
 build/
 DerivedData/
 *.moved-aside
@@ -150,3 +151,9 @@ DerivedData/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
+
+##cmake
+cmake-build*
+
+# Carthage
+Carthage

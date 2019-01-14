@@ -1,0 +1,8 @@
+github "Boilertalk/secp256k1.swift" "0.1.4"
+github "ReactiveX/RxSwift" "4.4.0"
+github "SwiftyJSON/SwiftyJSON" "4.2.0"
+github "attaswift/SipHash" "v1.2.2"
+github "daltoniam/Starscream" "3.0.6"
+github "fl3xman/BigInt" "2c74ff21b0c677986a295866438c6daeedb9d168"
+github "krzyzanowskim/CryptoSwift" "0.13.1"
+github "vapor-community/copenssl" "1.0.0-rc.1"
