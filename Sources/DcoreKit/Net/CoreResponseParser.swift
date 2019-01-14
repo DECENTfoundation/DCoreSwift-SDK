@@ -41,7 +41,7 @@ extension CoreResponseParser {
                     return try result.rawData().asJsonDecoded(to: req.returnClass)
                 }
                 
-                guard result.null == nil || !(result.array ?? []).contains(.null) else {
+                if result.null != nil || result.arrayValue.contains(.null) {
                     throw ChainException.network(.notFound)
                 }
                 
