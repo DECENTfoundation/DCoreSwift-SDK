@@ -16,7 +16,7 @@ final class RestService: CoreRequestConvertible {
     func request<Output>(using req: BaseRequest<Output>) -> Single<Output> where Output: Codable {
         return session.rx.data(request: req.asRest(url))
             .observeOn(scheduler)
-            .delay(0.01, scheduler: scheduler) // Added delay for some weird bug with url session sequenced calls 
+            .delay(0.1, scheduler: scheduler) // Added delay for some weird bug with url session sequenced calls 
             .map { res in
                 do { return try res.parse(response: req) } catch let error {
                     throw error.asChainException()

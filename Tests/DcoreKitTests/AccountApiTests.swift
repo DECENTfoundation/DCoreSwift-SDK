@@ -60,7 +60,7 @@ final class AccountApiTests: XCTestCase {
         XCTAssertEqual(account?.name, "u961279ec8b7ae7bd62f304f7c1c3d345")
     }
     
-    func testGetAccountByAddressErrorUsingWss() {
+    func testGetAccountByAddressNotFoundUsingWss() {
         XCTAssertThrowsError(
             try wss.account.getAccount(byName: "xxxxxxxx1234567").debug().toBlocking().single()
         ) { XCTAssertEqual($0.asChainException(), ChainException.network(.notFound)) }
