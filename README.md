@@ -2,6 +2,10 @@
 
 A description of this package.
 
-Install
+1. Install
+
+Prerequisite (to build openssl and secp256k1 libs):
+
 brew install automake
 brew install libtool
+

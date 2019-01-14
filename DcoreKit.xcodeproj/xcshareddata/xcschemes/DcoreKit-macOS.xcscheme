@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A1CEFC2921ECC29A004FED2B"
+               BlueprintIdentifier = "A1D96D4E21ED1E22009C0A30"
                BuildableName = "DcoreKit.framework"
                BlueprintName = "DcoreKit-macOS"
-               ReferencedContainer = "container:DcoreKit.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A1CEFD0C21ECC2C6004FED2B"
-               BuildableName = "DcoreKitTests.xctest"
-               BlueprintName = "DcoreKit macOS Tests"
                ReferencedContainer = "container:DcoreKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A1CEFD0C21ECC2C6004FED2B"
+               BlueprintIdentifier = "A1D96E3021ED2025009C0A30"
                BuildableName = "DcoreKitTests.xctest"
                BlueprintName = "DcoreKit macOS Tests"
                ReferencedContainer = "container:DcoreKit.xcodeproj">
@@ -56,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A1CEFC2921ECC29A004FED2B"
+            BlueprintIdentifier = "A1D96D4E21ED1E22009C0A30"
             BuildableName = "DcoreKit.framework"
             BlueprintName = "DcoreKit-macOS"
             ReferencedContainer = "container:DcoreKit.xcodeproj">
@@ -78,7 +64,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A1CEFC2921ECC29A004FED2B"
+            BlueprintIdentifier = "A1D96D4E21ED1E22009C0A30"
             BuildableName = "DcoreKit.framework"
             BlueprintName = "DcoreKit-macOS"
             ReferencedContainer = "container:DcoreKit.xcodeproj">
@@ -96,7 +82,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A1CEFC2921ECC29A004FED2B"
+            BlueprintIdentifier = "A1D96D4E21ED1E22009C0A30"
             BuildableName = "DcoreKit.framework"
             BlueprintName = "DcoreKit-macOS"
             ReferencedContainer = "container:DcoreKit.xcodeproj">
