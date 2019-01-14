@@ -2298,6 +2298,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 9999;
+				TargetAttributes = {
+					"DcoreKit::DcoreKit" = {
+						LastSwiftMigration = 1010;
+					};
+					"DcoreKit::DcoreKitTests" = {
+						LastSwiftMigration = 1010;
+					};
+				};
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "DcoreKit" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -3136,7 +3144,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_INCLUDE_PATHS = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = DcoreKitTests;
 			};
 			name = Debug;
@@ -3169,7 +3177,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_INCLUDE_PATHS = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = DcoreKitTests;
 			};
 			name = Release;
@@ -3264,7 +3272,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries $(SRCROOT)/Carthage/Checkouts/copenssl";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TARGET_NAME = DcoreKit;
 			};
@@ -3314,7 +3322,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries $(SRCROOT)/Carthage/Checkouts/copenssl";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TARGET_NAME = DcoreKit;
 			};
