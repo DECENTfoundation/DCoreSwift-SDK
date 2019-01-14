@@ -22,11 +22,11 @@ public final class AccountApi: BaseApi {
     public func getAccount(byReference value: Account.Reference) -> Single<Account> {
         return Single.deferred({ [unowned self] in
             
-            if let object = try? ChainObject(from: value) {
+            if let object = value.chain.chainObject {
                 return self.getAccounts(byIds: [object]).map({ $0.first! })
             }
             
-            if let address = try? Address(from: value) {
+            if let address = value.chain.address {
                 return self.getAccountIds(byAddressList: [address])
                     .flatMap({ [unowned self] result in
                         return self.getAccounts(byIds: result.first!).map({ $0.first! })

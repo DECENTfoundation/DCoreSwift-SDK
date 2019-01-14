@@ -13,7 +13,7 @@ extension DCore {
         internal required init(wssUri: URLConvertible? = nil, restUri: URLConvertible? = nil, session: URLSession? = nil) {
         
             if let path = restUri, let url = path.asURL() { rest = RestService(url, session: session) }
-            if let path = wssUri, let url = path.asURL() { wss = WssService(url) }
+            if let path = wssUri, let url = path.asURL() { wss = WssService(url, timeout: Constant.Api.timeout) }
             
             precondition(rest != nil || wss != nil , "At least one uri have to be set correctly")
         }

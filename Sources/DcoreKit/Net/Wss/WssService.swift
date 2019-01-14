@@ -7,8 +7,8 @@ final class WssService: CoreRequestConvertible {
     
     private let disposableBag = DisposeBag()
     private let disposable = CompositeDisposable()
-    private let timeout: TimeInterval
     private let events: ConnectableObservable<SocketEvent>
+    private let timeout: TimeInterval
     
     private var socket: AsyncSubject<WebSocket>?
     private var emitId: UInt64 = 0
@@ -17,7 +17,7 @@ final class WssService: CoreRequestConvertible {
         return disposable.count != 0
     }
     
-    required init(_ url: URL, timeout: TimeInterval = 30) {
+    required init(_ url: URL, timeout: TimeInterval) {
         disposable.disposed(by: disposableBag)
         
         self.timeout = timeout

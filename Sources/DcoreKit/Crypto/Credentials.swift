@@ -15,8 +15,4 @@ public struct Credentials {
     }
 }
 
-extension Credentials: Equatable {
-    public static func == (lhs: Credentials, rhs: Credentials) -> Bool {
-        return lhs.accountId == rhs.accountId && lhs.keyPair == rhs.keyPair
-    }
-}
+extension Credentials: Equatable {}
