@@ -14,7 +14,7 @@ final class WssService: CoreRequestConvertible {
     private var emitId: UInt64 = 0
     
     var connected: Bool {
-        return disposable.count != 0
+        return disposable.count != 0 // swiftlint:disable:this empty_count
     }
     
     required init(_ url: URL, timeout: TimeInterval) {

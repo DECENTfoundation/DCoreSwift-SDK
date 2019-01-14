@@ -16,12 +16,12 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DcoreKit::DcoreKit"
                BuildableName = "DcoreKit.framework"
-               BlueprintName = "DcoreKit"
+               BlueprintName = "DcoreKit-iOS"
                ReferencedContainer = "container:DcoreKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
-            buildForTesting = "NO"
+            buildForTesting = "YES"
             buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
@@ -30,7 +30,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DcoreKit::DcoreKitTests"
                BuildableName = "DcoreKitTests.xctest"
-               BlueprintName = "DcoreKitTests"
+               BlueprintName = "DcoreKit iOS Tests"
                ReferencedContainer = "container:DcoreKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,7 +48,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DcoreKit::DcoreKit"
             BuildableName = "DcoreKit.framework"
-            BlueprintName = "DcoreKit"
+            BlueprintName = "DcoreKit-iOS"
             ReferencedContainer = "container:DcoreKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -70,7 +70,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DcoreKit::DcoreKit"
             BuildableName = "DcoreKit.framework"
-            BlueprintName = "DcoreKit"
+            BlueprintName = "DcoreKit-iOS"
             ReferencedContainer = "container:DcoreKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -88,7 +88,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DcoreKit::DcoreKit"
             BuildableName = "DcoreKit.framework"
-            BlueprintName = "DcoreKit"
+            BlueprintName = "DcoreKit-iOS"
             ReferencedContainer = "container:DcoreKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

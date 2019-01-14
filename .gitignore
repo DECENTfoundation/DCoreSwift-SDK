@@ -154,3 +154,6 @@ DerivedData/
 
 ##cmake
 cmake-build*
+
+# Carthage
+Carthage
