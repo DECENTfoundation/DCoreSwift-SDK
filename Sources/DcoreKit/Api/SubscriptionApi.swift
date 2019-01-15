@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public final class SubscriptionApi: BaseApi {
+public final class SubscriptionApi: DeprecatedService {
 
     public func cancelAllSubscriptions() -> Completable {
         return CancelAllSubscriptions().base.toResponse(api.core).asCompletable()

@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public final class GeneralApi: BaseApi {
+public final class GeneralApi: DeprecatedService {
 
     public func info() -> Single<String> {
         return Info().base.toResponse(api.core)

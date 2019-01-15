@@ -1,8 +1,17 @@
 import Foundation
 import RxSwift
 
-public final class AssetApi: BaseApi {
- 
+public protocol AssetApi: BaseApi {
+    func getAssets(byIds ids: [ChainObject]) -> Single<[Asset]>
+    func getAsset(byId id: ChainObject) -> Single<Asset>
+    func getAssets(bySymbols symbols: [Asset.Symbol]) -> Single<[Asset]>
+    func getAsset(bySymbol symbol: Asset.Symbol) -> Single<Asset>
+    func getAssets(byLowerBound bound: String, limit: Int) -> Single<[Asset]>
+    func priceToDct(amount: AssetAmount) -> Single<AssetAmount>
+    func getRealSupply() -> Single<RealSupply>
+}
+
+extension AssetApi {
     public func getAssets(byIds ids: [ChainObject]) -> Single<[Asset]> {
         return GetAssets(ids).base.toResponse(api.core)
     }
@@ -30,5 +39,6 @@ public final class AssetApi: BaseApi {
     public func getRealSupply() -> Single<RealSupply> {
         return GetRealSupply().base.toResponse(api.core)
     }
-   
 }
+
+extension ApiService: AssetApi {}

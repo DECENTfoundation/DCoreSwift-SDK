@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public final class SeedersApi: BaseApi {
+public final class SeedersApi: DeprecatedService {
     
     public func getSeeder(byAccountId id: ChainObject) -> Single<Seeder> {
         return GetSeeder(id).base.toResponse(api.core)

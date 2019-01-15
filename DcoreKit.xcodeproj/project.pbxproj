@@ -16,7 +16,7 @@
 		A1D96D5221ED1E22009C0A30 /* AccountApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* AccountApi.swift */; };
 		A1D96D5321ED1E22009C0A30 /* AssetApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AssetApi.swift */; };
 		A1D96D5421ED1E22009C0A30 /* BalanceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* BalanceApi.swift */; };
-		A1D96D5521ED1E22009C0A30 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* BaseApi.swift */; };
+		A1D96D5521ED1E22009C0A30 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* ApiService.swift */; };
 		A1D96D5621ED1E22009C0A30 /* BlockApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* BlockApi.swift */; };
 		A1D96D5721ED1E22009C0A30 /* BroadcastApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* BroadcastApi.swift */; };
 		A1D96D5821ED1E22009C0A30 /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* ContentApi.swift */; };
@@ -288,7 +288,7 @@
 		OBJ_831 /* AccountApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* AccountApi.swift */; };
 		OBJ_832 /* AssetApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AssetApi.swift */; };
 		OBJ_833 /* BalanceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* BalanceApi.swift */; };
-		OBJ_834 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* BaseApi.swift */; };
+		OBJ_834 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* ApiService.swift */; };
 		OBJ_835 /* BlockApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* BlockApi.swift */; };
 		OBJ_836 /* BroadcastApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* BroadcastApi.swift */; };
 		OBJ_837 /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* ContentApi.swift */; };
@@ -518,7 +518,7 @@
 		OBJ_127 /* GetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetConfig.swift; sourceTree = "<group>"; };
 		OBJ_128 /* GetContentById.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetContentById.swift; sourceTree = "<group>"; };
 		OBJ_129 /* GetContentByUri.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetContentByUri.swift; sourceTree = "<group>"; };
-		OBJ_13 /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
+		OBJ_13 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		OBJ_130 /* GetDynamicGlobalProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDynamicGlobalProps.swift; sourceTree = "<group>"; };
 		OBJ_131 /* GetFeedsByMiner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFeedsByMiner.swift; sourceTree = "<group>"; };
 		OBJ_132 /* GetFullAccounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFullAccounts.swift; sourceTree = "<group>"; };
@@ -2173,10 +2173,10 @@
 		OBJ_9 /* Api */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_13 /* ApiService.swift */,
 				OBJ_10 /* AccountApi.swift */,
 				OBJ_11 /* AssetApi.swift */,
 				OBJ_12 /* BalanceApi.swift */,
-				OBJ_13 /* BaseApi.swift */,
 				OBJ_14 /* BlockApi.swift */,
 				OBJ_15 /* BroadcastApi.swift */,
 				OBJ_16 /* ContentApi.swift */,
@@ -2540,7 +2540,7 @@
 				A1D96D5221ED1E22009C0A30 /* AccountApi.swift in Sources */,
 				A1D96D5321ED1E22009C0A30 /* AssetApi.swift in Sources */,
 				A1D96D5421ED1E22009C0A30 /* BalanceApi.swift in Sources */,
-				A1D96D5521ED1E22009C0A30 /* BaseApi.swift in Sources */,
+				A1D96D5521ED1E22009C0A30 /* ApiService.swift in Sources */,
 				A1D96D5621ED1E22009C0A30 /* BlockApi.swift in Sources */,
 				A1D96D5721ED1E22009C0A30 /* BroadcastApi.swift in Sources */,
 				A1D96D5821ED1E22009C0A30 /* ContentApi.swift in Sources */,
@@ -2783,7 +2783,7 @@
 				OBJ_831 /* AccountApi.swift in Sources */,
 				OBJ_832 /* AssetApi.swift in Sources */,
 				OBJ_833 /* BalanceApi.swift in Sources */,
-				OBJ_834 /* BaseApi.swift in Sources */,
+				OBJ_834 /* ApiService.swift in Sources */,
 				OBJ_835 /* BlockApi.swift in Sources */,
 				OBJ_836 /* BroadcastApi.swift in Sources */,
 				OBJ_837 /* ContentApi.swift in Sources */,

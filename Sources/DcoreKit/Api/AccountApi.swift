@@ -1,7 +1,28 @@
 import Foundation
 import RxSwift
 
-public final class AccountApi: BaseApi {
+public protocol AccountApi: BaseApi {
+    func getAccount(byName name: String) -> Single<Account>
+    func getAccounts(byIds ids: [ChainObject]) -> Single<[Account]>
+    func getAccountIds(byAddressList list: [Address]) -> Single<[[ChainObject]]>
+    func existAccount(byName name: String) -> Single<Bool>
+    func getAccount(byReference value: Account.Reference) -> Single<Account>
+    func search(accountHistory accoundId: ChainObject,
+                from: ChainObject,
+                order: SearchOrder.AccountHistory,
+                limit: Int) -> Single<[TransactionDetail]>
+    func createCredentials(accountName: String, wif: String) -> Single<Credentials>
+    func getFullAccounts(byNamesOrIds ref: [String], subscribe: Bool) -> Single<[String: FullAccount]>
+    func getAccountReferences(byId id: ChainObject) -> Single<[ChainObject]>
+    func lookupAccount(byNames names: [String]) -> Single<[Account]>
+    func search(accountsByTerm term: String,
+                order: SearchOrder.Accounts,
+                id: ChainObject,
+                limit: Int) -> Single<[Account]>
+    func getAccountCount() -> Single<UInt64>
+}
+
+extension AccountApi {
     
     public func getAccount(byName name: String) -> Single<Account> {
         return GetAccountByName(name).base.toResponse(api.core)
@@ -20,7 +41,7 @@ public final class AccountApi: BaseApi {
     }
     
     public func getAccount(byReference value: Account.Reference) -> Single<Account> {
-        return Single.deferred({ [unowned self] in
+        return Single.deferred({
             
             if let object = value.chain.chainObject {
                 return self.getAccounts(byIds: [object]).map({ $0.first! })
@@ -28,7 +49,7 @@ public final class AccountApi: BaseApi {
             
             if let address = value.chain.address {
                 return self.getAccountIds(byAddressList: [address])
-                    .flatMap({ [unowned self] result in
+                    .flatMap({ result in
                         return self.getAccounts(byIds: result.first!).map({ $0.first! })
                     })
             }
@@ -79,5 +100,6 @@ public final class AccountApi: BaseApi {
     public func getAccountCount() -> Single<UInt64> {
         return GetAccountCount().base.toResponse(api.core)
     }
-    
 }
+
+extension ApiService: AccountApi {}

@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public final class TransactionApi: BaseApi {
+public final class TransactionApi: DeprecatedService {
     
     public func getRecentTransaction(byTrxId id: String) -> Single<ProcessedTransaction> {
         return GetRecentTransactionById(id).base.toResponse(api.core)

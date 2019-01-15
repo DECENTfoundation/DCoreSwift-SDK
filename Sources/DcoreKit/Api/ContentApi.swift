@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public final class ContentApi: BaseApi {
+public final class ContentApi: DeprecatedService {
     
     public func getContent(byId id: ChainObject) -> Single<Content> {
         return GetContentById(id).base.toResponse(api.core).map({ $0.first! })

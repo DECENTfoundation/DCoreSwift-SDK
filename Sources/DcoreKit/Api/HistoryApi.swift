@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public final class HistoryApi: BaseApi {
+public final class HistoryApi: DeprecatedService {
     
     public func getAccountHistory(byAccountId id: ChainObject,
                                   startId: ChainObject = ObjectType.operationHistoryObject.genericId,
