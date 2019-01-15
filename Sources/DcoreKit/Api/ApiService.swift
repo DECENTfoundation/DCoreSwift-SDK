@@ -4,7 +4,7 @@ public protocol BaseApi {
     var api: DCore.Api { get }
 }
 
-public struct ApiService {
+public struct ApiProvider {
     
     public let api: DCore.Api
     

@@ -2,12 +2,19 @@ import Foundation
 import RxSwift
 import BigInt
 
-public final class MiningApi: DeprecatedService {
-    
+public protocol MiningApi: BaseApi {
+    func getNewAssetPerBlock() -> Single<BigInt>
+    func getAssetPerBlock(byBlockNum num: UInt64) -> Single<BigInt>
+    func getMiners(byIds ids: [ChainObject]) -> Single<[Miner]>
+    func getMiner(byAccountId id: ChainObject) -> Single<Miner>
+    func lookupMiners(byTerm term: String, limit: Int) -> Single<[MinerId]>
+}
+
+extension MiningApi {
     public func getNewAssetPerBlock() -> Single<BigInt> {
         return GetNewAssetPerBlock().base.toResponse(api.core)
     }
-
+    
     public func getAssetPerBlock(byBlockNum num: UInt64) -> Single<BigInt> {
         return GetAssetPerBlock(num).base.toResponse(api.core)
     }
@@ -23,7 +30,7 @@ public final class MiningApi: DeprecatedService {
     public func lookupMiners(byTerm term: String = "", limit: Int = 1000) -> Single<[MinerId]> {
         return LookupMinerAccounts(term, limit: limit).base.toResponse(api.core)
     }
-
+    
     public func getMinerCount() -> Single<UInt64> {
         return GetMinerCount().base.toResponse(api.core)
     }
@@ -39,7 +46,7 @@ public final class MiningApi: DeprecatedService {
     public func getActualVotes() -> Single<[MinerVotes]> {
         return GetActualVotes().base.toResponse(api.core)
     }
-
+    
     public func search(minerVotingByTerm term: String,
                        order: SearchOrder.MinerVoting = .nameDesc,
                        id: ChainObject? = nil,
@@ -54,9 +61,9 @@ public final class MiningApi: DeprecatedService {
                                  id: id,
                                  limit: limit).base.toResponse(api.core)
     }
- 
+    
     public func getMiners() -> Single<[String: Miner]> {
-        return self.lookupMiners().flatMap({ [unowned self] minerIds in
+        return self.lookupMiners().flatMap({ minerIds in
             return self.getMiners(byIds: minerIds.map({ $0.id })).map({ miners in
                 return miners.reduce(into: [String: Miner](), { map, miner in
                     map[minerIds.first(where: { $0.id == miner.id })!.name] = miner
@@ -65,3 +72,5 @@ public final class MiningApi: DeprecatedService {
         })
     }
 }
+
+extension ApiProvider: MiningApi {}

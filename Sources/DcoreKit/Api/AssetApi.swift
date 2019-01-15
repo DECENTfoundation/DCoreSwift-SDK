@@ -41,4 +41,4 @@ extension AssetApi {
     }
 }
 
-extension ApiService: AssetApi {}
+extension ApiProvider: AssetApi {}

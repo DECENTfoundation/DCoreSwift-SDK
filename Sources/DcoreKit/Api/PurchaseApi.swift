@@ -1,8 +1,29 @@
 import Foundation
 import RxSwift
 
-public final class PurchaseApi: DeprecatedService {
-    
+public protocol PurchaseApi: BaseApi {
+    func search(purchasesByConsumerId id: ChainObject,
+                term: String,
+                from: ChainObject,
+                order: SearchOrder.Purchases,
+                limit: Int) -> Single<[Purchase]>
+    func getPurchase(byConsumerId id: ChainObject, uri: String) -> Single<Purchase>
+    func getOpenPurchases() -> Single<[Purchase]>
+    func getOpenPurchases(byUri uri: String) -> Single<[Purchase]>
+    func getOpenPurchases(byAccountId id: ChainObject) -> Single<[Purchase]>
+    func getHistoryPurchases(byAccountId id: ChainObject) -> Single<[Purchase]>
+    func search(feedbackByUri uri: String,
+                user: String?,
+                count: Int,
+                startId: ChainObject) -> Single<[Purchase]>
+    func getSubscription(byId id: ChainObject) -> Single<Subscription>
+    func listActiveSubscriptions(byConsumerId id: ChainObject, count: Int) -> Single<[Subscription]>
+    func listActiveSubscriptions(byAuthorId id: ChainObject, count: Int) -> Single<[Subscription]>
+    func listSubscriptions(byConsumerId id: ChainObject, count: Int) -> Single<[Subscription]>
+    func listSubscriptions(byAuthorId id: ChainObject, count: Int) -> Single<[Subscription]>
+}
+
+extension PurchaseApi {
     public func search(purchasesByConsumerId id: ChainObject,
                        term: String = "",
                        from: ChainObject = ObjectType.nullObject.genericId,
@@ -11,16 +32,16 @@ public final class PurchaseApi: DeprecatedService {
         
         return SearchBuyings(id, order: order, startId: from, term: term, limit: limit).base.toResponse(api.core)
     }
-
+    
     public func getPurchase(byConsumerId id: ChainObject, uri: String) -> Single<Purchase> {
         return GetBuyingByUri(id, uri: uri).base.toResponse(api.core)
     }
-
+    
     public func getOpenPurchases() -> Single<[Purchase]> {
         return GetOpenBuyings().base.toResponse(api.core)
     }
     
-    public func getOpenPurchases(uri: String) -> Single<[Purchase]> {
+    public func getOpenPurchases(byUri uri: String) -> Single<[Purchase]> {
         return GetOpenBuyingsByUri(uri).base.toResponse(api.core)
     }
     
@@ -60,3 +81,5 @@ public final class PurchaseApi: DeprecatedService {
         return ListSubscriptionsByAuthor(id, count: count).base.toResponse(api.core)
     }
 }
+
+extension ApiProvider: PurchaseApi {}

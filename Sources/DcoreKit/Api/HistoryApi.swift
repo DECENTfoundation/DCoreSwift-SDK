@@ -1,8 +1,27 @@
 import Foundation
 import RxSwift
 
-public final class HistoryApi: DeprecatedService {
-    
+public protocol HistoryApi: BaseApi {
+    func getAccountHistory(byAccountId id: ChainObject,
+                           startId: ChainObject,
+                           stopId: ChainObject,
+                           limit: Int) -> Single<[OperationHistory]>
+    func getAccountHistoryRelative(byAccountId id: ChainObject,
+                                   start: Int,
+                                   limit: Int) -> Single<[OperationHistory]>
+    // swiftlint:disable:next function_parameter_count
+    func search(accountBalanceHistoryById id: ChainObject,
+                assets: [ChainObject],
+                recipientAccount: ChainObject?,
+                fromBlock: UInt64,
+                toBlock: UInt64,
+                startOffset: UInt64,
+                limit: Int) -> Single<[BalanceChange]>
+    func getAccountBalanceForTransaction(byAccountId id: ChainObject,
+                                         operationId: ChainObject) -> Single<BalanceChange>
+}
+
+extension HistoryApi {
     public func getAccountHistory(byAccountId id: ChainObject,
                                   startId: ChainObject = ObjectType.operationHistoryObject.genericId,
                                   stopId: ChainObject = ObjectType.operationHistoryObject.genericId,
@@ -14,7 +33,7 @@ public final class HistoryApi: DeprecatedService {
     public func getAccountHistoryRelative(byAccountId id: ChainObject,
                                           start: Int = 0,
                                           limit: Int = 100) -> Single<[OperationHistory]> {
-    
+        
         return GetRelativeAccountHistory(id, stop: 0, limit: limit, start: start).base.toResponse(api.core)
     }
     
@@ -25,7 +44,7 @@ public final class HistoryApi: DeprecatedService {
                        toBlock: UInt64 = 0,
                        startOffset: UInt64 = 0,
                        limit: Int = 100) -> Single<[BalanceChange]> {
-     
+        
         return SearchAccountBalanceHistory(id,
                                            assets: assets,
                                            recipientAccount: recipientAccount,
@@ -39,3 +58,5 @@ public final class HistoryApi: DeprecatedService {
         return GetAccountBalanceForTransaction(id, operationId: operationId).base.toResponse(api.core)
     }
 }
+
+extension ApiProvider: HistoryApi {}
