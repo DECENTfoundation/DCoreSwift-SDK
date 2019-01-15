@@ -7,7 +7,7 @@ public protocol AssetApi: BaseApi {
     func getAssets(bySymbols symbols: [Asset.Symbol]) -> Single<[Asset]>
     func getAsset(bySymbol symbol: Asset.Symbol) -> Single<Asset>
     func getAssets(byLowerBound bound: String, limit: Int) -> Single<[Asset]>
-    func priceToDct(amount: AssetAmount) -> Single<AssetAmount>
+    func convertPrice(toDct amount: AssetAmount) -> Single<AssetAmount>
     func getRealSupply() -> Single<RealSupply>
 }
 
@@ -32,7 +32,7 @@ extension AssetApi {
         return ListAssets(bound, limit: limit).base.toResponse(api.core)
     }
     
-    public func priceToDct(amount: AssetAmount) -> Single<AssetAmount> {
+    public func convertPrice(toDct amount: AssetAmount) -> Single<AssetAmount> {
         return PriceToDct(amount).base.toResponse(api.core)
     }
     

@@ -8,6 +8,17 @@ public protocol MiningApi: BaseApi {
     func getMiners(byIds ids: [ChainObject]) -> Single<[Miner]>
     func getMiner(byAccountId id: ChainObject) -> Single<Miner>
     func lookupMiners(byTerm term: String, limit: Int) -> Single<[MinerId]>
+    func getMinerCount() -> Single<UInt64>
+    func getFeedsByMiner(byAccountId id: ChainObject, count: UInt64) -> Single<AnyValue>
+    func lookupVoteIds(byVoteIds ids: [VoteId]) -> Single<[Miner]>
+    func getActualVotes() -> Single<[MinerVotes]>
+    func search(minerVotingByTerm term: String,
+                order: SearchOrder.MinerVoting,
+                id: ChainObject?,
+                accountName: String?,
+                onlyMyVotes: Bool,
+                limit: Int) -> Single<[MinerVotingInfo]>
+    func getMiners() -> Single<[String: Miner]>
 }
 
 extension MiningApi {
