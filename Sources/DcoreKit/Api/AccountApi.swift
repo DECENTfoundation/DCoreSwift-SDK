@@ -3,6 +3,7 @@ import RxSwift
 
 public protocol AccountApi: BaseApi {
     func getAccount(byName name: String) -> Single<Account>
+    func getAccount(byId id: ChainObject) -> Single<Account>
     func getAccounts(byIds ids: [ChainObject]) -> Single<[Account]>
     func getAccountIds(byAddressList list: [Address]) -> Single<[[ChainObject]]>
     func existAccount(byName name: String) -> Single<Bool>
@@ -28,6 +29,13 @@ extension AccountApi {
     
     public func getAccount(byName name: String) -> Single<Account> {
         return GetAccountByName(name).base.toResponse(api.core)
+    }
+    
+    public func getAccount(byId id: ChainObject) -> Single<Account> {
+        return getAccounts(byIds: [id]).map {
+            guard let account = $0.first else { throw ChainException.network(.notFound) }
+            return account
+        }
     }
     
     public func getAccounts(byIds ids: [ChainObject]) -> Single<[Account]> {
