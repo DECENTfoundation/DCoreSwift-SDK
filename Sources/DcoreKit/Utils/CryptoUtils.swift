@@ -45,9 +45,24 @@ public struct CryptoUtils {
         }
         return Data(result)
     }
-
-    static func encrypt(_ keyWithIV: Data, message: Data) -> Data {
-        fatalError("Not Implemented")
+    
+    static func encrypt(_ key: Data, iv: Data, input: Data) throws -> Data {
+        return Data(try AES(key: key.bytes, blockMode: CBC(iv: iv.bytes), padding: .pkcs7).encrypt(input.bytes))
+    }
+    
+    static func decrypt(_ key: Data, iv: Data, input: Data) throws -> Data {
+        return Data(try AES(key: key.bytes, blockMode: CBC(iv: iv.bytes), padding: .pkcs7).decrypt(input.bytes))
+    }
+    
+    static func decrypt(using passphrase: String, encryptedInput input: String) throws -> Data {
+        do {
+            let keyiv = hash512(passphrase.data(using: .utf8) ?? Data(count: 0))
+            let unhexed = input.unhex() ?? Data(count: 0)
+            
+            return try decrypt(keyiv[0..<32], iv: keyiv[32..<(32+16)], input: unhexed)
+        } catch {
+            throw  ChainException.crypto(.failDecrypt("Cannot decrypt \(input) with passphrase: \(passphrase)"))
+        }
     }
     
     static func secureRandom(_ count: Int = 32) -> Data {

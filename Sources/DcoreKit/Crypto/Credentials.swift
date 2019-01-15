@@ -5,12 +5,17 @@ public struct Credentials {
     public let accountId: ChainObject
     public let keyPair: ECKeyPair
     
-    public init(accountId id: ChainObject, wif: String) throws {
-        self.init(accountId: id, keyPair: try ECKeyPair(fromWif: wif))
+    public init(_ accountId: ChainObject, encryptedWif wif: String, passphrase: String) throws {
+        let wif = try CryptoUtils.decrypt(using: passphrase, encryptedInput: wif)
+        try self.init(accountId, wif: wif.utf8() ?? "")
     }
     
-    public init(accountId id: ChainObject, keyPair: ECKeyPair) {
-        self.accountId = id
+    public init(_ accountId: ChainObject, wif: String) throws {
+        self.init(accountId, keyPair: try ECKeyPair(fromWif: wif))
+    }
+    
+    public init(_ accountId: ChainObject, keyPair: ECKeyPair) {
+        self.accountId = accountId
         self.keyPair = keyPair
     }
 }

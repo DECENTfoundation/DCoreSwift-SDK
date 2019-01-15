@@ -21,6 +21,8 @@ public enum ChainException: Error {
         case
         failSigning,
         failDecode(String),
+        failDecrypt(String),
+        failEncrypt(String),
         notEnoughSpace
     }
     
@@ -78,6 +80,8 @@ extension ChainException.Crypto: CustomStringConvertible {
         switch self {
         case .failSigning: return "Singing failed"
         case .failDecode(let message): return message
+        case .failDecrypt(let message): return message
+        case .failEncrypt(let message): return message
         case .notEnoughSpace: return "Not enough space"
         }
     }

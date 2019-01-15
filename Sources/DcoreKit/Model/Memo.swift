@@ -35,11 +35,13 @@ public struct Memo: Codable {
         self.from = keyPair.address
         self.to = recipient
         
-        let data = message.data(using: .ascii)!
-        let checksumed = CryptoUtils.hash256(data).prefix(4) + data
-        let secret = keyPair.secret(recipient, nonce: self.nonce)
+        // todo - encrypt memo with derived key
+        // let data = message.data(using: .ascii)!
+        // let checksumed = CryptoUtils.hash256(data).prefix(4) + data
+        // let secret = keyPair.secret(recipient, nonce: self.nonce)
         
-        self.message = CryptoUtils.encrypt(secret, message: checksumed).toHex()
+        // CryptoUtils.encrypt(secret, message: checksumed).toHex()
+        self.message = ""
     }
 }
 
