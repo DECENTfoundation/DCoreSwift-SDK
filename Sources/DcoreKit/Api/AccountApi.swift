@@ -12,6 +12,7 @@ public protocol AccountApi: BaseApi {
                 order: SearchOrder.AccountHistory,
                 limit: Int) -> Single<[TransactionDetail]>
     func createCredentials(byName name: String, wif: String) -> Single<Credentials>
+    func createCredentials(byName name: String, encryptedWif wif: String, passphrase: String) -> Single<Credentials>
     func getFullAccounts(byReferences refs: [Account.Reference], subscribe: Bool) -> Single<[String: FullAccount]>
     func getAccountReferences(byId id: ChainObject) -> Single<[ChainObject]>
     func lookupAccounts(byNames names: [String]) -> Single<[Account]>
@@ -71,7 +72,11 @@ extension AccountApi {
     }
     
     public func createCredentials(byName name: String, wif: String) -> Single<Credentials> {
-        return self.getAccount(byName: name).map({ try Credentials(accountId: $0.id, wif: wif) })
+        return self.getAccount(byName: name).map({ try Credentials($0.id, wif: wif) })
+    }
+    
+    public func createCredentials(byName name: String, encryptedWif wif: String, passphrase: String) -> Single<Credentials> {
+        return self.getAccount(byName: name).map({ try Credentials($0.id, encryptedWif: wif, passphrase: passphrase) })
     }
     
     public func getFullAccounts(byReferences refs: [Account.Reference], subscribe: Bool = false) -> Single<[String: FullAccount]> {
