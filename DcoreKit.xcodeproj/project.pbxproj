@@ -3049,7 +3049,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries $(SRCROOT)/Carthage/Checkouts/copenssl";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TARGET_NAME = DcoreKit;
@@ -3097,7 +3097,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries $(SRCROOT)/Carthage/Checkouts/copenssl";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TARGET_NAME = DcoreKit;
@@ -3310,7 +3310,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries $(SRCROOT)/Carthage/Checkouts/copenssl";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TARGET_NAME = DcoreKit;
@@ -3358,7 +3358,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries $(SRCROOT)/Carthage/Checkouts/copenssl";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TARGET_NAME = DcoreKit;
