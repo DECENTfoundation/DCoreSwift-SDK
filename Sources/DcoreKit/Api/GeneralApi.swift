@@ -1,8 +1,17 @@
 import Foundation
 import RxSwift
 
-public final class GeneralApi: DeprecatedService {
+public protocol GeneralApi: BaseApi {
+    func info() -> Single<String>
+    func getChainProperties() -> Single<ChainProperty>
+    func getGlobalProperties() -> Single<GlobalProperty>
+    func getConfig() -> Single<Config>
+    func getChainId() -> Single<String>
+    func getDynamicGlobalProperties() -> Single<DynamicGlobalProps>
+    func getTimeToMaintenance(time: Date) -> Single<MinerRewardInput>
+}
 
+extension GeneralApi {
     public func info() -> Single<String> {
         return Info().base.toResponse(api.core)
     }
@@ -31,3 +40,5 @@ public final class GeneralApi: DeprecatedService {
         return GetTimeToMaintenance(time).base.toResponse(api.core)
     }
 }
+
+extension ApiProvider: GeneralApi {}

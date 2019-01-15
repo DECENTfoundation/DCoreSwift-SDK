@@ -1,12 +1,27 @@
 import Foundation
 import RxSwift
 
-public final class ContentApi: DeprecatedService {
-    
+public protocol ContentApi: BaseApi {
+    func getContent(byId id: ChainObject) -> Single<Content>
+    func getContent(byUri uri: String) -> Single<Content>
+    // swiftlint:disable:next function_parameter_count
+    func search(contentByTerm term: String,
+                order: SearchOrder.Content,
+                user: String,
+                regionCode: String,
+                type: String,
+                startId: ChainObject,
+                limit: Int) -> Single<[Content]>
+    func listPublishingManagers(lowerBound: String, limit: Int) -> Single<[ChainObject]>
+    func generateContentKeys(forSeeders ids: [ChainObject]) -> Single<ContentKeys>
+    func restoreEncryptionKey(elGamalPrivate: PubKey, purchaseId: ChainObject) -> Single<String>
+}
+
+extension ContentApi {
     public func getContent(byId id: ChainObject) -> Single<Content> {
         return GetContentById(id).base.toResponse(api.core).map({ $0.first! })
     }
-
+    
     public func getContent(byUri uri: String) -> Single<Content> {
         return GetContentByUri(uri).base.toResponse(api.core)
     }
@@ -40,3 +55,5 @@ public final class ContentApi: DeprecatedService {
         return RestoreEncryptionKey(elGamalPrivate, purchaseId: purchaseId).base.toResponse(api.core)
     }
 }
+
+extension ApiProvider: ContentApi {}

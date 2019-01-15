@@ -1,8 +1,18 @@
 import Foundation
 import RxSwift
 
-public final class ValidationApi: DeprecatedService {
-    
+public protocol ValidationApi: BaseApi {
+    func getRequiredSignatures(byTrx trx: Transaction, keys: [Address]) -> Single<[Address]>
+    func getPotentialSignatures(byTrx trx: Transaction) -> Single<[Address]>
+    func verifyAuthority(byTrx trx: Transaction) -> Single<Bool>
+    func verifyAccountAuthority(account: String, keys: [Address]) -> Single<Bool>
+    func validateTransaction(byTrx trx: Transaction) -> Single<ProcessedTransaction>
+    func getFees(forOperations operations: [BaseOperation]) -> Single<[AssetAmount]>
+    func getFee(forOperation operation: BaseOperation) -> Single<AssetAmount>
+    func getFee(forType type: OperationType) -> Single<AssetAmount>
+}
+
+extension ValidationApi {
     public func getRequiredSignatures(byTrx trx: Transaction, keys: [Address]) -> Single<[Address]> {
         return GetRequiredSignatures(trx, keys: keys).base.toResponse(api.core)
     }
@@ -41,3 +51,5 @@ public final class ValidationApi: DeprecatedService {
         return getFee(forOperation: EmptyOperation(type: type))
     }
 }
+
+extension ApiProvider: ValidationApi {}

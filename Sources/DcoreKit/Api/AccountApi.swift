@@ -102,4 +102,4 @@ extension AccountApi {
     }
 }
 
-extension ApiService: AccountApi {}
+extension ApiProvider: AccountApi {}

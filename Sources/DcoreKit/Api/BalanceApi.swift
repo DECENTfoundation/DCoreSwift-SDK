@@ -1,8 +1,19 @@
 import Foundation
 import RxSwift
 
-public final class BalanceApi: DeprecatedService {
-    
+public protocol BalanceApi: BaseApi {
+    func getBalances(byAccountId id: ChainObject, assets: [ChainObject]) -> Single<[AssetAmount]>
+    func getBalance(byAccountId id: ChainObject, asset: ChainObject) -> Single<AssetAmount>
+    func getBalances(byReference ref: String, assets: [ChainObject]) -> Single<[AssetAmount]>
+    func getBalance(byReference ref: String, asset: ChainObject) -> Single<AssetAmount>
+    func getBalances(byAccountId id: ChainObject, symbols: [Asset.Symbol]) -> Single<[AssetAmount.Pair]>
+    func getBalance(byAccountId id: ChainObject, symbol: Asset.Symbol) -> Single<AssetAmount.Pair>
+    func getBalances(byReference ref: String, symbols: [Asset.Symbol]) -> Single<[AssetAmount.Pair]>
+    func getBalance(byReference ref: String, symbol: Asset.Symbol) -> Single<AssetAmount.Pair>
+    func getVestingBalances(byAccountId id: ChainObject) -> Single<[VestingBalance]>
+}
+
+extension BalanceApi {
     public func getBalances(byAccountId id: ChainObject, assets: [ChainObject]) -> Single<[AssetAmount]> {
         return GetAccountBalances(id, assets: assets).base.toResponse(api.core)
     }
@@ -12,12 +23,12 @@ public final class BalanceApi: DeprecatedService {
     }
     
     public func getBalances(byReference ref: String, assets: [ChainObject]) -> Single<[AssetAmount]> {
-        return Single.deferred({ [unowned self] in
+        return Single.deferred({
             if Account.hasValid(name: ref) {
                 return GetNamedAccountBalances(ref, assets: assets).base.toResponse(self.api.core)
             }
-           
-            return self.api.account.getAccount(byReference: ref).flatMap({ [unowned self] account in
+            
+            return self.api.account.getAccount(byReference: ref).flatMap({ account in
                 return self.getBalances(byAccountId: account.id, assets: assets)
             })
         })
@@ -28,7 +39,7 @@ public final class BalanceApi: DeprecatedService {
     }
     
     public func getBalances(byAccountId id: ChainObject, symbols: [Asset.Symbol]) -> Single<[AssetAmount.Pair]> {
-        return api.asset.getAssets(bySymbols: symbols).flatMap({ [unowned self] assets in
+        return api.asset.getAssets(bySymbols: symbols).flatMap({ assets in
             return self.getBalances(byAccountId: id, assets: assets.map({ $0.id })).map({ amounts in
                 return amounts.map({ amount in
                     return (asset: assets.first(where: { $0.id == amount.assetId })!, amount: amount)
@@ -42,13 +53,13 @@ public final class BalanceApi: DeprecatedService {
     }
     
     public func getBalances(byReference ref: String, symbols: [Asset.Symbol]) -> Single<[AssetAmount.Pair]> {
-        return api.account.getAccount(byReference: ref).flatMap({ [unowned self] account in
+        return api.account.getAccount(byReference: ref).flatMap({ account in
             return self.getBalances(byAccountId: account.id, symbols: symbols)
         })
     }
     
     public func getBalance(byReference ref: String, symbol: Asset.Symbol = .dct) -> Single<AssetAmount.Pair> {
-        return api.account.getAccount(byReference: ref).flatMap({ [unowned self] account in
+        return api.account.getAccount(byReference: ref).flatMap({ account in
             return self.getBalance(byAccountId: account.id, symbol: symbol)
         })
     }
@@ -57,3 +68,5 @@ public final class BalanceApi: DeprecatedService {
         return GetVestingBalances(id).base.toResponse(api.core)
     }
 }
+
+extension ApiProvider: BalanceApi {}
