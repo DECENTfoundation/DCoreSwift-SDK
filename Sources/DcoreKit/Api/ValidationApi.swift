@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public final class ValidationApi: BaseApi {
+public final class ValidationApi: DeprecatedService {
     
     public func getRequiredSignatures(byTrx trx: Transaction, keys: [Address]) -> Single<[Address]> {
         return GetRequiredSignatures(trx, keys: keys).base.toResponse(api.core)

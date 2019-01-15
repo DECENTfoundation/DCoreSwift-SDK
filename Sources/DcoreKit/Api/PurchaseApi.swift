@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public final class PurchaseApi: BaseApi {
+public final class PurchaseApi: DeprecatedService {
     
     public func search(purchasesByConsumerId id: ChainObject,
                        term: String = "",

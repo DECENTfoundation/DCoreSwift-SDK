@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public final class OperationApi: BaseApi {
+public final class OperationApi: DeprecatedService {
     
     public func create(transfer creds: Credentials,
                        to: String, amount: AssetAmount,

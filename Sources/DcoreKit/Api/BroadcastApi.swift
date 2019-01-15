@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public final class BroadcastApi: BaseApi {
+public final class BroadcastApi: DeprecatedService {
 
     public func broadcast(_ trx: Transaction) -> Completable {
         return BroadcastTransaction(trx).base.toResponse(api.core).asCompletable()
