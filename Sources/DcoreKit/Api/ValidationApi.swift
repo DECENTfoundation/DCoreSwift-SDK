@@ -5,7 +5,7 @@ public protocol ValidationApi: BaseApi {
     func getRequiredSignatures(byTrx trx: Transaction, keys: [Address]) -> Single<[Address]>
     func getPotentialSignatures(byTrx trx: Transaction) -> Single<[Address]>
     func verifyAuthority(byTrx trx: Transaction) -> Single<Bool>
-    func verifyAccountAuthority(account: String, keys: [Address]) -> Single<Bool>
+    func verifyAccountAuthority(byAccount account: String, keys: [Address]) -> Single<Bool>
     func validateTransaction(byTrx trx: Transaction) -> Single<ProcessedTransaction>
     func getFees(forOperations operations: [BaseOperation]) -> Single<[AssetAmount]>
     func getFee(forOperation operation: BaseOperation) -> Single<AssetAmount>
@@ -25,7 +25,7 @@ extension ValidationApi {
         return VerifyAuthority(trx).base.toResponse(api.core).catchErrorJustReturn(false)
     }
     
-    public func verifyAccountAuthority(account: String, keys: [Address]) -> Single<Bool> {
+    public func verifyAccountAuthority(byAccount account: String, keys: [Address]) -> Single<Bool> {
         return VerifyAccountAuthority(account, keys: keys).base.toResponse(api.core)
     }
     
