@@ -134,6 +134,10 @@ extension Data {
         }
         return VarInt(value)
     }
+    
+    func utf8() -> String? {
+        return String(data: self, encoding: .utf8)
+    }
 }
 
 extension Data {
