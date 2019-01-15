@@ -13,6 +13,8 @@
 		A11F6D6C21ECB61A008C8525 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */; };
 		A11F6D6D21ECB61A008C8525 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */; };
 		A11F6D6E21ECB61A008C8525 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6721ECB61A008C8525 /* RxSwift.framework */; };
+		A1B51C0921EDDA52006277F9 /* BaseApi+Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B51C0821EDDA52006277F9 /* BaseApi+Deprecated.swift */; };
+		A1B51C0A21EDDA52006277F9 /* BaseApi+Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B51C0821EDDA52006277F9 /* BaseApi+Deprecated.swift */; };
 		A1D96D5221ED1E22009C0A30 /* AccountApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* AccountApi.swift */; };
 		A1D96D5321ED1E22009C0A30 /* AssetApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AssetApi.swift */; };
 		A1D96D5421ED1E22009C0A30 /* BalanceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* BalanceApi.swift */; };
@@ -480,6 +482,7 @@
 		A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		A11F6D6721ECB61A008C8525 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		A1B51C0821EDDA52006277F9 /* BaseApi+Deprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseApi+Deprecated.swift"; sourceTree = "<group>"; };
 		A1CEFEE521ECC3F1004FED2B /* DcoreKit-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DcoreKit-iOS.plist"; sourceTree = "<group>"; };
 		A1CEFEE621ECC400004FED2B /* DcoreKit-macOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DcoreKit-macOS.plist"; sourceTree = "<group>"; };
 		A1D96E2E21ED1E22009C0A30 /* DcoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DcoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2174,6 +2177,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_13 /* ApiService.swift */,
+				A1B51C0821EDDA52006277F9 /* BaseApi+Deprecated.swift */,
 				OBJ_10 /* AccountApi.swift */,
 				OBJ_11 /* AssetApi.swift */,
 				OBJ_12 /* BalanceApi.swift */,
@@ -2678,6 +2682,7 @@
 				A1D96DDB21ED1E22009C0A30 /* GetSubscription.swift in Sources */,
 				A1D96DDC21ED1E22009C0A30 /* GetTimeToMaintenance.swift in Sources */,
 				A1D96DDD21ED1E22009C0A30 /* GetTransaction.swift in Sources */,
+				A1B51C0A21EDDA52006277F9 /* BaseApi+Deprecated.swift in Sources */,
 				A1D96DDE21ED1E22009C0A30 /* GetTransactionById.swift in Sources */,
 				A1D96DDF21ED1E22009C0A30 /* GetTransactionHex.swift in Sources */,
 				A1D96DE021ED1E22009C0A30 /* GetVestingBalances.swift in Sources */,
@@ -2802,6 +2807,7 @@
 				OBJ_850 /* PrivateKey.swift in Sources */,
 				OBJ_851 /* PublicKey.swift in Sources */,
 				OBJ_852 /* DCoreApi.swift in Sources */,
+				A1B51C0921EDDA52006277F9 /* BaseApi+Deprecated.swift in Sources */,
 				OBJ_853 /* DCoreConstants.swift in Sources */,
 				OBJ_854 /* DCoreSdk.swift in Sources */,
 				OBJ_855 /* Account.swift in Sources */,
