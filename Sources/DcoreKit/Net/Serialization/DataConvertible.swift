@@ -1,6 +1,8 @@
 import Foundation
 import BigInt
 
+// swiftlint:disable shorthand_operator
+
 protocol DataConvertible {
     static func + (lhs: Data, rhs: Self) -> Data
     static func += (lhs: inout Data, rhs: Self)
@@ -16,7 +18,7 @@ extension DataConvertible {
     }
     
     static func += (lhs: inout Data, rhs: Self) {
-        lhs += rhs
+        lhs = lhs + rhs
     }
     
     func asData() -> Data { fatalError("Missing override: \(self)") }
@@ -38,7 +40,7 @@ extension BigInt: DataConvertible {
     }
     
     static func += (lhs: inout Data, rhs: BigInt) {
-        lhs += rhs.magnitude.serialize()
+        lhs = lhs + rhs.magnitude.serialize()
     }
     
     func asData() -> Data { return self.magnitude.serialize() }
@@ -47,13 +49,13 @@ extension BigInt: DataConvertible {
 extension Array where Element: DataConvertible {
     static func + (lhs: Data, rhs: Array) -> Data {
         return lhs + rhs.reduce(into: Data(), { data, element in
-            data += element
+            data = data + element
         })
     }
     
     static func += (lhs: inout Data, rhs: Array) {
-        lhs += rhs.reduce(into: Data(), { data, element in
-            data += element
+        lhs = lhs + rhs.reduce(into: Data(), { data, element in
+            data = data + element
         })
     }
 }
@@ -61,13 +63,13 @@ extension Array where Element: DataConvertible {
 extension Set where Element: DataConvertible {
     static func + (lhs: Data, rhs: Set) -> Data {
         return lhs + rhs.reduce(into: Data(), { data, element in
-            data += element
+            data = data + element
         })
     }
     
     static func += (lhs: inout Data, rhs: Set) {
-        lhs += rhs.reduce(into: Data(), { data, element in
-            data += element
+        lhs = lhs + rhs.reduce(into: Data(), { data, element in
+            data = data + element
         })
     }
 }
