@@ -1,5 +1,4 @@
 import Foundation
-import os.log
 
 protocol RestConvertible: URLRequestConvertible {
     func asRest(_ url: URL) -> URLRequest
