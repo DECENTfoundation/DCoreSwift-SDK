@@ -13,6 +13,8 @@
 		A11F6D6C21ECB61A008C8525 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */; };
 		A11F6D6D21ECB61A008C8525 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */; };
 		A11F6D6E21ECB61A008C8525 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6721ECB61A008C8525 /* RxSwift.framework */; };
+		A1B51C0C21EE0059006277F9 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B51C0B21EE0059006277F9 /* BaseApi.swift */; };
+		A1B51C0D21EE0059006277F9 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B51C0B21EE0059006277F9 /* BaseApi.swift */; };
 		A1D96D5221ED1E22009C0A30 /* AccountApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* AccountApi.swift */; };
 		A1D96D5321ED1E22009C0A30 /* AssetApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AssetApi.swift */; };
 		A1D96D5421ED1E22009C0A30 /* BalanceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* BalanceApi.swift */; };
@@ -480,6 +482,7 @@
 		A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		A11F6D6721ECB61A008C8525 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		A1B51C0B21EE0059006277F9 /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 		A1CEFEE521ECC3F1004FED2B /* DcoreKit-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DcoreKit-iOS.plist"; sourceTree = "<group>"; };
 		A1CEFEE621ECC400004FED2B /* DcoreKit-macOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DcoreKit-macOS.plist"; sourceTree = "<group>"; };
 		A1D96E2E21ED1E22009C0A30 /* DcoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DcoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2174,6 +2177,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_13 /* ApiProvider.swift */,
+				A1B51C0B21EE0059006277F9 /* BaseApi.swift */,
 				OBJ_10 /* AccountApi.swift */,
 				OBJ_11 /* AssetApi.swift */,
 				OBJ_12 /* BalanceApi.swift */,
@@ -2633,6 +2637,7 @@
 				A1D96DAE21ED1E22009C0A30 /* BroadcastTransactionWithCallback.swift in Sources */,
 				A1D96DAF21ED1E22009C0A30 /* CancelAllSubscriptions.swift in Sources */,
 				A1D96DB021ED1E22009C0A30 /* GenerateContentKeys.swift in Sources */,
+				A1B51C0D21EE0059006277F9 /* BaseApi.swift in Sources */,
 				A1D96DB121ED1E22009C0A30 /* GetAccountBalanceForTransaction.swift in Sources */,
 				A1D96DB221ED1E22009C0A30 /* GetAccountBalances.swift in Sources */,
 				A1D96DB321ED1E22009C0A30 /* GetAccountById.swift in Sources */,
@@ -2983,6 +2988,7 @@
 				OBJ_1031 /* ChainProvider.swift in Sources */,
 				OBJ_1032 /* CryptoUtils.swift in Sources */,
 				OBJ_1033 /* Enum+Extension.swift in Sources */,
+				A1B51C0C21EE0059006277F9 /* BaseApi.swift in Sources */,
 				OBJ_1034 /* LoggerConvertible.swift in Sources */,
 				OBJ_1035 /* Rx+Extension.swift in Sources */,
 				OBJ_1036 /* Sequence+Extension.swift in Sources */,
