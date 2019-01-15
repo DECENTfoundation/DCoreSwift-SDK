@@ -1,8 +1,31 @@
 import Foundation
 import RxSwift
 
-public final class BroadcastApi: DeprecatedService {
+public protocol BroadcastApi: BaseApi {
+    func broadcast(_ trx: Transaction) -> Completable
+    func broadcast(using keypair: ECKeyPair,
+                   operations: [BaseOperation],
+                   expiration: Int?) -> Completable
+    func broadcast(using keypair: ECKeyPair, operation: BaseOperation, expiration: Int?) -> Completable
+    func broadcast(using keypair: String, operations: [BaseOperation], expiration: Int?) -> Completable
+    func broadcast(using keypair: String, operation: BaseOperation, expiration: Int?) -> Completable
+    func broadcast(withCallback trx: Transaction) -> Observable<TransactionConfirmation>
+    func broadcast(withCallback keypair: ECKeyPair,
+                   operations: [BaseOperation],
+                   expiration: Int?) -> Observable<TransactionConfirmation>
+    func broadcast(withCallback keypair: ECKeyPair,
+                   operation: BaseOperation,
+                   expiration: Int?) -> Observable<TransactionConfirmation>
+    func broadcast(withCallback keypair: String,
+                   operations: [BaseOperation],
+                   expiration: Int?) -> Observable<TransactionConfirmation>
+    func broadcast(withCallback keypair: String,
+                   operation: BaseOperation,
+                   expiration: Int?) -> Observable<TransactionConfirmation>
+    func broadcast(synchronous trx: Transaction) -> Single<TransactionConfirmation>
+}
 
+extension BroadcastApi {
     public func broadcast(_ trx: Transaction) -> Completable {
         return BroadcastTransaction(trx).base.toResponse(api.core).asCompletable()
     }
@@ -12,7 +35,7 @@ public final class BroadcastApi: DeprecatedService {
                           expiration: Int? = nil) -> Completable {
         return api.transaction.createTransaction(operations, expiration: expiration ?? self.api.transactionExpiration)
             .map { try $0.with(signature: keypair) }
-            .flatMapCompletable { [unowned self] in self.broadcast($0) }
+            .flatMapCompletable { self.broadcast($0) }
     }
     
     public func broadcast(using keypair: ECKeyPair, operation: BaseOperation, expiration: Int? = nil) -> Completable {
@@ -20,7 +43,7 @@ public final class BroadcastApi: DeprecatedService {
     }
     
     public func broadcast(using keypair: String, operations: [BaseOperation], expiration: Int? = nil) -> Completable {
-        return Single.just(keypair.chain.keyPair).flatMapCompletable { [unowned self] in
+        return Single.just(keypair.chain.keyPair).flatMapCompletable {
             guard let kp = $0 else {
                 return Completable.error(ChainException.unexpected("Can't create keypair from \(keypair)"))
             }
@@ -42,7 +65,7 @@ public final class BroadcastApi: DeprecatedService {
         return api.transaction.createTransaction(operations, expiration: expiration ?? self.api.transactionExpiration)
             .map { try $0.with(signature: keypair) }
             .asObservable()
-            .flatMap { [unowned self] in self.broadcast(withCallback: $0) }
+            .flatMap { self.broadcast(withCallback: $0) }
     }
     
     public func broadcast(withCallback keypair: ECKeyPair,
@@ -72,3 +95,5 @@ public final class BroadcastApi: DeprecatedService {
         return BroadcastTransactionSynchronous(trx).base.toResponse(api.core)
     }
 }
+
+extension ApiProvider: BroadcastApi {}

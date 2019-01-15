@@ -1,10 +1,33 @@
 import Foundation
 import RxSwift
 
-public final class OperationApi: DeprecatedService {
-    
+public protocol OperationApi: BaseApi {
+    func create(transfer creds: Credentials,
+                to: String,
+                amount: AssetAmount,
+                message: String?,
+                encrypted: Bool,
+                fee: AssetAmount?) -> Single<TransferOperation>
+    func create(transfer creds: Credentials,
+                to: String,
+                amount: AssetAmount,
+                fee: AssetAmount?) -> Single<TransferOperation>
+    func transfer(_ creds: Credentials,
+                  to: String,
+                  amount: AssetAmount,
+                  fee: AssetAmount?) -> Observable<TransactionConfirmation>
+    func transfer(_ creds: Credentials,
+                  to: String,
+                  amount: AssetAmount,
+                  message: String?,
+                  encrypted: Bool,
+                  fee: AssetAmount?) -> Observable<TransactionConfirmation>
+}
+
+extension OperationApi {
     public func create(transfer creds: Credentials,
-                       to: String, amount: AssetAmount,
+                       to: String,
+                       amount: AssetAmount,
                        message: String? = nil,
                        encrypted: Bool = true,
                        fee: AssetAmount? = nil) -> Single<TransferOperation> {
@@ -40,7 +63,7 @@ public final class OperationApi: DeprecatedService {
                          fee: AssetAmount? = nil) -> Observable<TransactionConfirmation> {
         return create(transfer: creds, to: to, amount: amount, fee: fee)
             .asObservable()
-            .flatMap { [unowned self] in self.api.broadcast.broadcast(withCallback: creds.keyPair, operation: $0) }
+            .flatMap { self.api.broadcast.broadcast(withCallback: creds.keyPair, operation: $0) }
     }
     
     public func transfer(_ creds: Credentials,
@@ -51,6 +74,8 @@ public final class OperationApi: DeprecatedService {
                          fee: AssetAmount? = nil) -> Observable<TransactionConfirmation> {
         return create(transfer: creds, to: to, amount: amount, message: message, encrypted: encrypted, fee: fee)
             .asObservable()
-            .flatMap { [unowned self] in self.api.broadcast.broadcast(withCallback: creds.keyPair, operation: $0) }
+            .flatMap { self.api.broadcast.broadcast(withCallback: creds.keyPair, operation: $0) }
     }
 }
+
+extension ApiProvider: OperationApi {}

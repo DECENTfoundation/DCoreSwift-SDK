@@ -1,8 +1,15 @@
 import Foundation
 import RxSwift
 
-public final class SeedersApi: DeprecatedService {
-    
+public protocol SeedersApi: BaseApi {
+    func getSeeder(byAccountId id: ChainObject) -> Single<Seeder>
+    func listSeedersByPrice(count: Int) -> Single<[Seeder]>
+    func listSeedersByUpload(count: Int) -> Single<[Seeder]>
+    func listSeedersByRegion(region: String) -> Single<[Seeder]>
+    func listSeedersByRating(count: Int) -> Single<[Seeder]>
+}
+
+extension SeedersApi {
     public func getSeeder(byAccountId id: ChainObject) -> Single<Seeder> {
         return GetSeeder(id).base.toResponse(api.core)
     }
@@ -23,3 +30,5 @@ public final class SeedersApi: DeprecatedService {
         return ListSeedersByRating(count).base.toResponse(api.core)
     }
 }
+
+extension ApiProvider: SeedersApi {}

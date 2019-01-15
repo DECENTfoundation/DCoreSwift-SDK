@@ -13,12 +13,12 @@
 		A11F6D6C21ECB61A008C8525 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */; };
 		A11F6D6D21ECB61A008C8525 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */; };
 		A11F6D6E21ECB61A008C8525 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6721ECB61A008C8525 /* RxSwift.framework */; };
-		A1B51C0921EDDA52006277F9 /* BaseApi+Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B51C0821EDDA52006277F9 /* BaseApi+Deprecated.swift */; };
-		A1B51C0A21EDDA52006277F9 /* BaseApi+Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B51C0821EDDA52006277F9 /* BaseApi+Deprecated.swift */; };
+		A1B51C0C21EE0059006277F9 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B51C0B21EE0059006277F9 /* BaseApi.swift */; };
+		A1B51C0D21EE0059006277F9 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B51C0B21EE0059006277F9 /* BaseApi.swift */; };
 		A1D96D5221ED1E22009C0A30 /* AccountApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* AccountApi.swift */; };
 		A1D96D5321ED1E22009C0A30 /* AssetApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AssetApi.swift */; };
 		A1D96D5421ED1E22009C0A30 /* BalanceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* BalanceApi.swift */; };
-		A1D96D5521ED1E22009C0A30 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* ApiService.swift */; };
+		A1D96D5521ED1E22009C0A30 /* ApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* ApiProvider.swift */; };
 		A1D96D5621ED1E22009C0A30 /* BlockApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* BlockApi.swift */; };
 		A1D96D5721ED1E22009C0A30 /* BroadcastApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* BroadcastApi.swift */; };
 		A1D96D5821ED1E22009C0A30 /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* ContentApi.swift */; };
@@ -290,7 +290,7 @@
 		OBJ_831 /* AccountApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* AccountApi.swift */; };
 		OBJ_832 /* AssetApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AssetApi.swift */; };
 		OBJ_833 /* BalanceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* BalanceApi.swift */; };
-		OBJ_834 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* ApiService.swift */; };
+		OBJ_834 /* ApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* ApiProvider.swift */; };
 		OBJ_835 /* BlockApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* BlockApi.swift */; };
 		OBJ_836 /* BroadcastApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* BroadcastApi.swift */; };
 		OBJ_837 /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* ContentApi.swift */; };
@@ -482,7 +482,7 @@
 		A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		A11F6D6721ECB61A008C8525 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		A1B51C0821EDDA52006277F9 /* BaseApi+Deprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseApi+Deprecated.swift"; sourceTree = "<group>"; };
+		A1B51C0B21EE0059006277F9 /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 		A1CEFEE521ECC3F1004FED2B /* DcoreKit-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DcoreKit-iOS.plist"; sourceTree = "<group>"; };
 		A1CEFEE621ECC400004FED2B /* DcoreKit-macOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DcoreKit-macOS.plist"; sourceTree = "<group>"; };
 		A1D96E2E21ED1E22009C0A30 /* DcoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DcoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -521,7 +521,7 @@
 		OBJ_127 /* GetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetConfig.swift; sourceTree = "<group>"; };
 		OBJ_128 /* GetContentById.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetContentById.swift; sourceTree = "<group>"; };
 		OBJ_129 /* GetContentByUri.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetContentByUri.swift; sourceTree = "<group>"; };
-		OBJ_13 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		OBJ_13 /* ApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProvider.swift; sourceTree = "<group>"; };
 		OBJ_130 /* GetDynamicGlobalProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDynamicGlobalProps.swift; sourceTree = "<group>"; };
 		OBJ_131 /* GetFeedsByMiner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFeedsByMiner.swift; sourceTree = "<group>"; };
 		OBJ_132 /* GetFullAccounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFullAccounts.swift; sourceTree = "<group>"; };
@@ -2176,8 +2176,8 @@
 		OBJ_9 /* Api */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_13 /* ApiService.swift */,
-				A1B51C0821EDDA52006277F9 /* BaseApi+Deprecated.swift */,
+				OBJ_13 /* ApiProvider.swift */,
+				A1B51C0B21EE0059006277F9 /* BaseApi.swift */,
 				OBJ_10 /* AccountApi.swift */,
 				OBJ_11 /* AssetApi.swift */,
 				OBJ_12 /* BalanceApi.swift */,
@@ -2544,7 +2544,7 @@
 				A1D96D5221ED1E22009C0A30 /* AccountApi.swift in Sources */,
 				A1D96D5321ED1E22009C0A30 /* AssetApi.swift in Sources */,
 				A1D96D5421ED1E22009C0A30 /* BalanceApi.swift in Sources */,
-				A1D96D5521ED1E22009C0A30 /* ApiService.swift in Sources */,
+				A1D96D5521ED1E22009C0A30 /* ApiProvider.swift in Sources */,
 				A1D96D5621ED1E22009C0A30 /* BlockApi.swift in Sources */,
 				A1D96D5721ED1E22009C0A30 /* BroadcastApi.swift in Sources */,
 				A1D96D5821ED1E22009C0A30 /* ContentApi.swift in Sources */,
@@ -2637,6 +2637,7 @@
 				A1D96DAE21ED1E22009C0A30 /* BroadcastTransactionWithCallback.swift in Sources */,
 				A1D96DAF21ED1E22009C0A30 /* CancelAllSubscriptions.swift in Sources */,
 				A1D96DB021ED1E22009C0A30 /* GenerateContentKeys.swift in Sources */,
+				A1B51C0D21EE0059006277F9 /* BaseApi.swift in Sources */,
 				A1D96DB121ED1E22009C0A30 /* GetAccountBalanceForTransaction.swift in Sources */,
 				A1D96DB221ED1E22009C0A30 /* GetAccountBalances.swift in Sources */,
 				A1D96DB321ED1E22009C0A30 /* GetAccountById.swift in Sources */,
@@ -2682,7 +2683,6 @@
 				A1D96DDB21ED1E22009C0A30 /* GetSubscription.swift in Sources */,
 				A1D96DDC21ED1E22009C0A30 /* GetTimeToMaintenance.swift in Sources */,
 				A1D96DDD21ED1E22009C0A30 /* GetTransaction.swift in Sources */,
-				A1B51C0A21EDDA52006277F9 /* BaseApi+Deprecated.swift in Sources */,
 				A1D96DDE21ED1E22009C0A30 /* GetTransactionById.swift in Sources */,
 				A1D96DDF21ED1E22009C0A30 /* GetTransactionHex.swift in Sources */,
 				A1D96DE021ED1E22009C0A30 /* GetVestingBalances.swift in Sources */,
@@ -2788,7 +2788,7 @@
 				OBJ_831 /* AccountApi.swift in Sources */,
 				OBJ_832 /* AssetApi.swift in Sources */,
 				OBJ_833 /* BalanceApi.swift in Sources */,
-				OBJ_834 /* ApiService.swift in Sources */,
+				OBJ_834 /* ApiProvider.swift in Sources */,
 				OBJ_835 /* BlockApi.swift in Sources */,
 				OBJ_836 /* BroadcastApi.swift in Sources */,
 				OBJ_837 /* ContentApi.swift in Sources */,
@@ -2807,7 +2807,6 @@
 				OBJ_850 /* PrivateKey.swift in Sources */,
 				OBJ_851 /* PublicKey.swift in Sources */,
 				OBJ_852 /* DCoreApi.swift in Sources */,
-				A1B51C0921EDDA52006277F9 /* BaseApi+Deprecated.swift in Sources */,
 				OBJ_853 /* DCoreConstants.swift in Sources */,
 				OBJ_854 /* DCoreSdk.swift in Sources */,
 				OBJ_855 /* Account.swift in Sources */,
@@ -2989,6 +2988,7 @@
 				OBJ_1031 /* ChainProvider.swift in Sources */,
 				OBJ_1032 /* CryptoUtils.swift in Sources */,
 				OBJ_1033 /* Enum+Extension.swift in Sources */,
+				A1B51C0C21EE0059006277F9 /* BaseApi.swift in Sources */,
 				OBJ_1034 /* LoggerConvertible.swift in Sources */,
 				OBJ_1035 /* Rx+Extension.swift in Sources */,
 				OBJ_1036 /* Sequence+Extension.swift in Sources */,
@@ -3022,30 +3022,17 @@
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/macOS",
 				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/Libraries/openssl/include",
-					"$(SRCROOT)/Libraries/secp256k1/include",
-					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxCocoaRuntime/include",
-					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxAtomic/include",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DcoreKit-macOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/Libraries/openssl/lib",
-					"$(SRCROOT)/Libraries/secp256k1/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MODULEMAP_FILE = "";
 				MODULEMAP_PRIVATE_FILE = "";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-				);
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DcoreKit;
@@ -3055,7 +3042,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries";
+				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TARGET_NAME = DcoreKit;
@@ -3071,29 +3058,16 @@
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/macOS",
 				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/Libraries/openssl/include",
-					"$(SRCROOT)/Libraries/secp256k1/include",
-					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxCocoaRuntime/include",
-					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxAtomic/include",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DcoreKit-macOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/Libraries/openssl/lib",
-					"$(SRCROOT)/Libraries/secp256k1/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MODULEMAP_FILE = "";
 				MODULEMAP_PRIVATE_FILE = "";
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-				);
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DcoreKit;
@@ -3103,7 +3077,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries";
+				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TARGET_NAME = DcoreKit;
@@ -3118,17 +3092,13 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/macOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DcoreKit-macOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-				);
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3148,17 +3118,13 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/macOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DcoreKit-macOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-				);
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3184,13 +3150,9 @@
 				INFOPLIST_FILE = "DcoreKit-iOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-				);
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
@@ -3213,13 +3175,9 @@
 				INFOPLIST_FILE = "DcoreKit-iOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-				);
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
@@ -3232,16 +3190,28 @@
 		OBJ_3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Libraries/openssl/include",
+					"$(SRCROOT)/Libraries/secp256k1/include",
+					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxCocoaRuntime/include",
+					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxAtomic/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/Libraries/openssl/lib",
+					"$(SRCROOT)/Libraries/secp256k1/lib",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
@@ -3250,6 +3220,7 @@
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "SWIFT_PACKAGE DEBUG";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				USE_HEADERMAP = NO;
 			};
@@ -3258,18 +3229,31 @@
 		OBJ_4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_OPTIMIZATION_LEVEL = s;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Libraries/openssl/include",
+					"$(SRCROOT)/Libraries/secp256k1/include",
+					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxCocoaRuntime/include",
+					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxAtomic/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/Libraries/openssl/lib",
+					"$(SRCROOT)/Libraries/secp256k1/lib",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				USE_HEADERMAP = NO;
 			};
@@ -3285,30 +3269,17 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/Libraries/openssl/include",
-					"$(SRCROOT)/Libraries/secp256k1/include",
-					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxCocoaRuntime/include",
-					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxAtomic/include",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DcoreKit-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/Libraries/openssl/lib",
-					"$(SRCROOT)/Libraries/secp256k1/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MODULEMAP_FILE = "";
 				MODULEMAP_PRIVATE_FILE = "";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-				);
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DcoreKit;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -3316,7 +3287,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries";
+				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TARGET_NAME = DcoreKit;
@@ -3334,29 +3305,16 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/Libraries/openssl/include",
-					"$(SRCROOT)/Libraries/secp256k1/include",
-					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxCocoaRuntime/include",
-					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxAtomic/include",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DcoreKit-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/Libraries/openssl/lib",
-					"$(SRCROOT)/Libraries/secp256k1/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MODULEMAP_FILE = "";
 				MODULEMAP_PRIVATE_FILE = "";
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-				);
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DcoreKit;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -3364,7 +3322,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries";
+				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TARGET_NAME = DcoreKit;
