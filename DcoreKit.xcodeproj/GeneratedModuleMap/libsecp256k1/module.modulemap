@@ -1,4 +1,0 @@
-module libsecp256k1 {
-    umbrella "/Users/michalgrman/_workspace/_swift/DcoreKit/.build/checkouts/secp256k1.swift--6867032278246738452/secp256k1/Classes/secp256k1/include"
-    export *
-}

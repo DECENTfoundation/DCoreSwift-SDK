@@ -3020,32 +3020,16 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEFINES_MODULE = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/Libraries/openssl/include",
-					"$(SRCROOT)/Libraries/secp256k1/include",
-					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxCocoaRuntime/include",
-					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxAtomic/include",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/macOS";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DcoreKit-macOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/Libraries/openssl/lib",
-					"$(SRCROOT)/Libraries/secp256k1/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MODULEMAP_FILE = "";
 				MODULEMAP_PRIVATE_FILE = "";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-				);
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DcoreKit;
@@ -3055,7 +3039,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries";
+				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TARGET_NAME = DcoreKit;
@@ -3069,31 +3053,15 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEFINES_MODULE = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/Libraries/openssl/include",
-					"$(SRCROOT)/Libraries/secp256k1/include",
-					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxCocoaRuntime/include",
-					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxAtomic/include",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/macOS";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DcoreKit-macOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/Libraries/openssl/lib",
-					"$(SRCROOT)/Libraries/secp256k1/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MODULEMAP_FILE = "";
 				MODULEMAP_PRIVATE_FILE = "";
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-				);
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DcoreKit;
@@ -3103,7 +3071,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries";
+				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TARGET_NAME = DcoreKit;
@@ -3116,19 +3084,12 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/macOS";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DcoreKit-macOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-				);
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3146,19 +3107,12 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/macOS";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DcoreKit-macOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-				);
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3176,21 +3130,14 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DcoreKit-iOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-				);
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
@@ -3205,21 +3152,14 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DcoreKit-iOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-				);
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
@@ -3232,16 +3172,28 @@
 		OBJ_3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = YES;
+				FRAMEWORK_SEARCH_PATHS = "\U001b";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Libraries/openssl/include",
+					"$(SRCROOT)/Libraries/secp256k1/include",
+					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxCocoaRuntime/include",
+					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxAtomic/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/Libraries/openssl/lib",
+					"$(SRCROOT)/Libraries/secp256k1/lib",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
@@ -3250,6 +3202,7 @@
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "SWIFT_PACKAGE DEBUG";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				USE_HEADERMAP = NO;
 			};
@@ -3258,18 +3211,31 @@
 		OBJ_4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "\U001b";
 				GCC_OPTIMIZATION_LEVEL = s;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Libraries/openssl/include",
+					"$(SRCROOT)/Libraries/secp256k1/include",
+					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxCocoaRuntime/include",
+					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxAtomic/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/Libraries/openssl/lib",
+					"$(SRCROOT)/Libraries/secp256k1/lib",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				USE_HEADERMAP = NO;
 			};
@@ -3281,34 +3247,18 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEFINES_MODULE = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/Libraries/openssl/include",
-					"$(SRCROOT)/Libraries/secp256k1/include",
-					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxCocoaRuntime/include",
-					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxAtomic/include",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DcoreKit-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/Libraries/openssl/lib",
-					"$(SRCROOT)/Libraries/secp256k1/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MODULEMAP_FILE = "";
 				MODULEMAP_PRIVATE_FILE = "";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-				);
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DcoreKit;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -3316,7 +3266,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries";
+				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TARGET_NAME = DcoreKit;
@@ -3330,33 +3280,17 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEFINES_MODULE = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/Libraries/openssl/include",
-					"$(SRCROOT)/Libraries/secp256k1/include",
-					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxCocoaRuntime/include",
-					"$(SRCROOT)/.build/checkouts/RxSwift.git--5214619868639177420/Sources/RxAtomic/include",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DcoreKit-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/Libraries/openssl/lib",
-					"$(SRCROOT)/Libraries/secp256k1/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MODULEMAP_FILE = "";
 				MODULEMAP_PRIVATE_FILE = "";
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-					"-I/usr/local/Cellar/openssl/1.0.2p/include",
-				);
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DcoreKit;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -3364,7 +3298,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Libraries";
+				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TARGET_NAME = DcoreKit;
