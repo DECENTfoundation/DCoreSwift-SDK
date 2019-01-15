@@ -2,7 +2,7 @@ import Foundation
 import RxSwift
 import BigInt
 
-public final class MiningApi: BaseApi {
+public final class MiningApi: DeprecatedService {
     
     public func getNewAssetPerBlock() -> Single<BigInt> {
         return GetNewAssetPerBlock().base.toResponse(api.core)

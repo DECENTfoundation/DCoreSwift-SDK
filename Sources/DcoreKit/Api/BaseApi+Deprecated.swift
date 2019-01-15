@@ -1,8 +1,8 @@
 import Foundation
 
-public class BaseApi {
+public class DeprecatedService: BaseApi {
     
-    let api: DCore.Api
+    public let api: DCore.Api
     
     required init(using api: DCore.Api) {
         self.api = api

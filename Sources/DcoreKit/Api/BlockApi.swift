@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public final class BlockApi: BaseApi {
+public final class BlockApi: DeprecatedService {
 
     public func getBlockHeader(byBlockNum num: UInt64) -> Single<BlockHeader> {
         return GetBlockHeader(num).base.toResponse(api.core)

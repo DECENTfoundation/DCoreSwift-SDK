@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-public final class BalanceApi: BaseApi {
+public final class BalanceApi: DeprecatedService {
     
     public func getBalances(byAccountId id: ChainObject, assets: [ChainObject]) -> Single<[AssetAmount]> {
         return GetAccountBalances(id, assets: assets).base.toResponse(api.core)
