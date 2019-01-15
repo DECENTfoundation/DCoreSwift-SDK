@@ -11,10 +11,11 @@ public protocol AccountApi: BaseApi {
                 from: ChainObject,
                 order: SearchOrder.AccountHistory,
                 limit: Int) -> Single<[TransactionDetail]>
-    func createCredentials(accountName: String, wif: String) -> Single<Credentials>
-    func getFullAccounts(byNamesOrIds ref: [String], subscribe: Bool) -> Single<[String: FullAccount]>
+    func createCredentials(byName name: String, wif: String) -> Single<Credentials>
+    func getFullAccounts(byReferences refs: [Account.Reference], subscribe: Bool) -> Single<[String: FullAccount]>
     func getAccountReferences(byId id: ChainObject) -> Single<[ChainObject]>
-    func lookupAccount(byNames names: [String]) -> Single<[Account]>
+    func lookupAccounts(byNames names: [String]) -> Single<[Account]>
+    func lookupAccounts(byLowerBound bound: String, limit: Int) -> Single<[String: ChainObject]>
     func search(accountsByTerm term: String,
                 order: SearchOrder.Accounts,
                 id: ChainObject,
@@ -69,19 +70,19 @@ extension AccountApi {
         return SearchAccountHistory(accoundId, order: order, startId: from, limit: limit).base.toResponse(api.core)
     }
     
-    public func createCredentials(accountName: String, wif: String) -> Single<Credentials> {
-        return self.getAccount(byName: accountName).map({ try Credentials(accountId: $0.id, wif: wif) })
+    public func createCredentials(byName name: String, wif: String) -> Single<Credentials> {
+        return self.getAccount(byName: name).map({ try Credentials(accountId: $0.id, wif: wif) })
     }
     
-    public func getFullAccounts(byNamesOrIds ref: [String], subscribe: Bool = false) -> Single<[String: FullAccount]> {
-        return GetFullAccounts(ref, subscribe: subscribe).base.toResponse(api.core)
+    public func getFullAccounts(byReferences refs: [Account.Reference], subscribe: Bool = false) -> Single<[String: FullAccount]> {
+        return GetFullAccounts(refs, subscribe: subscribe).base.toResponse(api.core)
     }
     
     public func getAccountReferences(byId id: ChainObject) -> Single<[ChainObject]> {
         return GetAccountReferences(id).base.toResponse(api.core)
     }
     
-    public func lookupAccount(byNames names: [String]) -> Single<[Account]> {
+    public func lookupAccounts(byNames names: [String]) -> Single<[Account]> {
         return LookupAccountNames(names).base.toResponse(api.core)
     }
     

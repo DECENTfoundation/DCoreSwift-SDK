@@ -8,7 +8,7 @@ public protocol GeneralApi: BaseApi {
     func getConfig() -> Single<Config>
     func getChainId() -> Single<String>
     func getDynamicGlobalProperties() -> Single<DynamicGlobalProps>
-    func getTimeToMaintenance(time: Date) -> Single<MinerRewardInput>
+    func getTime(toMaintenance time: Date) -> Single<MinerRewardInput>
 }
 
 extension GeneralApi {
@@ -36,7 +36,7 @@ extension GeneralApi {
         return GetDynamicGlobalProps().base.toResponse(api.core)
     }
     
-    public func getTimeToMaintenance(time: Date) -> Single<MinerRewardInput> {
+    public func getTime(toMaintenance time: Date) -> Single<MinerRewardInput> {
         return GetTimeToMaintenance(time).base.toResponse(api.core)
     }
 }
