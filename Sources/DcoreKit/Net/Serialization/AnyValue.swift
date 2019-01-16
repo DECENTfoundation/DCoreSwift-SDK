@@ -35,7 +35,16 @@ public enum AnyValue: Codable, Equatable {
     }
     
     public func encode(to encoder: Encoder) throws {
-        fatalError("Not implemented")
+        var container = encoder.singleValueContainer()
+        switch self {
+        case .string(let value): try container.encode(value)
+        case .int(let value): try container.encode(value)
+        case .double(let value): try container.encode(value)
+        case .bool(let value): try container.encode(value)
+        case .object(let value): try container.encode(value)
+        case .array(let value): try container.encode(value)
+        case .null: try container.encodeNil()
+        }
     }
 }
 
