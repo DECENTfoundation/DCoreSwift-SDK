@@ -7,7 +7,7 @@ struct SetContentUpdateCallback: BaseRequestConvertible {
     
     init(_ uri: String) {
         self.base = SetContentUpdateCallback.toBaseCallback(
-            .database, api: "set_content_update_callback", returnClass: UnitValue.self, params: [uri]
+            .database, api: "set_content_update_callback", returnType: UnitValue.self, params: [uri]
         )
     }
 }

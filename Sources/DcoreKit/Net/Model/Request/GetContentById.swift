@@ -8,6 +8,6 @@ struct GetContentById: BaseRequestConvertible {
     init(_ contentId: ChainObject) {
         
         precondition(contentId.objectType == .contentObject, "Not a valid content object id")
-        self.base = GetObjects([contentId], returnClass: [Content].self).base
+        self.base = GetObjects([contentId], returnType: [Content].self).base
     }
 }

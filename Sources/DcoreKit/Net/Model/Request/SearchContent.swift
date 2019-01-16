@@ -13,7 +13,7 @@ struct SearchContent: BaseRequestConvertible {
          startId: ChainObject = ObjectType.nullObject.genericId,
          limit: Int = 100) {
      
-        self.base = SearchContent.toBase(.database, api: "search_content", returnClass: [Content].self, params: [
+        self.base = SearchContent.toBase(.database, api: "search_content", returnType: [Content].self, params: [
             term, order, user, regionCode, type, startId, limit
             ])
     }

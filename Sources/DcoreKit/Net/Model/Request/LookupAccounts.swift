@@ -7,7 +7,7 @@ struct LookupAccounts: BaseRequestConvertible {
     
     init(_ bound: String, limit: Int = 1000) {
         self.base = LookupAccounts.toBase(
-            .database, api: "lookup_accounts", returnClass: [String: ChainObject].self, params: [
+            .database, api: "lookup_accounts", returnType: [String: ChainObject].self, params: [
                 bound, limit
             ]
         )

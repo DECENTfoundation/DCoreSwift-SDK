@@ -11,7 +11,7 @@ struct GetRelativeAccountHistory: BaseRequestConvertible {
         self.base = GetRelativeAccountHistory.toBase(
             .history,
             api: "get_relative_account_history",
-            returnClass: [OperationHistory].self,
+            returnType: [OperationHistory].self,
             params: [
                 accountId.objectId, stop, max(0, min(100, limit)), start
             ]

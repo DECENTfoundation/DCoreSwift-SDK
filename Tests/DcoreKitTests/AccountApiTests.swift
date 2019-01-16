@@ -13,6 +13,11 @@ final class AccountApiTests: XCTestCase {
         XCTAssertEqual(account?.id, "1.2.34".chain.chainObject)
     }
     
+    func testGetAccountByIdUsingRest() {
+        let account = try? rest.account.getAccount(byId: "1.2.34".chain.chainObject!).debug().toBlocking().single()
+        XCTAssertEqual(account?.id, "1.2.34".chain.chainObject)
+    }
+    
     func testGetAccountByReferenceUsingRest() {
         let account = try? rest.account.getAccount(byReference: "1.2.34").debug().toBlocking().single()
         XCTAssertEqual(account?.name, "u961279ec8b7ae7bd62f304f7c1c3d345")
@@ -72,6 +77,7 @@ final class AccountApiTests: XCTestCase {
     
     static var allTests = [
         ("testGetAccountByNameUsingRest", testGetAccountByNameUsingRest),
+        ("testGetAccountByIdUsingRest", testGetAccountByIdUsingRest),
         ("testGetAccountByReferenceUsingRest", testGetAccountByReferenceUsingRest),
         ("testGetAccountByInvalidReferenceUsingRest", testGetAccountByInvalidReferenceUsingRest),
         ("testGetAccountByAddressUsingRest", testGetAccountByAddressUsingRest),
@@ -82,6 +88,7 @@ final class AccountApiTests: XCTestCase {
         ("testGetAccountByNameUsingWss", testGetAccountByNameUsingWss),
         ("testGetAccountByReferenceUsingWss", testGetAccountByReferenceUsingWss),
         ("testGetAccountByAddressUsingWss", testGetAccountByAddressUsingWss),
+        ("testGetAccountByAddressNotFoundUsingWss", testGetAccountByAddressNotFoundUsingWss),
     ]
 
 }

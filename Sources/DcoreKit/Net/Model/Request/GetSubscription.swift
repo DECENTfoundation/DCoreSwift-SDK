@@ -9,7 +9,7 @@ struct GetSubscription: BaseRequestConvertible {
         self.base = GetSubscription.toBase(
             .database,
             api: "get_subscription",
-            returnClass: Subscription.self,
+            returnType: Subscription.self,
             params: [subscriptionId]
         )
     }

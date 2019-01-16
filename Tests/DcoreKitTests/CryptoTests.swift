@@ -48,5 +48,7 @@ final class CryptoTests: XCTestCase {
         ("testAddress", testAddress),
         ("testKeyPair", testKeyPair),
         ("testKeyPairToAddress", testKeyPairToAddress),
+        ("testCredentialFromEncryptedWif", testCredentialFromEncryptedWif),
+        ("testCredentialFromEncryptedWifFailToDecrypt", testCredentialFromEncryptedWifFailToDecrypt),
     ]
 }

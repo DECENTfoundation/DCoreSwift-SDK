@@ -7,7 +7,7 @@ struct GetGlobalProperties: BaseRequestConvertible {
     
     init() {
         self.base = GetGlobalProperties.toBase(
-            .database, api: "get_global_properties", returnClass: GlobalProperty.self
+            .database, api: "get_global_properties", returnType: GlobalProperty.self
         )
     }
 }

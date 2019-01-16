@@ -7,7 +7,7 @@ struct GetMinerByAccount: BaseRequestConvertible {
     
     init(_ accountId: ChainObject) {
         self.base = GetMinerByAccount.toBase(
-            .database, api: "get_miner_by_account", returnClass: Miner.self, params: [accountId]
+            .database, api: "get_miner_by_account", returnType: Miner.self, params: [accountId]
         )
     }
 }

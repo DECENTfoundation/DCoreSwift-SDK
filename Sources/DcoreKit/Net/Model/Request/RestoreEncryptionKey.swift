@@ -8,7 +8,7 @@ struct RestoreEncryptionKey: BaseRequestConvertible {
     init(_ elGamalPrivate: PubKey, purchaseId: ChainObject) {
         precondition(purchaseId.objectType == .buyingObject, "Not a valid purchase object id")
         self.base = RestoreEncryptionKey.toBase(
-            .database, api: "restore_encryption_key", returnClass: String.self, params: [elGamalPrivate, purchaseId]
+            .database, api: "restore_encryption_key", returnType: String.self, params: [elGamalPrivate, purchaseId]
         )
     }
 }

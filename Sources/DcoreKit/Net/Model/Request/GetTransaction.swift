@@ -9,7 +9,7 @@ struct GetTransaction: BaseRequestConvertible {
         self.base = GetTransaction.toBase(
             .database,
             api: "get_transaction",
-            returnClass: ProcessedTransaction.self,
+            returnType: ProcessedTransaction.self,
             params: [blockNum, trxInBlock]
         )
     }

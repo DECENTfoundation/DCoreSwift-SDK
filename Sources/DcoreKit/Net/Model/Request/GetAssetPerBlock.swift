@@ -8,7 +8,7 @@ struct GetAssetPerBlock: BaseRequestConvertible {
     
     init(_ blockNum: UInt64) {
         self.base = GetAssetPerBlock.toBase(
-            .database, api: "get_asset_per_block_by_block_num", returnClass: BigInt.self, params: [blockNum]
+            .database, api: "get_asset_per_block_by_block_num", returnType: BigInt.self, params: [blockNum]
         )
     }
 }

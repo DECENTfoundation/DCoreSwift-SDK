@@ -11,7 +11,7 @@ struct GetNamedAccountBalances: BaseRequestConvertible {
         precondition(assets.allSatisfy { $0.objectType == .assetObject }, "Not a valid asset object id")
         
         self.base = GetNamedAccountBalances.toBase(
-            .database, api: "get_named_account_balances", returnClass: [AssetAmount].self, params: [name, assets]
+            .database, api: "get_named_account_balances", returnType: [AssetAmount].self, params: [name, assets]
         )
     }
 }

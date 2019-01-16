@@ -13,7 +13,7 @@ struct SearchAccounts: BaseRequestConvertible {
         self.base = SearchAccounts.toBase(
             .database,
             api: "search_accounts",
-            returnClass: [Account].self,
+            returnType: [Account].self,
             params: [term, order, id, limit]
         )
     }

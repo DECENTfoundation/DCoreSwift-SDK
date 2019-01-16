@@ -9,7 +9,7 @@ struct ListActiveSubscriptionsByConsumer: BaseRequestConvertible {
         self.base = ListActiveSubscriptionsByConsumer.toBase(
             .database,
             api: "list_active_subscriptions_by_consumer",
-            returnClass: [Subscription].self,
+            returnType: [Subscription].self,
             params: [consumerId, count]
         )
     }

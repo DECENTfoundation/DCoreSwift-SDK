@@ -9,7 +9,7 @@ struct ListSeedersByRating: BaseRequestConvertible {
         self.base = ListSeedersByRating.toBase(
             .database,
             api: "list_seeders_by_rating",
-            returnClass: [Seeder].self,
+            returnType: [Seeder].self,
             params: [count]
         )
     }

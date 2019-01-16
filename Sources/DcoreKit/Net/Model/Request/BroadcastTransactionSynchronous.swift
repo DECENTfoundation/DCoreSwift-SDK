@@ -11,7 +11,7 @@ struct BroadcastTransactionSynchronous: BaseRequestConvertible {
         self.base = BroadcastTransactionSynchronous.toBase(
             .broadcast,
             api: "broadcast_transaction_synchronous",
-            returnClass: TransactionConfirmation.self,
+            returnType: TransactionConfirmation.self,
             params: [trx]
         )
     }

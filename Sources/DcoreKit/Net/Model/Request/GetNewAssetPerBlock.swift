@@ -7,6 +7,6 @@ struct GetNewAssetPerBlock: BaseRequestConvertible {
     private(set) var base: BaseRequest<BigInt>
     
     init() {
-        self.base = GetNewAssetPerBlock.toBase(.database, api: "get_new_asset_per_block", returnClass: BigInt.self)
+        self.base = GetNewAssetPerBlock.toBase(.database, api: "get_new_asset_per_block", returnType: BigInt.self)
     }
 }

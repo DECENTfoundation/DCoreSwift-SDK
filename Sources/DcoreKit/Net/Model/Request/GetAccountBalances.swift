@@ -11,7 +11,7 @@ struct GetAccountBalances: BaseRequestConvertible {
         self.base = GetAccountBalances.toBase(
             .database,
             api: "get_account_balances",
-            returnClass: [AssetAmount].self,
+            returnType: [AssetAmount].self,
             params: [accountId.objectId, assets]
         )
     }

@@ -11,7 +11,7 @@ struct GetAccountByName: BaseRequestConvertible {
         self.base = GetAccountByName.toBase(
             .database,
             api: "get_account_by_name",
-            returnClass: Account.self,
+            returnType: Account.self,
             params: [name]
         )
     }

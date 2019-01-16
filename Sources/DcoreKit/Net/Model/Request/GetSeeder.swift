@@ -8,6 +8,6 @@ struct GetSeeder: BaseRequestConvertible {
     init(_ accountId: ChainObject) {
         
         precondition(accountId.objectType == .accountObject, "Not a valid account object id")
-        self.base = GetSeeder.toBase(.database, api: "get_seeder", returnClass: Seeder.self, params: [accountId])
+        self.base = GetSeeder.toBase(.database, api: "get_seeder", returnType: Seeder.self, params: [accountId])
     }
 }

@@ -17,6 +17,11 @@ public class BaseOperation: Codable {
         type,
         fee
     }
+    
+    func apply(fee amount: AssetAmount) -> BaseOperation {
+        fee = amount
+        return self
+    }
 }
 
 extension BaseOperation: DataSerializable {}
