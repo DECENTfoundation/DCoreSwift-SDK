@@ -54,12 +54,27 @@ final class SerializationTests: XCTestCase {
         
         XCTAssertEqual(op.serialized.toHex(), serialized)
     }
+
+    func testAnyValueEncoding() {
+        let testCases: [(AnyValue, String, String)] = [
+            (.object(["String": .string("value")]), "{\"String\":\"value\"}", "Testing object"),
+            (.object(["Array": .array([.int(1), .int(2)])]), "{\"Array\":[1,2]}", "Testing array"),
+            (.object(["Bool": .bool(true)]), "{\"Bool\":true}", "Testing bool"),
+            (.object(["Double": .double(0.5)]), "{\"Double\":0.5}", "Testing double"),
+            (.object(["Null": .null]), "{\"Null\":null}", "Testing null")
+        ]
+        
+        testCases.forEach { (anyValue, expected, message) in
+            let encoded = try! String(data: JSONEncoder().encode(anyValue), encoding: .utf8)!
+            XCTAssertEqual(encoded, expected, message)
+        }
+    }
     
     static var allTests = [
         ("testGetAccountHistoryJsonSerialization", testGetAccountHistoryJsonSerialization),
         ("testGetRelativeAccountHistoryJsonSerialization", testGetRelativeAccountHistoryJsonSerialization),
         ("testGetRequiredFeesJsonSerialization", testGetRequiredFeesJsonSerialization),
         ("testTransferOperationJsonSerialization", testTransferOperationJsonSerialization),
-        ("testTransferOperationDataSerialization", testTransferOperationDataSerialization),
+        ("testAnyValueEncoding", testAnyValueEncoding),
     ]
 }
