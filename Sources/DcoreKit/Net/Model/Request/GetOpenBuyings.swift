@@ -6,6 +6,6 @@ struct GetOpenBuyings: BaseRequestConvertible {
     private(set) var base: BaseRequest<[Purchase]>
     
     init() {
-        self.base = GetOpenBuyings.toBase(.database, api: "get_open_buyings", returnClass: [Purchase].self)
+        self.base = GetOpenBuyings.toBase(.database, api: "get_open_buyings", returnType: [Purchase].self)
     }
 }

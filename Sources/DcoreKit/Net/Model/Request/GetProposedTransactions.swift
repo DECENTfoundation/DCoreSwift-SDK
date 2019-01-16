@@ -7,7 +7,7 @@ struct GetProposedTransactions: BaseRequestConvertible {
     
     init(_ accountId: ChainObject) {
         self.base = GetProposedTransactions.toBase(
-            .database, api: "get_proposed_transactions", returnClass: AnyValue.self, params: [accountId]
+            .database, api: "get_proposed_transactions", returnType: AnyValue.self, params: [accountId]
         )
     }
 }

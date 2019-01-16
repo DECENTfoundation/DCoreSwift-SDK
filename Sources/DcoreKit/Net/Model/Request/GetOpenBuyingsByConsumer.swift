@@ -10,7 +10,7 @@ struct GetOpenBuyingsByConsumer: BaseRequestConvertible {
         self.base = GetOpenBuyingsByConsumer.toBase(
             .database,
             api: "get_open_buyings_by_consumer",
-            returnClass: [Purchase].self,
+            returnType: [Purchase].self,
             params: [consumerId]
         )
     }

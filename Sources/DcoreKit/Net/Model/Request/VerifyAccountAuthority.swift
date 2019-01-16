@@ -7,7 +7,7 @@ struct VerifyAccountAuthority: BaseRequestConvertible {
     
     init(_ account: String, keys: [Address]) {
         self.base = VerifyAccountAuthority.toBase(
-            .database, api: "verify_account_authority", returnClass: Bool.self, params: [
+            .database, api: "verify_account_authority", returnType: Bool.self, params: [
                 account, keys
             ]
         )

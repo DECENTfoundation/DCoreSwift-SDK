@@ -7,7 +7,7 @@ struct ValidateTransaction: BaseRequestConvertible {
     
     init(_ trx: Transaction) {
         self.base = ValidateTransaction.toBase(
-            .database, api: "validate_transaction", returnClass: ProcessedTransaction.self, params: [trx]
+            .database, api: "validate_transaction", returnType: ProcessedTransaction.self, params: [trx]
         )
     }
 }

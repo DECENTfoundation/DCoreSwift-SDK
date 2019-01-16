@@ -6,6 +6,6 @@ struct GetChainProperties: BaseRequestConvertible {
     private(set) var base: BaseRequest<ChainProperty>
     
     init() {
-        self.base = GetChainProperties.toBase(.database, api: "get_chain_properties", returnClass: ChainProperty.self)
+        self.base = GetChainProperties.toBase(.database, api: "get_chain_properties", returnType: ChainProperty.self)
     }
 }

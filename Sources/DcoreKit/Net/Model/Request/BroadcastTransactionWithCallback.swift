@@ -10,7 +10,7 @@ struct BroadcastTransactionWithCallback: BaseRequestConvertible {
         precondition(!trx.signatures!.isEmpty, "Transaction not signed, forgot to call .withSignature(key) ?")
         self.base = BroadcastTransactionWithCallback.toBaseCallback(.broadcast,
             api: "broadcast_transaction_with_callback",
-            returnClass: TransactionConfirmation.self,
+            returnType: TransactionConfirmation.self,
             params: [trx]
         )
     }

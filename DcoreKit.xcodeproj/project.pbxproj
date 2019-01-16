@@ -13,6 +13,14 @@
 		A11F6D6C21ECB61A008C8525 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */; };
 		A11F6D6D21ECB61A008C8525 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */; };
 		A11F6D6E21ECB61A008C8525 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6721ECB61A008C8525 /* RxSwift.framework */; };
+		A1673B4C21EF34DF008FF560 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1673B4B21EF34DF008FF560 /* Array+Extension.swift */; };
+		A1673B4D21EF34DF008FF560 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1673B4B21EF34DF008FF560 /* Array+Extension.swift */; };
+		A1673B4F21EF3CC3008FF560 /* OperationApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1673B4E21EF3CC3008FF560 /* OperationApiTests.swift */; };
+		A1673B5021EF3CC3008FF560 /* OperationApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1673B4E21EF3CC3008FF560 /* OperationApiTests.swift */; };
+		A1673B5221EF43CA008FF560 /* GeneralApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1673B5121EF43CA008FF560 /* GeneralApiTests.swift */; };
+		A1673B5321EF43CA008FF560 /* GeneralApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1673B5121EF43CA008FF560 /* GeneralApiTests.swift */; };
+		A1673B5521EF615B008FF560 /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1673B5421EF615B008FF560 /* Optional+Extension.swift */; };
+		A1673B5621EF615B008FF560 /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1673B5421EF615B008FF560 /* Optional+Extension.swift */; };
 		A1B51C0C21EE0059006277F9 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B51C0B21EE0059006277F9 /* BaseApi.swift */; };
 		A1B51C0D21EE0059006277F9 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B51C0B21EE0059006277F9 /* BaseApi.swift */; };
 		A1D96D5221ED1E22009C0A30 /* AccountApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* AccountApi.swift */; };
@@ -482,6 +490,10 @@
 		A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		A11F6D6721ECB61A008C8525 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		A1673B4B21EF34DF008FF560 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		A1673B4E21EF3CC3008FF560 /* OperationApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationApiTests.swift; sourceTree = "<group>"; };
+		A1673B5121EF43CA008FF560 /* GeneralApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralApiTests.swift; sourceTree = "<group>"; };
+		A1673B5421EF615B008FF560 /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 		A1B51C0B21EE0059006277F9 /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 		A1CEFEE521ECC3F1004FED2B /* DcoreKit-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DcoreKit-iOS.plist"; sourceTree = "<group>"; };
 		A1CEFEE621ECC400004FED2B /* DcoreKit-macOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DcoreKit-macOS.plist"; sourceTree = "<group>"; };
@@ -1345,6 +1357,8 @@
 				OBJ_226 /* String+ChainProvider.swift */,
 				OBJ_227 /* String+Extension.swift */,
 				OBJ_228 /* UInt8+Extension.swift */,
+				A1673B4B21EF34DF008FF560 /* Array+Extension.swift */,
+				A1673B5421EF615B008FF560 /* Optional+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1361,6 +1375,8 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_231 /* AccountApiTests.swift */,
+				A1673B4E21EF3CC3008FF560 /* OperationApiTests.swift */,
+				A1673B5121EF43CA008FF560 /* GeneralApiTests.swift */,
 				OBJ_232 /* AssetApiTests.swift */,
 				OBJ_233 /* BalanceApiTests.swift */,
 				OBJ_234 /* CryptoTests.swift */,
@@ -2704,6 +2720,7 @@
 				A1D96DF021ED1E22009C0A30 /* LookupAssets.swift in Sources */,
 				A1D96DF121ED1E22009C0A30 /* LookupMinerAccounts.swift in Sources */,
 				A1D96DF221ED1E22009C0A30 /* LookupMiners.swift in Sources */,
+				A1673B4D21EF34DF008FF560 /* Array+Extension.swift in Sources */,
 				A1D96DF321ED1E22009C0A30 /* LookupVoteIds.swift in Sources */,
 				A1D96DF421ED1E22009C0A30 /* PriceToDct.swift in Sources */,
 				A1D96DF521ED1E22009C0A30 /* RequestApiAccess.swift in Sources */,
@@ -2751,6 +2768,7 @@
 				A1D96E1F21ED1E22009C0A30 /* Sequence+Extension.swift in Sources */,
 				A1D96E2021ED1E22009C0A30 /* String+ChainProvider.swift in Sources */,
 				A1D96E2121ED1E22009C0A30 /* String+Extension.swift in Sources */,
+				A1673B5621EF615B008FF560 /* Optional+Extension.swift in Sources */,
 				A1D96E2221ED1E22009C0A30 /* UInt8+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2760,7 +2778,9 @@
 			buildActionMask = 0;
 			files = (
 				A1D96E3421ED2025009C0A30 /* AccountApiTests.swift in Sources */,
+				A1673B5021EF3CC3008FF560 /* OperationApiTests.swift in Sources */,
 				A1D96E3521ED2025009C0A30 /* AssetApiTests.swift in Sources */,
+				A1673B5321EF43CA008FF560 /* GeneralApiTests.swift in Sources */,
 				A1D96E3621ED2025009C0A30 /* BalanceApiTests.swift in Sources */,
 				A1D96E3721ED2025009C0A30 /* CryptoTests.swift in Sources */,
 				A1D96E3821ED2025009C0A30 /* SerializationTests.swift in Sources */,
@@ -2773,7 +2793,9 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_1087 /* AccountApiTests.swift in Sources */,
+				A1673B4F21EF3CC3008FF560 /* OperationApiTests.swift in Sources */,
 				OBJ_1088 /* AssetApiTests.swift in Sources */,
+				A1673B5221EF43CA008FF560 /* GeneralApiTests.swift in Sources */,
 				OBJ_1089 /* BalanceApiTests.swift in Sources */,
 				OBJ_1090 /* CryptoTests.swift in Sources */,
 				OBJ_1091 /* SerializationTests.swift in Sources */,
@@ -2837,6 +2859,7 @@
 				OBJ_880 /* Memo.swift in Sources */,
 				OBJ_881 /* Miner.swift in Sources */,
 				OBJ_882 /* MinerId.swift in Sources */,
+				A1673B4C21EF34DF008FF560 /* Array+Extension.swift in Sources */,
 				OBJ_883 /* MinerRewardInput.swift in Sources */,
 				OBJ_884 /* MinerVotes.swift in Sources */,
 				OBJ_885 /* MinerVotingInfo.swift in Sources */,
@@ -2865,6 +2888,7 @@
 				OBJ_908 /* TransactionDetail.swift in Sources */,
 				OBJ_909 /* VestingBalance.swift in Sources */,
 				OBJ_910 /* VoteId.swift in Sources */,
+				A1673B5521EF615B008FF560 /* Optional+Extension.swift in Sources */,
 				OBJ_911 /* Namespace.swift in Sources */,
 				OBJ_912 /* BaseRequestConvertible.swift in Sources */,
 				OBJ_913 /* CoreRequestConvertible.swift in Sources */,

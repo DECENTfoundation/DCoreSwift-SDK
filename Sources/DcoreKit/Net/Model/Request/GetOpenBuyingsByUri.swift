@@ -7,7 +7,7 @@ struct GetOpenBuyingsByUri: BaseRequestConvertible {
     
     init(_ uri: String) {
         self.base = GetOpenBuyingsByUri.toBase(
-            .database, api: "get_open_buyings_by_URI", returnClass: [Purchase].self, params: [uri]
+            .database, api: "get_open_buyings_by_URI", returnType: [Purchase].self, params: [uri]
         )
     }
 }

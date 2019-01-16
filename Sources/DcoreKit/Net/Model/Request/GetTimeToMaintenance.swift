@@ -9,7 +9,7 @@ struct GetTimeToMaintenance: BaseRequestConvertible {
         self.base = GetTimeToMaintenance.toBase(
             .database,
             api: "get_time_to_maint_by_block_time",
-            returnClass: MinerRewardInput.self,
+            returnType: MinerRewardInput.self,
             params: [time]
         )
     }

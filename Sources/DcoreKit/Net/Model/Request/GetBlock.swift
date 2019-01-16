@@ -6,6 +6,6 @@ struct GetBlock: BaseRequestConvertible {
     private(set) var base: BaseRequest<SignedBlock>
     
     init(_ blockNum: UInt64) {
-        self.base = GetBlock.toBase(.database, api: "get_block", returnClass: SignedBlock.self, params: [blockNum])
+        self.base = GetBlock.toBase(.database, api: "get_block", returnType: SignedBlock.self, params: [blockNum])
     }
 }

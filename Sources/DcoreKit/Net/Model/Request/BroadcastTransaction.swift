@@ -9,7 +9,7 @@ struct BroadcastTransaction: BaseRequestConvertible {
         
         precondition(!trx.signatures!.isEmpty, "Transaction not signed, forgot to call .withSignature(key) ?")
         self.base = BroadcastTransaction.toBase(
-            .broadcast, api: "broadcast_transaction", returnClass: UnitValue.self, params: [trx]
+            .broadcast, api: "broadcast_transaction", returnType: UnitValue.self, params: [trx]
         )
     }
 }

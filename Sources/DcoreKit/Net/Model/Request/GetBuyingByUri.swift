@@ -11,7 +11,7 @@ struct GetBuyingByUri: BaseRequestConvertible {
         self.base = GetBuyingByUri.toBase(
             .database,
             api: "get_buying_by_consumer_uri",
-            returnClass: Purchase.self,
+            returnType: Purchase.self,
             params: [consumerId, uri]
         )
     }

@@ -7,7 +7,7 @@ struct SetBlockAppliedCallback: BaseRequestConvertible {
     
     init() {
         self.base = SetBlockAppliedCallback.toBaseCallback(
-            .database, api: "set_block_applied_callback", returnClass: String.self
+            .database, api: "set_block_applied_callback", returnType: String.self
         )
     }
 }

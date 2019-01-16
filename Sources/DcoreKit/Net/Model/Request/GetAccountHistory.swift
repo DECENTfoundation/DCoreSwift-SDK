@@ -15,7 +15,7 @@ struct GetAccountHistory: BaseRequestConvertible {
         precondition(startId.objectType == .operationHistoryObject, "Not a valid history object id")
         
         self.base = GetAccountHistory.toBase(
-            .history, api: "get_account_history", returnClass: [OperationHistory].self, params: [
+            .history, api: "get_account_history", returnType: [OperationHistory].self, params: [
                 accountId.objectId, stopId.objectId, max(0, min(100, limit)), startId.objectId
             ]
         )

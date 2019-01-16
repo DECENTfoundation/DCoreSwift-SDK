@@ -8,6 +8,6 @@ struct GetMiners: BaseRequestConvertible {
     init(_ ids: [ChainObject]) {
         
         precondition(ids.allSatisfy { $0.objectType  == .minerObject }, "Not a valid miner object id")
-        self.base = GetObjects(ids, returnClass: [Miner].self).base
+        self.base = GetObjects(ids, returnType: [Miner].self).base
     }
 }

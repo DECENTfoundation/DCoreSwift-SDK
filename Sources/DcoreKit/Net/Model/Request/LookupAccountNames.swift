@@ -9,7 +9,7 @@ struct LookupAccountNames: BaseRequestConvertible {
         self.base = LookupAccountNames.toBase(
             .database,
             api: "lookup_account_names",
-            returnClass: [Account].self,
+            returnType: [Account].self,
             params: [names]
         )
     }

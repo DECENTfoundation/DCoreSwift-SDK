@@ -9,7 +9,7 @@ struct SetSubscribeCallback: BaseRequestConvertible {
         self.base = SetSubscribeCallback.toBaseCallback(
             .database,
             api: "set_subscribe_callback",
-            returnClass: UnitValue.self,
+            returnType: UnitValue.self,
             params: [clear]
         )
     }

@@ -9,7 +9,7 @@ struct GetRequiredSignatures: BaseRequestConvertible {
         self.base = GetRequiredSignatures.toBase(
             .database,
             api: "get_required_signatures",
-            returnClass: [Address].self,
+            returnType: [Address].self,
             params: [trx, keys]
         )
     }

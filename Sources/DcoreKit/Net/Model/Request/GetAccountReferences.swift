@@ -9,7 +9,7 @@ struct GetAccountReferences: BaseRequestConvertible {
         self.base = GetAccountReferences.toBase(
             .database,
             api: "get_account_references",
-            returnClass: [ChainObject].self,
+            returnType: [ChainObject].self,
             params: [accountId]
         )
     }

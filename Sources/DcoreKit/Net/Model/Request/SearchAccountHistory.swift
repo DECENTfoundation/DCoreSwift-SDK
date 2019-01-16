@@ -17,7 +17,7 @@ struct SearchAccountHistory: BaseRequestConvertible {
         self.base = SearchAccountHistory.toBase(
             .database,
             api: "search_account_history",
-            returnClass: [TransactionDetail].self,
+            returnType: [TransactionDetail].self,
             params: [
                 accountId, order, startId, max(0, min(100, limit))
             ]

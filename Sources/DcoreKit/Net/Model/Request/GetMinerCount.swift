@@ -6,6 +6,6 @@ struct GetMinerCount: BaseRequestConvertible {
     private(set) var base: BaseRequest<UInt64>
     
     init() {
-        self.base = GetMinerCount.toBase(.database, api: "get_miner_count", returnClass: UInt64.self)
+        self.base = GetMinerCount.toBase(.database, api: "get_miner_count", returnType: UInt64.self)
     }
 }

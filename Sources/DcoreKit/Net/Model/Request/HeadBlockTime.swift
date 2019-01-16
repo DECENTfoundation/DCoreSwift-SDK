@@ -6,6 +6,6 @@ struct HeadBlockTime: BaseRequestConvertible {
     private(set) var base: BaseRequest<Date>
     
     init() {
-        self.base = HeadBlockTime.toBase(.database, api: "head_block_time", returnClass: Date.self)
+        self.base = HeadBlockTime.toBase(.database, api: "head_block_time", returnType: Date.self)
     }
 }
