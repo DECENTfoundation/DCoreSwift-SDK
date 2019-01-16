@@ -20,7 +20,8 @@ public struct Address {
         guard
             let prefix = value[safe: 0..<3],
             let suffix = value[safe: 3..<value.count],
-            let decoded = Base58.decode(suffix) else {
+            let decoded = Base58.decode(suffix),
+            decoded.count > 3 else {
             throw ChainException.crypto(.failDecode("Address \(value) has invalid format"))
         }
  
