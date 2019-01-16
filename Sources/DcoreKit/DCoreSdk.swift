@@ -47,10 +47,11 @@ extension DCore {
                 )).flatMap { id, props, ops in
                     
                     let block = BlockData(props: props, expiration: expiration)
-                    let trx = Transaction(blockData: block, operations: ops, chainId: id)
-                    return Single.just(trx)
+                    return Single.just(
+                        Transaction(blockData: block, operations: ops, chainId: id)
+                    )
                 }
-            }.debug()
+            }
         }
      
         func make<Output>(streamRequest req: BaseRequest<Output>) -> Observable<Output> where Output: Codable {
