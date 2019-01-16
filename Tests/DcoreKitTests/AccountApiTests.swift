@@ -17,6 +17,10 @@ final class AccountApiTests: XCTestCase {
         let account = try? rest.account.getAccount(byReference: "1.2.34").debug().toBlocking().single()
         XCTAssertEqual(account?.name, "u961279ec8b7ae7bd62f304f7c1c3d345")
     }
+
+    func testGetAccountByInvalidReferenceUsingRest() {
+        XCTAssertThrowsError(try rest.account.getAccount(byReference: "abc").debug().toBlocking().single())
+    }
     
     func testGetAccountByAddressUsingRest() {
         let account = try? rest.account.getAccount(byReference: "DCT6MA5TQQ6UbMyMaLPmPXE2Syh5G3ZVhv5SbFedqLPqdFChSeqTz").debug().toBlocking().single()
@@ -69,6 +73,7 @@ final class AccountApiTests: XCTestCase {
     static var allTests = [
         ("testGetAccountByNameUsingRest", testGetAccountByNameUsingRest),
         ("testGetAccountByReferenceUsingRest", testGetAccountByReferenceUsingRest),
+        ("testGetAccountByInvalidReferenceUsingRest", testGetAccountByInvalidReferenceUsingRest),
         ("testGetAccountByAddressUsingRest", testGetAccountByAddressUsingRest),
         ("testGetAccountIdsByAddressUsingRest", testGetAccountIdsByAddressUsingRest),
         ("testGetAccountByIdsUsingRest", testGetAccountByIdsUsingRest),
