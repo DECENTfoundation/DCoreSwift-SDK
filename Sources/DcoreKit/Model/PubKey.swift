@@ -6,7 +6,7 @@ public struct PubKey: Codable {
     public var key: BigInt = 0
     
     public init(key: String? = nil) {
-        self.key = BigInt(key!) ?? 0
+        self.key = BigInt(key!).or(0)
     }
     
     public init(from decoder: Decoder) throws {

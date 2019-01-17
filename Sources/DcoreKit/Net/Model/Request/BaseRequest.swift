@@ -72,6 +72,6 @@ extension BaseRequest: Encodable {
 
 extension BaseRequest: CustomStringConvertible {
     var description: String {
-        return asJson() ?? ""
+        return asJson().or("")
     }
 }

@@ -9,7 +9,7 @@ public class BaseOperation: Codable {
     
     init(type: OperationType, fee: AssetAmount? = nil) {
         self.type = type
-        self.fee = fee ?? BaseOperation.feeUnset
+        self.fee = fee.or(BaseOperation.feeUnset)
     }
     
     private enum CodingKeys: String, CodingKey {

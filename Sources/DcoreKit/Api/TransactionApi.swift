@@ -31,12 +31,12 @@ extension TransactionApi {
     
     public func createTransaction(_ operations: [BaseOperation], expiration: Int? = nil) -> Single<Transaction> {
         return api.core.prepareTransaction(forOperations: operations,
-                                           expiration: expiration ?? self.api.transactionExpiration)
+                                           expiration: expiration.or(self.api.transactionExpiration))
     }
     
     public func createTransaction(_ operation: BaseOperation, expiration: Int? = nil) -> Single<Transaction> {
         return api.core.prepareTransaction(forOperations: [operation],
-                                           expiration: expiration ?? self.api.transactionExpiration)
+                                           expiration: expiration.or(self.api.transactionExpiration))
     }
     
     public func getTransactionHex(byTrx trx: Transaction) -> Single<String> {

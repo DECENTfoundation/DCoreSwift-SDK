@@ -42,7 +42,7 @@ public struct Transaction: Codable {
         repeat {
             trx = trx.extend()
             let hash = CryptoUtils.hash256(chain + trx)
-            signature = (try? keyPair.sign(hash).toHex()) ?? ""
+            signature = (try? keyPair.sign(hash).toHex()).or("")
         } while (signature.isEmpty)
         
         trx.signatures = [signature]

@@ -21,3 +21,10 @@ extension Optional {
         return value
     }
 }
+
+extension Optional where Wrapped == String {
+    func isEmptyOrNil() -> Bool {
+        if isNil() { return true }
+        return self.unsafelyUnwrapped.isEmpty
+    }
+}
