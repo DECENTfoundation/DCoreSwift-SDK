@@ -24,5 +24,10 @@ public class BaseOperation: Codable {
 }
 
 extension BaseOperation: DataEncodable {
-    @objc func asData() -> Data { fatalError("Missing override: \(self)") }
+    @objc func asData() -> Data {
+        let data =  Data.ofZero
+        
+        Logger.debug(crypto: "BaseOperation binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
+        return data
+    }
 }
