@@ -34,7 +34,7 @@ extension PubKey: DataEncodable {
         data += VarInt(description.data(using: .ascii)!.count).asData()
         data += description.data(using: .ascii)
         
-        Logger.debug(crypto: "PubKey binary: %{private}s", args: { "\(data.toHex())(\(data))"})
+        Logger.debug(crypto: "PubKey binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data
     }
 }

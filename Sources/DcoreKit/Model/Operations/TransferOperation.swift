@@ -60,7 +60,7 @@ public final class TransferOperation: BaseOperation {
         data += memo
         data += Data.ofZero
         
-        Logger.debug(crypto: "EmptyOperation binary: %{private}s", args: { "\(data.toHex())(\(data))"})
+        Logger.debug(crypto: "TransferOperation binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data
     }
 }

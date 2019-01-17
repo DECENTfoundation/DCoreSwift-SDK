@@ -74,7 +74,7 @@ public final class BuyContentOperation: BaseOperation {
         data += regionCode
         data += publicElGamal
         
-        Logger.debug(crypto: "BuyContentOperation binary: %{private}s", args: { "\(data.toHex())(\(data))"})
+        Logger.debug(crypto: "BuyContentOperation binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data
     }
 }

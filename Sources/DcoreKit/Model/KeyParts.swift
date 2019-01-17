@@ -18,7 +18,7 @@ extension KeyParts: DataEncodable {
         data += keyC1
         data += keyD1
         
-        Logger.debug(crypto: "KeyParts binary: %{private}s", args: { "\(data.toHex())(\(data))"})
+        Logger.debug(crypto: "KeyParts binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data
     }
 }

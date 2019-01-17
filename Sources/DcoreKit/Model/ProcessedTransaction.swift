@@ -38,7 +38,7 @@ extension ProcessedTransaction: DataEncodable {
         data += operations
         data += Data.ofZero // extensions
         
-        Logger.debug(crypto: "ProcessedTransaction binary: %{private}s", args: { "\(data.toHex())(\(data))"})
+        Logger.debug(crypto: "ProcessedTransaction binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data
     }
 }

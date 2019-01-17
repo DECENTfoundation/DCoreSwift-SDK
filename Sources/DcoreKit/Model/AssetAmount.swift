@@ -93,7 +93,7 @@ extension AssetAmount: DataEncodable {
         data += amount
         data += assetId
         
-        Logger.debug(crypto: "AssetAmount binary: %{private}s", args: { "\(data.toHex())(\(data))"})
+        Logger.debug(crypto: "AssetAmount binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data
     }
 }

@@ -21,7 +21,7 @@ extension CustodyData: DataEncodable {
         data += Data(count: 16)
         data += Data(count: 33)
         
-        Logger.debug(crypto: "CustodyData binary: %{private}s", args: { "\(data.toHex())(\(data))"})
+        Logger.debug(crypto: "CustodyData binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data
     }
 }

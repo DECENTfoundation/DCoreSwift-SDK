@@ -50,7 +50,7 @@ extension Authority: DataEncodable {
         data += Data.ofZero
         data += keyAuths
         
-        Logger.debug(crypto: "Authority binary: %{private}s", args: { "\(data.toHex())(\(data))"})
+        Logger.debug(crypto: "Authority binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data
     }
 }
@@ -61,7 +61,7 @@ extension AuthMap: DataEncodable {
         data += value
         data += weight
         
-        Logger.debug(crypto: "AuthMap binary: %{private}s", args: { "\(data.toHex())(\(data))"})
+        Logger.debug(crypto: "AuthMap binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data
     }
 }

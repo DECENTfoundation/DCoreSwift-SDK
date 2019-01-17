@@ -47,7 +47,7 @@ extension Options: DataEncodable {
         data += pricePerSubscribe
         data += subscriptionPeriod
         
-        Logger.debug(crypto: "Options binary: %{private}s", args: { "\(data.toHex())(\(data))"})
+        Logger.debug(crypto: "Options binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data
     }
 }

@@ -63,7 +63,7 @@ extension Transaction: DataEncodable {
         data += operations
         data += Data.ofZero // extensions
         
-        Logger.debug(crypto: "Transaction serialized: %{private}s", args: { "\(data) hex: \(data.toHex())" })
+        Logger.debug(crypto: "Transaction binary: %{private}s", args: { "\(data.toHex()) (\(data))" })
         return data
     }
 }

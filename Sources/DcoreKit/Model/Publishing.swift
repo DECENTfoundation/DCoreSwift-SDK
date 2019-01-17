@@ -21,7 +21,7 @@ extension Publishing: DataEncodable {
         data += Data.ofZero
         data += Data.ofZero
         
-        Logger.debug(crypto: "Publishing binary: %{private}s", args: { "\(data.toHex())(\(data))"})
+        Logger.debug(crypto: "Publishing binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data
     }
 }

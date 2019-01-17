@@ -39,7 +39,7 @@ final class SerializationTests: XCTestCase {
         
         let op = TransferOperation(from: "1.2.3".chain.chainObject!, to: "1.2.3".chain.chainObject!, amount: AssetAmount(with: "895438905348905349949490330940943"))
         print(op.asJson()!)
-        print(op.serialized.toHex())
+        print(op.asData().toHex())
         XCTAssertEqual(true, true)
     }
     
@@ -52,7 +52,7 @@ final class SerializationTests: XCTestCase {
         let memo = Memo("hello memo", keyPair: kp, recipient: recipient, nonce: BigInt(132456789))
         let op = TransferOperation(from: "1.2.30".chain.chainObject!, to: "1.2.31".chain.chainObject!, amount: AssetAmount(10000000), memo: memo, fee: AssetAmount(5000))
         
-        XCTAssertEqual(op.serialized.toHex(), serialized)
+        XCTAssertEqual(op.asData().toHex(), serialized)
     }
 
     func testAnyValueEncoding() {

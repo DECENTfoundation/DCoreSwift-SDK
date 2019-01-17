@@ -18,7 +18,7 @@ extension RegionalPrice: DataEncodable {
         data += region
         data += price
         
-        Logger.debug(crypto: "RegionalPrice binary: %{private}s", args: { "\(data.toHex())(\(data))"})
+        Logger.debug(crypto: "RegionalPrice binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data
     }
 }

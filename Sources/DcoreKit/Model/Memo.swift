@@ -53,7 +53,7 @@ extension Memo: DataEncodable {
         data += nonce
         data += message.unhex()
         
-        Logger.debug(crypto: "Memo binary: %{private}s", args: { "\(data.toHex())(\(data))"})
+        Logger.debug(crypto: "Memo binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data
     }
 }
