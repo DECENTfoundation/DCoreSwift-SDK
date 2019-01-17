@@ -6,6 +6,6 @@ struct GetConfig: BaseRequestConvertible {
     private(set) var base: BaseRequest<Config>
     
     init() {
-        self.base = GetConfig.toBase(.database, api: "get_config", returnClass: Config.self)
+        self.base = GetConfig.toBase(.database, api: "get_config", returnType: Config.self)
     }
 }

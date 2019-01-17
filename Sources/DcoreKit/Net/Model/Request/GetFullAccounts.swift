@@ -9,7 +9,7 @@ struct GetFullAccounts: BaseRequestConvertible {
         self.base = GetFullAccounts.toBase(
             .database,
             api: "get_full_accounts",
-            returnClass: [String: FullAccount].self,
+            returnType: [String: FullAccount].self,
             params: [namesOrIds, subscribe]
         )
     }

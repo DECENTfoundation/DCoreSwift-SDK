@@ -18,7 +18,7 @@ struct SearchBuyings: BaseRequestConvertible {
         self.base = SearchBuyings.toBase(
             .database,
             api: "get_buying_objects_by_consumer",
-            returnClass: [Purchase].self,
+            returnType: [Purchase].self,
             params: [
                 consumerId, order, startId, term, max(0, min(100, limit))
             ]

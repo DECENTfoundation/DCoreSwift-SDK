@@ -7,7 +7,7 @@ struct GetBlockHeader: BaseRequestConvertible {
     
     init(_ blockNum: UInt64) {
         self.base = GetBlockHeader.toBase(
-            .database, api: "get_block_header", returnClass: BlockHeader.self, params: [blockNum]
+            .database, api: "get_block_header", returnType: BlockHeader.self, params: [blockNum]
         )
     }
 }

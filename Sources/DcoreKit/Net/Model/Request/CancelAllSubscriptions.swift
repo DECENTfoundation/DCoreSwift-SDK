@@ -7,7 +7,7 @@ struct CancelAllSubscriptions: BaseRequestConvertible {
     
     init() {
         self.base = CancelAllSubscriptions.toBase(
-            .database, api: "cancel_all_subscriptions", returnClass: UnitValue.self
+            .database, api: "cancel_all_subscriptions", returnType: UnitValue.self
         )
     }
 }

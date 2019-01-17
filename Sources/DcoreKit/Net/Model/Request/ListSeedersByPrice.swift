@@ -7,7 +7,7 @@ struct ListSeedersByPrice: BaseRequestConvertible {
     
     init(_ count: Int = 100) {
         self.base = ListSeedersByPrice.toBase(
-            .database, api: "list_seeders_by_price", returnClass: [Seeder].self, params: [count]
+            .database, api: "list_seeders_by_price", returnType: [Seeder].self, params: [count]
         )
     }
 }

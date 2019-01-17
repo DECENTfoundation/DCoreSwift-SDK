@@ -25,13 +25,12 @@ final class SerializationTests: XCTestCase {
     func testGetRequiredFeesJsonSerialization() {
         let api =
         """
-        {"jsonrpc":"2.0","method":"call","id":1,"params":[0,"get_required_fees",[[[39,{"type":39,"fee":{"amount":"0","asset_id":"1.3.0"}}],[1,{"type":1,"fee":{"amount":"0","asset_id":"1.3.0"}}]],"1.3.0"]]}
+        {"jsonrpc":"2.0","method":"call","id":1,"params":[0,"get_required_fees",[[[39,{"fee":{"amount":"0","asset_id":"1.3.0"}}],[1,{"fee":{"amount":"0","asset_id":"1.3.0"}}]],"1.3.0"]]}
         """
         let result = GetRequiredFees([
             EmptyOperation(type: OperationType.transferTwoOperation),
             EmptyOperation(type: OperationType.accountCreateOperation)
         ]).base.asJson()
-        
         XCTAssertEqual(result, api)
     }
     
@@ -39,7 +38,7 @@ final class SerializationTests: XCTestCase {
         
         let op = TransferOperation(from: "1.2.3".chain.chainObject!, to: "1.2.3".chain.chainObject!, amount: AssetAmount(with: "895438905348905349949490330940943"))
         print(op.asJson()!)
-        print(op.serialized.toHex())
+        print(op.asData().toHex())
         XCTAssertEqual(true, true)
     }
     
@@ -52,7 +51,7 @@ final class SerializationTests: XCTestCase {
         let memo = Memo("hello memo", keyPair: kp, recipient: recipient, nonce: BigInt(132456789))
         let op = TransferOperation(from: "1.2.30".chain.chainObject!, to: "1.2.31".chain.chainObject!, amount: AssetAmount(10000000), memo: memo, fee: AssetAmount(5000))
         
-        XCTAssertEqual(op.serialized.toHex(), serialized)
+        XCTAssertEqual(op.asData().toHex(), serialized)
     }
 
     func testAnyValueEncoding() {

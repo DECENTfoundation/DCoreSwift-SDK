@@ -6,6 +6,6 @@ struct GetContentByUri: BaseRequestConvertible {
     private(set) var base: BaseRequest<Content>
     
     init(_ uri: String) {
-        self.base = GetContentByUri.toBase(.database, api: "get_content", returnClass: Content.self, params: [uri])
+        self.base = GetContentByUri.toBase(.database, api: "get_content", returnType: Content.self, params: [uri])
     }
 }

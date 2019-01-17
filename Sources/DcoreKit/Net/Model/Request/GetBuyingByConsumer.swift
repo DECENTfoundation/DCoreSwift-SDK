@@ -9,7 +9,7 @@ struct GetBuyingByConsumer: BaseRequestConvertible {
         
         precondition(consumerId.objectType == .accountObject, "Not a valid account object id")
         self.base = GetBuyingByConsumer.toBase(
-            .database, api: "get_buying_by_consumer", returnClass: Purchase.self, params: [consumerId]
+            .database, api: "get_buying_by_consumer", returnType: Purchase.self, params: [consumerId]
         )
     }
 }

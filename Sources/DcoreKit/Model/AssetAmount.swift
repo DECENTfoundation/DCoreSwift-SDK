@@ -87,11 +87,13 @@ extension AssetAmount: Comparable {
     }
 }
 
-extension AssetAmount: DataSerializable {
-    public var serialized: Data {
+extension AssetAmount: DataEncodable {
+    func asData() -> Data {
         var data = Data()
         data += amount
         data += assetId
+        
+        Logger.debug(crypto: "AssetAmount binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data
     }
 }

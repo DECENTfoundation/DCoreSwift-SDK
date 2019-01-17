@@ -7,7 +7,7 @@ struct LookupAssets: BaseRequestConvertible {
     
     init(_ symbols: [Asset.Symbol]) {
         self.base = LookupAssets.toBase(
-            .database, api: "lookup_asset_symbols", returnClass: [Asset].self, params: [symbols]
+            .database, api: "lookup_asset_symbols", returnType: [Asset].self, params: [symbols]
         )
     }
 }

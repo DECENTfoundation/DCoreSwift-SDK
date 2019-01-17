@@ -38,17 +38,21 @@ extension CoreResponseParser {
         if result.exists() {
             do {
                 if req.isResponseVoid() {
-                    return try result.rawData().asJsonDecoded(to: req.returnClass)
+                    return try result.rawData().asJsonDecoded(to: req.returnType)
                 }
                 
                 if result.null != nil || result.arrayValue.contains(.null) {
                     throw ChainException.network(.notFound)
                 }
                 
-                return try result.rawData().asJsonDecoded(to: req.returnClass)
+                if result.dictionary.isNil() && result.array.isNil() {
+                    return withUnsafeBytes(of: result.object, { $0.load(as: req.returnType) })
+                }
+                
+                return try result.rawData().asJsonDecoded(to: req.returnType)
             } catch let error as ChainException { throw error
-            } catch {
-                throw ChainException.network(.failDecode("Failed to decode response for request:\n\(req.description)"))
+            } catch let error {
+                throw ChainException.network(.failDecode("Failed to decode response for request:\n\(req.description)\nwith error:\n\(error)"))
             }
         }
         

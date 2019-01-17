@@ -3,9 +3,11 @@ import RxSwift
 
 public protocol AccountApi: BaseApi {
     func getAccount(byName name: String) -> Single<Account>
+    func getAccount(byId id: ChainObject) -> Single<Account>
     func getAccounts(byIds ids: [ChainObject]) -> Single<[Account]>
     func getAccountIds(byAddressList list: [Address]) -> Single<[[ChainObject]]>
     func existAccount(byName name: String) -> Single<Bool>
+    func existAccount(byId id: ChainObject) -> Single<Bool>
     func getAccount(byReference value: Account.Reference) -> Single<Account>
     func search(accountHistory accoundId: ChainObject,
                 from: ChainObject,
@@ -30,6 +32,10 @@ extension AccountApi {
         return GetAccountByName(name).base.toResponse(api.core)
     }
     
+    public func getAccount(byId id: ChainObject) -> Single<Account> {
+        return getAccounts(byIds: [id]).map { try $0.first.orThrow(ChainException.network(.notFound)) }
+    }
+    
     public func getAccounts(byIds ids: [ChainObject]) -> Single<[Account]> {
         return GetAccountById(ids).base.toResponse(api.core)
     }
@@ -42,17 +48,21 @@ extension AccountApi {
         return getAccount(byName: name).map({ _ in true }).catchErrorJustReturn(false)
     }
     
+    public func existAccount(byId id: ChainObject) -> Single<Bool> {
+        return getAccount(byId: id).map({ _ in true }).catchErrorJustReturn(false)
+    }
+
     public func getAccount(byReference value: Account.Reference) -> Single<Account> {
         return Single.deferred({
             
             if let object = value.chain.chainObject {
-                return self.getAccounts(byIds: [object]).map({ $0.first! })
+                return self.getAccounts(byIds: [object]).map({ try $0.first.orThrow(ChainException.network(.notFound)) })
             }
             
             if let address = value.chain.address {
                 return self.getAccountIds(byAddressList: [address])
                     .flatMap({ result in
-                        return self.getAccounts(byIds: result.first!).map({ $0.first! })
+                        return self.getAccounts(byIds: result.first!).map({ try $0.first.orThrow(ChainException.network(.notFound)) })
                     })
             }
             

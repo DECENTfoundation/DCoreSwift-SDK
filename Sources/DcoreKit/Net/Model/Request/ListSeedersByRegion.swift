@@ -7,7 +7,7 @@ struct ListSeedersByRegion: BaseRequestConvertible {
     
     init(_ region: String) {
         self.base = ListSeedersByRegion.toBase(
-            .database, api: "list_seeders_by_region", returnClass: [Seeder].self, params: [region]
+            .database, api: "list_seeders_by_region", returnType: [Seeder].self, params: [region]
         )
     }
 }

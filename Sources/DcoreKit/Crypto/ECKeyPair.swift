@@ -24,8 +24,7 @@ public struct ECKeyPair {
     }
     
     public func secret(_ address: Address, nonce: BigInt) -> Data {
-        // CryptoUtils.hash512(<#T##data: Data##Data#>)
-        fatalError("")
+        fatalError("Not implemented \(self)")
     }
     
     public static func verify(signature: Data, message: Data, publicKey: Data) throws -> Bool {

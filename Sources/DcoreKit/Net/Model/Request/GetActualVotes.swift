@@ -6,6 +6,6 @@ struct GetActualVotes: BaseRequestConvertible {
     private(set) var base: BaseRequest<[MinerVotes]>
     
     init() {
-        self.base = GetActualVotes.toBase(.database, api: "get_actual_votes", returnClass: [MinerVotes].self)
+        self.base = GetActualVotes.toBase(.database, api: "get_actual_votes", returnType: [MinerVotes].self)
     }
 }

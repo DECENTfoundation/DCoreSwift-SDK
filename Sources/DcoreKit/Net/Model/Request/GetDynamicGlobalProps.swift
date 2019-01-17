@@ -7,7 +7,7 @@ struct GetDynamicGlobalProps: BaseRequestConvertible {
     
     init() {
         self.base = GetDynamicGlobalProps.toBase(
-            .database, api: "get_dynamic_global_properties", returnClass: DynamicGlobalProps.self
+            .database, api: "get_dynamic_global_properties", returnType: DynamicGlobalProps.self
         )
     }
 }

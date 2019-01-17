@@ -43,21 +43,25 @@ public struct AuthMap: Codable {
     }
 }
 
-extension Authority: DataSerializable {
-    public var serialized: Data {
+extension Authority: DataEncodable {
+    func asData() -> Data {
         var data = Data()
         data += weightThreshold
-        data += Data(count: 1)
+        data += Data.ofZero
         data += keyAuths
+        
+        Logger.debug(crypto: "Authority binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data
     }
 }
 
-extension AuthMap: DataSerializable {
-    public var serialized: Data {
+extension AuthMap: DataEncodable {
+    func asData() -> Data {
         var data = Data()
         data += value
         data += weight
+        
+        Logger.debug(crypto: "AuthMap binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data
     }
 }

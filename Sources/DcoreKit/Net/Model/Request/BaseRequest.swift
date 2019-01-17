@@ -12,16 +12,16 @@ struct BaseRequest<Output: Codable>: CoreResponseConvertible, RestConvertible, W
     private let api: String
     private let params: [AnyEncodable]
 
-    let returnClass: Output.Type
+    let returnType: Output.Type
     let callback: Bool
     
     var callId: UInt64 = 1
     var callbackId: UInt64?
    
-    init(_ group: ApiGroup, api: String, returnClass: Output.Type, params: [Encodable] = [], callback: Bool = false) {
+    init(_ group: ApiGroup, api: String, returnType: Output.Type, params: [Encodable] = [], callback: Bool = false) {
         self.group = group
         self.api = api
-        self.returnClass = returnClass
+        self.returnType = returnType
         self.params = params.map({ AnyEncodable($0) })
         self.callback = callback
     }
@@ -72,6 +72,6 @@ extension BaseRequest: Encodable {
 
 extension BaseRequest: CustomStringConvertible {
     var description: String {
-        return asJson() ?? ""
+        return asJson().or("")
     }
 }

@@ -10,6 +10,7 @@ final class WssService: CoreRequestConvertible {
     private let events: ConnectableObservable<SocketEvent>
     private let timeout: TimeInterval
     
+    private var scheduler = SerialDispatchQueueScheduler(qos: .default)
     private var socket: AsyncSubject<WebSocket>?
     private var emitId: UInt64 = 0
     
@@ -54,6 +55,7 @@ final class WssService: CoreRequestConvertible {
                 .do(onSuccess: { $0.write(string: try req.asWss()) })
                 .asObservableMapTo(OnEvent.empty)
         ])
+        .observeOn(scheduler)
         .ofType(OnMessageEvent.self)
         .filterMap({ res -> FilterMap<ResponseResult<Output>> in
             

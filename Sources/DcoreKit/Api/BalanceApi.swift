@@ -19,7 +19,7 @@ extension BalanceApi {
     }
     
     public func getBalance(byAccountId id: ChainObject, asset: ChainObject) -> Single<AssetAmount> {
-        return getBalances(byAccountId: id, assets: [asset]).map({ $0.first! })
+        return getBalances(byAccountId: id, assets: [asset]).map({ try $0.first.orThrow(ChainException.network(.notFound)) })
     }
     
     public func getBalances(byReference ref: String, assets: [ChainObject]) -> Single<[AssetAmount]> {
@@ -49,7 +49,7 @@ extension BalanceApi {
     }
     
     public func getBalance(byAccountId id: ChainObject, symbol: Asset.Symbol = .dct) -> Single<AssetAmount.Pair> {
-        return getBalances(byAccountId: id, symbols: [symbol]).map({ $0.first! })
+        return getBalances(byAccountId: id, symbols: [symbol]).map({ try $0.first.orThrow(ChainException.network(.notFound)) })
     }
     
     public func getBalances(byReference ref: String, symbols: [Asset.Symbol]) -> Single<[AssetAmount.Pair]> {

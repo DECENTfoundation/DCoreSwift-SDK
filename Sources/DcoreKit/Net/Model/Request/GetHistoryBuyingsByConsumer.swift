@@ -9,7 +9,7 @@ struct GetHistoryBuyingsByConsumer: BaseRequestConvertible {
         
         precondition(consumerId.objectType == .accountObject, "Not a valid account object id")
         self.base = GetHistoryBuyingsByConsumer.toBase(
-            .database, api: "get_buying_history_objects_by_consumer", returnClass: [Purchase].self, params: [consumerId]
+            .database, api: "get_buying_history_objects_by_consumer", returnType: [Purchase].self, params: [consumerId]
         )
     }
 }

@@ -9,7 +9,7 @@ struct LookupMiners: BaseRequestConvertible {
         self.base = LookupMiners.toBase(
             .database,
             api: "lookup_miners",
-            returnClass: [String: ChainObject].self,
+            returnType: [String: ChainObject].self,
             params: [bound, limit]
         )
     }

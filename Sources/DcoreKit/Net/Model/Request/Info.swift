@@ -6,6 +6,6 @@ struct Info: BaseRequestConvertible {
     private(set) var base: BaseRequest<String>
     
     init() {
-        self.base = Info.toBase(.database, api: "info", returnClass: String.self)
+        self.base = Info.toBase(.database, api: "info", returnType: String.self)
     }
 }

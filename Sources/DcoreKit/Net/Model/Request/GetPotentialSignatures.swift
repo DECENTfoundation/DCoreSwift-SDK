@@ -7,7 +7,7 @@ struct GetPotentialSignatures: BaseRequestConvertible {
     
     init(_ trx: Transaction) {
         self.base = GetPotentialSignatures.toBase(
-            .database, api: "get_potential_signatures", returnClass: [Address].self, params: [trx]
+            .database, api: "get_potential_signatures", returnType: [Address].self, params: [trx]
         )
     }
 }

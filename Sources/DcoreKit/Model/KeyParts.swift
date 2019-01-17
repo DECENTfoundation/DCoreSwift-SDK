@@ -12,11 +12,13 @@ public struct KeyParts: Codable {
     }
 }
 
-extension KeyParts: DataSerializable {
-    public var serialized: Data {
+extension KeyParts: DataEncodable {
+    func asData() -> Data {
         var data = Data()
         data += keyC1
         data += keyD1
+        
+        Logger.debug(crypto: "KeyParts binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data
     }
 }

@@ -6,6 +6,6 @@ struct ListAssets: BaseRequestConvertible {
     private(set) var base: BaseRequest<[Asset]>
     
     init(_ bound: String, limit: Int = 100) {
-        self.base = ListAssets.toBase(.database, api: "list_assets", returnClass: [Asset].self, params: [bound, limit])
+        self.base = ListAssets.toBase(.database, api: "list_assets", returnType: [Asset].self, params: [bound, limit])
     }
 }

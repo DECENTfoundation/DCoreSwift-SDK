@@ -13,9 +13,11 @@ public final class BuyContentOperation: BaseOperation {
                 publicElGamal: PubKey,
                 regionCode: Int = Regions.NONE.id,
                 fee: AssetAmount? = nil) {
-        guard consumer.objectType == ObjectType.accountObject else { preconditionFailure("not an account object id") }
-        guard price >= 0 else { preconditionFailure("price must be >= 0") }
-        // require(Pattern.compile("^(https?|ipfs|magnet):.*").matcher(uri).matches()) { "unsupported uri scheme" }
+        
+        precondition(consumer.objectType == ObjectType.accountObject, "Not an account object id")
+        precondition(price >= 0, "Price must be >= 0")
+        precondition(!uri.matches(regex: "^(https?|ipfs|magnet):.*").isEmpty, "Unsupported uri scheme")
+    
         self.uri = uri
         self.consumer = consumer
         self.price = price
@@ -61,7 +63,7 @@ public final class BuyContentOperation: BaseOperation {
         regionCode = "region_code_from"
     }
     
-    public var serialized: Data {
+    override func asData() -> Data {
         var data = Data()
         data += Data(count: type.rawValue)
         data += fee
@@ -71,6 +73,8 @@ public final class BuyContentOperation: BaseOperation {
         data += price
         data += regionCode
         data += publicElGamal
+        
+        Logger.debug(crypto: "BuyContentOperation binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data
     }
 }

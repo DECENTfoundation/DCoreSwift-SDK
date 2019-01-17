@@ -36,19 +36,22 @@ extension DCore {
         
         func prepareTransaction<Operation>(forOperations operations: [Operation],
                                            expiration: Int) -> Single<Transaction> where Operation: BaseOperation {
-            return Single.zip(chainId, GetDynamicGlobalProps().base.toResponse(self)).flatMap({ (id, props) in
-                // var ops = operations
-                // let idx = ops.partition(by: { $0.fee != BaseOperation.FEE_UNSET })
-                
-                // let noFees = ops[..<idx]
-                // first == [30, 10, 20, 30, 30]
-                // let fees = ops[idx...]
-                // second == [60, 40]
-                let block = BlockData(props: props, expiration: expiration)
-                return Single.just(
-                    Transaction(blockData: block, operations: operations, chainId: id)
-                )
-            })
+            return Single.deferred { [unowned self] in
+                let (fees, noFees) = operations.partitionSplit(by: { $0.fee != BaseOperation.feeUnset })
+                return Single.zip(self.chainId, GetDynamicGlobalProps().base.toResponse(self), (
+                    noFees.isEmpty ? Single.just(fees) : GetRequiredFees(noFees).base.toResponse(self).map { required in
+                        return noFees.enumerated().map { offset, op in
+                            return op.apply(fee: required[offset])
+                        } + fees
+                    }
+                )).flatMap { id, props, ops in
+                    
+                    let block = BlockData(props: props, expiration: expiration)
+                    return Single.just(
+                        Transaction(blockData: block, operations: ops, chainId: id)
+                    )
+                }
+            }
         }
      
         func make<Output>(streamRequest req: BaseRequest<Output>) -> Observable<Output> where Output: Codable {

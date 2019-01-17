@@ -6,6 +6,6 @@ struct RequestApiAccess: BaseRequestConvertible {
     private(set) var base: BaseRequest<Int>
     
     init(_ group: ApiGroup) {
-        self.base = RequestApiAccess.toBase(.login, api: group.name, returnClass: Int.self, params: [])
+        self.base = RequestApiAccess.toBase(.login, api: group.name, returnType: Int.self, params: [])
     }
 }

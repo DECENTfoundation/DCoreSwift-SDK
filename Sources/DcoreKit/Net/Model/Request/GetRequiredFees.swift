@@ -9,8 +9,8 @@ struct GetRequiredFees: BaseRequestConvertible {
         
         precondition(assetId.objectType == .assetObject, "Not a valid asset object id")
         self.base = GetRequiredFees.toBase(
-            .database, api: "get_required_fees", returnClass: [AssetAmount].self, params: [
-                operations.map({ RequiredFee($0) }), assetId
+            .database, api: "get_required_fees", returnType: [AssetAmount].self, params: [
+                operations.asOperationPairs(), assetId
             ]
         )
     }

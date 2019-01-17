@@ -38,7 +38,7 @@ extension ValidationApi {
     }
     
     public func getFee(forOperation operation: BaseOperation) -> Single<AssetAmount> {
-        return getFees(forOperations: [operation]).map({ $0.first! })
+        return getFees(forOperations: [operation]).map({ try $0.first.orThrow(ChainException.network(.notFound)) })
     }
     
     public func getFee(forType type: OperationType) -> Single<AssetAmount> {

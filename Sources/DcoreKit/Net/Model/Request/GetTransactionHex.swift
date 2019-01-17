@@ -7,7 +7,7 @@ struct GetTransactionHex: BaseRequestConvertible {
     
     init(_ trx: Transaction) {
         self.base = GetTransactionHex.toBase(
-            .database, api: "get_transaction_hex", returnClass: String.self, params: [trx]
+            .database, api: "get_transaction_hex", returnType: String.self, params: [trx]
         )
     }
 }

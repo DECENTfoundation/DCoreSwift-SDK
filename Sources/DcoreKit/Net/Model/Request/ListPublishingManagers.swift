@@ -9,7 +9,7 @@ struct ListPublishingManagers: BaseRequestConvertible {
         self.base = ListPublishingManagers.toBase(
             .database,
             api: "list_publishing_managers",
-            returnClass: [ChainObject].self,
+            returnType: [ChainObject].self,
             params: [bound, limit]
         )
     }

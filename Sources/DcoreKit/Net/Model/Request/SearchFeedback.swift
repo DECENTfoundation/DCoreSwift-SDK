@@ -13,7 +13,7 @@ struct SearchFeedback: BaseRequestConvertible {
         self.base = SearchFeedback.toBase(
             .database,
             api: "search_feedback",
-            returnClass: [Purchase].self,
+            returnType: [Purchase].self,
             params: [user ?? "", uri, startId, count]
         )
     }

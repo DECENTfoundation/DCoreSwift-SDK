@@ -6,6 +6,6 @@ struct PriceToDct: BaseRequestConvertible {
     private(set) var base: BaseRequest<AssetAmount>
     
     init(_ amount: AssetAmount) {
-        self.base = PriceToDct.toBase(.database, api: "price_to_dct", returnClass: AssetAmount.self, params: [amount])
+        self.base = PriceToDct.toBase(.database, api: "price_to_dct", returnType: AssetAmount.self, params: [amount])
     }
 }

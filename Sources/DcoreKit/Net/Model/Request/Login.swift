@@ -6,6 +6,6 @@ struct Login: BaseRequestConvertible {
     private(set) var base: BaseRequest<Bool>
     
     init(_ consumerId: ChainObject, count: Int) {
-        self.base = Login.toBase(.login, api: "login", returnClass: Bool.self, params: ["", ""])
+        self.base = Login.toBase(.login, api: "login", returnType: Bool.self, params: ["", ""])
     }
 }
