@@ -35,9 +35,12 @@ extension ChainObject: CustomStringConvertible {
     }
 }
 
-extension ChainObject: DataSerializable {
-    public var serialized: Data {
-        return VarInt(integerLiteral: instance).serialized
+extension ChainObject: DataEncodable {
+    func asData() -> Data {
+        let data = VarInt(integerLiteral: instance).asData()
+        
+        Logger.debug(crypto: "ChainObject binary: %{private}s", args: { "\(data.toHex())(\(data))"})
+        return data
     }
 }
 

@@ -33,10 +33,7 @@ extension AccountApi {
     }
     
     public func getAccount(byId id: ChainObject) -> Single<Account> {
-        return getAccounts(byIds: [id]).map {
-            guard let account = $0.first else { throw ChainException.network(.notFound) }
-            return account
-        }
+        return getAccounts(byIds: [id]).map { try $0.first.orThrow(ChainException.network(.notFound)) }
     }
     
     public func getAccounts(byIds ids: [ChainObject]) -> Single<[Account]> {
@@ -59,13 +56,13 @@ extension AccountApi {
         return Single.deferred({
             
             if let object = value.chain.chainObject {
-                return self.getAccounts(byIds: [object]).map({ $0.first! })
+                return self.getAccounts(byIds: [object]).map({ try $0.first.orThrow(ChainException.network(.notFound)) })
             }
             
             if let address = value.chain.address {
                 return self.getAccountIds(byAddressList: [address])
                     .flatMap({ result in
-                        return self.getAccounts(byIds: result.first!).map({ $0.first! })
+                        return self.getAccounts(byIds: result.first!).map({ try $0.first.orThrow(ChainException.network(.notFound)) })
                     })
             }
             

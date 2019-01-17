@@ -45,13 +45,15 @@ public struct Memo: Codable {
     }
 }
 
-extension Memo: DataSerializable {
-    public var serialized: Data {
+extension Memo: DataEncodable {
+    func asData() -> Data {
         var data = Data()
-        data += from!
-        data += to!
+        data += from
+        data += to
         data += nonce
-        data += message.unhex()!
+        data += message.unhex()
+        
+        Logger.debug(crypto: "Memo binary: %{private}s", args: { "\(data.toHex())(\(data))"})
         return data
     }
 }

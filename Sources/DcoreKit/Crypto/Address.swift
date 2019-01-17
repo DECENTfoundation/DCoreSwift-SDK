@@ -46,10 +46,10 @@ extension Address: Equatable {
 
 extension Address: CustomStringConvertible, CustomDebugStringConvertible {
     public var description: String {
-        let calculated = CryptoUtils.ripemd160(serialized)
+        let calculated = CryptoUtils.ripemd160(asData())
         let calculatedChecksum = calculated.prefix(4)
         
-        return prefix + Base58.encode(serialized+calculatedChecksum)
+        return prefix + Base58.encode(asData()+calculatedChecksum)
     }
     
     public var debugDescription: String {
@@ -69,10 +69,8 @@ extension Address: Codable {
     }
 }
 
-extension Address: DataSerializable {
-    public var serialized: Data {
-        return publicKey.data
-    }
+extension Address: DataEncodable {
+    public func asData() -> Data {  return publicKey.data }
 }
 
 extension Chain where Base == String {

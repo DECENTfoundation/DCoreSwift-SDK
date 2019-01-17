@@ -50,15 +50,17 @@ public final class TransferOperation: BaseOperation {
         memo
     }
     
-    public var serialized: Data {
+    override func asData() -> Data {
         var data = Data()
         data += Data(count: type.rawValue)
         data += fee
         data += from
         data += to.objectTypeId
         data += amount
-        data += (memo?.serialized ?? Data(count: 0))
-        data += Data(count: 1)
+        data += memo
+        data += Data.ofZero
+        
+        Logger.debug(crypto: "EmptyOperation binary: %{private}s", args: { "\(data.toHex())(\(data))"})
         return data
     }
 }

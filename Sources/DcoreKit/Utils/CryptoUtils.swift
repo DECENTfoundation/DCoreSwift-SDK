@@ -56,8 +56,8 @@ public struct CryptoUtils {
     
     static func decrypt(using passphrase: String, encryptedInput input: String) throws -> Data {
         do {
-            let keyiv = hash512(passphrase.data(using: .utf8) ?? Data(count: 0))
-            let unhexed = input.unhex() ?? Data(count: 0)
+            let keyiv = hash512(passphrase.data(using: .utf8) ?? Data.empty)
+            let unhexed = input.unhex() ?? Data.empty
             
             return try decrypt(keyiv[0..<32], iv: keyiv[32..<(32+16)], input: unhexed)
         } catch {

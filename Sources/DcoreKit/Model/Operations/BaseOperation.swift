@@ -24,10 +24,6 @@ public class BaseOperation: Codable {
     }
 }
 
-extension BaseOperation: DataSerializable {}
-
-extension BaseOperation: Equatable {
-    public static func == (lhs: BaseOperation, rhs: BaseOperation) -> Bool {
-        return lhs.serialized == rhs.serialized
-    }
+extension BaseOperation: DataEncodable {
+    @objc func asData() -> Data { fatalError("Missing override: \(self)") }
 }

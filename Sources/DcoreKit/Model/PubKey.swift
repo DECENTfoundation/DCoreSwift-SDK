@@ -28,11 +28,13 @@ extension PubKey: CustomStringConvertible {
     }
 }
 
-extension PubKey: DataSerializable {
-    public var serialized: Data {
+extension PubKey: DataEncodable {
+    func asData() -> Data {
         var data = Data()
-        data += VarInt(description.data(using: .ascii)!.count)
-        data += description.data(using: .ascii)!
+        data += VarInt(description.data(using: .ascii)!.count).asData()
+        data += description.data(using: .ascii)
+        
+        Logger.debug(crypto: "PubKey binary: %{private}s", args: { "\(data.toHex())(\(data))"})
         return data
     }
 }

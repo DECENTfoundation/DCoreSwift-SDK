@@ -14,13 +14,14 @@ public struct Publishing: Codable {
     }
 }
 
-extension Publishing: DataSerializable {
-    
-    public var serialized: Data {
+extension Publishing: DataEncodable {
+    func asData() -> Data {
         var data = Data()
         data += isPublishingManager
-        data += Data(count: 1)
-        data += Data(count: 1)
+        data += Data.ofZero
+        data += Data.ofZero
+        
+        Logger.debug(crypto: "Publishing binary: %{private}s", args: { "\(data.toHex())(\(data))"})
         return data
     }
 }

@@ -14,12 +14,14 @@ public struct CustodyData: Codable {
     }
 }
 
-extension CustodyData: DataSerializable {
-    public var serialized: Data {
+extension CustodyData: DataEncodable {
+    func asData() -> Data {
         var data = Data()
         data += signatureCount
         data += Data(count: 16)
         data += Data(count: 33)
+        
+        Logger.debug(crypto: "CustodyData binary: %{private}s", args: { "\(data.toHex())(\(data))"})
         return data
     }
 }

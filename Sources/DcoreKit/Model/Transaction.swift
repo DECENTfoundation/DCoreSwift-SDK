@@ -5,9 +5,7 @@ public struct Transaction: Codable {
     private var blockData: BlockData?
     private var chainId: String?
     
-    public var id: String {
-        return CryptoUtils.hash256(serialized).prefix(20).toHex()
-    }
+    public lazy var id: String = CryptoUtils.hash256(asData()).prefix(20).toHex()
     
     public let operations: [BaseOperation]
     public var signatures: [String]?
@@ -36,21 +34,45 @@ public struct Transaction: Codable {
     }
     
     public func with(signature keyPair: ECKeyPair) throws -> Transaction {
+        guard let chain = chainId?.unhex() else { throw ChainException.crypto(.failSigning) }
+        
         var trx = self
+        var signature: String = ""
         
-        let data = CryptoUtils.hash256(chainId!.unhex()! + trx)
-        trx.signatures = [try keyPair.sign(data).toHex()]
+        repeat {
+            trx = trx.extend()
+            let hash = CryptoUtils.hash256(chain + trx)
+            signature = (try? keyPair.sign(hash).toHex()) ?? ""
+        } while (signature.isEmpty)
         
+        trx.signatures = [signature]
+        return trx
+    }
+    
+    private func extend() -> Transaction {
+        var trx = self
+        trx.blockData = blockData?.extend()
         return trx
     }
 }
 
-extension Transaction: DataSerializable {
-    public var serialized: Data {
+extension Transaction: DataEncodable {
+    func asData() -> Data {
         var data = Data()
-        data += blockData!
+        data += blockData
         data += operations
-        data += Data(count: 1) // extensions
+        data += Data.ofZero // extensions
+        
+        Logger.debug(crypto: "Transaction serialized: %{private}s", args: { "\(data) hex: \(data.toHex())" })
         return data
+    }
+}
+
+fileprivate extension BlockData {
+    fileprivate func extend() -> BlockData {
+        var block = self
+        block.expiration += 1
+        
+        return block
     }
 }

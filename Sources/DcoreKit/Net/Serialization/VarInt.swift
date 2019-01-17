@@ -83,12 +83,6 @@ public struct VarInt: ExpressibleByIntegerLiteral {
     }
 }
 
-extension VarInt: DataSerializable {
-    public var serialized: Data {
-        return data
-    }
-}
-
 extension VarInt: CustomStringConvertible {
     public var description: String {
         return "\(underlyingValue)"

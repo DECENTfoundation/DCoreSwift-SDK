@@ -20,6 +20,6 @@ extension Encodable {
     }
     
     func asJson() -> String? {
-        return String(data: (try? asJsonData()) ?? Data(count: 0), encoding: .utf8)
+        return String(data: (try? asJsonData()) ?? Data.empty, encoding: .utf8)
     }
 }

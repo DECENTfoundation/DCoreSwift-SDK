@@ -12,11 +12,13 @@ public struct RegionalPrice: Codable {
     }
 }
 
-extension RegionalPrice: DataSerializable {
-    public var serialized: Data {
+extension RegionalPrice: DataEncodable {
+    func asData() -> Data {
         var data = Data()
         data += region
         data += price
+        
+        Logger.debug(crypto: "RegionalPrice binary: %{private}s", args: { "\(data.toHex())(\(data))"})
         return data
     }
 }

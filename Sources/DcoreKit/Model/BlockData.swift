@@ -4,7 +4,7 @@ public struct BlockData {
     
     public let refBlockNum: Int
     public let refBlockPrefix: UInt64
-    public let expiration: UInt64
+    public var expiration: UInt64
     
     init(props: DynamicGlobalProps, expiration: Int) {
         self.init(headBlockNumber: props.headBlockNumber,
@@ -31,16 +31,18 @@ public struct BlockData {
     }
 }
 
-extension BlockData: DataSerializable {
-    public var serialized: Data {
+extension BlockData: DataEncodable {
+    func asData() -> Data {
         var data = Data()
         // Allocating a fixed length byte array, since we will always need
         // 2 bytes for the ref_block_num value
         // 4 bytes for the ref_block_prefix value
         // 4 bytes for the relative_expiration
         data += Data(bytes: Data(count: 2).indices.map({ UInt8(refBlockNum >> 8 * $0) }))
-        data += Data(bytes: Data(count: 4).indices.map({ UInt8(refBlockPrefix >> 8 * UInt64($0)) }))
-        data += Data(bytes: Data(count: 4).indices.map({ UInt8(expiration >> 8 * UInt64($0)) }))
+        data += Data(bytes: Data(count: 4).indices.map({ UInt8.with(value: refBlockPrefix >> 8 * UInt64($0)) }))
+        data += Data(bytes: Data(count: 4).indices.map({ UInt8.with(value: expiration >> 8 * UInt64($0)) }))
+        
+        Logger.debug(crypto: "BlockData binary: %{private}s", args: { "\(data.toHex())(\(data))"})
         return data
     }
 }

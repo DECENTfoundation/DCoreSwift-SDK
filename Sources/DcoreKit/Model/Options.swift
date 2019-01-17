@@ -35,17 +35,19 @@ public struct Options: Codable {
     }
 }
 
-extension Options: DataSerializable {
-    public var serialized: Data {
+extension Options: DataEncodable {
+    func asData() -> Data {
         var data = Data()
         data += memoKey
         data += votingAccount
         data += numMiner
         data += votes
-        data += Data(count: 1)
+        data += Data.ofZero
         data += allowSubscription
         data += pricePerSubscribe
         data += subscriptionPeriod
+        
+        Logger.debug(crypto: "Options binary: %{private}s", args: { "\(data.toHex())(\(data))"})
         return data
     }
 }

@@ -1,7 +1,10 @@
 import Foundation
 
 public final class EmptyOperation: BaseOperation {
-    public var serialized: Data {
-        return Data(count: 1)
+    override func asData() -> Data {
+        let data =  Data.ofZero
+        
+        Logger.debug(crypto: "EmptyOperation binary: %{private}s", args: { "\(data.toHex())(\(data))"})
+        return data
     }
 }

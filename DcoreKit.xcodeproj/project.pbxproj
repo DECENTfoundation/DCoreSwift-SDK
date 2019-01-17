@@ -21,6 +21,8 @@
 		A1673B5321EF43CA008FF560 /* GeneralApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1673B5121EF43CA008FF560 /* GeneralApiTests.swift */; };
 		A1673B5521EF615B008FF560 /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1673B5421EF615B008FF560 /* Optional+Extension.swift */; };
 		A1673B5621EF615B008FF560 /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1673B5421EF615B008FF560 /* Optional+Extension.swift */; };
+		A1673B5B21F07143008FF560 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1673B5A21F07143008FF560 /* DateFormatter+Extension.swift */; };
+		A1673B5C21F07143008FF560 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1673B5A21F07143008FF560 /* DateFormatter+Extension.swift */; };
 		A1B51C0C21EE0059006277F9 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B51C0B21EE0059006277F9 /* BaseApi.swift */; };
 		A1B51C0D21EE0059006277F9 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B51C0B21EE0059006277F9 /* BaseApi.swift */; };
 		A1D96D5221ED1E22009C0A30 /* AccountApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* AccountApi.swift */; };
@@ -208,7 +210,6 @@
 		A1D96E0821ED1E22009C0A30 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_200 /* AnyEncodable.swift */; };
 		A1D96E0921ED1E22009C0A30 /* AnyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_201 /* AnyValue.swift */; };
 		A1D96E0A21ED1E22009C0A30 /* DataConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_202 /* DataConvertible.swift */; };
-		A1D96E0B21ED1E22009C0A30 /* DataSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_203 /* DataSerializable.swift */; };
 		A1D96E0C21ED1E22009C0A30 /* JsonContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_204 /* JsonContext.swift */; };
 		A1D96E0D21ED1E22009C0A30 /* JsonConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_205 /* JsonConvertible.swift */; };
 		A1D96E0E21ED1E22009C0A30 /* UnitValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_206 /* UnitValue.swift */; };
@@ -264,7 +265,6 @@
 		OBJ_1013 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_200 /* AnyEncodable.swift */; };
 		OBJ_1014 /* AnyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_201 /* AnyValue.swift */; };
 		OBJ_1015 /* DataConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_202 /* DataConvertible.swift */; };
-		OBJ_1016 /* DataSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_203 /* DataSerializable.swift */; };
 		OBJ_1017 /* JsonContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_204 /* JsonContext.swift */; };
 		OBJ_1018 /* JsonConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_205 /* JsonConvertible.swift */; };
 		OBJ_1019 /* UnitValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_206 /* UnitValue.swift */; };
@@ -494,6 +494,7 @@
 		A1673B4E21EF3CC3008FF560 /* OperationApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationApiTests.swift; sourceTree = "<group>"; };
 		A1673B5121EF43CA008FF560 /* GeneralApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralApiTests.swift; sourceTree = "<group>"; };
 		A1673B5421EF615B008FF560 /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
+		A1673B5A21F07143008FF560 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		A1B51C0B21EE0059006277F9 /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 		A1CEFEE521ECC3F1004FED2B /* DcoreKit-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DcoreKit-iOS.plist"; sourceTree = "<group>"; };
 		A1CEFEE621ECC400004FED2B /* DcoreKit-macOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DcoreKit-macOS.plist"; sourceTree = "<group>"; };
@@ -612,7 +613,6 @@
 		OBJ_200 /* AnyEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodable.swift; sourceTree = "<group>"; };
 		OBJ_201 /* AnyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyValue.swift; sourceTree = "<group>"; };
 		OBJ_202 /* DataConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConvertible.swift; sourceTree = "<group>"; };
-		OBJ_203 /* DataSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSerializable.swift; sourceTree = "<group>"; };
 		OBJ_204 /* JsonContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonContext.swift; sourceTree = "<group>"; };
 		OBJ_205 /* JsonConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonConvertible.swift; sourceTree = "<group>"; };
 		OBJ_206 /* UnitValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitValue.swift; sourceTree = "<group>"; };
@@ -1322,7 +1322,6 @@
 				OBJ_200 /* AnyEncodable.swift */,
 				OBJ_201 /* AnyValue.swift */,
 				OBJ_202 /* DataConvertible.swift */,
-				OBJ_203 /* DataSerializable.swift */,
 				OBJ_204 /* JsonContext.swift */,
 				OBJ_205 /* JsonConvertible.swift */,
 				OBJ_206 /* UnitValue.swift */,
@@ -1359,6 +1358,7 @@
 				OBJ_228 /* UInt8+Extension.swift */,
 				A1673B4B21EF34DF008FF560 /* Array+Extension.swift */,
 				A1673B5421EF615B008FF560 /* Optional+Extension.swift */,
+				A1673B5A21F07143008FF560 /* DateFormatter+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2729,6 +2729,7 @@
 				A1D96DF821ED1E22009C0A30 /* SearchAccountHistory.swift in Sources */,
 				A1D96DF921ED1E22009C0A30 /* SearchAccounts.swift in Sources */,
 				A1D96DFA21ED1E22009C0A30 /* SearchBuyings.swift in Sources */,
+				A1673B5C21F07143008FF560 /* DateFormatter+Extension.swift in Sources */,
 				A1D96DFB21ED1E22009C0A30 /* SearchContent.swift in Sources */,
 				A1D96DFC21ED1E22009C0A30 /* SearchFeedback.swift in Sources */,
 				A1D96DFD21ED1E22009C0A30 /* SearchMinerVoting.swift in Sources */,
@@ -2745,7 +2746,6 @@
 				A1D96E0821ED1E22009C0A30 /* AnyEncodable.swift in Sources */,
 				A1D96E0921ED1E22009C0A30 /* AnyValue.swift in Sources */,
 				A1D96E0A21ED1E22009C0A30 /* DataConvertible.swift in Sources */,
-				A1D96E0B21ED1E22009C0A30 /* DataSerializable.swift in Sources */,
 				A1D96E0C21ED1E22009C0A30 /* JsonContext.swift in Sources */,
 				A1D96E0D21ED1E22009C0A30 /* JsonConvertible.swift in Sources */,
 				A1D96E0E21ED1E22009C0A30 /* UnitValue.swift in Sources */,
@@ -2863,6 +2863,7 @@
 				OBJ_883 /* MinerRewardInput.swift in Sources */,
 				OBJ_884 /* MinerVotes.swift in Sources */,
 				OBJ_885 /* MinerVotingInfo.swift in Sources */,
+				A1673B5B21F07143008FF560 /* DateFormatter+Extension.swift in Sources */,
 				OBJ_886 /* ObjectType.swift in Sources */,
 				OBJ_887 /* OperationHistory.swift in Sources */,
 				OBJ_888 /* OperationType.swift in Sources */,
@@ -2994,7 +2995,6 @@
 				OBJ_1013 /* AnyEncodable.swift in Sources */,
 				OBJ_1014 /* AnyValue.swift in Sources */,
 				OBJ_1015 /* DataConvertible.swift in Sources */,
-				OBJ_1016 /* DataSerializable.swift in Sources */,
 				OBJ_1017 /* JsonContext.swift in Sources */,
 				OBJ_1018 /* JsonConvertible.swift in Sources */,
 				OBJ_1019 /* UnitValue.swift in Sources */,

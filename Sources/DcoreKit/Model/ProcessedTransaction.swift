@@ -10,8 +10,12 @@ public struct ProcessedTransaction: Codable {
     public let refBlockPrefix: UInt64
     public let opResults: AnyValue?
     
-    public var id: String {
-        return CryptoUtils.hash256(serialized).prefix(20).toHex()
+    public lazy var id: String = CryptoUtils.hash256(asData()).prefix(20).toHex()
+    
+    fileprivate var blockData: BlockData {
+        return BlockData(refBlockNum: refBlockNum,
+                         refBlockPrefix: refBlockPrefix,
+                         expiration: UInt64(expiration.timeIntervalSince1970))
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -24,17 +28,17 @@ public struct ProcessedTransaction: Codable {
         refBlockPrefix = "ref_block_prefix",
         opResults = "operation_results"
     }
+    
 }
 
-extension ProcessedTransaction: DataSerializable {
-    public var serialized: Data {
+extension ProcessedTransaction: DataEncodable {
+    func asData() -> Data {
         var data = Data()
-        data += BlockData(refBlockNum: refBlockNum,
-                          refBlockPrefix: refBlockPrefix,
-                          expiration: UInt64(expiration.timeIntervalSince1970)
-        )
+        data += blockData
         data += operations
-        data += Data(count: 1) // extensions
+        data += Data.ofZero // extensions
+        
+        Logger.debug(crypto: "ProcessedTransaction binary: %{private}s", args: { "\(data.toHex())(\(data))"})
         return data
     }
 }
