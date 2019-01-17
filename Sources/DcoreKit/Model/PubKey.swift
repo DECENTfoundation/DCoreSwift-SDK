@@ -6,7 +6,7 @@ public struct PubKey: Codable {
     public var key: BigInt = 0
     
     public init(key: String? = nil) {
-        self.key = BigInt(key!) ?? 0
+        self.key = BigInt(key!).or(0)
     }
     
     public init(from decoder: Decoder) throws {
@@ -28,11 +28,13 @@ extension PubKey: CustomStringConvertible {
     }
 }
 
-extension PubKey: DataSerializable {
-    public var serialized: Data {
+extension PubKey: DataEncodable {
+    func asData() -> Data {
         var data = Data()
-        data += VarInt(description.data(using: .ascii)!.count)
-        data += description.data(using: .ascii)!
+        data += VarInt(description.data(using: .ascii)!.count).asData()
+        data += description.data(using: .ascii)
+        
+        Logger.debug(crypto: "PubKey binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data
     }
 }

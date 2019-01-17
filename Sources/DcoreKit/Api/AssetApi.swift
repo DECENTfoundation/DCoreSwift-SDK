@@ -17,7 +17,7 @@ extension AssetApi {
     }
     
     public func getAsset(byId id: ChainObject) -> Single<Asset> {
-        return getAssets(byIds: [id]).map({ $0.first! })
+        return getAssets(byIds: [id]).map({ try $0.first.orThrow(ChainException.network(.notFound)) })
     }
     
     public func getAssets(bySymbols symbols: [Asset.Symbol]) -> Single<[Asset]> {
@@ -25,7 +25,7 @@ extension AssetApi {
     }
     
     public func getAsset(bySymbol symbol: Asset.Symbol) -> Single<Asset> {
-        return getAssets(bySymbols: [symbol]).map({ $0.first! })
+        return getAssets(bySymbols: [symbol]).map({ try $0.first.orThrow(ChainException.network(.notFound)) })
     }
     
     public func getAssets(byLowerBound bound: String, limit: Int = 100) -> Single<[Asset]> {

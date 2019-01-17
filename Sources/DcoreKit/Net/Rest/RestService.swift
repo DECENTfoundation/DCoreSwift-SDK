@@ -9,7 +9,7 @@ final class RestService: CoreRequestConvertible {
     
     init(_ url: URL, session: URLSession? = nil) {
         self.url = url
-        self.session = session ?? URLSession(configuration: .default)
+        self.session = session.or(URLSession(configuration: .default))
     }
     
     func request<Output>(using req: BaseRequest<Output>) -> Single<Output> where Output: Codable {

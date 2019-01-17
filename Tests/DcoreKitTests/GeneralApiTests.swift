@@ -12,7 +12,13 @@ class GeneralApiTests: XCTestCase {
         XCTAssertEqual(id, "17401602b201b3c45a3ad98afc6fb458f91f519bd30d1058adf6f2bed66376bc")
     }
     
+    func testDynamicGlobalPropsUsingWss() {
+        let props = try? wss.general.getDynamicGlobalProperties().debug().toBlocking().single()
+        XCTAssertNotNil(props)
+    }
+    
     static var allTests = [
         ("testChainIdUsingWss", testChainIdUsingWss),
+        ("testDynamicGlobalPropsUsingWss", testDynamicGlobalPropsUsingWss),
     ]
 }

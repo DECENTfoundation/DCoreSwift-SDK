@@ -10,6 +10,8 @@ protocol DataConvertible {
     func asData() -> Data
 }
 
+protocol DataEncodable: DataConvertible, Equatable {}
+
 extension DataConvertible {
     static func + (lhs: Data, rhs: Self) -> Data {
         var value = rhs
@@ -24,6 +26,20 @@ extension DataConvertible {
     func asData() -> Data { fatalError("Missing override: \(self)") }
 }
 
+extension DataEncodable {
+    static func + (lhs: Data, rhs: Self) -> Data {
+        return lhs + rhs.asData()
+    }
+    
+    static func += (lhs: inout Data, rhs: Self) {
+        lhs = lhs + rhs.asData()
+    }
+    
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.asData() == rhs.asData()
+    }
+}
+
 extension UInt8: DataConvertible {}
 extension UInt16: DataConvertible {}
 extension UInt32: DataConvertible {}
@@ -36,14 +52,39 @@ extension Int: DataConvertible {}
 
 extension BigInt: DataConvertible {
     static func + (lhs: Data, rhs: BigInt) -> Data {
-        return lhs + rhs.magnitude.serialize()
+        return lhs + rhs.asData()
     }
     
     static func += (lhs: inout Data, rhs: BigInt) {
-        lhs = lhs + rhs.magnitude.serialize()
+        lhs = lhs + rhs.asData()
     }
     
-    func asData() -> Data { return self.magnitude.serialize() }
+    func asData() -> Data { return magnitude.serialize() }
+}
+
+extension VarInt: DataConvertible {
+    static func + (lhs: Data, rhs: VarInt) -> Data {
+        return lhs + rhs.asData()
+    }
+    
+    static func += (lhs: inout Data, rhs: VarInt) {
+        lhs = lhs + rhs.asData()
+    }
+    
+    func asData() -> Data { return data }
+}
+
+extension Optional where Wrapped: DataConvertible {
+    static func + (lhs: Data, rhs: Optional) -> Data {
+        guard let value = rhs else { return lhs + Data.empty }
+        return lhs + value
+    }
+    
+    static func += (lhs: inout Data, rhs: Optional) {
+        if let value = rhs {
+            lhs = lhs + value
+        }
+    }
 }
 
 extension Array where Element: DataConvertible {
@@ -87,7 +128,7 @@ extension String: DataConvertible {
     }
     
     func asData() -> Data {
-        return data(using: .utf8) ?? Data(count: 0)
+        return data(using: .utf8) ?? Data.empty
     }
 }
 
@@ -100,6 +141,17 @@ extension Data: DataConvertible {
     }
     
     func asData() -> Data { return self }
+}
+
+extension Data {
+    static var empty = Data(count: 0)
+    
+    static var ofZero = of(0)
+    static var ofOne = of(1)
+    
+    static func of(_ byte: UInt8) -> Data {
+        return Data(bytes: [byte])
+    }
 }
 
 extension Data {

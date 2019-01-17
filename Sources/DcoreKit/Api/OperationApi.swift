@@ -5,7 +5,7 @@ public protocol OperationApi: BaseApi {
     func create(transfer creds: Credentials,
                 to: String,
                 amount: AssetAmount,
-                message: String?,
+                memo: String?,
                 encrypted: Bool,
                 fee: AssetAmount?) -> Single<TransferOperation>
     func create(transfer creds: Credentials,
@@ -19,7 +19,7 @@ public protocol OperationApi: BaseApi {
     func transfer(_ creds: Credentials,
                   to: String,
                   amount: AssetAmount,
-                  message: String?,
+                  memo: String?,
                   encrypted: Bool,
                   fee: AssetAmount?) -> Observable<TransactionConfirmation>
 }
@@ -28,25 +28,25 @@ extension OperationApi {
     public func create(transfer creds: Credentials,
                        to: String,
                        amount: AssetAmount,
-                       message: String? = nil,
+                       memo: String? = nil,
                        encrypted: Bool = true,
                        fee: AssetAmount? = nil) -> Single<TransferOperation> {
         return api.account.getAccount(byReference: to).map {
             
-            guard !(message ?? "").isEmpty && encrypted else {
+            if memo.isEmptyOrNil() || !encrypted {
                 return TransferOperation(from: creds.accountId,
                                          to: $0.id,
                                          amount: amount,
-                                         memo: Memo(message ?? ""),
-                                         fee: fee ?? BaseOperation.feeUnset)
+                                         memo: memo.map { Memo($0) },
+                                         fee: fee.or(BaseOperation.feeUnset))
             }
             
-            let memo = Memo(message!, keyPair: creds.keyPair, recipient: $0.active.keyAuths.first!.value)
+            let msg = Memo(memo.or(""), keyPair: creds.keyPair, recipient: $0.active.keyAuths.first!.value)
             return TransferOperation(from: creds.accountId,
                                      to: $0.id,
                                      amount: amount,
-                                     memo: memo,
-                                     fee: fee ?? BaseOperation.feeUnset)
+                                     memo: msg,
+                                     fee: fee.or(BaseOperation.feeUnset))
         }
     }
     
@@ -54,7 +54,7 @@ extension OperationApi {
                        to: String,
                        amount: AssetAmount,
                        fee: AssetAmount? = nil) -> Single<TransferOperation> {
-        return create(transfer: creds, to: to, amount: amount, message: nil, encrypted: false, fee: fee)
+        return create(transfer: creds, to: to, amount: amount, memo: nil, encrypted: false, fee: fee)
     }
     
     public func transfer(_ creds: Credentials,
@@ -69,10 +69,10 @@ extension OperationApi {
     public func transfer(_ creds: Credentials,
                          to: String,
                          amount: AssetAmount,
-                         message: String? = nil,
+                         memo: String? = nil,
                          encrypted: Bool = true,
                          fee: AssetAmount? = nil) -> Observable<TransactionConfirmation> {
-        return create(transfer: creds, to: to, amount: amount, message: message, encrypted: encrypted, fee: fee)
+        return create(transfer: creds, to: to, amount: amount, memo: memo, encrypted: encrypted, fee: fee)
             .asObservable()
             .flatMap { self.api.broadcast.broadcast(withCallback: creds.keyPair, operation: $0) }
     }

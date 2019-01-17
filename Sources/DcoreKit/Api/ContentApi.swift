@@ -19,7 +19,7 @@ public protocol ContentApi: BaseApi {
 
 extension ContentApi {
     public func getContent(byId id: ChainObject) -> Single<Content> {
-        return GetContentById(id).base.toResponse(api.core).map({ $0.first! })
+        return GetContentById(id).base.toResponse(api.core).map({ try $0.first.orThrow(ChainException.network(.notFound)) })
     }
     
     public func getContent(byUri uri: String) -> Single<Content> {

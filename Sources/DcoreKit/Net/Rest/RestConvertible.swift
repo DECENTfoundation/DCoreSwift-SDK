@@ -9,7 +9,7 @@ extension RestConvertible where Self: Encodable {
         let data = try? asJsonData()
         
         Logger.debug(network: "RPC rest request:\n%{private}s") {
-            String(data: data ?? Data(count: 0), encoding: .utf8)
+            String(data: data.or(Data.empty), encoding: .utf8)
         }
         return asURLRequest(url)
             .using(method: .post)

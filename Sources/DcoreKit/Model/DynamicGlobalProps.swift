@@ -1,4 +1,5 @@
 import Foundation
+import BigInt
 
 public struct DynamicGlobalProps: Codable {
     
@@ -9,10 +10,10 @@ public struct DynamicGlobalProps: Codable {
     public let currentMiner: ChainObject
     public let nextMaintenanceTime: Date
     public let lastBudgetTime: Date
-    public let unspentFeeBudget: UInt64
-    public let minedRewards: UInt64
-    public let minerBudgetFromFees: UInt64
-    public let minerBudgetFromRewards: UInt64
+    public let unspentFeeBudget: BigInt
+    public let minedRewards: BigInt
+    public let minerBudgetFromFees: BigInt
+    public let minerBudgetFromRewards: BigInt
     public let accountsRegisteredThisInterval: UInt64
     public let recentlyMissedCount: UInt64
     public let currentAslot: UInt64
