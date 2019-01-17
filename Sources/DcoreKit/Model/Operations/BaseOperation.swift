@@ -4,7 +4,7 @@ public class BaseOperation: Codable {
     
     static let feeUnset = AssetAmount(0)
     
-    public let type: OperationType
+    public var type: OperationType = .unknown
     public var fee: AssetAmount = feeUnset
     
     init(type: OperationType, fee: AssetAmount? = nil) {
@@ -14,7 +14,6 @@ public class BaseOperation: Codable {
     
     private enum CodingKeys: String, CodingKey {
         case
-        type,
         fee
     }
     

@@ -2,6 +2,7 @@ import Foundation
 
 public enum OperationType: Int, Codable {
     case
+    unknown = -1,
     transferOperation = 0,
     accountCreateOperation,
     accountUpdateOperation,

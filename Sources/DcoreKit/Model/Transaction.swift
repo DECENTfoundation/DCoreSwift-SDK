@@ -21,6 +21,7 @@ public struct Transaction: Codable {
         self.expiration = Date(timeIntervalSince1970: TimeInterval(blockData.expiration))
         self.refBlockNum = blockData.refBlockNum
         self.refBlockPrefix = blockData.refBlockPrefix
+        self.extensions = .array([])
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -47,6 +48,16 @@ public struct Transaction: Codable {
         
         trx.signatures = [signature]
         return trx
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(operations.asOperationPairs(), forKey: .operations)
+        try container.encode(signatures, forKey: .signatures)
+        try container.encode(expiration, forKey: .expiration)
+        try container.encode(refBlockNum, forKey: .refBlockNum)
+        try container.encode(refBlockPrefix, forKey: .refBlockPrefix)
+        try container.encode(extensions, forKey: .extensions)
     }
     
     private func extend() -> Transaction {
