@@ -25,13 +25,12 @@ final class SerializationTests: XCTestCase {
     func testGetRequiredFeesJsonSerialization() {
         let api =
         """
-        {"jsonrpc":"2.0","method":"call","id":1,"params":[0,"get_required_fees",[[[39,{"type":39,"fee":{"amount":"0","asset_id":"1.3.0"}}],[1,{"type":1,"fee":{"amount":"0","asset_id":"1.3.0"}}]],"1.3.0"]]}
+        {"jsonrpc":"2.0","method":"call","id":1,"params":[0,"get_required_fees",[[[39,{"fee":{"amount":"0","asset_id":"1.3.0"}}],[1,{"fee":{"amount":"0","asset_id":"1.3.0"}}]],"1.3.0"]]}
         """
         let result = GetRequiredFees([
             EmptyOperation(type: OperationType.transferTwoOperation),
             EmptyOperation(type: OperationType.accountCreateOperation)
         ]).base.asJson()
-        
         XCTAssertEqual(result, api)
     }
     
