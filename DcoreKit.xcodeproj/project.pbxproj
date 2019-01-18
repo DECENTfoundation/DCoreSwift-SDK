@@ -25,6 +25,14 @@
 		A1673B5C21F07143008FF560 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1673B5A21F07143008FF560 /* DateFormatter+Extension.swift */; };
 		A19D4CE321F0C8520069B6CA /* OperationPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CE221F0C8520069B6CA /* OperationPair.swift */; };
 		A19D4CE421F0C8520069B6CA /* OperationPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CE221F0C8520069B6CA /* OperationPair.swift */; };
+		A19D4CF021F1AE3B0069B6CA /* Hippolyte.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19D4CEF21F1AE3B0069B6CA /* Hippolyte.framework */; };
+		A19D4CF121F1AE5E0069B6CA /* Hippolyte.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19D4CEF21F1AE3B0069B6CA /* Hippolyte.framework */; };
+		A19D4CF321F1AE960069B6CA /* AccountApiMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF221F1AE960069B6CA /* AccountApiMockTests.swift */; };
+		A19D4CF421F1AE960069B6CA /* AccountApiMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF221F1AE960069B6CA /* AccountApiMockTests.swift */; };
+		A19D4CF721F1B4D70069B6CA /* MockBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF621F1B4D70069B6CA /* MockBuilder.swift */; };
+		A19D4CF821F1B4D70069B6CA /* MockBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF621F1B4D70069B6CA /* MockBuilder.swift */; };
+		A19D4CFA21F1B64B0069B6CA /* MockTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */; };
+		A19D4CFB21F1B64B0069B6CA /* MockTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */; };
 		A1B51C0C21EE0059006277F9 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B51C0B21EE0059006277F9 /* BaseApi.swift */; };
 		A1B51C0D21EE0059006277F9 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B51C0B21EE0059006277F9 /* BaseApi.swift */; };
 		A1D96D5221ED1E22009C0A30 /* AccountApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* AccountApi.swift */; };
@@ -496,6 +504,10 @@
 		A1673B5421EF615B008FF560 /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 		A1673B5A21F07143008FF560 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		A19D4CE221F0C8520069B6CA /* OperationPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationPair.swift; sourceTree = "<group>"; };
+		A19D4CEF21F1AE3B0069B6CA /* Hippolyte.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hippolyte.framework; path = Carthage/Build/iOS/Hippolyte.framework; sourceTree = "<group>"; };
+		A19D4CF221F1AE960069B6CA /* AccountApiMockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountApiMockTests.swift; sourceTree = "<group>"; };
+		A19D4CF621F1B4D70069B6CA /* MockBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBuilder.swift; sourceTree = "<group>"; };
+		A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTestCase.swift; sourceTree = "<group>"; };
 		A1B51C0B21EE0059006277F9 /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 		A1CEFEE521ECC3F1004FED2B /* DcoreKit-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DcoreKit-iOS.plist"; sourceTree = "<group>"; };
 		A1CEFEE621ECC400004FED2B /* DcoreKit-macOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DcoreKit-macOS.plist"; sourceTree = "<group>"; };
@@ -1154,6 +1166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
+				A19D4CF121F1AE5E0069B6CA /* Hippolyte.framework in Frameworks */,
 				A1D96E3C21ED2025009C0A30 /* RxBlocking.framework in Frameworks */,
 				A1D96E3D21ED2025009C0A30 /* DcoreKit.framework in Frameworks */,
 			);
@@ -1178,6 +1191,7 @@
 			files = (
 				A1E9BC3421ECE0410058109F /* RxBlocking.framework in Frameworks */,
 				OBJ_1097 /* DcoreKit.framework in Frameworks */,
+				A19D4CF021F1AE3B0069B6CA /* Hippolyte.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1187,6 +1201,7 @@
 		A11F6D6021ECB619008C8525 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A19D4CEF21F1AE3B0069B6CA /* Hippolyte.framework */,
 				A1E9BC3321ECE0410058109F /* RxBlocking.framework */,
 				A11F6D6221ECB61A008C8525 /* BigInt.framework */,
 				A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */,
@@ -1196,6 +1211,15 @@
 				A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A19D4CF521F1B4BD0069B6CA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A19D4CF621F1B4D70069B6CA /* MockBuilder.swift */,
+				A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		OBJ_100 /* Model */ = {
@@ -1374,7 +1398,9 @@
 		OBJ_230 /* DcoreKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				A19D4CF521F1B4BD0069B6CA /* Utils */,
 				OBJ_231 /* AccountApiTests.swift */,
+				A19D4CF221F1AE960069B6CA /* AccountApiMockTests.swift */,
 				A1673B4E21EF3CC3008FF560 /* OperationApiTests.swift */,
 				A1673B5121EF43CA008FF560 /* GeneralApiTests.swift */,
 				OBJ_232 /* AssetApiTests.swift */,
@@ -2411,6 +2437,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SipHash.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxAtomic.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Hippolyte.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -2425,6 +2452,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CryptoSwift.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SipHash.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxAtomic.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Hippolyte.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2474,12 +2502,12 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/BigInt.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Starscream.framework",
+				"$(SRCROOT)/Carthage/Build/macOS/BigInt.framework",
+				"$(SRCROOT)/Carthage/Build/macOS/CryptoSwift.framework",
+				"$(SRCROOT)/Carthage/Build/macOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/macOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/macOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/macOS/Starscream.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -2504,15 +2532,16 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/BigInt.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Starscream.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SipHash.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxAtomic.framework",
+				"$(SRCROOT)/Carthage/Build/macOS/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/macOS/BigInt.framework",
+				"$(SRCROOT)/Carthage/Build/macOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/macOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/macOS/Starscream.framework",
+				"$(SRCROOT)/Carthage/Build/macOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/macOS/CryptoSwift.framework",
+				"$(SRCROOT)/Carthage/Build/macOS/SipHash.framework",
+				"$(SRCROOT)/Carthage/Build/macOS/RxAtomic.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Hippolyte.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -2778,9 +2807,12 @@
 			buildActionMask = 0;
 			files = (
 				A1D96E3421ED2025009C0A30 /* AccountApiTests.swift in Sources */,
+				A19D4CF421F1AE960069B6CA /* AccountApiMockTests.swift in Sources */,
 				A1673B5021EF3CC3008FF560 /* OperationApiTests.swift in Sources */,
 				A1D96E3521ED2025009C0A30 /* AssetApiTests.swift in Sources */,
 				A1673B5321EF43CA008FF560 /* GeneralApiTests.swift in Sources */,
+				A19D4CF821F1B4D70069B6CA /* MockBuilder.swift in Sources */,
+				A19D4CFB21F1B64B0069B6CA /* MockTestCase.swift in Sources */,
 				A1D96E3621ED2025009C0A30 /* BalanceApiTests.swift in Sources */,
 				A1D96E3721ED2025009C0A30 /* CryptoTests.swift in Sources */,
 				A1D96E3821ED2025009C0A30 /* SerializationTests.swift in Sources */,
@@ -2793,9 +2825,12 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_1087 /* AccountApiTests.swift in Sources */,
+				A19D4CF321F1AE960069B6CA /* AccountApiMockTests.swift in Sources */,
 				A1673B4F21EF3CC3008FF560 /* OperationApiTests.swift in Sources */,
 				OBJ_1088 /* AssetApiTests.swift in Sources */,
 				A1673B5221EF43CA008FF560 /* GeneralApiTests.swift in Sources */,
+				A19D4CF721F1B4D70069B6CA /* MockBuilder.swift in Sources */,
+				A19D4CFA21F1B64B0069B6CA /* MockTestCase.swift in Sources */,
 				OBJ_1089 /* BalanceApiTests.swift in Sources */,
 				OBJ_1090 /* CryptoTests.swift in Sources */,
 				OBJ_1091 /* SerializationTests.swift in Sources */,
@@ -3117,6 +3152,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/macOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DcoreKit-macOS.plist";
@@ -3143,6 +3179,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/macOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DcoreKit-macOS.plist";
