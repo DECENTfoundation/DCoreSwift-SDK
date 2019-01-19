@@ -32,6 +32,14 @@ extension AccountCreateOperation: DataEncodable {
     func asData() -> Data {
         
         var data = Data()
+        data += type
+        data += fee
+        data += registrar
+        data += name
+        data += owner
+        data += active
+        data += options
+        data += Data.ofZero
         
         Logger.debug(crypto: "AccountCreateOperation binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
         return data

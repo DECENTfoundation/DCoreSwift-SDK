@@ -4,25 +4,19 @@ public struct AnyOperation: Operation {
     
     public var fee: AssetAmount = .unset
     public var type: OperationType = .unknown
+    public var operation: Operation?
     
-    var operation: Operation?
-    var data: Data?
+    private var data: Data = Data.ofZero
     
     init(_ type: OperationType) {
         self.type = type
     }
-    
-    init<Input>(_ operation: Input) where Input: Operation {
-        self.operation = operation
-        self.fee = operation.fee
-        self.type = operation.type
-    }
-    
-    init<Input>(_ operation: Input) where Input: Operation & DataEncodable {
-        self.operation = operation
-        self.fee = operation.fee
-        self.type = operation.type
-        self.data = operation.asData()
+
+    init<Input>(_ input: Input) where Input: Operation {
+        operation = input
+        fee =       input.fee
+        type =      input.type
+        // data =      input.encoded()
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -32,13 +26,13 @@ public struct AnyOperation: Operation {
 }
 
 extension AnyOperation: DataEncodable {
-    func asData() -> Data {
-        return data.or(Data.empty)
+    public func asData() -> Data {
+        return data
     }
 }
 
 extension Array where Element: Operation {
-    func asAnyOperations() -> [AnyOperation] {
+    func asOperations() -> [AnyOperation] {
         return map({ AnyOperation($0) })
     }
 }

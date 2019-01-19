@@ -71,7 +71,7 @@ extension Transaction: DataEncodable {
     func asData() -> Data {
         var data = Data()
         data += blockData
-        data += operations.asAnyOperations()
+        data += operations.asOperations()
         data += Data.ofZero // extensions
         
         Logger.debug(crypto: "Transaction binary: %{private}s", args: { "\(data.toHex()) (\(data))" })

@@ -35,7 +35,7 @@ extension DCore {
         }
         
         func prepare<Input>(transactionUsing operations: [Input],
-                                       expiration: Int) -> Single<Transaction<Input>> where Input: Operation {
+                            expiration: Int) -> Single<Transaction<Input>> where Input: Operation {
             return Single.deferred { [unowned self] in
                 let (fees, noFees) = operations.partitionSplit(by: { $0.fee != .unset })
                 return Single.zip(self.chainId, GetDynamicGlobalProps().base.toResponse(self), (

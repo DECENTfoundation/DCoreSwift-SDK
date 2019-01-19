@@ -32,7 +32,7 @@ extension TransactionApi {
     public func create<Input>(transactionUsing operations: [Input],
                               expiration: Int? = nil) -> Single<Transaction<Input>> where Input: Operation {
         return api.core.prepare(transactionUsing: operations,
-                                           expiration: expiration.or(self.api.transactionExpiration))
+                                expiration: expiration.or(self.api.transactionExpiration))
     }
     
     public func create<Input>(transactionUsing operation: Input,
