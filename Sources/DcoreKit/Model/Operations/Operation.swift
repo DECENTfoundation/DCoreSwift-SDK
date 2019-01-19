@@ -5,6 +5,7 @@ public protocol Operation: Codable {
     var fee: AssetAmount { get set }
     
     func apply(fee amount: AssetAmount) -> Self
+    func asData() -> Data
 }
 
 extension Operation {

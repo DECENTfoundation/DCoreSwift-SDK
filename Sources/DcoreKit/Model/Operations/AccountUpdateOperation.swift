@@ -21,7 +21,7 @@ public struct AccountUpdateOperation: Operation {
 }
 
 extension AccountUpdateOperation: DataEncodable {
-    func asData() -> Data {
+    public func asData() -> Data {
         
         var data = Data()
         data += type

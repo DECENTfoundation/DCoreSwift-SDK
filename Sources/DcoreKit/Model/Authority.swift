@@ -13,7 +13,7 @@ public struct Authority: Codable {
         keyAuths = "key_auths"
     }
     
-    init(withAddress address: Address) {
+    init(from address: Address) {
         self.weightThreshold = 1
         self.accountAuths = .array([])
         self.keyAuths = [AuthMap(value: address)]

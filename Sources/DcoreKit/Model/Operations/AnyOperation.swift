@@ -4,7 +4,7 @@ public struct AnyOperation: Operation {
     
     public var fee: AssetAmount = .unset
     public var type: OperationType = .unknown
-    public var operation: Operation?
+    public var base: Operation?
     
     private var data: Data = Data.ofZero
     
@@ -13,10 +13,10 @@ public struct AnyOperation: Operation {
     }
 
     init<Input>(_ input: Input) where Input: Operation {
-        operation = input
-        fee =       input.fee
-        type =      input.type
-        // data =      input.encoded()
+        base = input
+        fee =  input.fee
+        type = input.type
+        data = input.asData()
     }
     
     private enum CodingKeys: String, CodingKey {

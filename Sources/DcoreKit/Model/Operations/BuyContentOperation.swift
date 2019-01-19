@@ -40,8 +40,7 @@ public struct BuyContentOperation: Operation {
 }
 
 extension BuyContentOperation: DataEncodable {
-    
-    func asData() -> Data {
+    public func asData() -> Data {
         
         var data = Data()
         data += type

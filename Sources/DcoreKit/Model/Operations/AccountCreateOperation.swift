@@ -17,6 +17,14 @@ public struct AccountCreateOperation: Operation {
     public let type: OperationType = .accountCreateOperation
     public var fee: AssetAmount  = .unset
     
+    public init(_ registrar: ChainObject, name: String, address: Address) {
+        self.registrar = registrar
+        self.name = name
+        self.owner = Authority(from: address)
+        self.active = Authority(from: address)
+        self.options = Options(from: address)
+    }
+    
     private enum CodingKeys: String, CodingKey {
         case
         name,
@@ -29,7 +37,8 @@ public struct AccountCreateOperation: Operation {
 }
 
 extension AccountCreateOperation: DataEncodable {
-    func asData() -> Data {
+    
+    public func asData() -> Data {
         
         var data = Data()
         data += type

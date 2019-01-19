@@ -14,7 +14,7 @@ public struct Transaction<Input>: Codable where Input: Operation {
     public let refBlockPrefix: UInt64
     public var extensions: AnyValue?
     
-    public init(blockData: BlockData, operations: [Input], chainId: String, signatures: [String]? = nil) {
+    public init(_ blockData: BlockData, operations: [Input], chainId: String, signatures: [String]? = nil) {
         self.blockData = blockData
         self.chainId = chainId
         self.operations = operations

@@ -7,7 +7,7 @@ public struct CancelContentOperation: Operation {
 }
 
 extension CancelContentOperation: DataEncodable {
-    func asData() -> Data {
+    public func asData() -> Data {
         
         let data = Data.ofZero
         Logger.debug(crypto: "CancelContentOperation binary: %{private}s", args: { "\(data.toHex()) (\(data))"})

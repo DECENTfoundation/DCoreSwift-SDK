@@ -47,7 +47,7 @@ extension DCore {
                 )).flatMap { id, props, ops in
                     let block = BlockData(props: props, expiration: expiration)
                     return Single.just(
-                        Transaction(blockData: block, operations: ops, chainId: id)
+                        Transaction(block, operations: ops, chainId: id)
                     )
                 }
             }
