@@ -34,18 +34,17 @@ extension DCore {
             return Api(core: Sdk(wssUri: uri, restUri: restUri, session: session))
         }
         
-        func prepareTransaction<Operation>(forOperations operations: [Operation],
-                                           expiration: Int) -> Single<Transaction> where Operation: BaseOperation {
+        func prepare<Input>(transactionUsing operations: [Input],
+                                       expiration: Int) -> Single<Transaction<Input>> where Input: Operation {
             return Single.deferred { [unowned self] in
-                let (fees, noFees) = operations.partitionSplit(by: { $0.fee != BaseOperation.feeUnset })
+                let (fees, noFees) = operations.partitionSplit(by: { $0.fee != .unset })
                 return Single.zip(self.chainId, GetDynamicGlobalProps().base.toResponse(self), (
-                    noFees.isEmpty ? Single.just(fees) : GetRequiredFees(noFees).base.toResponse(self).map { required in
+                    noFees.isEmpty ? Single.just(fees) : GetRequiredFees(noFees).base.toResponse(self).map { req in
                         return noFees.enumerated().map { offset, op in
-                            return op.apply(fee: required[offset])
+                            return op.apply(fee: req[offset])
                         } + fees
                     }
                 )).flatMap { id, props, ops in
-                    
                     let block = BlockData(props: props, expiration: expiration)
                     return Single.just(
                         Transaction(blockData: block, operations: ops, chainId: id)

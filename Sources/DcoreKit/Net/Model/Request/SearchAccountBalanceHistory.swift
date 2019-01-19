@@ -1,9 +1,9 @@
 import Foundation
 
-struct SearchAccountBalanceHistory: BaseRequestConvertible {
+struct SearchAccountBalanceHistory<Input>: BaseRequestConvertible where Input: Operation {
     
-    typealias Output = [BalanceChange]
-    private(set) var base: BaseRequest<[BalanceChange]>
+    typealias Output = [BalanceChange<Input>]
+    private(set) var base: BaseRequest<[BalanceChange<Input>]>
     
     init(_ accountId: ChainObject,
          assets: [ChainObject] = [],
@@ -15,7 +15,7 @@ struct SearchAccountBalanceHistory: BaseRequestConvertible {
         
         precondition(accountId.objectType == .accountObject, "Not a valid account object id")
         self.base = SearchAccountBalanceHistory.toBase(
-            .history, api: "search_account_balance_history", returnType: [BalanceChange].self, params: [
+            .history, api: "search_account_balance_history", returnType: [BalanceChange<Input>].self, params: [
                 accountId, assets, recipientAccount ?? "", fromBlock, toBlock, startOffset, limit
             ]
         )

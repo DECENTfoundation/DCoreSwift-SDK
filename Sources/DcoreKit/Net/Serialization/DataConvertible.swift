@@ -38,6 +38,10 @@ extension DataEncodable {
     public static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.asData() == rhs.asData()
     }
+    
+    func asData() -> Data {
+        return Data.ofZero
+    }
 }
 
 extension UInt8: DataConvertible {}
@@ -49,6 +53,20 @@ extension Int16: DataConvertible {}
 extension Int32: DataConvertible {}
 extension Int64: DataConvertible {}
 extension Int: DataConvertible {}
+
+extension DataConvertible where Self: RawRepresentable, Self.RawValue == Int {
+    static func + (lhs: Data, rhs: Self) -> Data {
+        return lhs + rhs.asData()
+    }
+    
+    static func += (lhs: inout Data, rhs: Self) {
+        lhs = lhs + rhs.asData()
+    }
+    
+    func asData() -> Data {
+        return Data.of(self.rawValue)
+    }
+}
 
 extension BigInt: DataConvertible {
     static func + (lhs: Data, rhs: BigInt) -> Data {
@@ -75,6 +93,19 @@ extension VarInt: DataConvertible {
 }
 
 extension Optional where Wrapped: DataConvertible {
+    static func + (lhs: Data, rhs: Optional) -> Data {
+        guard let value = rhs else { return lhs + Data.empty }
+        return lhs + value
+    }
+    
+    static func += (lhs: inout Data, rhs: Optional) {
+        if let value = rhs {
+            lhs = lhs + value
+        }
+    }
+}
+
+extension Optional where Wrapped: RawRepresentable {
     static func + (lhs: Data, rhs: Optional) -> Data {
         guard let value = rhs else { return lhs + Data.empty }
         return lhs + value
@@ -151,6 +182,10 @@ extension Data {
     
     static func of(_ byte: UInt8) -> Data {
         return Data(bytes: [byte])
+    }
+    
+    static func of(_ byte: IntegerLiteralType) -> Data {
+        return Data(bytes: [UInt8(byte)])
     }
 }
 

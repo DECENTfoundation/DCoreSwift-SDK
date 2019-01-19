@@ -1,13 +1,13 @@
 import Foundation
 
-struct ValidateTransaction: BaseRequestConvertible {
+struct ValidateTransaction<Input>: BaseRequestConvertible where Input: Operation {
     
-    typealias Output = ProcessedTransaction
-    private(set) var base: BaseRequest<ProcessedTransaction>
+    typealias Output = ProcessedTransaction<Input>
+    private(set) var base: BaseRequest<ProcessedTransaction<Input>>
     
-    init(_ trx: Transaction) {
+    init(_ trx: Transaction<Input>) {
         self.base = ValidateTransaction.toBase(
-            .database, api: "validate_transaction", returnType: ProcessedTransaction.self, params: [trx]
+            .database, api: "validate_transaction", returnType: ProcessedTransaction<Input>.self, params: [trx]
         )
     }
 }

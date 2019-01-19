@@ -4,7 +4,7 @@ import RxSwift
 public protocol BlockApi: BaseApi {
     func getBlockHeader(byNum num: UInt64) -> Single<BlockHeader>
     func headBlockTime() -> Single<Date>
-    func getBlock(byNum num: UInt64) -> Single<SignedBlock>
+    func getBlock<Input>(byNum num: UInt64) -> Single<SignedBlock<Input>> where Input: Operation
 }
 
 extension BlockApi {
@@ -16,7 +16,7 @@ extension BlockApi {
         return HeadBlockTime().base.toResponse(api.core)
     }
     
-    public func getBlock(byNum num: UInt64) -> Single<SignedBlock> {
+    public func getBlock<Input>(byNum num: UInt64) -> Single<SignedBlock<Input>> where Input: Operation {
         return GetBlock(num).base.toResponse(api.core)
     }
 }
