@@ -1,9 +1,9 @@
 import Foundation
 
-public struct OperationHistory: Codable {
+public struct OperationHistory<Input>: Codable where Input: Operation {
     
     public let id: ChainObject
-    public let operation: BaseOperation
+    public let operation: Input
     public let result: AnyValue?
     public let blockNum: UInt64
     public let trxInBlock: UInt64

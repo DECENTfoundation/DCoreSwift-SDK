@@ -23,7 +23,7 @@ public struct Options: Codable {
         subscriptionPeriod = "subscription_period"
     }
     
-    public init(fromAddress address: Address) {
+    public init(from address: Address) {
         memoKey = address
         votingAccount = "1.2.3".chain.chainObject!
         numMiner = 0

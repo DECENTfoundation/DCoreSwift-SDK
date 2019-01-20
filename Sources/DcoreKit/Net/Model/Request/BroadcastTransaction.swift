@@ -5,7 +5,7 @@ struct BroadcastTransaction: BaseRequestConvertible {
     typealias Output = UnitValue
     private(set) var base: BaseRequest<UnitValue>
     
-    init(_ trx: Transaction) {
+    init<Input>(_ trx: Transaction<Input>) where Input: Operation {
         
         precondition(!trx.signatures!.isEmpty, "Transaction not signed, forgot to call .withSignature(key) ?")
         self.base = BroadcastTransaction.toBase(

@@ -38,6 +38,8 @@ extension DataEncodable {
     public static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.asData() == rhs.asData()
     }
+    
+    func asData() -> Data { return Data.ofZero }
 }
 
 extension UInt8: DataConvertible {}
@@ -72,6 +74,18 @@ extension VarInt: DataConvertible {
     }
     
     func asData() -> Data { return data }
+}
+
+extension RawRepresentable where RawValue == Int {
+    static func + (lhs: Data, rhs: Self) -> Data {
+        return lhs + rhs.asData()
+    }
+    
+    static func += (lhs: inout Data, rhs: Self) {
+        lhs = lhs + rhs.asData()
+    }
+    
+    func asData() -> Data { return Data.of(rawValue) }
 }
 
 extension Optional where Wrapped: DataConvertible {
@@ -127,9 +141,7 @@ extension String: DataConvertible {
         return lhs + data
     }
     
-    func asData() -> Data {
-        return data(using: .utf8) ?? Data.empty
-    }
+    func asData() -> Data { return data(using: .utf8).or(Data.empty) }
 }
 
 extension Data: DataConvertible {
@@ -151,6 +163,10 @@ extension Data {
     
     static func of(_ byte: UInt8) -> Data {
         return Data(bytes: [byte])
+    }
+    
+    static func of(_ byte: IntegerLiteralType) -> Data {
+        return Data(bytes: [UInt8(byte)])
     }
 }
 
@@ -187,9 +203,7 @@ extension Data {
         return VarInt(value)
     }
     
-    func utf8() -> String? {
-        return String(data: self, encoding: .utf8)
-    }
+    func utf8() -> String? { return String(data: self, encoding: .utf8) }
 }
 
 extension Data {
@@ -215,7 +229,5 @@ extension Data {
 }
 
 extension String {
-    public func unhex() -> Data? {
-        return Data(hex: self)
-    }
+    public func unhex() -> Data? { return Data(hex: self) }
 }

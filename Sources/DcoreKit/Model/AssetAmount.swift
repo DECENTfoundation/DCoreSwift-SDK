@@ -3,6 +3,8 @@ import BigInt
 
 public struct AssetAmount: Codable {
     
+    public static let unset = AssetAmount(0)
+    
     public let amount: BigInt
     public let assetId: ChainObject
     
