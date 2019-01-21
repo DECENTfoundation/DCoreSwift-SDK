@@ -3,16 +3,31 @@ import BigInt
 
 // swiftlint:disable shorthand_operator
 
-protocol DataConvertible {
-    static func + (lhs: Data, rhs: Self) -> Data
-    static func += (lhs: inout Data, rhs: Self)
-    
-    func asData() -> Data
+protocol DataEncodable {
+    func asEncoded() -> Data
 }
 
-protocol DataEncodable: DataConvertible, Equatable {}
+public protocol DataConvertible {
+    func asData() -> Data
+    func asOptionalData() -> Data
+}
+
+protocol DataConcatable {
+    static func + (lhs: Data, rhs: Self) -> Data
+    static func += (lhs: inout Data, rhs: Self)
+}
 
 extension DataConvertible {
+    public func asData() -> Data {
+        return Data.empty
+    }
+    
+    public func asOptionalData() -> Data {
+        return asData()
+    }
+}
+
+extension DataConcatable {
     static func + (lhs: Data, rhs: Self) -> Data {
         var value = rhs
         let data = Data(buffer: UnsafeBufferPointer(start: &value, count: 1))
@@ -22,37 +37,64 @@ extension DataConvertible {
     static func += (lhs: inout Data, rhs: Self) {
         lhs = lhs + rhs
     }
-    
-    func asData() -> Data { fatalError("Missing override: \(self)") }
 }
 
 extension DataEncodable {
-    static func + (lhs: Data, rhs: Self) -> Data {
+    func asEncoded() -> Data {
+        fatalError("Missing override \(self)")
+    }
+}
+
+extension UInt8: DataConcatable {}
+extension UInt16: DataConcatable {}
+extension UInt32: DataConcatable {}
+extension UInt64: DataConcatable {}
+extension Int8: DataConcatable {}
+extension Int16: DataConcatable {}
+extension Int32: DataConcatable {}
+extension Int64: DataConcatable {}
+extension Int: DataConcatable {}
+
+extension Data: DataConvertible, DataConcatable, DataEncodable {
+   
+    static func + (lhs: Data, rhs: Data) -> Data {
+        var data = Data()
+        data.append(lhs)
+        data.append(rhs)
+        return data
+    }
+    
+    public func asData() -> Data {
+        return VarInt(count).asData() + self
+    }
+    
+    func asEncoded() -> Data {
+        return self
+    }
+}
+
+extension Bool: DataConvertible {
+    public func asData() -> Data {
+        return Data.of((self ? UInt8(0x01) : UInt8(0x00)).littleEndian)
+    }
+}
+
+extension String: DataConvertible, DataConcatable, DataEncodable {
+    static func + (lhs: Data, rhs: String) -> Data {
         return lhs + rhs.asData()
     }
     
-    static func += (lhs: inout Data, rhs: Self) {
-        lhs = lhs + rhs.asData()
+    public func asData() -> Data {
+        let bytes = data(using: .utf8).or(Data.ofZero)
+        return VarInt(bytes.count).asData() + bytes
     }
     
-    public static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.asData() == rhs.asData()
+    func asEncoded() -> Data {
+        return data(using: .utf8).or(Data.empty)
     }
-    
-    func asData() -> Data { return Data.ofZero }
 }
 
-extension UInt8: DataConvertible {}
-extension UInt16: DataConvertible {}
-extension UInt32: DataConvertible {}
-extension UInt64: DataConvertible {}
-extension Int8: DataConvertible {}
-extension Int16: DataConvertible {}
-extension Int32: DataConvertible {}
-extension Int64: DataConvertible {}
-extension Int: DataConvertible {}
-
-extension BigInt: DataConvertible {
+extension BigInt: DataConvertible, DataConcatable {
     static func + (lhs: Data, rhs: BigInt) -> Data {
         return lhs + rhs.asData()
     }
@@ -61,10 +103,12 @@ extension BigInt: DataConvertible {
         lhs = lhs + rhs.asData()
     }
     
-    func asData() -> Data { return magnitude.serialize() }
+    public func asData() -> Data {
+        return magnitude.serialize()
+    }
 }
 
-extension VarInt: DataConvertible {
+extension VarInt: DataConvertible, DataConcatable {
     static func + (lhs: Data, rhs: VarInt) -> Data {
         return lhs + rhs.asData()
     }
@@ -73,86 +117,40 @@ extension VarInt: DataConvertible {
         lhs = lhs + rhs.asData()
     }
     
-    func asData() -> Data { return data }
-}
-
-extension RawRepresentable where RawValue == Int {
-    static func + (lhs: Data, rhs: Self) -> Data {
-        return lhs + rhs.asData()
-    }
-    
-    static func += (lhs: inout Data, rhs: Self) {
-        lhs = lhs + rhs.asData()
-    }
-    
-    func asData() -> Data { return Data.of(rawValue) }
-}
-
-extension Optional where Wrapped: DataConvertible {
-    static func + (lhs: Data, rhs: Optional) -> Data {
-        guard let value = rhs else { return lhs + Data.empty }
-        return lhs + value
-    }
-    
-    static func += (lhs: inout Data, rhs: Optional) {
-        if let value = rhs {
-            lhs = lhs + value
-        }
+    public func asData() -> Data {
+        return data
     }
 }
 
 extension Array where Element: DataConvertible {
-    static func + (lhs: Data, rhs: Array) -> Data {
-        return lhs + rhs.reduce(into: Data(), { data, element in
-            data = data + element
-        })
-    }
-    
-    static func += (lhs: inout Data, rhs: Array) {
-        lhs = lhs + rhs.reduce(into: Data(), { data, element in
-            data = data + element
+    public func asData() -> Data {
+        guard !isEmpty else { return Data.ofZero }
+        return reduce(into: VarInt(count).asData(), { data, element in
+            data = data + element.asData()
         })
     }
 }
 
 extension Set where Element: DataConvertible {
-    static func + (lhs: Data, rhs: Set) -> Data {
-        return lhs + rhs.reduce(into: Data(), { data, element in
-            data = data + element
-        })
-    }
-    
-    static func += (lhs: inout Data, rhs: Set) {
-        lhs = lhs + rhs.reduce(into: Data(), { data, element in
-            data = data + element
+    public func asData() -> Data {
+        guard !isEmpty else { return Data.ofZero }
+        return reduce(into: VarInt(count).asData(), { data, element in
+            data = data + element.asData()
         })
     }
 }
 
-extension Bool: DataConvertible {
-    static func + (lhs: Data, rhs: Bool) -> Data {
-        return lhs + (rhs ? UInt8(0x01) : UInt8(0x00)).littleEndian
-    }
-}
+extension Optional: DataConvertible where Wrapped: DataConvertible {
 
-extension String: DataConvertible {
-    static func + (lhs: Data, rhs: String) -> Data {
-        guard let data = rhs.data(using: .ascii) else { return lhs }
-        return lhs + data
+    public func asData() -> Data {
+        guard let value = self else { return Data.ofZero }
+        return value.asData()
     }
     
-    func asData() -> Data { return data(using: .utf8).or(Data.empty) }
-}
-
-extension Data: DataConvertible {
-    static func + (lhs: Data, rhs: Data) -> Data {
-        var data = Data()
-        data.append(lhs)
-        data.append(rhs)
-        return data
+    public func asOptionalData() -> Data {
+        guard let value = self else { return Data.ofZero }
+        return Data.ofOne + value.asData()
     }
-    
-    func asData() -> Data { return self }
 }
 
 extension Data {
@@ -161,12 +159,16 @@ extension Data {
     static var ofZero = of(0)
     static var ofOne = of(1)
     
-    static func of(_ byte: UInt8) -> Data {
-        return Data(bytes: [byte])
+    static func of(_ byte: IntegerLiteralType) -> Data {
+        return of([UInt8(byte)])
     }
     
-    static func of(_ byte: IntegerLiteralType) -> Data {
-        return Data(bytes: [UInt8(byte)])
+    static func of(_ byte: UInt8) -> Data {
+        return of([byte])
+    }
+    
+    static func of(_ bytes: [UInt8]) -> Data {
+        return Data(bytes: bytes)
     }
 }
 
@@ -181,7 +183,7 @@ extension Data {
     }
     
     func to(type: String.Type) -> String {
-        return String(bytes: self, encoding: .ascii)!.replacingOccurrences(of: "\0", with: "")
+        return String(bytes: self, encoding: .utf8).or("")
     }
     
     func to(type: VarInt.Type) -> VarInt {
@@ -202,8 +204,6 @@ extension Data {
         }
         return VarInt(value)
     }
-    
-    func utf8() -> String? { return String(data: self, encoding: .utf8) }
 }
 
 extension Data {

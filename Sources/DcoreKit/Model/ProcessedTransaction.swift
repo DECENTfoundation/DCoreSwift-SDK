@@ -31,11 +31,11 @@ public struct ProcessedTransaction<Input>: Codable where Input: Operation {
     
 }
 
-extension ProcessedTransaction: DataEncodable {
-    func asData() -> Data {
+extension ProcessedTransaction {
+    public func asData() -> Data {
         var data = Data()
-        data += blockData
-        data += operations.asOperations()
+        data += blockData.asData()
+        data += operations.asData()
         data += Data.ofZero // extensions
         
         Logger.debug(crypto: "ProcessedTransaction binary: %{private}s", args: { "\(data.toHex()) (\(data))"})

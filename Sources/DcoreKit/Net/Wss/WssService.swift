@@ -59,7 +59,7 @@ final class WssService: CoreRequestConvertible {
         .ofType(OnMessageEvent.self)
         .filterMap({ res -> FilterMap<ResponseResult<Output>> in
             
-            let (valid, result) = res.value.asData().parse(validResponse: req)
+            let (valid, result) = res.value.asEncoded().parse(validResponse: req)
             guard valid else { return .ignore }
             
             return .map(result)

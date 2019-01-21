@@ -12,13 +12,13 @@ public struct KeyParts: Codable {
     }
 }
 
-extension KeyParts: DataEncodable {
-    func asData() -> Data {
+extension KeyParts: DataConvertible {
+    public func asData() -> Data {
         var data = Data()
-        data += keyC1
-        data += keyD1
+        data += keyC1.asData()
+        data += keyD1.asData()
         
-        Logger.debug(crypto: "KeyParts binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
+        Logger.debug(crypto: "KeyParts binary: %{private}s", args: { "\(data.toHex()) (\(data)) [\(data.bytes)]"})
         return data
     }
 }

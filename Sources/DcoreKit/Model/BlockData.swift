@@ -7,20 +7,17 @@ public struct BlockData {
     public var expiration: UInt64
     
     init(props: DynamicGlobalProps, expiration: Int) {
+        let exp = UInt64(props.time.addingTimeInterval(TimeInterval(expiration)).timeIntervalSince1970)
         self.init(headBlockNumber: props.headBlockNumber,
                   headBlockId: props.headBlockId,
-                  relativeExpiration: UInt64(props.time.addingTimeInterval(
-                    TimeInterval(expiration)).timeIntervalSince1970
-            )
+                  relativeExpiration: exp
         )
     }
     
     init(headBlockNumber: UInt64, headBlockId: String, relativeExpiration: UInt64) {
+        let prefix = String(headBlockId[safe: 8...16]!.chunked(2).reversed().joined(separator: ""))
         self.init(refBlockNum: Int(headBlockNumber) & 0xFFFF,
-                  refBlockPrefix: UInt64(String(headBlockId[safe: 8...16]!
-                    .chunked(2)
-                    .reversed()
-                    .joined(separator: "")), radix: 16)!,
+                  refBlockPrefix: UInt64(prefix, radix: 16)!,
                   expiration: relativeExpiration)
     }
     
@@ -31,8 +28,8 @@ public struct BlockData {
     }
 }
 
-extension BlockData: DataEncodable {
-    func asData() -> Data {
+extension BlockData: DataConvertible {
+    public func asData() -> Data {
         var data = Data()
         // Allocating a fixed length byte array, since we will always need
         // 2 bytes for the ref_block_num value
@@ -42,7 +39,7 @@ extension BlockData: DataEncodable {
         data += Data(bytes: Data(count: 4).indices.map({ UInt8.with(value: refBlockPrefix >> 8 * UInt64($0)) }))
         data += Data(bytes: Data(count: 4).indices.map({ UInt8.with(value: expiration >> 8 * UInt64($0)) }))
         
-        Logger.debug(crypto: "BlockData binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
+        Logger.debug(crypto: "BlockData binary: %{private}s", args: { "\(data.toHex()) (\(data)) [\(data.bytes)]"})
         return data
     }
 }

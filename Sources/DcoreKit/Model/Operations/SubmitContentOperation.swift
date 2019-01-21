@@ -6,11 +6,11 @@ public struct SubmitContentOperation: Operation {
     public var fee: AssetAmount  = .unset
 }
 
-extension SubmitContentOperation: DataEncodable {
+extension SubmitContentOperation {
     public func asData() -> Data {
         
         let data = Data.ofZero
-        Logger.debug(crypto: "SubmitContentOperation binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
+        Logger.debug(crypto: "SubmitContentOperation binary: %{private}s", args: { "\(data.toHex()) (\(data)) [\(data.bytes)]"})
         return data
     }
 }

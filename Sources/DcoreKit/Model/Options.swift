@@ -5,7 +5,7 @@ public struct Options: Codable {
     public let memoKey: Address
     public let votingAccount: ChainObject
     public let numMiner: UInt16
-    public let votes: [VoteId]
+    public let votes: Set<VoteId>
     public var extensions: AnyValue?
     public let allowSubscription: Bool
     public let pricePerSubscribe: AssetAmount
@@ -27,7 +27,7 @@ public struct Options: Codable {
         memoKey = address
         votingAccount = "1.2.3".chain.chainObject!
         numMiner = 0
-        votes = []
+        votes = Set<VoteId>([])
         extensions = .array([])
         allowSubscription = false
         pricePerSubscribe = AssetAmount(0)
@@ -35,19 +35,19 @@ public struct Options: Codable {
     }
 }
 
-extension Options: DataEncodable {
-    func asData() -> Data {
+extension Options: DataConvertible {
+    public func asData() -> Data {
         var data = Data()
-        data += memoKey
-        data += votingAccount
-        data += numMiner
-        data += votes
+        data += memoKey.asData()
+        data += votingAccount.asData()
+        data += numMiner.littleEndian
+        data += votes.asData() // TODO
         data += Data.ofZero
-        data += allowSubscription
-        data += pricePerSubscribe
-        data += subscriptionPeriod
+        data += allowSubscription.asData()
+        data += pricePerSubscribe.asData()
+        data += subscriptionPeriod.littleEndian
         
-        Logger.debug(crypto: "Options binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
+        Logger.debug(crypto: "Options binary: %{private}s", args: { "\(data.toHex()) (\(data)) [\(data.bytes)]"})
         return data
     }
 }

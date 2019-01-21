@@ -6,9 +6,9 @@ protocol JsonConvertible {
     func asJsonDecoded<Output>(to type: Output.Type) throws -> Output where Output: Decodable
 }
 
-extension JsonConvertible where Self: DataConvertible {
+extension JsonConvertible where Self: DataEncodable {
     func asJsonDecoded<Output>(to type: Output.Type) throws -> Output where Output: Decodable {
-        return try JSONDecoder.codingContext().decode(type, from: asData())
+        return try JSONDecoder.codingContext().decode(type, from: asEncoded())
     }
 }
 

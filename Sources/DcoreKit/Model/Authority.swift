@@ -43,25 +43,25 @@ public struct AuthMap: Codable {
     }
 }
 
-extension Authority: DataEncodable {
-    func asData() -> Data {
+extension Authority: DataConvertible {
+    public func asData() -> Data {
         var data = Data()
         data += weightThreshold
         data += Data.ofZero
-        data += keyAuths
-        
-        Logger.debug(crypto: "Authority binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
+        data += keyAuths.asData()
+                
+        Logger.debug(crypto: "Authority binary: %{private}s", args: { "\(data.toHex()) (\(data)) [\(data.bytes)]"})
         return data
     }
 }
 
-extension AuthMap: DataEncodable {
-    func asData() -> Data {
+extension AuthMap: DataConvertible {
+    public func asData() -> Data {
         var data = Data()
-        data += value
-        data += weight
+        data += value.asData()
+        data += weight.littleEndian
         
-        Logger.debug(crypto: "AuthMap binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
+        Logger.debug(crypto: "AuthMap binary: %{private}s", args: { "\(data.toHex()) (\(data)) [\(data.bytes)]"})
         return data
     }
 }

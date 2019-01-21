@@ -25,14 +25,8 @@ public struct AnyOperation: Operation {
     }
 }
 
-extension AnyOperation: DataEncodable {
+extension AnyOperation {
     public func asData() -> Data {
         return data
-    }
-}
-
-extension Array where Element: Operation {
-    func asOperations() -> [AnyOperation] {
-        return map({ AnyOperation($0) })
     }
 }

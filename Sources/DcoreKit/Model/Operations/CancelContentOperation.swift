@@ -6,11 +6,11 @@ public struct CancelContentOperation: Operation {
     public var fee: AssetAmount  = .unset
 }
 
-extension CancelContentOperation: DataEncodable {
+extension CancelContentOperation {
     public func asData() -> Data {
         
         let data = Data.ofZero
-        Logger.debug(crypto: "CancelContentOperation binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
+        Logger.debug(crypto: "CancelContentOperation binary: %{private}s", args: { "\(data.toHex()) (\(data)) [\(data.bytes)]"})
         return data
     }
 }

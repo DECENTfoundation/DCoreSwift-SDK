@@ -45,15 +45,15 @@ public struct Memo: Codable {
     }
 }
 
-extension Memo: DataEncodable {
-    func asData() -> Data {
+extension Memo: DataConvertible {
+    public func asData() -> Data {
         var data = Data()
-        data += from
-        data += to
-        data += nonce
-        data += message.unhex()
-        
-        Logger.debug(crypto: "Memo binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
+        data += from.asData()
+        data += to.asData()
+        data += nonce.asData()
+        data += message.unhex().asData()
+       
+        Logger.debug(crypto: "Memo binary: %{private}s", args: { "\(data.toHex()) (\(data)) [\(data.bytes)]"})
         return data
     }
 }
