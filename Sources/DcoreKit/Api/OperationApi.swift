@@ -41,7 +41,7 @@ extension OperationApi {
                                          fee: fee)
             }
             
-            let msg = Memo(memo.or(""), keyPair: creds.keyPair, recipient: $0.active.keyAuths.first!.value)
+            let msg = try Memo(memo.or(""), keyPair: creds.keyPair, recipient: $0.active.keyAuths.first!.value)
             return TransferOperation(from: creds.accountId,
                                      to: $0.id,
                                      amount: amount,

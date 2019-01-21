@@ -39,7 +39,6 @@ public struct Transaction<Input>: Codable where Input: Operation {
         
         var trx = self
         var signature: String = ""
-        
         repeat {
             trx = trx.extend()
             let hash = CryptoUtils.hash256(chain + trx.asData())
@@ -74,7 +73,7 @@ extension Transaction: DataConvertible {
         data += operations.asData()
         data += Data.ofZero
         
-        Logger.debug(crypto: "Transaction binary: %{private}s", args: { "\(data.toHex()) (\(data)) [\(data.bytes)]" })
+        Logger.debug(crypto: "Transaction binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)s" })
         return data
     }
 }

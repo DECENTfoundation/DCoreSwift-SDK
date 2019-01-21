@@ -1,4 +1,5 @@
 module secp256k1 {
     header "include/secp256k1.h"
+    header "include/secp256k1_recovery.h"
     link "secp256k1"
 }

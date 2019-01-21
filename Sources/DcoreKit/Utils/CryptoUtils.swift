@@ -53,6 +53,17 @@ public struct CryptoUtils {
     static func decrypt(_ key: Data, iv: Data, input: Data) throws -> Data {
         return Data(try AES(key: key.bytes, blockMode: CBC(iv: iv.bytes), padding: .pkcs7).decrypt(input.bytes))
     }
+
+    static func encrypt(using passphrase: Data, input: Data) throws -> Data {
+        do {
+            let iv = passphrase[32...(32+16)]
+            let key = passphrase.prefix(32)
+            
+            return try encrypt(key, iv: iv, input: input)
+        } catch {
+            throw  ChainException.crypto(.failEncrypt("Cannot encrypt \(input) with passphrase: \(passphrase)"))
+        }
+    }
     
     static func decrypt(using passphrase: String, encryptedInput input: String) throws -> Data {
         do {

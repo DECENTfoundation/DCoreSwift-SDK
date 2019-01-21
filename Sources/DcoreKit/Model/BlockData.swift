@@ -39,7 +39,7 @@ extension BlockData: DataConvertible {
         data += Data(bytes: Data(count: 4).indices.map({ UInt8.with(value: refBlockPrefix >> 8 * UInt64($0)) }))
         data += Data(bytes: Data(count: 4).indices.map({ UInt8.with(value: expiration >> 8 * UInt64($0)) }))
         
-        Logger.debug(crypto: "BlockData binary: %{private}s", args: { "\(data.toHex()) (\(data)) [\(data.bytes)]"})
+        Logger.debug(crypto: "BlockData binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }

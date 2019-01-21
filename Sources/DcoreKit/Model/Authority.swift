@@ -50,7 +50,7 @@ extension Authority: DataConvertible {
         data += Data.ofZero
         data += keyAuths.asData()
                 
-        Logger.debug(crypto: "Authority binary: %{private}s", args: { "\(data.toHex()) (\(data)) [\(data.bytes)]"})
+        Logger.debug(crypto: "Authority binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }
@@ -61,7 +61,7 @@ extension AuthMap: DataConvertible {
         data += value.asData()
         data += weight.littleEndian
         
-        Logger.debug(crypto: "AuthMap binary: %{private}s", args: { "\(data.toHex()) (\(data)) [\(data.bytes)]"})
+        Logger.debug(crypto: "AuthMap binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }

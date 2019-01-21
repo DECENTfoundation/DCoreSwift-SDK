@@ -27,7 +27,7 @@ public struct Memo: Codable {
                 keyPair: ECKeyPair,
                 recipient: Address,
                 nonce: BigInt = CryptoUtils.generateNonce()
-        ) {
+        ) throws {
         
         precondition(nonce.sign == .plus, "Nonce must be a positive number")
         
@@ -35,13 +35,10 @@ public struct Memo: Codable {
         self.from = keyPair.address
         self.to = recipient
         
-        // todo - encrypt memo with derived key
-        // let data = message.data(using: .ascii)!
-        // let checksumed = CryptoUtils.hash256(data).prefix(4) + data
-        // let secret = keyPair.secret(recipient, nonce: self.nonce)
+        let checksumed  = CryptoUtils.hash256(message.asEncoded()).prefix(4) + message.asEncoded()
+        let secret = try keyPair.secret(recipient, nonce: nonce)
         
-        // CryptoUtils.encrypt(secret, message: checksumed).toHex()
-        self.message = ""
+        self.message = try CryptoUtils.encrypt(using: secret, input: checksumed).toHex()
     }
 }
 
@@ -53,7 +50,7 @@ extension Memo: DataConvertible {
         data += nonce.asData()
         data += message.unhex().asData()
        
-        Logger.debug(crypto: "Memo binary: %{private}s", args: { "\(data.toHex()) (\(data)) [\(data.bytes)]"})
+        Logger.debug(crypto: "Memo binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }

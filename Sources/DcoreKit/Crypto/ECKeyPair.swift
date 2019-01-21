@@ -3,12 +3,15 @@ import BigInt
 
 public struct ECKeyPair {
 
+    private static let compressed: Int = 4
+    private static let compact: Int = 27
+    
     let privateKey: PrivateKey
     let publicKey: PublicKey
     
     init(fromPrivateKey value: PrivateKey) {
-        self.privateKey = value
-        self.publicKey = value.toPublicKey()
+        privateKey = value
+        publicKey = value.toPublicKey()
     }
     
     init() {
@@ -20,15 +23,18 @@ public struct ECKeyPair {
     }
     
     public func sign(_ message: Data) throws -> Data {
-        return try privateKey.sign(message)
+        let (recovery, compact) = try privateKey.sign(message)
+        let signature = Data.of(recovery + ECKeyPair.compressed + ECKeyPair.compact) + compact
+        
+        if signature.canonicalSignature { throw ChainException.crypto(.failSigning) }
+        return signature
     }
     
-    public func secret(_ address: Address, nonce: BigInt) -> Data {
-        fatalError("Not implemented \(self)")
-    }
-    
-    public static func verify(signature: Data, message: Data, publicKey: Data) throws -> Bool {
-        return try PublicKey(data: publicKey).verify(signature: signature, message: message)
+    public func secret(_ address: Address, nonce: BigInt) throws -> Data {
+        let key = try address.publicKey.multiply(privateKey)
+        return CryptoUtils.hash512(
+            (nonce.magnitude.description + CryptoUtils.hash512(key).toHex()).asData()
+        )
     }
 }
 
@@ -53,5 +59,18 @@ extension ECKeyPair {
 extension Chain where Base == String {
     public var keyPair: ECKeyPair? {
         return try? ECKeyPair(fromWif: self.base)
+    }
+}
+
+extension Data {
+    fileprivate var canonicalSignature: Bool {
+        return (
+            (self[0] & 0x80) != 0 ||
+            (self[0] == 0) ||
+            (self[1] & 0x80) != 0 ||
+            (self[32] & 0x80) != 0 ||
+            (self[32] == 0) ||
+            (self[33] & 0x80) != 0
+        )
     }
 }

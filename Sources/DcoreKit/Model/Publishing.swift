@@ -21,7 +21,7 @@ extension Publishing: DataConvertible {
         data += Data.ofZero
         data += Data.ofZero
         
-        Logger.debug(crypto: "Publishing binary: %{private}s", args: { "\(data.toHex()) (\(data)) [\(data.bytes)]"})
+        Logger.debug(crypto: "Publishing binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }

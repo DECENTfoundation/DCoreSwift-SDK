@@ -95,7 +95,7 @@ extension AssetAmount: DataConvertible {
         data += amount.asData()
         data += assetId.asData()
         
-        Logger.debug(crypto: "AssetAmount binary: %{private}s", args: { "\(data.toHex()) (\(data)) [\(data.bytes)]"})
+        Logger.debug(crypto: "AssetAmount binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }

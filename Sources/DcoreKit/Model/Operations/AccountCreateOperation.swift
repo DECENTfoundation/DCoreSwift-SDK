@@ -49,7 +49,7 @@ extension AccountCreateOperation {
         data += options.asData()
         data += Data.ofZero
         
-        Logger.debug(crypto: "AccountCreateOperation binary: %{private}s", args: { "\(data.toHex()) (\(data)) [\(data.bytes)]"})
+        Logger.debug(crypto: "AccountCreateOperation binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }

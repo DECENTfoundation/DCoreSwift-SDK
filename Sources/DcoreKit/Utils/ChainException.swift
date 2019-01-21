@@ -20,6 +20,7 @@ public enum ChainException: Error {
     public enum Crypto: Error, Equatable {
         case
         failSigning,
+        failMultiply,
         failDecode(String),
         failDecrypt(String),
         failEncrypt(String),
@@ -79,6 +80,7 @@ extension ChainException.Crypto: CustomStringConvertible {
     public var description: String {
         switch self {
         case .failSigning: return "Singing failed"
+        case .failMultiply: return "Multiplication failed"
         case .failDecode(let message): return message
         case .failDecrypt(let message): return message
         case .failEncrypt(let message): return message

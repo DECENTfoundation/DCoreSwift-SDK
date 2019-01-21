@@ -39,7 +39,7 @@ extension ChainObject: DataConvertible {
     public func asData() -> Data {
         let data = VarInt(integerLiteral: instance).asData()
         
-        Logger.debug(crypto: "ChainObject binary: %{private}s", args: { "\(data.toHex()) (\(data)) [\(data.bytes)]"})
+        Logger.debug(crypto: "ChainObject binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }

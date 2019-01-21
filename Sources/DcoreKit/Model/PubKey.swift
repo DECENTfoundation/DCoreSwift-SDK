@@ -33,7 +33,7 @@ extension PubKey: DataConvertible {
         var data = Data()
         data += description.asData()
     
-        Logger.debug(crypto: "PubKey binary: %{private}s", args: { "\(data.toHex()) (\(data)) [\(data.bytes)]"})
+        Logger.debug(crypto: "PubKey binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }
