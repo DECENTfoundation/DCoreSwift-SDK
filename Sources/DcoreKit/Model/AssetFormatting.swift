@@ -1,7 +1,7 @@
 import Foundation
 import BigInt
 
-public protocol AssetFormatter {
+public protocol AssetFormatting {
     
     var id: ChainObject { get set }
     var symbol: String { get set }
@@ -17,7 +17,7 @@ extension Decimal {
     fileprivate static let ten: Decimal = 10
 }
 
-extension AssetFormatter {
+extension AssetFormatting {
     public func from(raw value: BigInt) -> Decimal {
         guard let val = Decimal(string: value.magnitude.description) else { preconditionFailure("Value can't be converted to decimal") }
         return val / pow(.ten, precision)

@@ -98,7 +98,7 @@
 		A1D96D6C21ED1E22009C0A30 /* AccountStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* AccountStatistics.swift */; };
 		A1D96D6D21ED1E22009C0A30 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* Asset.swift */; };
 		A1D96D6E21ED1E22009C0A30 /* AssetAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* AssetAmount.swift */; };
-		A1D96D6F21ED1E22009C0A30 /* AssetFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* AssetFormatter.swift */; };
+		A1D96D6F21ED1E22009C0A30 /* AssetFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* AssetFormatting.swift */; };
 		A1D96D7021ED1E22009C0A30 /* Authority.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* Authority.swift */; };
 		A1D96D7121ED1E22009C0A30 /* BalanceChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* BalanceChange.swift */; };
 		A1D96D7221ED1E22009C0A30 /* BlockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* BlockData.swift */; };
@@ -367,7 +367,7 @@
 		OBJ_857 /* AccountStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* AccountStatistics.swift */; };
 		OBJ_858 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* Asset.swift */; };
 		OBJ_859 /* AssetAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* AssetAmount.swift */; };
-		OBJ_860 /* AssetFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* AssetFormatter.swift */; };
+		OBJ_860 /* AssetFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* AssetFormatting.swift */; };
 		OBJ_861 /* Authority.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* Authority.swift */; };
 		OBJ_862 /* BalanceChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* BalanceChange.swift */; };
 		OBJ_863 /* BlockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* BlockData.swift */; };
@@ -874,7 +874,7 @@
 		OBJ_407 /* Catch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catch.swift; sourceTree = "<group>"; };
 		OBJ_408 /* CombineLatest+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CombineLatest+Collection.swift"; sourceTree = "<group>"; };
 		OBJ_409 /* CombineLatest+arity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CombineLatest+arity.swift"; sourceTree = "<group>"; };
-		OBJ_41 /* AssetFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetFormatter.swift; sourceTree = "<group>"; };
+		OBJ_41 /* AssetFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetFormatting.swift; sourceTree = "<group>"; };
 		OBJ_410 /* CombineLatest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineLatest.swift; sourceTree = "<group>"; };
 		OBJ_411 /* Completable+AndThen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Completable+AndThen.swift"; sourceTree = "<group>"; };
 		OBJ_412 /* Completable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Completable.swift; sourceTree = "<group>"; };
@@ -1760,7 +1760,7 @@
 				OBJ_38 /* AccountStatistics.swift */,
 				OBJ_39 /* Asset.swift */,
 				OBJ_40 /* AssetAmount.swift */,
-				OBJ_41 /* AssetFormatter.swift */,
+				OBJ_41 /* AssetFormatting.swift */,
 				OBJ_42 /* Authority.swift */,
 				A16032D221F35C3800674FEF /* AnyBalanceChange.swift */,
 				OBJ_43 /* BalanceChange.swift */,
@@ -2684,7 +2684,7 @@
 				A1D96D6C21ED1E22009C0A30 /* AccountStatistics.swift in Sources */,
 				A1D96D6D21ED1E22009C0A30 /* Asset.swift in Sources */,
 				A1D96D6E21ED1E22009C0A30 /* AssetAmount.swift in Sources */,
-				A1D96D6F21ED1E22009C0A30 /* AssetFormatter.swift in Sources */,
+				A1D96D6F21ED1E22009C0A30 /* AssetFormatting.swift in Sources */,
 				A1D96D7021ED1E22009C0A30 /* Authority.swift in Sources */,
 				A1D96D7121ED1E22009C0A30 /* BalanceChange.swift in Sources */,
 				A1D96D7221ED1E22009C0A30 /* BlockData.swift in Sources */,
@@ -2960,7 +2960,7 @@
 				OBJ_858 /* Asset.swift in Sources */,
 				OBJ_859 /* AssetAmount.swift in Sources */,
 				A16032C421F358EC00674FEF /* SubmitContentConfirmation.swift in Sources */,
-				OBJ_860 /* AssetFormatter.swift in Sources */,
+				OBJ_860 /* AssetFormatting.swift in Sources */,
 				OBJ_861 /* Authority.swift in Sources */,
 				OBJ_862 /* BalanceChange.swift in Sources */,
 				OBJ_863 /* BlockData.swift in Sources */,
