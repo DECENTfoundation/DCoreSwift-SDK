@@ -22,15 +22,16 @@ public struct TransferOperation: Operation {
 
 extension TransferOperation {
     public func asData() -> Data {
+        
         var data = Data()
         data += type.asData()
         data += fee.asData()
         data += from.asData()
-        data += to.objectTypeId
+        data += to.asFullData()
         data += amount.asData()
         data += memo.asOptionalData()
         data += Data.ofZero
-
+        
         Logger.debug(crypto: "TransferOperation binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }

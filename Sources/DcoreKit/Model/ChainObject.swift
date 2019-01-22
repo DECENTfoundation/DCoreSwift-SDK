@@ -9,10 +9,6 @@ public struct ChainObject {
         return "\(objectType.space).\(objectType.type).\(instance)"
     }
     
-    public var objectTypeId: Data {
-        return Data(bytes: [objectType.space << 56 | objectType.type << 48 | UInt8.with(value: instance)])
-    }
-    
     public init(from type: ObjectType) {
         objectType = type
         instance = 0
@@ -24,8 +20,8 @@ public struct ChainObject {
         
         let parts = id.components(separatedBy: ".")
         
-        objectType = ObjectType(fromSpace: Int(parts[0])!, type: Int(parts[1])!)
-        instance = UInt64(parts[2])!
+        objectType = ObjectType(fromSpace: Int(parts[0]).or(0), type: Int(parts[1]).or(0))
+        instance = UInt64(parts[2]).or(0)
     }
 }
 
@@ -36,8 +32,14 @@ extension ChainObject: CustomStringConvertible {
 }
 
 extension ChainObject: DataConvertible {
+    public func asFullData() -> Data {
+        var bytes = Data()
+        bytes += UInt64((UInt64(objectType.space) << 56) | UInt64(objectType.type) << 48 | instance).littleEndian
+        return bytes
+    }
+    
     public func asData() -> Data {
-        let data = VarInt(integerLiteral: instance).asData()
+        let data = VarInt(instance).asData()
         
         Logger.debug(crypto: "ChainObject binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
