@@ -92,7 +92,7 @@ extension AssetAmount: Comparable {
 extension AssetAmount: DataConvertible {
     public func asData() -> Data {
         var data = Data()
-        data += amount.asData()
+        data += UInt64(amount).littleEndian
         data += assetId.asData()
         
         Logger.debug(crypto: "AssetAmount binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})

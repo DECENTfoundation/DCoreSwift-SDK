@@ -104,7 +104,7 @@ extension BigInt: DataConvertible, DataConcatable {
     }
     
     public func asData() -> Data {
-        return magnitude.serialize()
+        return Data(magnitude.serialize().reversed())
     }
 }
 
@@ -150,6 +150,14 @@ extension Optional: DataConvertible where Wrapped: DataConvertible {
     public func asOptionalData() -> Data {
         guard let value = self else { return Data.ofZero }
         return Data.ofOne + value.asData()
+    }
+}
+
+extension Optional where Wrapped == Address {
+    
+    public func asData() -> Data {
+        guard let value = self else { return Data(count: 33) }
+        return value.asData()
     }
 }
 

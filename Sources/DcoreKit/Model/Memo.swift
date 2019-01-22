@@ -17,7 +17,7 @@ public struct Memo: Codable {
     }
     
     public init(_ message: String = "") {
-        self.message = (Data(count: 4) + message).toHex()
+        self.message = (Data(count: 4) + message.asEncoded()).toHex()
         self.nonce = 0
         self.from = nil
         self.to = nil
@@ -49,7 +49,6 @@ extension Memo: DataConvertible {
         data += to.asData()
         data += nonce.asData()
         data += message.unhex().asData()
-       
         Logger.debug(crypto: "Memo binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
