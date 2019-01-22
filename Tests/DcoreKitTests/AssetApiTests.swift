@@ -22,11 +22,51 @@ final class AssetApiTests: XCTestCase {
         let assets = try? api.asset.getAssets(bySymbols: [.alat, .alxt, .dct]).debug().toBlocking().single()
         XCTAssertEqual(assets?.count, 3)
     }
-   
+
+    func testFormatAssetAmountToDecimal() {
+        let asset = try? api.asset.getAsset(bySymbol: .dct).debug().toBlocking().single()
+        let decimal = asset?.from(raw: 100000000)
+        
+        XCTAssertEqual(decimal, 1)
+    }
+
+    func testFormatAssetAmountFromDecimal() {
+        let asset = try? api.asset.getAsset(bySymbol: .dct).debug().toBlocking().single()
+        let raw = asset?.to(raw: 1)
+        
+        XCTAssertEqual(raw, 100000000)
+    }
+    
+    func testFormatAssetAmountFromString() {
+        let asset = try? api.asset.getAsset(bySymbol: .dct).debug().toBlocking().single()
+        let raw = asset?.amount("1")
+        
+        XCTAssertEqual(raw, AssetAmount(100000000))
+    }
+    
+    func testFormatAssetAmountFromDouble() {
+        let asset = try? api.asset.getAsset(bySymbol: .dct).debug().toBlocking().single()
+        let raw = asset?.amount(Double(1))
+        
+        XCTAssertEqual(raw, AssetAmount(100000000))
+    }
+    
+    func testFormatAssetAmountFormattedString() {
+        let asset = try? api.asset.getAsset(bySymbol: .dct).debug().toBlocking().single()
+        let formatted = asset?.format(100000000)
+
+        XCTAssertEqual(formatted, "1 DCT")
+    }
     
     static var allTests = [
         ("testGetAssetById", testGetAssetById),
         ("testGetAssetBySymbol", testGetAssetBySymbol),
+        ("testGetAssetsBySymbols", testGetAssetsBySymbols),
+        ("testFormatAssetAmountToDecimal", testFormatAssetAmountToDecimal),
+        ("testFormatAssetAmountFromDecimal", testFormatAssetAmountFromDecimal),
+        ("testFormatAssetAmountFromString", testFormatAssetAmountFromString),
+        ("testFormatAssetAmountFromDouble", testFormatAssetAmountFromDouble),
+        ("testFormatAssetAmountFormattedString", testFormatAssetAmountFormattedString),
     ]
 
 }
