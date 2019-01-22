@@ -65,8 +65,6 @@ final class SerializationTests: XCTestCase {
             memo: memo,
             fee: AssetAmount(5000)
             ).asData().toHex()
-        print(expected.unhex()?.bytes)
-        print(serialized.unhex()?.bytes)
         XCTAssertEqual(serialized, expected)
     }
 
