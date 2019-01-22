@@ -14,8 +14,8 @@ struct PublicKey {
         self.data = data
     }
         
-    func multiply(_ privateKey: PrivateKey) throws -> Data {
-        let ctx = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_NONE))!
+    func multiply(_ privateKey: PrivateKey, compressed: Bool = true) throws -> Data {
+        let ctx = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_VERIFY))!
         defer { secp256k1_context_destroy(ctx) }
         
         let pubkeyPointer = UnsafeMutablePointer<secp256k1_pubkey>.allocate(capacity: 1)
@@ -29,15 +29,15 @@ struct PublicKey {
             throw ChainException.crypto(.failMultiply)
         }
         
-        var count: size_t = 0
-        var multiplied = Data(count: 65)
+        var count: size_t = 65
+        var multiplied = Data(count: count)
         guard multiplied.withUnsafeMutableBytes({ (mul: UnsafeMutablePointer<UInt8>) in
-            return secp256k1_ec_pubkey_serialize(ctx, mul, &count, pubkeyPointer, UInt32(SECP256K1_EC_COMPRESSED))
+            return secp256k1_ec_pubkey_serialize(ctx, mul, &count, pubkeyPointer, compressed ?
+                UInt32(SECP256K1_EC_COMPRESSED) : UInt32(SECP256K1_EC_UNCOMPRESSED)
+            )
         }) == 1 else {
             throw ChainException.crypto(.notEnoughSpace)
         }
-        
-        multiplied.count = count
         return multiplied
     }
     

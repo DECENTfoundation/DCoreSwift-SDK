@@ -56,8 +56,8 @@ public struct CryptoUtils {
 
     static func encrypt(using passphrase: Data, input: Data) throws -> Data {
         do {
-            let iv = passphrase[32...(32+16)]
-            let key = passphrase.prefix(32)
+            let key = passphrase[0..<32]
+            let iv = passphrase[32..<(32+16)]
             
             return try encrypt(key, iv: iv, input: input)
         } catch {
