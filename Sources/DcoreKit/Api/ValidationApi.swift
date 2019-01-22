@@ -5,7 +5,9 @@ public protocol ValidationApi: BaseApi {
     func getRequiredSignatures<Input>(byTrx trx: Transaction<Input>, keys: [Address]) -> Single<[Address]> where Input: Operation
     func getPotentialSignatures<Input>(byTrx trx: Transaction<Input>) -> Single<[Address]> where Input: Operation
     func verifyAuthority<Input>(byTrx trx: Transaction<Input>) -> Single<Bool> where Input: Operation
-    func verifyAccountAuthority(byAccount account: String, keys: [Address]) -> Single<Bool>
+    func verifyAccountAuthority(byReference ref: Account.Reference, keys: [Address]) -> Single<Bool>
+    func verifyAccountAuthority(byReference ref: Account.Reference, key: Address) -> Single<Bool>
+    func verifyAccountAuthority(_ creds: Credentials) -> Single<Bool>
     func validateTransaction<Input>(byTrx trx: Transaction<Input>) -> Single<ProcessedTransaction<Input>> where Input: Operation
     func getFees<Input>(for operations: [Input]) -> Single<[AssetAmount]> where Input: Operation
     func getFee<Input>(for operation: Input) -> Single<AssetAmount> where Input: Operation
@@ -26,8 +28,16 @@ extension ValidationApi {
         return VerifyAuthority(trx).base.toResponse(api.core).catchErrorJustReturn(false)
     }
     
-    public func verifyAccountAuthority(byAccount account: String, keys: [Address]) -> Single<Bool> {
-        return VerifyAccountAuthority(account, keys: keys).base.toResponse(api.core)
+    public func verifyAccountAuthority(byReference ref: Account.Reference, keys: [Address]) -> Single<Bool> {
+        return VerifyAccountAuthority(ref, keys: keys).base.toResponse(api.core)
+    }
+    
+    public func verifyAccountAuthority(byReference ref: Account.Reference, key: Address) -> Single<Bool> {
+        return verifyAccountAuthority(byReference: ref, keys: [key])
+    }
+    
+    public func verifyAccountAuthority(_ creds: Credentials) -> Single<Bool> {
+        return verifyAccountAuthority(byReference: creds.accountId.objectId, key: creds.keyPair.address)
     }
     
     public func validateTransaction<Input>(byTrx trx: Transaction<Input>) -> Single<ProcessedTransaction<Input>> where Input: Operation {
