@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol Operation: Codable {
+public protocol Operation: DataConvertible, Codable {
     var type: OperationType { get }
     var fee: AssetAmount { get set }
     

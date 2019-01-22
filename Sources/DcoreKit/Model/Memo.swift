@@ -17,7 +17,7 @@ public struct Memo: Codable {
     }
     
     public init(_ message: String = "") {
-        self.message = (Data(count: 4) + message).toHex()
+        self.message = (Data(count: 4) + message.asEncoded()).toHex()
         self.nonce = 0
         self.from = nil
         self.to = nil
@@ -27,7 +27,7 @@ public struct Memo: Codable {
                 keyPair: ECKeyPair,
                 recipient: Address,
                 nonce: BigInt = CryptoUtils.generateNonce()
-        ) {
+        ) throws {
         
         precondition(nonce.sign == .plus, "Nonce must be a positive number")
         
@@ -35,25 +35,21 @@ public struct Memo: Codable {
         self.from = keyPair.address
         self.to = recipient
         
-        // todo - encrypt memo with derived key
-        // let data = message.data(using: .ascii)!
-        // let checksumed = CryptoUtils.hash256(data).prefix(4) + data
-        // let secret = keyPair.secret(recipient, nonce: self.nonce)
+        let checksumed  = CryptoUtils.hash256(message.asEncoded()).prefix(4) + message.asEncoded()
+        let secret = try keyPair.secret(recipient, nonce: nonce)
         
-        // CryptoUtils.encrypt(secret, message: checksumed).toHex()
-        self.message = ""
+        self.message = try CryptoUtils.encrypt(using: secret, input: checksumed).toHex()
     }
 }
 
-extension Memo: DataEncodable {
-    func asData() -> Data {
+extension Memo: DataConvertible {
+    public func asData() -> Data {
         var data = Data()
-        data += from
-        data += to
-        data += nonce
-        data += message.unhex()
-        
-        Logger.debug(crypto: "Memo binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
+        data += from.asData()
+        data += to.asData()
+        data += UInt64(nonce).littleEndian
+        data += message.unhex().asData()
+        Logger.debug(crypto: "Memo binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }

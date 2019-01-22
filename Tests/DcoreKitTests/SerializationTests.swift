@@ -42,15 +42,30 @@ final class SerializationTests: XCTestCase {
     }
     
     func testTransferOperationDataSerialization() {
-        
-        let serialized = "278813000000000000001e1f000000000002018096980000000000000102c03f8e840c1699fd7808c2bb858e249c688c5be8acf0a0c1c484ab0cfb27f0a802e0ced80260630f641f61f6d6959f32b5c43b1a38be55666b98abfe8bafcc556b5521e507000000001086d54a9e1f8fc6e5319dbae0b087b6cc00"
-        
+        let expected = "278813000000000000001e1f000000000002018096980000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e0000000068656c6c6f206d656d6f00"
+        let serialized = TransferOperation(
+            from: "1.2.30".chain.chainObject!,
+            to: "1.2.31".chain.chainObject!,
+            amount: AssetAmount(10000000),
+            memo: Memo("hello memo"),
+            fee: AssetAmount(5000)
+        ).asData().toHex()
+        XCTAssertEqual(serialized, expected)
+    }
+    
+    func testTransferOperationWithMemoEncryptedDataSerialization() {
         let kp = "5Jd7zdvxXYNdUfnEXt5XokrE3zwJSs734yQ36a1YaqioRTGGLtn".chain.keyPair!
-        let recipient = "DCT6bVmimtYSvWQtwdrkVVQGHkVsTJZVKtBiUqf4YmJnrJPnk89QP".chain.address!
-        let memo = Memo("hello memo", keyPair: kp, recipient: recipient, nonce: BigInt(132456789))
-        let op = TransferOperation(from: "1.2.30".chain.chainObject!, to: "1.2.31".chain.chainObject!, amount: AssetAmount(10000000), memo: memo, fee: AssetAmount(5000))
-        
-        XCTAssertEqual(op.asData().toHex(), serialized)
+        let address = "DCT6bVmimtYSvWQtwdrkVVQGHkVsTJZVKtBiUqf4YmJnrJPnk89QP".chain.address!
+        let expected = "278813000000000000001e1f000000000002018096980000000000000102c03f8e840c1699fd7808c2bb858e249c688c5be8acf0a0c1c484ab0cfb27f0a802e0ced80260630f641f61f6d6959f32b5c43b1a38be55666b98abfe8bafcc556b5521e507000000001086d54a9e1f8fc6e5319dbae0b087b6cc00"
+        let memo = try? Memo("hello memo", keyPair: kp, recipient: address, nonce: BigInt("132456789"))
+        let serialized = TransferOperation(
+            from: "1.2.30".chain.chainObject!,
+            to: "1.2.31".chain.chainObject!,
+            amount: AssetAmount(10000000),
+            memo: memo,
+            fee: AssetAmount(5000)
+            ).asData().toHex()
+        XCTAssertEqual(serialized, expected)
     }
 
     func testAccountCreateOperationSerialization() {
@@ -83,6 +98,8 @@ final class SerializationTests: XCTestCase {
         ("testGetRelativeAccountHistoryJsonSerialization", testGetRelativeAccountHistoryJsonSerialization),
         ("testGetRequiredFeesJsonSerialization", testGetRequiredFeesJsonSerialization),
         ("testTransferOperationJsonSerialization", testTransferOperationJsonSerialization),
+        ("testTransferOperationDataSerialization", testTransferOperationDataSerialization),
+        ("testTransferOperationWithMemoEncryptedDataSerialization", testTransferOperationWithMemoEncryptedDataSerialization),
         ("testAnyValueEncoding", testAnyValueSerialization),
     ]
 }

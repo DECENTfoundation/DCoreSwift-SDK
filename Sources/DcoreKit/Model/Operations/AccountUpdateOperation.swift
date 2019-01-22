@@ -20,19 +20,19 @@ public struct AccountUpdateOperation: Operation {
     }
 }
 
-extension AccountUpdateOperation: DataEncodable {
+extension AccountUpdateOperation {
     public func asData() -> Data {
         
         var data = Data()
-        data += type
-        data += fee
-        data += accountId
-        data += owner
-        data += active
-        data += options
+        data += type.asData()
+        data += fee.asData()
+        data += accountId.asData()
+        data += owner.asData()
+        data += active.asData()
+        data += options.asData()
         data += Data.ofZero
         
-        Logger.debug(crypto: "AccountUpdateOperation binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
+        Logger.debug(crypto: "AccountUpdateOperation binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }

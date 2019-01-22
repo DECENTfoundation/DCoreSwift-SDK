@@ -39,10 +39,9 @@ public struct Transaction<Input>: Codable where Input: Operation {
         
         var trx = self
         var signature: String = ""
-        
         repeat {
             trx = trx.extend()
-            let hash = CryptoUtils.hash256(chain + trx)
+            let hash = CryptoUtils.hash256(chain + trx.asData())
             signature = (try? keyPair.sign(hash).toHex()).or("")
         } while (signature.isEmpty)
         
@@ -67,14 +66,14 @@ public struct Transaction<Input>: Codable where Input: Operation {
     }
 }
 
-extension Transaction: DataEncodable {
-    func asData() -> Data {
+extension Transaction: DataConvertible {
+    public func asData() -> Data {
         var data = Data()
-        data += blockData
-        data += operations.asOperations()
-        data += Data.ofZero // extensions
+        data += blockData.asData()
+        data += operations.asData()
+        data += Data.ofZero
         
-        Logger.debug(crypto: "Transaction binary: %{private}s", args: { "\(data.toHex()) (\(data))" })
+        Logger.debug(crypto: "Transaction binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)s" })
         return data
     }
 }

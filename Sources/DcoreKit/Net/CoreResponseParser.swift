@@ -62,9 +62,9 @@ extension CoreResponseParser {
 
 extension Data: CoreResponseParser {}
 
-extension CoreResponseParser where Self: DataConvertible {
+extension CoreResponseParser where Self: DataEncodable {
     
     func parse<Output>(response req: BaseRequest<Output>) throws -> Output where Output: Codable {
-        return try parse(response: req, from: asData())
+        return try parse(response: req, from: asEncoded())
     }
 }

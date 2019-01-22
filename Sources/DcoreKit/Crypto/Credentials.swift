@@ -7,7 +7,7 @@ public struct Credentials {
     
     public init(_ accountId: ChainObject, encryptedWif wif: String, passphrase: String) throws {
         let wif = try CryptoUtils.decrypt(using: passphrase, encryptedInput: wif)
-        try self.init(accountId, wif: wif.utf8().or(""))
+        try self.init(accountId, wif: wif.to(type: String.self))
     }
     
     public init(_ accountId: ChainObject, wif: String) throws {

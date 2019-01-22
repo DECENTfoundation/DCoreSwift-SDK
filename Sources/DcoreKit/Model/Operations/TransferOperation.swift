@@ -20,19 +20,19 @@ public struct TransferOperation: Operation {
     }
 }
 
-extension TransferOperation: DataEncodable {
+extension TransferOperation {
     public func asData() -> Data {
         
         var data = Data()
-        data += type
-        data += fee
-        data += from
-        data += to.objectTypeId
-        data += amount
-        data += memo
+        data += type.asData()
+        data += fee.asData()
+        data += from.asData()
+        data += to.asFullData()
+        data += amount.asData()
+        data += memo.asOptionalData()
         data += Data.ofZero
         
-        Logger.debug(crypto: "TransferOperation binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
+        Logger.debug(crypto: "TransferOperation binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }

@@ -24,17 +24,16 @@ public struct PubKey: Codable {
 
 extension PubKey: CustomStringConvertible {
     public var description: String {
-        return "\(key)."
+        return "\(key)"
     }
 }
 
-extension PubKey: DataEncodable {
-    func asData() -> Data {
+extension PubKey: DataConvertible {
+    public func asData() -> Data {
         var data = Data()
-        data += VarInt(description.data(using: .ascii)!.count).asData()
-        data += description.data(using: .ascii)
-        
-        Logger.debug(crypto: "PubKey binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
+        data += description.asData()
+    
+        Logger.debug(crypto: "PubKey binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }

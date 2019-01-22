@@ -39,20 +39,19 @@ public struct BuyContentOperation: Operation {
     }
 }
 
-extension BuyContentOperation: DataEncodable {
+extension BuyContentOperation: DataConvertible {
     public func asData() -> Data {
         
         var data = Data()
-        data += type
-        data += fee
-        data += VarInt(uri.asData().count)
-        data += uri
-        data += consumer
-        data += price
-        data += regionCode
-        data += publicElGamal
+        data += type.asData()
+        data += fee.asData()
+        data += uri.asData()
+        data += consumer.asData()
+        data += price.asData()
+        data += regionCode.littleEndian
+        data += publicElGamal.asData()
         
-        Logger.debug(crypto: "BuyContentOperation binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
+        Logger.debug(crypto: "BuyContentOperation binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }
