@@ -29,7 +29,7 @@ struct PublicKey {
             throw ChainException.crypto(.failMultiply)
         }
         
-        var count: size_t = 65
+        var count: size_t = 33
         var multiplied = Data(count: count)
         guard multiplied.withUnsafeMutableBytes({ (mul: UnsafeMutablePointer<UInt8>) in
             return secp256k1_ec_pubkey_serialize(ctx, mul, &count, pubkeyPointer, compressed ?
@@ -41,7 +41,7 @@ struct PublicKey {
         return multiplied
     }
     
-    private static func compute(fromPrivateKey privateKey: Data, compression: Bool) -> Data {
+    private static func compute(fromPrivateKey privateKey: Data, compression: Bool = true) -> Data {
         let ctx = BN_CTX_new()
         defer {
             BN_CTX_free(ctx)
