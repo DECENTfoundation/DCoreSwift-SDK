@@ -34,9 +34,7 @@ public struct Memo: Codable {
         
         let checksumed  = CryptoUtils.hash256(message.asEncoded()).prefix(4) + message.asEncoded()
         let secret = try keyPair.secret(recipient, nonce: nonce)
-        let encrypted = try CryptoUtils.encrypt(using: secret, input: checksumed).toHex()
-        
-        self.message = encrypted
+        self.message = try CryptoUtils.encrypt(using: secret, input: checksumed).toHex()
     }
 }
 
