@@ -29,7 +29,10 @@ extension ValidationApi {
     }
     
     public func verifyAccountAuthority(byReference ref: Account.Reference, keys: [Address]) -> Single<Bool> {
-        return VerifyAccountAuthority(ref, keys: keys).base.toResponse(api.core)
+        return VerifyAccountAuthority(ref, keys: keys).base.toResponse(api.core).catchError {
+            guard $0.asChainException().isStack else { throw $0 }
+            return Single.just(false)
+        }
     }
     
     public func verifyAccountAuthority(byReference ref: Account.Reference, key: Address) -> Single<Bool> {

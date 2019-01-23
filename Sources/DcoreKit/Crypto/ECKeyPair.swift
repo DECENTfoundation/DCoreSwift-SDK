@@ -33,7 +33,7 @@ public struct ECKeyPair {
     public func secret(_ address: Address, nonce: BigInt) throws -> Data {
         let key = try address.publicKey.multiply(privateKey)
         return CryptoUtils.hash512(
-            (nonce.magnitude.description + CryptoUtils.hash512(key).toHex()).asData()
+            (nonce.magnitude.description + CryptoUtils.hash512(key).toHex()).asEncoded()
         )
     }
 }
