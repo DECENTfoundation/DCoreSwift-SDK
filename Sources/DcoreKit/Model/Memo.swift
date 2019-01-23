@@ -5,7 +5,7 @@ public struct Memo: Codable {
     
     public var from: Address?
     public var to: Address?
-    public var nonce: BigInt = 0
+    public let nonce: BigInt
     public let message: String
     
     private enum CodingKeys: String, CodingKey {
@@ -18,6 +18,7 @@ public struct Memo: Codable {
     
     public init(_ message: String = "") {
         self.message = (Data(count: 4) + message.asEncoded()).toHex()
+        self.nonce = 0
     }
     
     public init(_ message: String,
