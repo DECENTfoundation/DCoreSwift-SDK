@@ -1,12 +1,10 @@
 import Foundation
 import BigInt
 
-public struct Asset: Codable, AssetFormatter {
+public struct Asset: Codable, AssetFormatting {
     
     public var id: ChainObject = ObjectType.assetObject.genericId {
-        willSet {
-            precondition(newValue.objectType == ObjectType.assetObject, "Asset id \(newValue) is not object asset type")
-        }
+        willSet { precondition(newValue.objectType == ObjectType.assetObject, "Asset id \(newValue) is not object asset type") }
     }
     
     public var symbol: String = "UIA"

@@ -60,35 +60,28 @@ struct PrivateKey {
         return PublicKey(fromPrivateKey: data, compressed: compressed)
     }
     
-    func sign(_ message: Data) throws -> Data {
+    func sign(_ message: Data) throws -> (Int, Data) {
         let ctx = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_SIGN))!
         defer { secp256k1_context_destroy(ctx) }
         
-        let signature = UnsafeMutablePointer<secp256k1_ecdsa_signature>.allocate(capacity: 1)
+        let signature = UnsafeMutablePointer<secp256k1_ecdsa_recoverable_signature>.allocate(capacity: 1)
         defer { signature.deallocate() }
         
-        let status = message.withUnsafeBytes { (ptr: UnsafePointer<UInt8>) in
-            data.withUnsafeBytes { secp256k1_ecdsa_sign(ctx, signature, ptr, $0, nil, nil) }
+        let status = message.withUnsafeBytes { (msg: UnsafePointer<UInt8>) in
+            data.withUnsafeBytes { secp256k1_ecdsa_sign_recoverable(ctx, signature, msg, $0, nil, nil) }
         }
         
         guard status == 1 else { throw ChainException.crypto(.failSigning) }
-        
-        let normalizedsig = UnsafeMutablePointer<secp256k1_ecdsa_signature>.allocate(capacity: 1)
-        defer { normalizedsig.deallocate() }
-        
-        secp256k1_ecdsa_signature_normalize(ctx, normalizedsig, signature)
-        
-        var length: size_t = 128
-        var der = Data(count: length)
-        
-        guard der.withUnsafeMutableBytes({
-            return secp256k1_ecdsa_signature_serialize_der(ctx, $0, &length, normalizedsig)
+    
+        var recovery: Int32 = 0
+        var compact = Data(count: 64)
+        guard compact.withUnsafeMutableBytes({ (sig: UnsafeMutablePointer<UInt8>) in
+            return secp256k1_ecdsa_recoverable_signature_serialize_compact(ctx, sig, &recovery, signature)
         }) == 1 else {
             throw ChainException.crypto(.notEnoughSpace)
         }
         
-        der.count = length
-        return der
+        return (Int(recovery), compact)
     }
 }
 

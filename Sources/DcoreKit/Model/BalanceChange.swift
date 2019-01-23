@@ -1,8 +1,8 @@
 import Foundation
 
-public struct BalanceChange: Codable {
+public struct BalanceChange<Input>: Codable where Input: Operation {
     
-    public let operation: OperationHistory
+    public let operation: OperationHistory<Input>
     public let balance: Balance
     public let fee: AssetAmount
     
@@ -15,6 +15,7 @@ public struct BalanceChange: Codable {
 }
 
 public struct Balance: Codable {
+    
     public let primaryAsset: AssetAmount
     public let sencodaryAsset: AssetAmount
     

@@ -1,10 +1,10 @@
 import Foundation
 
-public struct ProcessedTransaction: Codable {
+public struct ProcessedTransaction<Input>: Codable where Input: Operation {
     
     public let signatures: [String]
     public let extensions: AnyValue?
-    public let operations: [BaseOperation]
+    public let operations: [Input]
     public let expiration: Date
     public let refBlockNum: Int
     public let refBlockPrefix: UInt64
@@ -31,14 +31,14 @@ public struct ProcessedTransaction: Codable {
     
 }
 
-extension ProcessedTransaction: DataEncodable {
-    func asData() -> Data {
+extension ProcessedTransaction {
+    public func asData() -> Data {
         var data = Data()
-        data += blockData
-        data += operations
+        data += blockData.asData()
+        data += operations.asData()
         data += Data.ofZero // extensions
         
-        Logger.debug(crypto: "ProcessedTransaction binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
+        Logger.debug(crypto: "ProcessedTransaction binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }

@@ -5,7 +5,7 @@ protocol WssResponseParser: CoreResponseParser {}
 
 extension Data: WssResponseParser {}
 
-extension WssResponseParser where Self: DataConvertible {
+extension WssResponseParser where Self: DataEncodable {
     
     func parse<Output>(validResponse req: BaseRequest<Output>) -> (Bool, ResponseResult<Output>) where Output: Codable {
         do {
@@ -26,7 +26,7 @@ extension WssResponseParser where Self: DataConvertible {
     
     private func validate<Output>(response req: BaseRequest<Output>) throws -> (Bool, JSON) where Output: Codable {
         
-        let json = try JSON(data: asData())
+        let json = try JSON(data: asEncoded())
         let method = json[ResponseKeypath.method.rawValue]
         
         if let notice = method.string, case .notice? = ApiMethod(rawValue: notice), method.exists() {

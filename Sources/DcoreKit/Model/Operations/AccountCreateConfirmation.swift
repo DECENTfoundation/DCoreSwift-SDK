@@ -1,0 +1,3 @@
+import Foundation
+
+public typealias AccountCreateConfirmation = TransactionConfirmation<AccountCreateOperation>

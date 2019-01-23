@@ -16,6 +16,7 @@ final class RestService: CoreRequestConvertible {
         return Observable.deferred { [unowned self] in
             return self.session.rx.data(request: req.asRest(self.url))
                 .map { res in
+                    
                     do { return try res.parse(response: req) } catch let error {
                         throw error.asChainException()
                     }

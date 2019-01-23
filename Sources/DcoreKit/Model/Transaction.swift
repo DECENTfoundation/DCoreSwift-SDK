@@ -1,20 +1,20 @@
 import Foundation
 
-public struct Transaction: Codable {
+public struct Transaction<Input>: Codable where Input: Operation {
     
     private var blockData: BlockData?
     private var chainId: String?
     
     public lazy var id: String = CryptoUtils.hash256(asData()).prefix(20).toHex()
     
-    public let operations: [BaseOperation]
+    public let operations: [Input]
     public var signatures: [String]?
     public let expiration: Date
     public let refBlockNum: Int
     public let refBlockPrefix: UInt64
     public var extensions: AnyValue?
     
-    public init(blockData: BlockData, operations: [BaseOperation], chainId: String, signatures: [String]? = nil) {
+    public init(_ blockData: BlockData, operations: [Input], chainId: String, signatures: [String]? = nil) {
         self.blockData = blockData
         self.chainId = chainId
         self.operations = operations
@@ -39,10 +39,9 @@ public struct Transaction: Codable {
         
         var trx = self
         var signature: String = ""
-        
         repeat {
             trx = trx.extend()
-            let hash = CryptoUtils.hash256(chain + trx)
+            let hash = CryptoUtils.hash256(chain + trx.asData())
             signature = (try? keyPair.sign(hash).toHex()).or("")
         } while (signature.isEmpty)
         
@@ -52,7 +51,7 @@ public struct Transaction: Codable {
     
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(operations.asOperationPairs(), forKey: .operations)
+        try container.encode(operations.asParamters(), forKey: .operations)
         try container.encode(signatures, forKey: .signatures)
         try container.encode(expiration, forKey: .expiration)
         try container.encode(refBlockNum, forKey: .refBlockNum)
@@ -67,14 +66,14 @@ public struct Transaction: Codable {
     }
 }
 
-extension Transaction: DataEncodable {
-    func asData() -> Data {
+extension Transaction: DataConvertible {
+    public func asData() -> Data {
         var data = Data()
-        data += blockData
-        data += operations
-        data += Data.ofZero // extensions
+        data += blockData.asData()
+        data += operations.asData()
+        data += Data.ofZero
         
-        Logger.debug(crypto: "Transaction binary: %{private}s", args: { "\(data.toHex()) (\(data))" })
+        Logger.debug(crypto: "Transaction binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)s" })
         return data
     }
 }

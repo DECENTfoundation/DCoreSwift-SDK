@@ -2,47 +2,51 @@ import Foundation
 import RxSwift
 
 public protocol BroadcastApi: BaseApi {
-    func broadcast(_ trx: Transaction) -> Completable
-    func broadcast(using keypair: ECKeyPair,
-                   operations: [BaseOperation],
-                   expiration: Int?) -> Completable
-    func broadcast(using keypair: ECKeyPair, operation: BaseOperation, expiration: Int?) -> Completable
-    func broadcast(using keypair: String, operations: [BaseOperation], expiration: Int?) -> Completable
-    func broadcast(using keypair: String, operation: BaseOperation, expiration: Int?) -> Completable
-    func broadcast(withCallback trx: Transaction) -> Observable<TransactionConfirmation>
-    func broadcast(withCallback keypair: ECKeyPair,
-                   operations: [BaseOperation],
-                   expiration: Int?) -> Observable<TransactionConfirmation>
-    func broadcast(withCallback keypair: ECKeyPair,
-                   operation: BaseOperation,
-                   expiration: Int?) -> Observable<TransactionConfirmation>
-    func broadcast(withCallback keypair: String,
-                   operations: [BaseOperation],
-                   expiration: Int?) -> Observable<TransactionConfirmation>
-    func broadcast(withCallback keypair: String,
-                   operation: BaseOperation,
-                   expiration: Int?) -> Observable<TransactionConfirmation>
-    func broadcast(synchronous trx: Transaction) -> Single<TransactionConfirmation>
+    func broadcast<Input>(_ trx: Transaction<Input>) -> Completable where Input: Operation
+    func broadcast<Input>(using keypair: ECKeyPair,
+                          operations: [Input],
+                          expiration: Int?) -> Completable where Input: Operation
+    func broadcast<Input>(using keypair: ECKeyPair, operation: Input, expiration: Int?) -> Completable where Input: Operation
+    func broadcast<Input>(using keypair: String, operations: [Input], expiration: Int?) -> Completable where Input: Operation
+    func broadcast<Input>(using keypair: String, operation: Input, expiration: Int?) -> Completable where Input: Operation
+    func broadcast<Input>(withCallback trx: Transaction<Input>) -> Observable<TransactionConfirmation<Input>> where Input: Operation
+    func broadcast<Input>(withCallback keypair: ECKeyPair,
+                          operations: [Input],
+                          expiration: Int?) -> Observable<TransactionConfirmation<Input>> where Input: Operation
+    func broadcast<Input>(withCallback keypair: ECKeyPair,
+                          operation: Input,
+                          expiration: Int?) -> Observable<TransactionConfirmation<Input>> where Input: Operation
+    func broadcast<Input>(withCallback keypair: String,
+                          operations: [Input],
+                          expiration: Int?) -> Observable<TransactionConfirmation<Input>> where Input: Operation
+    func broadcast<Input>(withCallback keypair: String,
+                          operation: Input,
+                          expiration: Int?) -> Observable<TransactionConfirmation<Input>> where Input: Operation
+    func broadcast<Input>(synchronous trx: Transaction<Input>) -> Single<TransactionConfirmation<Input>> where Input: Operation
 }
 
 extension BroadcastApi {
-    public func broadcast(_ trx: Transaction) -> Completable {
+    public func broadcast<Input>(_ trx: Transaction<Input>) -> Completable where Input: Operation {
         return BroadcastTransaction(trx).base.toResponse(api.core).asCompletable()
     }
     
-    public func broadcast(using keypair: ECKeyPair,
-                          operations: [BaseOperation],
-                          expiration: Int? = nil) -> Completable {
-        return api.transaction.createTransaction(operations, expiration: expiration.or(self.api.transactionExpiration))
+    public func broadcast<Input>(using keypair: ECKeyPair,
+                                 operations: [Input],
+                                 expiration: Int? = nil) -> Completable where Input: Operation {
+        return api.transaction.create(transactionUsing: operations, expiration: expiration.or(self.api.transactionExpiration))
             .map { try $0.with(signature: keypair) }
             .flatMapCompletable { self.broadcast($0) }
     }
     
-    public func broadcast(using keypair: ECKeyPair, operation: BaseOperation, expiration: Int? = nil) -> Completable {
+    public func broadcast<Input>(using keypair: ECKeyPair,
+                                 operation: Input,
+                                 expiration: Int? = nil) -> Completable where Input: Operation {
         return broadcast(using: keypair, operations: [operation], expiration: expiration)
     }
     
-    public func broadcast(using keypair: String, operations: [BaseOperation], expiration: Int? = nil) -> Completable {
+    public func broadcast<Input>(using keypair: String,
+                                 operations: [Input],
+                                 expiration: Int? = nil) -> Completable where Input: Operation {
         return Single.just(keypair.chain.keyPair).flatMapCompletable {
             guard let kp = $0 else {
                 return Completable.error(ChainException.unexpected("Can't create keypair from \(keypair)"))
@@ -51,33 +55,35 @@ extension BroadcastApi {
         }
     }
     
-    public func broadcast(using keypair: String, operation: BaseOperation, expiration: Int? = nil) -> Completable {
+    public func broadcast<Input>(using keypair: String,
+                                 operation: Input,
+                                 expiration: Int? = nil) -> Completable where Input: Operation {
         return broadcast(using: keypair, operations: [operation], expiration: expiration)
     }
     
-    public func broadcast(withCallback trx: Transaction) -> Observable<TransactionConfirmation> {
+    public func broadcast<Input>(withCallback trx: Transaction<Input>) -> Observable<TransactionConfirmation<Input>> where Input: Operation {
         return BroadcastTransactionWithCallback(trx).base.toStreamResponse(api.core).single()
     }
     
-    public func broadcast(withCallback keypair: ECKeyPair,
-                          operations: [BaseOperation],
-                          expiration: Int? = nil) -> Observable<TransactionConfirmation> {
-        return api.transaction.createTransaction(operations, expiration: expiration.or(self.api.transactionExpiration))
+    public func broadcast<Input>(withCallback keypair: ECKeyPair,
+                                 operations: [Input],
+                                 expiration: Int? = nil) -> Observable<TransactionConfirmation<Input>> where Input: Operation {
+        return api.transaction.create(transactionUsing: operations, expiration: expiration.or(self.api.transactionExpiration))
             .map { try $0.with(signature: keypair) }
             .asObservable()
             .flatMap { self.broadcast(withCallback: $0) }
     }
     
-    public func broadcast(withCallback keypair: ECKeyPair,
-                          operation: BaseOperation,
-                          expiration: Int? = nil) -> Observable<TransactionConfirmation> {
+    public func broadcast<Input>(withCallback keypair: ECKeyPair,
+                                 operation: Input,
+                                 expiration: Int? = nil) -> Observable<TransactionConfirmation<Input>> where Input: Operation {
         return broadcast(withCallback: keypair, operations: [operation], expiration: expiration)
     }
     
-    public func broadcast(withCallback keypair: String,
-                          operations: [BaseOperation],
-                          expiration: Int? = nil) -> Observable<TransactionConfirmation> {
-        return Single.just(keypair.chain.keyPair).asObservable().flatMap({ kp -> Observable<TransactionConfirmation> in
+    public func broadcast<Input>(withCallback keypair: String,
+                                 operations: [Input],
+                                 expiration: Int? = nil) -> Observable<TransactionConfirmation<Input>> where Input: Operation {
+        return Single.just(keypair.chain.keyPair).asObservable().flatMap({ kp -> Observable<TransactionConfirmation<Input>> in
             guard let kp = kp else {
                 return Observable.error(ChainException.unexpected("Can't create keypair from \(keypair)"))
             }
@@ -85,13 +91,13 @@ extension BroadcastApi {
         })
     }
     
-    public func broadcast(withCallback keypair: String,
-                          operation: BaseOperation,
-                          expiration: Int? = nil) -> Observable<TransactionConfirmation> {
+    public func broadcast<Input>(withCallback keypair: String,
+                                 operation: Input,
+                                 expiration: Int? = nil) -> Observable<TransactionConfirmation<Input>> where Input: Operation {
         return broadcast(withCallback: keypair, operations: [operation], expiration: expiration)
     }
     
-    public func broadcast(synchronous trx: Transaction) -> Single<TransactionConfirmation> {
+    public func broadcast<Input>(synchronous trx: Transaction<Input>) -> Single<TransactionConfirmation<Input>> where Input: Operation {
         return BroadcastTransactionSynchronous(trx).base.toResponse(api.core)
     }
 }

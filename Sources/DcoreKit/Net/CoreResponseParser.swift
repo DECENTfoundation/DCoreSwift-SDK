@@ -13,6 +13,7 @@ enum ResponseKeypath: String {
     error,
     method,
     params,
+    data,
     id
 }
 
@@ -33,7 +34,14 @@ extension CoreResponseParser {
         let error = json[ResponseKeypath.error.rawValue]
         let result = json[ResponseKeypath.result.rawValue]
         
-        guard !error.exists() else { throw ChainException.network(.fail(error)) }
+        guard !error.exists() else {
+            let stack = error[ResponseKeypath.data.rawValue]
+            if let failure = try? stack.rawData().asJsonDecoded(to: ChainException.Network.self) {
+                throw ChainException.network(failure)
+            }
+            
+            throw ChainException.network(.fail(error))
+        }
         
         if result.exists() {
             do {
@@ -62,9 +70,9 @@ extension CoreResponseParser {
 
 extension Data: CoreResponseParser {}
 
-extension CoreResponseParser where Self: DataConvertible {
+extension CoreResponseParser where Self: DataEncodable {
     
     func parse<Output>(response req: BaseRequest<Output>) throws -> Output where Output: Codable {
-        return try parse(response: req, from: asData())
+        return try parse(response: req, from: asEncoded())
     }
 }

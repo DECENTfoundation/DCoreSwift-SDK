@@ -14,14 +14,14 @@ public struct CustodyData: Codable {
     }
 }
 
-extension CustodyData: DataEncodable {
-    func asData() -> Data {
+extension CustodyData: DataConvertible {
+    public func asData() -> Data {
         var data = Data()
-        data += signatureCount
+        data += signatureCount.littleEndian
         data += Data(count: 16)
         data += Data(count: 33)
         
-        Logger.debug(crypto: "CustodyData binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
+        Logger.debug(crypto: "CustodyData binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }

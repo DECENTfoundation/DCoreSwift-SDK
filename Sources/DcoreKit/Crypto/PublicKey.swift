@@ -13,67 +13,35 @@ struct PublicKey {
     init(data: Data) {
         self.data = data
     }
-    
-    func verify(signature: Data, message: Data) throws -> Bool {
+        
+    func multiply(_ privateKey: PrivateKey, compressed: Bool = true) throws -> Data {
         let ctx = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_VERIFY))!
         defer { secp256k1_context_destroy(ctx) }
         
-        let signaturePointer = UnsafeMutablePointer<secp256k1_ecdsa_signature>.allocate(capacity: 1)
-        defer { signaturePointer.deallocate() }
-        
-        guard signature.withUnsafeBytes({
-            secp256k1_ecdsa_signature_parse_der(ctx, signaturePointer, $0, signature.count)
-        }) == 1 else {
-            throw ChainException.crypto(.failDecode("Could not parse ECDSA signature"))
-        }
-        
         let pubkeyPointer = UnsafeMutablePointer<secp256k1_pubkey>.allocate(capacity: 1)
         defer { pubkeyPointer.deallocate() }
         
         guard data.withUnsafeBytes({ secp256k1_ec_pubkey_parse(ctx, pubkeyPointer, $0, data.count) }) == 1 else {
-            throw ChainException.crypto(.failDecode("Could not parse EC Public key"))
+            throw ChainException.crypto(.failMultiply)
         }
         
-        guard message.withUnsafeBytes ({ secp256k1_ecdsa_verify(ctx, signaturePointer, $0, pubkeyPointer) }) == 1 else {
-            return false
+        guard privateKey.data.withUnsafeBytes({ secp256k1_ec_pubkey_tweak_mul(ctx, pubkeyPointer, $0) }) == 1 else {
+            throw ChainException.crypto(.failMultiply)
         }
         
-        return true
-    }
-    
-    func multiply(_ privateKey: PrivateKey) throws -> Data {
-        /*
-        let ctx = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_NONE))!
-        defer { secp256k1_context_destroy(ctx) }
-        
-        let prv = BN_new()
-        defer {
-            BN_free(prv)
-        }
-        
-        privateKey.data.withUnsafeBytes { (ptr: UnsafePointer<UInt8>) in
-            BN_bin2bn(ptr, Int32(privateKey.data.count), prv)
-            return
-        }
-        
-        let pubkeyPointer = UnsafeMutablePointer<secp256k1_pubkey>.allocate(capacity: 1)
-        defer { pubkeyPointer.deallocate() }
-
-        guard data.withUnsafeBytes({ secp256k1_ec_pubkey_parse(ctx, pubkeyPointer, $0, data.count) }) == 1 else {
-            throw CryptoError.parseFailed
-        }
-        
-       
-        guard data.withUnsafeBytes({ (ptr: UnsafePointer<UInt8>) in
-            return secp256k1_ec_pubkey_tweak_mul(ctx, pubkeyPointer, prv)
+        var count: size_t = 33
+        var multiplied = Data(count: count)
+        guard multiplied.withUnsafeMutableBytes({ (mul: UnsafeMutablePointer<UInt8>) in
+            return secp256k1_ec_pubkey_serialize(ctx, mul, &count, pubkeyPointer, compressed ?
+                UInt32(SECP256K1_EC_COMPRESSED) : UInt32(SECP256K1_EC_UNCOMPRESSED)
+            )
         }) == 1 else {
-            throw CryptoError.parseFailed
+            throw ChainException.crypto(.notEnoughSpace)
         }
-        */
-        throw ChainException.crypto(.failDecode("Could not multiply PK"))
+        return multiplied
     }
     
-    private static func compute(fromPrivateKey privateKey: Data, compression: Bool) -> Data {
+    private static func compute(fromPrivateKey privateKey: Data, compression: Bool = true) -> Data {
         let ctx = BN_CTX_new()
         defer {
             BN_CTX_free(ctx)

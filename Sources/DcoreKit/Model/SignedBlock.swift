@@ -1,13 +1,13 @@
 import Foundation
 
-public struct SignedBlock: Codable {
-    
+public struct SignedBlock<Input>: Codable where Input: Operation {
+
     public let previous: String
     public let timestamp: Date
     public let miner: ChainObject
     public let transactionMerkleRoot: String
     public let minerSignature: String
-    public let transactions: [ProcessedTransaction]
+    public let transactions: [ProcessedTransaction<Input>]
     public let extensions: AnyValue?
     
     private enum CodingKeys: String, CodingKey {

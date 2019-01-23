@@ -12,13 +12,13 @@ public struct RegionalPrice: Codable {
     }
 }
 
-extension RegionalPrice: DataEncodable {
-    func asData() -> Data {
+extension RegionalPrice: DataConvertible {
+    public func asData() -> Data {
         var data = Data()
-        data += region
-        data += price
+        data += region.littleEndian
+        data += price.asData()
         
-        Logger.debug(crypto: "RegionalPrice binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
+        Logger.debug(crypto: "RegionalPrice binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }

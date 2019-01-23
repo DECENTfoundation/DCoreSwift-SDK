@@ -3,6 +3,8 @@ import BigInt
 
 public struct AssetAmount: Codable {
     
+    public static let unset = AssetAmount(0)
+    
     public let amount: BigInt
     public let assetId: ChainObject
     
@@ -87,13 +89,13 @@ extension AssetAmount: Comparable {
     }
 }
 
-extension AssetAmount: DataEncodable {
-    func asData() -> Data {
+extension AssetAmount: DataConvertible {
+    public func asData() -> Data {
         var data = Data()
-        data += amount
-        data += assetId
+        data += UInt64(amount).littleEndian
+        data += assetId.asData()
         
-        Logger.debug(crypto: "AssetAmount binary: %{private}s", args: { "\(data.toHex()) (\(data))"})
+        Logger.debug(crypto: "AssetAmount binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }

@@ -50,6 +50,11 @@ public enum OperationType: Int, Codable {
     finishBuyingOperation,                              // VIRTUAL
     renewalOfSubscriptionOperation                      // VIRTUAL 45
 }
+extension OperationType: DataConvertible {
+    public func asData() -> Data {
+        return Data.of(rawValue)
+    }
+}
 
 extension OperationType: CustomStringConvertible {
     public var description: String {
