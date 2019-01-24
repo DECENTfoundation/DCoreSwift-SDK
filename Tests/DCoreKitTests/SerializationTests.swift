@@ -1,7 +1,7 @@
 import XCTest
 import BigInt
 
-@testable import DcoreKit
+@testable import DCoreKit
 
 final class SerializationTests: XCTestCase {
     func testGetAccountHistoryJsonSerialization() {

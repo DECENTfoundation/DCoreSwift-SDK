@@ -1,12 +1,12 @@
 import XCTest
 import RxBlocking
 
-@testable import DcoreKit
+@testable import DCoreKit
 
 final class AccountApiTests: XCTestCase {
 
-    private var rest = DCore.Sdk.create(forRest: "https://stagesocket.decentgo.com:8090/rpc")
-    private var wss = DCore.Sdk.create(forWss: "wss://stagesocket.decentgo.com:8090")
+    private let rest = DCore.Sdk.create(forRest: "https://stagesocket.decentgo.com:8090/rpc")
+    private let wss = DCore.Sdk.create(forWss: "wss://stagesocket.decentgo.com:8090")
     
     func testGetAccountByNameUsingRest() {
         let account = try? rest.account.getAccount(byName: "u961279ec8b7ae7bd62f304f7c1c3d345").debug().toBlocking().single()
