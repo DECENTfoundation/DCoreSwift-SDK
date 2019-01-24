@@ -1,7 +1,7 @@
 import XCTest
 import Hippolyte
 
-@testable import DcoreKit
+@testable import DCoreKit
 
 class MockTestCase: XCTestCase {
     

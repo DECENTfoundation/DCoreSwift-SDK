@@ -291,7 +291,7 @@
 		A1D96E3821ED2025009C0A30 /* SerializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_235 /* SerializationTests.swift */; };
 		A1D96E3921ED2025009C0A30 /* SubscriptionApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_236 /* SubscriptionApiTests.swift */; };
 		A1D96E3C21ED2025009C0A30 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E9BC3321ECE0410058109F /* RxBlocking.framework */; };
-		A1D96E3D21ED2025009C0A30 /* DcoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DcoreKit::DcoreKit::Product" /* DcoreKit.framework */; };
+		A1D96E3D21ED2025009C0A30 /* DCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DcoreKit::DcoreKit::Product" /* DCoreKit.framework */; };
 		A1D96E4321ED204A009C0A30 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_237 /* XCTestManifests.swift */; };
 		A1E9BC3421ECE0410058109F /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E9BC3321ECE0410058109F /* RxBlocking.framework */; };
 		OBJ_1000 /* SearchContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* SearchContent.swift */; };
@@ -339,7 +339,7 @@
 		OBJ_1090 /* CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_234 /* CryptoTests.swift */; };
 		OBJ_1091 /* SerializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_235 /* SerializationTests.swift */; };
 		OBJ_1092 /* SubscriptionApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_236 /* SubscriptionApiTests.swift */; };
-		OBJ_1097 /* DcoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DcoreKit::DcoreKit::Product" /* DcoreKit.framework */; };
+		OBJ_1097 /* DCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DcoreKit::DcoreKit::Product" /* DCoreKit.framework */; };
 		OBJ_831 /* AccountApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* AccountApi.swift */; };
 		OBJ_832 /* AssetApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AssetApi.swift */; };
 		OBJ_833 /* BalanceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* BalanceApi.swift */; };
@@ -563,13 +563,13 @@
 		A1B51C0B21EE0059006277F9 /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 		A1C8525921F383A100A9A4A2 /* SchemeConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeConvertible.swift; sourceTree = "<group>"; };
 		A1C8525B21F3854700A9A4A2 /* URL+Scheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Scheme.swift"; sourceTree = "<group>"; };
-		A1CEFEE521ECC3F1004FED2B /* DcoreKit-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DcoreKit-iOS.plist"; sourceTree = "<group>"; };
-		A1CEFEE621ECC400004FED2B /* DcoreKit-macOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DcoreKit-macOS.plist"; sourceTree = "<group>"; };
-		A1D96E2E21ED1E22009C0A30 /* DcoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DcoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1D96E4121ED2025009C0A30 /* DcoreKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DcoreKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1CEFEE521ECC3F1004FED2B /* DCoreKit-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DCoreKit-iOS.plist"; sourceTree = "<group>"; };
+		A1CEFEE621ECC400004FED2B /* DCoreKit-macOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DCoreKit-macOS.plist"; sourceTree = "<group>"; };
+		A1D96E2E21ED1E22009C0A30 /* DCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1D96E4121ED2025009C0A30 /* DCoreKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCoreKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1E9BC3321ECE0410058109F /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
-		"DcoreKit::DcoreKit::Product" /* DcoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DcoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"DcoreKit::DcoreKitTests::Product" /* DcoreKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = DcoreKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"DcoreKit::DcoreKit::Product" /* DCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"DcoreKit::DcoreKitTests::Product" /* DCoreKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = DCoreKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* AccountApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountApi.swift; sourceTree = "<group>"; };
 		OBJ_101 /* ApiGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGroup.swift; sourceTree = "<group>"; };
 		OBJ_102 /* ApiMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMethod.swift; sourceTree = "<group>"; };
@@ -1222,7 +1222,7 @@
 			files = (
 				A19D4CF121F1AE5E0069B6CA /* Hippolyte.framework in Frameworks */,
 				A1D96E3C21ED2025009C0A30 /* RxBlocking.framework in Frameworks */,
-				A1D96E3D21ED2025009C0A30 /* DcoreKit.framework in Frameworks */,
+				A1D96E3D21ED2025009C0A30 /* DCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1244,7 +1244,7 @@
 			buildActionMask = 0;
 			files = (
 				A1E9BC3421ECE0410058109F /* RxBlocking.framework in Frameworks */,
-				OBJ_1097 /* DcoreKit.framework in Frameworks */,
+				OBJ_1097 /* DCoreKit.framework in Frameworks */,
 				A19D4CF021F1AE3B0069B6CA /* Hippolyte.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1463,8 +1463,8 @@
 				OBJ_234 /* CryptoTests.swift */,
 				OBJ_235 /* SerializationTests.swift */,
 				OBJ_236 /* SubscriptionApiTests.swift */,
-				OBJ_237 /* XCTestManifests.swift */,
 				A181489621F859320053F9BE /* ValidationApiTests.swift */,
+				OBJ_237 /* XCTestManifests.swift */,
 			);
 			name = DCoreKitTests;
 			path = Tests/DCoreKitTests;
@@ -2027,8 +2027,8 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
-				A1CEFEE621ECC400004FED2B /* DcoreKit-macOS.plist */,
-				A1CEFEE521ECC3F1004FED2B /* DcoreKit-iOS.plist */,
+				A1CEFEE621ECC400004FED2B /* DCoreKit-macOS.plist */,
+				A1CEFEE521ECC3F1004FED2B /* DCoreKit-iOS.plist */,
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_229 /* Tests */,
@@ -2233,10 +2233,10 @@
 		OBJ_683 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				"DcoreKit::DcoreKit::Product" /* DcoreKit.framework */,
-				"DcoreKit::DcoreKitTests::Product" /* DcoreKitTests.xctest */,
-				A1D96E2E21ED1E22009C0A30 /* DcoreKit.framework */,
-				A1D96E4121ED2025009C0A30 /* DcoreKitTests.xctest */,
+				"DcoreKit::DcoreKit::Product" /* DCoreKit.framework */,
+				"DcoreKit::DcoreKitTests::Product" /* DCoreKitTests.xctest */,
+				A1D96E2E21ED1E22009C0A30 /* DCoreKit.framework */,
+				A1D96E4121ED2025009C0A30 /* DCoreKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -2333,9 +2333,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A1D96D4E21ED1E22009C0A30 /* DcoreKit-macOS */ = {
+		A1D96D4E21ED1E22009C0A30 /* DCoreKit macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1D96E2B21ED1E22009C0A30 /* Build configuration list for PBXNativeTarget "DcoreKit-macOS" */;
+			buildConfigurationList = A1D96E2B21ED1E22009C0A30 /* Build configuration list for PBXNativeTarget "DCoreKit macOS" */;
 			buildPhases = (
 				A1D96D4F21ED1E22009C0A30 /* SwiftLint */,
 				A1D96D5021ED1E22009C0A30 /* Build Libraries */,
@@ -2347,14 +2347,14 @@
 			);
 			dependencies = (
 			);
-			name = "DcoreKit-macOS";
+			name = "DCoreKit macOS";
 			productName = DcoreKit;
-			productReference = A1D96E2E21ED1E22009C0A30 /* DcoreKit.framework */;
+			productReference = A1D96E2E21ED1E22009C0A30 /* DCoreKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A1D96E3021ED2025009C0A30 /* DcoreKit macOS Tests */ = {
+		A1D96E3021ED2025009C0A30 /* DCoreKit macOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1D96E3E21ED2025009C0A30 /* Build configuration list for PBXNativeTarget "DcoreKit macOS Tests" */;
+			buildConfigurationList = A1D96E3E21ED2025009C0A30 /* Build configuration list for PBXNativeTarget "DCoreKit macOS Tests" */;
 			buildPhases = (
 				A1D96E3321ED2025009C0A30 /* Sources */,
 				A1D96E3A21ED2025009C0A30 /* Carthage */,
@@ -2365,14 +2365,14 @@
 			dependencies = (
 				A1D96E3121ED2025009C0A30 /* PBXTargetDependency */,
 			);
-			name = "DcoreKit macOS Tests";
+			name = "DCoreKit macOS Tests";
 			productName = DcoreKitTests;
-			productReference = A1D96E4121ED2025009C0A30 /* DcoreKitTests.xctest */;
+			productReference = A1D96E4121ED2025009C0A30 /* DCoreKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		"DcoreKit::DcoreKit" /* DcoreKit-iOS */ = {
+		"DcoreKit::DcoreKit" /* DCoreKit-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_827 /* Build configuration list for PBXNativeTarget "DcoreKit-iOS" */;
+			buildConfigurationList = OBJ_827 /* Build configuration list for PBXNativeTarget "DCoreKit-iOS" */;
 			buildPhases = (
 				A1DABD9021EC8D8500F9195D /* SwiftLint */,
 				A11F6D5921ECB0CD008C8525 /* Build Libraries */,
@@ -2384,14 +2384,14 @@
 			);
 			dependencies = (
 			);
-			name = "DcoreKit-iOS";
+			name = "DCoreKit-iOS";
 			productName = DcoreKit;
-			productReference = "DcoreKit::DcoreKit::Product" /* DcoreKit.framework */;
+			productReference = "DcoreKit::DcoreKit::Product" /* DCoreKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		"DcoreKit::DcoreKitTests" /* DcoreKit iOS Tests */ = {
+		"DcoreKit::DcoreKitTests" /* DCoreKit iOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_1083 /* Build configuration list for PBXNativeTarget "DcoreKit iOS Tests" */;
+			buildConfigurationList = OBJ_1083 /* Build configuration list for PBXNativeTarget "DCoreKit iOS Tests" */;
 			buildPhases = (
 				OBJ_1086 /* Sources */,
 				A1AF65D521ED02AE0090157D /* Carthage */,
@@ -2402,9 +2402,9 @@
 			dependencies = (
 				OBJ_1113 /* PBXTargetDependency */,
 			);
-			name = "DcoreKit iOS Tests";
+			name = "DCoreKit iOS Tests";
 			productName = DcoreKitTests;
-			productReference = "DcoreKit::DcoreKitTests::Product" /* DcoreKitTests.xctest */;
+			productReference = "DcoreKit::DcoreKitTests::Product" /* DCoreKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -2435,10 +2435,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				"DcoreKit::DcoreKit" /* DcoreKit-iOS */,
-				"DcoreKit::DcoreKitTests" /* DcoreKit iOS Tests */,
-				A1D96D4E21ED1E22009C0A30 /* DcoreKit-macOS */,
-				A1D96E3021ED2025009C0A30 /* DcoreKit macOS Tests */,
+				"DcoreKit::DcoreKit" /* DCoreKit-iOS */,
+				"DcoreKit::DcoreKitTests" /* DCoreKit iOS Tests */,
+				A1D96D4E21ED1E22009C0A30 /* DCoreKit macOS */,
+				A1D96E3021ED2025009C0A30 /* DCoreKit macOS Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -3170,12 +3170,12 @@
 /* Begin PBXTargetDependency section */
 		A1D96E3121ED2025009C0A30 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "DcoreKit::DcoreKit" /* DcoreKit-iOS */;
+			target = "DcoreKit::DcoreKit" /* DCoreKit-iOS */;
 			targetProxy = A1D96E3221ED2025009C0A30 /* PBXContainerItemProxy */;
 		};
 		OBJ_1113 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "DcoreKit::DcoreKit" /* DcoreKit-iOS */;
+			target = "DcoreKit::DcoreKit" /* DCoreKit-iOS */;
 			targetProxy = A1DABD8321EC8AAF00F9195D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -3192,7 +3192,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/macOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "DcoreKit-macOS.plist";
+				INFOPLIST_FILE = "DCoreKit-macOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -3201,8 +3201,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
-				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DcoreKit;
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DCoreKit;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -3212,7 +3212,7 @@
 				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TARGET_NAME = DcoreKit;
+				TARGET_NAME = DCoreKit;
 				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Debug;
@@ -3228,7 +3228,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/macOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "DcoreKit-macOS.plist";
+				INFOPLIST_FILE = "DCoreKit-macOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -3236,8 +3236,8 @@
 				MODULEMAP_PRIVATE_FILE = "";
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
-				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DcoreKit;
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DCoreKit;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -3247,7 +3247,7 @@
 				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TARGET_NAME = DcoreKit;
+				TARGET_NAME = DCoreKit;
 				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Release;
@@ -3263,19 +3263,19 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "DcoreKit-macOS.plist";
+				INFOPLIST_FILE = "DCoreKit-macOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
-				TARGET_NAME = DcoreKitTests;
+				TARGET_NAME = DCoreKitTests;
 			};
 			name = Debug;
 		};
@@ -3290,19 +3290,19 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "DcoreKit-macOS.plist";
+				INFOPLIST_FILE = "DCoreKit-macOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/openssl/1.0.2p/include -I/usr/local/Cellar/openssl/1.0.2p/include -Xcc -fmodule-map-file=$(SRCROOT)/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
-				TARGET_NAME = DcoreKitTests;
+				TARGET_NAME = DCoreKitTests;
 			};
 			name = Release;
 		};
@@ -3316,7 +3316,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "DcoreKit-iOS.plist";
+				INFOPLIST_FILE = "DCoreKit-iOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CFLAGS = "$(inherited)";
@@ -3327,7 +3327,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
-				TARGET_NAME = DcoreKitTests;
+				TARGET_NAME = DCoreKitTests;
 			};
 			name = Debug;
 		};
@@ -3341,7 +3341,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "DcoreKit-iOS.plist";
+				INFOPLIST_FILE = "DCoreKit-iOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CFLAGS = "$(inherited)";
@@ -3352,7 +3352,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
-				TARGET_NAME = DcoreKitTests;
+				TARGET_NAME = DCoreKitTests;
 			};
 			name = Release;
 		};
@@ -3439,7 +3439,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "DcoreKit-iOS.plist";
+				INFOPLIST_FILE = "DCoreKit-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -3449,7 +3449,7 @@
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DcoreKit;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DCoreKit;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
@@ -3459,7 +3459,7 @@
 				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TARGET_NAME = DcoreKit;
+				TARGET_NAME = DCoreKit;
 				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 			};
 			name = Debug;
@@ -3475,7 +3475,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "DcoreKit-iOS.plist";
+				INFOPLIST_FILE = "DCoreKit-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -3484,7 +3484,7 @@
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DcoreKit;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.decent.DCoreKit;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
@@ -3494,7 +3494,7 @@
 				SWIFT_INCLUDE_PATHS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TARGET_NAME = DcoreKit;
+				TARGET_NAME = DCoreKit;
 				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 			};
 			name = Release;
@@ -3502,7 +3502,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A1D96E2B21ED1E22009C0A30 /* Build configuration list for PBXNativeTarget "DcoreKit-macOS" */ = {
+		A1D96E2B21ED1E22009C0A30 /* Build configuration list for PBXNativeTarget "DCoreKit macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1D96E2C21ED1E22009C0A30 /* Debug */,
@@ -3511,7 +3511,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1D96E3E21ED2025009C0A30 /* Build configuration list for PBXNativeTarget "DcoreKit macOS Tests" */ = {
+		A1D96E3E21ED2025009C0A30 /* Build configuration list for PBXNativeTarget "DCoreKit macOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1D96E3F21ED2025009C0A30 /* Debug */,
@@ -3520,7 +3520,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_1083 /* Build configuration list for PBXNativeTarget "DcoreKit iOS Tests" */ = {
+		OBJ_1083 /* Build configuration list for PBXNativeTarget "DCoreKit iOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_1084 /* Debug */,
@@ -3538,7 +3538,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_827 /* Build configuration list for PBXNativeTarget "DcoreKit-iOS" */ = {
+		OBJ_827 /* Build configuration list for PBXNativeTarget "DCoreKit-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_828 /* Debug */,

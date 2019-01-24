@@ -1,5 +1,5 @@
 import XCTest
-@testable import DcoreKit
+@testable import DCoreKit
 
 final class CryptoTests: XCTestCase {
     func testAddress() {

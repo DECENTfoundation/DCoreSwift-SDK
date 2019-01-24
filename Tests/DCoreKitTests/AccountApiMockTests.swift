@@ -2,7 +2,7 @@ import XCTest
 import Hippolyte
 import RxBlocking
 
-@testable import DcoreKit
+@testable import DCoreKit
 
 class AccountApiMockTests: MockTestCase {
 
