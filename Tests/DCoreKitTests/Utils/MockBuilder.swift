@@ -1,7 +1,7 @@
 import Foundation
 import Hippolyte
 
-@testable import DcoreKit
+@testable import DCoreKit
 
 enum Mock {
     static func build(using url: URLConvertible, data: Data, status: Int = 200) -> StubRequest {

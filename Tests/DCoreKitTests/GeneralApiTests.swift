@@ -1,11 +1,11 @@
 import XCTest
 import RxBlocking
 
-@testable import DcoreKit
+@testable import DCoreKit
 
 class GeneralApiTests: XCTestCase {
     
-    private var wss = DCore.Sdk.create(forWss: "wss://stagesocket.decentgo.com:8090")
+    private let wss = DCore.Sdk.create(forWss: "wss://stagesocket.decentgo.com:8090")
     
     func testChainIdUsingWss() {
         let id = try? wss.general.getChainId().debug().toBlocking().single()

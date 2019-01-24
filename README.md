@@ -13,12 +13,20 @@ Set of APIs for accessing the DCore Blockchain.
 
 ### Installation
 
-Use `brew` for OSX to install prerequisites
+Use `homebrew` for OSX to install prerequisites
 
 ```bash
 $ brew install automake
 $ brew install libtool
 ```
+
+or on Linux
+
+```bash
+$ apt-get install automake
+$ apt-get install libtool
+```
+
 
 ### [Carthage](https://github.com/Carthage/Carthage)
 
@@ -29,6 +37,8 @@ Add this to `Cartfile`
 ```
 git "git@bitbucket.org:DECENTGroup/dcoreswift-sdk.git" ~> 0.2.1
 ```
+
+and then use
 
 ```bash
 $ carthage update
@@ -51,7 +61,7 @@ let package = Package(
     .package(url: "https://bitbucket.org/DECENTGroup/dcoreswift-sdk.git", .from("0.2.1"))
   ],
   targets: [
-    .target(name: "RxTestProject", dependencies: ["DCoreKit"])
+    .target(name: "DCoreProject", dependencies: ["DCoreKit"])
   ]
 )
 ```
@@ -71,8 +81,10 @@ $ swift test
 Access api using rest
 
 ```swift
+import DCoreKit
+
 let api = DCore.Sdk.create(forRest: "https://stagesocket.decentgo.com:8090/rpc")
-let disposable = api.account.getAccount(byName: "u961279ec8b7ae7bd62f304f7c1c3d345").subscribe{ 
+let disposable = api.account.getAccount(byName: "u961279ec8b7ae7bd62f304f7c1c3d345").subscribe { 
 	account in
 
 	print(account.id) 
@@ -82,9 +94,11 @@ let disposable = api.account.getAccount(byName: "u961279ec8b7ae7bd62f304f7c1c3d3
 Access api using socket
 
 ```swift
+import DCoreKit
+
 let creds = try? Credentials("1.2.17".chain.chainObject!, wif: "....pk....")
 let api = DCore.Sdk.create(forWss: "wss://stagesocket.decentgo.com:8090")
-let disposable = api.operation.transfer(creds!, to: "1.2.34", amount: AssetAmount(1000000)).subscribe{ 
+let disposable = api.operation.transfer(creds!, to: "1.2.34", amount: AssetAmount(1000000)).subscribe { 
 	confirmation in
 
 	print(confirmation.blockNum) 

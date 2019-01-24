@@ -1,11 +1,11 @@
 import XCTest
 import RxBlocking
 
-@testable import DcoreKit
+@testable import DCoreKit
 
 class SubscriptionApiTests: XCTestCase {
 
-    private var rest: DCore.Api = DCore.Sdk.create(forRest: "https://stagesocket.decentgo.com:8090/rpc")
+    private let rest = DCore.Sdk.create(forRest: "https://stagesocket.decentgo.com:8090/rpc")
     
     func testSetBlockAppliedCallbackNotAllowedUsingRest() {
         XCTAssertThrowsError(

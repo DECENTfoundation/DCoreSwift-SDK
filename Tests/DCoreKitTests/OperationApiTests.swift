@@ -1,11 +1,11 @@
 import XCTest
 import RxBlocking
 
-@testable import DcoreKit
+@testable import DCoreKit
 
 class OperationApiTests: XCTestCase {
 
-    private var wss = DCore.Sdk.create(forWss: "wss://stagesocket.decentgo.com:8090")
+    private let wss = DCore.Sdk.create(forWss: "wss://stagesocket.decentgo.com:8090")
     
     func testTransferOperation() {
         let pk = "5J1HnqK3gajNzDWj9Na6fo3gxtphv6MHLE5YLgRmQv8tC8e3rEd"
