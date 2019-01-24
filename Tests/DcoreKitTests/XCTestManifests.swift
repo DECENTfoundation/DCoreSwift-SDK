@@ -4,11 +4,15 @@ import XCTest
 public func allTests() -> [XCTestCaseEntry] {
     return [
         testCase(AccountApiTests.allTests),
+        testCase(AccountApiMockTests.allTests),
         testCase(BalanceApiTests.allTests),
+        testCase(OperationApiTests.allTests),
+        testCase(GeneralApiTests.allTests),
         testCase(AssetApiTests.allTests),
         testCase(SubscriptionApiTests.allTests),
         testCase(CryptoTests.allTests),
         testCase(SerializationTests.allTests),
+        testCase(ValidationApiTests.allTests),
     ]
 }
 #endif

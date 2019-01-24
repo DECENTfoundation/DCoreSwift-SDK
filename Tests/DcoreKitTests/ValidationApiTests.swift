@@ -25,5 +25,6 @@ class ValidationApiTests: XCTestCase {
     
     static var allTests = [
         ("testVerifyAccountAuthorityViaMainetCredsOnStageUsingRest", testVerifyAccountAuthorityViaMainetCredsOnStageUsingRest),
+        ("testVerifyAccountAuthorityViaStageCredsOnMainetUsingRest", testVerifyAccountAuthorityViaStageCredsOnMainetUsingRest)
         ]
 }
