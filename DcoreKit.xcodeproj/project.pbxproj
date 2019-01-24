@@ -291,7 +291,7 @@
 		A1D96E3821ED2025009C0A30 /* SerializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_235 /* SerializationTests.swift */; };
 		A1D96E3921ED2025009C0A30 /* SubscriptionApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_236 /* SubscriptionApiTests.swift */; };
 		A1D96E3C21ED2025009C0A30 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E9BC3321ECE0410058109F /* RxBlocking.framework */; };
-		A1D96E3D21ED2025009C0A30 /* DCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DcoreKit::DcoreKit::Product" /* DCoreKit.framework */; };
+		A1D96E3D21ED2025009C0A30 /* DCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DCoreKit::DCoreKit::Product" /* DCoreKit.framework */; };
 		A1D96E4321ED204A009C0A30 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_237 /* XCTestManifests.swift */; };
 		A1E9BC3421ECE0410058109F /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E9BC3321ECE0410058109F /* RxBlocking.framework */; };
 		OBJ_1000 /* SearchContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* SearchContent.swift */; };
@@ -339,7 +339,7 @@
 		OBJ_1090 /* CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_234 /* CryptoTests.swift */; };
 		OBJ_1091 /* SerializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_235 /* SerializationTests.swift */; };
 		OBJ_1092 /* SubscriptionApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_236 /* SubscriptionApiTests.swift */; };
-		OBJ_1097 /* DCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DcoreKit::DcoreKit::Product" /* DCoreKit.framework */; };
+		OBJ_1097 /* DCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DCoreKit::DCoreKit::Product" /* DCoreKit.framework */; };
 		OBJ_831 /* AccountApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* AccountApi.swift */; };
 		OBJ_832 /* AssetApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AssetApi.swift */; };
 		OBJ_833 /* BalanceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* BalanceApi.swift */; };
@@ -515,15 +515,15 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "DcoreKit::DcoreKit";
-			remoteInfo = DcoreKit;
+			remoteGlobalIDString = "DCoreKit::DCoreKit";
+			remoteInfo = DCoreKit;
 		};
 		A1DABD8321EC8AAF00F9195D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "DcoreKit::DcoreKit";
-			remoteInfo = DcoreKit;
+			remoteGlobalIDString = "DCoreKit::DCoreKit";
+			remoteInfo = DCoreKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -568,8 +568,8 @@
 		A1D96E2E21ED1E22009C0A30 /* DCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1D96E4121ED2025009C0A30 /* DCoreKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCoreKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1E9BC3321ECE0410058109F /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
-		"DcoreKit::DcoreKit::Product" /* DCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"DcoreKit::DcoreKitTests::Product" /* DCoreKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = DCoreKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"DCoreKit::DCoreKit::Product" /* DCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"DCoreKit::DCoreKitTests::Product" /* DCoreKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = DCoreKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* AccountApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountApi.swift; sourceTree = "<group>"; };
 		OBJ_101 /* ApiGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGroup.swift; sourceTree = "<group>"; };
 		OBJ_102 /* ApiMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMethod.swift; sourceTree = "<group>"; };
@@ -713,9 +713,9 @@
 		OBJ_235 /* SerializationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationTests.swift; sourceTree = "<group>"; };
 		OBJ_236 /* SubscriptionApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionApiTests.swift; sourceTree = "<group>"; };
 		OBJ_237 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
-		OBJ_238 /* DcoreKit.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = DcoreKit.xcworkspace; sourceTree = SOURCE_ROOT; };
+		OBJ_238 /* DCoreKit.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = DCoreKit.xcworkspace; sourceTree = SOURCE_ROOT; };
 		OBJ_24 /* TransactionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionApi.swift; sourceTree = "<group>"; };
-		OBJ_241 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/michalgrman/_workspace/_swift/DcoreKit/.build/checkouts/SwiftyJSON.git-1793793787031133722/Package.swift"; sourceTree = "<group>"; };
+		OBJ_241 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/michalgrman/_workspace/_swift/DCoreKit/.build/checkouts/SwiftyJSON.git-1793793787031133722/Package.swift"; sourceTree = "<group>"; };
 		OBJ_242 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		OBJ_245 /* Exporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exporter.swift; sourceTree = "<group>"; };
 		OBJ_249 /* lax_der_parsing.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = lax_der_parsing.c; sourceTree = "<group>"; };
@@ -725,14 +725,14 @@
 		OBJ_254 /* secp256k1_ecdh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = secp256k1_ecdh.h; sourceTree = "<group>"; };
 		OBJ_255 /* secp256k1_recovery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = secp256k1_recovery.h; sourceTree = "<group>"; };
 		OBJ_256 /* secp256k1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = secp256k1.h; sourceTree = "<group>"; };
-		OBJ_257 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = /Users/michalgrman/_workspace/_swift/DcoreKit/DcoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap; sourceTree = "<group>"; };
-		OBJ_258 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/michalgrman/_workspace/_swift/DcoreKit/.build/checkouts/secp256k1.swift--6867032278246738452/Package.swift"; sourceTree = "<group>"; };
+		OBJ_257 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = /Users/michalgrman/_workspace/_swift/DCoreKit/DCoreKit.xcodeproj/GeneratedModuleMap/libsecp256k1/module.modulemap; sourceTree = "<group>"; };
+		OBJ_258 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/michalgrman/_workspace/_swift/DCoreKit/.build/checkouts/secp256k1.swift--6867032278246738452/Package.swift"; sourceTree = "<group>"; };
 		OBJ_261 /* Compression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compression.swift; sourceTree = "<group>"; };
 		OBJ_262 /* SSLClientCertificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLClientCertificate.swift; sourceTree = "<group>"; };
 		OBJ_263 /* SSLSecurity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLSecurity.swift; sourceTree = "<group>"; };
 		OBJ_264 /* WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
-		OBJ_265 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/michalgrman/_workspace/_swift/DcoreKit/.build/checkouts/starscream-55334994889252995/Package.swift"; sourceTree = "<group>"; };
-		OBJ_267 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/michalgrman/_workspace/_swift/DcoreKit/.build/checkouts/BigInt-7735448086427571999/Package.swift"; sourceTree = "<group>"; };
+		OBJ_265 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/michalgrman/_workspace/_swift/DCoreKit/.build/checkouts/starscream-55334994889252995/Package.swift"; sourceTree = "<group>"; };
+		OBJ_267 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/michalgrman/_workspace/_swift/DCoreKit/.build/checkouts/BigInt-7735448086427571999/Package.swift"; sourceTree = "<group>"; };
 		OBJ_268 /* Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addition.swift; sourceTree = "<group>"; };
 		OBJ_269 /* BigInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigInt.swift; sourceTree = "<group>"; };
 		OBJ_27 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
@@ -762,7 +762,7 @@
 		OBJ_293 /* RandomUInt64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUInt64.swift; sourceTree = "<group>"; };
 		OBJ_294 /* SipHashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SipHashable.swift; sourceTree = "<group>"; };
 		OBJ_295 /* SipHasher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SipHasher.swift; sourceTree = "<group>"; };
-		OBJ_296 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/michalgrman/_workspace/_swift/DcoreKit/.build/checkouts/SipHash-7604780406365974001/Package.swift"; sourceTree = "<group>"; };
+		OBJ_296 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/michalgrman/_workspace/_swift/DCoreKit/.build/checkouts/SipHash-7604780406365974001/Package.swift"; sourceTree = "<group>"; };
 		OBJ_30 /* PrivateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
 		OBJ_300 /* AEAD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEAD.swift; sourceTree = "<group>"; };
 		OBJ_301 /* AEADChaCha20Poly1305.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEADChaCha20Poly1305.swift; sourceTree = "<group>"; };
@@ -844,7 +844,7 @@
 		OBJ_374 /* Updatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
 		OBJ_375 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		OBJ_376 /* ZeroPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroPadding.swift; sourceTree = "<group>"; };
-		OBJ_377 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/michalgrman/_workspace/_swift/DcoreKit/.build/checkouts/CryptoSwift.git--6440749087414195235/Package.swift"; sourceTree = "<group>"; };
+		OBJ_377 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/michalgrman/_workspace/_swift/DCoreKit/.build/checkouts/CryptoSwift.git--6440749087414195235/Package.swift"; sourceTree = "<group>"; };
 		OBJ_38 /* AccountStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStatistics.swift; sourceTree = "<group>"; };
 		OBJ_380 /* AtomicInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicInt.swift; sourceTree = "<group>"; };
 		OBJ_381 /* BlockingObservable+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlockingObservable+Operators.swift"; sourceTree = "<group>"; };
@@ -1171,7 +1171,7 @@
 		OBJ_679 /* RxAtomic.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = RxAtomic.c; sourceTree = "<group>"; };
 		OBJ_68 /* OperationHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationHistory.swift; sourceTree = "<group>"; };
 		OBJ_681 /* RxAtomic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxAtomic.h; sourceTree = "<group>"; };
-		OBJ_682 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/michalgrman/_workspace/_swift/DcoreKit/.build/checkouts/RxSwift.git--5214619868639177420/Package.swift"; sourceTree = "<group>"; };
+		OBJ_682 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/michalgrman/_workspace/_swift/DCoreKit/.build/checkouts/RxSwift.git--5214619868639177420/Package.swift"; sourceTree = "<group>"; };
 		OBJ_69 /* OperationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationType.swift; sourceTree = "<group>"; };
 		OBJ_71 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		OBJ_72 /* BuyContentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyContentOperation.swift; sourceTree = "<group>"; };
@@ -2032,7 +2032,7 @@
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_229 /* Tests */,
-				OBJ_238 /* DcoreKit.xcworkspace */,
+				OBJ_238 /* DCoreKit.xcworkspace */,
 				OBJ_239 /* Dependencies */,
 				OBJ_683 /* Products */,
 				A11F6D6021ECB619008C8525 /* Frameworks */,
@@ -2233,8 +2233,8 @@
 		OBJ_683 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				"DcoreKit::DcoreKit::Product" /* DCoreKit.framework */,
-				"DcoreKit::DcoreKitTests::Product" /* DCoreKitTests.xctest */,
+				"DCoreKit::DCoreKit::Product" /* DCoreKit.framework */,
+				"DCoreKit::DCoreKitTests::Product" /* DCoreKitTests.xctest */,
 				A1D96E2E21ED1E22009C0A30 /* DCoreKit.framework */,
 				A1D96E4121ED2025009C0A30 /* DCoreKitTests.xctest */,
 			);
@@ -2348,7 +2348,7 @@
 			dependencies = (
 			);
 			name = "DCoreKit macOS";
-			productName = DcoreKit;
+			productName = DCoreKit;
 			productReference = A1D96E2E21ED1E22009C0A30 /* DCoreKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
@@ -2366,11 +2366,11 @@
 				A1D96E3121ED2025009C0A30 /* PBXTargetDependency */,
 			);
 			name = "DCoreKit macOS Tests";
-			productName = DcoreKitTests;
+			productName = DCoreKitTests;
 			productReference = A1D96E4121ED2025009C0A30 /* DCoreKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		"DcoreKit::DcoreKit" /* DCoreKit-iOS */ = {
+		"DCoreKit::DCoreKit" /* DCoreKit-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_827 /* Build configuration list for PBXNativeTarget "DCoreKit-iOS" */;
 			buildPhases = (
@@ -2385,11 +2385,11 @@
 			dependencies = (
 			);
 			name = "DCoreKit-iOS";
-			productName = DcoreKit;
-			productReference = "DcoreKit::DcoreKit::Product" /* DCoreKit.framework */;
+			productName = DCoreKit;
+			productReference = "DCoreKit::DCoreKit::Product" /* DCoreKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		"DcoreKit::DcoreKitTests" /* DCoreKit iOS Tests */ = {
+		"DCoreKit::DCoreKitTests" /* DCoreKit iOS Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_1083 /* Build configuration list for PBXNativeTarget "DCoreKit iOS Tests" */;
 			buildPhases = (
@@ -2403,8 +2403,8 @@
 				OBJ_1113 /* PBXTargetDependency */,
 			);
 			name = "DCoreKit iOS Tests";
-			productName = DcoreKitTests;
-			productReference = "DcoreKit::DcoreKitTests::Product" /* DCoreKitTests.xctest */;
+			productName = DCoreKitTests;
+			productReference = "DCoreKit::DCoreKitTests::Product" /* DCoreKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -2415,15 +2415,15 @@
 			attributes = {
 				LastUpgradeCheck = 9999;
 				TargetAttributes = {
-					"DcoreKit::DcoreKit" = {
+					"DCoreKit::DCoreKit" = {
 						LastSwiftMigration = 1010;
 					};
-					"DcoreKit::DcoreKitTests" = {
+					"DCoreKit::DCoreKitTests" = {
 						LastSwiftMigration = 1010;
 					};
 				};
 			};
-			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "DcoreKit" */;
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "DCoreKit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -2435,8 +2435,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				"DcoreKit::DcoreKit" /* DCoreKit-iOS */,
-				"DcoreKit::DcoreKitTests" /* DCoreKit iOS Tests */,
+				"DCoreKit::DCoreKit" /* DCoreKit-iOS */,
+				"DCoreKit::DCoreKitTests" /* DCoreKit iOS Tests */,
 				A1D96D4E21ED1E22009C0A30 /* DCoreKit macOS */,
 				A1D96E3021ED2025009C0A30 /* DCoreKit macOS Tests */,
 			);
@@ -3170,12 +3170,12 @@
 /* Begin PBXTargetDependency section */
 		A1D96E3121ED2025009C0A30 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "DcoreKit::DcoreKit" /* DCoreKit-iOS */;
+			target = "DCoreKit::DCoreKit" /* DCoreKit-iOS */;
 			targetProxy = A1D96E3221ED2025009C0A30 /* PBXContainerItemProxy */;
 		};
 		OBJ_1113 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "DcoreKit::DcoreKit" /* DCoreKit-iOS */;
+			target = "DCoreKit::DCoreKit" /* DCoreKit-iOS */;
 			targetProxy = A1DABD8321EC8AAF00F9195D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -3529,7 +3529,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_2 /* Build configuration list for PBXProject "DcoreKit" */ = {
+		OBJ_2 /* Build configuration list for PBXProject "DCoreKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_3 /* Debug */,
