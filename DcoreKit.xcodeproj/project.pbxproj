@@ -1445,12 +1445,12 @@
 		OBJ_229 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_230 /* DcoreKitTests */,
+				OBJ_230 /* DCoreKitTests */,
 			);
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_230 /* DcoreKitTests */ = {
+		OBJ_230 /* DCoreKitTests */ = {
 			isa = PBXGroup;
 			children = (
 				A19D4CF521F1B4BD0069B6CA /* Utils */,
@@ -1466,8 +1466,8 @@
 				OBJ_237 /* XCTestManifests.swift */,
 				A181489621F859320053F9BE /* ValidationApiTests.swift */,
 			);
-			name = DcoreKitTests;
-			path = Tests/DcoreKitTests;
+			name = DCoreKitTests;
+			path = Tests/DCoreKitTests;
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_239 /* Dependencies */ = {
@@ -2244,7 +2244,7 @@
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_8 /* DcoreKit */,
+				OBJ_8 /* DCoreKit */,
 			);
 			name = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -2269,7 +2269,7 @@
 			path = Operations;
 			sourceTree = "<group>";
 		};
-		OBJ_8 /* DcoreKit */ = {
+		OBJ_8 /* DCoreKit */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_9 /* Api */,
@@ -2282,8 +2282,8 @@
 				OBJ_94 /* Net */,
 				OBJ_216 /* Utils */,
 			);
-			name = DcoreKit;
-			path = Sources/DcoreKit;
+			name = DCoreKit;
+			path = Sources/DCoreKit;
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_9 /* Api */ = {
