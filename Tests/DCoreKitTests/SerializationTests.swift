@@ -35,7 +35,7 @@ final class SerializationTests: XCTestCase {
     }
     
     func testTransferOperationJsonSerialization() {
-        let op = TransferOperation(from: "1.2.3".chain.chainObject!, to: "1.2.3".chain.chainObject!, amount: AssetAmount(with: "895438905348905349949490330940943"), memo: nil, fee: .unset)
+        let op = TransferOperation(from: "1.2.3".chain.chainObject!, to: "1.2.3".chain.chainObject!, amount: AssetAmount(with: "33333333"), memo: nil, fee: .unset)
         print(op.asJson()!)
         print(op.asData().toHex())
         XCTAssertEqual(true, true)
