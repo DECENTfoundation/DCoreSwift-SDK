@@ -3,16 +3,16 @@ import RxSwift
 
 extension DCore {
     
-    public final class Sdk {
+    open class Sdk {
         
         private var rest: RestService?
         private var wss: WssService?
         
         private lazy var chainId = GetChainId().base.toResponse(self).cache()
         
-        internal required init(wssUri: URLConvertible? = nil,
-                               restUri: URLConvertible? = nil,
-                               session: URLSession? = nil) {
+        public required init(wssUri: URLConvertible? = nil,
+                             restUri: URLConvertible? = nil,
+                             session: URLSession? = nil) {
         
             if let path = restUri, let url = path.asURL() { rest = RestService(url, session: session) }
             if let path = wssUri, let url = path.asURL() { wss = WssService(url, timeout: Constant.timeout) }

@@ -1,8 +1,8 @@
 import Foundation
 
-struct ApiProvider {
+public struct ApiProvider {
     
-    let api: DCore.Api
+    public let api: DCore.Api
     
     init(using api: DCore.Api) {
         self.api = api
