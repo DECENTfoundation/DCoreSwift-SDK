@@ -2382,9 +2382,9 @@
 			productReference = A1D96E4121ED2025009C0A30 /* DCoreKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		"DCoreKit::DCoreKit" /* DCoreKit-iOS */ = {
+		"DCoreKit::DCoreKit" /* DCoreKit iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_827 /* Build configuration list for PBXNativeTarget "DCoreKit-iOS" */;
+			buildConfigurationList = OBJ_827 /* Build configuration list for PBXNativeTarget "DCoreKit iOS" */;
 			buildPhases = (
 				A1DABD9021EC8D8500F9195D /* SwiftLint */,
 				A11F6D5921ECB0CD008C8525 /* Build Libraries */,
@@ -2396,7 +2396,7 @@
 			);
 			dependencies = (
 			);
-			name = "DCoreKit-iOS";
+			name = "DCoreKit iOS";
 			productName = DCoreKit;
 			productReference = "DCoreKit::DCoreKit::Product" /* DCoreKit.framework */;
 			productType = "com.apple.product-type.framework";
@@ -2447,7 +2447,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				"DCoreKit::DCoreKit" /* DCoreKit-iOS */,
+				"DCoreKit::DCoreKit" /* DCoreKit iOS */,
 				"DCoreKit::DCoreKitTests" /* DCoreKit iOS Tests */,
 				A1D96D4E21ED1E22009C0A30 /* DCoreKit macOS */,
 				A1D96E3021ED2025009C0A30 /* DCoreKit macOS Tests */,
@@ -3167,12 +3167,12 @@
 /* Begin PBXTargetDependency section */
 		A1D96E3121ED2025009C0A30 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "DCoreKit::DCoreKit" /* DCoreKit-iOS */;
+			target = "DCoreKit::DCoreKit" /* DCoreKit iOS */;
 			targetProxy = A1D96E3221ED2025009C0A30 /* PBXContainerItemProxy */;
 		};
 		OBJ_1113 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "DCoreKit::DCoreKit" /* DCoreKit-iOS */;
+			target = "DCoreKit::DCoreKit" /* DCoreKit iOS */;
 			targetProxy = A1DABD8321EC8AAF00F9195D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -3535,7 +3535,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_827 /* Build configuration list for PBXNativeTarget "DCoreKit-iOS" */ = {
+		OBJ_827 /* Build configuration list for PBXNativeTarget "DCoreKit iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_828 /* Debug */,

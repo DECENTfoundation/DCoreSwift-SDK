@@ -10,7 +10,6 @@ final class WssService: CoreRequestConvertible {
     private let events: ConnectableObservable<SocketEvent>
     private let timeout: TimeInterval
     
-    private var scheduler = SerialDispatchQueueScheduler(qos: .default)
     private var socket: AsyncSubject<WebSocket>?
     private var emitId: UInt64 = 0
     
@@ -55,7 +54,7 @@ final class WssService: CoreRequestConvertible {
                 .do(onSuccess: { $0.write(string: try req.asWss()) })
                 .asObservableMapTo(OnEvent.empty)
         ])
-        .observeOn(scheduler)
+        .observeOn(ConcurrentDispatchQueueScheduler(qos: .default))
         .ofType(OnMessageEvent.self)
         .filterMap({ res -> FilterMap<ResponseResult<Output>> in
             
@@ -70,7 +69,7 @@ final class WssService: CoreRequestConvertible {
             case .failure(let error): throw error
             }
         })
-        .timeout(self.timeout, scheduler: SerialDispatchQueueScheduler(qos: .default))
+        .timeout(self.timeout, scheduler: ConcurrentDispatchQueueScheduler(qos: .default))
         .do(onError: { [weak self] error in
             if case RxError.timeout = error { self?.clearConnection() }
         })
