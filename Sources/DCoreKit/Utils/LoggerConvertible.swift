@@ -5,9 +5,9 @@ enum Logger: LoggerConvertible {}
 
 @available(OSX 10.14, iOS 12.0, watchOS 3.0, tvOS 10.0, *)
 fileprivate enum LoggerDefaults {
-    static let network = OSLog(subsystem: "ch.decent.DcoreKit", category: "Network")
-    static let chain = OSLog(subsystem: "ch.decent.DcoreKit", category: "Chain")
-    static let crypto = OSLog(subsystem: "ch.decent.DcoreKit", category: "Crypto")
+    static let network = OSLog(subsystem: DCore.namespace, category: "Network")
+    static let chain = OSLog(subsystem: DCore.namespace, category: "Chain")
+    static let crypto = OSLog(subsystem: DCore.namespace, category: "Crypto")
 }
 
 protocol LoggerConvertible {
