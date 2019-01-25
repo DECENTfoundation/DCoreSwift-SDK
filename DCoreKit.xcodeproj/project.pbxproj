@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A114B50F21F9F5A8009F1BA2 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B50E21F9F5A8009F1BA2 /* RxSwift.framework */; };
+		A114B51521F9F5CC009F1BA2 /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B51021F9F5CB009F1BA2 /* BigInt.framework */; };
+		A114B51621F9F5CC009F1BA2 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B51121F9F5CB009F1BA2 /* CryptoSwift.framework */; };
+		A114B51721F9F5CC009F1BA2 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B51221F9F5CB009F1BA2 /* Starscream.framework */; };
+		A114B51821F9F5CC009F1BA2 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B51321F9F5CB009F1BA2 /* RxCocoa.framework */; };
+		A114B51921F9F5CC009F1BA2 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B51421F9F5CB009F1BA2 /* SwiftyJSON.framework */; };
+		A114B51A21F9F5E2009F1BA2 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_237 /* XCTestManifests.swift */; };
 		A11F6D6921ECB61A008C8525 /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6221ECB61A008C8525 /* BigInt.framework */; };
 		A11F6D6A21ECB61A008C8525 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6321ECB61A008C8525 /* RxCocoa.framework */; };
 		A11F6D6B21ECB61A008C8525 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6421ECB61A008C8525 /* Starscream.framework */; };
@@ -278,12 +285,6 @@
 		A1D96E2021ED1E22009C0A30 /* String+ChainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_226 /* String+ChainProvider.swift */; };
 		A1D96E2121ED1E22009C0A30 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_227 /* String+Extension.swift */; };
 		A1D96E2221ED1E22009C0A30 /* UInt8+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_228 /* UInt8+Extension.swift */; };
-		A1D96E2521ED1E22009C0A30 /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6221ECB61A008C8525 /* BigInt.framework */; };
-		A1D96E2621ED1E22009C0A30 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6321ECB61A008C8525 /* RxCocoa.framework */; };
-		A1D96E2721ED1E22009C0A30 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6421ECB61A008C8525 /* Starscream.framework */; };
-		A1D96E2821ED1E22009C0A30 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */; };
-		A1D96E2921ED1E22009C0A30 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */; };
-		A1D96E2A21ED1E22009C0A30 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6721ECB61A008C8525 /* RxSwift.framework */; };
 		A1D96E3421ED2025009C0A30 /* AccountApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_231 /* AccountApiTests.swift */; };
 		A1D96E3521ED2025009C0A30 /* AssetApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_232 /* AssetApiTests.swift */; };
 		A1D96E3621ED2025009C0A30 /* BalanceApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_233 /* BalanceApiTests.swift */; };
@@ -292,7 +293,6 @@
 		A1D96E3921ED2025009C0A30 /* SubscriptionApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_236 /* SubscriptionApiTests.swift */; };
 		A1D96E3C21ED2025009C0A30 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E9BC3321ECE0410058109F /* RxBlocking.framework */; };
 		A1D96E3D21ED2025009C0A30 /* DCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DCoreKit::DCoreKit::Product" /* DCoreKit.framework */; };
-		A1D96E4321ED204A009C0A30 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_237 /* XCTestManifests.swift */; };
 		A1E9BC3421ECE0410058109F /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E9BC3321ECE0410058109F /* RxBlocking.framework */; };
 		OBJ_1000 /* SearchContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* SearchContent.swift */; };
 		OBJ_1001 /* SearchFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_186 /* SearchFeedback.swift */; };
@@ -528,6 +528,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A114B50E21F9F5A8009F1BA2 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
+		A114B51021F9F5CB009F1BA2 /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BigInt.framework; path = Carthage/Build/Mac/BigInt.framework; sourceTree = "<group>"; };
+		A114B51121F9F5CB009F1BA2 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/Mac/CryptoSwift.framework; sourceTree = "<group>"; };
+		A114B51221F9F5CB009F1BA2 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/Mac/Starscream.framework; sourceTree = "<group>"; };
+		A114B51321F9F5CB009F1BA2 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/Mac/RxCocoa.framework; sourceTree = "<group>"; };
+		A114B51421F9F5CB009F1BA2 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/Mac/SwiftyJSON.framework; sourceTree = "<group>"; };
 		A11F6D6221ECB61A008C8525 /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BigInt.framework; path = Carthage/Build/iOS/BigInt.framework; sourceTree = "<group>"; };
 		A11F6D6321ECB61A008C8525 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		A11F6D6421ECB61A008C8525 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
@@ -1207,12 +1213,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				A1D96E2521ED1E22009C0A30 /* BigInt.framework in Frameworks */,
-				A1D96E2621ED1E22009C0A30 /* RxCocoa.framework in Frameworks */,
-				A1D96E2721ED1E22009C0A30 /* Starscream.framework in Frameworks */,
-				A1D96E2821ED1E22009C0A30 /* CryptoSwift.framework in Frameworks */,
-				A1D96E2921ED1E22009C0A30 /* SwiftyJSON.framework in Frameworks */,
-				A1D96E2A21ED1E22009C0A30 /* RxSwift.framework in Frameworks */,
+				A114B50F21F9F5A8009F1BA2 /* RxSwift.framework in Frameworks */,
+				A114B51521F9F5CC009F1BA2 /* BigInt.framework in Frameworks */,
+				A114B51621F9F5CC009F1BA2 /* CryptoSwift.framework in Frameworks */,
+				A114B51721F9F5CC009F1BA2 /* Starscream.framework in Frameworks */,
+				A114B51821F9F5CC009F1BA2 /* RxCocoa.framework in Frameworks */,
+				A114B51921F9F5CC009F1BA2 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1255,6 +1261,12 @@
 		A11F6D6021ECB619008C8525 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A114B51021F9F5CB009F1BA2 /* BigInt.framework */,
+				A114B51121F9F5CB009F1BA2 /* CryptoSwift.framework */,
+				A114B51321F9F5CB009F1BA2 /* RxCocoa.framework */,
+				A114B51221F9F5CB009F1BA2 /* Starscream.framework */,
+				A114B51421F9F5CB009F1BA2 /* SwiftyJSON.framework */,
+				A114B50E21F9F5A8009F1BA2 /* RxSwift.framework */,
 				A19D4CEF21F1AE3B0069B6CA /* Hippolyte.framework */,
 				A1E9BC3321ECE0410058109F /* RxBlocking.framework */,
 				A11F6D6221ECB61A008C8525 /* BigInt.framework */,
@@ -2357,7 +2369,7 @@
 			buildConfigurationList = A1D96E3E21ED2025009C0A30 /* Build configuration list for PBXNativeTarget "DCoreKit macOS Tests" */;
 			buildPhases = (
 				A1D96E3321ED2025009C0A30 /* Sources */,
-				A1D96E3A21ED2025009C0A30 /* Carthage */,
+				A112250721FB08830023E49B /* Carthage */,
 				A1D96E3B21ED2025009C0A30 /* Frameworks */,
 			);
 			buildRules = (
@@ -2394,7 +2406,7 @@
 			buildConfigurationList = OBJ_1083 /* Build configuration list for PBXNativeTarget "DCoreKit iOS Tests" */;
 			buildPhases = (
 				OBJ_1086 /* Sources */,
-				A1AF65D521ED02AE0090157D /* Carthage */,
+				A112250621FB076E0023E49B /* Carthage */,
 				OBJ_1094 /* Frameworks */,
 			);
 			buildRules = (
@@ -2444,6 +2456,66 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		A112250621FB076E0023E49B /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxAtomic.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Hippolyte.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/BigInt.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SipHash.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxBlocking.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxAtomic.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Hippolyte.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/BigInt.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SipHash.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		A112250721FB08830023E49B /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/RxAtomic.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/Hippolyte.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/BigInt.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/SipHash.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxBlocking.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxAtomic.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Hippolyte.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/BigInt.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SipHash.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
 		A11F6D5921ECB0CD008C8525 /* Build Libraries */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2487,44 +2559,6 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Starscream.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		A1AF65D521ED02AE0090157D /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/BigInt.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Starscream.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SipHash.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxAtomic.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Hippolyte.framework",
-			);
-			name = Carthage;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxBlocking.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/BigInt.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Starscream.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CryptoSwift.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SipHash.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxAtomic.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Hippolyte.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2574,12 +2608,12 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/macOS/BigInt.framework",
-				"$(SRCROOT)/Carthage/Build/macOS/CryptoSwift.framework",
-				"$(SRCROOT)/Carthage/Build/macOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/macOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/macOS/SwiftyJSON.framework",
-				"$(SRCROOT)/Carthage/Build/macOS/Starscream.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/BigInt.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/CryptoSwift.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/Starscream.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -2591,43 +2625,6 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Starscream.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		A1D96E3A21ED2025009C0A30 /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/macOS/RxBlocking.framework",
-				"$(SRCROOT)/Carthage/Build/macOS/BigInt.framework",
-				"$(SRCROOT)/Carthage/Build/macOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/macOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/macOS/Starscream.framework",
-				"$(SRCROOT)/Carthage/Build/macOS/SwiftyJSON.framework",
-				"$(SRCROOT)/Carthage/Build/macOS/CryptoSwift.framework",
-				"$(SRCROOT)/Carthage/Build/macOS/SipHash.framework",
-				"$(SRCROOT)/Carthage/Build/macOS/RxAtomic.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Hippolyte.framework",
-			);
-			name = Carthage;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxBlocking.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/BigInt.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Starscream.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CryptoSwift.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SipHash.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxAtomic.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2695,7 +2692,6 @@
 				A1D96D7321ED1E22009C0A30 /* BlockHeader.swift in Sources */,
 				A16032CE21F35B1000674FEF /* AnyOperationHistory.swift in Sources */,
 				A1D96D7421ED1E22009C0A30 /* ChainObject.swift in Sources */,
-				A1D96E4321ED204A009C0A30 /* XCTestManifests.swift in Sources */,
 				A1D96D7521ED1E22009C0A30 /* ChainParameters.swift in Sources */,
 				A1D96D7621ED1E22009C0A30 /* ChainProperty.swift in Sources */,
 				A1D96D7721ED1E22009C0A30 /* Config.swift in Sources */,
@@ -2907,6 +2903,7 @@
 				A1D96E3821ED2025009C0A30 /* SerializationTests.swift in Sources */,
 				A1D96E3921ED2025009C0A30 /* SubscriptionApiTests.swift in Sources */,
 				A181489821F859320053F9BE /* ValidationApiTests.swift in Sources */,
+				A114B51A21F9F5E2009F1BA2 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3189,7 +3186,7 @@
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/macOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DCoreKit-macOS.plist";
@@ -3225,7 +3222,7 @@
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/macOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DCoreKit-macOS.plist";
