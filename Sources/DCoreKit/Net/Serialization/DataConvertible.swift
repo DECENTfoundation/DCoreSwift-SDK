@@ -3,7 +3,7 @@ import BigInt
 
 // swiftlint:disable shorthand_operator
 
-protocol DataEncodable {
+public protocol DataEncodable {
     func asEncoded() -> Data
 }
 
@@ -68,7 +68,7 @@ extension Data: DataConvertible, DataConcatable, DataEncodable {
         return VarInt(count).asData() + self
     }
     
-    func asEncoded() -> Data {
+    public func asEncoded() -> Data {
         return self
     }
 }
@@ -89,7 +89,7 @@ extension String: DataConvertible, DataConcatable, DataEncodable {
         return VarInt(bytes.count).asData() + bytes
     }
     
-    func asEncoded() -> Data {
+    public func asEncoded() -> Data {
         return data(using: .utf8).or(Data.empty)
     }
 }
