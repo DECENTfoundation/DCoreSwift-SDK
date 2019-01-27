@@ -9,7 +9,7 @@ final class AssetApiTests: XCTestCase {
     private let rest = DCore.Sdk.create(forRest: "https://stagesocket.decentgo.com:8090/rpc")
     
     func testGetAssetById() {
-        let asset = try? rest.asset.getAsset(byId: "1.3.0".chain.chainObject!).debug().toBlocking().single()
+        let asset = try? rest.asset.getAsset(byId: "1.3.0".dcore.chainObject!).debug().toBlocking().single()
         XCTAssertEqual(asset?.id, DCore.Constant.dct)
     }
     

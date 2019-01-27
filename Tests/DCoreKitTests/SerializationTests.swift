@@ -9,7 +9,7 @@ final class SerializationTests: XCTestCase {
         """
         {"jsonrpc":"2.0","method":"call","id":1,"params":[3,"get_account_history",["1.2.3","1.7.0",100,"1.7.0"]]}
         """
-        let result = GetAccountHistory<AnyOperation>("1.2.3".chain.chainObject!).base.asJson()
+        let result = GetAccountHistory<AnyOperation>("1.2.3".dcore.chainObject!).base.asJson()
         XCTAssertEqual(result, api)
     }
     
@@ -18,7 +18,7 @@ final class SerializationTests: XCTestCase {
         """
         {"jsonrpc":"2.0","method":"call","id":1,"params":[3,"get_relative_account_history",["1.2.3",0,100,0]]}
         """
-        let result = GetRelativeAccountHistory<AnyOperation>("1.2.3".chain.chainObject!).base.asJson()
+        let result = GetRelativeAccountHistory<AnyOperation>("1.2.3".dcore.chainObject!).base.asJson()
         XCTAssertEqual(result, api)
     }
     
@@ -35,7 +35,7 @@ final class SerializationTests: XCTestCase {
     }
     
     func testTransferOperationJsonSerialization() {
-        let op = TransferOperation(from: "1.2.3".chain.chainObject!, to: "1.2.3".chain.chainObject!, amount: AssetAmount(with: "33333333"), memo: nil, fee: .unset)
+        let op = TransferOperation(from: "1.2.3".dcore.chainObject!, to: "1.2.3".dcore.chainObject!, amount: AssetAmount(with: "33333333"), memo: nil, fee: .unset)
         print(op.asJson()!)
         print(op.asData().toHex())
         XCTAssertEqual(true, true)
@@ -44,8 +44,8 @@ final class SerializationTests: XCTestCase {
     func testTransferOperationDataSerialization() {
         let expected = "278813000000000000001e1f000000000002018096980000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e0000000068656c6c6f206d656d6f00"
         let serialized = TransferOperation(
-            from: "1.2.30".chain.chainObject!,
-            to: "1.2.31".chain.chainObject!,
+            from: "1.2.30".dcore.chainObject!,
+            to: "1.2.31".dcore.chainObject!,
             amount: AssetAmount(10000000),
             memo: Memo("hello memo"),
             fee: AssetAmount(5000)
@@ -54,13 +54,13 @@ final class SerializationTests: XCTestCase {
     }
     
     func testTransferOperationWithMemoEncryptedDataSerialization() {
-        let kp = "5Jd7zdvxXYNdUfnEXt5XokrE3zwJSs734yQ36a1YaqioRTGGLtn".chain.keyPair!
-        let address = "DCT6bVmimtYSvWQtwdrkVVQGHkVsTJZVKtBiUqf4YmJnrJPnk89QP".chain.address!
+        let kp = "5Jd7zdvxXYNdUfnEXt5XokrE3zwJSs734yQ36a1YaqioRTGGLtn".dcore.keyPair!
+        let address = "DCT6bVmimtYSvWQtwdrkVVQGHkVsTJZVKtBiUqf4YmJnrJPnk89QP".dcore.address!
         let expected = "278813000000000000001e1f000000000002018096980000000000000102c03f8e840c1699fd7808c2bb858e249c688c5be8acf0a0c1c484ab0cfb27f0a802e0ced80260630f641f61f6d6959f32b5c43b1a38be55666b98abfe8bafcc556b5521e507000000001086d54a9e1f8fc6e5319dbae0b087b6cc00"
         let memo = try? Memo("hello memo", keyPair: kp, recipient: address, nonce: BigInt("132456789"))
         let serialized = TransferOperation(
-            from: "1.2.30".chain.chainObject!,
-            to: "1.2.31".chain.chainObject!,
+            from: "1.2.30".dcore.chainObject!,
+            to: "1.2.31".dcore.chainObject!,
             amount: AssetAmount(10000000),
             memo: memo,
             fee: AssetAmount(5000)
@@ -70,9 +70,9 @@ final class SerializationTests: XCTestCase {
 
     func testAccountCreateOperationSerialization() {
         let bytes = "0100000000000000000022086d696b656565656501000000000102a01c045821676cfc191832ad22cc5c9ade0ea1760131c87ff2dd3fed2f13dd33010001000000000102a01c045821676cfc191832ad22cc5c9ade0ea1760131c87ff2dd3fed2f13dd33010002a01c045821676cfc191832ad22cc5c9ade0ea1760131c87ff2dd3fed2f13dd330300000000000000000000000000000000000000"
-        let op = AccountCreateOperation("1.2.34".chain.chainObject!,
+        let op = AccountCreateOperation("1.2.34".dcore.chainObject!,
                                         name: "mikeeeee",
-                                        address: "DCT6718kUCCksnkeYD1YySWkXb1VLpzjkFfHHMirCRPexp5gDPJLU".chain.address!)
+                                        address: "DCT6718kUCCksnkeYD1YySWkXb1VLpzjkFfHHMirCRPexp5gDPJLU".dcore.address!)
         
         let serialized = op.asData().toHex()
         XCTAssertEqual(serialized, bytes)

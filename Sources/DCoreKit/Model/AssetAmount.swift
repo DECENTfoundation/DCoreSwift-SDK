@@ -27,7 +27,7 @@ public struct AssetAmount: Codable {
     }
     
     public init(with amount: UInt64, assetId: String) {
-        guard let id = assetId.chain.chainObject else { preconditionFailure("Not valid asset id \(assetId)") }
+        guard let id = assetId.dcore.chainObject else { preconditionFailure("Not valid asset id \(assetId)") }
         self.init(BigInt(amount), assetId: id)
     }
     
@@ -36,7 +36,7 @@ public struct AssetAmount: Codable {
     }
     
     public init(with amount: String, assetId: String) {
-        guard let id = assetId.chain.chainObject else { preconditionFailure("Not valid asset id \(assetId)") }
+        guard let id = assetId.dcore.chainObject else { preconditionFailure("Not valid asset id \(assetId)") }
         self.init(BigInt(amount)!, assetId: id)
     }
 }

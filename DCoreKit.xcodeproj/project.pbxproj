@@ -276,13 +276,13 @@
 		A1D96E1721ED1E22009C0A30 /* BaseConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_217 /* BaseConvertible.swift */; };
 		A1D96E1821ED1E22009C0A30 /* ChainException.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_218 /* ChainException.swift */; };
 		A1D96E1921ED1E22009C0A30 /* ChainExceptionConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_219 /* ChainExceptionConvertible.swift */; };
-		A1D96E1A21ED1E22009C0A30 /* ChainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_220 /* ChainProvider.swift */; };
+		A1D96E1A21ED1E22009C0A30 /* DCoreExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_220 /* DCoreExtensionProvider.swift */; };
 		A1D96E1B21ED1E22009C0A30 /* CryptoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_221 /* CryptoUtils.swift */; };
 		A1D96E1C21ED1E22009C0A30 /* Enum+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_222 /* Enum+Extension.swift */; };
 		A1D96E1D21ED1E22009C0A30 /* LoggerConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_223 /* LoggerConvertible.swift */; };
 		A1D96E1E21ED1E22009C0A30 /* Rx+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_224 /* Rx+Extension.swift */; };
 		A1D96E1F21ED1E22009C0A30 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_225 /* Sequence+Extension.swift */; };
-		A1D96E2021ED1E22009C0A30 /* String+ChainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_226 /* String+ChainProvider.swift */; };
+		A1D96E2021ED1E22009C0A30 /* String+DCoreExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_226 /* String+DCoreExtensionProvider.swift */; };
 		A1D96E2121ED1E22009C0A30 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_227 /* String+Extension.swift */; };
 		A1D96E2221ED1E22009C0A30 /* UInt8+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_228 /* UInt8+Extension.swift */; };
 		A1D96E3421ED2025009C0A30 /* AccountApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_231 /* AccountApiTests.swift */; };
@@ -324,13 +324,13 @@
 		OBJ_1028 /* BaseConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_217 /* BaseConvertible.swift */; };
 		OBJ_1029 /* ChainException.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_218 /* ChainException.swift */; };
 		OBJ_1030 /* ChainExceptionConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_219 /* ChainExceptionConvertible.swift */; };
-		OBJ_1031 /* ChainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_220 /* ChainProvider.swift */; };
+		OBJ_1031 /* DCoreExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_220 /* DCoreExtensionProvider.swift */; };
 		OBJ_1032 /* CryptoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_221 /* CryptoUtils.swift */; };
 		OBJ_1033 /* Enum+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_222 /* Enum+Extension.swift */; };
 		OBJ_1034 /* LoggerConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_223 /* LoggerConvertible.swift */; };
 		OBJ_1035 /* Rx+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_224 /* Rx+Extension.swift */; };
 		OBJ_1036 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_225 /* Sequence+Extension.swift */; };
-		OBJ_1037 /* String+ChainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_226 /* String+ChainProvider.swift */; };
+		OBJ_1037 /* String+DCoreExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_226 /* String+DCoreExtensionProvider.swift */; };
 		OBJ_1038 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_227 /* String+Extension.swift */; };
 		OBJ_1039 /* UInt8+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_228 /* UInt8+Extension.swift */; };
 		OBJ_1087 /* AccountApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_231 /* AccountApiTests.swift */; };
@@ -702,13 +702,13 @@
 		OBJ_218 /* ChainException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainException.swift; sourceTree = "<group>"; };
 		OBJ_219 /* ChainExceptionConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainExceptionConvertible.swift; sourceTree = "<group>"; };
 		OBJ_22 /* SeedersApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedersApi.swift; sourceTree = "<group>"; };
-		OBJ_220 /* ChainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainProvider.swift; sourceTree = "<group>"; };
+		OBJ_220 /* DCoreExtensionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCoreExtensionProvider.swift; sourceTree = "<group>"; };
 		OBJ_221 /* CryptoUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtils.swift; sourceTree = "<group>"; };
 		OBJ_222 /* Enum+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Extension.swift"; sourceTree = "<group>"; };
 		OBJ_223 /* LoggerConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerConvertible.swift; sourceTree = "<group>"; };
 		OBJ_224 /* Rx+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+Extension.swift"; sourceTree = "<group>"; };
 		OBJ_225 /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
-		OBJ_226 /* String+ChainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ChainProvider.swift"; sourceTree = "<group>"; };
+		OBJ_226 /* String+DCoreExtensionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DCoreExtensionProvider.swift"; sourceTree = "<group>"; };
 		OBJ_227 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		OBJ_228 /* UInt8+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt8+Extension.swift"; sourceTree = "<group>"; };
 		OBJ_23 /* SubscriptionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionApi.swift; sourceTree = "<group>"; };
@@ -1438,13 +1438,12 @@
 				OBJ_217 /* BaseConvertible.swift */,
 				OBJ_218 /* ChainException.swift */,
 				OBJ_219 /* ChainExceptionConvertible.swift */,
-				OBJ_220 /* ChainProvider.swift */,
 				OBJ_221 /* CryptoUtils.swift */,
 				OBJ_222 /* Enum+Extension.swift */,
 				OBJ_223 /* LoggerConvertible.swift */,
 				OBJ_224 /* Rx+Extension.swift */,
 				OBJ_225 /* Sequence+Extension.swift */,
-				OBJ_226 /* String+ChainProvider.swift */,
+				OBJ_226 /* String+DCoreExtensionProvider.swift */,
 				OBJ_227 /* String+Extension.swift */,
 				OBJ_228 /* UInt8+Extension.swift */,
 				A1673B4B21EF34DF008FF560 /* Array+Extension.swift */,
@@ -2289,6 +2288,7 @@
 				OBJ_32 /* DCoreApi.swift */,
 				OBJ_33 /* DCoreConstants.swift */,
 				OBJ_34 /* DCoreSdk.swift */,
+				OBJ_220 /* DCoreExtensionProvider.swift */,
 				OBJ_35 /* Model */,
 				OBJ_93 /* Namespace.swift */,
 				OBJ_94 /* Net */,
@@ -2655,6 +2655,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				A1D96DA221ED1E22009C0A30 /* Namespace.swift in Sources */,
 				A1D96D5221ED1E22009C0A30 /* AccountApi.swift in Sources */,
 				A1D96D5321ED1E22009C0A30 /* AssetApi.swift in Sources */,
 				A1D96D5421ED1E22009C0A30 /* BalanceApi.swift in Sources */,
@@ -2739,7 +2740,6 @@
 				A1D96D9F21ED1E22009C0A30 /* TransactionDetail.swift in Sources */,
 				A1D96DA021ED1E22009C0A30 /* VestingBalance.swift in Sources */,
 				A1D96DA121ED1E22009C0A30 /* VoteId.swift in Sources */,
-				A1D96DA221ED1E22009C0A30 /* Namespace.swift in Sources */,
 				A1D96DA321ED1E22009C0A30 /* BaseRequestConvertible.swift in Sources */,
 				A16032BF21F3587900674FEF /* AccountUpdateConfirmation.swift in Sources */,
 				A1D96DA421ED1E22009C0A30 /* CoreRequestConvertible.swift in Sources */,
@@ -2872,14 +2872,14 @@
 				A1D96E1821ED1E22009C0A30 /* ChainException.swift in Sources */,
 				A1D96E1921ED1E22009C0A30 /* ChainExceptionConvertible.swift in Sources */,
 				A1C8525D21F3854700A9A4A2 /* URL+Scheme.swift in Sources */,
-				A1D96E1A21ED1E22009C0A30 /* ChainProvider.swift in Sources */,
+				A1D96E1A21ED1E22009C0A30 /* DCoreExtensionProvider.swift in Sources */,
 				A1D96E1B21ED1E22009C0A30 /* CryptoUtils.swift in Sources */,
 				A1D96E1C21ED1E22009C0A30 /* Enum+Extension.swift in Sources */,
 				A1D96E1D21ED1E22009C0A30 /* LoggerConvertible.swift in Sources */,
 				A1D96E1E21ED1E22009C0A30 /* Rx+Extension.swift in Sources */,
 				A16032D121F35B4D00674FEF /* AnyTransaction.swift in Sources */,
 				A1D96E1F21ED1E22009C0A30 /* Sequence+Extension.swift in Sources */,
-				A1D96E2021ED1E22009C0A30 /* String+ChainProvider.swift in Sources */,
+				A1D96E2021ED1E22009C0A30 /* String+DCoreExtensionProvider.swift in Sources */,
 				A16032C521F358EC00674FEF /* SubmitContentConfirmation.swift in Sources */,
 				A1D96E2121ED1E22009C0A30 /* String+Extension.swift in Sources */,
 				A1673B5621EF615B008FF560 /* Optional+Extension.swift in Sources */,
@@ -2930,6 +2930,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				OBJ_911 /* Namespace.swift in Sources */,
 				OBJ_831 /* AccountApi.swift in Sources */,
 				OBJ_832 /* AssetApi.swift in Sources */,
 				OBJ_833 /* BalanceApi.swift in Sources */,
@@ -3018,7 +3019,6 @@
 				OBJ_909 /* VestingBalance.swift in Sources */,
 				OBJ_910 /* VoteId.swift in Sources */,
 				A1673B5521EF615B008FF560 /* Optional+Extension.swift in Sources */,
-				OBJ_911 /* Namespace.swift in Sources */,
 				OBJ_912 /* BaseRequestConvertible.swift in Sources */,
 				A16032D021F35B4D00674FEF /* AnyTransaction.swift in Sources */,
 				OBJ_913 /* CoreRequestConvertible.swift in Sources */,
@@ -3149,14 +3149,14 @@
 				A1C8525C21F3854700A9A4A2 /* URL+Scheme.swift in Sources */,
 				OBJ_1029 /* ChainException.swift in Sources */,
 				OBJ_1030 /* ChainExceptionConvertible.swift in Sources */,
-				OBJ_1031 /* ChainProvider.swift in Sources */,
+				OBJ_1031 /* DCoreExtensionProvider.swift in Sources */,
 				OBJ_1032 /* CryptoUtils.swift in Sources */,
 				OBJ_1033 /* Enum+Extension.swift in Sources */,
 				A1B51C0C21EE0059006277F9 /* BaseApi.swift in Sources */,
 				OBJ_1034 /* LoggerConvertible.swift in Sources */,
 				OBJ_1035 /* Rx+Extension.swift in Sources */,
 				OBJ_1036 /* Sequence+Extension.swift in Sources */,
-				OBJ_1037 /* String+ChainProvider.swift in Sources */,
+				OBJ_1037 /* String+DCoreExtensionProvider.swift in Sources */,
 				OBJ_1038 /* String+Extension.swift in Sources */,
 				OBJ_1039 /* UInt8+Extension.swift in Sources */,
 			);

@@ -70,7 +70,7 @@ extension ChainObject: Codable {
     }
 }
 
-extension Chain where Base == String {
+extension DCoreExtension where Base == String {
     public var chainObject: ChainObject? {
         return try? ChainObject(from: self.base)
     }

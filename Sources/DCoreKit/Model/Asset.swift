@@ -72,7 +72,7 @@ extension Asset {
         }
         
         public var chainObject: ChainObject {
-            return description.chain.chainObject!
+            return description.dcore.chainObject!
         }
         
         public func encode(to encoder: Encoder) throws {

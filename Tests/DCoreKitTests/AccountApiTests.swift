@@ -10,12 +10,12 @@ final class AccountApiTests: XCTestCase {
     
     func testGetAccountByNameUsingRest() {
         let account = try? rest.account.getAccount(byName: "u961279ec8b7ae7bd62f304f7c1c3d345").debug().toBlocking().single()
-        XCTAssertEqual(account?.id, "1.2.34".chain.chainObject)
+        XCTAssertEqual(account?.id, "1.2.34".dcore.chainObject)
     }
     
     func testGetAccountByIdUsingRest() {
-        let account = try? rest.account.getAccount(byId: "1.2.34".chain.chainObject!).debug().toBlocking().single()
-        XCTAssertEqual(account?.id, "1.2.34".chain.chainObject)
+        let account = try? rest.account.getAccount(byId: "1.2.34".dcore.chainObject!).debug().toBlocking().single()
+        XCTAssertEqual(account?.id, "1.2.34".dcore.chainObject)
     }
     
     func testGetAccountByReferenceUsingRest() {
@@ -33,12 +33,12 @@ final class AccountApiTests: XCTestCase {
     }
     
     func testGetAccountIdsByAddressUsingRest() {
-        let ids = try? rest.account.getAccountIds(byAddressList: ["DCT6MA5TQQ6UbMyMaLPmPXE2Syh5G3ZVhv5SbFedqLPqdFChSeqTz".chain.address!]).debug().toBlocking().single()
-        XCTAssert(ids?.first?.contains("1.2.34".chain.chainObject!) ?? false)
+        let ids = try? rest.account.getAccountIds(byAddressList: ["DCT6MA5TQQ6UbMyMaLPmPXE2Syh5G3ZVhv5SbFedqLPqdFChSeqTz".dcore.address!]).debug().toBlocking().single()
+        XCTAssert(ids?.first?.contains("1.2.34".dcore.chainObject!) ?? false)
     }
     
     func testGetAccountByIdsUsingRest() {
-        let accounts = try? rest.account.getAccounts(byIds: ["1.2.33".chain.chainObject!, "1.2.34".chain.chainObject!]).debug().toBlocking().single()
+        let accounts = try? rest.account.getAccounts(byIds: ["1.2.33".dcore.chainObject!, "1.2.34".dcore.chainObject!]).debug().toBlocking().single()
         XCTAssert(Set(["1.2.33", "1.2.34"]).isSuperset(of: Set(accounts!.map({ $0.id.description }))))
     }
     
@@ -56,7 +56,7 @@ final class AccountApiTests: XCTestCase {
     
     func testGetAccountByNameUsingWss() {
         let account = try? wss.account.getAccount(byName: "u961279ec8b7ae7bd62f304f7c1c3d345").debug().toBlocking().single()
-        XCTAssertEqual(account?.id, "1.2.34".chain.chainObject)
+        XCTAssertEqual(account?.id, "1.2.34".dcore.chainObject)
     }
     
     func testGetAccountByReferenceUsingWss() {

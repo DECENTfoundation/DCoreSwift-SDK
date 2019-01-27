@@ -56,7 +56,7 @@ extension ECKeyPair {
     }
 }
 
-extension Chain where Base == String {
+extension DCoreExtension where Base == String {
     public var keyPair: ECKeyPair? {
         return try? ECKeyPair(fromWif: self.base)
     }

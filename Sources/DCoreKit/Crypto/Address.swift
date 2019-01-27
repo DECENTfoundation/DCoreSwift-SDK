@@ -75,7 +75,7 @@ extension Address: DataConvertible {
     }
 }
 
-extension Chain where Base == String {
+extension DCoreExtension where Base == String {
     public var address: Address? {
         return try? Address(from: self.base)
     }

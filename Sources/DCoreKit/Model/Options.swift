@@ -25,7 +25,7 @@ public struct Options: Codable {
     
     public init(from address: Address) {
         memoKey = address
-        votingAccount = "1.2.3".chain.chainObject!
+        votingAccount = "1.2.3".dcore.chainObject!
         numMiner = 0
         votes = Set<VoteId>([])
         extensions = .array([])

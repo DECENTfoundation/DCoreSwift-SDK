@@ -6,8 +6,8 @@ extension DCore {
         
         var transactionExpiration: Int = DCore.Constant.expiration
         
-        open lazy var account: AccountApi =             ApiProvider(using: self)
-        open lazy var asset: AssetApi =                 ApiProvider(using: self)
+        public lazy var account: AccountApi =           ApiProvider(using: self)
+        public lazy var asset: AssetApi =               ApiProvider(using: self)
         public lazy var validation: ValidationApi =     ApiProvider(using: self)
         public lazy var balance: BalanceApi =           ApiProvider(using: self)
         public lazy var block: BlockApi =               ApiProvider(using: self)
