@@ -41,7 +41,7 @@ public struct Asset: Codable, AssetFormatting {
 
 extension Asset {
     
-    public enum Symbol: CustomStringConvertible, Encodable {
+    public enum Symbol: CustomStringConvertible, Encodable, Hashable {
         
         public static let alxt: Symbol = Symbol(name: .alxt)
         public static let alat: Symbol = Symbol(name: .alat)
