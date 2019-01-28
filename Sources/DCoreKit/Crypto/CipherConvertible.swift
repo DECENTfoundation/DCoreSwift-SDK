@@ -1,6 +1,8 @@
 import Foundation
 import BigInt
 
+public typealias CipherCodable = CipherConvertible & Codable
+
 public protocol CipherConvertible {
     func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt) throws -> Self
     func encrypt(_ keyPair: ECKeyPair?, address: Address?, nonce: BigInt) throws -> Self
