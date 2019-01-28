@@ -57,7 +57,9 @@ extension Memo: DataConvertible {
         data += UInt64(nonce).littleEndian
         data += message.unhex().asData()
         
-        Logger.debug(crypto: "Memo binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
+        DCore.Logger.debug(crypto: "Memo binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)"
+        })
         return data
     }
 }

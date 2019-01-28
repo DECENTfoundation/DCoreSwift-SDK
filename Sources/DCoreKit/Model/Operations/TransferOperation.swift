@@ -41,7 +41,9 @@ extension TransferOperation {
         data += memo.asOptionalData()
         data += Data.ofZero
         
-        Logger.debug(crypto: "TransferOperation binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
+        DCore.Logger.debug(crypto: "TransferOperation binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)"
+        })
         return data
     }
 }

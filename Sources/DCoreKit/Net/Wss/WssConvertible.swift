@@ -10,7 +10,7 @@ extension WssConvertible where Self: Encodable {
             throw DCoreException.network(.failEncode("Failed to encode data into json wss request"))
         }
         
-        Logger.debug(network: "RPC wss request:\n%{private}s") { req }
+        DCore.Logger.debug(network: "RPC wss request:\n%{private}s") { req }
         return req
     }
 }

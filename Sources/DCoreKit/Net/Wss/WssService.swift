@@ -100,7 +100,7 @@ final class WssService: CoreRequestConvertible {
         socket = AsyncSubject()
         connect()
         
-        Logger.debug(network: "WebSocket is connected")
+        DCore.Logger.debug(network: "WebSocket is connected")
         return connectedSocket()
     }
     

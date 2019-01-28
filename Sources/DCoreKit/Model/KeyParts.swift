@@ -18,7 +18,9 @@ extension KeyParts: DataConvertible {
         data += keyC1.asData()
         data += keyD1.asData()
         
-        Logger.debug(crypto: "KeyParts binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
+        DCore.Logger.debug(crypto: "KeyParts binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)"
+        })
         return data
     }
 }

@@ -59,7 +59,7 @@ public struct CryptoUtils {
         do {
             return Data(try AES(key: key.bytes, blockMode: CBC(iv: iv.bytes), padding: .pkcs7).encrypt(input.bytes))
         } catch let error {
-            Logger.debug(crypto: "Failed to encrypt %{private}s", args: { "\(error.localizedDescription)" })
+            DCore.Logger.debug(crypto: "Failed to encrypt %{private}s", args: { "\(error.localizedDescription)" })
             throw DCoreException.crypto(.failEncrypt("Cannot encrypt \(input.toHex()) with key: \(key.toHex())"))
         }
     }
@@ -94,7 +94,7 @@ public struct CryptoUtils {
         do {
             return Data(try AES(key: key.bytes, blockMode: CBC(iv: iv.bytes), padding: .pkcs7).decrypt(input.bytes))
         } catch let error {
-            Logger.debug(crypto: "Failed to decrypt %{private}s", args: { "\(error.localizedDescription)" })
+            DCore.Logger.debug(crypto: "Failed to decrypt %{private}s", args: { "\(error.localizedDescription)" })
             throw DCoreException.crypto(.failDecrypt("Cannot decrypt \(input.toHex()) with key: \(key.toHex())"))
         }
     }

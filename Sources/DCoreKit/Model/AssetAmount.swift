@@ -95,7 +95,9 @@ extension AssetAmount: DataConvertible {
         data += UInt64(amount).littleEndian
         data += assetId.asData()
         
-        Logger.debug(crypto: "AssetAmount binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
+        DCore.Logger.debug(crypto: "AssetAmount binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)"
+        })
         return data
     }
 }

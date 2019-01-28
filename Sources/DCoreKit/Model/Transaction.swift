@@ -73,7 +73,9 @@ extension Transaction: DataConvertible {
         data += operations.asData()
         data += Data.ofZero
         
-        Logger.debug(crypto: "Transaction binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)s" })
+        DCore.Logger.debug(crypto: "Transaction binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)s"
+        })
         return data
     }
 }

@@ -21,7 +21,7 @@ extension CustodyData: DataConvertible {
         data += Data(count: 16)
         data += Data(count: 33)
         
-        Logger.debug(crypto: "CustodyData binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
+        DCore.Logger.debug(crypto: "CustodyData binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }

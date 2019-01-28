@@ -47,7 +47,9 @@ extension Options: DataConvertible {
         data += pricePerSubscribe.asData()
         data += subscriptionPeriod.littleEndian
         
-        Logger.debug(crypto: "Options binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
+        DCore.Logger.debug(crypto: "Options binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)"
+        })
         return data
     }
 }

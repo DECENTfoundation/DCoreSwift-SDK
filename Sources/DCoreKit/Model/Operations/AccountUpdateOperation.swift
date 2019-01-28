@@ -32,7 +32,9 @@ extension AccountUpdateOperation {
         data += options.asData()
         data += Data.ofZero
         
-        Logger.debug(crypto: "AccountUpdateOperation binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
+        DCore.Logger.debug(crypto: "AccountUpdateOperation binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)"
+        })
         return data
     }
 }

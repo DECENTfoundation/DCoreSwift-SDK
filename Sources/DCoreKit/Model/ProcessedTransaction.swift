@@ -38,7 +38,9 @@ extension ProcessedTransaction {
         data += operations.asData()
         data += Data.ofZero // extensions
         
-        Logger.debug(crypto: "ProcessedTransaction binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
+        DCore.Logger.debug(crypto: "ProcessedTransaction binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)"
+        })
         return data
     }
 }
