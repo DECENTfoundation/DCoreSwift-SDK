@@ -22,11 +22,11 @@ struct PublicKey {
         defer { pubkeyPointer.deallocate() }
         
         guard data.withUnsafeBytes({ secp256k1_ec_pubkey_parse(ctx, pubkeyPointer, $0, data.count) }) == 1 else {
-            throw ChainException.crypto(.failMultiply)
+            throw DCoreException.crypto(.failMultiply)
         }
         
         guard privateKey.data.withUnsafeBytes({ secp256k1_ec_pubkey_tweak_mul(ctx, pubkeyPointer, $0) }) == 1 else {
-            throw ChainException.crypto(.failMultiply)
+            throw DCoreException.crypto(.failMultiply)
         }
         
         var count: size_t = 33
@@ -36,7 +36,7 @@ struct PublicKey {
                 UInt32(SECP256K1_EC_COMPRESSED) : UInt32(SECP256K1_EC_UNCOMPRESSED)
             )
         }) == 1 else {
-            throw ChainException.crypto(.notEnoughSpace)
+            throw DCoreException.crypto(.notEnoughSpace)
         }
         return multiplied
     }
@@ -90,8 +90,4 @@ struct PublicKey {
     }
 }
 
-extension PublicKey: Equatable {
-    static func == (lhs: PublicKey, rhs: PublicKey) -> Bool {
-        return lhs.data == rhs.data
-    }
-}
+extension PublicKey: Equatable {}

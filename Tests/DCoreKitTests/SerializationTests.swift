@@ -47,7 +47,7 @@ final class SerializationTests: XCTestCase {
             from: "1.2.30".dcore.chainObject!,
             to: "1.2.31".dcore.chainObject!,
             amount: AssetAmount(10000000),
-            memo: Memo("hello memo"),
+            memo: try? Memo("hello memo", keyPair: nil, recipient: nil),
             fee: AssetAmount(5000)
         ).asData().toHex()
         XCTAssertEqual(serialized, expected)

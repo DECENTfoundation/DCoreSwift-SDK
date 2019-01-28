@@ -35,7 +35,7 @@ public struct Transaction<Input>: Codable where Input: Operation {
     }
     
     public func with(signature keyPair: ECKeyPair) throws -> Transaction {
-        guard let chain = chainId?.unhex() else { throw ChainException.crypto(.failSigning) }
+        guard let chain = chainId?.unhex() else { throw DCoreException.crypto(.failSigning) }
         
         var trx = self
         var signature: String = ""

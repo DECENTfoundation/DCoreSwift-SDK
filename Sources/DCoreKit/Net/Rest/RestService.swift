@@ -18,7 +18,7 @@ final class RestService: CoreRequestConvertible {
                 .map { res in
                     
                     do { return try res.parse(response: req) } catch let error {
-                        throw error.asChainException()
+                        throw error.asDCoreException()
                     }
                 }
                 // Added delay for some weird bug with url session sequenced calls

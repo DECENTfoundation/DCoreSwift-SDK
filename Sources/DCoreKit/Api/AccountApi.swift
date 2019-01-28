@@ -33,7 +33,7 @@ extension AccountApi {
     }
     
     public func getAccount(byId id: ChainObject) -> Single<Account> {
-        return getAccounts(byIds: [id]).map { try $0.first.orThrow(ChainException.network(.notFound)) }
+        return getAccounts(byIds: [id]).map { try $0.first.orThrow(DCoreException.network(.notFound)) }
     }
     
     public func getAccounts(byIds ids: [ChainObject]) -> Single<[Account]> {
@@ -56,13 +56,13 @@ extension AccountApi {
         return Single.deferred({
             
             if let object = value.dcore.chainObject {
-                return self.getAccounts(byIds: [object]).map({ try $0.first.orThrow(ChainException.network(.notFound)) })
+                return self.getAccounts(byIds: [object]).map({ try $0.first.orThrow(DCoreException.network(.notFound)) })
             }
             
             if let address = value.dcore.address {
                 return self.getAccountIds(byAddressList: [address])
                     .flatMap({ result in
-                        return self.getAccounts(byIds: result.first!).map({ try $0.first.orThrow(ChainException.network(.notFound)) })
+                        return self.getAccounts(byIds: result.first!).map({ try $0.first.orThrow(DCoreException.network(.notFound)) })
                     })
             }
             
@@ -70,7 +70,7 @@ extension AccountApi {
                 return self.getAccount(byName: value)
             }
             
-            return Single.error(ChainException.unexpected("Value \(value) is not a valid account reference"))
+            return Single.error(DCoreException.unexpected("Value \(value) is not a valid account reference"))
         })
     }
     

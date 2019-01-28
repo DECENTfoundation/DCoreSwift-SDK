@@ -24,7 +24,7 @@ extension Optional {
 
 extension Optional where Wrapped == String {
     func isEmptyOrNil() -> Bool {
-        if isNil() { return true }
+        guard !isNil() else { return true }
         return self.unsafelyUnwrapped.isEmpty
     }
 }

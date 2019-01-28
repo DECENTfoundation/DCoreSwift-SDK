@@ -56,7 +56,7 @@ extension DCore {
         func make<Output>(streamRequest req: BaseRequest<Output>) -> Observable<Output> where Output: Codable {
             guard let wss = wss, req.callback else {
                 return Observable.error(
-                    ChainException.unexpected("Only callbacks calls available through wss stream api")
+                    DCoreException.unexpected("Only callbacks calls available through wss stream api")
                 )
             }
             return wss.request(usingStream: req)
@@ -68,7 +68,7 @@ extension DCore {
             } else {
                 guard let rest = rest, !req.callback else {
                     return Single.error(
-                        ChainException.unexpected("Calls with callbacks are not available through rest api")
+                        DCoreException.unexpected("Calls with callbacks are not available through rest api")
                     )
                 }
                 return rest.request(using: req)

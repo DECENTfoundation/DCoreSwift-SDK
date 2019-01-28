@@ -239,3 +239,7 @@ extension Data {
 extension String {
     public func unhex() -> Data? { return Data(hex: self) }
 }
+
+extension Substring {
+    public func unhex() -> Data? { return String(self).unhex() }
+}

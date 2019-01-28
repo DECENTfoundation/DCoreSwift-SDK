@@ -1,4 +1,5 @@
 import Foundation
+import BigInt
 
 public struct TransferOperation: Operation {
     
@@ -21,6 +22,14 @@ public struct TransferOperation: Operation {
 }
 
 extension TransferOperation {
+    
+    public func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt) throws -> TransferOperation {
+        var op = self
+        op.memo = try memo?.decrypt(keyPair, address: address, nonce: nonce)
+        
+        return op
+    }
+    
     public func asData() -> Data {
         
         var data = Data()

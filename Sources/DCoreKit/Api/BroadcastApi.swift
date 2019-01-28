@@ -49,7 +49,7 @@ extension BroadcastApi {
                                  expiration: Int? = nil) -> Completable where Input: Operation {
         return Single.just(keypair.dcore.keyPair).flatMapCompletable {
             guard let kp = $0 else {
-                return Completable.error(ChainException.unexpected("Can't create keypair from \(keypair)"))
+                return Completable.error(DCoreException.unexpected("Can't create keypair from \(keypair)"))
             }
             return self.broadcast(using: kp, operations: operations, expiration: expiration)
         }
@@ -85,7 +85,7 @@ extension BroadcastApi {
                                  expiration: Int? = nil) -> Observable<TransactionConfirmation<Input>> where Input: Operation {
         return Single.just(keypair.dcore.keyPair).asObservable().flatMap({ kp -> Observable<TransactionConfirmation<Input>> in
             guard let kp = kp else {
-                return Observable.error(ChainException.unexpected("Can't create keypair from \(keypair)"))
+                return Observable.error(DCoreException.unexpected("Can't create keypair from \(keypair)"))
             }
             return self.broadcast(withCallback: kp, operations: operations, expiration: expiration)
         })

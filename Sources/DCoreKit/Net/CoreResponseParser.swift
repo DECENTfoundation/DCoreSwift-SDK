@@ -4,7 +4,7 @@ import SwiftyJSON
 enum ResponseResult<Output> where Output: Codable {
     case
     success(Output),
-    failure(ChainException)
+    failure(DCoreException)
 }
 
 enum ResponseKeypath: String {
@@ -36,11 +36,11 @@ extension CoreResponseParser {
         
         guard !error.exists() else {
             let stack = error[ResponseKeypath.data.rawValue]
-            if let failure = try? stack.rawData().asJsonDecoded(to: ChainException.Network.self) {
-                throw ChainException.network(failure)
+            if let failure = try? stack.rawData().asJsonDecoded(to: DCoreException.Network.self) {
+                throw DCoreException.network(failure)
             }
             
-            throw ChainException.network(.fail(error))
+            throw DCoreException.network(.fail(error))
         }
         
         if result.exists() {
@@ -50,7 +50,7 @@ extension CoreResponseParser {
                 }
                 
                 if result.null != nil || result.arrayValue.contains(.null) {
-                    throw ChainException.network(.notFound)
+                    throw DCoreException.network(.notFound)
                 }
                 
                 if result.dictionary.isNil() && result.array.isNil() {
@@ -58,13 +58,13 @@ extension CoreResponseParser {
                 }
                 
                 return try result.rawData().asJsonDecoded(to: req.returnType)
-            } catch let error as ChainException { throw error
+            } catch let error as DCoreException { throw error
             } catch let error {
-                throw ChainException.network(.failDecode("Failed to decode response for request:\n\(req.description)\nwith error:\n\(error)"))
+                throw DCoreException.network(.failDecode("Failed to decode response for request:\n\(req.description)\nwith error:\n\(error)"))
             }
         }
         
-        throw ChainException.unexpected("Invalid api response for request:\n\(req.description)")
+        throw DCoreException.unexpected("Invalid api response for request:\n\(req.description)")
     }
 }
 

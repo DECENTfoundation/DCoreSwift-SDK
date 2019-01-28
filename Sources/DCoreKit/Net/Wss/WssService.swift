@@ -35,8 +35,8 @@ final class WssService: CoreRequestConvertible {
             return self.request(usingStream: req)
                 .single()
                 .do(onNext: { single(.success($0)) }, onError: {
-                    if case RxError.noElements = $0 { single(.error(ChainException.network(.closed))) } else {
-                        single(.error($0.asChainException()))
+                    if case RxError.noElements = $0 { single(.error(DCoreException.network(.closed))) } else {
+                        single(.error($0.asDCoreException()))
                     }
                 })
                 .subscribe()

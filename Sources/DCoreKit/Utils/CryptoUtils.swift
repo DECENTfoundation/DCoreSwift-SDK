@@ -45,34 +45,57 @@ public struct CryptoUtils {
         }
         return Data(result)
     }
+
+    static func encrypt(_ keyiv: Data, checksumInput input: Data) throws -> Data {
+        let checksumed = hash256(input).prefix(4) + input
+        return try encrypt(keyiv, input: checksumed)
+    }
+    
+    static func encrypt(_ keyiv: Data, input: Data) throws -> Data {
+        return try encrypt(keyiv[0..<32], iv: keyiv[32..<(32+16)], input: input)
+    }
     
     static func encrypt(_ key: Data, iv: Data, input: Data) throws -> Data {
-        return Data(try AES(key: key.bytes, blockMode: CBC(iv: iv.bytes), padding: .pkcs7).encrypt(input.bytes))
-    }
-    
-    static func decrypt(_ key: Data, iv: Data, input: Data) throws -> Data {
-        return Data(try AES(key: key.bytes, blockMode: CBC(iv: iv.bytes), padding: .pkcs7).decrypt(input.bytes))
-    }
-
-    static func encrypt(using passphrase: Data, input: Data) throws -> Data {
         do {
-            let key = passphrase[0..<32]
-            let iv = passphrase[32..<(32+16)]
-            
-            return try encrypt(key, iv: iv, input: input)
-        } catch {
-            throw  ChainException.crypto(.failEncrypt("Cannot encrypt \(input) with passphrase: \(passphrase)"))
+            return Data(try AES(key: key.bytes, blockMode: CBC(iv: iv.bytes), padding: .pkcs7).encrypt(input.bytes))
+        } catch let error {
+            Logger.debug(crypto: "Failed to encrypt %{private}s", args: { "\(error.localizedDescription)" })
+            throw DCoreException.crypto(.failEncrypt("Cannot encrypt \(input.toHex()) with key: \(key.toHex())"))
         }
     }
     
-    static func decrypt(using passphrase: String, encryptedInput input: String) throws -> Data {
+    static func decrypt(_ keyiv: Data, checksumInput input: Data) throws -> Data {
+        return try decrypt(keyiv[0..<32], iv: keyiv[32..<(32+16)], checksumInput: input)
+    }
+    
+    static func decrypt(_ key: Data, iv: Data, checksumInput input: Data) throws -> Data {
+        let checksumResult = try decrypt(key, iv: iv, input: input)
+        let result = checksumResult.dropFirst(4)
+        
+        guard checksumResult.prefix(4) == hash256(result).prefix(4) else {
+            throw DCoreException.crypto(.failDecrypt("Cannot decrypt \(input.toHex()), invalid checksum"))
+        }
+        
+        return result
+    }
+    
+    static func decrypt(_ passphrase: String, input: String) throws -> Data {
+        let keyiv = hash512(passphrase.data(using: .utf8) ?? Data.empty)
+        let unhexed = input.unhex() ?? Data.empty
+        
+        return try decrypt(keyiv, input: unhexed)
+    }
+    
+    static func decrypt(_ keyiv: Data, input: Data) throws -> Data {
+        return try decrypt(keyiv[0..<32], iv: keyiv[32..<(32+16)], input: input)
+    }
+    
+    static func decrypt(_ key: Data, iv: Data, input: Data) throws -> Data {
         do {
-            let keyiv = hash512(passphrase.data(using: .utf8) ?? Data.empty)
-            let unhexed = input.unhex() ?? Data.empty
-            
-            return try decrypt(keyiv[0..<32], iv: keyiv[32..<(32+16)], input: unhexed)
-        } catch {
-            throw  ChainException.crypto(.failDecrypt("Cannot decrypt \(input) with passphrase: \(passphrase)"))
+            return Data(try AES(key: key.bytes, blockMode: CBC(iv: iv.bytes), padding: .pkcs7).decrypt(input.bytes))
+        } catch let error {
+            Logger.debug(crypto: "Failed to decrypt %{private}s", args: { "\(error.localizedDescription)" })
+            throw DCoreException.crypto(.failDecrypt("Cannot decrypt \(input.toHex()) with key: \(key.toHex())"))
         }
     }
     

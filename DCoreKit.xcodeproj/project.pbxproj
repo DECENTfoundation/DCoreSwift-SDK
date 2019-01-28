@@ -20,6 +20,10 @@
 		A11F6D6C21ECB61A008C8525 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */; };
 		A11F6D6D21ECB61A008C8525 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */; };
 		A11F6D6E21ECB61A008C8525 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6721ECB61A008C8525 /* RxSwift.framework */; };
+		A14F7C3421FF046400E161C5 /* DCoreException.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_218 /* DCoreException.swift */; };
+		A14F7C3521FF046600E161C5 /* DCoreExceptionConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_219 /* DCoreExceptionConvertible.swift */; };
+		A159C4C221FDFF4F008BE73E /* CipherConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A159C4C121FDFF4F008BE73E /* CipherConvertible.swift */; };
+		A159C4C321FDFF4F008BE73E /* CipherConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A159C4C121FDFF4F008BE73E /* CipherConvertible.swift */; };
 		A16032AF21F3560700674FEF /* AccountUpdateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16032AE21F3560700674FEF /* AccountUpdateOperation.swift */; };
 		A16032B021F3560700674FEF /* AccountUpdateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16032AE21F3560700674FEF /* AccountUpdateOperation.swift */; };
 		A16032B221F3563D00674FEF /* SubmitContentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16032B121F3563D00674FEF /* SubmitContentOperation.swift */; };
@@ -274,8 +278,8 @@
 		A1D96E1521ED1E22009C0A30 /* WssResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_214 /* WssResponseParser.swift */; };
 		A1D96E1621ED1E22009C0A30 /* WssService.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_215 /* WssService.swift */; };
 		A1D96E1721ED1E22009C0A30 /* BaseConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_217 /* BaseConvertible.swift */; };
-		A1D96E1821ED1E22009C0A30 /* ChainException.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_218 /* ChainException.swift */; };
-		A1D96E1921ED1E22009C0A30 /* ChainExceptionConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_219 /* ChainExceptionConvertible.swift */; };
+		A1D96E1821ED1E22009C0A30 /* DCoreException.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_218 /* DCoreException.swift */; };
+		A1D96E1921ED1E22009C0A30 /* DCoreExceptionConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_219 /* DCoreExceptionConvertible.swift */; };
 		A1D96E1A21ED1E22009C0A30 /* DCoreExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_220 /* DCoreExtensionProvider.swift */; };
 		A1D96E1B21ED1E22009C0A30 /* CryptoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_221 /* CryptoUtils.swift */; };
 		A1D96E1C21ED1E22009C0A30 /* Enum+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_222 /* Enum+Extension.swift */; };
@@ -322,8 +326,6 @@
 		OBJ_1026 /* WssResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_214 /* WssResponseParser.swift */; };
 		OBJ_1027 /* WssService.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_215 /* WssService.swift */; };
 		OBJ_1028 /* BaseConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_217 /* BaseConvertible.swift */; };
-		OBJ_1029 /* ChainException.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_218 /* ChainException.swift */; };
-		OBJ_1030 /* ChainExceptionConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_219 /* ChainExceptionConvertible.swift */; };
 		OBJ_1031 /* DCoreExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_220 /* DCoreExtensionProvider.swift */; };
 		OBJ_1032 /* CryptoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_221 /* CryptoUtils.swift */; };
 		OBJ_1033 /* Enum+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_222 /* Enum+Extension.swift */; };
@@ -540,6 +542,7 @@
 		A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		A11F6D6721ECB61A008C8525 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		A159C4C121FDFF4F008BE73E /* CipherConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CipherConvertible.swift; path = Sources/DcoreKit/Crypto/CipherConvertible.swift; sourceTree = SOURCE_ROOT; };
 		A16032AE21F3560700674FEF /* AccountUpdateOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUpdateOperation.swift; sourceTree = "<group>"; };
 		A16032B121F3563D00674FEF /* SubmitContentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitContentOperation.swift; sourceTree = "<group>"; };
 		A16032B421F3573200674FEF /* AnyTransactionConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTransactionConfirmation.swift; sourceTree = "<group>"; };
@@ -699,8 +702,8 @@
 		OBJ_214 /* WssResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WssResponseParser.swift; sourceTree = "<group>"; };
 		OBJ_215 /* WssService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WssService.swift; sourceTree = "<group>"; };
 		OBJ_217 /* BaseConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseConvertible.swift; sourceTree = "<group>"; };
-		OBJ_218 /* ChainException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainException.swift; sourceTree = "<group>"; };
-		OBJ_219 /* ChainExceptionConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainExceptionConvertible.swift; sourceTree = "<group>"; };
+		OBJ_218 /* DCoreException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCoreException.swift; sourceTree = "<group>"; };
+		OBJ_219 /* DCoreExceptionConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCoreExceptionConvertible.swift; sourceTree = "<group>"; };
 		OBJ_22 /* SeedersApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedersApi.swift; sourceTree = "<group>"; };
 		OBJ_220 /* DCoreExtensionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCoreExtensionProvider.swift; sourceTree = "<group>"; };
 		OBJ_221 /* CryptoUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtils.swift; sourceTree = "<group>"; };
@@ -1436,8 +1439,6 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_217 /* BaseConvertible.swift */,
-				OBJ_218 /* ChainException.swift */,
-				OBJ_219 /* ChainExceptionConvertible.swift */,
 				OBJ_221 /* CryptoUtils.swift */,
 				OBJ_222 /* Enum+Extension.swift */,
 				OBJ_223 /* LoggerConvertible.swift */,
@@ -1588,6 +1589,7 @@
 				OBJ_29 /* ECKeyPair.swift */,
 				OBJ_30 /* PrivateKey.swift */,
 				OBJ_31 /* PublicKey.swift */,
+				A159C4C121FDFF4F008BE73E /* CipherConvertible.swift */,
 			);
 			path = Crypto;
 			sourceTree = "<group>";
@@ -2289,6 +2291,8 @@
 				OBJ_33 /* DCoreConstants.swift */,
 				OBJ_34 /* DCoreSdk.swift */,
 				OBJ_220 /* DCoreExtensionProvider.swift */,
+				OBJ_218 /* DCoreException.swift */,
+				OBJ_219 /* DCoreExceptionConvertible.swift */,
 				OBJ_35 /* Model */,
 				OBJ_93 /* Namespace.swift */,
 				OBJ_94 /* Net */,
@@ -2733,6 +2737,7 @@
 				A1D96D9A21ED1E22009C0A30 /* SignedBlock.swift in Sources */,
 				A19D4CE421F0C8520069B6CA /* OperationParameter.swift in Sources */,
 				A1D96D9B21ED1E22009C0A30 /* Subscription.swift in Sources */,
+				A159C4C321FDFF4F008BE73E /* CipherConvertible.swift in Sources */,
 				A1D96D9C21ED1E22009C0A30 /* Synopsis.swift in Sources */,
 				A1D96D9D21ED1E22009C0A30 /* Transaction.swift in Sources */,
 				A1D96D9E21ED1E22009C0A30 /* TransactionConfirmation.swift in Sources */,
@@ -2869,8 +2874,8 @@
 				A1D96E1521ED1E22009C0A30 /* WssResponseParser.swift in Sources */,
 				A1D96E1621ED1E22009C0A30 /* WssService.swift in Sources */,
 				A1D96E1721ED1E22009C0A30 /* BaseConvertible.swift in Sources */,
-				A1D96E1821ED1E22009C0A30 /* ChainException.swift in Sources */,
-				A1D96E1921ED1E22009C0A30 /* ChainExceptionConvertible.swift in Sources */,
+				A1D96E1821ED1E22009C0A30 /* DCoreException.swift in Sources */,
+				A1D96E1921ED1E22009C0A30 /* DCoreExceptionConvertible.swift in Sources */,
 				A1C8525D21F3854700A9A4A2 /* URL+Scheme.swift in Sources */,
 				A1D96E1A21ED1E22009C0A30 /* DCoreExtensionProvider.swift in Sources */,
 				A1D96E1B21ED1E22009C0A30 /* CryptoUtils.swift in Sources */,
@@ -2941,6 +2946,7 @@
 				OBJ_838 /* GeneralApi.swift in Sources */,
 				OBJ_839 /* HistoryApi.swift in Sources */,
 				OBJ_840 /* MiningApi.swift in Sources */,
+				A14F7C3521FF046600E161C5 /* DCoreExceptionConvertible.swift in Sources */,
 				OBJ_841 /* OperationApi.swift in Sources */,
 				OBJ_842 /* PurchaseApi.swift in Sources */,
 				OBJ_843 /* SeedersApi.swift in Sources */,
@@ -3008,6 +3014,7 @@
 				OBJ_898 /* Publishing.swift in Sources */,
 				OBJ_899 /* Purchase.swift in Sources */,
 				OBJ_900 /* RealSupply.swift in Sources */,
+				A159C4C221FDFF4F008BE73E /* CipherConvertible.swift in Sources */,
 				OBJ_902 /* Seeder.swift in Sources */,
 				OBJ_903 /* SignedBlock.swift in Sources */,
 				OBJ_904 /* Subscription.swift in Sources */,
@@ -3110,6 +3117,7 @@
 				OBJ_991 /* LookupMiners.swift in Sources */,
 				OBJ_992 /* LookupVoteIds.swift in Sources */,
 				OBJ_993 /* PriceToDct.swift in Sources */,
+				A14F7C3421FF046400E161C5 /* DCoreException.swift in Sources */,
 				OBJ_994 /* RequestApiAccess.swift in Sources */,
 				OBJ_995 /* RestoreEncryptionKey.swift in Sources */,
 				OBJ_996 /* SearchAccountBalanceHistory.swift in Sources */,
@@ -3147,8 +3155,6 @@
 				OBJ_1027 /* WssService.swift in Sources */,
 				OBJ_1028 /* BaseConvertible.swift in Sources */,
 				A1C8525C21F3854700A9A4A2 /* URL+Scheme.swift in Sources */,
-				OBJ_1029 /* ChainException.swift in Sources */,
-				OBJ_1030 /* ChainExceptionConvertible.swift in Sources */,
 				OBJ_1031 /* DCoreExtensionProvider.swift in Sources */,
 				OBJ_1032 /* CryptoUtils.swift in Sources */,
 				OBJ_1033 /* Enum+Extension.swift in Sources */,

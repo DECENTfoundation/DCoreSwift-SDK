@@ -30,7 +30,7 @@ extension ValidationApi {
     
     public func verifyAccountAuthority(byReference ref: Account.Reference, keys: [Address]) -> Single<Bool> {
         return VerifyAccountAuthority(ref, keys: keys).base.toResponse(api.core).catchError {
-            guard $0.asChainException().isStack else { throw $0 }
+            guard $0.asDCoreException().isStack else { throw $0 }
             return Single.just(false)
         }
     }
@@ -52,7 +52,7 @@ extension ValidationApi {
     }
     
     public func getFee<Input>(for operation: Input) -> Single<AssetAmount> where Input: Operation {
-        return getFees(for: [operation]).map({ try $0.first.orThrow(ChainException.network(.notFound)) })
+        return getFees(for: [operation]).map({ try $0.first.orThrow(DCoreException.network(.notFound)) })
     }
     
     public func getFee(forType type: OperationType) -> Single<AssetAmount> {

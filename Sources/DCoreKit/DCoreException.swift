@@ -1,7 +1,7 @@
 import Foundation
 import SwiftyJSON
 
-public enum ChainException: Error {
+public enum DCoreException: Error {
     
     public enum Network: Error, Equatable {
         case
@@ -25,6 +25,7 @@ public enum ChainException: Error {
         failDecode(String),
         failDecrypt(String),
         failEncrypt(String),
+        notSupported,
         notEnoughSpace
     }
     
@@ -35,8 +36,8 @@ public enum ChainException: Error {
     
     init(from error: Error) {
         switch true {
-        case error is ChainException:
-            self = error as! ChainException // swiftlint:disable:this force_cast
+        case error is DCoreException:
+            self = error as! DCoreException // swiftlint:disable:this force_cast
         default:
             self = .underlying(error)
         }
@@ -50,7 +51,7 @@ public enum ChainException: Error {
     underlying(Error)
 }
 
-extension ChainException: CustomStringConvertible {
+extension DCoreException: CustomStringConvertible {
     public var description: String {
         switch self {
         case .network(let network): return network.description
@@ -62,7 +63,7 @@ extension ChainException: CustomStringConvertible {
     }
 }
 
-extension ChainException.Network: CustomStringConvertible {
+extension DCoreException.Network: CustomStringConvertible {
     public var description: String {
         switch self {
         case .notFound: return "Result not found"
@@ -75,7 +76,7 @@ extension ChainException.Network: CustomStringConvertible {
     }
 }
 
-extension ChainException.Chain: CustomStringConvertible {
+extension DCoreException.Chain: CustomStringConvertible {
     public var description: String {
         switch self {
         case .failConvert(let message): return message
@@ -83,7 +84,7 @@ extension ChainException.Chain: CustomStringConvertible {
     }
 }
 
-extension ChainException.Crypto: CustomStringConvertible {
+extension DCoreException.Crypto: CustomStringConvertible {
     public var description: String {
         switch self {
         case .failSigning: return "Singing failed"
@@ -92,11 +93,12 @@ extension ChainException.Crypto: CustomStringConvertible {
         case .failDecrypt(let message): return message
         case .failEncrypt(let message): return message
         case .notEnoughSpace: return "Not enough space"
+        case .notSupported: return "Not supported for ciphers"
         }
     }
 }
 
-extension ChainException.Network: Decodable {
+extension DCoreException.Network: Decodable {
     
     private enum CodingKeys: String, CodingKey {
         case
@@ -115,8 +117,8 @@ extension ChainException.Network: Decodable {
     }
 }
 
-extension ChainException: Equatable {
-    public static func == (lhs: ChainException, rhs: ChainException) -> Bool {
+extension DCoreException: Equatable {
+    public static func == (lhs: DCoreException, rhs: DCoreException) -> Bool {
         switch (lhs, rhs) {
         case (.chain(let left), .chain(let right)): return left == right
         case (.network(let left), .network(let right)): return left == right

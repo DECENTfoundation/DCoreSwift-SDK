@@ -26,7 +26,7 @@ public struct ECKeyPair {
         let (recovery, compact) = try privateKey.sign(message)
         let signature = Data.of(recovery + ECKeyPair.compressed + ECKeyPair.compact) + compact
         
-        if signature.canonicalSignature { throw ChainException.crypto(.failSigning) }
+        if signature.canonicalSignature { throw DCoreException.crypto(.failSigning) }
         return signature
     }
     

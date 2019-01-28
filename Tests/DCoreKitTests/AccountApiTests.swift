@@ -51,7 +51,7 @@ final class AccountApiTests: XCTestCase {
     func testGetAccountByNameNotFoundUsingRest() {
         XCTAssertThrowsError(
             try rest.account.getAccount(byName: "xxxxxxxx1234567").debug().toBlocking().single()
-        ) { XCTAssertEqual($0.asChainException(), ChainException.network(.notFound)) }
+        ) { XCTAssertEqual($0.asDCoreException(), DCoreException.network(.notFound)) }
     }
     
     func testGetAccountByNameUsingWss() {
@@ -72,7 +72,7 @@ final class AccountApiTests: XCTestCase {
     func testGetAccountByAddressNotFoundUsingWss() {
         XCTAssertThrowsError(
             try wss.account.getAccount(byName: "xxxxxxxx1234567").debug().toBlocking().single()
-        ) { XCTAssertEqual($0.asChainException(), ChainException.network(.notFound)) }
+        ) { XCTAssertEqual($0.asDCoreException(), DCoreException.network(.notFound)) }
     }
     
     static var allTests = [

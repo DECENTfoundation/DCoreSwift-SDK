@@ -5,8 +5,9 @@ public struct Memo: Codable {
     
     public var from: Address?
     public var to: Address?
+    public var message: String
+    
     public let nonce: BigInt
-    public let message: String
     
     private enum CodingKeys: String, CodingKey {
         case
@@ -15,27 +16,36 @@ public struct Memo: Codable {
         message,
         nonce
     }
-    
-    public init(_ message: String = "") {
-        self.message = (Data(count: 4) + message.asEncoded()).toHex()
-        self.nonce = 0
-    }
-    
+
     public init(_ message: String,
-                keyPair: ECKeyPair,
-                recipient: Address,
+                keyPair: ECKeyPair?,
+                recipient: Address?,
                 nonce: BigInt = CryptoUtils.generateNonce()
         ) throws {
         
         precondition(nonce.sign == .plus, "Nonce must be a positive number")
         
-        self.nonce = nonce
-        self.from = keyPair.address
+        self.from = keyPair?.address
         self.to = recipient
+        self.message = try message.encrypt(keyPair, address: recipient, nonce: nonce)
+        self.nonce = !recipient.isNil() ? nonce : 0
+    }
+}
+
+extension Memo: CipherConvertible {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt) throws -> Memo {
+        var memo = self
+        if from.isNil() || to.isNil() {
+            memo.message = try self.message.decrypt(keyPair, address: address, nonce: nonce)
+        } else if let from = from, from.publicKey == keyPair.publicKey {
+            memo.message = try self.message.decrypt(keyPair, address: from, nonce: self.nonce)
+        } else if let to = to, to.publicKey == keyPair.publicKey {
+            memo.message = try self.message.decrypt(keyPair, address: to, nonce: self.nonce)
+        } else {
+            memo.message = ""
+        }
         
-        let checksumed  = CryptoUtils.hash256(message.asEncoded()).prefix(4) + message.asEncoded()
-        let secret = try keyPair.secret(recipient, nonce: nonce)
-        self.message = try CryptoUtils.encrypt(using: secret, input: checksumed).toHex()
+        return memo
     }
 }
 
@@ -46,6 +56,7 @@ extension Memo: DataConvertible {
         data += to.asData()
         data += UInt64(nonce).littleEndian
         data += message.unhex().asData()
+        
         Logger.debug(crypto: "Memo binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }

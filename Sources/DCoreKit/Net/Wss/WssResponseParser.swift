@@ -13,14 +13,14 @@ extension WssResponseParser where Self: DataEncodable {
             do {
                 return (valid, valid ?
                     .success(try parse(response: req, from: json)) :
-                    .failure(ChainException.unexpected("Not valid wss response for request:\n\(req.description)"))
+                    .failure(DCoreException.unexpected("Not valid wss response for request:\n\(req.description)"))
                 )
                 
             } catch let error {
-                return (valid, .failure(error.asChainException()))
+                return (valid, .failure(error.asDCoreException()))
             }
         } catch let error {
-            return (false, .failure(error.asChainException()))
+            return (false, .failure(error.asDCoreException()))
         }
     }
     
