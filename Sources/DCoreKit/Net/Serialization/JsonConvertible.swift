@@ -19,6 +19,10 @@ extension Encodable {
         return try JSONEncoder.codingContext().encode(self)
     }
     
+    public func asJsonObject() throws -> Any {
+        return try JSONSerialization.jsonObject(with: try asJsonData(), options: [])
+    }
+    
     public func asJson() -> String? {
         return String(data: (try? asJsonData()) ?? Data.empty, encoding: .utf8)
     }
