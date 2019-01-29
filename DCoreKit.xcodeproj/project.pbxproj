@@ -20,6 +20,7 @@
 		A11F6D6C21ECB61A008C8525 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */; };
 		A11F6D6D21ECB61A008C8525 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */; };
 		A11F6D6E21ECB61A008C8525 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6721ECB61A008C8525 /* RxSwift.framework */; };
+		A14C66D722004E6400D0A0EF /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A14C66D622004E6400D0A0EF /* RxBlocking.framework */; };
 		A14F7C3421FF046400E161C5 /* DCoreException.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_218 /* DCoreException.swift */; };
 		A14F7C3521FF046600E161C5 /* DCoreExceptionConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_219 /* DCoreExceptionConvertible.swift */; };
 		A159C4C221FDFF4F008BE73E /* CipherConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A159C4C121FDFF4F008BE73E /* CipherConvertible.swift */; };
@@ -295,8 +296,6 @@
 		A1D96E3721ED2025009C0A30 /* CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_234 /* CryptoTests.swift */; };
 		A1D96E3821ED2025009C0A30 /* SerializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_235 /* SerializationTests.swift */; };
 		A1D96E3921ED2025009C0A30 /* SubscriptionApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_236 /* SubscriptionApiTests.swift */; };
-		A1D96E3C21ED2025009C0A30 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E9BC3321ECE0410058109F /* RxBlocking.framework */; };
-		A1D96E3D21ED2025009C0A30 /* DCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DCoreKit::DCoreKit::Product" /* DCoreKit.framework */; };
 		A1E9BC3421ECE0410058109F /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E9BC3321ECE0410058109F /* RxBlocking.framework */; };
 		OBJ_1000 /* SearchContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* SearchContent.swift */; };
 		OBJ_1001 /* SearchFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_186 /* SearchFeedback.swift */; };
@@ -341,7 +340,6 @@
 		OBJ_1090 /* CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_234 /* CryptoTests.swift */; };
 		OBJ_1091 /* SerializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_235 /* SerializationTests.swift */; };
 		OBJ_1092 /* SubscriptionApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_236 /* SubscriptionApiTests.swift */; };
-		OBJ_1097 /* DCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DCoreKit::DCoreKit::Product" /* DCoreKit.framework */; };
 		OBJ_831 /* AccountApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* AccountApi.swift */; };
 		OBJ_832 /* AssetApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AssetApi.swift */; };
 		OBJ_833 /* BalanceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* BalanceApi.swift */; };
@@ -542,6 +540,7 @@
 		A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		A11F6D6721ECB61A008C8525 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		A14C66D622004E6400D0A0EF /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/Mac/RxBlocking.framework; sourceTree = "<group>"; };
 		A159C4C121FDFF4F008BE73E /* CipherConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CipherConvertible.swift; path = Sources/DcoreKit/Crypto/CipherConvertible.swift; sourceTree = SOURCE_ROOT; };
 		A16032AE21F3560700674FEF /* AccountUpdateOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUpdateOperation.swift; sourceTree = "<group>"; };
 		A16032B121F3563D00674FEF /* SubmitContentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitContentOperation.swift; sourceTree = "<group>"; };
@@ -1230,8 +1229,7 @@
 			buildActionMask = 0;
 			files = (
 				A19D4CF121F1AE5E0069B6CA /* Hippolyte.framework in Frameworks */,
-				A1D96E3C21ED2025009C0A30 /* RxBlocking.framework in Frameworks */,
-				A1D96E3D21ED2025009C0A30 /* DCoreKit.framework in Frameworks */,
+				A14C66D722004E6400D0A0EF /* RxBlocking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1253,7 +1251,6 @@
 			buildActionMask = 0;
 			files = (
 				A1E9BC3421ECE0410058109F /* RxBlocking.framework in Frameworks */,
-				OBJ_1097 /* DCoreKit.framework in Frameworks */,
 				A19D4CF021F1AE3B0069B6CA /* Hippolyte.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1264,6 +1261,7 @@
 		A11F6D6021ECB619008C8525 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A14C66D622004E6400D0A0EF /* RxBlocking.framework */,
 				A114B51021F9F5CB009F1BA2 /* BigInt.framework */,
 				A114B51121F9F5CB009F1BA2 /* CryptoSwift.framework */,
 				A114B51321F9F5CB009F1BA2 /* RxCocoa.framework */,
@@ -3264,6 +3262,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/macOS",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DCoreKit-macOS.plist";
@@ -3291,6 +3290,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/macOS",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DCoreKit-macOS.plist";
