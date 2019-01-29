@@ -77,6 +77,8 @@
 		A19D4CF821F1B4D70069B6CA /* MockBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF621F1B4D70069B6CA /* MockBuilder.swift */; };
 		A19D4CFA21F1B64B0069B6CA /* MockTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */; };
 		A19D4CFB21F1B64B0069B6CA /* MockTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */; };
+		A1B00ED82200A804002D59F3 /* Date+DCoreExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B00ED72200A804002D59F3 /* Date+DCoreExtensionProvider.swift */; };
+		A1B00ED92200A804002D59F3 /* Date+DCoreExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B00ED72200A804002D59F3 /* Date+DCoreExtensionProvider.swift */; };
 		A1B51C0C21EE0059006277F9 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B51C0B21EE0059006277F9 /* BaseApi.swift */; };
 		A1B51C0D21EE0059006277F9 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B51C0B21EE0059006277F9 /* BaseApi.swift */; };
 		A1C8525A21F383A100A9A4A2 /* SchemeConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C8525921F383A100A9A4A2 /* SchemeConvertible.swift */; };
@@ -568,6 +570,7 @@
 		A19D4CF221F1AE960069B6CA /* AccountApiMockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountApiMockTests.swift; sourceTree = "<group>"; };
 		A19D4CF621F1B4D70069B6CA /* MockBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBuilder.swift; sourceTree = "<group>"; };
 		A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTestCase.swift; sourceTree = "<group>"; };
+		A1B00ED72200A804002D59F3 /* Date+DCoreExtensionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Date+DCoreExtensionProvider.swift"; path = "Sources/DcoreKit/Utils/Date+DCoreExtensionProvider.swift"; sourceTree = SOURCE_ROOT; };
 		A1B51C0B21EE0059006277F9 /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 		A1C8525921F383A100A9A4A2 /* SchemeConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeConvertible.swift; sourceTree = "<group>"; };
 		A1C8525B21F3854700A9A4A2 /* URL+Scheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Scheme.swift"; sourceTree = "<group>"; };
@@ -1448,6 +1451,7 @@
 				A1673B4B21EF34DF008FF560 /* Array+Extension.swift */,
 				A1673B5421EF615B008FF560 /* Optional+Extension.swift */,
 				A1673B5A21F07143008FF560 /* DateFormatter+Extension.swift */,
+				A1B00ED72200A804002D59F3 /* Date+DCoreExtensionProvider.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2712,6 +2716,7 @@
 				A1D96D8321ED1E22009C0A30 /* Memo.swift in Sources */,
 				A16032D721F375EF00674FEF /* CancelContentOperation.swift in Sources */,
 				A1D96D8421ED1E22009C0A30 /* Miner.swift in Sources */,
+				A1B00ED92200A804002D59F3 /* Date+DCoreExtensionProvider.swift in Sources */,
 				A1D96D8521ED1E22009C0A30 /* MinerId.swift in Sources */,
 				A1D96D8621ED1E22009C0A30 /* MinerRewardInput.swift in Sources */,
 				A1D96D8721ED1E22009C0A30 /* MinerVotes.swift in Sources */,
@@ -2988,6 +2993,7 @@
 				OBJ_877 /* GlobalParameters.swift in Sources */,
 				OBJ_878 /* GlobalProperty.swift in Sources */,
 				OBJ_879 /* KeyParts.swift in Sources */,
+				A1B00ED82200A804002D59F3 /* Date+DCoreExtensionProvider.swift in Sources */,
 				OBJ_880 /* Memo.swift in Sources */,
 				OBJ_881 /* Miner.swift in Sources */,
 				OBJ_882 /* MinerId.swift in Sources */,
