@@ -79,6 +79,8 @@
 		A19D4CFB21F1B64B0069B6CA /* MockTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */; };
 		A1B00ED82200A804002D59F3 /* Date+DCoreExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B00ED72200A804002D59F3 /* Date+DCoreExtensionProvider.swift */; };
 		A1B00ED92200A804002D59F3 /* Date+DCoreExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B00ED72200A804002D59F3 /* Date+DCoreExtensionProvider.swift */; };
+		A1B00EEC2201EAD0002D59F3 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B00EEB2201EAD0002D59F3 /* Pagination.swift */; };
+		A1B00EED2201EAD0002D59F3 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B00EEB2201EAD0002D59F3 /* Pagination.swift */; };
 		A1B51C0C21EE0059006277F9 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B51C0B21EE0059006277F9 /* BaseApi.swift */; };
 		A1B51C0D21EE0059006277F9 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B51C0B21EE0059006277F9 /* BaseApi.swift */; };
 		A1C8525A21F383A100A9A4A2 /* SchemeConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C8525921F383A100A9A4A2 /* SchemeConvertible.swift */; };
@@ -571,6 +573,7 @@
 		A19D4CF621F1B4D70069B6CA /* MockBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBuilder.swift; sourceTree = "<group>"; };
 		A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTestCase.swift; sourceTree = "<group>"; };
 		A1B00ED72200A804002D59F3 /* Date+DCoreExtensionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Date+DCoreExtensionProvider.swift"; path = "Sources/DcoreKit/Utils/Date+DCoreExtensionProvider.swift"; sourceTree = SOURCE_ROOT; };
+		A1B00EEB2201EAD0002D59F3 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pagination.swift; path = Sources/DCoreKit/Net/Pagination.swift; sourceTree = SOURCE_ROOT; };
 		A1B51C0B21EE0059006277F9 /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 		A1C8525921F383A100A9A4A2 /* SchemeConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeConvertible.swift; sourceTree = "<group>"; };
 		A1C8525B21F3854700A9A4A2 /* URL+Scheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Scheme.swift"; sourceTree = "<group>"; };
@@ -2339,6 +2342,7 @@
 				OBJ_100 /* Model */,
 				OBJ_196 /* Rest */,
 				OBJ_199 /* Serialization */,
+				A1B00EEB2201EAD0002D59F3 /* Pagination.swift */,
 				OBJ_208 /* URLConvertible.swift */,
 				OBJ_209 /* URLRequest+HttpConfigurable.swift */,
 				OBJ_210 /* URLRequestConvertible.swift */,
@@ -2778,6 +2782,7 @@
 				A16032B321F3563D00674FEF /* SubmitContentOperation.swift in Sources */,
 				A189709421F217B700602F81 /* AccountCreateOperation.swift in Sources */,
 				A1D96DBB21ED1E22009C0A30 /* GetBlock.swift in Sources */,
+				A1B00EED2201EAD0002D59F3 /* Pagination.swift in Sources */,
 				A1D96DBC21ED1E22009C0A30 /* GetBlockHeader.swift in Sources */,
 				A1D96DBD21ED1E22009C0A30 /* GetBuyingByConsumer.swift in Sources */,
 				A1D96DBE21ED1E22009C0A30 /* GetBuyingByUri.swift in Sources */,
@@ -3055,6 +3060,7 @@
 				A16032C121F358AC00674FEF /* BuyContentConfirmation.swift in Sources */,
 				A16032BB21F3586100674FEF /* AccountCreateConfirmation.swift in Sources */,
 				OBJ_932 /* GetAccountReferences.swift in Sources */,
+				A1B00EEC2201EAD0002D59F3 /* Pagination.swift in Sources */,
 				OBJ_933 /* GetActualVotes.swift in Sources */,
 				OBJ_934 /* GetAssetPerBlock.swift in Sources */,
 				OBJ_935 /* GetAssets.swift in Sources */,

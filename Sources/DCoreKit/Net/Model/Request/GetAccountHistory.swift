@@ -7,7 +7,7 @@ struct GetAccountHistory<Input>: BaseRequestConvertible where Input: Operation {
     
     init(_ accountId: ChainObject,
          stopId: ChainObject = ObjectType.operationHistoryObject.genericId,
-         limit: Int = 100,
+         limit: UInt64 = 100,
          startId: ChainObject = ObjectType.operationHistoryObject.genericId
         ) {
         

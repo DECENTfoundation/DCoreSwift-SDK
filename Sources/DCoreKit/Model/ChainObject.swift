@@ -54,6 +54,24 @@ extension ChainObject: Equatable {
     }
 }
 
+extension ChainObject: Comparable {
+    public static func < (lhs: ChainObject, rhs: ChainObject) -> Bool {
+        return lhs.objectType < rhs.objectType || (lhs.objectType == rhs.objectType && lhs.instance < rhs.instance)
+    }
+    
+    public static func <= (lhs: ChainObject, rhs: ChainObject) -> Bool {
+        return lhs == rhs || lhs < rhs
+    }
+    
+    public static func >= (lhs: ChainObject, rhs: ChainObject) -> Bool {
+        return lhs == rhs || lhs > rhs
+    }
+    
+    public static func > (lhs: ChainObject, rhs: ChainObject) -> Bool {
+        return lhs.objectType > rhs.objectType || (lhs.objectType == rhs.objectType && lhs.instance > rhs.instance)
+    }
+}
+
 extension ChainObject: Hashable {
     public func hash(into hasher: inout Hasher) {
         (31 * objectType.hashValue + instance.hashValue).hash(into: &hasher)

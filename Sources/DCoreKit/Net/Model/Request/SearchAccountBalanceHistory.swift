@@ -11,7 +11,7 @@ struct SearchAccountBalanceHistory<Input>: BaseRequestConvertible where Input: O
          fromBlock: UInt64 = 0,
          toBlock: UInt64 = 0,
          startOffset: UInt64 = 0,
-         limit: Int = 100) {
+         limit: UInt64 = 100) {
         
         precondition(accountId.objectType == .accountObject, "Not a valid account object id")
         self.base = SearchAccountBalanceHistory.toBase(
