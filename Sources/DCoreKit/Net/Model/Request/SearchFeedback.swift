@@ -14,7 +14,7 @@ struct SearchFeedback: BaseRequestConvertible {
             .database,
             api: "search_feedback",
             returnType: [Purchase].self,
-            params: [user ?? "", uri, startId, count]
+            params: [user, uri, startId, count]
         )
     }
 }

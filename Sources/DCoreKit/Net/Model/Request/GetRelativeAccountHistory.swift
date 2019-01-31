@@ -13,7 +13,7 @@ struct GetRelativeAccountHistory<Input>: BaseRequestConvertible where Input: Ope
             api: "get_relative_account_history",
             returnType: [OperationHistory].self,
             params: [
-                accountId.objectId, stop, max(0, min(100, limit)), start
+                accountId, stop, max(0, min(100, limit)), start
             ]
         )
     }

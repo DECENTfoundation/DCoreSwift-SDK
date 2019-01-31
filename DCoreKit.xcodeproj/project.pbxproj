@@ -77,6 +77,8 @@
 		A19D4CF821F1B4D70069B6CA /* MockBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF621F1B4D70069B6CA /* MockBuilder.swift */; };
 		A19D4CFA21F1B64B0069B6CA /* MockTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */; };
 		A19D4CFB21F1B64B0069B6CA /* MockTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */; };
+		A1AE9DB722031528004B6019 /* HistoryApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE9DB622031528004B6019 /* HistoryApiTests.swift */; };
+		A1AE9DB822031528004B6019 /* HistoryApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE9DB622031528004B6019 /* HistoryApiTests.swift */; };
 		A1B00ED82200A804002D59F3 /* Date+DCoreExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B00ED72200A804002D59F3 /* Date+DCoreExtensionProvider.swift */; };
 		A1B00ED92200A804002D59F3 /* Date+DCoreExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B00ED72200A804002D59F3 /* Date+DCoreExtensionProvider.swift */; };
 		A1B00EEC2201EAD0002D59F3 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B00EEB2201EAD0002D59F3 /* Pagination.swift */; };
@@ -572,6 +574,7 @@
 		A19D4CF221F1AE960069B6CA /* AccountApiMockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountApiMockTests.swift; sourceTree = "<group>"; };
 		A19D4CF621F1B4D70069B6CA /* MockBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBuilder.swift; sourceTree = "<group>"; };
 		A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTestCase.swift; sourceTree = "<group>"; };
+		A1AE9DB622031528004B6019 /* HistoryApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HistoryApiTests.swift; path = Tests/DcoreKitTests/HistoryApiTests.swift; sourceTree = SOURCE_ROOT; };
 		A1B00ED72200A804002D59F3 /* Date+DCoreExtensionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Date+DCoreExtensionProvider.swift"; path = "Sources/DcoreKit/Utils/Date+DCoreExtensionProvider.swift"; sourceTree = SOURCE_ROOT; };
 		A1B00EEB2201EAD0002D59F3 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pagination.swift; path = Sources/DCoreKit/Net/Pagination.swift; sourceTree = SOURCE_ROOT; };
 		A1B51C0B21EE0059006277F9 /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
@@ -1476,6 +1479,7 @@
 				A1673B4E21EF3CC3008FF560 /* OperationApiTests.swift */,
 				A1673B5121EF43CA008FF560 /* GeneralApiTests.swift */,
 				OBJ_232 /* AssetApiTests.swift */,
+				A1AE9DB622031528004B6019 /* HistoryApiTests.swift */,
 				OBJ_233 /* BalanceApiTests.swift */,
 				OBJ_234 /* CryptoTests.swift */,
 				OBJ_235 /* SerializationTests.swift */,
@@ -2913,6 +2917,7 @@
 				A19D4CFB21F1B64B0069B6CA /* MockTestCase.swift in Sources */,
 				A1D96E3621ED2025009C0A30 /* BalanceApiTests.swift in Sources */,
 				A1D96E3721ED2025009C0A30 /* CryptoTests.swift in Sources */,
+				A1AE9DB822031528004B6019 /* HistoryApiTests.swift in Sources */,
 				A1D96E3821ED2025009C0A30 /* SerializationTests.swift in Sources */,
 				A1D96E3921ED2025009C0A30 /* SubscriptionApiTests.swift in Sources */,
 				A181489821F859320053F9BE /* ValidationApiTests.swift in Sources */,
@@ -2929,6 +2934,7 @@
 				A1673B4F21EF3CC3008FF560 /* OperationApiTests.swift in Sources */,
 				OBJ_1088 /* AssetApiTests.swift in Sources */,
 				A1673B5221EF43CA008FF560 /* GeneralApiTests.swift in Sources */,
+				A1AE9DB722031528004B6019 /* HistoryApiTests.swift in Sources */,
 				A19D4CF721F1B4D70069B6CA /* MockBuilder.swift in Sources */,
 				A19D4CFA21F1B64B0069B6CA /* MockTestCase.swift in Sources */,
 				OBJ_1089 /* BalanceApiTests.swift in Sources */,

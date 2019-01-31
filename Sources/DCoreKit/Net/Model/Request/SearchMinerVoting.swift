@@ -14,7 +14,7 @@ struct SearchMinerVoting: BaseRequestConvertible {
         
         self.base = SearchMinerVoting.toBase(
             .database, api: "search_miner_voting", returnType: [MinerVotingInfo].self, params: [
-                name ?? "", searchTerm, onlyMyVotes, order.rawValue, id ?? "", limit
+                name, searchTerm, onlyMyVotes, order, id, limit
             ]
         )
     }

@@ -16,7 +16,7 @@ struct GetAccountHistory<Input>: BaseRequestConvertible where Input: Operation {
         
         self.base = GetAccountHistory.toBase(
             .history, api: "get_account_history", returnType: [OperationHistory<Input>].self, params: [
-                accountId.objectId, stopId.objectId, max(0, min(100, limit)), startId.objectId
+                accountId, stopId, max(0, min(100, limit)), startId
             ]
         )
     }
