@@ -74,7 +74,7 @@ extension ChainObject: Comparable {
 
 extension ChainObject: Hashable {
     public func hash(into hasher: inout Hasher) {
-        (31 * objectType.hashValue + instance.hashValue).hash(into: &hasher)
+        objectId.hash(into: &hasher)
     }
 }
 

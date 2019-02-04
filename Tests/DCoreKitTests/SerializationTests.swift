@@ -93,6 +93,17 @@ final class SerializationTests: XCTestCase {
         }
     }
     
+    func testChainObjectHashing() {
+        let a = [
+            "1.2.3".dcore.chainObject!,
+            "1.2.4".dcore.chainObject!,
+            "1.2.5".dcore.chainObject!,
+            "1.2.3".dcore.chainObject!,
+        ]
+        
+        XCTAssertTrue(Set(a).count == 3)
+    }
+    
     static var allTests = [
         ("testGetAccountHistoryJsonSerialization", testGetAccountHistoryJsonSerialization),
         ("testGetRelativeAccountHistoryJsonSerialization", testGetRelativeAccountHistoryJsonSerialization),
@@ -101,5 +112,6 @@ final class SerializationTests: XCTestCase {
         ("testTransferOperationDataSerialization", testTransferOperationDataSerialization),
         ("testTransferOperationWithMemoEncryptedDataSerialization", testTransferOperationWithMemoEncryptedDataSerialization),
         ("testAnyValueEncoding", testAnyValueSerialization),
+        ("testChainObjectHashing", testChainObjectHashing),
     ]
 }
