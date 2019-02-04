@@ -17,12 +17,13 @@ public struct AccountCreateOperation: Operation {
     public let type: OperationType = .accountCreateOperation
     public var fee: AssetAmount  = .unset
     
-    public init(_ registrar: ChainObject, name: String, address: Address) {
+    public init(_ registrar: ChainObject, name: String, address: Address, fee: AssetAmount = .unset) {
         self.registrar = registrar
         self.name = name
         self.owner = Authority(from: address)
         self.active = Authority(from: address)
         self.options = Options(from: address)
+        self.fee = fee
     }
     
     private enum CodingKeys: String, CodingKey {

@@ -34,8 +34,7 @@ extension DCore {
             return Api(core: Sdk(wssUri: uri, restUri: restUri, session: session))
         }
         
-        func prepare<Input>(transactionUsing operations: [Input],
-                            expiration: Int) -> Single<Transaction<Input>> where Input: Operation {
+        func prepare(transactionUsing operations: [Operation], expiration: Int) -> Single<Transaction> {
             return Single.deferred { [unowned self] in
                 let (fees, noFees) = operations.partitionSplit(by: { $0.fee != .unset })
                 return Single.zip(self.chainId, GetDynamicGlobalProps().base.toResponse(self), (

@@ -1,9 +1,9 @@
 import Foundation
 
-struct GetRelativeAccountHistory<Input>: BaseRequestConvertible where Input: Operation {
+struct GetRelativeAccountHistory: BaseRequestConvertible {
     
-    typealias Output = [OperationHistory<Input>]
-    private(set) var base: BaseRequest<[OperationHistory<Input>]>
+    typealias Output = [OperationHistory]
+    private(set) var base: BaseRequest<[OperationHistory]>
     
     init(_ accountId: ChainObject, stop: UInt64 = 0, limit: UInt64 = 100, start: UInt64 = 0) {
         

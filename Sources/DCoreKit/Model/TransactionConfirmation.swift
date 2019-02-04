@@ -1,11 +1,11 @@
 import Foundation
 
-public struct TransactionConfirmation<Input>: Codable where Input: Operation {
+public struct TransactionConfirmation: Codable {
     
     public let id: String
     public let blockNum: UInt64
     public let trxNum: UInt64
-    public let transaction: ProcessedTransaction<Input>
+    public let transaction: ProcessedTransaction
     
     private enum CodingKeys: String, CodingKey {
         case

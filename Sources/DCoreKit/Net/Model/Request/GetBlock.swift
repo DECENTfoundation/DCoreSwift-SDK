@@ -1,11 +1,11 @@
 import Foundation
 
-struct GetBlock<Input>: BaseRequestConvertible where Input: Operation {
+struct GetBlock: BaseRequestConvertible {
     
-    typealias Output = SignedBlock<Input>
-    private(set) var base: BaseRequest<SignedBlock<Input>>
+    typealias Output = SignedBlock
+    private(set) var base: BaseRequest<SignedBlock>
     
     init(_ blockNum: UInt64) {
-        self.base = GetBlock.toBase(.database, api: "get_block", returnType: SignedBlock<Input>.self, params: [blockNum])
+        self.base = GetBlock.toBase(.database, api: "get_block", returnType: SignedBlock.self, params: [blockNum])
     }
 }

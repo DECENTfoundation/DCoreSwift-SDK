@@ -1,14 +1,14 @@
 import Foundation
 
-public struct BalanceChange<Input>: Codable where Input: Operation {
+public struct BalanceChange: Codable {
     
-    public let operation: OperationHistory<Input>
+    public let history: OperationHistory
     public let balance: Balance
     public let fee: AssetAmount
     
     private enum CodingKeys: String, CodingKey {
         case
-        operation = "hist_object",
+        history = "hist_object",
         balance,
         fee
     }

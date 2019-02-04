@@ -5,7 +5,7 @@ public struct Options: Codable {
     public let memoKey: Address
     public let votingAccount: ChainObject
     public let numMiner: UInt16
-    public let votes: Set<VoteId>
+    public var votes: Set<VoteId>
     public var extensions: AnyValue?
     public let allowSubscription: Bool
     public let pricePerSubscribe: AssetAmount
@@ -32,6 +32,12 @@ public struct Options: Codable {
         allowSubscription = false
         pricePerSubscribe = AssetAmount(0)
         subscriptionPeriod = 0
+    }
+    
+    public func apply(votes: Set<VoteId>) -> Options {
+        var options = self
+        options.votes = votes
+        return options
     }
 }
 

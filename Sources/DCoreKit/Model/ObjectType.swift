@@ -2,8 +2,8 @@ import Foundation
 
 public enum ObjectType: UInt8, CaseIterable, Codable {
     
-    public static let ignore: ChainObject = ObjectType.nullObject.genericId
-    public static let ignoreHistory: ChainObject = ObjectType.operationHistoryObject.genericId
+    public static let unset: ChainObject = ObjectType.nullObject.genericId
+    public static let unsetHistory: ChainObject = ObjectType.operationHistoryObject.genericId
     
     public init(fromSpace space: Int, type: Int) {
         self = ObjectType.allCases[max(space - 1, 0) * 10 + type]
