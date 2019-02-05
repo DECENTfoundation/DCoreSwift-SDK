@@ -2,6 +2,9 @@ import Foundation
 
 public enum ObjectType: UInt8, CaseIterable, Codable {
     
+    public static let unset: ChainObject = ObjectType.nullObject.genericId
+    public static let unsetHistory: ChainObject = ObjectType.operationHistoryObject.genericId
+    
     public init(fromSpace space: Int, type: Int) {
         self = ObjectType.allCases[max(space - 1, 0) * 10 + type]
     }
@@ -51,5 +54,29 @@ public enum ObjectType: UInt8, CaseIterable, Codable {
     
     public var genericId: ChainObject {
         return ChainObject(from: self)
+    }
+}
+
+extension ObjectType: Equatable {
+    public static func == (lhs: ObjectType, rhs: ObjectType) -> Bool {
+        return lhs.space == rhs.space && lhs.type == rhs.type
+    }
+}
+
+extension ObjectType: Comparable {
+    public static func < (lhs: ObjectType, rhs: ObjectType) -> Bool {
+        return lhs.space < rhs.space || (lhs.space == rhs.space && lhs.type < rhs.type)
+    }
+    
+    public static func <= (lhs: ObjectType, rhs: ObjectType) -> Bool {
+        return lhs == rhs || lhs < rhs
+    }
+    
+    public static func >= (lhs: ObjectType, rhs: ObjectType) -> Bool {
+        return lhs == rhs || lhs > rhs
+    }
+    
+    public static func > (lhs: ObjectType, rhs: ObjectType) -> Bool {
+        return lhs.space > rhs.space || (lhs.space == rhs.space && lhs.type > rhs.type)
     }
 }

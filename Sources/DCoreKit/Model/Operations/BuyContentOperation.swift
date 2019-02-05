@@ -51,7 +51,9 @@ extension BuyContentOperation: DataConvertible {
         data += regionCode.littleEndian
         data += publicElGamal.asData()
         
-        Logger.debug(crypto: "BuyContentOperation binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
+        DCore.Logger.debug(crypto: "BuyContentOperation binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)"
+        })
         return data
     }
 }

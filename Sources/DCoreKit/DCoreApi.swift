@@ -2,9 +2,9 @@ import Foundation
 
 extension DCore {
     
-    public final class Api {
+    open class Api {
         
-        public var transactionExpiration: Int = DCore.Constant.expiration
+        var transactionExpiration: Int = DCore.Constant.expiration
         
         public lazy var account: AccountApi =           ApiProvider(using: self)
         public lazy var asset: AssetApi =               ApiProvider(using: self)
@@ -24,7 +24,7 @@ extension DCore {
         
         let core: Sdk
         
-        required init(core: Sdk) {
+        required public init(core: Sdk) {
             self.core = core
         }
     }

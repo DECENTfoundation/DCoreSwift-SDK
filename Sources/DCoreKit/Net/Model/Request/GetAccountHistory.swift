@@ -1,13 +1,13 @@
 import Foundation
 
-struct GetAccountHistory<Input>: BaseRequestConvertible where Input: Operation {
+struct GetAccountHistory: BaseRequestConvertible {
     
-    typealias Output = [OperationHistory<Input>]
-    private(set) var base: BaseRequest<[OperationHistory<Input>]>
+    typealias Output = [OperationHistory]
+    private(set) var base: BaseRequest<[OperationHistory]>
     
     init(_ accountId: ChainObject,
          stopId: ChainObject = ObjectType.operationHistoryObject.genericId,
-         limit: Int = 100,
+         limit: UInt64 = 100,
          startId: ChainObject = ObjectType.operationHistoryObject.genericId
         ) {
         
@@ -15,8 +15,8 @@ struct GetAccountHistory<Input>: BaseRequestConvertible where Input: Operation {
         precondition(startId.objectType == .operationHistoryObject, "Not a valid history object id")
         
         self.base = GetAccountHistory.toBase(
-            .history, api: "get_account_history", returnType: [OperationHistory<Input>].self, params: [
-                accountId.objectId, stopId.objectId, max(0, min(100, limit)), startId.objectId
+            .history, api: "get_account_history", returnType: [OperationHistory].self, params: [
+                accountId, stopId, max(0, min(100, limit)), startId
             ]
         )
     }

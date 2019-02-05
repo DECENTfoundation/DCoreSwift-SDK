@@ -1,17 +1,17 @@
 import Foundation
 
-struct BroadcastTransactionSynchronous<Input>: BaseRequestConvertible where Input: Operation {
+struct BroadcastTransactionSynchronous: BaseRequestConvertible {
     
-    typealias Output = TransactionConfirmation<Input>
-    private(set) var base: BaseRequest<TransactionConfirmation<Input>>
+    typealias Output = TransactionConfirmation
+    private(set) var base: BaseRequest<TransactionConfirmation>
     
-    init(_ trx: Transaction<Input>) {
+    init(_ trx: Transaction) {
         
         precondition(!trx.signatures!.isEmpty, "Transaction not signed, forgot to call .withSignature(key) ?")
         self.base = BroadcastTransactionSynchronous.toBase(
             .broadcast,
             api: "broadcast_transaction_synchronous",
-            returnType: TransactionConfirmation<Input>.self,
+            returnType: TransactionConfirmation.self,
             params: [trx]
         )
     }

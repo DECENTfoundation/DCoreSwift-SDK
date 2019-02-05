@@ -35,13 +35,13 @@ public struct Asset: Codable, AssetFormatting {
             return AssetAmount(amount, assetId: id)
         }
         
-        throw ChainException.chain(.failConvert("Cannot convert \(assetAmount.assetId) with \(symbol):\(id)"))
+        throw DCoreException.chain(.failConvert("Cannot convert \(assetAmount.assetId) with \(symbol):\(id)"))
     }
 }
 
 extension Asset {
     
-    public enum Symbol: CustomStringConvertible, Encodable {
+    public enum Symbol: CustomStringConvertible, Encodable, Hashable {
         
         public static let alxt: Symbol = Symbol(name: .alxt)
         public static let alat: Symbol = Symbol(name: .alat)
@@ -72,7 +72,7 @@ extension Asset {
         }
         
         public var chainObject: ChainObject {
-            return description.chain.chainObject!
+            return description.dcore.chainObject!
         }
         
         public func encode(to encoder: Encoder) throws {

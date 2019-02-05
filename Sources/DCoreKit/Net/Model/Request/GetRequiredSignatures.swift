@@ -5,7 +5,7 @@ struct GetRequiredSignatures: BaseRequestConvertible {
     typealias Output = [Address]
     private(set) var base: BaseRequest<[Address]>
     
-    init<Input>(_ trx: Transaction<Input>, keys: [Address]) where Input: Operation {
+    init(_ trx: Transaction, keys: [Address]) {
         self.base = GetRequiredSignatures.toBase(
             .database,
             api: "get_required_signatures",

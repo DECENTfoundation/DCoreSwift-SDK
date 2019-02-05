@@ -10,6 +10,11 @@ public struct AccountUpdateOperation: Operation {
     public let type: OperationType = .accountUpdateOperation
     public var fee: AssetAmount  = .unset
     
+    public init(_ account: Account, votes: Set<VoteId>) {
+        accountId = account.id
+        options = account.options.apply(votes: votes)
+    }
+    
     private enum CodingKeys: String, CodingKey {
         case
         accountId = "account",
@@ -27,12 +32,14 @@ extension AccountUpdateOperation {
         data += type.asData()
         data += fee.asData()
         data += accountId.asData()
-        data += owner.asData()
-        data += active.asData()
-        data += options.asData()
+        data += owner.asOptionalData()
+        data += active.asOptionalData()
+        data += options.asOptionalData()
         data += Data.ofZero
         
-        Logger.debug(crypto: "AccountUpdateOperation binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
+        DCore.Logger.debug(crypto: "AccountUpdateOperation binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)"
+        })
         return data
     }
 }

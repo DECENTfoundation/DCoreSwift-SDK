@@ -11,7 +11,7 @@ struct PrivateKey {
     
     init(fromWif wif: String) throws {
         guard let decoded = Base58.decode(wif) else {
-            throw ChainException.crypto(.failDecode("Wif \(wif) has invalid format"))
+            throw DCoreException.crypto(.failDecode("Wif \(wif) has invalid format"))
         }
         
         let checksumDropped = decoded.prefix(decoded.count - 4)
@@ -19,7 +19,7 @@ struct PrivateKey {
         let originalChecksum = decoded.suffix(4)
 
         guard calculatedChecksum == originalChecksum else {
-            throw ChainException.crypto(.failDecode("Wif \(wif) has invalid checksum"))
+            throw DCoreException.crypto(.failDecode("Wif \(wif) has invalid checksum"))
         }
         
         let version = Int(checksumDropped.first!) & 0xFF
@@ -29,7 +29,7 @@ struct PrivateKey {
         // 1 + 32 = version + key
         
         guard checksumDropped.count == (1 + 32) || checksumDropped.count == (1 + 32 + 1) else {
-            throw ChainException.crypto(.failDecode("Wif \(wif) has invalid checksum count \(checksumDropped.count)"))
+            throw DCoreException.crypto(.failDecode("Wif \(wif) has invalid checksum count \(checksumDropped.count)"))
         }
         
         self.init(data: checksumDropped.dropFirst().prefix(32),
@@ -71,14 +71,14 @@ struct PrivateKey {
             data.withUnsafeBytes { secp256k1_ecdsa_sign_recoverable(ctx, signature, msg, $0, nil, nil) }
         }
         
-        guard status == 1 else { throw ChainException.crypto(.failSigning) }
+        guard status == 1 else { throw DCoreException.crypto(.failSigning) }
     
         var recovery: Int32 = 0
         var compact = Data(count: 64)
         guard compact.withUnsafeMutableBytes({ (sig: UnsafeMutablePointer<UInt8>) in
             return secp256k1_ecdsa_recoverable_signature_serialize_compact(ctx, sig, &recovery, signature)
         }) == 1 else {
-            throw ChainException.crypto(.notEnoughSpace)
+            throw DCoreException.crypto(.notEnoughSpace)
         }
         
         return (Int(recovery), compact)

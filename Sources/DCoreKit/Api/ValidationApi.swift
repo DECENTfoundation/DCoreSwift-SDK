@@ -2,35 +2,34 @@ import Foundation
 import RxSwift
 
 public protocol ValidationApi: BaseApi {
-    func getRequiredSignatures<Input>(byTrx trx: Transaction<Input>, keys: [Address]) -> Single<[Address]> where Input: Operation
-    func getPotentialSignatures<Input>(byTrx trx: Transaction<Input>) -> Single<[Address]> where Input: Operation
-    func verifyAuthority<Input>(byTrx trx: Transaction<Input>) -> Single<Bool> where Input: Operation
+    func getRequiredSignatures(byTrx trx: Transaction, keys: [Address]) -> Single<[Address]>
+    func getPotentialSignatures(byTrx trx: Transaction) -> Single<[Address]>
+    func verifyAuthority(byTrx trx: Transaction) -> Single<Bool>
     func verifyAccountAuthority(byReference ref: Account.Reference, keys: [Address]) -> Single<Bool>
     func verifyAccountAuthority(byReference ref: Account.Reference, key: Address) -> Single<Bool>
     func verifyAccountAuthority(_ creds: Credentials) -> Single<Bool>
-    func validateTransaction<Input>(byTrx trx: Transaction<Input>) -> Single<ProcessedTransaction<Input>> where Input: Operation
-    func getFees<Input>(for operations: [Input]) -> Single<[AssetAmount]> where Input: Operation
-    func getFee<Input>(for operation: Input) -> Single<AssetAmount> where Input: Operation
+    func validateTransaction(byTrx trx: Transaction) -> Single<ProcessedTransaction>
+    func getFees(for operations: [Operation]) -> Single<[AssetAmount]>
+    func getFee(for operation: Operation) -> Single<AssetAmount>
     func getFee(forType type: OperationType) -> Single<AssetAmount>
 }
 
 extension ValidationApi {
-    public func getRequiredSignatures<Input>(byTrx trx: Transaction<Input>,
-                                             keys: [Address]) -> Single<[Address]> where Input: Operation {
+    public func getRequiredSignatures(byTrx trx: Transaction, keys: [Address]) -> Single<[Address]> {
         return GetRequiredSignatures(trx, keys: keys).base.toResponse(api.core)
     }
     
-    public func getPotentialSignatures<Input>(byTrx trx: Transaction<Input>) -> Single<[Address]> where Input: Operation {
+    public func getPotentialSignatures(byTrx trx: Transaction) -> Single<[Address]> {
         return GetPotentialSignatures(trx).base.toResponse(api.core)
     }
     
-    public func verifyAuthority<Input>(byTrx trx: Transaction<Input>) -> Single<Bool> where Input: Operation {
+    public func verifyAuthority(byTrx trx: Transaction) -> Single<Bool> {
         return VerifyAuthority(trx).base.toResponse(api.core).catchErrorJustReturn(false)
     }
     
     public func verifyAccountAuthority(byReference ref: Account.Reference, keys: [Address]) -> Single<Bool> {
         return VerifyAccountAuthority(ref, keys: keys).base.toResponse(api.core).catchError {
-            guard $0.asChainException().isStack else { throw $0 }
+            guard $0.asDCoreException().isStack else { throw $0 }
             return Single.just(false)
         }
     }
@@ -43,16 +42,16 @@ extension ValidationApi {
         return verifyAccountAuthority(byReference: creds.accountId.objectId, key: creds.keyPair.address)
     }
     
-    public func validateTransaction<Input>(byTrx trx: Transaction<Input>) -> Single<ProcessedTransaction<Input>> where Input: Operation {
+    public func validateTransaction(byTrx trx: Transaction) -> Single<ProcessedTransaction> {
         return ValidateTransaction(trx).base.toResponse(api.core)
     }
     
-    public func getFees<Input>(for operations: [Input]) -> Single<[AssetAmount]> where Input: Operation {
+    public func getFees(for operations: [Operation]) -> Single<[AssetAmount]> {
         return GetRequiredFees(operations).base.toResponse(api.core)
     }
     
-    public func getFee<Input>(for operation: Input) -> Single<AssetAmount> where Input: Operation {
-        return getFees(for: [operation]).map({ try $0.first.orThrow(ChainException.network(.notFound)) })
+    public func getFee(for operation: Operation) -> Single<AssetAmount> {
+        return getFees(for: [operation]).map({ try $0.first.orThrow(DCoreException.network(.notFound)) })
     }
     
     public func getFee(forType type: OperationType) -> Single<AssetAmount> {
@@ -62,7 +61,7 @@ extension ValidationApi {
             .withdrawPermissionClaimOperation,
             .customOperation
             ].contains(type), "Not supported operation type")
-        return getFee(for: AnyOperation(type))
+        return getFee(for: FeeOperation(type))
     }
 }
 

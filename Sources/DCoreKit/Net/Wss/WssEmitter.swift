@@ -36,7 +36,7 @@ struct WssEmitter {
         source.onText = { observer.onNext(OnMessageEvent(value: $0)) }
         source.onDisconnect = { error in
             if let error = error {
-                observer.onError(error.asChainException())
+                observer.onError(error.asDCoreException())
             } else {
                 observer.onCompleted()
             }

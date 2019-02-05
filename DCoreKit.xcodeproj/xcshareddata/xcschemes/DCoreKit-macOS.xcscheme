@@ -17,7 +17,7 @@
                BlueprintIdentifier = "A1D96D4E21ED1E22009C0A30"
                BuildableName = "DCoreKit.framework"
                BlueprintName = "DCoreKit macOS"
-               ReferencedContainer = "container:DcoreKit.xcodeproj">
+               ReferencedContainer = "container:DCoreKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "A1D96E3021ED2025009C0A30"
                BuildableName = "DCoreKitTests.xctest"
                BlueprintName = "DCoreKit macOS Tests"
-               ReferencedContainer = "container:DcoreKit.xcodeproj">
+               ReferencedContainer = "container:DCoreKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,7 +45,7 @@
             BlueprintIdentifier = "A1D96D4E21ED1E22009C0A30"
             BuildableName = "DCoreKit.framework"
             BlueprintName = "DCoreKit macOS"
-            ReferencedContainer = "container:DcoreKit.xcodeproj">
+            ReferencedContainer = "container:DCoreKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -67,7 +67,7 @@
             BlueprintIdentifier = "A1D96D4E21ED1E22009C0A30"
             BuildableName = "DCoreKit.framework"
             BlueprintName = "DCoreKit macOS"
-            ReferencedContainer = "container:DcoreKit.xcodeproj">
+            ReferencedContainer = "container:DCoreKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -85,7 +85,7 @@
             BlueprintIdentifier = "A1D96D4E21ED1E22009C0A30"
             BuildableName = "DCoreKit.framework"
             BlueprintName = "DCoreKit macOS"
-            ReferencedContainer = "container:DcoreKit.xcodeproj">
+            ReferencedContainer = "container:DCoreKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

@@ -7,10 +7,10 @@ protocol WssConvertible {
 extension WssConvertible where Self: Encodable {
     func asWss() throws -> String {
         guard let req = asJson() else {
-            throw ChainException.network(.failEncode("Failed to encode data into json wss request"))
+            throw DCoreException.network(.failEncode("Failed to encode data into json wss request"))
         }
         
-        Logger.debug(network: "RPC wss request:\n%{private}s") { req }
+        DCore.Logger.debug(network: "RPC wss request:\n%{private}s") { req }
         return req
     }
 }

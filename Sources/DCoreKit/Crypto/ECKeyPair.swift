@@ -26,7 +26,7 @@ public struct ECKeyPair {
         let (recovery, compact) = try privateKey.sign(message)
         let signature = Data.of(recovery + ECKeyPair.compressed + ECKeyPair.compact) + compact
         
-        if signature.canonicalSignature { throw ChainException.crypto(.failSigning) }
+        if signature.canonicalSignature { throw DCoreException.crypto(.failSigning) }
         return signature
     }
     
@@ -56,7 +56,7 @@ extension ECKeyPair {
     }
 }
 
-extension Chain where Base == String {
+extension DCoreExtension where Base == String {
     public var keyPair: ECKeyPair? {
         return try? ECKeyPair(fromWif: self.base)
     }

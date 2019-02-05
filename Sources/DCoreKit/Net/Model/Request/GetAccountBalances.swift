@@ -12,7 +12,7 @@ struct GetAccountBalances: BaseRequestConvertible {
             .database,
             api: "get_account_balances",
             returnType: [AssetAmount].self,
-            params: [accountId.objectId, assets]
+            params: [accountId, assets]
         )
     }
 }

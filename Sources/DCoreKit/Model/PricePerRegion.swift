@@ -18,7 +18,9 @@ extension RegionalPrice: DataConvertible {
         data += region.littleEndian
         data += price.asData()
         
-        Logger.debug(crypto: "RegionalPrice binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
+        DCore.Logger.debug(crypto: "RegionalPrice binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)"
+        })
         return data
     }
 }
