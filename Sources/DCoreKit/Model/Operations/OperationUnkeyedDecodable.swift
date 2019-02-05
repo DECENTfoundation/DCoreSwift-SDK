@@ -15,15 +15,15 @@ extension OperationUnkeyedDecodable {
         case .contentSubmitOperation:
             return try unkeyed.decode(SubmitContentOperation.self)
         case .contentCancellationOperation:
-            return try unkeyed.decode(SubmitContentOperation.self)
+            return try unkeyed.decode(CancelContentOperation.self)
         case .requestToBuyOperation:
-            return try unkeyed.decode(SubmitContentOperation.self)
+            return try unkeyed.decode(BuyContentOperation.self)
         case .accountCreateOperation:
-            return try unkeyed.decode(SubmitContentOperation.self)
+            return try unkeyed.decode(AccountCreateOperation.self)
         case .accountUpdateOperation:
-            return try unkeyed.decode(SubmitContentOperation.self)
+            return try unkeyed.decode(AccountUpdateOperation.self)
         default:
-            return try unkeyed.decode(SubmitContentOperation.self)
+            return try unkeyed.decode(UnknownOperation.self)
         }
     }
 }
