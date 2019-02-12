@@ -41,10 +41,6 @@ public struct AssetAmount: Codable {
     }
 }
 
-extension AssetAmount {
-    public typealias Pair = (asset: Asset, amount: AssetAmount)
-}
-
 extension AssetAmount: Equatable {
     public static func == (lhs: AssetAmount, rhs: AssetAmount) -> Bool {
         return lhs.assetId == rhs.assetId && lhs.amount == rhs.amount
@@ -101,3 +97,5 @@ extension AssetAmount: DataConvertible {
         return data
     }
 }
+
+public typealias AssetAmountPair = Pair<Asset, AssetAmount>
