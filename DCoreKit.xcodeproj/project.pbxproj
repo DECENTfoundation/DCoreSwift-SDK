@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		071AE0412212CBD7008AE077 /* QrTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AE0402212CBD7008AE077 /* QrTransfer.swift */; };
+		071AE0452212CD0E008AE077 /* QrTransferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AE0432212CCDD008AE077 /* QrTransferTests.swift */; };
+		071AE0462212CD0F008AE077 /* QrTransferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AE0432212CCDD008AE077 /* QrTransferTests.swift */; };
+		071AE0472212CDB8008AE077 /* QrTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AE0402212CBD7008AE077 /* QrTransfer.swift */; };
 		A114B50F21F9F5A8009F1BA2 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B50E21F9F5A8009F1BA2 /* RxSwift.framework */; };
 		A114B51521F9F5CC009F1BA2 /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B51021F9F5CB009F1BA2 /* BigInt.framework */; };
 		A114B51621F9F5CC009F1BA2 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B51121F9F5CB009F1BA2 /* CryptoSwift.framework */; };
@@ -520,6 +524,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		071AE0402212CBD7008AE077 /* QrTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrTransfer.swift; sourceTree = "<group>"; };
+		071AE0432212CCDD008AE077 /* QrTransferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrTransferTests.swift; sourceTree = "<group>"; };
 		A114B50E21F9F5A8009F1BA2 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
 		A114B51021F9F5CB009F1BA2 /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BigInt.framework; path = Carthage/Build/Mac/BigInt.framework; sourceTree = "<group>"; };
 		A114B51121F9F5CB009F1BA2 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/Mac/CryptoSwift.framework; sourceTree = "<group>"; };
@@ -1246,6 +1252,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		071AE03F2212CBC3008AE077 /* QR */ = {
+			isa = PBXGroup;
+			children = (
+				071AE0402212CBD7008AE077 /* QrTransfer.swift */,
+			);
+			path = QR;
+			sourceTree = "<group>";
+		};
+		071AE0422212CCC3008AE077 /* QR */ = {
+			isa = PBXGroup;
+			children = (
+				071AE0432212CCDD008AE077 /* QrTransferTests.swift */,
+			);
+			path = QR;
+			sourceTree = "<group>";
+		};
 		A11F6D6021ECB619008C8525 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1452,6 +1474,7 @@
 		OBJ_230 /* DCoreKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				071AE0422212CCC3008AE077 /* QR */,
 				A19D4CF521F1B4BD0069B6CA /* Utils */,
 				OBJ_231 /* AccountApiTests.swift */,
 				A19D4CF221F1AE960069B6CA /* AccountApiMockTests.swift */,
@@ -2277,6 +2300,7 @@
 				OBJ_35 /* Model */,
 				OBJ_93 /* Namespace.swift */,
 				OBJ_94 /* Net */,
+				071AE03F2212CBC3008AE077 /* QR */,
 				OBJ_216 /* Utils */,
 			);
 			name = DCoreKit;
@@ -2806,6 +2830,7 @@
 				A1D96DEB21ED1E22009C0A30 /* ListSubscriptionsByAuthor.swift in Sources */,
 				A1D96DEC21ED1E22009C0A30 /* ListSubscriptionsByConsumer.swift in Sources */,
 				A1D96DED21ED1E22009C0A30 /* Login.swift in Sources */,
+				071AE0472212CDB8008AE077 /* QrTransfer.swift in Sources */,
 				A1D96DEE21ED1E22009C0A30 /* LookupAccountNames.swift in Sources */,
 				A1D96DEF21ED1E22009C0A30 /* LookupAccounts.swift in Sources */,
 				A1D96DF021ED1E22009C0A30 /* LookupAssets.swift in Sources */,
@@ -2878,6 +2903,7 @@
 				A1673B5021EF3CC3008FF560 /* OperationApiTests.swift in Sources */,
 				A1D96E3521ED2025009C0A30 /* AssetApiTests.swift in Sources */,
 				A1673B5321EF43CA008FF560 /* GeneralApiTests.swift in Sources */,
+				071AE0462212CD0F008AE077 /* QrTransferTests.swift in Sources */,
 				A19D4CF821F1B4D70069B6CA /* MockBuilder.swift in Sources */,
 				A19D4CFB21F1B64B0069B6CA /* MockTestCase.swift in Sources */,
 				A1D96E3621ED2025009C0A30 /* BalanceApiTests.swift in Sources */,
@@ -2895,6 +2921,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_1087 /* AccountApiTests.swift in Sources */,
+				071AE0452212CD0E008AE077 /* QrTransferTests.swift in Sources */,
 				A19D4CF321F1AE960069B6CA /* AccountApiMockTests.swift in Sources */,
 				A1673B4F21EF3CC3008FF560 /* OperationApiTests.swift in Sources */,
 				OBJ_1088 /* AssetApiTests.swift in Sources */,
@@ -3059,6 +3086,7 @@
 				OBJ_961 /* GetProposedTransactions.swift in Sources */,
 				OBJ_962 /* GetRealSupply.swift in Sources */,
 				OBJ_963 /* GetRecentTransactionById.swift in Sources */,
+				071AE0412212CBD7008AE077 /* QrTransfer.swift in Sources */,
 				OBJ_964 /* GetRelativeAccountHistory.swift in Sources */,
 				OBJ_965 /* GetRequiredFees.swift in Sources */,
 				OBJ_966 /* GetRequiredSignatures.swift in Sources */,
