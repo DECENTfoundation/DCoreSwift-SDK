@@ -11,6 +11,8 @@
 		071AE0452212CD0E008AE077 /* QrTransferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AE0432212CCDD008AE077 /* QrTransferTests.swift */; };
 		071AE0462212CD0F008AE077 /* QrTransferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AE0432212CCDD008AE077 /* QrTransferTests.swift */; };
 		071AE0472212CDB8008AE077 /* QrTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AE0402212CBD7008AE077 /* QrTransfer.swift */; };
+		071AE04D2212FD9D008AE077 /* Pair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AE04C2212FD9D008AE077 /* Pair.swift */; };
+		071AE04F2212FE66008AE077 /* AssetAmountPair+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AE04E2212FE66008AE077 /* AssetAmountPair+Extension.swift */; };
 		A114B50F21F9F5A8009F1BA2 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B50E21F9F5A8009F1BA2 /* RxSwift.framework */; };
 		A114B51521F9F5CC009F1BA2 /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B51021F9F5CB009F1BA2 /* BigInt.framework */; };
 		A114B51621F9F5CC009F1BA2 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B51121F9F5CB009F1BA2 /* CryptoSwift.framework */; };
@@ -526,6 +528,8 @@
 /* Begin PBXFileReference section */
 		071AE0402212CBD7008AE077 /* QrTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrTransfer.swift; sourceTree = "<group>"; };
 		071AE0432212CCDD008AE077 /* QrTransferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrTransferTests.swift; sourceTree = "<group>"; };
+		071AE04C2212FD9D008AE077 /* Pair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pair.swift; sourceTree = "<group>"; };
+		071AE04E2212FE66008AE077 /* AssetAmountPair+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetAmountPair+Extension.swift"; sourceTree = "<group>"; };
 		A114B50E21F9F5A8009F1BA2 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
 		A114B51021F9F5CB009F1BA2 /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BigInt.framework; path = Carthage/Build/Mac/BigInt.framework; sourceTree = "<group>"; };
 		A114B51121F9F5CB009F1BA2 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/Mac/CryptoSwift.framework; sourceTree = "<group>"; };
@@ -1446,6 +1450,7 @@
 		OBJ_216 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				071AE04E2212FE66008AE077 /* AssetAmountPair+Extension.swift */,
 				OBJ_217 /* BaseConvertible.swift */,
 				OBJ_221 /* CryptoUtils.swift */,
 				OBJ_222 /* Enum+Extension.swift */,
@@ -1820,6 +1825,7 @@
 				OBJ_70 /* Operations */,
 				OBJ_75 /* Options.swift */,
 				OBJ_76 /* Order.swift */,
+				071AE04C2212FD9D008AE077 /* Pair.swift */,
 				OBJ_77 /* PricePerRegion.swift */,
 				OBJ_78 /* ProcessedTransaction.swift */,
 				OBJ_79 /* PubKey.swift */,
@@ -2971,6 +2977,7 @@
 				OBJ_855 /* Account.swift in Sources */,
 				OBJ_856 /* AccountBalance.swift in Sources */,
 				OBJ_857 /* AccountStatistics.swift in Sources */,
+				071AE04F2212FE66008AE077 /* AssetAmountPair+Extension.swift in Sources */,
 				OBJ_858 /* Asset.swift in Sources */,
 				OBJ_859 /* AssetAmount.swift in Sources */,
 				OBJ_860 /* AssetFormatting.swift in Sources */,
@@ -3140,6 +3147,7 @@
 				OBJ_1010 /* Rpc.swift in Sources */,
 				OBJ_1011 /* RestConvertible.swift in Sources */,
 				OBJ_1012 /* RestService.swift in Sources */,
+				071AE04D2212FD9D008AE077 /* Pair.swift in Sources */,
 				OBJ_1013 /* AnyEncodable.swift in Sources */,
 				OBJ_1014 /* AnyValue.swift in Sources */,
 				OBJ_1015 /* DataConvertible.swift in Sources */,
