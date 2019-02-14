@@ -15,13 +15,13 @@ public protocol OperationApi: BaseApi {
     func transfer(_ creds: Credentials,
                   to: Account.Reference,
                   amount: AssetAmount,
-                  fee: AssetAmount) -> Observable<TransactionConfirmation>
+                  fee: AssetAmount) -> Single<TransactionConfirmation>
     func transfer(_ creds: Credentials,
                   to: Account.Reference,
                   amount: AssetAmount,
                   message: String?,
                   encrypted: Bool,
-                  fee: AssetAmount) -> Observable<TransactionConfirmation>
+                  fee: AssetAmount) -> Single<TransactionConfirmation>
 }
 
 extension OperationApi {
@@ -57,10 +57,11 @@ extension OperationApi {
     public func transfer(_ creds: Credentials,
                          to: Account.Reference,
                          amount: AssetAmount,
-                         fee: AssetAmount = .unset) -> Observable<TransactionConfirmation> {
+                         fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
         return create(transfer: creds, to: to, amount: amount, fee: fee)
             .asObservable()
             .flatMap { self.api.broadcast.broadcast(withCallback: creds.keyPair, operation: $0) }
+            .asSingle()
     }
     
     public func transfer(_ creds: Credentials,
@@ -68,10 +69,11 @@ extension OperationApi {
                          amount: AssetAmount,
                          message: String? = nil,
                          encrypted: Bool = true,
-                         fee: AssetAmount = .unset) -> Observable<TransactionConfirmation> {
+                         fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
         return create(transfer: creds, to: to, amount: amount, message: message, encrypted: encrypted, fee: fee)
             .asObservable()
             .flatMap { self.api.broadcast.broadcast(withCallback: creds.keyPair, operation: $0) }
+            .asSingle()
     }
 }
 
