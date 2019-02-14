@@ -8,3 +8,9 @@ public extension Pair where A == Asset, B == AssetAmount {
         return first.format(second.amount, formatter: formatter)
     }
 }
+
+extension Pair: Equatable where A: Equatable, B: Equatable {
+    public static func == (lhs: Pair<A, B>, rhs: Pair<A, B>) -> Bool {
+        return lhs.first == rhs.first && lhs.second == rhs.second
+    }
+}
