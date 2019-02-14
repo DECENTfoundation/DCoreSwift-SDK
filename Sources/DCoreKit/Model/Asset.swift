@@ -1,7 +1,7 @@
 import Foundation
 import BigInt
 
-public struct Asset: Codable, AssetFormatting {
+public struct Asset: Codable, AssetFormatting, Equatable {
     
     public var id: ChainObject = ObjectType.assetObject.genericId {
         willSet { precondition(newValue.objectType == ObjectType.assetObject, "Asset id \(newValue) is not object asset type") }
@@ -41,7 +41,7 @@ public struct Asset: Codable, AssetFormatting {
 
 extension Asset {
     
-    public enum Symbol: CustomStringConvertible, Encodable, Hashable {
+    public enum Symbol: CustomStringConvertible, Encodable, Hashable, Equatable {
         
         public static let alxt: Symbol = Symbol(name: .alxt)
         public static let alat: Symbol = Symbol(name: .alat)
@@ -81,7 +81,7 @@ extension Asset {
         }
     }
     
-    public struct ExchangeRate: Codable {
+    public struct ExchangeRate: Codable, Equatable {
         
         public var base: AssetAmount = AssetAmount(with: 1)
         public var quote: AssetAmount = AssetAmount(with: 1)
@@ -93,7 +93,7 @@ extension Asset {
         }
     }
     
-    public struct Options: Codable {
+    public struct Options: Codable, Equatable {
         
         public var maxSupply: BigInt = 0
         public var exchangeRate: ExchangeRate = ExchangeRate()
