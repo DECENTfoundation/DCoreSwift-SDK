@@ -15,7 +15,7 @@ public struct BlockData {
     }
     
     init(headBlockNumber: UInt64, headBlockId: String, relativeExpiration: UInt64) {
-        let prefix = String(headBlockId[safe: 8...16]!.chunked(2).reversed().joined(separator: ""))
+        let prefix = String(headBlockId[safe: 8..<16]!.chunked(2).reversed().joined(separator: ""))
         self.init(refBlockNum: Int(headBlockNumber) & 0xFFFF,
                   refBlockPrefix: UInt64(prefix, radix: 16)!,
                   expiration: relativeExpiration)
