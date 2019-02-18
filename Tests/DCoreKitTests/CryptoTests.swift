@@ -43,6 +43,35 @@ final class CryptoTests: XCTestCase {
             try Credentials("1.2.35".dcore.chainObject!, encryptedWif: wif, passphrase: pass)
         )
     }
+
+    func testValidateSignedTransaction() {
+        let pk = "5J1HnqK3gajNzDWj9Na6fo3gxtphv6MHLE5YLgRmQv8tC8e3rEd"
+        let creds = try! Credentials("1.2.17".dcore.chainObject!, wif: pk)
+        
+        let transaction = Transaction.init(
+            BlockData(
+                refBlockNum: 1,
+                refBlockPrefix: 1,
+                expiration: 1
+            ),
+            operations: [
+                TransferOperation(
+                    from: creds.accountId,
+                    to: "1.2.34".dcore.chainObject!,
+                    amount: AssetAmount(1),
+                    memo: try! Memo("Ahoj", keyPair: nil, recipient: nil, nonce: 0),
+                    fee: AssetAmount.unset
+                )
+            ],
+            chainId: ""
+        )
+        
+        let expectedSignature = "200f83f6752e815f1524ba9975bbcf5951a129119a2116f303af23781f8dc170217dddca3435d4cffa727f1470fa8670631fc66a44422b84cb4ac88de54399a703"
+        let signedTransaction = try! transaction.with(signature: creds.keyPair)
+        
+        XCTAssertEqual(1, signedTransaction.signatures?.count)
+        XCTAssertEqual(expectedSignature, signedTransaction.signatures?.first)
+    }
     
     static var allTests = [
         ("testAddress", testAddress),
@@ -50,5 +79,6 @@ final class CryptoTests: XCTestCase {
         ("testKeyPairToAddress", testKeyPairToAddress),
         ("testCredentialFromEncryptedWif", testCredentialFromEncryptedWif),
         ("testCredentialFromEncryptedWifFailToDecrypt", testCredentialFromEncryptedWifFailToDecrypt),
+        ("testValidateSignedTransaction", testValidateSignedTransaction),
     ]
 }

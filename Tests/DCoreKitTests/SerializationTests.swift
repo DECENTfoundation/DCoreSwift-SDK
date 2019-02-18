@@ -103,6 +103,13 @@ final class SerializationTests: XCTestCase {
         
         XCTAssertTrue(Set(a).count == 3)
     }
+
+    func testBlockDataSerialization() {
+        let bytes = "01000100000001000000"
+        let blockData = BlockData(refBlockNum: 1, refBlockPrefix: 1, expiration: 1)
+        let serialized = blockData.asData().toHex()
+        XCTAssertEqual(bytes, serialized)
+    }
     
     static var allTests = [
         ("testGetAccountHistoryJsonSerialization", testGetAccountHistoryJsonSerialization),
@@ -113,5 +120,6 @@ final class SerializationTests: XCTestCase {
         ("testTransferOperationWithMemoEncryptedDataSerialization", testTransferOperationWithMemoEncryptedDataSerialization),
         ("testAnyValueEncoding", testAnyValueSerialization),
         ("testChainObjectHashing", testChainObjectHashing),
+        ("testBlockDataSerialization", testBlockDataSerialization),
     ]
 }
