@@ -53,6 +53,8 @@
 		A1673B5621EF615B008FF560 /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1673B5421EF615B008FF560 /* Optional+Extension.swift */; };
 		A1673B5B21F07143008FF560 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1673B5A21F07143008FF560 /* DateFormatter+Extension.swift */; };
 		A1673B5C21F07143008FF560 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1673B5A21F07143008FF560 /* DateFormatter+Extension.swift */; };
+		A1676781221C43720024A4D6 /* BlockApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1676780221C43720024A4D6 /* BlockApiTests.swift */; };
+		A1676782221C43720024A4D6 /* BlockApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1676780221C43720024A4D6 /* BlockApiTests.swift */; };
 		A181489721F859320053F9BE /* ValidationApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A181489621F859320053F9BE /* ValidationApiTests.swift */; };
 		A181489821F859320053F9BE /* ValidationApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A181489621F859320053F9BE /* ValidationApiTests.swift */; };
 		A189709321F217B700602F81 /* AccountCreateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A189709221F217B700602F81 /* AccountCreateOperation.swift */; };
@@ -555,6 +557,7 @@
 		A1673B5121EF43CA008FF560 /* GeneralApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralApiTests.swift; sourceTree = "<group>"; };
 		A1673B5421EF615B008FF560 /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 		A1673B5A21F07143008FF560 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
+		A1676780221C43720024A4D6 /* BlockApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlockApiTests.swift; path = Tests/DcoreKitTests/BlockApiTests.swift; sourceTree = SOURCE_ROOT; };
 		A181489621F859320053F9BE /* ValidationApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationApiTests.swift; sourceTree = "<group>"; };
 		A189709221F217B700602F81 /* AccountCreateOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreateOperation.swift; sourceTree = "<group>"; };
 		A19D4CEF21F1AE3B0069B6CA /* Hippolyte.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hippolyte.framework; path = Carthage/Build/iOS/Hippolyte.framework; sourceTree = "<group>"; };
@@ -1493,6 +1496,7 @@
 				OBJ_236 /* SubscriptionApiTests.swift */,
 				A181489621F859320053F9BE /* ValidationApiTests.swift */,
 				OBJ_237 /* XCTestManifests.swift */,
+				A1676780221C43720024A4D6 /* BlockApiTests.swift */,
 			);
 			name = DCoreKitTests;
 			path = Tests/DCoreKitTests;
@@ -1812,8 +1816,8 @@
 				OBJ_57 /* FullAccount.swift */,
 				OBJ_58 /* GlobalParameters.swift */,
 				OBJ_59 /* GlobalProperty.swift */,
-				OBJ_60 /* KeyParts.swift */,
 				OBJ_61 /* Memo.swift */,
+				OBJ_60 /* KeyParts.swift */,
 				OBJ_62 /* Miner.swift */,
 				OBJ_63 /* MinerId.swift */,
 				OBJ_64 /* MinerRewardInput.swift */,
@@ -2910,6 +2914,7 @@
 				A1D96E3521ED2025009C0A30 /* AssetApiTests.swift in Sources */,
 				A1673B5321EF43CA008FF560 /* GeneralApiTests.swift in Sources */,
 				071AE0462212CD0F008AE077 /* QrTransferTests.swift in Sources */,
+				A1676782221C43720024A4D6 /* BlockApiTests.swift in Sources */,
 				A19D4CF821F1B4D70069B6CA /* MockBuilder.swift in Sources */,
 				A19D4CFB21F1B64B0069B6CA /* MockTestCase.swift in Sources */,
 				A1D96E3621ED2025009C0A30 /* BalanceApiTests.swift in Sources */,
@@ -2938,6 +2943,7 @@
 				OBJ_1089 /* BalanceApiTests.swift in Sources */,
 				OBJ_1090 /* CryptoTests.swift in Sources */,
 				OBJ_1091 /* SerializationTests.swift in Sources */,
+				A1676781221C43720024A4D6 /* BlockApiTests.swift in Sources */,
 				OBJ_1092 /* SubscriptionApiTests.swift in Sources */,
 				A181489721F859320053F9BE /* ValidationApiTests.swift in Sources */,
 			);

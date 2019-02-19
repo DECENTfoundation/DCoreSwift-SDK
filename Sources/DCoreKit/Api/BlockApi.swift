@@ -9,7 +9,7 @@ public protocol BlockApi: BaseApi {
 
 extension BlockApi {
     public func getBlockHeader(byNum num: UInt64) -> Single<BlockHeader> {
-        return GetBlockHeader(num).base.toResponse(api.core)
+        return GetBlockHeader(num).base.toResponse(api.core).map { $0.apply(num: num) }
     }
     
     public func headBlockTime() -> Single<Date> {
