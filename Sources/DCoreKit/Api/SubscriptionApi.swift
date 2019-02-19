@@ -4,9 +4,9 @@ import RxSwift
 public protocol SubscriptionApi: BaseApi {
     func cancelAllSubscriptions() -> Completable
     func setBlockAppliedCallback() -> Observable<String>
-    func setContentUpdateCallback(uri: String) -> Observable<UnitValue>
-    func setPendingTransactionCallback() -> Observable<UnitValue>
-    func setSubscribeCallback(clearFilter: Bool) -> Observable<UnitValue>
+    func setContentUpdateCallback(uri: String) -> Observable<Void>
+    func setPendingTransactionCallback() -> Observable<Void>
+    func setSubscribeCallback(clearFilter: Bool) -> Observable<Void>
 }
 
 extension SubscriptionApi {
@@ -18,16 +18,16 @@ extension SubscriptionApi {
         return SetBlockAppliedCallback().base.toStreamResponse(api.core)
     }
     
-    public func setContentUpdateCallback(uri: String) -> Observable<UnitValue> {
-        return SetContentUpdateCallback(uri).base.toStreamResponse(api.core)
+    public func setContentUpdateCallback(uri: String) -> Observable<Void> {
+        return SetContentUpdateCallback(uri).base.toStreamResponse(api.core).map { _ in () }
     }
     
-    public func setPendingTransactionCallback() -> Observable<UnitValue> {
-        return SetPendingTransactionCallback().base.toStreamResponse(api.core)
+    public func setPendingTransactionCallback() -> Observable<Void> {
+        return SetPendingTransactionCallback().base.toStreamResponse(api.core).map { _ in () }
     }
     
-    public func setSubscribeCallback(clearFilter: Bool) -> Observable<UnitValue> {
-        return SetSubscribeCallback(clearFilter).base.toStreamResponse(api.core)
+    public func setSubscribeCallback(clearFilter: Bool) -> Observable<Void> {
+        return SetSubscribeCallback(clearFilter).base.toStreamResponse(api.core).map { _ in () }
     }
 }
 
