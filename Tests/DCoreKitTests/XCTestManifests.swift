@@ -13,6 +13,7 @@ public func allTests() -> [XCTestCaseEntry] {
         testCase(CryptoTests.allTests),
         testCase(SerializationTests.allTests),
         testCase(ValidationApiTests.allTests),
+        testCase(BlockApiTests.allTests),
     ]
 }
 #endif
