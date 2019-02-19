@@ -9,7 +9,7 @@ public struct Transaction {
     
     public let operations: [Operation]
     public var signatures: [String]?
-    public let expiration: Date
+    public private(set) var expiration: Date
     public let refBlockNum: Int
     public let refBlockPrefix: UInt64
     public var extensions: AnyValue?
@@ -18,7 +18,7 @@ public struct Transaction {
         self.blockData = blockData
         self.chainId = chainId
         self.operations = operations
-        self.expiration = Date(timeIntervalSince1970: TimeInterval(blockData.expiration))
+        self.expiration = Transaction.expirationFromBlockData(blockData)
         self.refBlockNum = blockData.refBlockNum
         self.refBlockPrefix = blockData.refBlockPrefix
         self.extensions = .array([])
@@ -42,7 +42,14 @@ public struct Transaction {
     private func extend() -> Transaction {
         var trx = self
         trx.blockData = blockData?.extend()
+        if let blockData = trx.blockData {
+            trx.expiration = Transaction.expirationFromBlockData(blockData)
+        }
         return trx
+    }
+
+    private static func expirationFromBlockData(_ blockData: BlockData) -> Date {
+        return Date(timeIntervalSince1970: TimeInterval(blockData.expiration))
     }
 }
 
