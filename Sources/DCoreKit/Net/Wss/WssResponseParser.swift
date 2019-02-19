@@ -17,7 +17,7 @@ extension WssResponseParser where Self: DataEncodable {
                 )
                 
             } catch let error {
-                return (valid, .failure(error.asDCoreException()))
+                return (error.asDCoreException() != .network(.notFound), .failure(error.asDCoreException()))
             }
         } catch let error {
             return (false, .failure(error.asDCoreException()))
@@ -31,7 +31,9 @@ extension WssResponseParser where Self: DataEncodable {
         
         if let notice = method.string, case .notice? = ApiMethod(rawValue: notice), method.exists() {
             let params = json[ResponseKeypath.params.rawValue]
-            return (params[0].uInt64 == req.callbackId ?? req.callId, params[1][0])
+            var newJson = JSON()
+            newJson[ResponseKeypath.result.rawValue] = params[1][0]
+            return (params[0].uInt64 == req.callbackId ?? req.callId, newJson)
         } else {
             let id = json[ResponseKeypath.id.rawValue].uInt64
             return (id == req.callbackId ?? req.callId, json)

@@ -59,9 +59,7 @@ extension OperationApi {
                          amount: AssetAmount,
                          fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
         return create(transfer: creds, to: to, amount: amount, fee: fee)
-            .asObservable()
             .flatMap { self.api.broadcast.broadcast(withCallback: creds.keyPair, operation: $0) }
-            .asSingle()
     }
     
     public func transfer(_ creds: Credentials,
@@ -71,9 +69,7 @@ extension OperationApi {
                          encrypted: Bool = true,
                          fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
         return create(transfer: creds, to: to, amount: amount, message: message, encrypted: encrypted, fee: fee)
-            .asObservable()
             .flatMap { self.api.broadcast.broadcast(withCallback: creds.keyPair, operation: $0) }
-            .asSingle()
     }
 }
 

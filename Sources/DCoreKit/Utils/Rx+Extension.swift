@@ -107,4 +107,8 @@ extension ObservableType {
             return Observable.empty()
         }
     }
+
+    func firstOrError() -> Single<E> {
+        return take(1).asSingle()
+    }
 }

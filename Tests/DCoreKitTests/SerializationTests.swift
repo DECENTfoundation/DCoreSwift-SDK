@@ -103,6 +103,21 @@ final class SerializationTests: XCTestCase {
         
         XCTAssertTrue(Set(a).count == 3)
     }
+
+    func testBlockDataSerialization() {
+        let bytes = "01000100000001000000"
+        let blockData = BlockData(refBlockNum: 1, refBlockPrefix: 1, expiration: 1)
+        let serialized = blockData.asData().toHex()
+        XCTAssertEqual(bytes, serialized)
+    }
+
+    func testMemoSerialization() {
+        let kp = "5Jd7zdvxXYNdUfnEXt5XokrE3zwJSs734yQ36a1YaqioRTGGLtn".dcore.keyPair!
+        let address = "DCT6bVmimtYSvWQtwdrkVVQGHkVsTJZVKtBiUqf4YmJnrJPnk89QP".dcore.address!
+        let expected = "0102c03f8e840c1699fd7808c2bb858e249c688c5be8acf0a0c1c484ab0cfb27f0a802e0ced80260630f641f61f6d6959f32b5c43b1a38be55666b98abfe8bafcc556b5521e507000000001086d54a9e1f8fc6e5319dbae0b087b6cc"
+        let memo = try? Memo("hello memo", keyPair: kp, recipient: address, nonce: BigInt("132456789"))
+        XCTAssertEqual(expected, memo.asOptionalData().toHex())
+    }
     
     static var allTests = [
         ("testGetAccountHistoryJsonSerialization", testGetAccountHistoryJsonSerialization),
@@ -113,5 +128,7 @@ final class SerializationTests: XCTestCase {
         ("testTransferOperationWithMemoEncryptedDataSerialization", testTransferOperationWithMemoEncryptedDataSerialization),
         ("testAnyValueEncoding", testAnyValueSerialization),
         ("testChainObjectHashing", testChainObjectHashing),
+        ("testBlockDataSerialization", testBlockDataSerialization),
+        ("testMemoSerialization", testMemoSerialization),
     ]
 }
