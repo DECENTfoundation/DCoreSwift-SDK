@@ -30,7 +30,7 @@ public struct Asset: Codable, AssetFormatting, Equatable {
             let amount = options.exchangeRate.quote.amount / options.exchangeRate.base.amount * assetAmount.amount
             return AssetAmount(amount, assetId: id)
         }
-        if options.exchangeRate.base.assetId == assetAmount.assetId {
+        if options.exchangeRate.quote.assetId == assetAmount.assetId {
             let amount = options.exchangeRate.base.amount / options.exchangeRate.quote.amount * assetAmount.amount
             return AssetAmount(amount, assetId: id)
         }
