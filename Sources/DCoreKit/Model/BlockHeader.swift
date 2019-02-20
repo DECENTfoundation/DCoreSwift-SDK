@@ -1,6 +1,6 @@
 import Foundation
 
-public struct BlockHeader: Codable {
+public struct BlockHeader: Codable, Equatable {
     
     public let previous: String
     public let timestamp: Date
