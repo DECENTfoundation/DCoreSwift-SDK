@@ -17,7 +17,10 @@ extension WssResponseParser where Self: DataEncodable {
                 )
                 
             } catch let error {
-                return (error.asDCoreException() != .network(.notFound), .failure(error.asDCoreException()))
+                return (
+                    req.callback ? error.asDCoreException() != .network(.notFound) : valid,
+                    .failure(error.asDCoreException())
+                )
             }
         } catch let error {
             return (false, .failure(error.asDCoreException()))
