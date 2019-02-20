@@ -15,10 +15,15 @@ class BlockApiTests: XCTestCase {
         XCTAssertEqual(result?.num, num)
     }
     
-    
-    
+    func testGetBlockUsingRest() {
+        let num: UInt64 = 1000
+        
+        let result = try? rest.block.getBlock(byNum: num).toBlocking().single()
+        XCTAssertNotNil(result)
+    }
     
     static var allTests = [
         ("testGetBlockHeaderUsingRest", testGetBlockHeaderUsingRest),
+        ("testGetBlockUsingRest", testGetBlockUsingRest),
         ]
 }
