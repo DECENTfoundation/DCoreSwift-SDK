@@ -6,6 +6,7 @@ public protocol Operation: DataConvertible, CipherConvertible, AnyOperationConve
     
     func apply(fee amount: AssetAmount) -> Self
     func to<Output>(type: Output.Type) throws -> Output where Output: Operation
+    func `is`<Output>(type: Output.Type) -> Bool where Output: Operation
 }
 
 extension Operation {
@@ -19,6 +20,10 @@ extension Operation {
     public func to<Output>(type: Output.Type) throws -> Output where Output: Operation {
         guard let cast = self as? Output else { throw DCoreException.unexpected("Operration \(self) could not be casted to \(type)") }
         return cast
+    }
+    
+    public func `is`<Output>(type: Output.Type) -> Bool where Output: Operation {
+        return (try? to(type: type)) != nil
     }
 }
 
