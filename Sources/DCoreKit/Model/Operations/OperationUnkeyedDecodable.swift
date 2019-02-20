@@ -13,7 +13,7 @@ extension OperationUnkeyedDecodable {
         case .transferOperation, .transferTwoOperation:
             return try unkeyed.decode(TransferOperation.self)
             
-        // TODO
+        // TODO: https://decentplatform.atlassian.net/browse/DSDK-569
         /*
         case .contentSubmitOperation:
             return try unkeyed.decode(SubmitContentOperation.self)
