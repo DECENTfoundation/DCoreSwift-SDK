@@ -59,13 +59,6 @@ extension AccountApi {
                 return self.getAccounts(byIds: [object]).map({ try $0.first.orThrow(DCoreException.network(.notFound)) })
             }
             
-            if let address = value.dcore.address {
-                return self.getAccountIds(byAddressList: [address])
-                    .flatMap({ result in
-                        return self.getAccounts(byIds: result.first!).map({ try $0.first.orThrow(DCoreException.network(.notFound)) })
-                    })
-            }
-            
             if Account.hasValid(name: value) {
                 return self.getAccount(byName: value)
             }
