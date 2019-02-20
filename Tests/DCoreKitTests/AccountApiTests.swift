@@ -27,11 +27,6 @@ final class AccountApiTests: XCTestCase {
         XCTAssertThrowsError(try rest.account.getAccount(byReference: "abc").debug().toBlocking().single())
     }
     
-    func testGetAccountByAddressUsingRest() {
-        let account = try? rest.account.getAccount(byReference: "DCT6MA5TQQ6UbMyMaLPmPXE2Syh5G3ZVhv5SbFedqLPqdFChSeqTz").debug().toBlocking().single()
-        XCTAssertEqual(account?.name, "u961279ec8b7ae7bd62f304f7c1c3d345")
-    }
-    
     func testGetAccountIdsByAddressUsingRest() {
         let ids = try? rest.account.getAccountIds(byAddressList: ["DCT6MA5TQQ6UbMyMaLPmPXE2Syh5G3ZVhv5SbFedqLPqdFChSeqTz".dcore.address!]).debug().toBlocking().single()
         XCTAssert(ids?.first?.contains("1.2.34".dcore.chainObject!) ?? false)
@@ -64,11 +59,6 @@ final class AccountApiTests: XCTestCase {
         XCTAssertEqual(account?.name, "u961279ec8b7ae7bd62f304f7c1c3d345")
     }
     
-    func testGetAccountByAddressUsingWss() {
-        let account = try? wss.account.getAccount(byReference: "DCT6MA5TQQ6UbMyMaLPmPXE2Syh5G3ZVhv5SbFedqLPqdFChSeqTz").debug().toBlocking().single()
-        XCTAssertEqual(account?.name, "u961279ec8b7ae7bd62f304f7c1c3d345")
-    }
-    
     func testGetAccountByAddressNotFoundUsingWss() {
         XCTAssertThrowsError(
             try wss.account.getAccount(byName: "xxxxxxxx1234567").debug().toBlocking().single()
@@ -80,14 +70,12 @@ final class AccountApiTests: XCTestCase {
         ("testGetAccountByIdUsingRest", testGetAccountByIdUsingRest),
         ("testGetAccountByReferenceUsingRest", testGetAccountByReferenceUsingRest),
         ("testGetAccountByInvalidReferenceUsingRest", testGetAccountByInvalidReferenceUsingRest),
-        ("testGetAccountByAddressUsingRest", testGetAccountByAddressUsingRest),
         ("testGetAccountIdsByAddressUsingRest", testGetAccountIdsByAddressUsingRest),
         ("testGetAccountByIdsUsingRest", testGetAccountByIdsUsingRest),
         ("testGetAccountByNameAndIdUsingRest", testGetAccountByNameAndIdUsingRest),
         ("testGetAccountByNameNotFoundUsingRest", testGetAccountByNameNotFoundUsingRest),
         ("testGetAccountByNameUsingWss", testGetAccountByNameUsingWss),
         ("testGetAccountByReferenceUsingWss", testGetAccountByReferenceUsingWss),
-        ("testGetAccountByAddressUsingWss", testGetAccountByAddressUsingWss),
         ("testGetAccountByAddressNotFoundUsingWss", testGetAccountByAddressNotFoundUsingWss),
     ]
 
