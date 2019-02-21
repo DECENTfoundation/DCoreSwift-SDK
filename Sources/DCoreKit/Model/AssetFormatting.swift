@@ -49,7 +49,8 @@ extension AssetFormatting {
     private var defaultFormatter: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        
+        formatter.maximumFractionDigits = precision
+        formatter.usesSignificantDigits = precision > 0
         return formatter
     }
 }
