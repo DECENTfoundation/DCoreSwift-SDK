@@ -50,3 +50,9 @@ extension OperationHistory: Codable {
         try container.encode(operation.asAnyOperation(), forKey: .operation)
     }
 }
+
+extension OperationHistory: Equatable {
+    public static func == (lhs: OperationHistory, rhs: OperationHistory) -> Bool {
+        return lhs.id == rhs.id
+    }
+}

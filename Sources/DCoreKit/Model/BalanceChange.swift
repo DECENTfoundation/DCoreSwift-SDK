@@ -14,6 +14,8 @@ public struct BalanceChange: Codable {
     }
 }
 
+extension BalanceChange: Equatable {}
+
 public struct Balance: Codable {
     
     public let primaryAsset: AssetAmount
@@ -25,3 +27,5 @@ public struct Balance: Codable {
         sencodaryAsset = "asset1"
     }
 }
+
+extension Balance: Equatable {}
