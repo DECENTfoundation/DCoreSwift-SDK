@@ -26,6 +26,12 @@ extension BalanceChange: CipherConvertible {
     }
 }
 
+extension BalanceChange: HasOperation {
+    public func hasOperation<Output>(type: Output.Type) -> Bool where Output : Operation {
+        return history.hasOperation(type: type)
+    }
+}
+
 public struct Balance: Codable {
     
     public let primaryAsset: AssetAmount
