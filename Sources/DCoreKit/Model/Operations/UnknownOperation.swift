@@ -19,7 +19,7 @@ public struct UnknownOperation: Operation {
 }
 
 extension UnknownOperation {
-    public func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt = CryptoUtils.generateNonce()) throws -> UnknownOperation {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> UnknownOperation {
         return self
     }
 }
