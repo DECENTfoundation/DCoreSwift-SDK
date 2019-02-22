@@ -69,13 +69,12 @@ public struct CryptoUtils {
     }
     
     static func decrypt(_ key: Data, iv: Data, checksumInput input: Data) throws -> Data {
-        let checksumResult = try decrypt(key, iv: iv, input: input)
-        let result = checksumResult.dropFirst(4)
-        
-        guard checksumResult.prefix(4) == hash256(result).prefix(4) else {
+        let data = try decrypt(key, iv: iv, input: input)
+        let result = data[4..<data.endIndex]
+        guard data.prefix(4) == hash256(result).prefix(4) else {
             throw DCoreException.crypto(.failDecrypt("Cannot decrypt \(input.toHex()), invalid checksum"))
         }
-        
+   
         return result
     }
     

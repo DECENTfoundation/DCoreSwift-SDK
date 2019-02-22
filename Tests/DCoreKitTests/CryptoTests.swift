@@ -1,4 +1,5 @@
 import XCTest
+import BigInt
 @testable import DCoreKit
 
 final class CryptoTests: XCTestCase {
@@ -73,6 +74,30 @@ final class CryptoTests: XCTestCase {
         XCTAssertEqual(expectedSignature, signedTransaction.signatures?.first)
     }
     
+    func testDecryptPublicMemo() {
+        let plain = "hello memo here i am"
+        let key = "5Jd7zdvxXYNdUfnEXt5XokrE3zwJSs734yQ36a1YaqioRTGGLtn".dcore.keyPair!
+        let memo = try! Memo(plain)
+        
+        let result = try? memo.decrypt(key)
+        XCTAssertTrue(result?.message == plain)
+    }
+    
+    func testDecryptPrivateMemo() {
+        let encrypted = "b23f6afb8eb463704d3d752b1fd8fb804c0ce32ba8d18eeffc20a2312e7c60fa"
+        let plain = "hello memo here i am"
+        let nonce = BigInt("10872523688190906880")!
+        let to = "DCT6bVmimtYSvWQtwdrkVVQGHkVsTJZVKtBiUqf4YmJnrJPnk89QP".dcore.address!
+        let key = "5Jd7zdvxXYNdUfnEXt5XokrE3zwJSs734yQ36a1YaqioRTGGLtn".dcore.keyPair!
+        
+        let memo = try! Memo(plain, keyPair: key, recipient: to, nonce: nonce)
+        
+        XCTAssertTrue(memo.message == encrypted)
+        
+        let result = try? memo.decrypt(key)
+        XCTAssertTrue(result?.message == plain)
+    }
+    
     static var allTests = [
         ("testAddress", testAddress),
         ("testKeyPair", testKeyPair),
@@ -80,5 +105,7 @@ final class CryptoTests: XCTestCase {
         ("testCredentialFromEncryptedWif", testCredentialFromEncryptedWif),
         ("testCredentialFromEncryptedWifFailToDecrypt", testCredentialFromEncryptedWifFailToDecrypt),
         ("testValidateSignedTransaction", testValidateSignedTransaction),
+        ("testDecryptPublicMemo", testDecryptPublicMemo),
+        ("testDecryptPrivateMemo", testDecryptPrivateMemo),
     ]
 }
