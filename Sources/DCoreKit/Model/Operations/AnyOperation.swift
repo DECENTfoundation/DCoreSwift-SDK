@@ -1,11 +1,12 @@
 import Foundation
+import BigInt
 
 public struct AnyOperation: Operation, OperationUnkeyedDecodable {
     
     public var fee: AssetAmount = .unset
     public var type: OperationType = .unknown
 
-    public let operation: Operation
+    public var operation: Operation
 
     init<Input>(_ input: Input) where Input: Operation {
         self.init(from: input)
@@ -23,6 +24,15 @@ public struct AnyOperation: Operation, OperationUnkeyedDecodable {
     
     public func encode(to encoder: Encoder) throws {
         try operation.encodeUnkeyed(to: encoder)
+    }
+}
+
+extension AnyOperation {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt = CryptoUtils.generateNonce()) throws -> AnyOperation {
+        var op = self
+        op.operation = try operation.decrypt(keyPair, address: address, nonce: nonce)
+        
+        return op
     }
 }
 

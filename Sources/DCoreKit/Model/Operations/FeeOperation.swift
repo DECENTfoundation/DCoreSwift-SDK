@@ -1,4 +1,5 @@
 import Foundation
+import BigInt
 
 struct FeeOperation: Operation {
     
@@ -12,5 +13,11 @@ struct FeeOperation: Operation {
     private enum CodingKeys: String, CodingKey {
         case
         fee
+    }
+}
+
+extension FeeOperation {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt = CryptoUtils.generateNonce()) throws -> FeeOperation {
+        return self
     }
 }

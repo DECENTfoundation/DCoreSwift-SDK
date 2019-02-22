@@ -1,4 +1,5 @@
 import Foundation
+import BigInt
 
 public struct UnknownOperation: Operation {
     
@@ -14,5 +15,11 @@ public struct UnknownOperation: Operation {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         try container.encode(raw)
+    }
+}
+
+extension UnknownOperation {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt = CryptoUtils.generateNonce()) throws -> UnknownOperation {
+        return self
     }
 }

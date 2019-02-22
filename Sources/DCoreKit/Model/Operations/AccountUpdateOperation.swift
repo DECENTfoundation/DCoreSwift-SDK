@@ -1,4 +1,5 @@
 import Foundation
+import BigInt
 
 public struct AccountUpdateOperation: Operation {
     
@@ -22,6 +23,12 @@ public struct AccountUpdateOperation: Operation {
         active,
         options = "new_options",
         fee
+    }
+}
+
+extension AccountUpdateOperation {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt = CryptoUtils.generateNonce()) throws -> AccountUpdateOperation {
+        return self
     }
 }
 

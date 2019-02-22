@@ -1,9 +1,10 @@
 import Foundation
+import BigInt
 
 public struct OperationHistory {
     
     public let id: ChainObject
-    public let operation: Operation
+    public var operation: Operation
     public let result: AnyValue?
     public let blockNum: UInt64
     public let trxInBlock: UInt64
@@ -48,6 +49,15 @@ extension OperationHistory: Codable {
         try container.encode(virtualOperation, forKey: .virtualOperation)
         
         try container.encode(operation.asAnyOperation(), forKey: .operation)
+    }
+}
+
+extension OperationHistory: CipherConvertible {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt = CryptoUtils.generateNonce()) throws -> OperationHistory {
+        var history = self
+        history.operation = try operation.decrypt(keyPair, address: address, nonce: nonce)
+        
+        return history
     }
 }
 
