@@ -8,7 +8,7 @@ public struct SubmitContentOperation: Operation {
 }
 
 extension SubmitContentOperation {
-    public func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt = CryptoUtils.generateNonce()) throws -> SubmitContentOperation {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> SubmitContentOperation {
         return self
     }
 }

@@ -23,7 +23,7 @@ public struct TransferOperation: Operation {
 
 extension TransferOperation {
     
-    public func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt = CryptoUtils.generateNonce()) throws -> TransferOperation {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> TransferOperation {
         var op = self
         op.memo = try memo?.decrypt(keyPair, address: address, nonce: nonce)
         

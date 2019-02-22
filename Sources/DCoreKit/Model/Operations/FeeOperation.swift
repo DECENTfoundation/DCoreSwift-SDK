@@ -17,7 +17,7 @@ struct FeeOperation: Operation {
 }
 
 extension FeeOperation {
-    public func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt = CryptoUtils.generateNonce()) throws -> FeeOperation {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> FeeOperation {
         return self
     }
 }

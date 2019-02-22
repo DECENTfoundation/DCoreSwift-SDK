@@ -53,7 +53,7 @@ extension OperationHistory: Codable {
 }
 
 extension OperationHistory: CipherConvertible {
-    public func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt = CryptoUtils.generateNonce()) throws -> OperationHistory {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> OperationHistory {
         var history = self
         history.operation = try operation.decrypt(keyPair, address: address, nonce: nonce)
         

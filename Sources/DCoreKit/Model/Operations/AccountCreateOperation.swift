@@ -39,7 +39,7 @@ public struct AccountCreateOperation: Operation {
 }
 
 extension AccountCreateOperation {
-    public func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt = CryptoUtils.generateNonce()) throws -> AccountCreateOperation {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> AccountCreateOperation {
         return self
     }
 }

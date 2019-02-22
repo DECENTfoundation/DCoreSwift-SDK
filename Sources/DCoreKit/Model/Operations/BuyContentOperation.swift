@@ -41,7 +41,7 @@ public struct BuyContentOperation: Operation {
 }
 
 extension BuyContentOperation {
-    public func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt = CryptoUtils.generateNonce()) throws -> BuyContentOperation {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> BuyContentOperation {
         return self
     }
 }

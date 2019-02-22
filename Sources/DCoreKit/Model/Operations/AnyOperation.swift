@@ -28,7 +28,7 @@ public struct AnyOperation: Operation, OperationUnkeyedDecodable {
 }
 
 extension AnyOperation {
-    public func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt = CryptoUtils.generateNonce()) throws -> AnyOperation {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> AnyOperation {
         var op = self
         op.operation = try operation.decrypt(keyPair, address: address, nonce: nonce)
         

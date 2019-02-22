@@ -9,11 +9,11 @@ public protocol CipherConvertible {
 }
 
 extension CipherConvertible {
-    public func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt = CryptoUtils.generateNonce()) throws -> Self {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> Self {
         throw DCoreException.crypto(.notSupported)
     }
     
-    public func encrypt(_ keyPair: ECKeyPair?, address: Address?, nonce: BigInt = CryptoUtils.generateNonce()) throws -> Self {
+    public func encrypt(_ keyPair: ECKeyPair?, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> Self {
         throw DCoreException.crypto(.notSupported)
     }
 }

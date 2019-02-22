@@ -27,7 +27,7 @@ public struct AccountUpdateOperation: Operation {
 }
 
 extension AccountUpdateOperation {
-    public func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt = CryptoUtils.generateNonce()) throws -> AccountUpdateOperation {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> AccountUpdateOperation {
         return self
     }
 }
