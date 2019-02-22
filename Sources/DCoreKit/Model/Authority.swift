@@ -41,6 +41,13 @@ public struct AuthMap: Codable {
         self.value = value
         self.weight = weight
     }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        
+        try container.encode(value)
+        try container.encode(weight)
+    }
 }
 
 extension Authority: DataConvertible {
