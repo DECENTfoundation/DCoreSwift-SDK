@@ -1,8 +1,9 @@
 import Foundation
+import BigInt
 
 public struct BalanceChange: Codable {
     
-    public let history: OperationHistory
+    public var history: OperationHistory
     public let balance: Balance
     public let fee: AssetAmount
     
@@ -15,6 +16,15 @@ public struct BalanceChange: Codable {
 }
 
 extension BalanceChange: Equatable {}
+
+extension BalanceChange: CipherConvertible {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt = CryptoUtils.generateNonce()) throws -> BalanceChange {
+        var change = self
+        change.history = try history.decrypt(keyPair, address: address, nonce: nonce)
+        
+        return change
+    }
+}
 
 public struct Balance: Codable {
     

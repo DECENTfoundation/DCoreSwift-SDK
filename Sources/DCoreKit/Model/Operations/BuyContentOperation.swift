@@ -1,4 +1,5 @@
 import Foundation
+import BigInt
 
 public struct BuyContentOperation: Operation {
     
@@ -36,6 +37,12 @@ public struct BuyContentOperation: Operation {
         price,
         publicElGamal = "pubKey",
         regionCode = "region_code_from"
+    }
+}
+
+extension BuyContentOperation {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt = CryptoUtils.generateNonce()) throws -> BuyContentOperation {
+        return self
     }
 }
 

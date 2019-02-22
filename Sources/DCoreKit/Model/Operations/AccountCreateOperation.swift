@@ -1,4 +1,5 @@
 import Foundation
+import BigInt
 
 public struct AccountCreateOperation: Operation {
     
@@ -34,6 +35,12 @@ public struct AccountCreateOperation: Operation {
         options,
         registrar,
         fee
+    }
+}
+
+extension AccountCreateOperation {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt = CryptoUtils.generateNonce()) throws -> AccountCreateOperation {
+        return self
     }
 }
 
