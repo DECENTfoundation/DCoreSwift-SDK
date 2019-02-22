@@ -18,8 +18,8 @@ public struct Memo: Codable {
     }
 
     public init(_ message: String,
-                keyPair: ECKeyPair?,
-                recipient: Address?,
+                keyPair: ECKeyPair? = nil,
+                recipient: Address? = nil,
                 nonce: BigInt = CryptoUtils.generateNonce()
         ) throws {
         
@@ -33,18 +33,17 @@ public struct Memo: Codable {
 }
 
 extension Memo: CipherConvertible {
-    public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt) throws -> Memo {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> Memo {
         var memo = self
         if from.isNil() || to.isNil() {
             memo.message = try self.message.decrypt(keyPair, address: address, nonce: nonce)
-        } else if let from = from, from.publicKey == keyPair.publicKey {
-            memo.message = try self.message.decrypt(keyPair, address: from, nonce: self.nonce)
-        } else if let to = to, to.publicKey == keyPair.publicKey {
+        } else if let from = from, let to = to, from.publicKey == keyPair.publicKey {
             memo.message = try self.message.decrypt(keyPair, address: to, nonce: self.nonce)
+        } else if let to = to, let from = from, to.publicKey == keyPair.publicKey {
+            memo.message = try self.message.decrypt(keyPair, address: from, nonce: self.nonce)
         } else {
             memo.message = ""
         }
-        
         return memo
     }
 }
