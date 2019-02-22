@@ -9,6 +9,10 @@ public protocol Operation: DataConvertible, CipherConvertible, AnyOperationConve
     func `is`<Output>(type: Output.Type) -> Bool where Output: Operation
 }
 
+protocol HasOperation {
+    func hasOperation<Output>(type: Output.Type) -> Bool where Output : Operation
+}
+
 extension Operation {
     public func apply(fee amount: AssetAmount) -> Self {
         var op = self
@@ -30,5 +34,11 @@ extension Operation {
 extension Operation {
     public func asAnyOperation() -> AnyOperation {
         return AnyOperation(self)
+    }
+}
+
+extension HasOperation {
+    public func hasOperation<Output>(type: Output.Type) -> Bool where Output : Operation {
+        return false
     }
 }

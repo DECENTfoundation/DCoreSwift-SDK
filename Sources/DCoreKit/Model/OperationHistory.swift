@@ -66,3 +66,9 @@ extension OperationHistory: Equatable {
         return lhs.id == rhs.id
     }
 }
+
+extension OperationHistory: HasOperation {
+    public func hasOperation<Output>(type: Output.Type) -> Bool where Output : Operation {
+        return operation.is(type: type)
+    }
+}
