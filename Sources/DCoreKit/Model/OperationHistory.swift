@@ -67,8 +67,12 @@ extension OperationHistory: Equatable {
     }
 }
 
-extension OperationHistory: HasOperation {
-    public func hasOperation<Output>(type: Output.Type) -> Bool where Output : Operation {
+extension OperationHistory: TypedOperationConvertible {
+    public func hasOperation<Output>(type: Output.Type) -> Bool where Output: Operation {
         return operation.is(type: type)
+    }
+    
+    public func toOperation<Output>(type: Output.Type) throws -> Output where Output: Operation {
+        return try operation.to(type: type)
     }
 }

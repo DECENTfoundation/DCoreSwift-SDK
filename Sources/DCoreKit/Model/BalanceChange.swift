@@ -26,9 +26,13 @@ extension BalanceChange: CipherConvertible {
     }
 }
 
-extension BalanceChange: HasOperation {
-    public func hasOperation<Output>(type: Output.Type) -> Bool where Output : Operation {
+extension BalanceChange: TypedOperationConvertible {
+    public func hasOperation<Output>(type: Output.Type) -> Bool where Output: Operation {
         return history.hasOperation(type: type)
+    }
+    
+    public func toOperation<Output>(type: Output.Type) throws -> Output where Output: Operation {
+        return try history.toOperation(type: type)
     }
 }
 
