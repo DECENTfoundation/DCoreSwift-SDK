@@ -9,11 +9,11 @@ public protocol Operation: DataConvertible, CipherConvertible, AnyOperationConve
     func `is`<Output>(type: Output.Type) -> Bool where Output: Operation
 }
 
-protocol HasOperation {
+public protocol HasOperation {
     func hasOperation<Output>(type: Output.Type) -> Bool where Output: Operation
 }
 
-protocol TypedOperationConvertible: HasOperation {
+public protocol TypedOperationConvertible: HasOperation {
     func toOperation<Output>(type: Output.Type) throws -> Output where Output: Operation
 }
 
