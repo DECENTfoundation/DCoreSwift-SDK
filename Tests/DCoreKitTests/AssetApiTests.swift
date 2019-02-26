@@ -58,6 +58,13 @@ final class AssetApiTests: XCTestCase {
         XCTAssertEqual(formatted, "1 DCT")
     }
     
+    func testFormatAssetAmountFormattedStringFromNegative() {
+        let asset = try? rest.asset.getAsset(bySymbol: .dct).debug().toBlocking().single()
+        let formatted = asset?.format(-100000000)
+        
+        XCTAssertEqual(formatted, "-1 DCT")
+    }
+    
     func testGetAssetsByBoundaryAndWrongLimit() {
         XCTAssertThrowsError(try rest.asset.getAssets(byLowerBound: "a", limit: 1000).debug().toBlocking().single())
     }
@@ -71,6 +78,7 @@ final class AssetApiTests: XCTestCase {
         ("testFormatAssetAmountFromString", testFormatAssetAmountFromString),
         ("testFormatAssetAmountFromDouble", testFormatAssetAmountFromDouble),
         ("testFormatAssetAmountFormattedString", testFormatAssetAmountFormattedString),
+        ("testFormatAssetAmountFormattedStringFromNegative", testFormatAssetAmountFormattedStringFromNegative),     
         ("testGetAssetsByBoundaryAndWrongLimit", testGetAssetsByBoundaryAndWrongLimit),
     ]
 

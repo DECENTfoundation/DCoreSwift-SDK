@@ -19,7 +19,7 @@ extension Decimal {
 
 extension AssetFormatting {
     public func from(raw value: BigInt) -> Decimal {
-        guard let val = Decimal(string: value.magnitude.description) else { preconditionFailure("Value can't be converted to decimal") }
+        guard let val = Decimal(string: value.description) else { preconditionFailure("Value can't be converted to decimal") }
         return val / pow(.ten, precision)
     }
     
