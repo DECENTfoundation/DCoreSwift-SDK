@@ -28,8 +28,14 @@ extension AssetApi {
         return getAssets(bySymbols: [symbol]).map({ try $0.first.orThrow(DCoreException.network(.notFound)) })
     }
     
-    public func getAssets(byLowerBound bound: String, limit: Int = 100) -> Single<[Asset]> {
-        return ListAssets(bound, limit: limit).base.toResponse(api.core)
+    public func getAssets(byLowerBound bound: String, limit: Int = DCore.Constant.assetLimit) -> Single<[Asset]> {
+        return Single.deferred {
+            guard limit <= DCore.Constant.assetLimit else {
+                return Single.error(DCoreException.unexpected("Asset limit is out of bound: \(DCore.Constant.assetLimit)"))
+            }
+            return ListAssets(bound, limit: limit).base.toResponse(self.api.core)
+        }
+        
     }
     
     public func convertPrice(toDct amount: AssetAmount) -> Single<AssetAmount> {

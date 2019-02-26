@@ -9,8 +9,12 @@ public protocol Operation: DataConvertible, CipherConvertible, AnyOperationConve
     func `is`<Output>(type: Output.Type) -> Bool where Output: Operation
 }
 
-protocol HasOperation {
-    func hasOperation<Output>(type: Output.Type) -> Bool where Output : Operation
+public protocol HasOperation {
+    func hasOperation<Output>(type: Output.Type) -> Bool where Output: Operation
+}
+
+public protocol TypedOperationConvertible: HasOperation {
+    func toOperation<Output>(type: Output.Type) throws -> Output where Output: Operation
 }
 
 extension Operation {
@@ -38,7 +42,7 @@ extension Operation {
 }
 
 extension HasOperation {
-    public func hasOperation<Output>(type: Output.Type) -> Bool where Output : Operation {
+    public func hasOperation<Output>(type: Output.Type) -> Bool where Output: Operation {
         return false
     }
 }
