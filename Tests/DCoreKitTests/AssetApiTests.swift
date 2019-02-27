@@ -69,6 +69,14 @@ final class AssetApiTests: XCTestCase {
         XCTAssertThrowsError(try rest.asset.getAssets(byLowerBound: "a", limit: 1000).debug().toBlocking().single())
     }
     
+    func testChainObjectHashing() {
+        let assets = try? rest.asset.getAssets(bySymbols: [.alat, .alxt, .dct]).debug().toBlocking().single()
+        XCTAssertNotNil(assets)
+        let a = [assets!, assets!].joined()
+        
+        XCTAssertTrue(Set(a).count == 3)
+    }
+    
     static var allTests = [
         ("testGetAssetById", testGetAssetById),
         ("testGetAssetBySymbol", testGetAssetBySymbol),

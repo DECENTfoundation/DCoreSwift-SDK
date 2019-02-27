@@ -39,6 +39,12 @@ public struct Asset: Codable, AssetFormatting, Equatable {
     }
 }
 
+extension Asset: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        id.hash(into: &hasher)
+    }
+}
+
 extension Asset {
     
     public enum Symbol: CustomStringConvertible, Encodable, Hashable, Equatable {
