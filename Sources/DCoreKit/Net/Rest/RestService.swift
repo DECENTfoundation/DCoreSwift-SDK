@@ -14,15 +14,14 @@ final class RestService: CoreRequestConvertible {
     
     func request<Output>(using req: BaseRequest<Output>) -> Single<Output> where Output: Codable {
         return Observable.deferred { [unowned self] in
-            return self.session.rx.data(request: req.asRest(self.url))
+            // TODO: DWI-81 URL session from member property should be used
+            return URLSession(configuration: .default).rx.data(request: req.asRest(self.url))
                 .map { res in
                     
                     do { return try res.parse(response: req) } catch let error {
                         throw error.asDCoreException()
                     }
                 }
-                // Added delay for some weird bug with url session sequenced calls
-                .delay(0.1, scheduler: ConcurrentDispatchQueueScheduler(qos: .default))
         }.asSingle()
     }
 }
