@@ -29,9 +29,9 @@ struct WssEmitter {
     
     private let source: WebSocket
     
-    init(_ url: URL, observer: AnyObserver<SocketEvent>) {
+    private init(_ url: URL, observer: AnyObserver<SocketEvent>) {
         
-        let source = WebSocket(url: url, writeQueueQOS: .userInitiated)
+        let source = WebSocket(url: url, writeQueueQOS: .default)
         source.onConnect = { observer.onNext(OnOpenEvent(value: source)) }
         source.onText = { observer.onNext(OnMessageEvent(value: $0)) }
         source.onDisconnect = { error in
@@ -46,5 +46,8 @@ struct WssEmitter {
         self.source.connect()
     }
     
-    private func disconnect() { source.disconnect() }
+    private func disconnect() {
+        source.disconnect()
+        DCore.Logger.debug(network: "WebSocket disconnected")
+    }
 }

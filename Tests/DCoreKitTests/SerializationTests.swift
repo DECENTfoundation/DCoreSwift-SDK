@@ -118,6 +118,14 @@ final class SerializationTests: XCTestCase {
         let memo = try? Memo("hello memo", keyPair: kp, recipient: address, nonce: BigInt("132456789"))
         XCTAssertEqual(expected, memo.asOptionalData().toHex())
     }
+
+    func testChainObjectSerialization() {
+        XCTAssertEqual("1.2.1".dcore.chainObject!.asData().toHex(), "01")
+        XCTAssertEqual("1.2.34".dcore.chainObject!.asData().toHex(), "22")
+        XCTAssertEqual("1.2.1564".dcore.chainObject!.asData().toHex(), "9c0c")
+        XCTAssertEqual("1.2.65534".dcore.chainObject!.asData().toHex(), "feff03")
+        XCTAssertEqual("1.2.66534".dcore.chainObject!.asData().toHex(), "e68704")
+    }
     
     static var allTests = [
         ("testGetAccountHistoryJsonSerialization", testGetAccountHistoryJsonSerialization),

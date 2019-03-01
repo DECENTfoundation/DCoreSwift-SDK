@@ -65,7 +65,7 @@ extension Data: DataConvertible, DataConcatable, DataEncodable {
     }
     
     public func asData() -> Data {
-        return VarInt(count).asData() + self
+        return UInt64(count).asUnsignedVarIntData() + self
     }
     
     public func asEncoded() -> Data {
@@ -86,7 +86,7 @@ extension String: DataConvertible, DataConcatable, DataEncodable {
     
     public func asData() -> Data {
         let bytes = data(using: .utf8).or(Data.ofZero)
-        return VarInt(bytes.count).asData() + bytes
+        return UInt64(bytes.count).asUnsignedVarIntData() + bytes
     }
     
     public func asEncoded() -> Data {
@@ -108,24 +108,10 @@ extension BigInt: DataConvertible, DataConcatable {
     }
 }
 
-extension VarInt: DataConvertible, DataConcatable {
-    static func + (lhs: Data, rhs: VarInt) -> Data {
-        return lhs + rhs.asData()
-    }
-    
-    static func += (lhs: inout Data, rhs: VarInt) {
-        lhs = lhs + rhs.asData()
-    }
-    
-    public func asData() -> Data {
-        return data
-    }
-}
-
 extension Array where Element: DataConvertible {
     public func asData() -> Data {
         guard !isEmpty else { return Data.ofZero }
-        return reduce(into: VarInt(count).asData(), { data, element in
+        return reduce(into: UInt64(count).asUnsignedVarIntData(), { data, element in
             data = data + element.asData()
         })
     }
@@ -134,7 +120,7 @@ extension Array where Element: DataConvertible {
 extension Set where Element: DataConvertible {
     public func asData() -> Data {
         guard !isEmpty else { return Data.ofZero }
-        return reduce(into: VarInt(count).asData(), { data, element in
+        return reduce(into: UInt64(count).asUnsignedVarIntData(), { data, element in
             data = data + element.asData()
         })
     }
@@ -192,25 +178,6 @@ extension Data {
     
     func to(type: String.Type) -> String {
         return String(bytes: self, encoding: .utf8).or("")
-    }
-    
-    func to(type: VarInt.Type) -> VarInt {
-        let value: UInt64
-        let length = self[0..<1].to(type: UInt8.self)
-        
-        switch length {
-        case 0...252:
-            value = UInt64(length)
-        case 0xfd:
-            value = UInt64(self[1...2].to(type: UInt16.self))
-        case 0xfe:
-            value = UInt64(self[1...4].to(type: UInt32.self))
-        case 0xff:
-            fallthrough // swiftlint:disable:this no_fallthrough_only
-        default:
-            value = self[1...8].to(type: UInt64.self)
-        }
-        return VarInt(value)
     }
 }
 
