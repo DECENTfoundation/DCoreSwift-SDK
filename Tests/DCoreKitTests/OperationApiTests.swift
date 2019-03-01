@@ -7,6 +7,11 @@ class OperationApiTests: XCTestCase {
 
     private let wss = DCore.Sdk.create(forWss: "wss://stagesocket.decentgo.com:8090")
     
+    override func setUp() {
+        super.setUp()
+        DCore.Logger.xcode(filterCategories: [.network])
+    }
+    
     func testTransferOperation() {
         let pk = "5J1HnqK3gajNzDWj9Na6fo3gxtphv6MHLE5YLgRmQv8tC8e3rEd"
         let creds = try? Credentials("1.2.17".dcore.chainObject!, wif: pk)
