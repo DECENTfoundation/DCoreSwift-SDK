@@ -6,7 +6,9 @@ public struct PubKey: Codable {
     public var key: BigInt = 0
     
     public init(key: String? = nil) {
-        if let key = key, let value = BigInt(key) { self.key = value }
+        if let key = key?.replacingOccurrences(of: ".", with: ""), let value = BigInt(key) {
+            self.key = value
+        }
     }
     
     public init(from decoder: Decoder) throws {
@@ -24,7 +26,7 @@ public struct PubKey: Codable {
 
 extension PubKey: CustomStringConvertible {
     public var description: String {
-        return "\(key)"
+        return "\(key)."
     }
 }
 
