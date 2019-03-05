@@ -7,8 +7,10 @@ final class WssService: CoreRequestConvertible {
     
     private let disposableBag = DisposeBag()
     private let disposable = CompositeDisposable()
+    private let observer = PublishSubject<SocketEvent>()
     private let events: ConnectableObservable<SocketEvent>
     private let timeout: TimeInterval
+    private let emitter: WssEmitter
     
     private var socket: AsyncSubject<WebSocket>?
     private var emitId: UInt64 = 0
@@ -21,7 +23,8 @@ final class WssService: CoreRequestConvertible {
         disposable.disposed(by: disposableBag)
         
         self.timeout = timeout
-        self.events = WssEmitter.connect(to: url)
+        self.emitter = WssEmitter(url, observer: observer.asObserver())
+        self.events = observer.publish()
     }
     
     func disconnect() {
@@ -91,6 +94,7 @@ final class WssService: CoreRequestConvertible {
         ])
         
         disposable.add(events.connect())
+        emitter.connect()
     }
     
     private func connectedSocket() -> Single<WebSocket> {
@@ -100,13 +104,13 @@ final class WssService: CoreRequestConvertible {
         socket = AsyncSubject()
         connect()
         
-        DCore.Logger.debug(network: "WebSocket is connected")
         return connectedSocket()
     }
     
     private func clearConnection() {
         socket = nil
         disposable.dispose()
+        emitter.disconnect()
         emitId = 0
     }
 }
