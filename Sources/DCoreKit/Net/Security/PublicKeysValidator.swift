@@ -48,7 +48,7 @@ private extension Array where Element == SecCertificate {
 public struct PublicKeysValidator: ServerTrustValidation {
     private let keys: [Pair<String, SecKey>]
     
-    public init(host: String, publicPin key: String) throws {
+    public init(host: String, pinnedKey key: String) throws {
         self.init(key: Pair(host, try .create(from: key)))
     }
     
