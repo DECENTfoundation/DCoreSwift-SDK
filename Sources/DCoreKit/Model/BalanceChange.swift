@@ -1,16 +1,38 @@
 import Foundation
+import BigInt
 
-public struct BalanceChange<Input>: Codable where Input: Operation {
+public struct BalanceChange: Codable {
     
-    public let operation: OperationHistory<Input>
+    public var history: OperationHistory
     public let balance: Balance
     public let fee: AssetAmount
     
     private enum CodingKeys: String, CodingKey {
         case
-        operation = "hist_object",
+        history = "hist_object",
         balance,
         fee
+    }
+}
+
+extension BalanceChange: Equatable {}
+
+extension BalanceChange: CipherConvertible {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> BalanceChange {
+        var change = self
+        change.history = try history.decrypt(keyPair, address: address, nonce: nonce)
+        
+        return change
+    }
+}
+
+extension BalanceChange: TypedOperationConvertible {
+    public func hasOperation<Output>(type: Output.Type) -> Bool where Output: Operation {
+        return history.hasOperation(type: type)
+    }
+    
+    public func toOperation<Output>(type: Output.Type) throws -> Output where Output: Operation {
+        return try history.toOperation(type: type)
     }
 }
 
@@ -25,3 +47,5 @@ public struct Balance: Codable {
         sencodaryAsset = "asset1"
     }
 }
+
+extension Balance: Equatable {}

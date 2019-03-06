@@ -1,12 +1,12 @@
 import Foundation
 
 extension Optional {
-    func isNil() -> Bool {
+    public func isNil() -> Bool {
         if case .none = self { return true }
         return false
     }
     
-    func or(_ other: Wrapped) -> Wrapped {
+    public func or(_ other: Wrapped) -> Wrapped {
         if let ret = self {
             return ret
         } else {
@@ -14,7 +14,7 @@ extension Optional {
         }
     }
     
-    func orThrow(_ errorExpression: @autoclosure () -> Error) throws -> Wrapped {
+    public func orThrow(_ errorExpression: @autoclosure () -> Error) throws -> Wrapped {
         guard let value = self else {
             throw errorExpression()
         }
@@ -24,7 +24,7 @@ extension Optional {
 
 extension Optional where Wrapped == String {
     func isEmptyOrNil() -> Bool {
-        if isNil() { return true }
+        guard !isNil() else { return true }
         return self.unsafelyUnwrapped.isEmpty
     }
 }

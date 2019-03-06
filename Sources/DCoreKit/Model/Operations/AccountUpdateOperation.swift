@@ -1,4 +1,5 @@
 import Foundation
+import BigInt
 
 public struct AccountUpdateOperation: Operation {
     
@@ -9,6 +10,11 @@ public struct AccountUpdateOperation: Operation {
     
     public let type: OperationType = .accountUpdateOperation
     public var fee: AssetAmount  = .unset
+    
+    public init(_ account: Account, votes: Set<VoteId>) {
+        accountId = account.id
+        options = account.options.apply(votes: votes)
+    }
     
     private enum CodingKeys: String, CodingKey {
         case
@@ -21,18 +27,26 @@ public struct AccountUpdateOperation: Operation {
 }
 
 extension AccountUpdateOperation {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> AccountUpdateOperation {
+        return self
+    }
+}
+
+extension AccountUpdateOperation {
     public func asData() -> Data {
         
         var data = Data()
         data += type.asData()
         data += fee.asData()
         data += accountId.asData()
-        data += owner.asData()
-        data += active.asData()
-        data += options.asData()
+        data += owner.asOptionalData()
+        data += active.asOptionalData()
+        data += options.asOptionalData()
         data += Data.ofZero
         
-        Logger.debug(crypto: "AccountUpdateOperation binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
+        DCore.Logger.debug(crypto: "AccountUpdateOperation binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)"
+        })
         return data
     }
 }

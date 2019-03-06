@@ -1,15 +1,15 @@
 import Foundation
 
-struct GetTransaction<Input>: BaseRequestConvertible where Input: Operation {
+struct GetTransaction: BaseRequestConvertible {
     
-    typealias Output = ProcessedTransaction<Input>
-    private(set) var base: BaseRequest<ProcessedTransaction<Input>>
+    typealias Output = ProcessedTransaction
+    private(set) var base: BaseRequest<ProcessedTransaction>
     
     init(_ blockNum: UInt64, trxInBlock: UInt64) {
         self.base = GetTransaction.toBase(
             .database,
             api: "get_transaction",
-            returnType: ProcessedTransaction<Input>.self,
+            returnType: ProcessedTransaction.self,
             params: [blockNum, trxInBlock]
         )
     }

@@ -1,4 +1,5 @@
 import Foundation
+import BigInt
 
 public struct SubmitContentOperation: Operation {
     
@@ -7,10 +8,18 @@ public struct SubmitContentOperation: Operation {
 }
 
 extension SubmitContentOperation {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> SubmitContentOperation {
+        return self
+    }
+}
+
+extension SubmitContentOperation {
     public func asData() -> Data {
         
         let data = Data.ofZero
-        Logger.debug(crypto: "SubmitContentOperation binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
+        DCore.Logger.debug(crypto: "SubmitContentOperation binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)"
+        })
         return data
     }
 }

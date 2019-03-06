@@ -1,9 +1,9 @@
 import Foundation
 
-struct GetAccountBalanceForTransaction<Input>: BaseRequestConvertible where Input: Operation {
+struct GetAccountBalanceForTransaction: BaseRequestConvertible {
     
-    typealias Output = BalanceChange<Input>
-    private(set) var base: BaseRequest<BalanceChange<Input>>
+    typealias Output = BalanceChange
+    private(set) var base: BaseRequest<BalanceChange>
     
     init(_ accountId: ChainObject, operationId: ChainObject) {
         
@@ -11,7 +11,7 @@ struct GetAccountBalanceForTransaction<Input>: BaseRequestConvertible where Inpu
         precondition(operationId.objectType == .operationHistoryObject, "Not a valid history object id \(operationId)")
         
         self.base = GetAccountBalanceForTransaction.toBase(
-            .history, api: "get_account_balance_for_transaction", returnType: BalanceChange<Input>.self, params: [
+            .history, api: "get_account_balance_for_transaction", returnType: BalanceChange.self, params: [
                 accountId, operationId
             ]
         )

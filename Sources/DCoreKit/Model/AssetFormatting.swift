@@ -19,7 +19,7 @@ extension Decimal {
 
 extension AssetFormatting {
     public func from(raw value: BigInt) -> Decimal {
-        guard let val = Decimal(string: value.magnitude.description) else { preconditionFailure("Value can't be converted to decimal") }
+        guard let val = Decimal(string: value.description) else { preconditionFailure("Value can't be converted to decimal") }
         return val / pow(.ten, precision)
     }
     
@@ -49,7 +49,8 @@ extension AssetFormatting {
     private var defaultFormatter: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        
+        formatter.maximumFractionDigits = precision
+        formatter.usesSignificantDigits = precision > 0
         return formatter
     }
 }

@@ -41,6 +41,13 @@ public struct AuthMap: Codable {
         self.value = value
         self.weight = weight
     }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        
+        try container.encode(value)
+        try container.encode(weight)
+    }
 }
 
 extension Authority: DataConvertible {
@@ -50,7 +57,9 @@ extension Authority: DataConvertible {
         data += Data.ofZero
         data += keyAuths.asData()
                 
-        Logger.debug(crypto: "Authority binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
+        DCore.Logger.debug(crypto: "Authority binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)"
+        })
         return data
     }
 }
@@ -61,7 +70,9 @@ extension AuthMap: DataConvertible {
         data += value.asData()
         data += weight.littleEndian
         
-        Logger.debug(crypto: "AuthMap binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
+        DCore.Logger.debug(crypto: "AuthMap binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)"
+        })
         return data
     }
 }

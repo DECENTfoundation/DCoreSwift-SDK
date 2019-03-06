@@ -1,90 +1,110 @@
-//
-//  Copyright © 2018 Kishikawa Katsumi
-//  Copyright © 2018 BitcoinKit developers
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
+/**
+ *
+ * Original version: https://github.com/NeoTeo/VarInt
+ *
+ * This code provides "varint" encoding of 64-bit integers.
+ * It is based on the Go implementation of the Google Protocol Buffers varint specification.
+ *
+ */
 
 import Foundation
 
-/// Integer can be encoded depending on the represented value to save space.
-/// Variable length integers always precede an array/vector of a type of data that may vary in length.
-/// Longer numbers are encoded in little endian.
-public struct VarInt: ExpressibleByIntegerLiteral {
-    
-    public typealias IntegerLiteralType = UInt64
-    public let underlyingValue: UInt64
-    
-    let length: UInt8
-    let data: Data
-    
-    static func from(_ data: Data) -> VarInt {
-        return data.to(type: self)
-    }
-    
-    public init(integerLiteral value: UInt64) {
-        self.init(value)
-    }
-    
-    /*
-     0xfc : 252
-     0xfd : 253
-     0xfe : 254
-     0xff : 255
-     
-     0~252 : 1-byte(0x00 ~ 0xfc)
-     253 ~ 65535: 3-byte(0xfd00fd ~ 0xfdffff)
-     65536 ~ 4294967295 : 5-byte(0xfe010000 ~ 0xfeffffffff)
-     4294967296 ~ 1.84467441e19 : 9-byte(0xff0000000100000000 ~ 0xfeffffffffffffffff)
-     */
-    public init(_ value: UInt64) {
-        underlyingValue = value
+extension UInt64 {
+    func asUnsignedVarIntBytes() -> [UInt8] {
+        var buffer = [UInt8]()
+        var val: UInt64 = self
         
-        switch value {
-        case 0...252:
-            length = 1
-            data = Data() + UInt8(value).littleEndian
-        case 253...0xffff:
-            length = 2
-            data = Data() + UInt8(0xfd).littleEndian + UInt16(value).littleEndian
-        case 0x10000...0xffffffff:
-            length = 4
-            data = Data() + UInt8(0xfe).littleEndian + UInt32(value).littleEndian
-        case 0x100000000...0xffffffffffffffff:
-            fallthrough // swiftlint:disable:this no_fallthrough_only
-        default:
-            length = 8
-            data = Data() + UInt8(0xff).littleEndian + UInt64(value).littleEndian
+        while val >= 0x80 {
+            buffer.append((UInt8(truncatingIfNeeded: val) | 0x80))
+            val >>= 7
         }
+        
+        buffer.append(UInt8(val))
+        return buffer
     }
     
-    public init(_ value: Int) {
-        self.init(UInt64(value))
-    }
-    
-    public init(_ value: Data) {
-        self = VarInt.from(value)
+    func asUnsignedVarIntData() -> Data {
+        return Data(bytes: asUnsignedVarIntBytes())
     }
 }
 
-extension VarInt: CustomStringConvertible {
-    public var description: String {
-        return "\(underlyingValue)"
+extension Int64 {
+    func asVarIntBytes() -> [UInt8] {
+        let value = UInt64(self) << 1
+        return value.asUnsignedVarIntBytes()
+    }
+    
+    func asVarIntData() -> Data {
+        return Data(bytes: asVarIntBytes())
+    }
+}
+
+extension Sequence where Element == UInt8 {
+    func asUnsignedVarInt() -> (UInt64, Int) {
+        var output: UInt64 = 0
+        var counter = 0
+        var shifter: UInt64 = 0
+        
+        for byte in self {
+            if byte < 0x80 {
+                if counter > 9 || counter == 9 && byte > 1 {
+                    return (0, -(counter + 1))
+                }
+                return (output | UInt64(byte) << shifter, counter+1)
+            }
+            
+            output |= UInt64(byte & 0x7f) << shifter
+            shifter += 7
+            counter += 1
+        }
+        return (0, 0)
+    }
+    
+    func asVarInt() -> (Int64, Int) {
+        let (unsignedValue, bytesRead)  = self.asUnsignedVarInt()
+        var value = Int64(unsignedValue >> 1)
+        
+        if unsignedValue & 1 != 0 { value = ~value }
+        
+        return (value, bytesRead)
+    }
+}
+
+extension InputStream {
+    func asUnsignedVarInt() throws -> UInt64 {
+        var value: UInt64   = 0
+        var shifter: UInt64 = 0
+        var index = 0
+        
+        repeat {
+            var buffer = [UInt8](repeating: 0, count: 10)
+            
+            if self.read(&buffer, maxLength: 1) < 0 {
+                throw DCoreException.unexpected("Read invalid stream")
+            }
+            
+            let buf = buffer[0]
+            
+            if buf < 0x80 {
+                if index > 9 || index == 9 && buf > 1 {
+                    throw DCoreException.unexpected("Input stream overflow")
+                }
+                return value | UInt64(buf) << shifter
+            }
+            value |= UInt64(buf & 0x7f) << shifter
+            shifter += 7
+            index += 1
+        } while true
+    }
+    
+    func asVarInt() throws -> Int64 {
+        let unsignedValue = try asUnsignedVarInt()
+        var value = Int64(unsignedValue >> 1)
+        
+        if unsignedValue & 1 != 0 {
+            value = ~value
+        }
+        
+        return value
     }
 }

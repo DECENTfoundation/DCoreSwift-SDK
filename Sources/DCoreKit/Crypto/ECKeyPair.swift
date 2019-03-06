@@ -26,14 +26,14 @@ public struct ECKeyPair {
         let (recovery, compact) = try privateKey.sign(message)
         let signature = Data.of(recovery + ECKeyPair.compressed + ECKeyPair.compact) + compact
         
-        if signature.canonicalSignature { throw ChainException.crypto(.failSigning) }
+        if signature.canonicalSignature { throw DCoreException.crypto(.failSigning) }
         return signature
     }
     
     public func secret(_ address: Address, nonce: BigInt) throws -> Data {
         let key = try address.publicKey.multiply(privateKey)
         return CryptoUtils.hash512(
-            (nonce.magnitude.description + CryptoUtils.hash512(key).toHex()).asEncoded()
+            (nonce.magnitude.description + CryptoUtils.hash512(key[1..<key.endIndex]).toHex()).asEncoded()
         )
     }
 }
@@ -56,7 +56,7 @@ extension ECKeyPair {
     }
 }
 
-extension Chain where Base == String {
+extension DCoreExtension where Base == String {
     public var keyPair: ECKeyPair? {
         return try? ECKeyPair(fromWif: self.base)
     }

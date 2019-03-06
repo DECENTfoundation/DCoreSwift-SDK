@@ -9,7 +9,7 @@ final class AssetApiTests: XCTestCase {
     private let rest = DCore.Sdk.create(forRest: "https://stagesocket.decentgo.com:8090/rpc")
     
     func testGetAssetById() {
-        let asset = try? rest.asset.getAsset(byId: "1.3.0".chain.chainObject!).debug().toBlocking().single()
+        let asset = try? rest.asset.getAsset(byId: "1.3.0".dcore.chainObject!).debug().toBlocking().single()
         XCTAssertEqual(asset?.id, DCore.Constant.dct)
     }
     
@@ -58,6 +58,25 @@ final class AssetApiTests: XCTestCase {
         XCTAssertEqual(formatted, "1 DCT")
     }
     
+    func testFormatAssetAmountFormattedStringFromNegative() {
+        let asset = try? rest.asset.getAsset(bySymbol: .dct).debug().toBlocking().single()
+        let formatted = asset?.format(-100000000)
+        
+        XCTAssertEqual(formatted, "-1 DCT")
+    }
+    
+    func testGetAssetsByBoundaryAndWrongLimit() {
+        XCTAssertThrowsError(try rest.asset.getAssets(byLowerBound: "a", limit: 1000).debug().toBlocking().single())
+    }
+    
+    func testChainObjectHashing() {
+        let assets = try? rest.asset.getAssets(bySymbols: [.alat, .alxt, .dct]).debug().toBlocking().single()
+        XCTAssertNotNil(assets)
+        let a = [assets!, assets!].joined()
+        
+        XCTAssertTrue(Set(a).count == 3)
+    }
+    
     static var allTests = [
         ("testGetAssetById", testGetAssetById),
         ("testGetAssetBySymbol", testGetAssetBySymbol),
@@ -67,6 +86,8 @@ final class AssetApiTests: XCTestCase {
         ("testFormatAssetAmountFromString", testFormatAssetAmountFromString),
         ("testFormatAssetAmountFromDouble", testFormatAssetAmountFromDouble),
         ("testFormatAssetAmountFormattedString", testFormatAssetAmountFormattedString),
+        ("testFormatAssetAmountFormattedStringFromNegative", testFormatAssetAmountFormattedStringFromNegative),     
+        ("testGetAssetsByBoundaryAndWrongLimit", testGetAssetsByBoundaryAndWrongLimit),
     ]
 
 }

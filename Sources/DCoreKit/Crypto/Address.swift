@@ -22,7 +22,7 @@ public struct Address {
             let suffix = value[safe: 3..<value.count],
             let decoded = Base58.decode(suffix),
             decoded.count > 3 else {
-            throw ChainException.crypto(.failDecode("Address \(value) has invalid format"))
+            throw DCoreException.crypto(.failDecode("Address \(value) has invalid format"))
         }
  
         let key = decoded.prefix(decoded.count - 4)
@@ -31,7 +31,7 @@ public struct Address {
         let originalChecksum = decoded.suffix(4)
      
         guard calculatedChecksum == originalChecksum else {
-            throw ChainException.crypto(.failDecode("Address \(value) has invalid checksum"))
+            throw DCoreException.crypto(.failDecode("Address \(value) has invalid checksum"))
         }
         
         self.init(fromPublicKey: key, prefix: prefix)
@@ -75,7 +75,7 @@ extension Address: DataConvertible {
     }
 }
 
-extension Chain where Base == String {
+extension DCoreExtension where Base == String {
     public var address: Address? {
         return try? Address(from: self.base)
     }

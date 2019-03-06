@@ -5,7 +5,7 @@ struct GetNamedAccountBalances: BaseRequestConvertible {
     typealias Output = [AssetAmount]
     private(set) var base: BaseRequest<[AssetAmount]>
     
-    init(_ name: String, assets: [ChainObject]) {
+    init(_ name: String, assets: [ChainObject] = []) {
         
         precondition(Account.hasValid(name: name), "Invalid account name")
         precondition(assets.allSatisfy { $0.objectType == .assetObject }, "Not a valid asset object id")

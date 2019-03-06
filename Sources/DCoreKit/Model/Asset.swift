@@ -1,7 +1,7 @@
 import Foundation
 import BigInt
 
-public struct Asset: Codable, AssetFormatting {
+public struct Asset: Codable, AssetFormatting, Equatable {
     
     public var id: ChainObject = ObjectType.assetObject.genericId {
         willSet { precondition(newValue.objectType == ObjectType.assetObject, "Asset id \(newValue) is not object asset type") }
@@ -30,18 +30,24 @@ public struct Asset: Codable, AssetFormatting {
             let amount = options.exchangeRate.quote.amount / options.exchangeRate.base.amount * assetAmount.amount
             return AssetAmount(amount, assetId: id)
         }
-        if options.exchangeRate.base.assetId == assetAmount.assetId {
+        if options.exchangeRate.quote.assetId == assetAmount.assetId {
             let amount = options.exchangeRate.base.amount / options.exchangeRate.quote.amount * assetAmount.amount
             return AssetAmount(amount, assetId: id)
         }
         
-        throw ChainException.chain(.failConvert("Cannot convert \(assetAmount.assetId) with \(symbol):\(id)"))
+        throw DCoreException.chain(.failConvert("Cannot convert \(assetAmount.assetId) with \(symbol):\(id)"))
+    }
+}
+
+extension Asset: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        id.hash(into: &hasher)
     }
 }
 
 extension Asset {
     
-    public enum Symbol: CustomStringConvertible, Encodable {
+    public enum Symbol: CustomStringConvertible, Encodable, Hashable, Equatable {
         
         public static let alxt: Symbol = Symbol(name: .alxt)
         public static let alat: Symbol = Symbol(name: .alat)
@@ -72,7 +78,7 @@ extension Asset {
         }
         
         public var chainObject: ChainObject {
-            return description.chain.chainObject!
+            return description.dcore.chainObject!
         }
         
         public func encode(to encoder: Encoder) throws {
@@ -81,7 +87,7 @@ extension Asset {
         }
     }
     
-    public struct ExchangeRate: Codable {
+    public struct ExchangeRate: Codable, Equatable {
         
         public var base: AssetAmount = AssetAmount(with: 1)
         public var quote: AssetAmount = AssetAmount(with: 1)
@@ -93,7 +99,7 @@ extension Asset {
         }
     }
     
-    public struct Options: Codable {
+    public struct Options: Codable, Equatable {
         
         public var maxSupply: BigInt = 0
         public var exchangeRate: ExchangeRate = ExchangeRate()

@@ -8,7 +8,7 @@ extension RestConvertible where Self: Encodable {
     func asRest(_ url: URL) -> URLRequest {
         let data = try? asJsonData()
         
-        Logger.debug(network: "RPC rest request:\n%{private}s") {
+        DCore.Logger.debug(network: "RPC rest request:\n%{private}s") {
             String(data: data.or(Data.empty), encoding: .utf8)
         }
         return asURLRequest(url)

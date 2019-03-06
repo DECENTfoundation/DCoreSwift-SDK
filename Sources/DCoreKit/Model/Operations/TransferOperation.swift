@@ -1,4 +1,5 @@
 import Foundation
+import BigInt
 
 public struct TransferOperation: Operation {
     
@@ -21,6 +22,14 @@ public struct TransferOperation: Operation {
 }
 
 extension TransferOperation {
+    
+    public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> TransferOperation {
+        var op = self
+        op.memo = try memo?.decrypt(keyPair, address: address, nonce: nonce)
+        
+        return op
+    }
+    
     public func asData() -> Data {
         
         var data = Data()
@@ -32,7 +41,9 @@ extension TransferOperation {
         data += memo.asOptionalData()
         data += Data.ofZero
         
-        Logger.debug(crypto: "TransferOperation binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
+        DCore.Logger.debug(crypto: "TransferOperation binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)"
+        })
         return data
     }
 }

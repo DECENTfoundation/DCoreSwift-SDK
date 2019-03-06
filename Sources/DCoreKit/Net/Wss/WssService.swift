@@ -7,10 +7,11 @@ final class WssService: CoreRequestConvertible {
     
     private let disposableBag = DisposeBag()
     private let disposable = CompositeDisposable()
+    private let observer = PublishSubject<SocketEvent>()
     private let events: ConnectableObservable<SocketEvent>
     private let timeout: TimeInterval
+    private let emitter: WssEmitter
     
-    private var scheduler = SerialDispatchQueueScheduler(qos: .default)
     private var socket: AsyncSubject<WebSocket>?
     private var emitId: UInt64 = 0
     
@@ -22,7 +23,8 @@ final class WssService: CoreRequestConvertible {
         disposable.disposed(by: disposableBag)
         
         self.timeout = timeout
-        self.events = WssEmitter.connect(to: url)
+        self.emitter = WssEmitter(url, observer: observer.asObserver())
+        self.events = observer.publish()
     }
     
     func disconnect() {
@@ -36,8 +38,8 @@ final class WssService: CoreRequestConvertible {
             return self.request(usingStream: req)
                 .single()
                 .do(onNext: { single(.success($0)) }, onError: {
-                    if case RxError.noElements = $0 { single(.error(ChainException.network(.closed))) } else {
-                        single(.error($0.asChainException()))
+                    if case RxError.noElements = $0 { single(.error(DCoreException.network(.closed))) } else {
+                        single(.error($0.asDCoreException()))
                     }
                 })
                 .subscribe()
@@ -55,7 +57,7 @@ final class WssService: CoreRequestConvertible {
                 .do(onSuccess: { $0.write(string: try req.asWss()) })
                 .asObservableMapTo(OnEvent.empty)
         ])
-        .observeOn(scheduler)
+        .observeOn(ConcurrentDispatchQueueScheduler(qos: .default))
         .ofType(OnMessageEvent.self)
         .filterMap({ res -> FilterMap<ResponseResult<Output>> in
             
@@ -70,7 +72,7 @@ final class WssService: CoreRequestConvertible {
             case .failure(let error): throw error
             }
         })
-        .timeout(self.timeout, scheduler: SerialDispatchQueueScheduler(qos: .default))
+        .timeout(self.timeout, scheduler: ConcurrentDispatchQueueScheduler(qos: .default))
         .do(onError: { [weak self] error in
             if case RxError.timeout = error { self?.clearConnection() }
         })
@@ -92,6 +94,7 @@ final class WssService: CoreRequestConvertible {
         ])
         
         disposable.add(events.connect())
+        emitter.connect()
     }
     
     private func connectedSocket() -> Single<WebSocket> {
@@ -101,13 +104,13 @@ final class WssService: CoreRequestConvertible {
         socket = AsyncSubject()
         connect()
         
-        Logger.debug(network: "WebSocket is connected")
         return connectedSocket()
     }
     
     private func clearConnection() {
         socket = nil
         disposable.dispose()
+        emitter.disconnect()
         emitId = 0
     }
 }

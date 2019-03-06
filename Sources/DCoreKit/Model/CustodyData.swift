@@ -3,8 +3,8 @@ import Foundation
 public struct CustodyData: Codable {
     
     public let signatureCount: Int
-    public let uSeed: [UInt16] // Fixed size 16
-    public let pubKey: UInt64
+    public let uSeed: String // Fixed size 16
+    public let pubKey: String
     
     private enum CodingKeys: String, CodingKey {
         case
@@ -21,7 +21,7 @@ extension CustodyData: DataConvertible {
         data += Data(count: 16)
         data += Data(count: 33)
         
-        Logger.debug(crypto: "CustodyData binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
+        DCore.Logger.debug(crypto: "CustodyData binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
         return data
     }
 }

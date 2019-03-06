@@ -27,7 +27,7 @@ public struct AssetAmount: Codable {
     }
     
     public init(with amount: UInt64, assetId: String) {
-        guard let id = assetId.chain.chainObject else { preconditionFailure("Not valid asset id \(assetId)") }
+        guard let id = assetId.dcore.chainObject else { preconditionFailure("Not valid asset id \(assetId)") }
         self.init(BigInt(amount), assetId: id)
     }
     
@@ -36,13 +36,9 @@ public struct AssetAmount: Codable {
     }
     
     public init(with amount: String, assetId: String) {
-        guard let id = assetId.chain.chainObject else { preconditionFailure("Not valid asset id \(assetId)") }
+        guard let id = assetId.dcore.chainObject else { preconditionFailure("Not valid asset id \(assetId)") }
         self.init(BigInt(amount)!, assetId: id)
     }
-}
-
-extension AssetAmount {
-    public typealias Pair = (asset: Asset, amount: AssetAmount)
 }
 
 extension AssetAmount: Equatable {
@@ -95,7 +91,11 @@ extension AssetAmount: DataConvertible {
         data += UInt64(amount).littleEndian
         data += assetId.asData()
         
-        Logger.debug(crypto: "AssetAmount binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
+        DCore.Logger.debug(crypto: "AssetAmount binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)"
+        })
         return data
     }
 }
+
+public typealias AssetAmountPair = Pair<Asset, AssetAmount>

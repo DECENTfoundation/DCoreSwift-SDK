@@ -16,7 +16,7 @@ public struct ChainObject {
     
     public init(from id: String) throws {
         let result = id.matches(regex: "(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+))?")
-        guard !result.isEmpty else { throw ChainException.unexpected("Chain object \(id) has invalid format") }
+        guard !result.isEmpty else { throw DCoreException.unexpected("Chain object \(id) has invalid format") }
         
         let parts = id.components(separatedBy: ".")
         
@@ -39,9 +39,10 @@ extension ChainObject: DataConvertible {
     }
     
     public func asData() -> Data {
-        let data = VarInt(instance).asData()
-        
-        Logger.debug(crypto: "ChainObject binary: %{private}s", args: { "\(data.toHex()) (\(data)) \(data.bytes)"})
+        let data = instance.asUnsignedVarIntData()
+        DCore.Logger.debug(crypto: "ChainObject binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)"
+        })
         return data
     }
 }
@@ -52,9 +53,27 @@ extension ChainObject: Equatable {
     }
 }
 
+extension ChainObject: Comparable {
+    public static func < (lhs: ChainObject, rhs: ChainObject) -> Bool {
+        return lhs.objectType < rhs.objectType || (lhs.objectType == rhs.objectType && lhs.instance < rhs.instance)
+    }
+    
+    public static func <= (lhs: ChainObject, rhs: ChainObject) -> Bool {
+        return lhs == rhs || lhs < rhs
+    }
+    
+    public static func >= (lhs: ChainObject, rhs: ChainObject) -> Bool {
+        return lhs == rhs || lhs > rhs
+    }
+    
+    public static func > (lhs: ChainObject, rhs: ChainObject) -> Bool {
+        return lhs.objectType > rhs.objectType || (lhs.objectType == rhs.objectType && lhs.instance > rhs.instance)
+    }
+}
+
 extension ChainObject: Hashable {
     public func hash(into hasher: inout Hasher) {
-        (31 * objectType.hashValue + instance.hashValue).hash(into: &hasher)
+        objectId.hash(into: &hasher)
     }
 }
 
@@ -70,7 +89,7 @@ extension ChainObject: Codable {
     }
 }
 
-extension Chain where Base == String {
+extension DCoreExtension where Base == String {
     public var chainObject: ChainObject? {
         return try? ChainObject(from: self.base)
     }
