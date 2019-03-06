@@ -26,6 +26,8 @@
 		A11F6D6C21ECB61A008C8525 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */; };
 		A11F6D6D21ECB61A008C8525 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */; };
 		A11F6D6E21ECB61A008C8525 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6721ECB61A008C8525 /* RxSwift.framework */; };
+		A122E3CE222EA5EC00D5FB5D /* RestSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122E3CD222EA5EC00D5FB5D /* RestSession.swift */; };
+		A122E3CF222EA5EC00D5FB5D /* RestSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122E3CD222EA5EC00D5FB5D /* RestSession.swift */; };
 		A12E82FE22288713008D7440 /* VarInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12E82FD22288713008D7440 /* VarInt.swift */; };
 		A12E82FF22288713008D7440 /* VarInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12E82FD22288713008D7440 /* VarInt.swift */; };
 		A143170522085C7700EE656C /* AnyOperationConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A143170422085C7700EE656C /* AnyOperationConvertible.swift */; };
@@ -544,6 +546,7 @@
 		A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		A11F6D6721ECB61A008C8525 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		A122E3CD222EA5EC00D5FB5D /* RestSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestSession.swift; path = Sources/DcoreKit/Net/Rest/RestSession.swift; sourceTree = SOURCE_ROOT; };
 		A12E82FD22288713008D7440 /* VarInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VarInt.swift; path = Sources/DcoreKit/Net/Serialization/VarInt.swift; sourceTree = SOURCE_ROOT; };
 		A143170422085C7700EE656C /* AnyOperationConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnyOperationConvertible.swift; path = Sources/DcoreKit/Model/Operations/AnyOperationConvertible.swift; sourceTree = SOURCE_ROOT; };
 		A143170722085C8700EE656C /* OperationUnkeyedDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OperationUnkeyedDecodable.swift; path = Sources/DcoreKit/Model/Operations/OperationUnkeyedDecodable.swift; sourceTree = SOURCE_ROOT; };
@@ -1421,6 +1424,7 @@
 			children = (
 				OBJ_197 /* RestConvertible.swift */,
 				OBJ_198 /* RestService.swift */,
+				A122E3CD222EA5EC00D5FB5D /* RestSession.swift */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
@@ -2767,6 +2771,7 @@
 				A1D96DA621ED1E22009C0A30 /* CoreResponseParser.swift in Sources */,
 				A1D96DA721ED1E22009C0A30 /* HttpConfigurable.swift in Sources */,
 				A1D96DA821ED1E22009C0A30 /* ApiGroup.swift in Sources */,
+				A122E3CF222EA5EC00D5FB5D /* RestSession.swift in Sources */,
 				A1D96DA921ED1E22009C0A30 /* ApiMethod.swift in Sources */,
 				A1D96DAA21ED1E22009C0A30 /* Http.swift in Sources */,
 				A1D96DAB21ED1E22009C0A30 /* BaseRequest.swift in Sources */,
@@ -3096,6 +3101,7 @@
 				OBJ_958 /* GetOpenBuyingsByConsumer.swift in Sources */,
 				OBJ_959 /* GetOpenBuyingsByUri.swift in Sources */,
 				OBJ_960 /* GetPotentialSignatures.swift in Sources */,
+				A122E3CE222EA5EC00D5FB5D /* RestSession.swift in Sources */,
 				OBJ_961 /* GetProposedTransactions.swift in Sources */,
 				OBJ_962 /* GetRealSupply.swift in Sources */,
 				OBJ_963 /* GetRecentTransactionById.swift in Sources */,
