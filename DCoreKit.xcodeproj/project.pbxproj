@@ -32,6 +32,8 @@
 		A122E3CF222EA5EC00D5FB5D /* RestSecurityDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122E3CD222EA5EC00D5FB5D /* RestSecurityDelegate.swift */; };
 		A12E82FE22288713008D7440 /* VarInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12E82FD22288713008D7440 /* VarInt.swift */; };
 		A12E82FF22288713008D7440 /* VarInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12E82FD22288713008D7440 /* VarInt.swift */; };
+		A13D09CA223078E5000CAE17 /* SecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13D09C9223078E5000CAE17 /* SecurityTests.swift */; };
+		A13D09CB223078E5000CAE17 /* SecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13D09C9223078E5000CAE17 /* SecurityTests.swift */; };
 		A143170522085C7700EE656C /* AnyOperationConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A143170422085C7700EE656C /* AnyOperationConvertible.swift */; };
 		A143170622085C7700EE656C /* AnyOperationConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A143170422085C7700EE656C /* AnyOperationConvertible.swift */; };
 		A143170822085C8700EE656C /* OperationUnkeyedDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A143170722085C8700EE656C /* OperationUnkeyedDecodable.swift */; };
@@ -561,6 +563,7 @@
 		A11F6D6721ECB61A008C8525 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		A122E3CD222EA5EC00D5FB5D /* RestSecurityDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestSecurityDelegate.swift; path = Sources/DcoreKit/Net/Rest/RestSecurityDelegate.swift; sourceTree = SOURCE_ROOT; };
 		A12E82FD22288713008D7440 /* VarInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VarInt.swift; path = Sources/DcoreKit/Net/Serialization/VarInt.swift; sourceTree = SOURCE_ROOT; };
+		A13D09C9223078E5000CAE17 /* SecurityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecurityTests.swift; path = Tests/DcoreKitTests/SecurityTests.swift; sourceTree = SOURCE_ROOT; };
 		A143170422085C7700EE656C /* AnyOperationConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnyOperationConvertible.swift; path = Sources/DcoreKit/Model/Operations/AnyOperationConvertible.swift; sourceTree = SOURCE_ROOT; };
 		A143170722085C8700EE656C /* OperationUnkeyedDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OperationUnkeyedDecodable.swift; path = Sources/DcoreKit/Model/Operations/OperationUnkeyedDecodable.swift; sourceTree = SOURCE_ROOT; };
 		A143170A220869EF00EE656C /* OperationUnkeyedEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OperationUnkeyedEncodable.swift; path = Sources/DcoreKit/Model/Operations/OperationUnkeyedEncodable.swift; sourceTree = SOURCE_ROOT; };
@@ -1533,6 +1536,7 @@
 				A181489621F859320053F9BE /* ValidationApiTests.swift */,
 				OBJ_237 /* XCTestManifests.swift */,
 				A1676780221C43720024A4D6 /* BlockApiTests.swift */,
+				A13D09C9223078E5000CAE17 /* SecurityTests.swift */,
 			);
 			name = DCoreKitTests;
 			path = Tests/DCoreKitTests;
@@ -2958,6 +2962,7 @@
 				A1D96E3521ED2025009C0A30 /* AssetApiTests.swift in Sources */,
 				A1673B5321EF43CA008FF560 /* GeneralApiTests.swift in Sources */,
 				071AE0462212CD0F008AE077 /* QrTransferTests.swift in Sources */,
+				A13D09CB223078E5000CAE17 /* SecurityTests.swift in Sources */,
 				A1676782221C43720024A4D6 /* BlockApiTests.swift in Sources */,
 				A19D4CF821F1B4D70069B6CA /* MockBuilder.swift in Sources */,
 				A19D4CFB21F1B64B0069B6CA /* MockTestCase.swift in Sources */,
@@ -2984,6 +2989,7 @@
 				A1AE9DB722031528004B6019 /* HistoryApiTests.swift in Sources */,
 				A19D4CF721F1B4D70069B6CA /* MockBuilder.swift in Sources */,
 				A19D4CFA21F1B64B0069B6CA /* MockTestCase.swift in Sources */,
+				A13D09CA223078E5000CAE17 /* SecurityTests.swift in Sources */,
 				OBJ_1089 /* BalanceApiTests.swift in Sources */,
 				OBJ_1090 /* CryptoTests.swift in Sources */,
 				OBJ_1091 /* SerializationTests.swift in Sources */,

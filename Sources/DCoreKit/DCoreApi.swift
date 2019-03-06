@@ -2,7 +2,7 @@ import Foundation
 
 extension DCore {
     
-    open class Api: SecurityConfigurable {
+    open class Api: SecurityConfigurable, SecurityExtensionProvider {
         
         var transactionExpiration: Int = DCore.Constant.expiration
         
@@ -35,7 +35,9 @@ extension DCore {
 }
 
 extension SecurityExtension where Base: DCore.Api {
-    public func trusted(by validator: ServerTrustValidation) -> Base {
+    
+    @discardableResult
+    public func trusted(by validator: ServerTrustValidation?) -> Base {
         base.secured(by: validator)
         return base
     }
