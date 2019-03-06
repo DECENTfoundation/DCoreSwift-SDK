@@ -9,9 +9,12 @@ final class WssService: CoreRequestConvertible {
     private let disposable = CompositeDisposable()
     private let observer = PublishSubject<SocketEvent>()
     private let events: ConnectableObservable<SocketEvent>
+    private let url: URL
     private let timeout: TimeInterval
-    private let emitter: WssEmitter
     
+    private lazy var emitter = WssEmitter(self.url, security: self, observer: observer.asObserver())
+    
+    private(set) var validator: ServerTrustValidation?
     private var socket: AsyncSubject<WebSocket>?
     private var emitId: UInt64 = 0
     
@@ -19,11 +22,11 @@ final class WssService: CoreRequestConvertible {
         return disposable.count != 0 // swiftlint:disable:this empty_count
     }
     
-    required init(_ url: URL, timeout: TimeInterval) {
+    init(_ url: URL, timeout: TimeInterval) {
         disposable.disposed(by: disposableBag)
         
+        self.url = url
         self.timeout = timeout
-        self.emitter = WssEmitter(url, observer: observer.asObserver())
         self.events = observer.publish()
     }
     
@@ -109,8 +112,15 @@ final class WssService: CoreRequestConvertible {
     
     private func clearConnection() {
         socket = nil
-        disposable.dispose()
         emitter.disconnect()
+        disposable.dispose()
         emitId = 0
     }
 }
+
+extension WssService: SecurityConfigurable {
+    func secured(by validator: ServerTrustValidation?) {
+        self.validator = validator
+    }
+}
+extension WssService: SecurityProvider {}

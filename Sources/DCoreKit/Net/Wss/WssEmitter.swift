@@ -17,11 +17,12 @@ struct OnEvent: SocketEvent {
     private init() {}
 }
 
-struct WssEmitter {
+struct WssEmitter: SSLTrustValidator {
 
     private let source: WebSocket
-    
-    init(_ url: URL, observer: AnyObserver<SocketEvent>) {
+    private let security: SecurityProvider
+
+    init(_ url: URL, security: SecurityProvider, observer: AnyObserver<SocketEvent>) {
         
         let wss = WebSocket(url: url, writeQueueQOS: .default)
         wss.onConnect = { [weak wss] in
@@ -33,7 +34,7 @@ struct WssEmitter {
             
             if let error = error {
                 DCore.Logger.error(network: "WebSocket disconnected with error: %{public}s", args: {
-                    error.localizedDescription
+                    error.asDCoreException().description
                 })
                 observer.onError(error.asDCoreException())
             } else {
@@ -42,9 +43,25 @@ struct WssEmitter {
             }
         }
         
-        source = wss
+        self.security = security
+        self.source = wss
+        self.source.security = self
     }
     
     func connect() { source.connect() }
     func disconnect() { source.disconnect() }
+    
+    func isValid(_ trust: SecTrust, domain: String?) -> Bool {
+        if let validator = security.validator, let host = domain {
+            do {
+                try validator.validate(trust: trust, for: host)
+                return true
+            } catch let error {
+                DCore.Logger.error(network: "Server trust failed wiht error %{public}s", args: {
+                    error.asDCoreException().description
+                })
+            }
+        }
+        return false
+    }
 }

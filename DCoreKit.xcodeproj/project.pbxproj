@@ -13,6 +13,8 @@
 		071AE0472212CDB8008AE077 /* QrTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AE0402212CBD7008AE077 /* QrTransfer.swift */; };
 		071AE04D2212FD9D008AE077 /* Pair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AE04C2212FD9D008AE077 /* Pair.swift */; };
 		071AE04F2212FE66008AE077 /* AssetAmountPair+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AE04E2212FE66008AE077 /* AssetAmountPair+Extension.swift */; };
+		A105403B22306B86006D8774 /* SecurityExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A105403A22306B86006D8774 /* SecurityExtensionProvider.swift */; };
+		A105403C22306B86006D8774 /* SecurityExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A105403A22306B86006D8774 /* SecurityExtensionProvider.swift */; };
 		A114B50F21F9F5A8009F1BA2 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B50E21F9F5A8009F1BA2 /* RxSwift.framework */; };
 		A114B51521F9F5CC009F1BA2 /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B51021F9F5CB009F1BA2 /* BigInt.framework */; };
 		A114B51621F9F5CC009F1BA2 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B51121F9F5CB009F1BA2 /* CryptoSwift.framework */; };
@@ -26,8 +28,8 @@
 		A11F6D6C21ECB61A008C8525 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */; };
 		A11F6D6D21ECB61A008C8525 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */; };
 		A11F6D6E21ECB61A008C8525 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6721ECB61A008C8525 /* RxSwift.framework */; };
-		A122E3CE222EA5EC00D5FB5D /* RestSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122E3CD222EA5EC00D5FB5D /* RestSession.swift */; };
-		A122E3CF222EA5EC00D5FB5D /* RestSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122E3CD222EA5EC00D5FB5D /* RestSession.swift */; };
+		A122E3CE222EA5EC00D5FB5D /* RestSecurityDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122E3CD222EA5EC00D5FB5D /* RestSecurityDelegate.swift */; };
+		A122E3CF222EA5EC00D5FB5D /* RestSecurityDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122E3CD222EA5EC00D5FB5D /* RestSecurityDelegate.swift */; };
 		A12E82FE22288713008D7440 /* VarInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12E82FD22288713008D7440 /* VarInt.swift */; };
 		A12E82FF22288713008D7440 /* VarInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12E82FD22288713008D7440 /* VarInt.swift */; };
 		A143170522085C7700EE656C /* AnyOperationConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A143170422085C7700EE656C /* AnyOperationConvertible.swift */; };
@@ -59,6 +61,16 @@
 		A1673B5C21F07143008FF560 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1673B5A21F07143008FF560 /* DateFormatter+Extension.swift */; };
 		A1676781221C43720024A4D6 /* BlockApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1676780221C43720024A4D6 /* BlockApiTests.swift */; };
 		A1676782221C43720024A4D6 /* BlockApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1676780221C43720024A4D6 /* BlockApiTests.swift */; };
+		A169C1CA223011C800FAA818 /* SecurityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169C1C9223011C800FAA818 /* SecurityProvider.swift */; };
+		A169C1CB223011C800FAA818 /* SecurityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169C1C9223011C800FAA818 /* SecurityProvider.swift */; };
+		A169C1CF2230208800FAA818 /* ServerTrustValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169C1CE2230208800FAA818 /* ServerTrustValidation.swift */; };
+		A169C1D02230208800FAA818 /* ServerTrustValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169C1CE2230208800FAA818 /* ServerTrustValidation.swift */; };
+		A169C1D22230443100FAA818 /* PublicKeysValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169C1D12230443100FAA818 /* PublicKeysValidator.swift */; };
+		A169C1D32230443100FAA818 /* PublicKeysValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169C1D12230443100FAA818 /* PublicKeysValidator.swift */; };
+		A169C1D522304E0100FAA818 /* SecurityConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169C1D422304E0100FAA818 /* SecurityConfigurable.swift */; };
+		A169C1D622304E0100FAA818 /* SecurityConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169C1D422304E0100FAA818 /* SecurityConfigurable.swift */; };
+		A169C1D82230524100FAA818 /* CompositeValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169C1D72230524100FAA818 /* CompositeValidator.swift */; };
+		A169C1D92230524100FAA818 /* CompositeValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169C1D72230524100FAA818 /* CompositeValidator.swift */; };
 		A181489721F859320053F9BE /* ValidationApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A181489621F859320053F9BE /* ValidationApiTests.swift */; };
 		A181489821F859320053F9BE /* ValidationApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A181489621F859320053F9BE /* ValidationApiTests.swift */; };
 		A189709321F217B700602F81 /* AccountCreateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A189709221F217B700602F81 /* AccountCreateOperation.swift */; };
@@ -534,6 +546,7 @@
 		071AE0432212CCDD008AE077 /* QrTransferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrTransferTests.swift; sourceTree = "<group>"; };
 		071AE04C2212FD9D008AE077 /* Pair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pair.swift; sourceTree = "<group>"; };
 		071AE04E2212FE66008AE077 /* AssetAmountPair+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetAmountPair+Extension.swift"; sourceTree = "<group>"; };
+		A105403A22306B86006D8774 /* SecurityExtensionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityExtensionProvider.swift; sourceTree = "<group>"; };
 		A114B50E21F9F5A8009F1BA2 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
 		A114B51021F9F5CB009F1BA2 /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BigInt.framework; path = Carthage/Build/Mac/BigInt.framework; sourceTree = "<group>"; };
 		A114B51121F9F5CB009F1BA2 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/Mac/CryptoSwift.framework; sourceTree = "<group>"; };
@@ -546,7 +559,7 @@
 		A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		A11F6D6721ECB61A008C8525 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		A122E3CD222EA5EC00D5FB5D /* RestSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestSession.swift; path = Sources/DcoreKit/Net/Rest/RestSession.swift; sourceTree = SOURCE_ROOT; };
+		A122E3CD222EA5EC00D5FB5D /* RestSecurityDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestSecurityDelegate.swift; path = Sources/DcoreKit/Net/Rest/RestSecurityDelegate.swift; sourceTree = SOURCE_ROOT; };
 		A12E82FD22288713008D7440 /* VarInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VarInt.swift; path = Sources/DcoreKit/Net/Serialization/VarInt.swift; sourceTree = SOURCE_ROOT; };
 		A143170422085C7700EE656C /* AnyOperationConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnyOperationConvertible.swift; path = Sources/DcoreKit/Model/Operations/AnyOperationConvertible.swift; sourceTree = SOURCE_ROOT; };
 		A143170722085C8700EE656C /* OperationUnkeyedDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OperationUnkeyedDecodable.swift; path = Sources/DcoreKit/Model/Operations/OperationUnkeyedDecodable.swift; sourceTree = SOURCE_ROOT; };
@@ -562,6 +575,11 @@
 		A1673B5421EF615B008FF560 /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 		A1673B5A21F07143008FF560 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		A1676780221C43720024A4D6 /* BlockApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlockApiTests.swift; path = Tests/DcoreKitTests/BlockApiTests.swift; sourceTree = SOURCE_ROOT; };
+		A169C1C9223011C800FAA818 /* SecurityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecurityProvider.swift; path = Sources/DcoreKit/Net/Security/SecurityProvider.swift; sourceTree = SOURCE_ROOT; };
+		A169C1CE2230208800FAA818 /* ServerTrustValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTrustValidation.swift; sourceTree = "<group>"; };
+		A169C1D12230443100FAA818 /* PublicKeysValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKeysValidator.swift; sourceTree = "<group>"; };
+		A169C1D422304E0100FAA818 /* SecurityConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityConfigurable.swift; sourceTree = "<group>"; };
+		A169C1D72230524100FAA818 /* CompositeValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeValidator.swift; sourceTree = "<group>"; };
 		A181489621F859320053F9BE /* ValidationApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationApiTests.swift; sourceTree = "<group>"; };
 		A189709221F217B700602F81 /* AccountCreateOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreateOperation.swift; sourceTree = "<group>"; };
 		A19D4CEF21F1AE3B0069B6CA /* Hippolyte.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hippolyte.framework; path = Carthage/Build/iOS/Hippolyte.framework; sourceTree = "<group>"; };
@@ -1300,6 +1318,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A169C1CD22301FE200FAA818 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				A169C1CE2230208800FAA818 /* ServerTrustValidation.swift */,
+				A169C1D12230443100FAA818 /* PublicKeysValidator.swift */,
+				A169C1D72230524100FAA818 /* CompositeValidator.swift */,
+				A169C1D422304E0100FAA818 /* SecurityConfigurable.swift */,
+				A169C1C9223011C800FAA818 /* SecurityProvider.swift */,
+				A105403A22306B86006D8774 /* SecurityExtensionProvider.swift */,
+			);
+			name = Security;
+			path = Sources/DcoreKit/Net/Security;
+			sourceTree = SOURCE_ROOT;
+		};
 		A19D4CF521F1B4BD0069B6CA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -1424,7 +1456,7 @@
 			children = (
 				OBJ_197 /* RestConvertible.swift */,
 				OBJ_198 /* RestService.swift */,
-				A122E3CD222EA5EC00D5FB5D /* RestSession.swift */,
+				A122E3CD222EA5EC00D5FB5D /* RestSecurityDelegate.swift */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
@@ -2348,6 +2380,7 @@
 		OBJ_94 /* Net */ = {
 			isa = PBXGroup;
 			children = (
+				A169C1CD22301FE200FAA818 /* Security */,
 				OBJ_95 /* BaseRequestConvertible.swift */,
 				OBJ_96 /* CoreRequestConvertible.swift */,
 				OBJ_97 /* CoreResponseConvertible.swift */,
@@ -2687,6 +2720,7 @@
 				A1D96D5621ED1E22009C0A30 /* BlockApi.swift in Sources */,
 				A12E82FF22288713008D7440 /* VarInt.swift in Sources */,
 				A1D96D5721ED1E22009C0A30 /* BroadcastApi.swift in Sources */,
+				A169C1D02230208800FAA818 /* ServerTrustValidation.swift in Sources */,
 				A1D96D5821ED1E22009C0A30 /* ContentApi.swift in Sources */,
 				A1D96D5921ED1E22009C0A30 /* GeneralApi.swift in Sources */,
 				A1D96D5A21ED1E22009C0A30 /* HistoryApi.swift in Sources */,
@@ -2694,6 +2728,7 @@
 				A1D96D5C21ED1E22009C0A30 /* OperationApi.swift in Sources */,
 				A1D96D5D21ED1E22009C0A30 /* PurchaseApi.swift in Sources */,
 				A1D96D5E21ED1E22009C0A30 /* SeedersApi.swift in Sources */,
+				A105403C22306B86006D8774 /* SecurityExtensionProvider.swift in Sources */,
 				A1D96D5F21ED1E22009C0A30 /* SubscriptionApi.swift in Sources */,
 				A1D96D6021ED1E22009C0A30 /* TransactionApi.swift in Sources */,
 				A1D96D6121ED1E22009C0A30 /* ValidationApi.swift in Sources */,
@@ -2771,7 +2806,8 @@
 				A1D96DA621ED1E22009C0A30 /* CoreResponseParser.swift in Sources */,
 				A1D96DA721ED1E22009C0A30 /* HttpConfigurable.swift in Sources */,
 				A1D96DA821ED1E22009C0A30 /* ApiGroup.swift in Sources */,
-				A122E3CF222EA5EC00D5FB5D /* RestSession.swift in Sources */,
+				A169C1D92230524100FAA818 /* CompositeValidator.swift in Sources */,
+				A122E3CF222EA5EC00D5FB5D /* RestSecurityDelegate.swift in Sources */,
 				A1D96DA921ED1E22009C0A30 /* ApiMethod.swift in Sources */,
 				A1D96DAA21ED1E22009C0A30 /* Http.swift in Sources */,
 				A1D96DAB21ED1E22009C0A30 /* BaseRequest.swift in Sources */,
@@ -2848,6 +2884,7 @@
 				A1D96DED21ED1E22009C0A30 /* Login.swift in Sources */,
 				071AE0472212CDB8008AE077 /* QrTransfer.swift in Sources */,
 				A1D96DEE21ED1E22009C0A30 /* LookupAccountNames.swift in Sources */,
+				A169C1CB223011C800FAA818 /* SecurityProvider.swift in Sources */,
 				A1D96DEF21ED1E22009C0A30 /* LookupAccounts.swift in Sources */,
 				A1D96DF021ED1E22009C0A30 /* LookupAssets.swift in Sources */,
 				A1D96DF121ED1E22009C0A30 /* LookupMinerAccounts.swift in Sources */,
@@ -2868,6 +2905,7 @@
 				A1D96DFC21ED1E22009C0A30 /* SearchFeedback.swift in Sources */,
 				A1D96DFD21ED1E22009C0A30 /* SearchMinerVoting.swift in Sources */,
 				A1D96DFE21ED1E22009C0A30 /* SetBlockAppliedCallback.swift in Sources */,
+				A169C1D32230443100FAA818 /* PublicKeysValidator.swift in Sources */,
 				A1D96DFF21ED1E22009C0A30 /* SetContentUpdateCallback.swift in Sources */,
 				A1D96E0021ED1E22009C0A30 /* SetPendingTransactionCallback.swift in Sources */,
 				A1D96E0121ED1E22009C0A30 /* SetSubscribeCallback.swift in Sources */,
@@ -2906,6 +2944,7 @@
 				A1D96E2121ED1E22009C0A30 /* String+Extension.swift in Sources */,
 				A1673B5621EF615B008FF560 /* Optional+Extension.swift in Sources */,
 				A1D96E2221ED1E22009C0A30 /* UInt8+Extension.swift in Sources */,
+				A169C1D622304E0100FAA818 /* SecurityConfigurable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2965,6 +3004,7 @@
 				OBJ_834 /* ApiProvider.swift in Sources */,
 				OBJ_835 /* BlockApi.swift in Sources */,
 				OBJ_836 /* BroadcastApi.swift in Sources */,
+				A169C1D522304E0100FAA818 /* SecurityConfigurable.swift in Sources */,
 				OBJ_837 /* ContentApi.swift in Sources */,
 				OBJ_838 /* GeneralApi.swift in Sources */,
 				OBJ_839 /* HistoryApi.swift in Sources */,
@@ -3019,6 +3059,7 @@
 				A1673B4C21EF34DF008FF560 /* Array+Extension.swift in Sources */,
 				OBJ_883 /* MinerRewardInput.swift in Sources */,
 				A1AE9DC622036C45004B6019 /* FeeOperation.swift in Sources */,
+				A169C1D22230443100FAA818 /* PublicKeysValidator.swift in Sources */,
 				OBJ_884 /* MinerVotes.swift in Sources */,
 				OBJ_885 /* MinerVotingInfo.swift in Sources */,
 				A1673B5B21F07143008FF560 /* DateFormatter+Extension.swift in Sources */,
@@ -3038,6 +3079,7 @@
 				OBJ_899 /* Purchase.swift in Sources */,
 				OBJ_900 /* RealSupply.swift in Sources */,
 				A159C4C221FDFF4F008BE73E /* CipherConvertible.swift in Sources */,
+				A169C1CF2230208800FAA818 /* ServerTrustValidation.swift in Sources */,
 				OBJ_902 /* Seeder.swift in Sources */,
 				OBJ_903 /* SignedBlock.swift in Sources */,
 				OBJ_904 /* Subscription.swift in Sources */,
@@ -3066,6 +3108,7 @@
 				OBJ_926 /* GetAccountBalanceForTransaction.swift in Sources */,
 				A143170B220869EF00EE656C /* OperationUnkeyedEncodable.swift in Sources */,
 				OBJ_927 /* GetAccountBalances.swift in Sources */,
+				A169C1D82230524100FAA818 /* CompositeValidator.swift in Sources */,
 				OBJ_928 /* GetAccountById.swift in Sources */,
 				OBJ_929 /* GetAccountByName.swift in Sources */,
 				OBJ_930 /* GetAccountCount.swift in Sources */,
@@ -3084,6 +3127,7 @@
 				OBJ_942 /* GetConfig.swift in Sources */,
 				OBJ_943 /* GetContentById.swift in Sources */,
 				OBJ_944 /* GetContentByUri.swift in Sources */,
+				A105403B22306B86006D8774 /* SecurityExtensionProvider.swift in Sources */,
 				OBJ_945 /* GetDynamicGlobalProps.swift in Sources */,
 				OBJ_946 /* GetFeedsByMiner.swift in Sources */,
 				OBJ_947 /* GetFullAccounts.swift in Sources */,
@@ -3101,7 +3145,7 @@
 				OBJ_958 /* GetOpenBuyingsByConsumer.swift in Sources */,
 				OBJ_959 /* GetOpenBuyingsByUri.swift in Sources */,
 				OBJ_960 /* GetPotentialSignatures.swift in Sources */,
-				A122E3CE222EA5EC00D5FB5D /* RestSession.swift in Sources */,
+				A122E3CE222EA5EC00D5FB5D /* RestSecurityDelegate.swift in Sources */,
 				OBJ_961 /* GetProposedTransactions.swift in Sources */,
 				OBJ_962 /* GetRealSupply.swift in Sources */,
 				OBJ_963 /* GetRecentTransactionById.swift in Sources */,
@@ -3149,6 +3193,7 @@
 				A1C8525A21F383A100A9A4A2 /* SchemeConvertible.swift in Sources */,
 				OBJ_1001 /* SearchFeedback.swift in Sources */,
 				OBJ_1002 /* SearchMinerVoting.swift in Sources */,
+				A169C1CA223011C800FAA818 /* SecurityProvider.swift in Sources */,
 				OBJ_1003 /* SetBlockAppliedCallback.swift in Sources */,
 				OBJ_1004 /* SetContentUpdateCallback.swift in Sources */,
 				OBJ_1005 /* SetPendingTransactionCallback.swift in Sources */,
