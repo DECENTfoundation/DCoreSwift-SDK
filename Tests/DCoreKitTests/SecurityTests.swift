@@ -9,20 +9,29 @@ class SecurityTests: XCTestCase {
     private let rest = DCore.Sdk.create(forRest: "https://api.decent.ch/rpc")
     private let wss = DCore.Sdk.create(forWss: "wss://api.decent.ch")
     
-    func testPublicKeyServerTrustUsingRest() {
-        let id = "1.2.17".dcore.chainObject!
+    func testStandardServerTrustUsingRest() {
+        let id = "1.2.11368".dcore.chainObject!
+        let validator = StandardValidator()
+        XCTAssertNotNil(validator)
         
-        let validator = try? PublicKeysValidator(host: "decent.ch", pinnedKey: "")
+        let result = try? rest.security.trusted(by: validator).history.getBalanceHistory(for: id).toBlocking().single()
+        XCTAssertNotNil(result)
+    }
+    
+    func testCertificatePinServerTrustUsingRest() {
+        let id = "1.2.11368".dcore.chainObject!
+        
+        let validator = CertificatePinValidator(pin: Pair("api.decent.ch", "YivQjKihLWYpXWlacN7pYXyt+DzbTLep4vGrg4jBSZA="))
         XCTAssertNotNil(validator)
         
         let result = try? wss.security.trusted(by: validator).history.getBalanceHistory(for: id).toBlocking().single()
         XCTAssertNotNil(result)
     }
     
-    func testPublicKeyServerTrustUsingWss() {
-        let id = "1.2.17".dcore.chainObject!
+    func testCertificatePinServerTrustUsingWss() {
+        let id = "1.2.11368".dcore.chainObject!
         
-        let validator = try? PublicKeysValidator(host: "decent.ch", pinnedKey: "")
+        let validator = CertificatePinValidator(pin: Pair("api.decent.ch", "YivQjKihLWYpXWlacN7pYXyt+DzbTLep4vGrg4jBSZA="))
         XCTAssertNotNil(validator)
         
         let result = try? rest.security.trusted(by: validator).history.getBalanceHistory(for: id, assets: [DCore.Constant.dct]).toBlocking().single()
@@ -30,7 +39,8 @@ class SecurityTests: XCTestCase {
     }
     
     static var allTests = [
-        ("testPublicKeyServerTrustUsingRest", testPublicKeyServerTrustUsingRest),
-        ("testPublicKeyServerTrustUsingWss", testPublicKeyServerTrustUsingWss),
+        ("testStandardServerTrustUsingRest", testStandardServerTrustUsingRest),
+        ("testCertificatePinServerTrustUsingRest", testCertificatePinServerTrustUsingRest),
+        ("testCertificatePinServerTrustUsingWss", testCertificatePinServerTrustUsingWss),
     ]
 }

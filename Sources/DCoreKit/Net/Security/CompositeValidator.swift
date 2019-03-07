@@ -7,7 +7,7 @@ public struct CompositeValidator: ServerTrustValidation {
         self.validators = validators
     }
     
-    public func configured(trust: SecTrust, for host: String) throws {
-        try validators.forEach { try $0.configured(trust: trust, for: host) }
+    public func custom(trust: SecTrust, for host: String) throws {
+        try validators.forEach { try $0.custom(trust: trust, for: host) }
     }
 }

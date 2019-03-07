@@ -34,7 +34,14 @@
 		A12E82FF22288713008D7440 /* VarInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12E82FD22288713008D7440 /* VarInt.swift */; };
 		A13D09CA223078E5000CAE17 /* SecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13D09C9223078E5000CAE17 /* SecurityTests.swift */; };
 		A13D09CB223078E5000CAE17 /* SecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13D09C9223078E5000CAE17 /* SecurityTests.swift */; };
-		A13D09CD2230E139000CAE17 /* PublicKeyBit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13D09CC2230E139000CAE17 /* PublicKeyBit.swift */; };
+		A13D09CF223121E9000CAE17 /* StandardValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13D09CE223121E9000CAE17 /* StandardValidator.swift */; };
+		A13D09D0223121E9000CAE17 /* StandardValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13D09CE223121E9000CAE17 /* StandardValidator.swift */; };
+		A13D09D222314226000CAE17 /* Certificate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13D09D122314226000CAE17 /* Certificate+Extensions.swift */; };
+		A13D09D322314226000CAE17 /* Certificate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13D09D122314226000CAE17 /* Certificate+Extensions.swift */; };
+		A13D09D5223155C5000CAE17 /* CertificatePinValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13D09D4223155C5000CAE17 /* CertificatePinValidator.swift */; };
+		A13D09D6223155C5000CAE17 /* CertificatePinValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13D09D4223155C5000CAE17 /* CertificatePinValidator.swift */; };
+		A13D09D822315657000CAE17 /* PublicKeyPinValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13D09D722315657000CAE17 /* PublicKeyPinValidator.swift */; };
+		A13D09D922315657000CAE17 /* PublicKeyPinValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13D09D722315657000CAE17 /* PublicKeyPinValidator.swift */; };
 		A143170522085C7700EE656C /* AnyOperationConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A143170422085C7700EE656C /* AnyOperationConvertible.swift */; };
 		A143170622085C7700EE656C /* AnyOperationConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A143170422085C7700EE656C /* AnyOperationConvertible.swift */; };
 		A143170822085C8700EE656C /* OperationUnkeyedDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A143170722085C8700EE656C /* OperationUnkeyedDecodable.swift */; };
@@ -565,7 +572,10 @@
 		A122E3CD222EA5EC00D5FB5D /* RestSecurityDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestSecurityDelegate.swift; path = Sources/DcoreKit/Net/Rest/RestSecurityDelegate.swift; sourceTree = SOURCE_ROOT; };
 		A12E82FD22288713008D7440 /* VarInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VarInt.swift; path = Sources/DcoreKit/Net/Serialization/VarInt.swift; sourceTree = SOURCE_ROOT; };
 		A13D09C9223078E5000CAE17 /* SecurityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecurityTests.swift; path = Tests/DcoreKitTests/SecurityTests.swift; sourceTree = SOURCE_ROOT; };
-		A13D09CC2230E139000CAE17 /* PublicKeyBit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKeyBit.swift; sourceTree = "<group>"; };
+		A13D09CE223121E9000CAE17 /* StandardValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardValidator.swift; sourceTree = "<group>"; };
+		A13D09D122314226000CAE17 /* Certificate+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Certificate+Extensions.swift"; sourceTree = "<group>"; };
+		A13D09D4223155C5000CAE17 /* CertificatePinValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificatePinValidator.swift; sourceTree = "<group>"; };
+		A13D09D722315657000CAE17 /* PublicKeyPinValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKeyPinValidator.swift; sourceTree = "<group>"; };
 		A143170422085C7700EE656C /* AnyOperationConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnyOperationConvertible.swift; path = Sources/DcoreKit/Model/Operations/AnyOperationConvertible.swift; sourceTree = SOURCE_ROOT; };
 		A143170722085C8700EE656C /* OperationUnkeyedDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OperationUnkeyedDecodable.swift; path = Sources/DcoreKit/Model/Operations/OperationUnkeyedDecodable.swift; sourceTree = SOURCE_ROOT; };
 		A143170A220869EF00EE656C /* OperationUnkeyedEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OperationUnkeyedEncodable.swift; path = Sources/DcoreKit/Model/Operations/OperationUnkeyedEncodable.swift; sourceTree = SOURCE_ROOT; };
@@ -1327,12 +1337,15 @@
 			isa = PBXGroup;
 			children = (
 				A169C1CE2230208800FAA818 /* ServerTrustValidation.swift */,
+				A13D09CE223121E9000CAE17 /* StandardValidator.swift */,
 				A169C1D12230443100FAA818 /* PublicKeysValidator.swift */,
-				A13D09CC2230E139000CAE17 /* PublicKeyBit.swift */,
+				A13D09D722315657000CAE17 /* PublicKeyPinValidator.swift */,
+				A13D09D4223155C5000CAE17 /* CertificatePinValidator.swift */,
 				A169C1D72230524100FAA818 /* CompositeValidator.swift */,
 				A169C1D422304E0100FAA818 /* SecurityConfigurable.swift */,
 				A169C1C9223011C800FAA818 /* SecurityProvider.swift */,
 				A105403A22306B86006D8774 /* SecurityExtensionProvider.swift */,
+				A13D09D122314226000CAE17 /* Certificate+Extensions.swift */,
 			);
 			name = Security;
 			path = Sources/DcoreKit/Net/Security;
@@ -2723,6 +2736,7 @@
 				A1D96D5221ED1E22009C0A30 /* AccountApi.swift in Sources */,
 				A1D96D5321ED1E22009C0A30 /* AssetApi.swift in Sources */,
 				A1D96D5421ED1E22009C0A30 /* BalanceApi.swift in Sources */,
+				A13D09D322314226000CAE17 /* Certificate+Extensions.swift in Sources */,
 				A1D96D5521ED1E22009C0A30 /* ApiProvider.swift in Sources */,
 				A1D96D5621ED1E22009C0A30 /* BlockApi.swift in Sources */,
 				A12E82FF22288713008D7440 /* VarInt.swift in Sources */,
@@ -2894,6 +2908,7 @@
 				A169C1CB223011C800FAA818 /* SecurityProvider.swift in Sources */,
 				A1D96DEF21ED1E22009C0A30 /* LookupAccounts.swift in Sources */,
 				A1D96DF021ED1E22009C0A30 /* LookupAssets.swift in Sources */,
+				A13D09D6223155C5000CAE17 /* CertificatePinValidator.swift in Sources */,
 				A1D96DF121ED1E22009C0A30 /* LookupMinerAccounts.swift in Sources */,
 				A1D96DF221ED1E22009C0A30 /* LookupMiners.swift in Sources */,
 				A1673B4D21EF34DF008FF560 /* Array+Extension.swift in Sources */,
@@ -2902,6 +2917,7 @@
 				A1D96DF521ED1E22009C0A30 /* RequestApiAccess.swift in Sources */,
 				A1D96DF621ED1E22009C0A30 /* RestoreEncryptionKey.swift in Sources */,
 				A1D96DF721ED1E22009C0A30 /* SearchAccountBalanceHistory.swift in Sources */,
+				A13D09D0223121E9000CAE17 /* StandardValidator.swift in Sources */,
 				A1D96DF821ED1E22009C0A30 /* SearchAccountHistory.swift in Sources */,
 				A1D96DF921ED1E22009C0A30 /* SearchAccounts.swift in Sources */,
 				A143170622085C7700EE656C /* AnyOperationConvertible.swift in Sources */,
@@ -2942,6 +2958,7 @@
 				A1C8525D21F3854700A9A4A2 /* URL+Scheme.swift in Sources */,
 				A1D96E1A21ED1E22009C0A30 /* DCoreExtensionProvider.swift in Sources */,
 				A1D96E1B21ED1E22009C0A30 /* CryptoUtils.swift in Sources */,
+				A13D09D922315657000CAE17 /* PublicKeyPinValidator.swift in Sources */,
 				A143170922085C8700EE656C /* OperationUnkeyedDecodable.swift in Sources */,
 				A1D96E1C21ED1E22009C0A30 /* Enum+Extension.swift in Sources */,
 				A1D96E1D21ED1E22009C0A30 /* LoggerConvertible.swift in Sources */,
@@ -3035,7 +3052,6 @@
 				OBJ_853 /* DCoreConstants.swift in Sources */,
 				OBJ_854 /* DCoreSdk.swift in Sources */,
 				OBJ_855 /* Account.swift in Sources */,
-				A13D09CD2230E139000CAE17 /* PublicKeyBit.swift in Sources */,
 				OBJ_856 /* AccountBalance.swift in Sources */,
 				OBJ_857 /* AccountStatistics.swift in Sources */,
 				071AE04F2212FE66008AE077 /* AssetAmountPair+Extension.swift in Sources */,
@@ -3049,6 +3065,7 @@
 				OBJ_865 /* ChainObject.swift in Sources */,
 				OBJ_866 /* ChainParameters.swift in Sources */,
 				OBJ_867 /* ChainProperty.swift in Sources */,
+				A13D09D5223155C5000CAE17 /* CertificatePinValidator.swift in Sources */,
 				OBJ_868 /* Config.swift in Sources */,
 				OBJ_869 /* Content.swift in Sources */,
 				OBJ_870 /* ContentCategory.swift in Sources */,
@@ -3067,6 +3084,7 @@
 				OBJ_881 /* Miner.swift in Sources */,
 				OBJ_882 /* MinerId.swift in Sources */,
 				A1673B4C21EF34DF008FF560 /* Array+Extension.swift in Sources */,
+				A13D09D822315657000CAE17 /* PublicKeyPinValidator.swift in Sources */,
 				OBJ_883 /* MinerRewardInput.swift in Sources */,
 				A1AE9DC622036C45004B6019 /* FeeOperation.swift in Sources */,
 				A169C1D22230443100FAA818 /* PublicKeysValidator.swift in Sources */,
@@ -3077,6 +3095,7 @@
 				OBJ_887 /* OperationHistory.swift in Sources */,
 				OBJ_888 /* OperationType.swift in Sources */,
 				OBJ_889 /* Operation.swift in Sources */,
+				A13D09D222314226000CAE17 /* Certificate+Extensions.swift in Sources */,
 				OBJ_890 /* BuyContentOperation.swift in Sources */,
 				OBJ_891 /* AnyOperation.swift in Sources */,
 				OBJ_892 /* TransferOperation.swift in Sources */,
@@ -3180,6 +3199,7 @@
 				OBJ_981 /* ListSeedersByRating.swift in Sources */,
 				OBJ_982 /* ListSeedersByRegion.swift in Sources */,
 				OBJ_983 /* ListSeedersByUpload.swift in Sources */,
+				A13D09CF223121E9000CAE17 /* StandardValidator.swift in Sources */,
 				A16032D621F375EF00674FEF /* CancelContentOperation.swift in Sources */,
 				OBJ_984 /* ListSubscriptionsByAuthor.swift in Sources */,
 				OBJ_985 /* ListSubscriptionsByConsumer.swift in Sources */,

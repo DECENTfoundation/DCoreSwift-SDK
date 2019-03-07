@@ -33,13 +33,13 @@ private extension SecPolicy {
 
 public protocol ServerTrustValidation {
     func validate(trust: SecTrust, for host: String) throws
-    func configured(trust: SecTrust, for host: String) throws
+    func custom(trust: SecTrust, for host: String) throws
 }
 
 public extension ServerTrustValidation {
     public func validate(trust: SecTrust, for host: String) throws {
         try trust.validate(policy: .host(name: host))
         try trust.validate(policy: .standard)
-        try configured(trust: trust, for: host)
+        try custom(trust: trust, for: host)
     }
 }
