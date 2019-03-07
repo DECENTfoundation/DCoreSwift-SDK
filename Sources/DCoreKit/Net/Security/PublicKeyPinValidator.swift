@@ -1,6 +1,6 @@
 import Foundation
 
-struct PublicKeyPinValidator: ServerTrustValidation {
+public struct PublicKeyPinValidator: ServerTrustValidation {
     
     private let pins: [Pair<String, String>]
     

@@ -1,6 +1,6 @@
 import Foundation
 
-struct CertificatePinValidator: ServerTrustValidation {
+public struct CertificatePinValidator: ServerTrustValidation {
     private let pins: [Pair<String, String>]
     
     public init(pin: Pair<String, String>) {
