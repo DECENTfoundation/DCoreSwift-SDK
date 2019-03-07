@@ -13,9 +13,9 @@ extension RestSecurityDelegate: URLSessionDelegate {
         case NSURLAuthenticationMethodServerTrust:
             let host = challenge.protectionSpace.host
             let trust = challenge.protectionSpace.serverTrust
-            if let trust = trust {
+            if let trust = trust, let validator = provider?.validator {
                 do {
-                    try provider?.validator?.validate(trust: trust, for: host)
+                    try validator.validate(trust: trust, for: host)
                     completionHandler(.useCredential, URLCredential(trust: trust))
                 } catch {
                     completionHandler(.cancelAuthenticationChallenge, nil)

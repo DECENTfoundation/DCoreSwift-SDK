@@ -60,8 +60,9 @@ struct WssEmitter: SSLTrustValidator {
                 DCore.Logger.error(network: "Server trust failed with error %{public}s", args: {
                     error.asDCoreException().description
                 })
+                return false
             }
         }
-        return false
+        return true
     }
 }
