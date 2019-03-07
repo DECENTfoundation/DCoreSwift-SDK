@@ -22,7 +22,10 @@ final class RestService: CoreRequestConvertible {
     func request<Output>(using req: BaseRequest<Output>) -> Single<Output> where Output: Codable {
         return Observable.deferred { [unowned self] in
             // TODO: DWI-81 URL session from member property should be used
-            return self.session.rx.data(request: req.asRest(self.url))
+            let sess = URLSession(configuration: .default,
+                                  delegate: self.delegate,
+                                  delegateQueue: OperationQueue())
+            return sess.rx.data(request: req.asRest(self.url))
                 .map { res in
                     
                     do { return try res.parse(response: req) } catch let error {

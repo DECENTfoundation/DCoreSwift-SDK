@@ -12,7 +12,7 @@ class SecurityTests: XCTestCase {
     func testPublicKeyServerTrustUsingRest() {
         let id = "1.2.17".dcore.chainObject!
         
-        let validator = try? PublicKeysValidator(host: "decent.ch", pinnedKey: "")
+        let validator = try? PublicKeysValidator(host: "decent.ch", pinnedKey: "WnOfNPQpbfFawAtcr7XKvrNSCdsX7Tog6G")
         XCTAssertNotNil(validator)
         
         let result = try? wss.security.trusted(by: validator).history.getBalanceHistory(for: id).toBlocking().single()
@@ -22,7 +22,7 @@ class SecurityTests: XCTestCase {
     func testPublicKeyServerTrustUsingWss() {
         let id = "1.2.17".dcore.chainObject!
         
-        let validator = try? PublicKeysValidator(host: "decent.ch", pinnedKey: "")
+        let validator = try? PublicKeysValidator(host: "decent.ch", pinnedKey: "WnOfNPQpbfFawAtcr7XKvrNSCdsX7Tog6G")
         XCTAssertNotNil(validator)
         
         let result = try? rest.security.trusted(by: validator).history.getBalanceHistory(for: id, assets: [DCore.Constant.dct]).toBlocking().single()
