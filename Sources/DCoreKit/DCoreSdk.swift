@@ -3,7 +3,7 @@ import RxSwift
 
 extension DCore {
     
-    open class Sdk {
+    open class Sdk: SecurityConfigurable {
         
         private var rest: RestService?
         private var wss: WssService?
@@ -12,26 +12,34 @@ extension DCore {
         
         public required init(wssUri: URLConvertible? = nil,
                              restUri: URLConvertible? = nil,
-                             session: URLSession? = nil) {
+                             session: URLSession? = nil,
+                             validator: ServerTrustValidation? = nil) {
         
             if let path = restUri, let url = path.asURL() { rest = RestService(url, session: session) }
             if let path = wssUri, let url = path.asURL() { wss = WssService(url, timeout: Constant.timeout) }
             
             precondition(rest != nil || wss != nil, "At least one uri have to be set correctly")
+            secured(by: validator)
         }
         
-        public static func create(forRest uri: URLConvertible, session: URLSession? = nil) -> Api {
+        public static func create(forRest uri: URLConvertible, session: URLSession? = nil, validator: ServerTrustValidation? = nil) -> Api {
             return Api(core: Sdk(restUri: uri, session: session))
         }
         
-        public static func create(forWss uri: URLConvertible) -> Api {
-            return Api(core: Sdk(wssUri: uri))
+        public static func create(forWss uri: URLConvertible, validator: ServerTrustValidation? = nil) -> Api {
+            return Api(core: Sdk(wssUri: uri, validator: validator))
         }
         
         public static func create(forWss uri: URLConvertible,
                                   andRest restUri: URLConvertible,
-                                  session: URLSession? = nil) -> Api {
-            return Api(core: Sdk(wssUri: uri, restUri: restUri, session: session))
+                                  session: URLSession? = nil,
+                                  validator: ServerTrustValidation? = nil) -> Api {
+            return Api(core: Sdk(wssUri: uri, restUri: restUri, session: session, validator: validator))
+        }
+        
+        func secured(by validator: ServerTrustValidation?) {
+            rest?.secured(by: validator)
+            wss?.secured(by: validator)
         }
         
         func prepare(transactionUsing operations: [Operation], expiration: Int) -> Single<Transaction> {
