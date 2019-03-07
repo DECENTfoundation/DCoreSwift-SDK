@@ -9,18 +9,20 @@ private extension SecTrust {
 }
 
 private extension SecKey {
-    static func create(from value: String) throws -> SecKey {
+    static func create(from value: String, bit: PublicKeyBit) throws -> SecKey {
         let options = [
             kSecAttrKeyType: kSecAttrKeyTypeRSA,
             kSecAttrKeyClass: kSecAttrKeyClassPublic,
-            kSecAttrKeySizeInBits: NSNumber(value: 512),
+            kSecAttrKeySizeInBits: NSNumber(value: bit.rawValue),
             kSecReturnPersistentRef: true as NSObject
         ]
         
-        guard let data = Data(base64Encoded: value),
-            let key = SecKeyCreateWithData(data as CFData, options as CFDictionary, nil) else {
-            
-                throw DCoreException.network(.security("Could not parse public key \(value)"))
+        guard
+            let data = Data(base64Encoded: value),
+            let key = SecKeyCreateWithData(
+                data as CFData, options as CFDictionary, nil
+            ) else {
+                throw DCoreException.network(.security("Could not parse public key: sha\(bit)/\(value)"))
         }
         return key
     }
@@ -48,8 +50,8 @@ private extension Array where Element == SecCertificate {
 public struct PublicKeysValidator: ServerTrustValidation {
     private let keys: [Pair<String, SecKey>]
     
-    public init(host: String, pinnedKey key: String) throws {
-        self.init(key: Pair(host, try .create(from: key)))
+    public init(host: String, pinnedKey key: String, bit: PublicKeyBit = .sha256) throws {
+        self.init(key: Pair(host, try .create(from: key, bit: bit)))
     }
     
     public init(key: Pair<String, SecKey>) {

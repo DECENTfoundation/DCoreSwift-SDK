@@ -34,6 +34,7 @@
 		A12E82FF22288713008D7440 /* VarInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12E82FD22288713008D7440 /* VarInt.swift */; };
 		A13D09CA223078E5000CAE17 /* SecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13D09C9223078E5000CAE17 /* SecurityTests.swift */; };
 		A13D09CB223078E5000CAE17 /* SecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13D09C9223078E5000CAE17 /* SecurityTests.swift */; };
+		A13D09CD2230E139000CAE17 /* PublicKeyBit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13D09CC2230E139000CAE17 /* PublicKeyBit.swift */; };
 		A143170522085C7700EE656C /* AnyOperationConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A143170422085C7700EE656C /* AnyOperationConvertible.swift */; };
 		A143170622085C7700EE656C /* AnyOperationConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A143170422085C7700EE656C /* AnyOperationConvertible.swift */; };
 		A143170822085C8700EE656C /* OperationUnkeyedDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A143170722085C8700EE656C /* OperationUnkeyedDecodable.swift */; };
@@ -564,6 +565,7 @@
 		A122E3CD222EA5EC00D5FB5D /* RestSecurityDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestSecurityDelegate.swift; path = Sources/DcoreKit/Net/Rest/RestSecurityDelegate.swift; sourceTree = SOURCE_ROOT; };
 		A12E82FD22288713008D7440 /* VarInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VarInt.swift; path = Sources/DcoreKit/Net/Serialization/VarInt.swift; sourceTree = SOURCE_ROOT; };
 		A13D09C9223078E5000CAE17 /* SecurityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecurityTests.swift; path = Tests/DcoreKitTests/SecurityTests.swift; sourceTree = SOURCE_ROOT; };
+		A13D09CC2230E139000CAE17 /* PublicKeyBit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKeyBit.swift; sourceTree = "<group>"; };
 		A143170422085C7700EE656C /* AnyOperationConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnyOperationConvertible.swift; path = Sources/DcoreKit/Model/Operations/AnyOperationConvertible.swift; sourceTree = SOURCE_ROOT; };
 		A143170722085C8700EE656C /* OperationUnkeyedDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OperationUnkeyedDecodable.swift; path = Sources/DcoreKit/Model/Operations/OperationUnkeyedDecodable.swift; sourceTree = SOURCE_ROOT; };
 		A143170A220869EF00EE656C /* OperationUnkeyedEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OperationUnkeyedEncodable.swift; path = Sources/DcoreKit/Model/Operations/OperationUnkeyedEncodable.swift; sourceTree = SOURCE_ROOT; };
@@ -1326,6 +1328,7 @@
 			children = (
 				A169C1CE2230208800FAA818 /* ServerTrustValidation.swift */,
 				A169C1D12230443100FAA818 /* PublicKeysValidator.swift */,
+				A13D09CC2230E139000CAE17 /* PublicKeyBit.swift */,
 				A169C1D72230524100FAA818 /* CompositeValidator.swift */,
 				A169C1D422304E0100FAA818 /* SecurityConfigurable.swift */,
 				A169C1C9223011C800FAA818 /* SecurityProvider.swift */,
@@ -3032,6 +3035,7 @@
 				OBJ_853 /* DCoreConstants.swift in Sources */,
 				OBJ_854 /* DCoreSdk.swift in Sources */,
 				OBJ_855 /* Account.swift in Sources */,
+				A13D09CD2230E139000CAE17 /* PublicKeyBit.swift in Sources */,
 				OBJ_856 /* AccountBalance.swift in Sources */,
 				OBJ_857 /* AccountStatistics.swift in Sources */,
 				071AE04F2212FE66008AE077 /* AssetAmountPair+Extension.swift in Sources */,
