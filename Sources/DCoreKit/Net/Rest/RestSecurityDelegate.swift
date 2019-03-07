@@ -17,7 +17,10 @@ extension RestSecurityDelegate: URLSessionDelegate {
                 do {
                     try validator.validate(trust: trust, for: host)
                     completionHandler(.useCredential, URLCredential(trust: trust))
-                } catch {
+                } catch let error {
+                    DCore.Logger.error(network: "Server trust for rest failed with error %{public}s", args: {
+                        error.asDCoreException().description
+                    })
                     completionHandler(.cancelAuthenticationChallenge, nil)
                 }
             } else {

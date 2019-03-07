@@ -57,7 +57,7 @@ struct WssEmitter: SSLTrustValidator {
                 try validator.validate(trust: trust, for: host)
                 return true
             } catch let error {
-                DCore.Logger.error(network: "Server trust failed with error %{public}s", args: {
+                DCore.Logger.error(network: "Server trust for wss failed with error %{public}s", args: {
                     error.asDCoreException().description
                 })
                 return false
