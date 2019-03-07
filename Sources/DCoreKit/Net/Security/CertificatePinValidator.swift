@@ -8,7 +8,7 @@ struct CertificatePinValidator: ServerTrustValidation {
     }
     
     public init(pins: [Pair<String, String>]) {
-        precondition(!pins.isEmpty, "Certifcate pin validator does not contain pins")
+        precondition(!pins.isEmpty, "Certificate pin validator does not contain pins")
         self.pins = pins
     }
     
