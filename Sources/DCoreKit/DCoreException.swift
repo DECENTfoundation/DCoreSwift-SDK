@@ -7,6 +7,7 @@ public enum DCoreException: Error {
         case
         notFound,
         closed,
+        security(String),
         stack(Int, String, String),
         fail(JSON),
         failDecode(String),
@@ -58,7 +59,7 @@ extension DCoreException: CustomStringConvertible {
         case .chain(let chain): return chain.description
         case .crypto(let crypto): return crypto.description
         case .unexpected(let message): return message
-        case .underlying(let error): return "Underlying exception \(error)"
+        case .underlying(let error): return "Underlying exception: \(error.localizedDescription)"
         }
     }
 }
@@ -68,6 +69,7 @@ extension DCoreException.Network: CustomStringConvertible {
         switch self {
         case .notFound: return "Result not found"
         case .closed: return "Network was closed"
+        case .security(let message): return message
         case .stack(let code, let name, let message): return "\(name) (\(code)): \(message)"
         case .fail(let value): return value.description
         case .failDecode(let message): return message
