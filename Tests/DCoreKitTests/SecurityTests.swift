@@ -18,7 +18,7 @@ class SecurityTests: XCTestCase {
         XCTAssertNotNil(result)
     }
     
-    func testCertificatePinServerTrustUsingRest() {
+    func testCertificatePinServerTrustUsingWss() {
         let id = "1.2.11368".dcore.chainObject!
         
         let validator = CertificatePinValidator(pin: Pair("api.decent.ch", "YivQjKihLWYpXWlacN7pYXyt+DzbTLep4vGrg4jBSZA="))
@@ -28,7 +28,7 @@ class SecurityTests: XCTestCase {
         XCTAssertNotNil(result)
     }
     
-    func testCertificatePinServerTrustUsingWss() {
+    func testCertificatePinServerTrustUsingRest() {
         let id = "1.2.11368".dcore.chainObject!
         
         let validator = CertificatePinValidator(pin: Pair("api.decent.ch", "YivQjKihLWYpXWlacN7pYXyt+DzbTLep4vGrg4jBSZA="))
@@ -38,9 +38,18 @@ class SecurityTests: XCTestCase {
         XCTAssertNotNil(result)
     }
     
+    func testInvalidCertificatePinServerTrustUsingRest() {
+        let id = "1.2.11368".dcore.chainObject!
+        
+        let validator = CertificatePinValidator(pin: Pair("api.decent.ch", "invalid"))
+        XCTAssertNotNil(validator)
+        XCTAssertThrowsError(try rest.security.trusted(by: validator).history.getBalanceHistory(for: id, assets: [DCore.Constant.dct]).toBlocking().single())
+    }
+    
     static var allTests = [
         ("testStandardServerTrustUsingRest", testStandardServerTrustUsingRest),
         ("testCertificatePinServerTrustUsingRest", testCertificatePinServerTrustUsingRest),
         ("testCertificatePinServerTrustUsingWss", testCertificatePinServerTrustUsingWss),
+        ("testInvalidCertificatePinServerTrustUsingRest", testInvalidCertificatePinServerTrustUsingRest)
     ]
 }
