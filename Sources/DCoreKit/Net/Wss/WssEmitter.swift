@@ -2,6 +2,15 @@ import Foundation
 import Starscream
 import RxSwift
 
+extension Error {
+    fileprivate func asDCoreSecurityException() -> DCoreException {
+        if case .underlying(let error) = asDCoreException(), (error as? WSError)?.type == .invalidSSLError {
+            return DCoreException.network(.security("Server trust validation failed"))
+        }
+        return asDCoreException()
+    }
+}
+
 protocol SocketEvent {}
 
 struct OnOpenEvent: SocketEvent {
@@ -31,12 +40,11 @@ struct WssEmitter: SSLTrustValidator {
         }
         wss.onText = { observer.onNext(OnMessageEvent(value: $0)) }
         wss.onDisconnect = { error in
-            
             if let error = error {
                 DCore.Logger.error(network: "WebSocket disconnected with error: %{public}s", args: {
                     error.asDCoreException().description
                 })
-                observer.onError(error.asDCoreException())
+                observer.onError(error.asDCoreSecurityException())
             } else {
                 DCore.Logger.debug(network: "WebSocket disconnected")
                 observer.onCompleted()
@@ -57,7 +65,7 @@ struct WssEmitter: SSLTrustValidator {
                 try validator.validate(trust: trust, for: host)
                 return true
             } catch let error {
-                DCore.Logger.error(network: "Server trust for wss failed with error %{public}s", args: {
+                DCore.Logger.error(network: "Server trust for wss failed with error: %{public}s", args: {
                     error.asDCoreException().description
                 })
                 return false
