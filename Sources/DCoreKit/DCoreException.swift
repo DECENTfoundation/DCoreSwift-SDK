@@ -59,7 +59,7 @@ extension DCoreException: CustomStringConvertible {
         case .chain(let chain): return chain.description
         case .crypto(let crypto): return crypto.description
         case .unexpected(let message): return message
-        case .underlying(let error): return "Underlying exception: \(error.localizedDescription)"
+        case .underlying(let error): return "Underlying exception: \(error)"
         }
     }
 }
