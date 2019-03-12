@@ -6,7 +6,7 @@ public struct SubmitContentOperation: Operation {
         willSet { precondition(newValue.objectType == .accountObject, "Not an account object id") }
     }
     public var uri: String {
-        willSet { precondition(!newValue.matches(regex: "^(https?|ipfs|magnet):.*").isEmpty, "Invalid uri scheme") }
+        willSet { precondition(Content.hasValid(uri: newValue), "Invalid uri scheme") }
     }
     public var expiration: Date {
         willSet { precondition(newValue > Date(), "Invalid expiration") }
@@ -28,24 +28,22 @@ public struct SubmitContentOperation: Operation {
     public let keyParts: [KeyParts]
     public var coauthors: [Pair<ChainObject, Int>]?
     public var custodyData: CustodyData?
-    
     public let publishingFee: AssetAmount
     public var fee: AssetAmount  = .unset
-    
     public let type: OperationType = .contentSubmitOperation
     
-    public init<Input>(credentials: Credentials,
-                       content: SubmitContent<Input>,
+    public init<Input>(_ content: SubmitContent<Input>,
+                       credentials: Credentials,
                        publishingFee: AssetAmount = .unset,
                        fee: AssetAmount = .unset) where Input: SynopsisConvertible {
-        self.init(author: credentials.accountId,
-                  content: content,
+        self.init(content,
+                  author: credentials.accountId,
                   publishingFee: publishingFee,
                   fee: fee)
     }
     
-    public init<Input>(author: ChainObject,
-                       content: SubmitContent<Input>,
+    public init<Input>(_ content: SubmitContent<Input>,
+                       author: ChainObject,
                        publishingFee: AssetAmount = .unset,
                        fee: AssetAmount = .unset) where Input: SynopsisConvertible {
         self.author = author
@@ -78,7 +76,8 @@ public struct SubmitContentOperation: Operation {
         expiration,
         publishingFee = "publishing_fee",
         synopsis,
-        custodyData = "cd"
+        custodyData = "cd",
+        fee
     }
 }
 

@@ -15,10 +15,13 @@ public protocol ContentApi: BaseApi {
     func listPublishingManagers(lowerBound: String, limit: Int) -> Single<[ChainObject]>
     func generateContentKeys(forSeeders ids: [ChainObject]) -> Single<ContentKeys>
     func restoreEncryptionKey(elGamalPrivate: PubKey, purchaseId: ChainObject) -> Single<String>
-    func submit<Input>(_ creds: Credentials,
-                       content: SubmitContent<Input>,
+    func create<Input>(_ content: SubmitContent<Input>,
+                       credentials: Credentials,
                        publishingFee: AssetAmount,
                        fee: AssetAmount) -> Single<TransactionConfirmation> where Input: SynopsisConvertible
+    func delete(byReference ref: Content.Reference, credentials: Credentials, fee: AssetAmount) -> Single<TransactionConfirmation>
+    func delete(byId id: ChainObject, credentials: Credentials, fee: AssetAmount) -> Single<TransactionConfirmation>
+    func delete(byUri uri: String, credentials: Credentials, fee: AssetAmount) -> Single<TransactionConfirmation>
 }
 
 extension ContentApi {
@@ -59,12 +62,39 @@ extension ContentApi {
         return RestoreEncryptionKey(elGamalPrivate, purchaseId: purchaseId).base.toResponse(api.core)
     }
     
-    public func submit<Input>(_ creds: Credentials,
-                              content: SubmitContent<Input>,
+    public func create<Input>(_ content: SubmitContent<Input>,
+                              credentials: Credentials,
                               publishingFee: AssetAmount = .unset,
                               fee: AssetAmount = .unset) -> Single<TransactionConfirmation> where Input: SynopsisConvertible {
-        return self.api.broadcast.broadcast(withCallback: creds.keyPair, operation: SubmitContentOperation(
-            credentials: creds, content: content, publishingFee: publishingFee, fee: fee
+        return self.api.broadcast.broadcast(withCallback: credentials.keyPair, operation: SubmitContentOperation(
+            content, credentials: credentials, publishingFee: publishingFee, fee: fee
+            )
+        )
+    }
+    
+    public func delete(byReference ref: Content.Reference, credentials: Credentials, fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
+        return Single.deferred {
+            if let id = ref.dcore.chainObject {
+                return self.delete(byId: id, credentials: credentials, fee: fee)
+            }
+            
+            if Content.hasValid(uri: ref) {
+                return self.delete(byUri: ref, credentials: credentials, fee: fee)
+            }
+            
+            return Single.error(DCoreException.unexpected("\(ref) is not a valid content reference"))
+        }
+    }
+    
+    public func delete(byId id: ChainObject, credentials: Credentials, fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
+        return getContent(byId: id).flatMap {
+            self.delete(byUri: $0.uri, credentials: credentials, fee: fee)
+        }
+    }
+    
+    public func delete(byUri uri: String, credentials: Credentials, fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
+        return self.api.broadcast.broadcast(withCallback: credentials.keyPair, operation: CancelContentOperation(
+            author: credentials.accountId, uri: uri, fee: fee
             )
         )
     }

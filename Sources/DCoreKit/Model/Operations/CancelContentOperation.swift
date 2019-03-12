@@ -3,8 +3,17 @@ import BigInt
 
 public struct CancelContentOperation: Operation {
     
+    public let author: ChainObject
+    public let uri: String
     public let type: OperationType = .contentCancellationOperation
     public var fee: AssetAmount  = .unset
+    
+    private enum CodingKeys: String, CodingKey {
+        case
+        author,
+        uri = "URI",
+        fee
+    }
 }
 
 extension CancelContentOperation {
@@ -16,7 +25,12 @@ extension CancelContentOperation {
 extension CancelContentOperation {
     public func asData() -> Data {
         
-        let data = Data.ofZero
+        var data = Data()
+        data += type.asData()
+        data += fee.asData()
+        data += author.asData()
+        data += uri.asData()
+        
         DCore.Logger.debug(crypto: "CancelContentOperation binary: %{private}s", args: {
             "\(data.toHex()) (\(data)) \(data.bytes)"
         })

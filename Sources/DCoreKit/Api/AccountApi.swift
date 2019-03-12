@@ -8,7 +8,7 @@ public protocol AccountApi: BaseApi {
     func getAccountIds(byAddressList list: [Address]) -> Single<[[ChainObject]]>
     func existAccount(byName name: String) -> Single<Bool>
     func existAccount(byId id: ChainObject) -> Single<Bool>
-    func getAccount(byReference value: Account.Reference) -> Single<Account>
+    func getAccount(byReference ref: Account.Reference) -> Single<Account>
     func search(accountHistory accoundId: ChainObject,
                 from: ChainObject,
                 order: SearchOrder.AccountHistory,
@@ -52,18 +52,18 @@ extension AccountApi {
         return getAccount(byId: id).map({ _ in true }).catchErrorJustReturn(false)
     }
 
-    public func getAccount(byReference value: Account.Reference) -> Single<Account> {
+    public func getAccount(byReference ref: Account.Reference) -> Single<Account> {
         return Single.deferred({
             
-            if let object = value.dcore.chainObject {
-                return self.getAccounts(byIds: [object]).map({ try $0.first.orThrow(DCoreException.network(.notFound)) })
+            if let id = ref.dcore.chainObject {
+                return self.getAccounts(byIds: [id]).map({ try $0.first.orThrow(DCoreException.network(.notFound)) })
             }
             
-            if Account.hasValid(name: value) {
-                return self.getAccount(byName: value)
+            if Account.hasValid(name: ref) {
+                return self.getAccount(byName: ref)
             }
             
-            return Single.error(DCoreException.unexpected("Value \(value) is not a valid account reference"))
+            return Single.error(DCoreException.unexpected("Value \(ref) is not a valid account reference"))
         })
     }
     

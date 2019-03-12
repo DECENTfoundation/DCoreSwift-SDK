@@ -35,4 +35,13 @@ public struct Content: Codable {
         }
         return value
     }
+    
+    static func hasValid(uri: String) -> Bool {
+        return !uri.matches(regex: "^(https?|ipfs|magnet):.*").isEmpty
+    }
 }
+
+extension Content {
+    public typealias Reference = String
+}
+

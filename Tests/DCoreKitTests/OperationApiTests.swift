@@ -37,7 +37,7 @@ class OperationApiTests: XCTestCase {
         let exp = NSCalendar.current.date(byAdding: .month, value: 10, to: Date())!
         let syn = Synopsis(title: "foofofo", description: "foafa")
         
-        let confirm = try? wss.content.submit(creds!, content: .cdn(uri: uri, expiration: exp, synopsis: syn)).debug().toBlocking().single()
+        let confirm = try? wss.content.create(.cdn(uri: uri, expiration: exp, synopsis: syn), credentials: creds!).debug().toBlocking().single()
         XCTAssertNotNil(confirm)
     }
 
