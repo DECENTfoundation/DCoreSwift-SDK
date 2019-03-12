@@ -15,6 +15,10 @@ public protocol ContentApi: BaseApi {
     func listPublishingManagers(lowerBound: String, limit: Int) -> Single<[ChainObject]>
     func generateContentKeys(forSeeders ids: [ChainObject]) -> Single<ContentKeys>
     func restoreEncryptionKey(elGamalPrivate: PubKey, purchaseId: ChainObject) -> Single<String>
+    func submit<Input>(_ creds: Credentials,
+                       content: SubmitContent<Input>,
+                       publishingFee: AssetAmount,
+                       fee: AssetAmount) -> Single<TransactionConfirmation> where Input: SynopsisConvertible
 }
 
 extension ContentApi {
@@ -29,7 +33,7 @@ extension ContentApi {
     public func search(contentByTerm term: String,
                        order: SearchOrder.Content = .createdDesc,
                        user: String = "",
-                       regionCode: String = Regions.ALL.code,
+                       regionCode: String = Regions.all.code,
                        type: String = ContentCategory.id(.decentCore, .none).description,
                        startId: ChainObject = ObjectType.nullObject.genericId,
                        limit: Int = 100) -> Single<[Content]> {
@@ -53,6 +57,16 @@ extension ContentApi {
     
     public func restoreEncryptionKey(elGamalPrivate: PubKey, purchaseId: ChainObject) -> Single<String> {
         return RestoreEncryptionKey(elGamalPrivate, purchaseId: purchaseId).base.toResponse(api.core)
+    }
+    
+    public func submit<Input>(_ creds: Credentials,
+                              content: SubmitContent<Input>,
+                              publishingFee: AssetAmount = .unset,
+                              fee: AssetAmount = .unset) -> Single<TransactionConfirmation> where Input: SynopsisConvertible {
+        return self.api.broadcast.broadcast(withCallback: creds.keyPair, operation: SubmitContentOperation(
+            credentials: creds, content: content, publishingFee: publishingFee, fee: fee
+            )
+        )
     }
 }
 

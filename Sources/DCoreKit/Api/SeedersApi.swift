@@ -22,7 +22,7 @@ extension SeedersApi {
         return ListSeedersByUpload(count).base.toResponse(api.core)
     }
     
-    public func listSeedersByRegion(_ region: String = Regions.ALL.code) -> Single<[Seeder]> {
+    public func listSeedersByRegion(_ region: String = Regions.all.code) -> Single<[Seeder]> {
         return ListSeedersByRegion(region).base.toResponse(api.core)
     }
     

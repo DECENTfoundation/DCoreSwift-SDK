@@ -28,7 +28,6 @@
 		A11F6D6C21ECB61A008C8525 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */; };
 		A11F6D6D21ECB61A008C8525 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */; };
 		A11F6D6E21ECB61A008C8525 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6721ECB61A008C8525 /* RxSwift.framework */; };
-		A122E3CE222EA5EC00D5FB5D /* RestSecurityDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122E3CD222EA5EC00D5FB5D /* RestSecurityDelegate.swift */; };
 		A122E3CE222EA5EC00D5FB5D /* ServerTrustDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122E3CD222EA5EC00D5FB5D /* ServerTrustDelegate.swift */; };
 		A129A6282232977600871726 /* URLSession+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129A6272232977600871726 /* URLSession+Rx.swift */; };
 		A12E82FE22288713008D7440 /* VarInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12E82FD22288713008D7440 /* VarInt.swift */; };
@@ -98,6 +97,8 @@
 		A1AE9DB822031528004B6019 /* HistoryApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE9DB622031528004B6019 /* HistoryApiTests.swift */; };
 		A1AE9DC622036C45004B6019 /* FeeOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE9DC522036C45004B6019 /* FeeOperation.swift */; };
 		A1AE9DC722036C45004B6019 /* FeeOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE9DC522036C45004B6019 /* FeeOperation.swift */; };
+		A1AF06F32237F241002CA4F7 /* SynopsisConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AF06F22237F241002CA4F7 /* SynopsisConvertible.swift */; };
+		A1AF06F42237F241002CA4F7 /* SynopsisConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AF06F22237F241002CA4F7 /* SynopsisConvertible.swift */; };
 		A1B00ED82200A804002D59F3 /* Date+DCoreExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B00ED72200A804002D59F3 /* Date+DCoreExtensionProvider.swift */; };
 		A1B00ED92200A804002D59F3 /* Date+DCoreExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B00ED72200A804002D59F3 /* Date+DCoreExtensionProvider.swift */; };
 		A1B00EEC2201EAD0002D59F3 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B00EEB2201EAD0002D59F3 /* Pagination.swift */; };
@@ -605,6 +606,7 @@
 		A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTestCase.swift; sourceTree = "<group>"; };
 		A1AE9DB622031528004B6019 /* HistoryApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HistoryApiTests.swift; path = Tests/DcoreKitTests/HistoryApiTests.swift; sourceTree = SOURCE_ROOT; };
 		A1AE9DC522036C45004B6019 /* FeeOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeeOperation.swift; path = Sources/DcoreKit/Model/Operations/FeeOperation.swift; sourceTree = SOURCE_ROOT; };
+		A1AF06F22237F241002CA4F7 /* SynopsisConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SynopsisConvertible.swift; path = Sources/DcoreKit/Model/SynopsisConvertible.swift; sourceTree = SOURCE_ROOT; };
 		A1B00ED72200A804002D59F3 /* Date+DCoreExtensionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Date+DCoreExtensionProvider.swift"; path = "Sources/DcoreKit/Utils/Date+DCoreExtensionProvider.swift"; sourceTree = SOURCE_ROOT; };
 		A1B00EEB2201EAD0002D59F3 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pagination.swift; path = Sources/DCoreKit/Net/Pagination.swift; sourceTree = SOURCE_ROOT; };
 		A1B13BF122043A59006B59BF /* UnknownOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnknownOperation.swift; path = Sources/DcoreKit/Model/Operations/UnknownOperation.swift; sourceTree = SOURCE_ROOT; };
@@ -1898,6 +1900,7 @@
 				OBJ_85 /* SignedBlock.swift */,
 				OBJ_86 /* Subscription.swift */,
 				OBJ_87 /* Synopsis.swift */,
+				A1AF06F22237F241002CA4F7 /* SynopsisConvertible.swift */,
 				OBJ_88 /* Transaction.swift */,
 				OBJ_89 /* TransactionConfirmation.swift */,
 				OBJ_90 /* TransactionDetail.swift */,
@@ -2548,6 +2551,10 @@
 				"$(SRCROOT)/Carthage/Build/iOS/BigInt.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SipHash.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Starscream.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -2559,6 +2566,10 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/BigInt.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SipHash.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Starscream.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CryptoSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2769,7 +2780,6 @@
 				A1D96DA721ED1E22009C0A30 /* HttpConfigurable.swift in Sources */,
 				A1D96DA821ED1E22009C0A30 /* ApiGroup.swift in Sources */,
 				A169C1D92230524100FAA818 /* CompositeValidator.swift in Sources */,
-				A122E3CF222EA5EC00D5FB5D /* ServerTrustDelegate.swift in Sources */,
 				A1D96DA921ED1E22009C0A30 /* ApiMethod.swift in Sources */,
 				A1D96DAA21ED1E22009C0A30 /* Http.swift in Sources */,
 				A1D96DAB21ED1E22009C0A30 /* BaseRequest.swift in Sources */,
@@ -2823,7 +2833,6 @@
 				A1D96DD621ED1E22009C0A30 /* GetRecentTransactionById.swift in Sources */,
 				A1D96DD721ED1E22009C0A30 /* GetRelativeAccountHistory.swift in Sources */,
 				A1D96DD821ED1E22009C0A30 /* GetRequiredFees.swift in Sources */,
-				A129A6292232977600871726 /* URLSession+Rx.swift in Sources */,
 				A1D96DD921ED1E22009C0A30 /* GetRequiredSignatures.swift in Sources */,
 				A1D96DDA21ED1E22009C0A30 /* GetSeeder.swift in Sources */,
 				A1D96DDB21ED1E22009C0A30 /* GetSubscription.swift in Sources */,
@@ -2901,6 +2910,7 @@
 				A1D96E1A21ED1E22009C0A30 /* DCoreExtensionProvider.swift in Sources */,
 				A1D96E1B21ED1E22009C0A30 /* CryptoUtils.swift in Sources */,
 				A13D09D922315657000CAE17 /* PublicKeyPinValidator.swift in Sources */,
+				A1AF06F42237F241002CA4F7 /* SynopsisConvertible.swift in Sources */,
 				A143170922085C8700EE656C /* OperationUnkeyedDecodable.swift in Sources */,
 				A1D96E1C21ED1E22009C0A30 /* Enum+Extension.swift in Sources */,
 				A1D96E1D21ED1E22009C0A30 /* LoggerConvertible.swift in Sources */,
@@ -3141,6 +3151,7 @@
 				OBJ_981 /* ListSeedersByRating.swift in Sources */,
 				OBJ_982 /* ListSeedersByRegion.swift in Sources */,
 				OBJ_983 /* ListSeedersByUpload.swift in Sources */,
+				A1AF06F32237F241002CA4F7 /* SynopsisConvertible.swift in Sources */,
 				A13D09CF223121E9000CAE17 /* StandardValidator.swift in Sources */,
 				A16032D621F375EF00674FEF /* CancelContentOperation.swift in Sources */,
 				OBJ_984 /* ListSubscriptionsByAuthor.swift in Sources */,

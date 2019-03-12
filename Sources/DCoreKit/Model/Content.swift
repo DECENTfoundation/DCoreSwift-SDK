@@ -30,7 +30,7 @@ public struct Content: Codable {
     }
     
     public var price: AssetAmount {
-        guard let value = regionalPrice.prices[Regions.NONE.id] else {
+        guard let value = regionalPrice.prices[Regions.none.id] else {
             preconditionFailure("Region price does not exist")
         }
         return value

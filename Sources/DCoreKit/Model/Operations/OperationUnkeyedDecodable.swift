@@ -12,11 +12,11 @@ extension OperationUnkeyedDecodable {
         switch type {
         case .transferOperation, .transferTwoOperation:
             return try unkeyed.decode(TransferOperation.self)
-            
-        // TODO: https://decentplatform.atlassian.net/browse/DSDK-569
-        /*
         case .contentSubmitOperation:
             return try unkeyed.decode(SubmitContentOperation.self)
+        // TODO: https://decentplatform.atlassian.net/browse/DSDK-569
+        /*
+        
         case .contentCancellationOperation:
             return try unkeyed.decode(CancelContentOperation.self)
         case .requestToBuyOperation:

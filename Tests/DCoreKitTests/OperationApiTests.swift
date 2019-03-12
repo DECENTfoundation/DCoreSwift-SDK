@@ -29,9 +29,21 @@ class OperationApiTests: XCTestCase {
                                                   encrypted: false).debug().toBlocking().single()
         XCTAssertNotNil(confirm)
     }
+    
+    func testSubmitContentOperation() {
+        let pk = "5J1HnqK3gajNzDWj9Na6fo3gxtphv6MHLE5YLgRmQv8tC8e3rEd"
+        let creds = try? Credentials("1.2.17".dcore.chainObject!, wif: pk)
+        let uri = "https://foofoo.com/foo?v\(UUID().uuidString)"
+        let exp = NSCalendar.current.date(byAdding: .month, value: 10, to: Date())!
+        let syn = Synopsis(title: "foofofo", description: "foafa")
+        
+        let confirm = try? wss.content.submit(creds!, content: .cdn(uri: uri, expiration: exp, synopsis: syn)).debug().toBlocking().single()
+        XCTAssertNotNil(confirm)
+    }
 
     static var allTests = [
         ("testTransferOperation", testTransferOperation),
-        ("testTransferOperationToChainObjectWithOtherVarInt", testTransferOperationToChainObjectWithOtherVarInt)
+        ("testTransferOperationToChainObjectWithOtherVarInt", testTransferOperationToChainObjectWithOtherVarInt),
+        ("testSubmitContentOperation", testSubmitContentOperation),
     ]
 }
