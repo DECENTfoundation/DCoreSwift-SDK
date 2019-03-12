@@ -124,7 +124,7 @@ extension Int {
 
 public enum SubmitContent<Input> where Input: SynopsisConvertible {
     
-    fileprivate var uri: String {
+    var uri: String {
         switch self {
         case .cdnMultiPaid(let uri, _, _, _, _): return uri
         case .cdnPaid(let uri, _, _, _): return uri

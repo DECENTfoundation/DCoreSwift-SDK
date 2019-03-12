@@ -4,6 +4,7 @@ import RxSwift
 public protocol ContentApi: BaseApi {
     func getContent(byId id: ChainObject) -> Single<Content>
     func getContent(byUri uri: String) -> Single<Content>
+    func exist(byUri uri: String) -> Single<Bool>
     // swiftlint:disable:next function_parameter_count
     func search(contentByTerm term: String,
                 order: SearchOrder.Content,
@@ -31,6 +32,10 @@ extension ContentApi {
     
     public func getContent(byUri uri: String) -> Single<Content> {
         return GetContentByUri(uri).base.toResponse(api.core)
+    }
+    
+    public func exist(byUri uri: String) -> Single<Bool> {
+        return getContent(byUri: uri).map({ _ in true }).catchErrorJustReturn(false)
     }
     
     public func search(contentByTerm term: String,
@@ -66,10 +71,13 @@ extension ContentApi {
                               credentials: Credentials,
                               publishingFee: AssetAmount = .unset,
                               fee: AssetAmount = .unset) -> Single<TransactionConfirmation> where Input: SynopsisConvertible {
-        return self.api.broadcast.broadcast(withCallback: credentials.keyPair, operation: SubmitContentOperation(
-            content, credentials: credentials, publishingFee: publishingFee, fee: fee
+        return exist(byUri: content.uri).flatMap { result in
+            guard !result else { return Single.error(DCoreException.network(.alreadyFound)) }
+            return self.api.broadcast.broadcast(withCallback: credentials.keyPair, operation: SubmitContentOperation(
+                content, credentials: credentials, publishingFee: publishingFee, fee: fee
+                )
             )
-        )
+        }
     }
     
     public func delete(byReference ref: Content.Reference, credentials: Credentials, fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
