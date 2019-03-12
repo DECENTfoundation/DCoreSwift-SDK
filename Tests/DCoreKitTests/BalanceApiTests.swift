@@ -6,6 +6,7 @@ import RxBlocking
 final class BalanceApiTests: XCTestCase {
 
     private let rest = DCore.Sdk.create(forRest: "https://stagesocket.decentgo.com:8090/rpc")
+    private let restMain = DCore.Sdk.create(forRest: "https://api.decent.ch/rpc")
     
     func testGetBalanceByAccountId() {
    
@@ -20,8 +21,17 @@ final class BalanceApiTests: XCTestCase {
         XCTAssertEqual(balance?.assetId, DCore.Constant.dct)
     }
     
+    func testGetBalanceByAccountIdOnMainnet() {
+        let id = "1.2.11368".dcore.chainObject!
+        
+        let balance = try? restMain.balance.getBalance(byAccountId: id).debug().toBlocking().single()
+        XCTAssertEqual(balance?.asset.id, DCore.Constant.dct)
+        XCTAssertEqual(balance?.amount.assetId, DCore.Constant.dct)
+    }
+    
     static var allTests = [
         ("testGetBalanceByAccountId", testGetBalanceByAccountId),
         ("testGetBalanceByAccountIdAndAssetId", testGetBalanceByAccountIdAndAssetId),
+        ("testGetBalanceByAccountIdOnMainnet", testGetBalanceByAccountIdOnMainnet)
     ]
 }

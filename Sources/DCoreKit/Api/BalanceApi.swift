@@ -22,7 +22,7 @@ extension BalanceApi {
         return getBalances(byAccountId: id, assets: [asset]).map({ try $0.first.orThrow(DCoreException.network(.notFound)) })
     }
     
-    public func getBalances(byReference ref: String, assets: [ChainObject] = []) -> Single<[AssetAmount]> {
+    public func getBalances(byReference ref: Account.Reference, assets: [ChainObject] = []) -> Single<[AssetAmount]> {
         return Single.deferred({
             if Account.hasValid(name: ref) {
                 return GetNamedAccountBalances(ref, assets: assets).base.toResponse(self.api.core)

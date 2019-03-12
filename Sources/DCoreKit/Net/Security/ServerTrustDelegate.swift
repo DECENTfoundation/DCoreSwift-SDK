@@ -1,13 +1,13 @@
 import Foundation
 
-final class RestSecurityDelegate: NSObject {
-    weak var provider: SecurityProvider?
+open class ServerTrustDelegate: NSObject, URLSessionDelegate {
+    public internal(set) weak var provider: SecurityProvider?
 }
 
-extension RestSecurityDelegate: URLSessionDelegate {
-    func urlSession(_ session: URLSession,
-                    didReceive challenge: URLAuthenticationChallenge,
-                    completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+extension ServerTrustDelegate {
+    public func urlSession(_ session: URLSession,
+                           didReceive challenge: URLAuthenticationChallenge,
+                           completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         
         switch challenge.protectionSpace.authenticationMethod {
         case NSURLAuthenticationMethodServerTrust:
