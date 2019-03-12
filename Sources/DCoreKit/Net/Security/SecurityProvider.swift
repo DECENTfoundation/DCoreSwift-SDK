@@ -1,5 +1,5 @@
 import Foundation
 
-protocol SecurityProvider: AnyObject {
+public protocol SecurityProvider: AnyObject {
     var validator: ServerTrustValidation? { get }
 }
