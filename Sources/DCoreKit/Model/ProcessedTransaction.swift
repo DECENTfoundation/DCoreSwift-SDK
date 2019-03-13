@@ -10,8 +10,6 @@ public struct ProcessedTransaction {
     public let refBlockPrefix: UInt64
     public let opResults: AnyValue?
     
-    public lazy var id: String = CryptoUtils.hash256(asData()).prefix(20).toHex()
-    
     fileprivate var blockData: BlockData {
         return BlockData(refBlockNum: refBlockNum,
                          refBlockPrefix: refBlockPrefix,
@@ -60,6 +58,8 @@ extension ProcessedTransaction: Codable {
 }
 
 extension ProcessedTransaction {
+    public var id: String { return CryptoUtils.hash256(asData()).prefix(20).toHex() }
+
     public func asData() -> Data {
         var data = Data()
         data += blockData.asData()
