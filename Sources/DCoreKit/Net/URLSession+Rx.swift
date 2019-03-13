@@ -1,6 +1,5 @@
 import Foundation
 import RxSwift
-import Alamofire
 
 extension Reactive where Base: URLSession {
     func asData(request: URLRequest, queue: DispatchQueue) -> Single<Data> {
