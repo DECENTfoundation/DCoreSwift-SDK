@@ -16,7 +16,7 @@ public protocol ContentApi: BaseApi {
     func listPublishingManagers(lowerBound: String, limit: Int) -> Single<[ChainObject]>
     func generateContentKeys(forSeeders ids: [ChainObject]) -> Single<ContentKeys>
     func restoreEncryptionKey(elGamalPrivate: PubKey, purchaseId: ChainObject) -> Single<String>
-    func create<Input>(_ content: SubmitContent<Input>,
+    func create<Input>(on content: SubmitContent<Input>,
                        credentials: Credentials,
                        publishingFee: AssetAmount,
                        fee: AssetAmount) -> Single<TransactionConfirmation> where Input: SynopsisConvertible
@@ -67,7 +67,7 @@ extension ContentApi {
         return RestoreEncryptionKey(elGamalPrivate, purchaseId: purchaseId).base.toResponse(api.core)
     }
     
-    public func create<Input>(_ content: SubmitContent<Input>,
+    public func create<Input>(on content: SubmitContent<Input>,
                               credentials: Credentials,
                               publishingFee: AssetAmount = .unset,
                               fee: AssetAmount = .unset) -> Single<TransactionConfirmation> where Input: SynopsisConvertible {

@@ -53,7 +53,7 @@ public struct AuthMap: Codable {
 extension Authority: DataConvertible {
     public func asData() -> Data {
         var data = Data()
-        data += weightThreshold
+        data += weightThreshold.littleEndian
         data += Data.ofZero
         data += keyAuths.asData()
                 

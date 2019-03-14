@@ -37,7 +37,7 @@ class OperationApiTests: XCTestCase {
         let exp = NSCalendar.current.date(byAdding: .month, value: 10, to: Date())!
         let syn = Synopsis(title: "foofofo", description: "foafa")
         
-        let confirm = try? wss.content.create(.cdn(uri: uri, expiration: exp, synopsis: syn), credentials: creds!).debug().toBlocking().single()
+        let confirm = try? wss.content.create(on: .cdn(uri: uri, expiration: exp, synopsis: syn), credentials: creds!).debug().toBlocking().single()
         XCTAssertNotNil(confirm)
     }
     
@@ -49,14 +49,25 @@ class OperationApiTests: XCTestCase {
         let syn = Synopsis(title: "foofofo", description: "foafa")
         let price = AssetAmount(100000)
         
-        let confirm = try? wss.content.create(.cdnWithPrice(uri: uri, expiration: exp, price: price, synopsis: syn), credentials: creds!).debug().toBlocking().single()
+        let confirm = try? wss.content.create(on: .cdnWithPrice(uri: uri, expiration: exp, price: price, synopsis: syn), credentials: creds!).debug().toBlocking().single()
         XCTAssertNotNil(confirm)
     }
 
+    func testSubmitAccountOperation() {
+        let pk = "5J1HnqK3gajNzDWj9Na6fo3gxtphv6MHLE5YLgRmQv8tC8e3rEd"
+        let creds = try? Credentials("1.2.17".dcore.chainObject!, wif: pk)
+        let address = ECKeyPair().address
+        let name = "ios\(CryptoUtils.secureRandom().prefix(upTo: 10).toHex())"
+        
+        let confirm = try? wss.account.create(.with(name: name, address: address), registrar: creds!).debug().toBlocking().single()
+        XCTAssertNotNil(confirm)
+    }
+    
     static var allTests = [
         ("testTransferOperation", testTransferOperation),
         ("testTransferOperationToChainObjectWithOtherVarInt", testTransferOperationToChainObjectWithOtherVarInt),
         ("testSubmitCdnContentOperation", testSubmitCdnContentOperation),
         ("testSubmitCdnWithPriceContentOperation", testSubmitCdnWithPriceContentOperation),
+        ("testSubmitAccountOperation", testSubmitAccountOperation),
     ]
 }

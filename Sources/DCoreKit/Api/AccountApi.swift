@@ -24,6 +24,7 @@ public protocol AccountApi: BaseApi {
                 id: ChainObject,
                 limit: Int) -> Single<[Account]>
     func getAccountCount() -> Single<UInt64>
+    func create(_ account: SubmitAccount, registrar: Credentials, fee: AssetAmount) -> Single<TransactionConfirmation>
 }
 
 extension AccountApi {
@@ -108,6 +109,16 @@ extension AccountApi {
     
     public func getAccountCount() -> Single<UInt64> {
         return GetAccountCount().base.toResponse(api.core)
+    }
+    
+    public func create(_ account: SubmitAccount, registrar: Credentials, fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
+        return existAccount(byName: account.name).flatMap { result in
+            guard !result else { return Single.error(DCoreException.network(.alreadyFound)) }
+            return self.api.broadcast.broadcast(withCallback: registrar.keyPair, operation: AccountCreateOperation(
+                account, registrar: registrar.accountId, fee: fee
+                )
+            )
+        }
     }
 }
 
