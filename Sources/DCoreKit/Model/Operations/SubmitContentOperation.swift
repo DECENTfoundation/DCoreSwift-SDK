@@ -122,21 +122,31 @@ extension Int {
     fileprivate static let unset: Int = 0
 }
 
+extension URLConvertible {
+    fileprivate var uri: String {
+        return (asURL()?.absoluteString).or("")
+    }
+    
+    fileprivate var hash: String {
+        return CryptoUtils.ripemd160(uri.asEncoded()).toHex()
+    }
+}
+
 public enum SubmitContent<Input> where Input: SynopsisConvertible {
     
     var uri: String {
         switch self {
-        case .cdnWithSharedPrice(let uri, _, _, _, _): return uri
-        case .cdnWithPrice(let uri, _, _, _): return uri
-        case .cdn(let uri, _, _): return uri
+        case .cdnWithSharedPrice(let url, _, _, _, _): return url.uri
+        case .cdnWithPrice(let url, _, _, _): return url.uri
+        case .cdn(let url, _, _): return url.uri
         }
     }
     
     fileprivate var hash: String {
         switch self {
-        case .cdnWithSharedPrice(let uri, _, _, _, _): return CryptoUtils.ripemd160(uri.asEncoded()).toHex()
-        case .cdnWithPrice(let uri, _, _, _): return CryptoUtils.ripemd160(uri.asEncoded()).toHex()
-        case .cdn(let uri, _, _): return CryptoUtils.ripemd160(uri.asEncoded()).toHex()
+        case .cdnWithSharedPrice(let url, _, _, _, _): return url.hash
+        case .cdnWithPrice(let url, _, _, _): return url.hash
+        case .cdn(let url, _, _): return url.hash
         }
     }
     
@@ -179,7 +189,7 @@ public enum SubmitContent<Input> where Input: SynopsisConvertible {
     fileprivate var keyParts: [KeyParts] { return [] }
     
     case
-    cdnWithSharedPrice(uri: String, expiration: Date, price: AssetAmount, synopsis: Input, coauthors: [Pair<ChainObject, Int>]),
-    cdnWithPrice(uri: String, expiration: Date, price: AssetAmount, synopsis: Input),
-    cdn(uri: String, expiration: Date, synopsis: Input)
+    cdnWithSharedPrice(url: URLConvertible, expiration: Date, price: AssetAmount, synopsis: Input, coauthors: [Pair<ChainObject, Int>]),
+    cdnWithPrice(url: URLConvertible, expiration: Date, price: AssetAmount, synopsis: Input),
+    cdn(url: URLConvertible, expiration: Date, synopsis: Input)
 }
