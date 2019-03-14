@@ -23,6 +23,8 @@ extension DCore {
             secured(by: validator)
         }
         
+        deinit { dispose() }
+        
         public static func create(forRest uri: URLConvertible,
                                   session: URLSession? = nil,
                                   delegate: ServerTrustDelegate? = nil,
@@ -42,9 +44,12 @@ extension DCore {
             return Api(core: Sdk(wssUri: uri, restUri: restUri, session: session, delegate: delegate, validator: validator))
         }
         
+        func dispose() {
+            [wss, rest].forEach { (obj: Lifecycle?) in obj?.dispose() }
+        }
+        
         func secured(by validator: ServerTrustValidation?) {
-            rest?.secured(by: validator)
-            wss?.secured(by: validator)
+            [wss, rest].forEach { (obj: SecurityConfigurable?) in obj?.secured(by: validator) }
         }
         
         func prepare(transactionUsing operations: [Operation], expiration: Int) -> Single<Transaction> {

@@ -322,6 +322,10 @@
 		A1D96E3821ED2025009C0A30 /* SerializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_235 /* SerializationTests.swift */; };
 		A1D96E3921ED2025009C0A30 /* SubscriptionApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_236 /* SubscriptionApiTests.swift */; };
 		A1E9BC3421ECE0410058109F /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E9BC3321ECE0410058109F /* RxBlocking.framework */; };
+		A1EF306822392935002D2F39 /* ConnectivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF306722392935002D2F39 /* ConnectivityTests.swift */; };
+		A1EF306922392935002D2F39 /* ConnectivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF306722392935002D2F39 /* ConnectivityTests.swift */; };
+		A1EF306B223A38CC002D2F39 /* Lifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF306A223A38CC002D2F39 /* Lifecycle.swift */; };
+		A1EF306C223A38CC002D2F39 /* Lifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF306A223A38CC002D2F39 /* Lifecycle.swift */; };
 		OBJ_1000 /* SearchContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* SearchContent.swift */; };
 		OBJ_1001 /* SearchFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_186 /* SearchFeedback.swift */; };
 		OBJ_1002 /* SearchMinerVoting.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_187 /* SearchMinerVoting.swift */; };
@@ -615,6 +619,8 @@
 		A1D96E2E21ED1E22009C0A30 /* DCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1D96E4121ED2025009C0A30 /* DCoreKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCoreKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1E9BC3321ECE0410058109F /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		A1EF306722392935002D2F39 /* ConnectivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConnectivityTests.swift; path = Tests/DcoreKitTests/ConnectivityTests.swift; sourceTree = SOURCE_ROOT; };
+		A1EF306A223A38CC002D2F39 /* Lifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Lifecycle.swift; path = Sources/DcoreKit/Utils/Lifecycle.swift; sourceTree = SOURCE_ROOT; };
 		"DCoreKit::DCoreKit::Product" /* DCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DCoreKit::DCoreKitTests::Product" /* DCoreKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = DCoreKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* AccountApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountApi.swift; sourceTree = "<group>"; };
@@ -1523,6 +1529,7 @@
 				A1673B5421EF615B008FF560 /* Optional+Extension.swift */,
 				A1673B5A21F07143008FF560 /* DateFormatter+Extension.swift */,
 				A1B00ED72200A804002D59F3 /* Date+DCoreExtensionProvider.swift */,
+				A1EF306A223A38CC002D2F39 /* Lifecycle.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1554,6 +1561,7 @@
 				OBJ_237 /* XCTestManifests.swift */,
 				A1676780221C43720024A4D6 /* BlockApiTests.swift */,
 				A13D09C9223078E5000CAE17 /* SecurityTests.swift */,
+				A1EF306722392935002D2F39 /* ConnectivityTests.swift */,
 			);
 			name = DCoreKitTests;
 			path = Tests/DCoreKitTests;
@@ -2859,6 +2867,7 @@
 				A1D96DF121ED1E22009C0A30 /* LookupMinerAccounts.swift in Sources */,
 				A1D96DF221ED1E22009C0A30 /* LookupMiners.swift in Sources */,
 				A1673B4D21EF34DF008FF560 /* Array+Extension.swift in Sources */,
+				A1EF306C223A38CC002D2F39 /* Lifecycle.swift in Sources */,
 				A1D96DF321ED1E22009C0A30 /* LookupVoteIds.swift in Sources */,
 				A1D96DF421ED1E22009C0A30 /* PriceToDct.swift in Sources */,
 				A1D96DF521ED1E22009C0A30 /* RequestApiAccess.swift in Sources */,
@@ -2939,6 +2948,7 @@
 				A1D96E3821ED2025009C0A30 /* SerializationTests.swift in Sources */,
 				A1D96E3921ED2025009C0A30 /* SubscriptionApiTests.swift in Sources */,
 				A181489821F859320053F9BE /* ValidationApiTests.swift in Sources */,
+				A1EF306922392935002D2F39 /* ConnectivityTests.swift in Sources */,
 				A114B51A21F9F5E2009F1BA2 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2962,6 +2972,7 @@
 				OBJ_1091 /* SerializationTests.swift in Sources */,
 				A1676781221C43720024A4D6 /* BlockApiTests.swift in Sources */,
 				OBJ_1092 /* SubscriptionApiTests.swift in Sources */,
+				A1EF306822392935002D2F39 /* ConnectivityTests.swift in Sources */,
 				A181489721F859320053F9BE /* ValidationApiTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3130,6 +3141,7 @@
 				OBJ_965 /* GetRequiredFees.swift in Sources */,
 				OBJ_966 /* GetRequiredSignatures.swift in Sources */,
 				OBJ_967 /* GetSeeder.swift in Sources */,
+				A1EF306B223A38CC002D2F39 /* Lifecycle.swift in Sources */,
 				OBJ_968 /* GetSubscription.swift in Sources */,
 				OBJ_969 /* GetTimeToMaintenance.swift in Sources */,
 				OBJ_970 /* GetTransaction.swift in Sources */,
