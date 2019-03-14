@@ -22,7 +22,7 @@ extension OperationQueue {
     }
 }
 
-final class RestService: CoreRequestConvertible {
+final class RestService: CoreRequestConvertible, Lifecycle {
 
     private let url: URL
     private let session: URLSession
@@ -42,7 +42,7 @@ final class RestService: CoreRequestConvertible {
         self.delegate.provider = self
     }
     
-    deinit { session.invalidateAndCancel() }
+    deinit { dispose() }
         
     func request<Output>(using req: BaseRequest<Output>) -> Single<Output> where Output: Codable {
         return Single.deferred { [unowned self] in
@@ -56,6 +56,8 @@ final class RestService: CoreRequestConvertible {
                 }
             }
     }
+    
+    func dispose() { session.invalidateAndCancel() }
 }
 
 extension RestService: SecurityConfigurable {

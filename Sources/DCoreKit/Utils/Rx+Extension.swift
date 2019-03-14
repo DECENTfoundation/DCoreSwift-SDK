@@ -13,6 +13,10 @@ extension Single {
     func asObservableMapTo<T>(_ value: T) -> Observable<T> {
         return self.asObservable().mapTo(value)
     }
+    
+    func catchErrorJustComplete() -> PrimitiveSequence<CompletableTrait, Never> {
+        return asObservable().catchErrorJustComplete().ignoreElements()
+    }
 }
 
 extension AsyncSubject {
