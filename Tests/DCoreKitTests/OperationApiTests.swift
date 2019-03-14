@@ -30,7 +30,7 @@ class OperationApiTests: XCTestCase {
         XCTAssertNotNil(confirm)
     }
     
-    func testSubmitContentOperation() {
+    func testSubmitCdnContentOperation() {
         let pk = "5J1HnqK3gajNzDWj9Na6fo3gxtphv6MHLE5YLgRmQv8tC8e3rEd"
         let creds = try? Credentials("1.2.17".dcore.chainObject!, wif: pk)
         let uri = "https://foofoo.com/foo?v\(UUID().uuidString)"
@@ -40,10 +40,23 @@ class OperationApiTests: XCTestCase {
         let confirm = try? wss.content.create(.cdn(uri: uri, expiration: exp, synopsis: syn), credentials: creds!).debug().toBlocking().single()
         XCTAssertNotNil(confirm)
     }
+    
+    func testSubmitCdnWithPriceContentOperation() {
+        let pk = "5J1HnqK3gajNzDWj9Na6fo3gxtphv6MHLE5YLgRmQv8tC8e3rEd"
+        let creds = try? Credentials("1.2.17".dcore.chainObject!, wif: pk)
+        let uri = "https://foofoo.com/foo?v\(UUID().uuidString)"
+        let exp = NSCalendar.current.date(byAdding: .month, value: 10, to: Date())!
+        let syn = Synopsis(title: "foofofo", description: "foafa")
+        let price = AssetAmount(100000)
+        
+        let confirm = try? wss.content.create(.cdnWithPrice(uri: uri, expiration: exp, price: price, synopsis: syn), credentials: creds!).debug().toBlocking().single()
+        XCTAssertNotNil(confirm)
+    }
 
     static var allTests = [
         ("testTransferOperation", testTransferOperation),
         ("testTransferOperationToChainObjectWithOtherVarInt", testTransferOperationToChainObjectWithOtherVarInt),
-        ("testSubmitContentOperation", testSubmitContentOperation),
+        ("testSubmitCdnContentOperation", testSubmitCdnContentOperation),
+        ("testSubmitCdnWithPriceContentOperation", testSubmitCdnWithPriceContentOperation),
     ]
 }

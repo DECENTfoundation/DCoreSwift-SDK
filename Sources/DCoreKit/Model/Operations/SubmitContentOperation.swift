@@ -126,47 +126,47 @@ public enum SubmitContent<Input> where Input: SynopsisConvertible {
     
     var uri: String {
         switch self {
-        case .cdnMultiPaid(let uri, _, _, _, _): return uri
-        case .cdnPaid(let uri, _, _, _): return uri
+        case .cdnWithSharedPrice(let uri, _, _, _, _): return uri
+        case .cdnWithPrice(let uri, _, _, _): return uri
         case .cdn(let uri, _, _): return uri
         }
     }
     
     fileprivate var hash: String {
         switch self {
-        case .cdnMultiPaid(let uri, _, _, _, _): return CryptoUtils.ripemd160(uri.asEncoded()).toHex()
-        case .cdnPaid(let uri, _, _, _): return CryptoUtils.ripemd160(uri.asEncoded()).toHex()
+        case .cdnWithSharedPrice(let uri, _, _, _, _): return CryptoUtils.ripemd160(uri.asEncoded()).toHex()
+        case .cdnWithPrice(let uri, _, _, _): return CryptoUtils.ripemd160(uri.asEncoded()).toHex()
         case .cdn(let uri, _, _): return CryptoUtils.ripemd160(uri.asEncoded()).toHex()
         }
     }
     
     fileprivate var expiration: Date {
         switch self {
-        case .cdnMultiPaid(_, let expiration, _, _, _): return expiration
-        case .cdnPaid(_, let expiration, _, _): return expiration
+        case .cdnWithSharedPrice(_, let expiration, _, _, _): return expiration
+        case .cdnWithPrice(_, let expiration, _, _): return expiration
         case .cdn(_, let expiration, _): return expiration
         }
     }
     
     fileprivate var price: [RegionalPrice] {
         switch self {
-        case .cdnMultiPaid(_, _, let price, _, _): return [RegionalPrice(price)]
-        case .cdnPaid(_, _, let price, _): return [RegionalPrice(price)]
+        case .cdnWithSharedPrice(_, _, let price, _, _): return [RegionalPrice(price)]
+        case .cdnWithPrice(_, _, let price, _): return [RegionalPrice(price)]
         case .cdn(_, _, _): return [.unset] // swiftlint:disable:this empty_enum_arguments
         }
     }
     
     fileprivate var synopsis: String {
         switch self {
-        case .cdnMultiPaid(_, _, _, let synopsis, _): return synopsis.asJson().or("")
-        case .cdnPaid(_, _, _, let synopsis): return synopsis.asJson().or("")
+        case .cdnWithSharedPrice(_, _, _, let synopsis, _): return synopsis.asJson().or("")
+        case .cdnWithPrice(_, _, _, let synopsis): return synopsis.asJson().or("")
         case .cdn(_, _, let synopsis): return synopsis.asJson().or("")
         }
     }
     
     fileprivate func coauthors(without author: ChainObject) -> [Pair<ChainObject, Int>]? {
         switch self {
-        case .cdnMultiPaid(_, _, _, _, let coauthors):
+        case .cdnWithSharedPrice(_, _, _, _, let coauthors):
             precondition(coauthors.allSatisfy { $0.first != author }, "Author can't be part of co-authors")
             return coauthors
         default: return nil
@@ -179,7 +179,7 @@ public enum SubmitContent<Input> where Input: SynopsisConvertible {
     fileprivate var keyParts: [KeyParts] { return [] }
     
     case
-    cdnMultiPaid(uri: String, expiration: Date, price: AssetAmount, synopsis: Input, coauthors: [Pair<ChainObject, Int>]),
-    cdnPaid(uri: String, expiration: Date, price: AssetAmount, synopsis: Input),
+    cdnWithSharedPrice(uri: String, expiration: Date, price: AssetAmount, synopsis: Input, coauthors: [Pair<ChainObject, Int>]),
+    cdnWithPrice(uri: String, expiration: Date, price: AssetAmount, synopsis: Input),
     cdn(uri: String, expiration: Date, synopsis: Input)
 }

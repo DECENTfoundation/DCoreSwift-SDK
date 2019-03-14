@@ -44,4 +44,3 @@ public struct Content: Codable {
 extension Content {
     public typealias Reference = String
 }
-
