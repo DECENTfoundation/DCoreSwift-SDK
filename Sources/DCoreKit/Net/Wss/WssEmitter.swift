@@ -29,13 +29,16 @@ struct OnEvent: SocketEvent {
 struct WssEmitter: SSLTrustValidator {
 
     private let source: WebSocket
-    private let security: SecurityProvider
+    private weak var security: SecurityProvider?
 
-    init(_ url: URL, security: SecurityProvider, observer: AnyObserver<SocketEvent>) {
+    init(_ url: URL, security: SecurityProvider?, observer: AnyObserver<SocketEvent>) {
         
         let wss = WebSocket(url: url, writeQueueQOS: .default)
+        wss.onHttpResponseHeaders = { headers in
+            DCore.Logger.debug(network: "WebSocket headers %{private}s", args: { "\(headers)" })
+        }
         wss.onConnect = { [weak wss] in
-            DCore.Logger.debug(network: "WebSocket connect")
+            DCore.Logger.debug(network: "WebSocket connected: %{public}s", args: { String(describing: wss?.isConnected) })
             observer.onNext(OnOpenEvent(value: wss))
         }
         wss.onText = { observer.onNext(OnMessageEvent(value: $0)) }
@@ -56,11 +59,18 @@ struct WssEmitter: SSLTrustValidator {
         self.source.security = self
     }
     
-    func connect() { source.connect() }
-    func disconnect() { source.disconnect() }
+    @discardableResult
+    func connect() -> WssEmitter {
+        source.connect()
+        return self
+    }
+    
+    func disconnect() {
+        source.disconnect()
+    }
     
     func isValid(_ trust: SecTrust, domain: String?) -> Bool {
-        if let validator = security.validator, let host = domain {
+        if let validator = security?.validator, let host = domain {
             do {
                 try validator.validate(trust: trust, for: host)
                 return true
