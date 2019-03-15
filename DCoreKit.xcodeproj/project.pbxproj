@@ -93,6 +93,16 @@
 		A19D4CF821F1B4D70069B6CA /* MockBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF621F1B4D70069B6CA /* MockBuilder.swift */; };
 		A19D4CFA21F1B64B0069B6CA /* MockTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */; };
 		A19D4CFB21F1B64B0069B6CA /* MockTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */; };
+		A1A9854C223BA971007CFB04 /* ElGamalKeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */; };
+		A1A9854D223BA971007CFB04 /* ElGamalKeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */; };
+		A1A9854F223BAECC007CFB04 /* CustomOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854E223BAECC007CFB04 /* CustomOperation.swift */; };
+		A1A98550223BAECC007CFB04 /* CustomOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854E223BAECC007CFB04 /* CustomOperation.swift */; };
+		A1A98552223BAEEC007CFB04 /* SendMessageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A98551223BAEEC007CFB04 /* SendMessageOperation.swift */; };
+		A1A98553223BAEEC007CFB04 /* SendMessageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A98551223BAEEC007CFB04 /* SendMessageOperation.swift */; };
+		A1A98555223BE6C4007CFB04 /* AnyCustomOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A98554223BE6C4007CFB04 /* AnyCustomOperation.swift */; };
+		A1A98556223BE6C4007CFB04 /* AnyCustomOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A98554223BE6C4007CFB04 /* AnyCustomOperation.swift */; };
+		A1A98558223BF2BA007CFB04 /* CustomOperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A98557223BF2BA007CFB04 /* CustomOperationType.swift */; };
+		A1A98559223BF2BA007CFB04 /* CustomOperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A98557223BF2BA007CFB04 /* CustomOperationType.swift */; };
 		A1AE9DB722031528004B6019 /* HistoryApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE9DB622031528004B6019 /* HistoryApiTests.swift */; };
 		A1AE9DB822031528004B6019 /* HistoryApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE9DB622031528004B6019 /* HistoryApiTests.swift */; };
 		A1AE9DC622036C45004B6019 /* FeeOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE9DC522036C45004B6019 /* FeeOperation.swift */; };
@@ -608,6 +618,11 @@
 		A19D4CF221F1AE960069B6CA /* AccountApiMockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountApiMockTests.swift; sourceTree = "<group>"; };
 		A19D4CF621F1B4D70069B6CA /* MockBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBuilder.swift; sourceTree = "<group>"; };
 		A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTestCase.swift; sourceTree = "<group>"; };
+		A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ElGamalKeyPair.swift; path = Sources/DcoreKit/Crypto/ElGamalKeyPair.swift; sourceTree = SOURCE_ROOT; };
+		A1A9854E223BAECC007CFB04 /* CustomOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomOperation.swift; path = Sources/DcoreKit/Model/Operations/CustomOperation.swift; sourceTree = SOURCE_ROOT; };
+		A1A98551223BAEEC007CFB04 /* SendMessageOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SendMessageOperation.swift; path = Sources/DcoreKit/Model/Operations/SendMessageOperation.swift; sourceTree = SOURCE_ROOT; };
+		A1A98554223BE6C4007CFB04 /* AnyCustomOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnyCustomOperation.swift; path = Sources/DcoreKit/Model/Operations/AnyCustomOperation.swift; sourceTree = SOURCE_ROOT; };
+		A1A98557223BF2BA007CFB04 /* CustomOperationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomOperationType.swift; path = Sources/DcoreKit/Model/CustomOperationType.swift; sourceTree = SOURCE_ROOT; };
 		A1AE9DB622031528004B6019 /* HistoryApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HistoryApiTests.swift; path = Tests/DcoreKitTests/HistoryApiTests.swift; sourceTree = SOURCE_ROOT; };
 		A1AE9DC522036C45004B6019 /* FeeOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeeOperation.swift; path = Sources/DcoreKit/Model/Operations/FeeOperation.swift; sourceTree = SOURCE_ROOT; };
 		A1AF06F22237F241002CA4F7 /* SynopsisConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SynopsisConvertible.swift; path = Sources/DcoreKit/Model/SynopsisConvertible.swift; sourceTree = SOURCE_ROOT; };
@@ -1678,6 +1693,7 @@
 				OBJ_30 /* PrivateKey.swift */,
 				OBJ_31 /* PublicKey.swift */,
 				A159C4C121FDFF4F008BE73E /* CipherConvertible.swift */,
+				A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */,
 			);
 			path = Crypto;
 			sourceTree = "<group>";
@@ -1894,6 +1910,7 @@
 				OBJ_67 /* ObjectType.swift */,
 				OBJ_68 /* OperationHistory.swift */,
 				OBJ_69 /* OperationType.swift */,
+				A1A98557223BF2BA007CFB04 /* CustomOperationType.swift */,
 				OBJ_70 /* Operations */,
 				OBJ_75 /* Options.swift */,
 				OBJ_76 /* Order.swift */,
@@ -2361,6 +2378,9 @@
 				A16032B121F3563D00674FEF /* SubmitContentOperation.swift */,
 				A189709221F217B700602F81 /* AccountCreateOperation.swift */,
 				A16032AE21F3560700674FEF /* AccountUpdateOperation.swift */,
+				A1A9854E223BAECC007CFB04 /* CustomOperation.swift */,
+				A1A98554223BE6C4007CFB04 /* AnyCustomOperation.swift */,
+				A1A98551223BAEEC007CFB04 /* SendMessageOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -2752,6 +2772,7 @@
 				A1B00ED92200A804002D59F3 /* Date+DCoreExtensionProvider.swift in Sources */,
 				A1B13BF322043A59006B59BF /* UnknownOperation.swift in Sources */,
 				A1D96D8521ED1E22009C0A30 /* MinerId.swift in Sources */,
+				A1A98550223BAECC007CFB04 /* CustomOperation.swift in Sources */,
 				A1D96D8621ED1E22009C0A30 /* MinerRewardInput.swift in Sources */,
 				A1D96D8721ED1E22009C0A30 /* MinerVotes.swift in Sources */,
 				A1D96D8821ED1E22009C0A30 /* MinerVotingInfo.swift in Sources */,
@@ -2760,6 +2781,7 @@
 				A1D96D8A21ED1E22009C0A30 /* OperationHistory.swift in Sources */,
 				A1D96D8B21ED1E22009C0A30 /* OperationType.swift in Sources */,
 				A1D96D8C21ED1E22009C0A30 /* Operation.swift in Sources */,
+				A1A98553223BAEEC007CFB04 /* SendMessageOperation.swift in Sources */,
 				A1D96D8D21ED1E22009C0A30 /* BuyContentOperation.swift in Sources */,
 				A1D96D8E21ED1E22009C0A30 /* AnyOperation.swift in Sources */,
 				A1D96D8F21ED1E22009C0A30 /* TransferOperation.swift in Sources */,
@@ -2865,6 +2887,7 @@
 				071AE0472212CDB8008AE077 /* QrTransfer.swift in Sources */,
 				A1D96DEE21ED1E22009C0A30 /* LookupAccountNames.swift in Sources */,
 				A169C1CB223011C800FAA818 /* SecurityProvider.swift in Sources */,
+				A1A98556223BE6C4007CFB04 /* AnyCustomOperation.swift in Sources */,
 				A1D96DEF21ED1E22009C0A30 /* LookupAccounts.swift in Sources */,
 				A1D96DF021ED1E22009C0A30 /* LookupAssets.swift in Sources */,
 				A13D09D6223155C5000CAE17 /* CertificatePinValidator.swift in Sources */,
@@ -2878,6 +2901,7 @@
 				A1D96DF621ED1E22009C0A30 /* RestoreEncryptionKey.swift in Sources */,
 				A1D96DF721ED1E22009C0A30 /* SearchAccountBalanceHistory.swift in Sources */,
 				A13D09D0223121E9000CAE17 /* StandardValidator.swift in Sources */,
+				A1A98559223BF2BA007CFB04 /* CustomOperationType.swift in Sources */,
 				A1D96DF821ED1E22009C0A30 /* SearchAccountHistory.swift in Sources */,
 				A1D96DF921ED1E22009C0A30 /* SearchAccounts.swift in Sources */,
 				A143170622085C7700EE656C /* AnyOperationConvertible.swift in Sources */,
@@ -2913,6 +2937,7 @@
 				A1D96E1521ED1E22009C0A30 /* WssResponseParser.swift in Sources */,
 				A1D96E1621ED1E22009C0A30 /* WssService.swift in Sources */,
 				A1D96E1721ED1E22009C0A30 /* BaseConvertible.swift in Sources */,
+				A1A9854D223BA971007CFB04 /* ElGamalKeyPair.swift in Sources */,
 				A1D96E1821ED1E22009C0A30 /* DCoreException.swift in Sources */,
 				A1D96E1921ED1E22009C0A30 /* DCoreExceptionConvertible.swift in Sources */,
 				A1C8525D21F3854700A9A4A2 /* URL+Scheme.swift in Sources */,
@@ -3046,6 +3071,7 @@
 				OBJ_880 /* Memo.swift in Sources */,
 				OBJ_881 /* Miner.swift in Sources */,
 				OBJ_882 /* MinerId.swift in Sources */,
+				A1A9854C223BA971007CFB04 /* ElGamalKeyPair.swift in Sources */,
 				A1673B4C21EF34DF008FF560 /* Array+Extension.swift in Sources */,
 				A13D09D822315657000CAE17 /* PublicKeyPinValidator.swift in Sources */,
 				OBJ_883 /* MinerRewardInput.swift in Sources */,
@@ -3065,6 +3091,7 @@
 				OBJ_893 /* Options.swift in Sources */,
 				OBJ_894 /* Order.swift in Sources */,
 				OBJ_895 /* PricePerRegion.swift in Sources */,
+				A1A98552223BAEEC007CFB04 /* SendMessageOperation.swift in Sources */,
 				OBJ_896 /* ProcessedTransaction.swift in Sources */,
 				OBJ_897 /* PubKey.swift in Sources */,
 				OBJ_898 /* Publishing.swift in Sources */,
@@ -3125,6 +3152,7 @@
 				OBJ_947 /* GetFullAccounts.swift in Sources */,
 				OBJ_948 /* GetGlobalProperties.swift in Sources */,
 				OBJ_949 /* GetHistoryBuyingsByConsumer.swift in Sources */,
+				A1A98555223BE6C4007CFB04 /* AnyCustomOperation.swift in Sources */,
 				A16032B221F3563D00674FEF /* SubmitContentOperation.swift in Sources */,
 				OBJ_950 /* GetKeyReferences.swift in Sources */,
 				OBJ_951 /* GetMinerByAccount.swift in Sources */,
@@ -3141,6 +3169,7 @@
 				OBJ_961 /* GetProposedTransactions.swift in Sources */,
 				OBJ_962 /* GetRealSupply.swift in Sources */,
 				OBJ_963 /* GetRecentTransactionById.swift in Sources */,
+				A1A9854F223BAECC007CFB04 /* CustomOperation.swift in Sources */,
 				071AE0412212CBD7008AE077 /* QrTransfer.swift in Sources */,
 				OBJ_964 /* GetRelativeAccountHistory.swift in Sources */,
 				OBJ_965 /* GetRequiredFees.swift in Sources */,
@@ -3204,6 +3233,7 @@
 				OBJ_1013 /* AnyEncodable.swift in Sources */,
 				OBJ_1014 /* AnyValue.swift in Sources */,
 				OBJ_1015 /* DataConvertible.swift in Sources */,
+				A1A98558223BF2BA007CFB04 /* CustomOperationType.swift in Sources */,
 				OBJ_1017 /* JsonContext.swift in Sources */,
 				OBJ_1018 /* JsonConvertible.swift in Sources */,
 				OBJ_1019 /* UnitValue.swift in Sources */,
