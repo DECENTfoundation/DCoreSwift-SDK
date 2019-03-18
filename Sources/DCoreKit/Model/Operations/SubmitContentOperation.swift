@@ -162,7 +162,7 @@ public enum SubmitContent<Input> where Input: SynopsisConvertible {
         switch self {
         case .cdnWithSharedPrice(_, _, let price, _, _): return [RegionalPrice(price)]
         case .cdnWithPrice(_, _, let price, _): return [RegionalPrice(price)]
-        case .cdn(_, _, _): return [.unset] // swiftlint:disable:this empty_enum_arguments
+        case .cdn: return [.unset]
         }
     }
     
