@@ -12,7 +12,6 @@ extension DCore {
         public lazy var balance: BalanceApi =           ApiProvider(using: self)
         public lazy var block: BlockApi =               ApiProvider(using: self)
         public lazy var broadcast: BroadcastApi =       ApiProvider(using: self)
-        public lazy var operation: OperationApi =       ApiProvider(using: self)
         public lazy var content: ContentApi =           ApiProvider(using: self)
         public lazy var general: GeneralApi =           ApiProvider(using: self)
         public lazy var history: HistoryApi =           ApiProvider(using: self)

@@ -28,7 +28,7 @@ extension BalanceApi {
                 return GetNamedAccountBalances(ref, assets: assets).base.toResponse(self.api.core)
             }
             
-            return self.api.account.getAccount(byReference: ref).flatMap({ account in
+            return self.api.account.get(byReference: ref).flatMap({ account in
                 return self.getBalances(byAccountId: account.id, assets: assets)
             })
         })
@@ -53,13 +53,13 @@ extension BalanceApi {
     }
     
     public func getBalances(byReference ref: String, symbols: [Asset.Symbol]) -> Single<[AssetAmountPair]> {
-        return api.account.getAccount(byReference: ref).flatMap({ account in
+        return api.account.get(byReference: ref).flatMap({ account in
             return self.getBalances(byAccountId: account.id, symbols: symbols)
         })
     }
     
     public func getBalance(byReference ref: String, symbol: Asset.Symbol = .dct) -> Single<AssetAmountPair> {
-        return api.account.getAccount(byReference: ref).flatMap({ account in
+        return api.account.get(byReference: ref).flatMap({ account in
             return self.getBalance(byAccountId: account.id, symbol: symbol)
         })
     }
