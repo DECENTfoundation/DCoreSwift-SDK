@@ -144,16 +144,7 @@ public protocol AccountApi: BaseApi {
      - Returns: Number of registered accounts.
      */
     func countAll() -> Single<UInt64>
-    
-    /**
-     * Create API credentials.
-     *
-     * @param account account name
-     * @param privateKey private key in wif base58 format, eg. 5Jd7zdvxXYNdUfnEXt5XokrE3zwJSs734yQ36a1YaqioRTGGLtn
-     *
-     * @return credentials
-     */
-    
+
     /**
      Create account credentails by account name.
      
