@@ -190,7 +190,7 @@ public protocol AccountApi: BaseApi {
     func create(_ account: SubmitAccount, registrar: Credentials, fee: AssetAmount) -> Single<TransactionConfirmation>
     
     /**
-     Create transfer operation using credentails.
+     Create transfer operation between two accounts using credentails.
      
      - Parameter credentails: Sender account credentials.
      - Parameter to: Receiver account reference.
@@ -213,7 +213,7 @@ public protocol AccountApi: BaseApi {
                         fee: AssetAmount) -> Single<TransferOperation>
     
     /**
-     Create transfer operation using credentails.
+     Create transfer operation between two accounts using credentails.
      
      - Parameter credentails: Sender account credentials.
      - Parameter to: Receiver account reference.
@@ -230,7 +230,7 @@ public protocol AccountApi: BaseApi {
                         fee: AssetAmount) -> Single<TransferOperation>
 
     /**
-     Make a transfer
+     Make a transfer between two accounts
      
      - Parameter credentails: Sender account credentials.
      - Parameter to: Receiver account reference.
@@ -253,7 +253,7 @@ public protocol AccountApi: BaseApi {
                   fee: AssetAmount) -> Single<TransactionConfirmation>
     
     /**
-     Make a transfer
+     Make a transfer between two accounts
      
      - Parameter credentails: Sender account credentials.
      - Parameter to: Receiver account reference.
