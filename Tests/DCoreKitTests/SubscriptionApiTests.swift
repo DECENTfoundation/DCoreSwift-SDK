@@ -9,7 +9,7 @@ class SubscriptionApiTests: XCTestCase {
     
     func testSetBlockAppliedCallbackNotAllowedUsingRest() {
         XCTAssertThrowsError(
-            try rest.subscription.setBlockAppliedCallback().debug().toBlocking().single()
+            try rest.callback.onBlockApplied().debug().toBlocking().single()
         )
     }
     

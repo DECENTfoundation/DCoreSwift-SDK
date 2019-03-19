@@ -18,7 +18,7 @@ extension DCore {
         public lazy var mining: MiningApi =             ApiProvider(using: self)
         public lazy var purchase: PurchaseApi =         ApiProvider(using: self)
         public lazy var seeders: SeedersApi =           ApiProvider(using: self)
-        public lazy var subscription: SubscriptionApi = ApiProvider(using: self)
+        public lazy var callback: CallbackApi =         ApiProvider(using: self)
         public lazy var transaction: TransactionApi =   ApiProvider(using: self)
         
         let core: Sdk

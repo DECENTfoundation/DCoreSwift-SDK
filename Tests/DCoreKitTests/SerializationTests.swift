@@ -126,6 +126,12 @@ final class SerializationTests: XCTestCase {
         XCTAssertEqual("1.2.66534".dcore.chainObject!.asData().toHex(), "e68704")
     }
     
+    func testURLConvertible() {
+        let ipfs = "ipfs:34890231809481209349029ds9ac9csd8908cx9z0c809xzc89z0x"
+        let result = ipfs.asURL()?.absoluteString
+        XCTAssertTrue(result == ipfs)
+    }
+    
     static var allTests = [
         ("testGetAccountHistoryJsonSerialization", testGetAccountHistoryJsonSerialization),
         ("testGetRelativeAccountHistoryJsonSerialization", testGetRelativeAccountHistoryJsonSerialization),
@@ -137,5 +143,6 @@ final class SerializationTests: XCTestCase {
         ("testChainObjectHashing", testChainObjectHashing),
         ("testBlockDataSerialization", testBlockDataSerialization),
         ("testMemoSerialization", testMemoSerialization),
+        ("testURLConvertible", testURLConvertible),
     ]
 }
