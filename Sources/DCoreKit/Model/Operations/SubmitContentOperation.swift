@@ -32,20 +32,20 @@ public struct SubmitContentOperation: Operation {
     public var fee: AssetAmount  = .unset
     public let type: OperationType = .contentSubmitOperation
     
-    public init<Input>(_ content: SubmitContent<Input>,
-                       credentials: Credentials,
-                       publishingFee: AssetAmount = .unset,
-                       fee: AssetAmount = .unset) where Input: SynopsisConvertible {
+    init<Input>(_ content: SubmitContent<Input>,
+                author: Credentials,
+                publishingFee: AssetAmount = .unset,
+                fee: AssetAmount = .unset) where Input: SynopsisConvertible {
         self.init(content,
-                  author: credentials.accountId,
+                  author: author.accountId,
                   publishingFee: publishingFee,
                   fee: fee)
     }
     
-    public init<Input>(_ content: SubmitContent<Input>,
-                       author: ChainObject,
-                       publishingFee: AssetAmount = .unset,
-                       fee: AssetAmount = .unset) where Input: SynopsisConvertible {
+    init<Input>(_ content: SubmitContent<Input>,
+                author: ChainObject,
+                publishingFee: AssetAmount = .unset,
+                fee: AssetAmount = .unset) where Input: SynopsisConvertible {
         self.author = author
         self.uri = content.uri
         self.expiration = content.expiration

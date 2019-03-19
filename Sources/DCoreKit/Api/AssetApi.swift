@@ -58,7 +58,7 @@ public protocol AssetApi: BaseApi {
      
      - Returns:  Array `[Asset]` of assets.
      */
-    func findAllRelative(byLowerBound bound: String, limit: Int) -> Single<[Asset]>
+    func findAllRelative(byLower bound: String, limit: Int) -> Single<[Asset]>
     
     /**
      Converts asset into DCT, using actual price feed.
@@ -104,7 +104,7 @@ extension AssetApi {
         return LookupAssets(symbols).base.toResponse(api.core)
     }
     
-    public func findAllRelative(byLowerBound bound: String, limit: Int = DCore.Constant.assetLimit) -> Single<[Asset]> {
+    public func findAllRelative(byLower bound: String, limit: Int = DCore.Constant.assetLimit) -> Single<[Asset]> {
         return Single.deferred {
             guard limit <= DCore.Constant.assetLimit else {
                 return Single.error(DCoreException.unexpected("Asset limit is out of bound: \(DCore.Constant.assetLimit)"))
