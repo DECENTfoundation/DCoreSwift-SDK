@@ -95,6 +95,8 @@
 		A19D4CF821F1B4D70069B6CA /* MockBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF621F1B4D70069B6CA /* MockBuilder.swift */; };
 		A19D4CFA21F1B64B0069B6CA /* MockTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */; };
 		A19D4CFB21F1B64B0069B6CA /* MockTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */; };
+		A1A2FBAB224185B7003641EA /* SubscriptionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBAA224185B7003641EA /* SubscriptionApi.swift */; };
+		A1A2FBAC224185B7003641EA /* SubscriptionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBAA224185B7003641EA /* SubscriptionApi.swift */; };
 		A1A9854C223BA971007CFB04 /* ElGamalKeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */; };
 		A1A9854D223BA971007CFB04 /* ElGamalKeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */; };
 		A1A9854F223BAECC007CFB04 /* CustomOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854E223BAECC007CFB04 /* CustomOperation.swift */; };
@@ -619,6 +621,7 @@
 		A19D4CF221F1AE960069B6CA /* AccountApiMockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountApiMockTests.swift; sourceTree = "<group>"; };
 		A19D4CF621F1B4D70069B6CA /* MockBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBuilder.swift; sourceTree = "<group>"; };
 		A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTestCase.swift; sourceTree = "<group>"; };
+		A1A2FBAA224185B7003641EA /* SubscriptionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubscriptionApi.swift; path = Sources/DcoreKit/Api/SubscriptionApi.swift; sourceTree = SOURCE_ROOT; };
 		A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ElGamalKeyPair.swift; path = Sources/DcoreKit/Crypto/ElGamalKeyPair.swift; sourceTree = SOURCE_ROOT; };
 		A1A9854E223BAECC007CFB04 /* CustomOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomOperation.swift; path = Sources/DcoreKit/Model/Operations/CustomOperation.swift; sourceTree = SOURCE_ROOT; };
 		A1A98551223BAEEC007CFB04 /* SendMessageOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SendMessageOperation.swift; path = Sources/DcoreKit/Model/Operations/SendMessageOperation.swift; sourceTree = SOURCE_ROOT; };
@@ -2426,6 +2429,7 @@
 				OBJ_23 /* CallbackApi.swift */,
 				OBJ_24 /* TransactionApi.swift */,
 				OBJ_25 /* ValidationApi.swift */,
+				A1A2FBAA224185B7003641EA /* SubscriptionApi.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -2715,6 +2719,7 @@
 				A1D96DA221ED1E22009C0A30 /* Namespace.swift in Sources */,
 				A1D96D5221ED1E22009C0A30 /* AccountApi.swift in Sources */,
 				A1582974223F9413006C0CB3 /* ChainObjectConvertible.swift in Sources */,
+				A1A2FBAC224185B7003641EA /* SubscriptionApi.swift in Sources */,
 				A1D96D5321ED1E22009C0A30 /* AssetApi.swift in Sources */,
 				A1D96D5421ED1E22009C0A30 /* BalanceApi.swift in Sources */,
 				A13D09D322314226000CAE17 /* Certificate+Extensions.swift in Sources */,
@@ -3194,6 +3199,7 @@
 				OBJ_983 /* ListSeedersByUpload.swift in Sources */,
 				A1AF06F32237F241002CA4F7 /* SynopsisConvertible.swift in Sources */,
 				A13D09CF223121E9000CAE17 /* StandardValidator.swift in Sources */,
+				A1A2FBAB224185B7003641EA /* SubscriptionApi.swift in Sources */,
 				A16032D621F375EF00674FEF /* CancelContentOperation.swift in Sources */,
 				OBJ_984 /* ListSubscriptionsByAuthor.swift in Sources */,
 				OBJ_985 /* ListSubscriptionsByConsumer.swift in Sources */,

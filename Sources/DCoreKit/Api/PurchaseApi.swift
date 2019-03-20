@@ -16,11 +16,6 @@ public protocol PurchaseApi: BaseApi {
                 user: String?,
                 count: Int,
                 startId: ChainObject) -> Single<[Purchase]>
-    func getSubscription(byId id: ChainObject) -> Single<Subscription>
-    func listActiveSubscriptions(byConsumerId id: ChainObject, count: Int) -> Single<[Subscription]>
-    func listActiveSubscriptions(byAuthorId id: ChainObject, count: Int) -> Single<[Subscription]>
-    func listSubscriptions(byConsumerId id: ChainObject, count: Int) -> Single<[Subscription]>
-    func listSubscriptions(byAuthorId id: ChainObject, count: Int) -> Single<[Subscription]>
 }
 
 extension PurchaseApi {
@@ -59,26 +54,6 @@ extension PurchaseApi {
                        startId: ChainObject = ObjectType.nullObject.genericId) -> Single<[Purchase]> {
         
         return SearchFeedback(user, uri: uri, startId: startId, count: count).base.toResponse(api.core)
-    }
-    
-    public func getSubscription(byId id: ChainObject) -> Single<Subscription> {
-        return GetSubscription(id).base.toResponse(api.core)
-    }
-    
-    public func listActiveSubscriptions(byConsumerId id: ChainObject, count: Int) -> Single<[Subscription]> {
-        return ListActiveSubscriptionsByConsumer(id, count: count).base.toResponse(api.core)
-    }
-    
-    public func listActiveSubscriptions(byAuthorId id: ChainObject, count: Int) -> Single<[Subscription]> {
-        return ListActiveSubscriptionsByAuthor(id, count: count).base.toResponse(api.core)
-    }
-    
-    public func listSubscriptions(byConsumerId id: ChainObject, count: Int) -> Single<[Subscription]> {
-        return ListSubscriptionsByConsumer(id, count: count).base.toResponse(api.core)
-    }
-    
-    public func listSubscriptions(byAuthorId id: ChainObject, count: Int) -> Single<[Subscription]> {
-        return ListSubscriptionsByAuthor(id, count: count).base.toResponse(api.core)
     }
 }
 
