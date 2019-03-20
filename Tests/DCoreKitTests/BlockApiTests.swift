@@ -11,14 +11,14 @@ class BlockApiTests: XCTestCase {
     func testGetBlockHeaderUsingRest() {
         let num: UInt64 = 1000
         
-        let result = try? rest.block.getBlockHeader(byNum: num).debug().toBlocking().single()
+        let result = try? rest.block.getHeader(byNum: num).debug().toBlocking().single()
         XCTAssertEqual(result?.num, num)
     }
     
     func testGetBlockUsingRest() {
         let num: UInt64 = 1000
         
-        let result = try? rest.block.getBlock(byNum: num).toBlocking().single()
+        let result = try? rest.block.get(byNum: num).toBlocking().single()
         XCTAssertNotNil(result)
     }
     

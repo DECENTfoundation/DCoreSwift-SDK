@@ -29,6 +29,18 @@ public protocol ContentApi: BaseApi {
     func get(byUrl url: URLConvertible) -> Single<Content>
     
     /**
+     Get content by reference (id or URL in String format).
+     
+     - Parameter ref: Reference (id or URL in String format).
+     
+     - Throws: `DCoreException.Network.notFound`
+     if account does not exist.
+     
+     - Returns: `Content`.
+     */
+    func get(byReference ref: Content.Reference) -> Single<Content>
+    
+    /**
      Check if content exist by url.
      
      - Parameter url: Content uri,
@@ -139,15 +151,15 @@ public protocol ContentApi: BaseApi {
     /**
      Delete content by id.
      
-     - Parameter ref: Content id, as `ChainObject` or `String` format.
+     - Parameter id: Content id, as `ChainObject` or `String` format.
      - Parameter author: Credentials of account which will pay operation fee,
      will owner of content.
      - Parameter fee: `AssetAmount` fee for the operation,
      if left `AssetAmount.unset` the fee will be computed in DCT asset,
      default `AssetAmount.unset`.
      
-     - Throws: `DCoreException.Network.alreadyFound`
-     if content with given uri already exist.
+     - Throws: `DCoreException.Network.notFound`
+     if content with given id not exist.
      
      - Returns: `TransactionConfirmation` that content was deleted.
      */
@@ -163,12 +175,118 @@ public protocol ContentApi: BaseApi {
      if left `AssetAmount.unset` the fee will be computed in DCT asset,
      default `AssetAmount.unset`.
      
-     - Throws: `DCoreException.Network.alreadyFound`
-     if content with given uri already exist.
+     - Throws: `DCoreException.Network.notFound`
+     if content with given uri not exist.
      
      - Returns: `TransactionConfirmation` that content was deleted.
      */
     func delete(byUrl url: URLConvertible, author: Credentials, fee: AssetAmount) -> Single<TransactionConfirmation>
+
+    /**
+     Create a purchase content operation.
+     
+     - Parameter id: Content id, as `ChainObject` or `String` format.
+     - Parameter consumer: Account credentials.
+     
+     - Throws: `DCoreException.Network.notFound`
+     if content with given id not exist.
+     
+     - Returns: `PurchaseContentOperation`.
+     */
+    func createPurchase(byId id: ChainObjectConvertible, consumer: Credentials) -> Single<PurchaseContentOperation>
+    
+    /**
+     Create a purchase content operation.
+     
+     - Parameter url: URL or String.
+     - Parameter consumer: Account credentials.
+     
+     - Throws: `DCoreException.Network.notFound`
+     if content with given id not exist.
+     
+     - Returns: `PurchaseContentOperation`.
+     */
+    func createPurchase(byUrl url: URLConvertible, consumer: Credentials) -> Single<PurchaseContentOperation>
+    
+    /**
+     Make a content purchase.
+     
+     - Parameter id: Content id, as `ChainObject` or `String` format.
+     - Parameter consumer: Account credentials.
+     
+     - Throws: `DCoreException.Network.notFound`
+     if content with given id does not exist.
+     
+     - Returns: `TransactionConfirmation` of successfull purchase.
+     */
+    func purchase(byId id: ChainObjectConvertible, consumer: Credentials) -> Single<TransactionConfirmation>
+    
+    /**
+     Make a content purchase.
+     
+     - Parameter url: URL or String.
+     - Parameter consumer: Account credentials.
+     
+     - Throws: `DCoreException.Network.notFound`
+     if content with given url does not exist.
+     
+     - Returns: `TransactionConfirmation` of successfull purchase.
+     */
+    func purchase(byUrl url: URLConvertible, consumer: Credentials) -> Single<TransactionConfirmation>
+    
+    /**
+     Create recurrent transfers operation to transfer an amount of one asset to content.
+     Amount is transferred to author and co-authors of the content, if they are specified.
+     Fees are paid by the `from` account.
+     
+     - Parameter ref: Receiver content reference.
+     - Parameter consumer: Sender account credentials.
+     - Parameter amount: `AssetAmount` to send with asset type.
+     - Parameter message: Message (Optional).
+     - Parameter encrypted: If message present,
+     encrypted is visible only for sender and receiver,
+     unencrypted is visible publicly, default `true`.
+     - Parameter fee: `AssetAmount` fee for the operation,
+     if left `AssetAmount.unset` the fee will be computed in DCT asset,
+     default `AssetAmount.unset`.
+     
+     - Throws: `DCoreException.Network.notFound`
+     if content with given reference does not exist.
+     
+     - Returns: `TransferOperation`.
+     */
+    func createTransfer(toReference ref: Content.Reference,
+                        from consumer: Credentials,
+                        amount: AssetAmount,
+                        message: String?,
+                        fee: AssetAmount) -> Single<TransferOperation>
+    
+    /**
+     Make recurrent transfer an amount of one asset to content.
+     Amount is transferred to author and co-authors of the content, if they are specified.
+     Fees are paid by the `from` account.
+     
+     - Parameter ref: Receiver content reference.
+     - Parameter consumer: Sender account credentials.
+     - Parameter amount: `AssetAmount` to send with asset type.
+     - Parameter message: Message (Optional).
+     - Parameter encrypted: If message present,
+     encrypted is visible only for sender and receiver,
+     unencrypted is visible publicly, default `true`.
+     - Parameter fee: `AssetAmount` fee for the operation,
+     if left `AssetAmount.unset` the fee will be computed in DCT asset,
+     default `AssetAmount.unset`.
+     
+     - Throws: `DCoreException.Network.notFound`
+     if content with given reference does not exist.
+     
+     - Returns: A transaction confirmation.
+     */
+    func transfer(toReference ref: Content.Reference,
+                  from consumer: Credentials,
+                  amount: AssetAmount,
+                  message: String?,
+                  fee: AssetAmount) -> Single<TransactionConfirmation>
 }
 
 extension ContentApi {
@@ -182,12 +300,18 @@ extension ContentApi {
     
     public func get(byUrl url: URLConvertible) -> Single<Content> {
         return Single.deferred {
-            guard let uri = url.asURL()?.absoluteString, Content.hasValid(uri: uri) else {
-                return Single.error(DCoreException.unexpected("Invalid content uri"))
-            }
-            return GetContentByUri(uri).base.toResponse(self.api.core)
+            return GetContentByUri(try url.asURI { Content.hasValid(uri: $0) }).base.toResponse(self.api.core)
         }
         
+    }
+    
+    public func get(byReference ref: Content.Reference) -> Single<Content> {
+        return Single.deferred {
+            if Content.hasValid(uri: ref) {
+                return self.get(byUrl: ref)
+            }
+            return self.get(byId: try ref.asChainObject())
+        }
     }
     
     public func exist(byUrl url: URLConvertible) -> Single<Bool> {
@@ -269,14 +393,63 @@ extension ContentApi {
     
     public func delete(byUrl url: URLConvertible, author: Credentials, fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
         return Single.deferred {
-            guard let uri = url.asURL()?.absoluteString, Content.hasValid(uri: uri) else {
-                return Single.error(DCoreException.unexpected("Invalid content uri"))
-            }
             return self.api.broadcast.broadcast(withCallback: author.keyPair, operation: CancelContentOperation(
-                author: author.accountId, uri: uri, fee: fee
+                author: author.accountId, uri: try url.asURI { Content.hasValid(uri: $0) }, fee: fee
                 )
             )
         }
+    }
+    
+    public func createPurchase(byId id: ChainObjectConvertible,
+                               consumer: Credentials) -> Single<PurchaseContentOperation> {
+        return get(byId: id).map { PurchaseContentOperation(consumer, content: $0) }
+    }
+    
+    public func createPurchase(byUrl url: URLConvertible,
+                               consumer: Credentials) -> Single<PurchaseContentOperation> {
+        return get(byUrl: url).map { PurchaseContentOperation(consumer, content: $0) }
+    }
+    
+    public func purchase(byId id: ChainObjectConvertible,
+                         consumer: Credentials) -> Single<TransactionConfirmation> {
+        return createPurchase(byId: id, consumer: consumer).flatMap {
+            self.api.broadcast.broadcast(withCallback: consumer.keyPair, operation: $0)
+        }
+    }
+    
+    public func purchase(byUrl url: URLConvertible,
+                         consumer: Credentials) -> Single<TransactionConfirmation> {
+        return createPurchase(byUrl: url, consumer: consumer).flatMap {
+            self.api.broadcast.broadcast(withCallback: consumer.keyPair, operation: $0)
+        }
+    }
+    
+    public func createTransfer(toReference ref: Content.Reference,
+                               from consumer: Credentials,
+                               amount: AssetAmount,
+                               message: String? = nil,
+                               fee: AssetAmount = .unset) -> Single<TransferOperation> {
+        return get(byReference: ref).map {
+            var memo: Memo?
+            if let message = message {
+                memo = try? Memo(message, keyPair: nil, recipient: nil)
+            }
+            
+            return TransferOperation(from: consumer.accountId,
+                                     to: $0.id,
+                                     amount: amount,
+                                     memo: memo,
+                                     fee: fee)
+        }
+    }
+    
+    public func transfer(toReference ref: Content.Reference,
+                         from consumer: Credentials,
+                         amount: AssetAmount,
+                         message: String? = nil,
+                         fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
+        return createTransfer(toReference: ref, from: consumer, amount: amount, message: message, fee: fee)
+            .flatMap { self.api.broadcast.broadcast(withCallback: consumer.keyPair, operation: $0) }
     }
 }
 

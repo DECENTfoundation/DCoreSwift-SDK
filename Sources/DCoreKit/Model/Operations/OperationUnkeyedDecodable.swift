@@ -17,7 +17,7 @@ extension OperationUnkeyedDecodable {
         case .contentCancellationOperation:
             return try unkeyed.decode(CancelContentOperation.self)
         case .requestToBuyOperation:
-            return try unkeyed.decode(BuyContentOperation.self)
+            return try unkeyed.decode(PurchaseContentOperation.self)
         case .accountCreateOperation:
             return try unkeyed.decode(AccountCreateOperation.self)
         case .accountUpdateOperation:

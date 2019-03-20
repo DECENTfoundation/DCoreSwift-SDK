@@ -95,6 +95,8 @@
 		A19D4CF821F1B4D70069B6CA /* MockBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF621F1B4D70069B6CA /* MockBuilder.swift */; };
 		A19D4CFA21F1B64B0069B6CA /* MockTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */; };
 		A19D4CFB21F1B64B0069B6CA /* MockTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */; };
+		A1A2FBAB224185B7003641EA /* SubscriptionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBAA224185B7003641EA /* SubscriptionApi.swift */; };
+		A1A2FBAC224185B7003641EA /* SubscriptionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBAA224185B7003641EA /* SubscriptionApi.swift */; };
 		A1A9854C223BA971007CFB04 /* ElGamalKeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */; };
 		A1A9854D223BA971007CFB04 /* ElGamalKeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */; };
 		A1A9854F223BAECC007CFB04 /* CustomOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854E223BAECC007CFB04 /* CustomOperation.swift */; };
@@ -135,7 +137,7 @@
 		A1D96D5B21ED1E22009C0A30 /* MiningApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* MiningApi.swift */; };
 		A1D96D5D21ED1E22009C0A30 /* PurchaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* PurchaseApi.swift */; };
 		A1D96D5E21ED1E22009C0A30 /* SeedersApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* SeedersApi.swift */; };
-		A1D96D5F21ED1E22009C0A30 /* SubscriptionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* SubscriptionApi.swift */; };
+		A1D96D5F21ED1E22009C0A30 /* CallbackApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* CallbackApi.swift */; };
 		A1D96D6021ED1E22009C0A30 /* TransactionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* TransactionApi.swift */; };
 		A1D96D6121ED1E22009C0A30 /* ValidationApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* ValidationApi.swift */; };
 		A1D96D6221ED1E22009C0A30 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* Address.swift */; };
@@ -181,7 +183,7 @@
 		A1D96D8A21ED1E22009C0A30 /* OperationHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* OperationHistory.swift */; };
 		A1D96D8B21ED1E22009C0A30 /* OperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* OperationType.swift */; };
 		A1D96D8C21ED1E22009C0A30 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* Operation.swift */; };
-		A1D96D8D21ED1E22009C0A30 /* BuyContentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* BuyContentOperation.swift */; };
+		A1D96D8D21ED1E22009C0A30 /* PurchaseContentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* PurchaseContentOperation.swift */; };
 		A1D96D8E21ED1E22009C0A30 /* AnyOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* AnyOperation.swift */; };
 		A1D96D8F21ED1E22009C0A30 /* TransferOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_74 /* TransferOperation.swift */; };
 		A1D96D9021ED1E22009C0A30 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_75 /* Options.swift */; };
@@ -393,7 +395,7 @@
 		OBJ_840 /* MiningApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* MiningApi.swift */; };
 		OBJ_842 /* PurchaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* PurchaseApi.swift */; };
 		OBJ_843 /* SeedersApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* SeedersApi.swift */; };
-		OBJ_844 /* SubscriptionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* SubscriptionApi.swift */; };
+		OBJ_844 /* CallbackApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* CallbackApi.swift */; };
 		OBJ_845 /* TransactionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* TransactionApi.swift */; };
 		OBJ_846 /* ValidationApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* ValidationApi.swift */; };
 		OBJ_847 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* Address.swift */; };
@@ -439,7 +441,7 @@
 		OBJ_887 /* OperationHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* OperationHistory.swift */; };
 		OBJ_888 /* OperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* OperationType.swift */; };
 		OBJ_889 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* Operation.swift */; };
-		OBJ_890 /* BuyContentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* BuyContentOperation.swift */; };
+		OBJ_890 /* PurchaseContentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* PurchaseContentOperation.swift */; };
 		OBJ_891 /* AnyOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* AnyOperation.swift */; };
 		OBJ_892 /* TransferOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_74 /* TransferOperation.swift */; };
 		OBJ_893 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_75 /* Options.swift */; };
@@ -619,6 +621,7 @@
 		A19D4CF221F1AE960069B6CA /* AccountApiMockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountApiMockTests.swift; sourceTree = "<group>"; };
 		A19D4CF621F1B4D70069B6CA /* MockBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBuilder.swift; sourceTree = "<group>"; };
 		A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTestCase.swift; sourceTree = "<group>"; };
+		A1A2FBAA224185B7003641EA /* SubscriptionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubscriptionApi.swift; path = Sources/DcoreKit/Api/SubscriptionApi.swift; sourceTree = SOURCE_ROOT; };
 		A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ElGamalKeyPair.swift; path = Sources/DcoreKit/Crypto/ElGamalKeyPair.swift; sourceTree = SOURCE_ROOT; };
 		A1A9854E223BAECC007CFB04 /* CustomOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomOperation.swift; path = Sources/DcoreKit/Model/Operations/CustomOperation.swift; sourceTree = SOURCE_ROOT; };
 		A1A98551223BAEEC007CFB04 /* SendMessageOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SendMessageOperation.swift; path = Sources/DcoreKit/Model/Operations/SendMessageOperation.swift; sourceTree = SOURCE_ROOT; };
@@ -775,7 +778,7 @@
 		OBJ_226 /* String+DCoreExtensionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DCoreExtensionProvider.swift"; sourceTree = "<group>"; };
 		OBJ_227 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		OBJ_228 /* UInt8+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt8+Extension.swift"; sourceTree = "<group>"; };
-		OBJ_23 /* SubscriptionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionApi.swift; sourceTree = "<group>"; };
+		OBJ_23 /* CallbackApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallbackApi.swift; sourceTree = "<group>"; };
 		OBJ_231 /* AccountApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountApiTests.swift; sourceTree = "<group>"; };
 		OBJ_232 /* AssetApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetApiTests.swift; sourceTree = "<group>"; };
 		OBJ_233 /* BalanceApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceApiTests.swift; sourceTree = "<group>"; };
@@ -1244,7 +1247,7 @@
 		OBJ_682 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/michalgrman/_workspace/_swift/DCoreKit/.build/checkouts/RxSwift.git--5214619868639177420/Package.swift"; sourceTree = "<group>"; };
 		OBJ_69 /* OperationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationType.swift; sourceTree = "<group>"; };
 		OBJ_71 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
-		OBJ_72 /* BuyContentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyContentOperation.swift; sourceTree = "<group>"; };
+		OBJ_72 /* PurchaseContentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseContentOperation.swift; sourceTree = "<group>"; };
 		OBJ_73 /* AnyOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyOperation.swift; sourceTree = "<group>"; };
 		OBJ_74 /* TransferOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferOperation.swift; sourceTree = "<group>"; };
 		OBJ_75 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
@@ -2374,7 +2377,7 @@
 				A1AE9DC522036C45004B6019 /* FeeOperation.swift */,
 				A1B13BF122043A59006B59BF /* UnknownOperation.swift */,
 				OBJ_74 /* TransferOperation.swift */,
-				OBJ_72 /* BuyContentOperation.swift */,
+				OBJ_72 /* PurchaseContentOperation.swift */,
 				A16032D521F375EF00674FEF /* CancelContentOperation.swift */,
 				A16032B121F3563D00674FEF /* SubmitContentOperation.swift */,
 				A189709221F217B700602F81 /* AccountCreateOperation.swift */,
@@ -2423,9 +2426,10 @@
 				OBJ_19 /* MiningApi.swift */,
 				OBJ_21 /* PurchaseApi.swift */,
 				OBJ_22 /* SeedersApi.swift */,
-				OBJ_23 /* SubscriptionApi.swift */,
+				OBJ_23 /* CallbackApi.swift */,
 				OBJ_24 /* TransactionApi.swift */,
 				OBJ_25 /* ValidationApi.swift */,
+				A1A2FBAA224185B7003641EA /* SubscriptionApi.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -2715,6 +2719,7 @@
 				A1D96DA221ED1E22009C0A30 /* Namespace.swift in Sources */,
 				A1D96D5221ED1E22009C0A30 /* AccountApi.swift in Sources */,
 				A1582974223F9413006C0CB3 /* ChainObjectConvertible.swift in Sources */,
+				A1A2FBAC224185B7003641EA /* SubscriptionApi.swift in Sources */,
 				A1D96D5321ED1E22009C0A30 /* AssetApi.swift in Sources */,
 				A1D96D5421ED1E22009C0A30 /* BalanceApi.swift in Sources */,
 				A13D09D322314226000CAE17 /* Certificate+Extensions.swift in Sources */,
@@ -2730,7 +2735,7 @@
 				A1D96D5D21ED1E22009C0A30 /* PurchaseApi.swift in Sources */,
 				A1D96D5E21ED1E22009C0A30 /* SeedersApi.swift in Sources */,
 				A105403C22306B86006D8774 /* SecurityExtensionProvider.swift in Sources */,
-				A1D96D5F21ED1E22009C0A30 /* SubscriptionApi.swift in Sources */,
+				A1D96D5F21ED1E22009C0A30 /* CallbackApi.swift in Sources */,
 				A1D96D6021ED1E22009C0A30 /* TransactionApi.swift in Sources */,
 				A1D96D6121ED1E22009C0A30 /* ValidationApi.swift in Sources */,
 				A1D96D6221ED1E22009C0A30 /* Address.swift in Sources */,
@@ -2782,7 +2787,7 @@
 				A1D96D8B21ED1E22009C0A30 /* OperationType.swift in Sources */,
 				A1D96D8C21ED1E22009C0A30 /* Operation.swift in Sources */,
 				A1A98553223BAEEC007CFB04 /* SendMessageOperation.swift in Sources */,
-				A1D96D8D21ED1E22009C0A30 /* BuyContentOperation.swift in Sources */,
+				A1D96D8D21ED1E22009C0A30 /* PurchaseContentOperation.swift in Sources */,
 				A1D96D8E21ED1E22009C0A30 /* AnyOperation.swift in Sources */,
 				A1D96D8F21ED1E22009C0A30 /* TransferOperation.swift in Sources */,
 				A1D96D9021ED1E22009C0A30 /* Options.swift in Sources */,
@@ -3026,7 +3031,7 @@
 				A14F7C3521FF046600E161C5 /* DCoreExceptionConvertible.swift in Sources */,
 				OBJ_842 /* PurchaseApi.swift in Sources */,
 				OBJ_843 /* SeedersApi.swift in Sources */,
-				OBJ_844 /* SubscriptionApi.swift in Sources */,
+				OBJ_844 /* CallbackApi.swift in Sources */,
 				OBJ_845 /* TransactionApi.swift in Sources */,
 				OBJ_846 /* ValidationApi.swift in Sources */,
 				OBJ_847 /* Address.swift in Sources */,
@@ -3085,7 +3090,7 @@
 				OBJ_888 /* OperationType.swift in Sources */,
 				OBJ_889 /* Operation.swift in Sources */,
 				A13D09D222314226000CAE17 /* Certificate+Extensions.swift in Sources */,
-				OBJ_890 /* BuyContentOperation.swift in Sources */,
+				OBJ_890 /* PurchaseContentOperation.swift in Sources */,
 				OBJ_891 /* AnyOperation.swift in Sources */,
 				OBJ_892 /* TransferOperation.swift in Sources */,
 				OBJ_893 /* Options.swift in Sources */,
@@ -3194,6 +3199,7 @@
 				OBJ_983 /* ListSeedersByUpload.swift in Sources */,
 				A1AF06F32237F241002CA4F7 /* SynopsisConvertible.swift in Sources */,
 				A13D09CF223121E9000CAE17 /* StandardValidator.swift in Sources */,
+				A1A2FBAB224185B7003641EA /* SubscriptionApi.swift in Sources */,
 				A16032D621F375EF00674FEF /* CancelContentOperation.swift in Sources */,
 				OBJ_984 /* ListSubscriptionsByAuthor.swift in Sources */,
 				OBJ_985 /* ListSubscriptionsByConsumer.swift in Sources */,
