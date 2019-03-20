@@ -29,6 +29,18 @@ public protocol ContentApi: BaseApi {
     func get(byUrl url: URLConvertible) -> Single<Content>
     
     /**
+     Get content by reference (id or URL in String format).
+     
+     - Parameter ref: Reference (id or URL in String format).
+     
+     - Throws: `DCoreException.Network.notFound`
+     if account does not exist.
+     
+     - Returns: `Content`.
+     */
+    func get(byReference ref: Content.Reference) -> Single<Content>
+    
+    /**
      Check if content exist by url.
      
      - Parameter url: Content uri,
@@ -169,6 +181,54 @@ public protocol ContentApi: BaseApi {
      - Returns: `TransactionConfirmation` that content was deleted.
      */
     func delete(byUrl url: URLConvertible, author: Credentials, fee: AssetAmount) -> Single<TransactionConfirmation>
+    
+    /**
+     Create recurrent transfers operation to transfer an amount of one asset to content.
+     Amount is transferred to author and co-authors of the content, if they are specified.
+     Fees are paid by the `from` account.
+     
+     - Parameter credentails: Sender account credentials.
+     - Parameter to: Receiver content reference.
+     - Parameter amount: `AssetAmount` to send with asset type.
+     - Parameter message: Message (Optional).
+     - Parameter encrypted: If message present,
+     encrypted is visible only for sender and receiver,
+     unencrypted is visible publicly, default `true`.
+     - Parameter fee: `AssetAmount` fee for the operation,
+     if left `AssetAmount.unset` the fee will be computed in DCT asset,
+     default `AssetAmount.unset`.
+     
+     - Returns: `TransferOperation`.
+     */
+    func createTransfer(from credentials: Credentials,
+                        to: Content.Reference,
+                        amount: AssetAmount,
+                        message: String?,
+                        fee: AssetAmount) -> Single<TransferOperation>
+    
+    /**
+     Make recurrent transfer an amount of one asset to content.
+     Amount is transferred to author and co-authors of the content, if they are specified.
+     Fees are paid by the `from` account.
+     
+     - Parameter credentails: Sender account credentials.
+     - Parameter to: Receiver content reference.
+     - Parameter amount: `AssetAmount` to send with asset type.
+     - Parameter message: Message (Optional).
+     - Parameter encrypted: If message present,
+     encrypted is visible only for sender and receiver,
+     unencrypted is visible publicly, default `true`.
+     - Parameter fee: `AssetAmount` fee for the operation,
+     if left `AssetAmount.unset` the fee will be computed in DCT asset,
+     default `AssetAmount.unset`.
+     
+     - Returns: A transaction confirmation.
+     */
+    func transfer(from credentials: Credentials,
+                  to: Content.Reference,
+                  amount: AssetAmount,
+                  message: String?,
+                  fee: AssetAmount) -> Single<TransactionConfirmation>
 }
 
 extension ContentApi {
@@ -185,6 +245,15 @@ extension ContentApi {
             return GetContentByUri(try url.asURI { Content.hasValid(uri: $0) }).base.toResponse(self.api.core)
         }
         
+    }
+    
+    public func get(byReference ref: Content.Reference) -> Single<Content> {
+        return Single.deferred {
+            if Content.hasValid(uri: ref) {
+                return self.get(byUrl: ref)
+            }
+            return self.get(byId: try ref.asChainObject())
+        }
     }
     
     public func exist(byUrl url: URLConvertible) -> Single<Bool> {
@@ -271,6 +340,34 @@ extension ContentApi {
                 )
             )
         }
+    }
+    
+    public func createTransfer(from credentials: Credentials,
+                               to: Content.Reference,
+                               amount: AssetAmount,
+                               message: String? = nil,
+                               fee: AssetAmount = .unset) -> Single<TransferOperation> {
+        return get(byReference: to).map {
+            var memo: Memo?
+            if let message = message {
+                memo = try? Memo(message, keyPair: nil, recipient: nil)
+            }
+            
+            return TransferOperation(from: credentials.accountId,
+                                     to: $0.id,
+                                     amount: amount,
+                                     memo: memo,
+                                     fee: fee)
+        }
+    }
+    
+    public func transfer(from credentials: Credentials,
+                         to: Content.Reference,
+                         amount: AssetAmount,
+                         message: String? = nil,
+                         fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
+        return createTransfer(from: credentials, to: to, amount: amount, message: message, fee: fee)
+            .flatMap { self.api.broadcast.broadcast(withCallback: credentials.keyPair, operation: $0) }
     }
 }
 
