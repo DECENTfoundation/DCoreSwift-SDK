@@ -15,6 +15,7 @@ extension DCore {
         public lazy var content: ContentApi =           ApiProvider(using: self)
         public lazy var general: GeneralApi =           ApiProvider(using: self)
         public lazy var history: HistoryApi =           ApiProvider(using: self)
+        public lazy var messaging: MessagingApi =       ApiProvider(using: self)
         public lazy var mining: MiningApi =             ApiProvider(using: self)
         public lazy var purchase: PurchaseApi =         ApiProvider(using: self)
         public lazy var seeders: SeedersApi =           ApiProvider(using: self)

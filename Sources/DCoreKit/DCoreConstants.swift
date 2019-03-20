@@ -21,5 +21,6 @@ extension DCore {
         public static let subscriber: Int = 100
         public static let seeders: Int = 100
         public static let purchase: Int = 100
+        public static let messaging: Int = 1000
     }
 }
