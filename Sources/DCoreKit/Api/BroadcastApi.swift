@@ -33,7 +33,7 @@ extension BroadcastApi {
     public func broadcast(using keypair: ECKeyPair,
                           operations: [Operation],
                           expiration: Int? = nil) -> Completable {
-        return api.transaction.create(transactionUsing: operations, expiration: expiration.or(self.api.transactionExpiration))
+        return api.transaction.create(operations, expiration: expiration.or(self.api.transactionExpiration))
             .map { try $0.with(signature: keypair) }
             .flatMapCompletable { self.broadcast($0) }
     }
@@ -68,7 +68,7 @@ extension BroadcastApi {
     public func broadcast(withCallback keypair: ECKeyPair,
                           operations: [Operation],
                           expiration: Int? = nil) -> Single<TransactionConfirmation> {
-        return api.transaction.create(transactionUsing: operations, expiration: expiration.or(self.api.transactionExpiration))
+        return api.transaction.create(operations, expiration: expiration.or(self.api.transactionExpiration))
             .map { try $0.with(signature: keypair) }
             .flatMap { self.broadcast(withCallback: $0) }
     }
