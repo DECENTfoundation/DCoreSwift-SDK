@@ -185,7 +185,7 @@ public protocol AccountApi: BaseApi {
      - Throws: `DCoreException.Network.alreadyFound`
      if account with given name already exist.
      
-     - Returns: Account.
+     - Returns: `TransactionConfirmation` that account was created.
      */
     func create(_ account: SubmitAccount, registrar: Credentials, fee: AssetAmount) -> Single<TransactionConfirmation>
     
