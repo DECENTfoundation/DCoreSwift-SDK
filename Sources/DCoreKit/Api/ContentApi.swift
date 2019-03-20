@@ -5,7 +5,7 @@ public protocol ContentApi: BaseApi {
     /**
      Get content by id.
      
-     - Parameter id: Content id, e.g. 2.13.*,
+     - Parameter id: Content id, eg. 2.13.*,
      as `ChainObject` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`

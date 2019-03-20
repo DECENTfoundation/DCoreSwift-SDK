@@ -5,7 +5,7 @@ public protocol SeedersApi: BaseApi {
     /**
      Get a seeder by id.
      
-     - Parameter id: Seeder account object id, e.g. 1.2.*,
+     - Parameter id: Seeder account object id, eg. 1.2.*,
      as `ChainObject` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`

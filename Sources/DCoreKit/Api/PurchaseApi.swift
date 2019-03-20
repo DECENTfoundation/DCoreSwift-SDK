@@ -5,7 +5,7 @@ public protocol PurchaseApi: BaseApi {
     /**
      Get consumer purchase by content url.
      
-     - Parameter id: Consumer object id of the account, e.g. 1.2.*,
+     - Parameter id: Consumer object id of the account, eg. 1.2.*,
      as `ChainObject` or `String` format.
      - Parameter url: A url of the content,
      as `URL` or `String` format.
@@ -37,7 +37,7 @@ public protocol PurchaseApi: BaseApi {
     /**
      Get a list of open purchases for consumer id.
      
-     - Parameter id: Consumer object id of the account, e.g. 1.2.*,
+     - Parameter id: Consumer object id of the account, eg. 1.2.*,
      as `ChainObject` or `String` format.
      
      - Returns: Array `[Purchase]` of open purchases.
@@ -47,7 +47,7 @@ public protocol PurchaseApi: BaseApi {
     /**
      Get a list of historical purchases for consumer id.
      
-     - Parameter id: Consumer object id of the account, e.g. 1.2.*,
+     - Parameter id: Consumer object id of the account, eg. 1.2.*,
      as `ChainObject` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`
@@ -60,7 +60,7 @@ public protocol PurchaseApi: BaseApi {
     /**
      Search consumer open and historical purchases.
      
-     - Parameter id: Consumer object id of the account, e.g. 1.2.*,
+     - Parameter id: Consumer object id of the account, eg. 1.2.*,
      as `ChainObject` or `String` format.
      - Parameter expression: Search expression.
      - Parameter from: From object id of the history object to start from,

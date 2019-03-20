@@ -5,9 +5,9 @@ public protocol BalanceApi: BaseApi {
     /**
      Get account balance by id.
      
-     - Parameter id: Account id, e.g. 1.2.*,
+     - Parameter id: Account id, eg. 1.2.*,
      as `ChainObject` or `String` format.
-     - Parameter asset: Asset id, e.g. 1.3.*,
+     - Parameter asset: Asset id, eg. 1.3.*,
      as `ChainObject` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`
@@ -20,9 +20,9 @@ public protocol BalanceApi: BaseApi {
     /**
      Get all account balances by id.
      
-     - Parameter id: Account id, e.g. 1.2.*,
+     - Parameter id: Account id, eg. 1.2.*,
      as `ChainObject` or `String` format.
-     - Parameter assets: Asset ids, e.g. 1.3.*,
+     - Parameter assets: Asset ids, eg. 1.3.*,
      as `ChainObject` or `String` format, default `[]` - all.
      
      - Returns: Array `[AssetAmount]` of amount for different assets.
@@ -32,8 +32,8 @@ public protocol BalanceApi: BaseApi {
     /**
      Get account balance by reference (name or id).
      
-     - Parameter id: Account id, e.g. 1.2.*.
-     - Parameter asset: Asset id, e.g. 1.3.*,
+     - Parameter id: Account id, eg. 1.2.*.
+     - Parameter asset: Asset id, eg. 1.3.*,
      as `ChainObject` or `String` format
      
      - Throws: `DCoreException.Network.notFound`
@@ -46,8 +46,8 @@ public protocol BalanceApi: BaseApi {
     /**
      Get all account balances by reference (name or id).
      
-     - Parameter id: Account id, e.g. 1.2.*.
-     - Parameter assets: Asset ids, e.g. 1.3.*,
+     - Parameter id: Account id, eg. 1.2.*.
+     - Parameter assets: Asset ids, eg. 1.3.*,
      as `ChainObject` or `String` format, default `[]` - all.
      
      - Returns: Array `[AssetAmount]` of amount for different assets.
@@ -57,7 +57,7 @@ public protocol BalanceApi: BaseApi {
     /**
      Get account balance with asset by id and symbol.
      
-     - Parameter id: Account id, e.g. 1.2.*,
+     - Parameter id: Account id, eg. 1.2.*,
      as `ChainObject` or `String` format.
      - Parameter symbol: Asset symbol, default `Asset.Symbol.dct`.
      
@@ -71,9 +71,9 @@ public protocol BalanceApi: BaseApi {
     /**
      Get all account balances with asset by id and symbols.
      
-     - Parameter id: Account id, e.g. 1.2.*,
+     - Parameter id: Account id, eg. 1.2.*,
      as `ChainObject` or `String` format.
-     - Parameter symbols: Asset symbols, e.g. `[Asset.Symbol.dct]`.
+     - Parameter symbols: Asset symbols, eg. `[Asset.Symbol.dct]`.
      
      - Returns: Array `[AssetAmountPair]` of asset pairs with amounts.
      */
@@ -82,7 +82,7 @@ public protocol BalanceApi: BaseApi {
     /**
      Get account balance with asset by reference (id or name) and symbol.
      
-     - Parameter ref: Account id or name in string format, e.g. 1.2.*.
+     - Parameter ref: Account id or name in string format, eg. 1.2.*.
      - Parameter symbol: Asset symbol, default `Asset.Symbol.dct`.
      
      - Throws: `DCoreException.Network.notFound`
@@ -95,8 +95,8 @@ public protocol BalanceApi: BaseApi {
     /**
      Get all account balances with asset by reference (id or name) and symbols.
      
-     - Parameter ref: Account id or name in string format, e.g. 1.2.*.
-     - Parameter symbols: Asset symbols, e.g. `[Asset.Symbol.dct]`.
+     - Parameter ref: Account id or name in string format, eg. 1.2.*.
+     - Parameter symbols: Asset symbols, eg. `[Asset.Symbol.dct]`.
      
      - Returns: Array `[AssetAmountPair]` of asset pairs with amounts.
      */
@@ -105,7 +105,7 @@ public protocol BalanceApi: BaseApi {
     /**
      Get information about a vesting balances.
      
-     - Parameter id: Account id, e.g. 1.2.*,
+     - Parameter id: Account id, eg. 1.2.*,
      as `ChainObject` or `String` format.
      
      - Returns: Array `[VestingBalance]` vesting balances with additional information.
