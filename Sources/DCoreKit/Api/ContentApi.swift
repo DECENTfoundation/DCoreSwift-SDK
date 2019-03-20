@@ -182,10 +182,7 @@ extension ContentApi {
     
     public func get(byUrl url: URLConvertible) -> Single<Content> {
         return Single.deferred {
-            guard let uri = url.asURL()?.absoluteString, Content.hasValid(uri: uri) else {
-                return Single.error(DCoreException.unexpected("Invalid content uri"))
-            }
-            return GetContentByUri(uri).base.toResponse(self.api.core)
+            return GetContentByUri(try url.asURI { Content.hasValid(uri: $0) }).base.toResponse(self.api.core)
         }
         
     }
@@ -269,11 +266,8 @@ extension ContentApi {
     
     public func delete(byUrl url: URLConvertible, author: Credentials, fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
         return Single.deferred {
-            guard let uri = url.asURL()?.absoluteString, Content.hasValid(uri: uri) else {
-                return Single.error(DCoreException.unexpected("Invalid content uri"))
-            }
             return self.api.broadcast.broadcast(withCallback: author.keyPair, operation: CancelContentOperation(
-                author: author.accountId, uri: uri, fee: fee
+                author: author.accountId, uri: try url.asURI { Content.hasValid(uri: $0) }, fee: fee
                 )
             )
         }
