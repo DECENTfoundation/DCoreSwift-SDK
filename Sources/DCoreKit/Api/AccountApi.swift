@@ -354,10 +354,9 @@ extension AccountApi {
     public func create(_ account: SubmitAccount, registrar: Credentials, fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
         return exist(byName: account.name).flatMap { result in
             guard !result else { return Single.error(DCoreException.network(.alreadyFound)) }
-            return self.api.broadcast.broadcast(withCallback: registrar.keyPair, operation: AccountCreateOperation(
+            return self.api.broadcast.broadcastWithCallback(AccountCreateOperation(
                 account, registrar: registrar.accountId, fee: fee
-                )
-            )
+            ), keypair: registrar.keyPair)
         }
     }
     
@@ -397,7 +396,7 @@ extension AccountApi {
                          encrypted: Bool = true,
                          fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
         return createTransfer(from: credentials, to: to, amount: amount, message: message, encrypted: encrypted, fee: fee)
-            .flatMap { self.api.broadcast.broadcast(withCallback: credentials.keyPair, operation: $0) }
+            .flatMap { self.api.broadcast.broadcastWithCallback($0, keypair: credentials.keyPair) }
     }
     
     public func transfer(from credentials: Credentials,
@@ -405,7 +404,7 @@ extension AccountApi {
                          amount: AssetAmount,
                          fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
         return createTransfer(from: credentials, to: to, amount: amount, fee: fee)
-            .flatMap { self.api.broadcast.broadcast(withCallback: credentials.keyPair, operation: $0) }
+            .flatMap { self.api.broadcast.broadcastWithCallback($0, keypair: credentials.keyPair) }
     }
 }
 

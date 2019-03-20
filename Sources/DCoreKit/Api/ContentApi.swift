@@ -364,10 +364,9 @@ extension ContentApi {
                               fee: AssetAmount = .unset) -> Single<TransactionConfirmation> where Input: SynopsisConvertible {
         return exist(byUrl: content.uri).flatMap { result in
             guard !result else { return Single.error(DCoreException.network(.alreadyFound)) }
-            return self.api.broadcast.broadcast(withCallback: author.keyPair, operation: SubmitContentOperation(
+            return self.api.broadcast.broadcastWithCallback(SubmitContentOperation(
                 content, author: author, publishingFee: publishingFee, fee: fee
-                )
-            )
+            ), keypair: author.keyPair)
         }
     }
     
@@ -391,10 +390,9 @@ extension ContentApi {
     
     public func delete(byUrl url: URLConvertible, author: Credentials, fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
         return Single.deferred {
-            return self.api.broadcast.broadcast(withCallback: author.keyPair, operation: CancelContentOperation(
+            return self.api.broadcast.broadcastWithCallback(CancelContentOperation(
                 author: author.accountId, uri: try url.asURI { Content.hasValid(uri: $0) }, fee: fee
-                )
-            )
+            ), keypair: author.keyPair)
         }
     }
     
@@ -411,14 +409,14 @@ extension ContentApi {
     public func purchase(byId id: ChainObjectConvertible,
                          consumer: Credentials) -> Single<TransactionConfirmation> {
         return createPurchase(byId: id, consumer: consumer).flatMap {
-            self.api.broadcast.broadcast(withCallback: consumer.keyPair, operation: $0)
+            self.api.broadcast.broadcastWithCallback($0, keypair: consumer.keyPair)
         }
     }
     
     public func purchase(byUrl url: URLConvertible,
                          consumer: Credentials) -> Single<TransactionConfirmation> {
         return createPurchase(byUrl: url, consumer: consumer).flatMap {
-            self.api.broadcast.broadcast(withCallback: consumer.keyPair, operation: $0)
+            self.api.broadcast.broadcastWithCallback($0, keypair: consumer.keyPair)
         }
     }
     
@@ -447,7 +445,7 @@ extension ContentApi {
                          message: String? = nil,
                          fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
         return createTransfer(toReference: ref, from: consumer, amount: amount, message: message, fee: fee)
-            .flatMap { self.api.broadcast.broadcast(withCallback: consumer.keyPair, operation: $0) }
+            .flatMap { self.api.broadcast.broadcastWithCallback($0, keypair: consumer.keyPair) }
     }
 }
 

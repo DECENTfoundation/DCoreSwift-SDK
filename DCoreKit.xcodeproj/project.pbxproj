@@ -99,6 +99,8 @@
 		A1A2FBAC224185B7003641EA /* SubscriptionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBAA224185B7003641EA /* SubscriptionApi.swift */; };
 		A1A2FBAE22428342003641EA /* IntegerLiteralType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBAD22428342003641EA /* IntegerLiteralType+Extension.swift */; };
 		A1A2FBAF22428342003641EA /* IntegerLiteralType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBAD22428342003641EA /* IntegerLiteralType+Extension.swift */; };
+		A1A2FBB12242A132003641EA /* ECKeyPairConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBB02242A132003641EA /* ECKeyPairConvertible.swift */; };
+		A1A2FBB22242A132003641EA /* ECKeyPairConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBB02242A132003641EA /* ECKeyPairConvertible.swift */; };
 		A1A9854C223BA971007CFB04 /* ElGamalKeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */; };
 		A1A9854D223BA971007CFB04 /* ElGamalKeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */; };
 		A1A9854F223BAECC007CFB04 /* CustomOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854E223BAECC007CFB04 /* CustomOperation.swift */; };
@@ -625,6 +627,7 @@
 		A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTestCase.swift; sourceTree = "<group>"; };
 		A1A2FBAA224185B7003641EA /* SubscriptionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubscriptionApi.swift; path = Sources/DcoreKit/Api/SubscriptionApi.swift; sourceTree = SOURCE_ROOT; };
 		A1A2FBAD22428342003641EA /* IntegerLiteralType+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "IntegerLiteralType+Extension.swift"; path = "Sources/DcoreKit/Utils/IntegerLiteralType+Extension.swift"; sourceTree = SOURCE_ROOT; };
+		A1A2FBB02242A132003641EA /* ECKeyPairConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ECKeyPairConvertible.swift; path = Sources/DcoreKit/Crypto/ECKeyPairConvertible.swift; sourceTree = SOURCE_ROOT; };
 		A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ElGamalKeyPair.swift; path = Sources/DcoreKit/Crypto/ElGamalKeyPair.swift; sourceTree = SOURCE_ROOT; };
 		A1A9854E223BAECC007CFB04 /* CustomOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomOperation.swift; path = Sources/DcoreKit/Model/Operations/CustomOperation.swift; sourceTree = SOURCE_ROOT; };
 		A1A98551223BAEEC007CFB04 /* SendMessageOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SendMessageOperation.swift; path = Sources/DcoreKit/Model/Operations/SendMessageOperation.swift; sourceTree = SOURCE_ROOT; };
@@ -1697,6 +1700,7 @@
 				OBJ_27 /* Address.swift */,
 				OBJ_28 /* Credentials.swift */,
 				OBJ_29 /* ECKeyPair.swift */,
+				A1A2FBB02242A132003641EA /* ECKeyPairConvertible.swift */,
 				OBJ_30 /* PrivateKey.swift */,
 				OBJ_31 /* PublicKey.swift */,
 				A159C4C121FDFF4F008BE73E /* CipherConvertible.swift */,
@@ -2961,6 +2965,7 @@
 				A1D96E1E21ED1E22009C0A30 /* Rx+Extension.swift in Sources */,
 				A1D96E1F21ED1E22009C0A30 /* Sequence+Extension.swift in Sources */,
 				A1D96E2021ED1E22009C0A30 /* String+DCoreExtensionProvider.swift in Sources */,
+				A1A2FBB22242A132003641EA /* ECKeyPairConvertible.swift in Sources */,
 				A1D96E2121ED1E22009C0A30 /* String+Extension.swift in Sources */,
 				A1673B5621EF615B008FF560 /* Optional+Extension.swift in Sources */,
 				A1D96E2221ED1E22009C0A30 /* UInt8+Extension.swift in Sources */,
@@ -3248,6 +3253,7 @@
 				A1A98558223BF2BA007CFB04 /* CustomOperationType.swift in Sources */,
 				OBJ_1017 /* JsonContext.swift in Sources */,
 				OBJ_1018 /* JsonConvertible.swift in Sources */,
+				A1A2FBB12242A132003641EA /* ECKeyPairConvertible.swift in Sources */,
 				OBJ_1019 /* UnitValue.swift in Sources */,
 				OBJ_1021 /* URLConvertible.swift in Sources */,
 				OBJ_1022 /* URLRequest+HttpConfigurable.swift in Sources */,
