@@ -104,12 +104,11 @@ extension AssetApi {
         return LookupAssets(symbols).base.toResponse(api.core)
     }
     
-    public func findAllRelative(byLower bound: String, limit: Int = DCore.Constant.assetLimit) -> Single<[Asset]> {
+    public func findAllRelative(byLower bound: String, limit: Int = DCore.Limits.asset) -> Single<[Asset]> {
         return Single.deferred {
-            guard limit <= DCore.Constant.assetLimit else {
-                return Single.error(DCoreException.unexpected("Asset limit is out of bound: \(DCore.Constant.assetLimit)"))
-            }
-            return ListAssets(bound, limit: limit).base.toResponse(self.api.core)
+            return ListAssets(bound, limit: try limit.limited(by: DCore.Limits.asset))
+                .base
+                .toResponse(self.api.core)
         }
         
     }

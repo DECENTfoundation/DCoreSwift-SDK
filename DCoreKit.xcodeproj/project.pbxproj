@@ -97,6 +97,8 @@
 		A19D4CFB21F1B64B0069B6CA /* MockTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */; };
 		A1A2FBAB224185B7003641EA /* SubscriptionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBAA224185B7003641EA /* SubscriptionApi.swift */; };
 		A1A2FBAC224185B7003641EA /* SubscriptionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBAA224185B7003641EA /* SubscriptionApi.swift */; };
+		A1A2FBAE22428342003641EA /* IntegerLiteralType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBAD22428342003641EA /* IntegerLiteralType+Extension.swift */; };
+		A1A2FBAF22428342003641EA /* IntegerLiteralType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBAD22428342003641EA /* IntegerLiteralType+Extension.swift */; };
 		A1A9854C223BA971007CFB04 /* ElGamalKeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */; };
 		A1A9854D223BA971007CFB04 /* ElGamalKeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */; };
 		A1A9854F223BAECC007CFB04 /* CustomOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854E223BAECC007CFB04 /* CustomOperation.swift */; };
@@ -622,6 +624,7 @@
 		A19D4CF621F1B4D70069B6CA /* MockBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBuilder.swift; sourceTree = "<group>"; };
 		A19D4CF921F1B64B0069B6CA /* MockTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTestCase.swift; sourceTree = "<group>"; };
 		A1A2FBAA224185B7003641EA /* SubscriptionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubscriptionApi.swift; path = Sources/DcoreKit/Api/SubscriptionApi.swift; sourceTree = SOURCE_ROOT; };
+		A1A2FBAD22428342003641EA /* IntegerLiteralType+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "IntegerLiteralType+Extension.swift"; path = "Sources/DcoreKit/Utils/IntegerLiteralType+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ElGamalKeyPair.swift; path = Sources/DcoreKit/Crypto/ElGamalKeyPair.swift; sourceTree = SOURCE_ROOT; };
 		A1A9854E223BAECC007CFB04 /* CustomOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomOperation.swift; path = Sources/DcoreKit/Model/Operations/CustomOperation.swift; sourceTree = SOURCE_ROOT; };
 		A1A98551223BAEEC007CFB04 /* SendMessageOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SendMessageOperation.swift; path = Sources/DcoreKit/Model/Operations/SendMessageOperation.swift; sourceTree = SOURCE_ROOT; };
@@ -1551,6 +1554,7 @@
 				A1673B5A21F07143008FF560 /* DateFormatter+Extension.swift */,
 				A1B00ED72200A804002D59F3 /* Date+DCoreExtensionProvider.swift */,
 				A1EF306A223A38CC002D2F39 /* Lifecycle.swift */,
+				A1A2FBAD22428342003641EA /* IntegerLiteralType+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2726,6 +2730,7 @@
 				A1D96D5521ED1E22009C0A30 /* ApiProvider.swift in Sources */,
 				A1D96D5621ED1E22009C0A30 /* BlockApi.swift in Sources */,
 				A12E82FF22288713008D7440 /* VarInt.swift in Sources */,
+				A1A2FBAF22428342003641EA /* IntegerLiteralType+Extension.swift in Sources */,
 				A1D96D5721ED1E22009C0A30 /* BroadcastApi.swift in Sources */,
 				A169C1D02230208800FAA818 /* ServerTrustValidation.swift in Sources */,
 				A1D96D5821ED1E22009C0A30 /* ContentApi.swift in Sources */,
@@ -3037,6 +3042,7 @@
 				OBJ_847 /* Address.swift in Sources */,
 				OBJ_848 /* Credentials.swift in Sources */,
 				OBJ_849 /* ECKeyPair.swift in Sources */,
+				A1A2FBAE22428342003641EA /* IntegerLiteralType+Extension.swift in Sources */,
 				OBJ_850 /* PrivateKey.swift in Sources */,
 				A16032AF21F3560700674FEF /* AccountUpdateOperation.swift in Sources */,
 				OBJ_851 /* PublicKey.swift in Sources */,

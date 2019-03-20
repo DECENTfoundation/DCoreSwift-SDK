@@ -25,7 +25,7 @@ public protocol SubscriptionApi: BaseApi {
      
      - Returns: `true` if account exist.
      */
-    func getAllActive(byConsumerId id: ChainObjectConvertible, count: Int) -> Single<[Subscription]>
+    func getAllActive(byConsumerId id: ChainObjectConvertible, limit: Int) -> Single<[Subscription]>
     
     /**
      Check if the account exist.
@@ -37,7 +37,7 @@ public protocol SubscriptionApi: BaseApi {
      
      - Returns: `true` if account exist.
      */
-    func getAllActive(byAuthorId id: ChainObjectConvertible, count: Int) -> Single<[Subscription]>
+    func getAllActive(byAuthorId id: ChainObjectConvertible, limit: Int) -> Single<[Subscription]>
     
     /**
      Check if the account exist.
@@ -49,7 +49,7 @@ public protocol SubscriptionApi: BaseApi {
      
      - Returns: `true` if account exist.
      */
-    func getAll(byConsumerId id: ChainObjectConvertible, count: Int) -> Single<[Subscription]>
+    func getAll(byConsumerId id: ChainObjectConvertible, limit: Int) -> Single<[Subscription]>
     
     /**
      Check if the account exist.
@@ -61,7 +61,7 @@ public protocol SubscriptionApi: BaseApi {
      
      - Returns: `true` if account exist.
      */
-    func getAll(byAuthorId id: ChainObjectConvertible, count: Int) -> Single<[Subscription]>
+    func getAll(byAuthorId id: ChainObjectConvertible, limit: Int) -> Single<[Subscription]>
 }
 
 extension SubscriptionApi {
@@ -71,39 +71,35 @@ extension SubscriptionApi {
         }
     }
     
-    public func getAllActive(byConsumerId id: ChainObjectConvertible, count: Int) -> Single<[Subscription]> {
+    public func getAllActive(byConsumerId id: ChainObjectConvertible, limit: Int = DCore.Limits.subscriber) -> Single<[Subscription]> {
         return Single.deferred {
-            guard count <= DCore.Constant.subscriberLimit else {
-                return Single.error(DCoreException.unexpected("Subscriber limit is out of bound: \(DCore.Constant.subscriberLimit)"))
-            }
-            return ListActiveSubscriptionsByConsumer(try id.asChainObject(), count: count).base.toResponse(self.api.core)
+            return ListActiveSubscriptionsByConsumer(try id.asChainObject(), count: try limit.limited(by: DCore.Limits.subscriber))
+                .base
+                .toResponse(self.api.core)
         }
     }
     
-    public func getAllActive(byAuthorId id: ChainObjectConvertible, count: Int) -> Single<[Subscription]> {
+    public func getAllActive(byAuthorId id: ChainObjectConvertible, limit: Int = DCore.Limits.subscriber) -> Single<[Subscription]> {
         return Single.deferred {
-            guard count <= DCore.Constant.subscriberLimit else {
-                return Single.error(DCoreException.unexpected("Subscriber limit is out of bound: \(DCore.Constant.subscriberLimit)"))
-            }
-            return ListActiveSubscriptionsByAuthor(try id.asChainObject(), count: count).base.toResponse(self.api.core)
+            return ListActiveSubscriptionsByAuthor(try id.asChainObject(), count: try limit.limited(by: DCore.Limits.subscriber))
+                .base
+                .toResponse(self.api.core)
         }
     }
     
-    public func getAll(byConsumerId id: ChainObjectConvertible, count: Int) -> Single<[Subscription]> {
+    public func getAll(byConsumerId id: ChainObjectConvertible, limit: Int = DCore.Limits.subscriber) -> Single<[Subscription]> {
         return Single.deferred {
-            guard count <= DCore.Constant.subscriberLimit else {
-                return Single.error(DCoreException.unexpected("Subscriber limit is out of bound: \(DCore.Constant.subscriberLimit)"))
-            }
-            return ListSubscriptionsByConsumer(try id.asChainObject(), count: count).base.toResponse(self.api.core)
+            return ListSubscriptionsByConsumer(try id.asChainObject(), count: try limit.limited(by: DCore.Limits.subscriber))
+                .base
+                .toResponse(self.api.core)
         }
     }
     
-    public func getAll(byAuthorId id: ChainObjectConvertible, count: Int) -> Single<[Subscription]> {
+    public func getAll(byAuthorId id: ChainObjectConvertible, limit: Int = DCore.Limits.subscriber) -> Single<[Subscription]> {
         return Single.deferred {
-            guard count <= DCore.Constant.subscriberLimit else {
-                return Single.error(DCoreException.unexpected("Subscriber limit is out of bound: \(DCore.Constant.subscriberLimit)"))
-            }
-            return ListSubscriptionsByAuthor(try id.asChainObject(), count: count).base.toResponse(self.api.core)
+            return ListSubscriptionsByAuthor(try id.asChainObject(), count: try limit.limited(by: DCore.Limits.subscriber))
+                .base
+                .toResponse(self.api.core)
         }
     }
 }
