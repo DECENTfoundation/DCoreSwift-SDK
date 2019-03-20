@@ -24,7 +24,7 @@ public protocol AccountApi: BaseApi {
     /**
      Check if the account exist.
      
-     - Parameter id: Account id or name.
+     - Parameter ref: Account id or name.
      
      - Returns: `true` if account exist.
      */
@@ -33,7 +33,7 @@ public protocol AccountApi: BaseApi {
     /**
      Get account by name.
      
-     - Parameter id: Account name.
+     - Parameter name: Account name.
      
      - Throws: `DCoreException.Network.notFound`
      if account does not exist.
@@ -78,7 +78,7 @@ public protocol AccountApi: BaseApi {
     /**
      Get accounts by names.
      
-     - Parameter ids: Account ids as `ChainObject` or `String` format.
+     - Parameter names: Account names.
      
      - Returns: An `[Account]` array.
      */

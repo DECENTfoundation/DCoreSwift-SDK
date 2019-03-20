@@ -183,7 +183,7 @@
 		A1D96D8A21ED1E22009C0A30 /* OperationHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* OperationHistory.swift */; };
 		A1D96D8B21ED1E22009C0A30 /* OperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* OperationType.swift */; };
 		A1D96D8C21ED1E22009C0A30 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* Operation.swift */; };
-		A1D96D8D21ED1E22009C0A30 /* BuyContentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* BuyContentOperation.swift */; };
+		A1D96D8D21ED1E22009C0A30 /* PurchaseContentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* PurchaseContentOperation.swift */; };
 		A1D96D8E21ED1E22009C0A30 /* AnyOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* AnyOperation.swift */; };
 		A1D96D8F21ED1E22009C0A30 /* TransferOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_74 /* TransferOperation.swift */; };
 		A1D96D9021ED1E22009C0A30 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_75 /* Options.swift */; };
@@ -441,7 +441,7 @@
 		OBJ_887 /* OperationHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* OperationHistory.swift */; };
 		OBJ_888 /* OperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* OperationType.swift */; };
 		OBJ_889 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* Operation.swift */; };
-		OBJ_890 /* BuyContentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* BuyContentOperation.swift */; };
+		OBJ_890 /* PurchaseContentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* PurchaseContentOperation.swift */; };
 		OBJ_891 /* AnyOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* AnyOperation.swift */; };
 		OBJ_892 /* TransferOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_74 /* TransferOperation.swift */; };
 		OBJ_893 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_75 /* Options.swift */; };
@@ -1247,7 +1247,7 @@
 		OBJ_682 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/michalgrman/_workspace/_swift/DCoreKit/.build/checkouts/RxSwift.git--5214619868639177420/Package.swift"; sourceTree = "<group>"; };
 		OBJ_69 /* OperationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationType.swift; sourceTree = "<group>"; };
 		OBJ_71 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
-		OBJ_72 /* BuyContentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyContentOperation.swift; sourceTree = "<group>"; };
+		OBJ_72 /* PurchaseContentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseContentOperation.swift; sourceTree = "<group>"; };
 		OBJ_73 /* AnyOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyOperation.swift; sourceTree = "<group>"; };
 		OBJ_74 /* TransferOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferOperation.swift; sourceTree = "<group>"; };
 		OBJ_75 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
@@ -2377,7 +2377,7 @@
 				A1AE9DC522036C45004B6019 /* FeeOperation.swift */,
 				A1B13BF122043A59006B59BF /* UnknownOperation.swift */,
 				OBJ_74 /* TransferOperation.swift */,
-				OBJ_72 /* BuyContentOperation.swift */,
+				OBJ_72 /* PurchaseContentOperation.swift */,
 				A16032D521F375EF00674FEF /* CancelContentOperation.swift */,
 				A16032B121F3563D00674FEF /* SubmitContentOperation.swift */,
 				A189709221F217B700602F81 /* AccountCreateOperation.swift */,
@@ -2787,7 +2787,7 @@
 				A1D96D8B21ED1E22009C0A30 /* OperationType.swift in Sources */,
 				A1D96D8C21ED1E22009C0A30 /* Operation.swift in Sources */,
 				A1A98553223BAEEC007CFB04 /* SendMessageOperation.swift in Sources */,
-				A1D96D8D21ED1E22009C0A30 /* BuyContentOperation.swift in Sources */,
+				A1D96D8D21ED1E22009C0A30 /* PurchaseContentOperation.swift in Sources */,
 				A1D96D8E21ED1E22009C0A30 /* AnyOperation.swift in Sources */,
 				A1D96D8F21ED1E22009C0A30 /* TransferOperation.swift in Sources */,
 				A1D96D9021ED1E22009C0A30 /* Options.swift in Sources */,
@@ -3090,7 +3090,7 @@
 				OBJ_888 /* OperationType.swift in Sources */,
 				OBJ_889 /* Operation.swift in Sources */,
 				A13D09D222314226000CAE17 /* Certificate+Extensions.swift in Sources */,
-				OBJ_890 /* BuyContentOperation.swift in Sources */,
+				OBJ_890 /* PurchaseContentOperation.swift in Sources */,
 				OBJ_891 /* AnyOperation.swift in Sources */,
 				OBJ_892 /* TransferOperation.swift in Sources */,
 				OBJ_893 /* Options.swift in Sources */,
