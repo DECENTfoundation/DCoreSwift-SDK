@@ -1,5 +1,6 @@
 import Foundation
 import RxSwift
+import BigInt
 
 public protocol AssetApi: BaseApi {
     /**
@@ -61,19 +62,6 @@ public protocol AssetApi: BaseApi {
     func findAllRelative(byLower bound: String, limit: Int) -> Single<[Asset]>
     
     /**
-     Converts asset into DCT, using actual price feed.
-     
-     - Parameter amount: Amount with different asset id,
-     then DCT (1.3.0).
-     
-     - Throws: `DCoreException.Network.notFound`
-     if asset does not exist.
-     
-     - Returns: `AssetAmount` in DCT.
-     */
-    func convert(toDct amount: AssetAmount) -> Single<AssetAmount>
-    
-    /**
      Current core asset supply.
 
      - Returns: `RealSupply` current supply.
@@ -102,6 +90,41 @@ public protocol AssetApi: BaseApi {
      - Returns: Array `[AssetData]` of asset data.
      */
     func getAllData(byAssetIds ids: [ChainObjectConvertible]) -> Single<[AssetData]>
+    
+    /**
+     Converts DCT amount to asset by id.
+     
+     - Parameter amount: Amount with different asset id,
+     then DCT (1.3.0).
+     - Parameter assetId: Asset id,
+     then DCT (1.3.0).
+     - Parameter rouding: Rounding mode for division operation.
+     
+     - Throws: `DCoreException.Network.notFound`
+     if asset does not exist or `DCoreException.Chain.failConvert`
+     if failed to convert.
+     
+     - Returns: `AssetAmount` in DCT.
+     */
+    func convert(fromDct amount: BigInt, to assetId: ChainObjectConvertible, rouding: Decimal.RoundingMode) -> Single<AssetAmount>
+    
+    /**
+     Converts from asset by id to DCT.
+     
+     - Parameter amount: Amount with different asset id,
+     then DCT (1.3.0).
+     - Parameter assetId: Asset id,
+     then DCT (1.3.0).
+     - Parameter rouding: Rounding mode for division operation.
+     
+     - Throws: `DCoreException.Network.notFound`
+     if asset does not exist or `DCoreException.Chain.failConvert`
+     if failed to convert.
+     
+     - Returns: `AssetAmount` in DCT.
+     */
+    func convert(toDct amount: BigInt, from assetId: ChainObjectConvertible, rouding: Decimal.RoundingMode) -> Single<AssetAmount>
+    
 }
 
 extension AssetApi {
@@ -136,10 +159,6 @@ extension AssetApi {
         
     }
     
-    public func convert(toDct amount: AssetAmount) -> Single<AssetAmount> {
-        return PriceToDct(amount).base.toResponse(api.core)
-    }
-    
     public func getRealSupply() -> Single<RealSupply> {
         return GetRealSupply().base.toResponse(api.core)
     }
@@ -154,6 +173,14 @@ extension AssetApi {
         return Single.deferred {
             return GetAssetsData(try ids.map { try $0.asChainObject() }).base.toResponse(self.api.core)
         }
+    }
+    
+    public func convert(fromDct amount: BigInt, to assetId: ChainObjectConvertible, rouding: Decimal.RoundingMode) -> Single<AssetAmount> {
+        return get(byId: assetId).map { try $0.convert(fromDct: amount, rouding: rouding) }
+    }
+    
+    public func convert(toDct amount: BigInt, from assetId: ChainObjectConvertible, rouding: Decimal.RoundingMode) -> Single<AssetAmount> {
+        return get(byId: assetId).map { try $0.convert(toDct: amount, rouding: rouding) }
     }
 }
 
