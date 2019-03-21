@@ -71,7 +71,7 @@ public protocol AssetApi: BaseApi {
     /**
      Get asset dynamic data by id.
      
-     - Parameter id: Asset id, eg. DCT id is 2.3.0,
+     - Parameter id: Asset dynamic data id, eg. DCT id is 2.3.0,
      as `ChainObject` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`
@@ -84,7 +84,7 @@ public protocol AssetApi: BaseApi {
     /**
      Get all asset dynamic data by ids.
      
-     - Parameter ids: Asset ids, eg. DCT id is 2.3.0,
+     - Parameter ids: Asset dynamic data ids, eg. DCT id is 2.3.0,
      as `ChainObject` or `String` format.
      
      - Returns: Array `[AssetData]` of asset data.
@@ -94,10 +94,8 @@ public protocol AssetApi: BaseApi {
     /**
      Converts DCT amount to asset by id.
      
-     - Parameter amount: Amount with different asset id,
-     then DCT (1.3.0).
-     - Parameter assetId: Asset id,
-     then DCT (1.3.0).
+     - Parameter amount: Amount in DCT (1.3.0).
+     - Parameter assetId: Asset id, different then DCT (1.3.0).
      - Parameter rounding: Rounding mode for division operation.
      
      - Throws: `DCoreException.Network.notFound`
@@ -111,10 +109,8 @@ public protocol AssetApi: BaseApi {
     /**
      Converts from asset by id to DCT.
      
-     - Parameter amount: Amount with different asset id,
-     then DCT (1.3.0).
-     - Parameter assetId: Asset id,
-     then DCT (1.3.0).
+     - Parameter amount: Amount with different asset id, then DCT (1.3.0).
+     - Parameter assetId: Asset id of amount, then DCT (1.3.0).
      - Parameter rounding: Rounding mode for division operation.
      
      - Throws: `DCoreException.Network.notFound`

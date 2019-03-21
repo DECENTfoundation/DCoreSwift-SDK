@@ -46,7 +46,7 @@ public struct Asset: Codable, AssetFormatting, Equatable {
         
         precondition(assetId.objectType == .assetObject, "Not valid asset id")
         precondition(quote > .zero, "Quote amount \(quote) must be greater then zero")
-        precondition(quote > .zero, "Base amount \(base) must be greater then zero")
+        precondition(base > .zero, "Base amount \(base) must be greater then zero")
         
         var result: Decimal = .zero
         var error: Decimal.CalculationError = .divideByZero
