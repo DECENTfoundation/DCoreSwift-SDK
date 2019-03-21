@@ -17,9 +17,13 @@ class HistoryApiTests: XCTestCase {
     }
     
     func testGetBalanceHistoryCheckTransferUsingRest() {
-        let id = "1.2.17".dcore.chainObject!
+        let id = "1.2.34".dcore.chainObject!
         
-        let result = try? rest.history.getBalanceHistory(for: id, assets: [DCore.Constant.dct]).toBlocking().single()
+        let result = try? rest.history.getBalanceHistory(for: id,
+                                                         assets: [DCore.Constant.dct],
+                                                         recipientId: nil,
+                                                         pagination: (.ignore as Pagination).update(limit:2000)
+        ).toBlocking().single()
         XCTAssertNotNil(result)
         XCTAssert(!result!.isEmpty)
         XCTAssert(result!.first!.history.operation.is(type: TransferOperation.self))

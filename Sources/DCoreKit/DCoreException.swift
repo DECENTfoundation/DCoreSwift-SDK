@@ -6,6 +6,7 @@ public enum DCoreException: Error {
     public enum Network: Error, Equatable {
         case
         notFound,
+        alreadyFound,
         closed,
         security(String),
         stack(Int, String, String),
@@ -68,6 +69,7 @@ extension DCoreException.Network: CustomStringConvertible {
     public var description: String {
         switch self {
         case .notFound: return "Result not found"
+        case .alreadyFound: return "Result already exist"
         case .closed: return "Network was closed"
         case .security(let message): return message
         case .stack(let code, let name, let message): return "\(name) (\(code)): \(message)"

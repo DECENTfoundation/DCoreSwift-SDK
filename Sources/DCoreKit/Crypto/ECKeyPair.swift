@@ -54,6 +54,10 @@ extension ECKeyPair {
     public var address: Address {
         return Address(fromPublicKey: publicKey.data)
     }
+    
+    public var elGamalKeyPair: ElGamalKeyPair {
+        return ElGamalKeyPair(self)
+    }
 }
 
 extension DCoreExtension where Base == String {

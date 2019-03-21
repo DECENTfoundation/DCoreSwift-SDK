@@ -2,8 +2,15 @@ import Foundation
 
 public struct RegionalPrice: Codable {
     
+    public static let unset = RegionalPrice(.unset)
+    
     public let price: AssetAmount
     public let region: Int
+    
+    init(_ price: AssetAmount, region: Int = Regions.null.id) {
+        self.price = price
+        self.region = region
+    }
     
     private enum CodingKeys: String, CodingKey {
         case
@@ -37,9 +44,9 @@ public struct PricePerRegion: Codable {
 
 public enum Regions {
     
-    public static let NULL: Regions = Regions.code("null", 0)
-    public static let NONE: Regions = Regions.code("", 1)
-    public static let ALL: Regions = Regions.code("default", 2)
+    public static let null: Regions = Regions.code("null", 0)
+    public static let none: Regions = Regions.code("", 1)
+    public static let all: Regions = Regions.code("default", 2)
     
     case code(String, Int)
     

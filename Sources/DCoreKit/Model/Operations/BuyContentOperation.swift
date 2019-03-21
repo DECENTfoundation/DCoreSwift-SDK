@@ -4,7 +4,7 @@ import BigInt
 public struct BuyContentOperation: Operation {
     
     public var uri: String {
-        willSet { precondition(!uri.matches(regex: "^(https?|ipfs|magnet):.*").isEmpty, "Unsupported uri scheme") }
+        willSet { precondition(Content.hasValid(uri: uri), "Unsupported uri scheme") }
     }
     
     public var consumer: ChainObject {
@@ -16,7 +16,7 @@ public struct BuyContentOperation: Operation {
     }
     
     public var publicElGamal: PubKey = PubKey()
-    public var regionCode: Int = Regions.NONE.id
+    public var regionCode: Int = Regions.none.id
     
     public let type: OperationType = .requestToBuyOperation
     public var fee: AssetAmount  = .unset
@@ -27,7 +27,7 @@ public struct BuyContentOperation: Operation {
         uri = content.uri
         price = content.price
         
-        if content.uri.asURL()?.type == .ipfs { publicElGamal = PubKey() }
+        if content.uri.asURL()?.type == .ipfs { publicElGamal = credentials.keyPair.elGamalKeyPair.publicKey }
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -36,7 +36,8 @@ public struct BuyContentOperation: Operation {
         consumer,
         price,
         publicElGamal = "pubKey",
-        regionCode = "region_code_from"
+        regionCode = "region_code_from",
+        fee
     }
 }
 

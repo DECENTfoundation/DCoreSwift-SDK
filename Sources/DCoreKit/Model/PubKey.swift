@@ -2,31 +2,38 @@ import Foundation
 import BigInt
 
 public struct PubKey: Codable {
-    
-    public var key: BigInt = 0
+    public var value: BigInt = 0
     
     public init(key: String? = nil) {
         if let key = key?.replacingOccurrences(of: ".", with: ""), let value = BigInt(key) {
-            self.key = value
+            self.value = value
         }
     }
     
+    public init(_ value: BigInt) {
+        self.value = value
+    }
+    
     public init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        let key = try container.decode(String.self)
-        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let key = try container.decode(String.self, forKey: .key)
         self.init(key: key)
     }
     
     public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encode(description)
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(description, forKey: .key)
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case
+        key = "s"
     }
 }
 
 extension PubKey: CustomStringConvertible {
     public var description: String {
-        return "\(key)."
+        return "\(value)."
     }
 }
 
