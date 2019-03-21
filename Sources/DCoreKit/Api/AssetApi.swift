@@ -71,7 +71,7 @@ public protocol AssetApi: BaseApi {
     /**
      Get asset dynamic data by id.
      
-     - Parameter ids: Asset ids, eg. DCT id is 2.3.0,
+     - Parameter id: Asset id, eg. DCT id is 2.3.0,
      as `ChainObject` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`
