@@ -88,7 +88,7 @@ public protocol MiningApi: BaseApi {
      - Parameter onlyMyVotes: When true it selects only votes given by account.
      - Parameter limit: Maximum number of miners info to fetch, max/default `1000`.
      
-     - Returns: Array `[MinerVotingInfo]` of miner voting info
+     - Returns: Array `[MinerVotingInfo]` of miner voting info.
      */
     func findAllVotingInfos(by expression: String,
                             order: SearchOrder.MinerVoting,
@@ -115,6 +115,27 @@ public protocol MiningApi: BaseApi {
      */
     func getAssetPerBlock(byBlockNum num: UInt64) -> Single<BigInt>
     
+    /**
+     Create vote for miner operation.
+     
+     - Parameter ids: The object ids of the miners,
+     eg. 1.4.*, as `ChainObject` or `String` format.
+     - Parameter credentials: Account credentials.
+     
+     - Returns: `AccountUpdateOperation`.
+     */
+    func createVote(forMinerIds ids: [ChainObjectConvertible], credentials: Credentials) -> Single<AccountUpdateOperation>
+    
+    /**
+     Make vote for miner.
+     
+     - Parameter ids: The object ids of the miners,
+     eg. 1.4.*, as `ChainObject` or `String` format.
+     - Parameter credentials: Account credentials.
+     
+     - Returns: `AccountUpdateOperation`.
+     */
+    func vote(forMinerIds ids: [ChainObjectConvertible], credentials: Credentials) -> Single<TransactionConfirmation>
 }
 
 extension MiningApi {
@@ -184,6 +205,18 @@ extension MiningApi {
     
     public func getAssetPerBlock(byBlockNum num: UInt64) -> Single<BigInt> {
         return GetAssetPerBlock(num).base.toResponse(api.core)
+    }
+    
+    public func createVote(forMinerIds ids: [ChainObjectConvertible], credentials: Credentials) -> Single<AccountUpdateOperation> {
+        return Single.zip(api.account.get(byId: credentials.accountId), getAll(byIds: ids)).map { (account, miners) in
+            return AccountUpdateOperation(account, votes: Set(miners.map { $0.voteId }))
+        }
+    }
+    
+    public func vote(forMinerIds ids: [ChainObjectConvertible], credentials: Credentials) -> Single<TransactionConfirmation> {
+        return createVote(forMinerIds: ids, credentials: credentials).flatMap {
+            return self.api.broadcast.broadcastWithCallback($0, keypair: credentials.keyPair)
+        }
     }
 }
 
