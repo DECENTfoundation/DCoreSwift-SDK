@@ -87,6 +87,10 @@
 		A181489821F859320053F9BE /* ValidationApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A181489621F859320053F9BE /* ValidationApiTests.swift */; };
 		A189709321F217B700602F81 /* AccountCreateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A189709221F217B700602F81 /* AccountCreateOperation.swift */; };
 		A189709421F217B700602F81 /* AccountCreateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A189709221F217B700602F81 /* AccountCreateOperation.swift */; };
+		A19052EA2243DD57007CE820 /* GetAssetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19052E92243DD57007CE820 /* GetAssetData.swift */; };
+		A19052EB2243DD57007CE820 /* GetAssetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19052E92243DD57007CE820 /* GetAssetData.swift */; };
+		A19052ED2243DE99007CE820 /* AssetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19052EC2243DE99007CE820 /* AssetData.swift */; };
+		A19052EE2243DE99007CE820 /* AssetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19052EC2243DE99007CE820 /* AssetData.swift */; };
 		A19D4CF021F1AE3B0069B6CA /* Hippolyte.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19D4CEF21F1AE3B0069B6CA /* Hippolyte.framework */; };
 		A19D4CF121F1AE5E0069B6CA /* Hippolyte.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19D4CEF21F1AE3B0069B6CA /* Hippolyte.framework */; };
 		A19D4CF321F1AE960069B6CA /* AccountApiMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CF221F1AE960069B6CA /* AccountApiMockTests.swift */; };
@@ -631,6 +635,8 @@
 		A169C1D72230524100FAA818 /* CompositeValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeValidator.swift; sourceTree = "<group>"; };
 		A181489621F859320053F9BE /* ValidationApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationApiTests.swift; sourceTree = "<group>"; };
 		A189709221F217B700602F81 /* AccountCreateOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreateOperation.swift; sourceTree = "<group>"; };
+		A19052E92243DD57007CE820 /* GetAssetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GetAssetData.swift; path = Sources/DcoreKit/Net/Model/Request/GetAssetData.swift; sourceTree = SOURCE_ROOT; };
+		A19052EC2243DE99007CE820 /* AssetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AssetData.swift; path = Sources/DcoreKit/Model/AssetData.swift; sourceTree = SOURCE_ROOT; };
 		A19D4CEF21F1AE3B0069B6CA /* Hippolyte.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hippolyte.framework; path = Carthage/Build/iOS/Hippolyte.framework; sourceTree = "<group>"; };
 		A19D4CF221F1AE960069B6CA /* AccountApiMockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountApiMockTests.swift; sourceTree = "<group>"; };
 		A19D4CF621F1B4D70069B6CA /* MockBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBuilder.swift; sourceTree = "<group>"; };
@@ -1442,6 +1448,7 @@
 				OBJ_118 /* GetActualVotes.swift */,
 				OBJ_119 /* GetAssetPerBlock.swift */,
 				OBJ_120 /* GetAssets.swift */,
+				A19052E92243DD57007CE820 /* GetAssetData.swift */,
 				OBJ_121 /* GetBlock.swift */,
 				OBJ_122 /* GetBlockHeader.swift */,
 				OBJ_123 /* GetBuyingByConsumer.swift */,
@@ -1908,6 +1915,7 @@
 				OBJ_37 /* AccountBalance.swift */,
 				OBJ_38 /* AccountStatistics.swift */,
 				OBJ_39 /* Asset.swift */,
+				A19052EC2243DE99007CE820 /* AssetData.swift */,
 				OBJ_40 /* AssetAmount.swift */,
 				OBJ_41 /* AssetFormatting.swift */,
 				OBJ_42 /* Authority.swift */,
@@ -2880,6 +2888,7 @@
 				A1D96DC421ED1E22009C0A30 /* GetDynamicGlobalProps.swift in Sources */,
 				A1D96DC521ED1E22009C0A30 /* GetFeedsByMiner.swift in Sources */,
 				A1D96DC621ED1E22009C0A30 /* GetFullAccounts.swift in Sources */,
+				A19052EE2243DE99007CE820 /* AssetData.swift in Sources */,
 				A1D96DC721ED1E22009C0A30 /* GetGlobalProperties.swift in Sources */,
 				A1D96DC821ED1E22009C0A30 /* GetHistoryBuyingsByConsumer.swift in Sources */,
 				A1D96DC921ED1E22009C0A30 /* GetKeyReferences.swift in Sources */,
@@ -2950,6 +2959,7 @@
 				A1D96DFE21ED1E22009C0A30 /* SetBlockAppliedCallback.swift in Sources */,
 				A169C1D32230443100FAA818 /* PublicKeysValidator.swift in Sources */,
 				A1D96DFF21ED1E22009C0A30 /* SetContentUpdateCallback.swift in Sources */,
+				A19052EB2243DD57007CE820 /* GetAssetData.swift in Sources */,
 				A1D96E0021ED1E22009C0A30 /* SetPendingTransactionCallback.swift in Sources */,
 				A1D96E0121ED1E22009C0A30 /* SetSubscribeCallback.swift in Sources */,
 				A1D96E0221ED1E22009C0A30 /* ValidateTransaction.swift in Sources */,
@@ -3280,6 +3290,7 @@
 				OBJ_1014 /* AnyValue.swift in Sources */,
 				OBJ_1015 /* DataConvertible.swift in Sources */,
 				A1A98558223BF2BA007CFB04 /* CustomOperationType.swift in Sources */,
+				A19052ED2243DE99007CE820 /* AssetData.swift in Sources */,
 				OBJ_1017 /* JsonContext.swift in Sources */,
 				OBJ_1018 /* JsonConvertible.swift in Sources */,
 				A1A2FBB12242A132003641EA /* ECKeyPairConvertible.swift in Sources */,
@@ -3290,6 +3301,7 @@
 				OBJ_1024 /* WssConvertible.swift in Sources */,
 				OBJ_1025 /* WssEmitter.swift in Sources */,
 				OBJ_1026 /* WssResponseParser.swift in Sources */,
+				A19052EA2243DD57007CE820 /* GetAssetData.swift in Sources */,
 				OBJ_1027 /* WssService.swift in Sources */,
 				A1A2FBB72242CA34003641EA /* Message.swift in Sources */,
 				OBJ_1028 /* BaseConvertible.swift in Sources */,

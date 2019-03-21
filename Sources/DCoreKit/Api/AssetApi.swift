@@ -9,7 +9,7 @@ public protocol AssetApi: BaseApi {
      as `ChainObject` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`
-     if account does not exist.
+     if asset does not exist.
      
      - Returns: `Asset`.
      */
@@ -31,7 +31,7 @@ public protocol AssetApi: BaseApi {
      - Parameter symbol: Asset symbol, eg. `Asset.Symbol.dct`.
      
      - Throws: `DCoreException.Network.notFound`
-     if account does not exist.
+     if asset does not exist.
      
      - Returns: `Asset`.
      */
@@ -43,7 +43,7 @@ public protocol AssetApi: BaseApi {
      - Parameter symbols: Asset symbols, eg. `[Asset.Symbol.dct]`.
      
      - Throws: `DCoreException.Network.notFound`
-     if account does not exist.
+     if asset does not exist.
      
      - Returns:  Array `[Asset]` of assets.
      */
@@ -67,7 +67,7 @@ public protocol AssetApi: BaseApi {
      then DCT (1.3.0).
      
      - Throws: `DCoreException.Network.notFound`
-     if account does not exist.
+     if asset does not exist.
      
      - Returns: `AssetAmount` in DCT.
      */
@@ -79,6 +79,29 @@ public protocol AssetApi: BaseApi {
      - Returns: `RealSupply` current supply.
      */
     func getRealSupply() -> Single<RealSupply>
+    
+    /**
+     Get asset dynamic data by id.
+     
+     - Parameter ids: Asset ids, eg. DCT id is 2.3.0,
+     as `ChainObject` or `String` format.
+     
+     - Throws: `DCoreException.Network.notFound`
+     if asset data does not exist.
+     
+     - Returns: Array `[AssetData]` of asset data.
+     */
+    func getData(byAssetId id: ChainObjectConvertible) -> Single<AssetData>
+    
+    /**
+     Get all asset dynamic data by ids.
+     
+     - Parameter ids: Asset ids, eg. DCT id is 2.3.0,
+     as `ChainObject` or `String` format.
+     
+     - Returns: Array `[AssetData]` of asset data.
+     */
+    func getAllData(byAssetIds ids: [ChainObjectConvertible]) -> Single<[AssetData]>
 }
 
 extension AssetApi {
@@ -119,6 +142,18 @@ extension AssetApi {
     
     public func getRealSupply() -> Single<RealSupply> {
         return GetRealSupply().base.toResponse(api.core)
+    }
+    
+    public func getData(byAssetId id: ChainObjectConvertible) -> Single<AssetData> {
+        return getAllData(byAssetIds: [id]).map {
+            try $0.first.orThrow(DCoreException.network(.notFound))
+        }
+    }
+    
+    public func getAllData(byAssetIds ids: [ChainObjectConvertible]) -> Single<[AssetData]> {
+        return Single.deferred {
+            return GetAssetsData(try ids.map { try $0.asChainObject() }).base.toResponse(self.api.core)
+        }
     }
 }
 
