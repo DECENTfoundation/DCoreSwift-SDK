@@ -101,6 +101,16 @@
 		A1A2FBAF22428342003641EA /* IntegerLiteralType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBAD22428342003641EA /* IntegerLiteralType+Extension.swift */; };
 		A1A2FBB12242A132003641EA /* ECKeyPairConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBB02242A132003641EA /* ECKeyPairConvertible.swift */; };
 		A1A2FBB22242A132003641EA /* ECKeyPairConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBB02242A132003641EA /* ECKeyPairConvertible.swift */; };
+		A1A2FBB42242C993003641EA /* MessagingApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBB32242C993003641EA /* MessagingApi.swift */; };
+		A1A2FBB52242C993003641EA /* MessagingApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBB32242C993003641EA /* MessagingApi.swift */; };
+		A1A2FBB72242CA34003641EA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBB62242CA33003641EA /* Message.swift */; };
+		A1A2FBB82242CA34003641EA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBB62242CA33003641EA /* Message.swift */; };
+		A1A2FBBA2242D3D5003641EA /* MessagesConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBB92242D3D5003641EA /* MessagesConvertible.swift */; };
+		A1A2FBBB2242D3D5003641EA /* MessagesConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBB92242D3D5003641EA /* MessagesConvertible.swift */; };
+		A1A2FBBD2242D90D003641EA /* GetMessageObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBBC2242D90D003641EA /* GetMessageObjects.swift */; };
+		A1A2FBBE2242D90D003641EA /* GetMessageObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBBC2242D90D003641EA /* GetMessageObjects.swift */; };
+		A1A2FBC02242ECC4003641EA /* MessagingApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBBF2242ECC4003641EA /* MessagingApiTests.swift */; };
+		A1A2FBC12242ECC4003641EA /* MessagingApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBBF2242ECC4003641EA /* MessagingApiTests.swift */; };
 		A1A9854C223BA971007CFB04 /* ElGamalKeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */; };
 		A1A9854D223BA971007CFB04 /* ElGamalKeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */; };
 		A1A9854F223BAECC007CFB04 /* CustomOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854E223BAECC007CFB04 /* CustomOperation.swift */; };
@@ -628,6 +638,11 @@
 		A1A2FBAA224185B7003641EA /* SubscriptionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubscriptionApi.swift; path = Sources/DcoreKit/Api/SubscriptionApi.swift; sourceTree = SOURCE_ROOT; };
 		A1A2FBAD22428342003641EA /* IntegerLiteralType+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "IntegerLiteralType+Extension.swift"; path = "Sources/DcoreKit/Utils/IntegerLiteralType+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		A1A2FBB02242A132003641EA /* ECKeyPairConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ECKeyPairConvertible.swift; path = Sources/DcoreKit/Crypto/ECKeyPairConvertible.swift; sourceTree = SOURCE_ROOT; };
+		A1A2FBB32242C993003641EA /* MessagingApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessagingApi.swift; path = Sources/DcoreKit/Api/MessagingApi.swift; sourceTree = SOURCE_ROOT; };
+		A1A2FBB62242CA33003641EA /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Sources/DcoreKit/Model/Message.swift; sourceTree = SOURCE_ROOT; };
+		A1A2FBB92242D3D5003641EA /* MessagesConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessagesConvertible.swift; path = Sources/DcoreKit/Model/MessagesConvertible.swift; sourceTree = SOURCE_ROOT; };
+		A1A2FBBC2242D90D003641EA /* GetMessageObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GetMessageObjects.swift; path = Sources/DcoreKit/Net/Model/Request/GetMessageObjects.swift; sourceTree = SOURCE_ROOT; };
+		A1A2FBBF2242ECC4003641EA /* MessagingApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessagingApiTests.swift; path = Tests/DcoreKitTests/MessagingApiTests.swift; sourceTree = SOURCE_ROOT; };
 		A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ElGamalKeyPair.swift; path = Sources/DcoreKit/Crypto/ElGamalKeyPair.swift; sourceTree = SOURCE_ROOT; };
 		A1A9854E223BAECC007CFB04 /* CustomOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomOperation.swift; path = Sources/DcoreKit/Model/Operations/CustomOperation.swift; sourceTree = SOURCE_ROOT; };
 		A1A98551223BAEEC007CFB04 /* SendMessageOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SendMessageOperation.swift; path = Sources/DcoreKit/Model/Operations/SendMessageOperation.swift; sourceTree = SOURCE_ROOT; };
@@ -1442,6 +1457,7 @@
 				OBJ_133 /* GetGlobalProperties.swift */,
 				OBJ_134 /* GetHistoryBuyingsByConsumer.swift */,
 				OBJ_135 /* GetKeyReferences.swift */,
+				A1A2FBBC2242D90D003641EA /* GetMessageObjects.swift */,
 				OBJ_136 /* GetMinerByAccount.swift */,
 				OBJ_137 /* GetMinerCount.swift */,
 				OBJ_138 /* GetMiners.swift */,
@@ -1590,6 +1606,7 @@
 				A1676780221C43720024A4D6 /* BlockApiTests.swift */,
 				A13D09C9223078E5000CAE17 /* SecurityTests.swift */,
 				A1EF306722392935002D2F39 /* ConnectivityTests.swift */,
+				A1A2FBBF2242ECC4003641EA /* MessagingApiTests.swift */,
 			);
 			name = DCoreKitTests;
 			path = Tests/DCoreKitTests;
@@ -1912,8 +1929,10 @@
 				OBJ_57 /* FullAccount.swift */,
 				OBJ_58 /* GlobalParameters.swift */,
 				OBJ_59 /* GlobalProperty.swift */,
-				OBJ_61 /* Memo.swift */,
 				OBJ_60 /* KeyParts.swift */,
+				OBJ_61 /* Memo.swift */,
+				A1A2FBB62242CA33003641EA /* Message.swift */,
+				A1A2FBB92242D3D5003641EA /* MessagesConvertible.swift */,
 				OBJ_62 /* Miner.swift */,
 				OBJ_63 /* MinerId.swift */,
 				OBJ_64 /* MinerRewardInput.swift */,
@@ -2432,6 +2451,7 @@
 				OBJ_17 /* GeneralApi.swift */,
 				OBJ_18 /* HistoryApi.swift */,
 				OBJ_19 /* MiningApi.swift */,
+				A1A2FBB32242C993003641EA /* MessagingApi.swift */,
 				OBJ_21 /* PurchaseApi.swift */,
 				OBJ_22 /* SeedersApi.swift */,
 				OBJ_23 /* CallbackApi.swift */,
@@ -2793,6 +2813,7 @@
 				A1D96D8921ED1E22009C0A30 /* ObjectType.swift in Sources */,
 				A1AE9DC722036C45004B6019 /* FeeOperation.swift in Sources */,
 				A1D96D8A21ED1E22009C0A30 /* OperationHistory.swift in Sources */,
+				A1A2FBBE2242D90D003641EA /* GetMessageObjects.swift in Sources */,
 				A1D96D8B21ED1E22009C0A30 /* OperationType.swift in Sources */,
 				A1D96D8C21ED1E22009C0A30 /* Operation.swift in Sources */,
 				A1A98553223BAEEC007CFB04 /* SendMessageOperation.swift in Sources */,
@@ -2887,6 +2908,7 @@
 				A1D96DE021ED1E22009C0A30 /* GetVestingBalances.swift in Sources */,
 				A1D96DE121ED1E22009C0A30 /* HeadBlockTime.swift in Sources */,
 				A1D96DE221ED1E22009C0A30 /* Info.swift in Sources */,
+				A1A2FBBB2242D3D5003641EA /* MessagesConvertible.swift in Sources */,
 				A1D96DE321ED1E22009C0A30 /* ListActiveSubscriptionsByAuthor.swift in Sources */,
 				A1D96DE421ED1E22009C0A30 /* ListActiveSubscriptionsByConsumer.swift in Sources */,
 				A1D96DE521ED1E22009C0A30 /* ListAssets.swift in Sources */,
@@ -2937,6 +2959,7 @@
 				A1D96E0521ED1E22009C0A30 /* Rpc.swift in Sources */,
 				A1D96E0621ED1E22009C0A30 /* RestConvertible.swift in Sources */,
 				A1D96E0721ED1E22009C0A30 /* RestService.swift in Sources */,
+				A1A2FBB52242C993003641EA /* MessagingApi.swift in Sources */,
 				A1D96E0821ED1E22009C0A30 /* AnyEncodable.swift in Sources */,
 				A1D96E0921ED1E22009C0A30 /* AnyValue.swift in Sources */,
 				A1D96E0A21ED1E22009C0A30 /* DataConvertible.swift in Sources */,
@@ -2960,6 +2983,7 @@
 				A13D09D922315657000CAE17 /* PublicKeyPinValidator.swift in Sources */,
 				A1AF06F42237F241002CA4F7 /* SynopsisConvertible.swift in Sources */,
 				A143170922085C8700EE656C /* OperationUnkeyedDecodable.swift in Sources */,
+				A1A2FBB82242CA34003641EA /* Message.swift in Sources */,
 				A1D96E1C21ED1E22009C0A30 /* Enum+Extension.swift in Sources */,
 				A1D96E1D21ED1E22009C0A30 /* LoggerConvertible.swift in Sources */,
 				A1D96E1E21ED1E22009C0A30 /* Rx+Extension.swift in Sources */,
@@ -2992,6 +3016,7 @@
 				A1AE9DB822031528004B6019 /* HistoryApiTests.swift in Sources */,
 				A1D96E3821ED2025009C0A30 /* SerializationTests.swift in Sources */,
 				A1D96E3921ED2025009C0A30 /* SubscriptionApiTests.swift in Sources */,
+				A1A2FBC12242ECC4003641EA /* MessagingApiTests.swift in Sources */,
 				A181489821F859320053F9BE /* ValidationApiTests.swift in Sources */,
 				A1EF306922392935002D2F39 /* ConnectivityTests.swift in Sources */,
 				A114B51A21F9F5E2009F1BA2 /* XCTestManifests.swift in Sources */,
@@ -3005,6 +3030,7 @@
 				OBJ_1087 /* AccountApiTests.swift in Sources */,
 				071AE0452212CD0E008AE077 /* QrTransferTests.swift in Sources */,
 				A19D4CF321F1AE960069B6CA /* AccountApiMockTests.swift in Sources */,
+				A1A2FBC02242ECC4003641EA /* MessagingApiTests.swift in Sources */,
 				A1673B4F21EF3CC3008FF560 /* OperationApiTests.swift in Sources */,
 				OBJ_1088 /* AssetApiTests.swift in Sources */,
 				A1673B5221EF43CA008FF560 /* GeneralApiTests.swift in Sources */,
@@ -3043,6 +3069,7 @@
 				OBJ_843 /* SeedersApi.swift in Sources */,
 				OBJ_844 /* CallbackApi.swift in Sources */,
 				OBJ_845 /* TransactionApi.swift in Sources */,
+				A1A2FBBD2242D90D003641EA /* GetMessageObjects.swift in Sources */,
 				OBJ_846 /* ValidationApi.swift in Sources */,
 				OBJ_847 /* Address.swift in Sources */,
 				OBJ_848 /* Credentials.swift in Sources */,
@@ -3066,6 +3093,7 @@
 				OBJ_862 /* BalanceChange.swift in Sources */,
 				OBJ_863 /* BlockData.swift in Sources */,
 				OBJ_864 /* BlockHeader.swift in Sources */,
+				A1A2FBBA2242D3D5003641EA /* MessagesConvertible.swift in Sources */,
 				OBJ_865 /* ChainObject.swift in Sources */,
 				OBJ_866 /* ChainParameters.swift in Sources */,
 				OBJ_867 /* ChainProperty.swift in Sources */,
@@ -3215,6 +3243,7 @@
 				OBJ_984 /* ListSubscriptionsByAuthor.swift in Sources */,
 				OBJ_985 /* ListSubscriptionsByConsumer.swift in Sources */,
 				OBJ_986 /* Login.swift in Sources */,
+				A1A2FBB42242C993003641EA /* MessagingApi.swift in Sources */,
 				OBJ_987 /* LookupAccountNames.swift in Sources */,
 				OBJ_988 /* LookupAccounts.swift in Sources */,
 				OBJ_989 /* LookupAssets.swift in Sources */,
@@ -3262,6 +3291,7 @@
 				OBJ_1025 /* WssEmitter.swift in Sources */,
 				OBJ_1026 /* WssResponseParser.swift in Sources */,
 				OBJ_1027 /* WssService.swift in Sources */,
+				A1A2FBB72242CA34003641EA /* Message.swift in Sources */,
 				OBJ_1028 /* BaseConvertible.swift in Sources */,
 				A1C8525C21F3854700A9A4A2 /* URL+Scheme.swift in Sources */,
 				A143170822085C8700EE656C /* OperationUnkeyedDecodable.swift in Sources */,

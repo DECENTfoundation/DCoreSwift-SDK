@@ -4,11 +4,16 @@ import BigInt
 public typealias CipherCodable = CipherConvertible & Codable
 
 public protocol CipherConvertible {
+    func decrypt(_ credentials: Credentials, address: Address?, nonce: BigInt) throws -> Self
     func decrypt(_ keyPair: ECKeyPair, address: Address?, nonce: BigInt) throws -> Self
     func encrypt(_ keyPair: ECKeyPair?, address: Address?, nonce: BigInt) throws -> Self
 }
 
 extension CipherConvertible {
+    public func decrypt(_ credentials: Credentials, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> Self {
+        return try decrypt(credentials.keyPair, address: address, nonce: nonce)
+    }
+    
     public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> Self {
         throw DCoreException.crypto(.notSupported)
     }
