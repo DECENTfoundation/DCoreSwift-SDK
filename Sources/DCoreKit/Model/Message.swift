@@ -68,10 +68,16 @@ public struct MessagePayload: Codable {
     public let receivers: [MessagePayloadReceiver]
     public var fromAddress: Address?
     
-    init(_ from: ChainObject, messages: [Pair<ChainObject, String>]) throws {
+    init(_ from: ChainObject, receivers: [MessagePayloadReceiver], fromAddress: Address?) {
+        self.from = from
+        self.receivers = receivers
+        self.fromAddress = fromAddress
+    }
+    
+    init(_ from: ChainObject, messages: [Pair<ChainObjectConvertible, String>]) throws {
         self.from = from
         self.receivers = try messages.map {
-            MessagePayloadReceiver(to: $0.first, data: try Memo($0.second).message, toAddress: nil, nonce: nil)
+            MessagePayloadReceiver(to: try $0.first.asChainObject(), data: try Memo($0.second).message, toAddress: nil, nonce: nil)
         }
 
     }

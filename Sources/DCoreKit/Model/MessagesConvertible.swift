@@ -1,13 +1,13 @@
 import Foundation
 
 protocol MessagesConvertible {
-    func asMessages(_ credentials: Credentials) throws -> [Message]
+    func asMessages(decrypt credentials: Credentials) -> [Message]
 }
 
 extension MessageResponse: MessagesConvertible {
-    func asMessages(_ credentials: Credentials = Credentials.null) throws -> [Message] {
-        return try receivers.map {
-            try Message(id: id,
+    func asMessages(decrypt credentials: Credentials = Credentials.null) -> [Message] {
+        return receivers.map {
+            Message(id: id,
                     created: created,
                     sender: sender,
                     senderAddress: senderAddress,
@@ -15,7 +15,7 @@ extension MessageResponse: MessagesConvertible {
                     receiverAddress: $0.receiverAddress,
                     message: $0.data,
                     nonce: $0.nonce
-            ).decrypt(credentials)
-        }
+            )
+        }.compactMap { try? $0.decrypt(credentials) }
     }
 }

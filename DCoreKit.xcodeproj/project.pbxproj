@@ -109,6 +109,8 @@
 		A1A2FBBB2242D3D5003641EA /* MessagesConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBB92242D3D5003641EA /* MessagesConvertible.swift */; };
 		A1A2FBBD2242D90D003641EA /* GetMessageObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBBC2242D90D003641EA /* GetMessageObjects.swift */; };
 		A1A2FBBE2242D90D003641EA /* GetMessageObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBBC2242D90D003641EA /* GetMessageObjects.swift */; };
+		A1A2FBC02242ECC4003641EA /* MessagingApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBBF2242ECC4003641EA /* MessagingApiTests.swift */; };
+		A1A2FBC12242ECC4003641EA /* MessagingApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2FBBF2242ECC4003641EA /* MessagingApiTests.swift */; };
 		A1A9854C223BA971007CFB04 /* ElGamalKeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */; };
 		A1A9854D223BA971007CFB04 /* ElGamalKeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */; };
 		A1A9854F223BAECC007CFB04 /* CustomOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A9854E223BAECC007CFB04 /* CustomOperation.swift */; };
@@ -640,6 +642,7 @@
 		A1A2FBB62242CA33003641EA /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Sources/DcoreKit/Model/Message.swift; sourceTree = SOURCE_ROOT; };
 		A1A2FBB92242D3D5003641EA /* MessagesConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessagesConvertible.swift; path = Sources/DcoreKit/Model/MessagesConvertible.swift; sourceTree = SOURCE_ROOT; };
 		A1A2FBBC2242D90D003641EA /* GetMessageObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GetMessageObjects.swift; path = Sources/DcoreKit/Net/Model/Request/GetMessageObjects.swift; sourceTree = SOURCE_ROOT; };
+		A1A2FBBF2242ECC4003641EA /* MessagingApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessagingApiTests.swift; path = Tests/DcoreKitTests/MessagingApiTests.swift; sourceTree = SOURCE_ROOT; };
 		A1A9854B223BA971007CFB04 /* ElGamalKeyPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ElGamalKeyPair.swift; path = Sources/DcoreKit/Crypto/ElGamalKeyPair.swift; sourceTree = SOURCE_ROOT; };
 		A1A9854E223BAECC007CFB04 /* CustomOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomOperation.swift; path = Sources/DcoreKit/Model/Operations/CustomOperation.swift; sourceTree = SOURCE_ROOT; };
 		A1A98551223BAEEC007CFB04 /* SendMessageOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SendMessageOperation.swift; path = Sources/DcoreKit/Model/Operations/SendMessageOperation.swift; sourceTree = SOURCE_ROOT; };
@@ -1603,6 +1606,7 @@
 				A1676780221C43720024A4D6 /* BlockApiTests.swift */,
 				A13D09C9223078E5000CAE17 /* SecurityTests.swift */,
 				A1EF306722392935002D2F39 /* ConnectivityTests.swift */,
+				A1A2FBBF2242ECC4003641EA /* MessagingApiTests.swift */,
 			);
 			name = DCoreKitTests;
 			path = Tests/DCoreKitTests;
@@ -3012,6 +3016,7 @@
 				A1AE9DB822031528004B6019 /* HistoryApiTests.swift in Sources */,
 				A1D96E3821ED2025009C0A30 /* SerializationTests.swift in Sources */,
 				A1D96E3921ED2025009C0A30 /* SubscriptionApiTests.swift in Sources */,
+				A1A2FBC12242ECC4003641EA /* MessagingApiTests.swift in Sources */,
 				A181489821F859320053F9BE /* ValidationApiTests.swift in Sources */,
 				A1EF306922392935002D2F39 /* ConnectivityTests.swift in Sources */,
 				A114B51A21F9F5E2009F1BA2 /* XCTestManifests.swift in Sources */,
@@ -3025,6 +3030,7 @@
 				OBJ_1087 /* AccountApiTests.swift in Sources */,
 				071AE0452212CD0E008AE077 /* QrTransferTests.swift in Sources */,
 				A19D4CF321F1AE960069B6CA /* AccountApiMockTests.swift in Sources */,
+				A1A2FBC02242ECC4003641EA /* MessagingApiTests.swift in Sources */,
 				A1673B4F21EF3CC3008FF560 /* OperationApiTests.swift in Sources */,
 				OBJ_1088 /* AssetApiTests.swift in Sources */,
 				A1673B5221EF43CA008FF560 /* GeneralApiTests.swift in Sources */,
