@@ -133,7 +133,7 @@ public protocol MiningApi: BaseApi {
      eg. 1.4.*, as `ChainObject` or `String` format.
      - Parameter credentials: Account credentials.
      
-     - Returns: `AccountUpdateOperation`.
+     - Returns: `TransactionConfirmation`.
      */
     func vote(forMinerIds ids: [ChainObjectConvertible], credentials: Credentials) -> Single<TransactionConfirmation>
 }
