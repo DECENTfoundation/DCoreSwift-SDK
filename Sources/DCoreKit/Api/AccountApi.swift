@@ -327,14 +327,14 @@ extension AccountApi {
         return GetAccountReferences(id).base.toResponse(api.core)
     }
     
-    public func findAllRelative(byLowerBound bound: String, limit: Int = 1000) -> Single<[String: ChainObject]> {
+    public func findAllRelative(byLowerBound bound: String, limit: Int = DCore.Limits.account) -> Single<[String: ChainObject]> {
         return LookupAccounts(bound, limit: limit).base.toResponse(api.core)
     }
     
     public func findAll(by expression: String,
                         order: SearchOrder.Accounts = .nameDesc,
                         id: ChainObject = ObjectType.nullObject.genericId,
-                        limit: Int = 1000) -> Single<[Account]> {
+                        limit: Int = DCore.Limits.account) -> Single<[Account]> {
         
         return SearchAccounts(expression, order: order, id: id, limit: limit).base.toResponse(api.core)
     }

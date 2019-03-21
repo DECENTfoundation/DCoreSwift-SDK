@@ -5,7 +5,7 @@ public protocol ContentApi: BaseApi {
     /**
      Get content by id.
      
-     - Parameter id: Content id, e.g. 2.13.*,
+     - Parameter id: Content id, eg. 2.13.*,
      as `ChainObject` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`
@@ -324,27 +324,25 @@ extension ContentApi {
                         regionCode: String = Regions.all.code,
                         type: String = ContentCategory.id(.decentCore, .none).description,
                         startId id: ChainObjectConvertible = ObjectType.nullObject.genericId,
-                        limit: Int = DCore.Constant.contentLimit) -> Single<[Content]> {
+                        limit: Int = DCore.Limits.content) -> Single<[Content]> {
         return Single.deferred {
-            guard limit <= DCore.Constant.contentLimit else {
-                return Single.error(DCoreException.unexpected("Content limit is out of bound: \(DCore.Constant.contentLimit)"))
-            }
             return SearchContent(expression,
                                  order: order,
                                  user: author,
                                  regionCode: regionCode,
                                  type: type,
                                  startId: try id.asChainObject(),
-                                 limit: limit).base.toResponse(self.api.core)
+                                 limit: try limit.limited(by: DCore.Limits.content))
+                .base
+                .toResponse(self.api.core)
         }
     }
         
-    public func findAllPublishersRelative(byLower bound: String, limit: Int = DCore.Constant.publisherLimit) -> Single<[ChainObject]> {
+    public func findAllPublishersRelative(byLower bound: String, limit: Int = DCore.Limits.publisher) -> Single<[ChainObject]> {
         return Single.deferred {
-            guard limit <= DCore.Constant.publisherLimit else {
-                return Single.error(DCoreException.unexpected("Publisher limit is out of bound: \(DCore.Constant.publisherLimit)"))
-            }
-            return ListPublishingManagers(bound, limit: limit).base.toResponse(self.api.core)
+            return ListPublishingManagers(bound, limit: try limit.limited(by: DCore.Limits.publisher))
+                .base
+                .toResponse(self.api.core)
         }
     }
     

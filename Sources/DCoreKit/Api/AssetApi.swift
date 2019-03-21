@@ -5,7 +5,7 @@ public protocol AssetApi: BaseApi {
     /**
      Get asset by id.
      
-     - Parameter id: Asset id, e.g. 1.3.*,
+     - Parameter id: Asset id, eg. 1.3.*,
      as `ChainObject` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`
@@ -18,7 +18,7 @@ public protocol AssetApi: BaseApi {
     /**
      Get all assets by ids.
      
-     - Parameter ids: Asset ids, e.g. [1.3.*],
+     - Parameter ids: Asset ids, eg. [1.3.*],
      as `ChainObject` or `String` format.
      
      - Returns: Array `[Asset]` of assets.
@@ -28,7 +28,7 @@ public protocol AssetApi: BaseApi {
     /**
      Get assets by symbol.
      
-     - Parameter symbol: Asset symbol, e.g. `Asset.Symbol.dct`.
+     - Parameter symbol: Asset symbol, eg. `Asset.Symbol.dct`.
      
      - Throws: `DCoreException.Network.notFound`
      if account does not exist.
@@ -40,7 +40,7 @@ public protocol AssetApi: BaseApi {
     /**
      Get all assets by symbols.
      
-     - Parameter symbols: Asset symbols, e.g. `[Asset.Symbol.dct]`.
+     - Parameter symbols: Asset symbols, eg. `[Asset.Symbol.dct]`.
      
      - Throws: `DCoreException.Network.notFound`
      if account does not exist.
@@ -104,12 +104,11 @@ extension AssetApi {
         return LookupAssets(symbols).base.toResponse(api.core)
     }
     
-    public func findAllRelative(byLower bound: String, limit: Int = DCore.Constant.assetLimit) -> Single<[Asset]> {
+    public func findAllRelative(byLower bound: String, limit: Int = DCore.Limits.asset) -> Single<[Asset]> {
         return Single.deferred {
-            guard limit <= DCore.Constant.assetLimit else {
-                return Single.error(DCoreException.unexpected("Asset limit is out of bound: \(DCore.Constant.assetLimit)"))
-            }
-            return ListAssets(bound, limit: limit).base.toResponse(self.api.core)
+            return ListAssets(bound, limit: try limit.limited(by: DCore.Limits.asset))
+                .base
+                .toResponse(self.api.core)
         }
         
     }

@@ -52,7 +52,7 @@ extension DCore {
             [wss, rest].forEach { (obj: SecurityConfigurable?) in obj?.secured(by: validator) }
         }
         
-        func prepare(transactionUsing operations: [Operation], expiration: Int) -> Single<Transaction> {
+        func prepare(_ operations: [Operation], expiration: Int) -> Single<Transaction> {
             return Single.deferred { [unowned self] in
                 let (fees, noFees) = operations.partitionSplit(by: { $0.fee != .unset })
                 return Single.zip(self.chainId, GetDynamicGlobalProps().base.toResponse(self), (
