@@ -30,16 +30,16 @@ public struct Asset: Codable, AssetFormatting, Equatable {
     }
     
     /// Converts DCT [amount] according conversion rate.
-    public func convert(fromDct amount: BigInt, rouding: Decimal.RoundingMode) throws -> AssetAmount {
-        return try convert(amount, to: id, rouding: rouding)
+    public func convert(fromDct amount: BigInt, rounding: Decimal.RoundingMode) throws -> AssetAmount {
+        return try convert(amount, to: id, rounding: rounding)
     }
     
     /// Converts asset [amount] to DCT according conversion rate.
-    public func convert(toDct amount: BigInt, rouding: Decimal.RoundingMode) throws -> AssetAmount {
-        return try convert(amount, to: DCore.Constant.dct, rouding: rouding)
+    public func convert(toDct amount: BigInt, rounding: Decimal.RoundingMode) throws -> AssetAmount {
+        return try convert(amount, to: DCore.Constant.dct, rounding: rounding)
     }
     
-    private func convert(_ amount: BigInt, to assetId: ChainObject, rouding: Decimal.RoundingMode) throws -> AssetAmount {
+    private func convert(_ amount: BigInt, to assetId: ChainObject, rounding: Decimal.RoundingMode) throws -> AssetAmount {
         var quote = Decimal(string: options.exchangeRate.quote.amount.description).or(.zero)
         var base = Decimal(string: options.exchangeRate.base.amount.description).or(.zero)
         let value = Decimal(string: amount.description).or(.zero)
@@ -53,10 +53,10 @@ public struct Asset: Codable, AssetFormatting, Equatable {
         
         if options.exchangeRate.quote.assetId == assetId {
             var fragment = quote * value
-            error = NSDecimalDivide(&result, &fragment, &base, rouding)
+            error = NSDecimalDivide(&result, &fragment, &base, rounding)
         } else if options.exchangeRate.base.assetId == assetId {
             var fragment = base * value
-            error = NSDecimalDivide(&result, &fragment, &quote, rouding)
+            error = NSDecimalDivide(&result, &fragment, &quote, rounding)
         }
         
         guard case .noError = error, let converted = BigInt(result.description) else {

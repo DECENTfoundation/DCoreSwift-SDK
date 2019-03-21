@@ -98,7 +98,7 @@ public protocol AssetApi: BaseApi {
      then DCT (1.3.0).
      - Parameter assetId: Asset id,
      then DCT (1.3.0).
-     - Parameter rouding: Rounding mode for division operation.
+     - Parameter rounding: Rounding mode for division operation.
      
      - Throws: `DCoreException.Network.notFound`
      if asset does not exist or `DCoreException.Chain.failConvert`
@@ -106,7 +106,7 @@ public protocol AssetApi: BaseApi {
      
      - Returns: `AssetAmount` in DCT.
      */
-    func convert(fromDct amount: BigInt, to assetId: ChainObjectConvertible, rouding: Decimal.RoundingMode) -> Single<AssetAmount>
+    func convert(fromDct amount: BigInt, to assetId: ChainObjectConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount>
     
     /**
      Converts from asset by id to DCT.
@@ -115,7 +115,7 @@ public protocol AssetApi: BaseApi {
      then DCT (1.3.0).
      - Parameter assetId: Asset id,
      then DCT (1.3.0).
-     - Parameter rouding: Rounding mode for division operation.
+     - Parameter rounding: Rounding mode for division operation.
      
      - Throws: `DCoreException.Network.notFound`
      if asset does not exist or `DCoreException.Chain.failConvert`
@@ -123,7 +123,7 @@ public protocol AssetApi: BaseApi {
      
      - Returns: `AssetAmount` in DCT.
      */
-    func convert(toDct amount: BigInt, from assetId: ChainObjectConvertible, rouding: Decimal.RoundingMode) -> Single<AssetAmount>
+    func convert(toDct amount: BigInt, from assetId: ChainObjectConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount>
     
 }
 
@@ -175,12 +175,12 @@ extension AssetApi {
         }
     }
     
-    public func convert(fromDct amount: BigInt, to assetId: ChainObjectConvertible, rouding: Decimal.RoundingMode) -> Single<AssetAmount> {
-        return get(byId: assetId).map { try $0.convert(fromDct: amount, rouding: rouding) }
+    public func convert(fromDct amount: BigInt, to assetId: ChainObjectConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount> {
+        return get(byId: assetId).map { try $0.convert(fromDct: amount, rounding: rounding) }
     }
     
-    public func convert(toDct amount: BigInt, from assetId: ChainObjectConvertible, rouding: Decimal.RoundingMode) -> Single<AssetAmount> {
-        return get(byId: assetId).map { try $0.convert(toDct: amount, rouding: rouding) }
+    public func convert(toDct amount: BigInt, from assetId: ChainObjectConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount> {
+        return get(byId: assetId).map { try $0.convert(toDct: amount, rounding: rounding) }
     }
 }
 
