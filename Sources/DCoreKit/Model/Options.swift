@@ -47,7 +47,7 @@ extension Options: DataConvertible {
         data += memoKey.asData()
         data += votingAccount.asData()
         data += numMiner.littleEndian
-        data += votes.asData() // TODO
+        data += votes.asVoteData()
         data += Data.ofZero
         data += allowSubscription.asData()
         data += pricePerSubscribe.asData()

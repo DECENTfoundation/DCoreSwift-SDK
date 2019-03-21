@@ -24,9 +24,15 @@ class ConnectivityTests: XCTestCase {
         XCTAssertNotNil(result)
     }
     
+    func testURLConvertible() {
+        let ipfs = "ipfs:34890231809481209349029ds9ac9csd8908cx9z0c809xzc89z0x"
+        let result = ipfs.asURL()?.absoluteString
+        XCTAssertTrue(result == ipfs)
+    }
 
     
     static var allTests = [
         ("testWebSocketReconnection", testWebSocketReconnection),
+        ("testURLConvertible", testURLConvertible),
         ]
 }

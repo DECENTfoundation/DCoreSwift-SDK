@@ -126,10 +126,13 @@ final class SerializationTests: XCTestCase {
         XCTAssertEqual("1.2.66534".dcore.chainObject!.asData().toHex(), "e68704")
     }
     
-    func testURLConvertible() {
-        let ipfs = "ipfs:34890231809481209349029ds9ac9csd8908cx9z0c809xzc89z0x"
-        let result = ipfs.asURL()?.absoluteString
-        XCTAssertTrue(result == ipfs)
+    
+    
+    func testVoteIdSerialization() {
+        let vote = "0:2".asVoteData()
+        let votes = Set(["0:2"]).asVoteData()
+        XCTAssertTrue("0002000000000000" == vote.toHex())
+        XCTAssertTrue("010002000000000000" == votes.toHex())
     }
     
     static var allTests = [
@@ -143,6 +146,7 @@ final class SerializationTests: XCTestCase {
         ("testChainObjectHashing", testChainObjectHashing),
         ("testBlockDataSerialization", testBlockDataSerialization),
         ("testMemoSerialization", testMemoSerialization),
-        ("testURLConvertible", testURLConvertible),
+        ("testChainObjectSerialization", testChainObjectSerialization),
+        ("testVoteIdSerialization", testVoteIdSerialization),
     ]
 }
