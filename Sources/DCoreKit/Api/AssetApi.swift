@@ -92,7 +92,8 @@ public protocol AssetApi: BaseApi {
     func getAllData(byAssetIds ids: [ChainObjectConvertible]) -> Single<[AssetData]>
     
     /**
-     Converts DCT amount to asset by id.
+     Converts DCT amount to asset by id,
+     conversion is done via `Decimal` with rounding mode.
      
      - Parameter amount: Amount in DCT (1.3.0).
      - Parameter assetId: Asset id, different then DCT (1.3.0).
@@ -107,7 +108,8 @@ public protocol AssetApi: BaseApi {
     func convert(fromDct amount: BigInt, to assetId: ChainObjectConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount>
     
     /**
-     Converts from asset by id to DCT.
+     Converts from asset by id to DCT,
+     conversion is done via `Decimal` with rounding mode.
      
      - Parameter amount: Amount with different asset id, then DCT (1.3.0).
      - Parameter assetId: Asset id of amount, then DCT (1.3.0).
