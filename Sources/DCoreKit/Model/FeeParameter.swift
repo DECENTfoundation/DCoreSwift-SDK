@@ -3,21 +3,15 @@ import BigInt
 
 public struct FeeParameter: Codable {
     
-    public var fee: AssetAmount?
-    public var basicFee: AssetAmount?
-    public var pricePerKb: AssetAmount?
+    public let fee: AssetAmount?
+    public let basicFee: AssetAmount?
+    public let pricePerKb: AssetAmount?
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        if let fee = try container.decodeIfPresent(BigInt.self, forKey: .fee) {
-            self.fee = AssetAmount(fee)
-        }
-        if let fee = try container.decodeIfPresent(BigInt.self, forKey: .basicFee) {
-            self.basicFee = AssetAmount(fee)
-        }
-        if let fee = try container.decodeIfPresent(BigInt.self, forKey: .pricePerKb) {
-            self.pricePerKb = AssetAmount(fee)
-        }
+        self.fee = try container.decodeIfPresent(BigInt.self, forKey: .fee).map { AssetAmount($0) }
+        self.basicFee = try container.decodeIfPresent(BigInt.self, forKey: .basicFee).map { AssetAmount($0) }
+        self.pricePerKb = try container.decodeIfPresent(BigInt.self, forKey: .pricePerKb).map { AssetAmount($0) }
     }
     
     private enum CodingKeys: String, CodingKey {
