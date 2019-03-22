@@ -6,7 +6,7 @@ public struct AssetAmount: Codable {
     public static let unset = AssetAmount(0)
     
     public let amount: BigInt
-    public var assetId: ChainObject = DCore.Constant.dct
+    public let assetId: ChainObject
     
     private enum CodingKeys: String, CodingKey {
         case
