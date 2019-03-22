@@ -16,7 +16,7 @@ public struct PurchaseContentOperation: Operation {
     }
     
     public var publicElGamal: PubKey = PubKey()
-    public var regionCode: Int = Regions.none.id
+    public var regionCode: Int = Regions.all.id
     
     public let type: OperationType = .requestToBuyOperation
     public var fee: AssetAmount  = .unset

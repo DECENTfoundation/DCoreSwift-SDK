@@ -12,8 +12,8 @@ struct SearchBuyings: BaseRequestConvertible {
          limit: Int = 100) {
         
         precondition(consumerId.objectType == .accountObject, "Not a valid account object id")
-        precondition(startId == ObjectType.nullObject.genericId || startId.objectType == .buyingObject,
-                     "Not a valid null or buying object id"
+        precondition(startId == ObjectType.nullObject.genericId || startId.objectType == .purchaseObject,
+                     "Not a valid null or purchase object id"
         )
         self.base = SearchBuyings.toBase(
             .database,

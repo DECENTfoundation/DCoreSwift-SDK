@@ -13,6 +13,9 @@ struct SearchContent: BaseRequestConvertible {
          startId: ChainObject = ObjectType.nullObject.genericId,
          limit: Int = 100) {
      
+        precondition(Account.hasValid(name: user), "Not valid account object name")
+        precondition(startId.objectType == .nullObject || startId.objectType == .contentObject, "Not a valid null or content object id")
+        
         self.base = SearchContent.toBase(.database, api: "search_content", returnType: [Content].self, params: [
             term, order, user, regionCode, type, startId, limit
             ])

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ChainProperty: Codable {
+public struct ChainProperties: Codable {
     
     public var id: ChainObject
     public var chainId: String

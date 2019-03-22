@@ -12,18 +12,18 @@ public protocol GeneralApi: BaseApi {
     /**
      Get properties associated with the chain.
      
-     - Returns: `ChainProperty` with chain id and immutable chain parameters.
+     - Returns: `ChainProperties` with chain id and immutable chain parameters.
      */
-    func getChainProperties() -> Single<ChainProperty>
+    func getChainProperties() -> Single<ChainProperties>
     
     /**
      Get global properties. This object contains all of the properties,
      of the blockchain that are fixed, or that change only once per maintenance interval,
      such as the current list of miners, block interval, etc.
      
-     - Returns: `GlobalProperty`.
+     - Returns: `GlobalProperties`.
      */
-    func getGlobalProperties() -> Single<GlobalProperty>
+    func getGlobalProperties() -> Single<GlobalProperties>
     
     /**
      Get compile-time constants.
@@ -63,11 +63,11 @@ extension GeneralApi {
         return Info().base.toResponse(api.core)
     }
     
-    public func getChainProperties() -> Single<ChainProperty> {
+    public func getChainProperties() -> Single<ChainProperties> {
         return GetChainProperties().base.toResponse(api.core)
     }
     
-    public func getGlobalProperties() -> Single<GlobalProperty> {
+    public func getGlobalProperties() -> Single<GlobalProperties> {
         return GetGlobalProperties().base.toResponse(api.core)
     }
     

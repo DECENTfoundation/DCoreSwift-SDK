@@ -24,7 +24,7 @@ public struct Memo: Codable {
         
         try self.init(message,
                       keyPair: credentials.keyPair,
-                      recipient: recipient.active.keyAuths.first?.value)
+                      recipient: recipient.options.memoKey)
     }
     
     public init(_ message: String,

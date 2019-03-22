@@ -8,6 +8,8 @@ struct GetAccountBalances: BaseRequestConvertible {
     init(_ accountId: ChainObject, assets: [ChainObject] = []) {
         
         precondition(accountId.objectType == .accountObject, "Not a valid account object id")
+        precondition(assets.allSatisfy { $0.objectType == .assetObject }, "Not a valid asset object id")
+        
         self.base = GetAccountBalances.toBase(
             .database,
             api: "get_account_balances",
