@@ -36,7 +36,7 @@ public enum ObjectType: UInt8, CaseIterable, Codable {
     chainPropertyObject,
     minerScheduleObject, //10
     budgetRecordObject,
-    buyingObject,
+    purchaseObject,
     contentObject,
     publisherObject,
     subscriptionObject, //15

@@ -178,7 +178,7 @@
 		A1D96D7321ED1E22009C0A30 /* BlockHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* BlockHeader.swift */; };
 		A1D96D7421ED1E22009C0A30 /* ChainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* ChainObject.swift */; };
 		A1D96D7521ED1E22009C0A30 /* ChainParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* ChainParameters.swift */; };
-		A1D96D7621ED1E22009C0A30 /* ChainProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* ChainProperty.swift */; };
+		A1D96D7621ED1E22009C0A30 /* ChainProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* ChainProperties.swift */; };
 		A1D96D7721ED1E22009C0A30 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* Config.swift */; };
 		A1D96D7821ED1E22009C0A30 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* Content.swift */; };
 		A1D96D7921ED1E22009C0A30 /* ContentCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* ContentCategory.swift */; };
@@ -189,7 +189,7 @@
 		A1D96D7E21ED1E22009C0A30 /* FeeSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* FeeSchedule.swift */; };
 		A1D96D7F21ED1E22009C0A30 /* FullAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* FullAccount.swift */; };
 		A1D96D8021ED1E22009C0A30 /* GlobalParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* GlobalParameters.swift */; };
-		A1D96D8121ED1E22009C0A30 /* GlobalProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* GlobalProperty.swift */; };
+		A1D96D8121ED1E22009C0A30 /* GlobalProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* GlobalProperties.swift */; };
 		A1D96D8221ED1E22009C0A30 /* KeyParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_60 /* KeyParts.swift */; };
 		A1D96D8321ED1E22009C0A30 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* Memo.swift */; };
 		A1D96D8421ED1E22009C0A30 /* Miner.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_62 /* Miner.swift */; };
@@ -436,7 +436,7 @@
 		OBJ_864 /* BlockHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* BlockHeader.swift */; };
 		OBJ_865 /* ChainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* ChainObject.swift */; };
 		OBJ_866 /* ChainParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* ChainParameters.swift */; };
-		OBJ_867 /* ChainProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* ChainProperty.swift */; };
+		OBJ_867 /* ChainProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* ChainProperties.swift */; };
 		OBJ_868 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* Config.swift */; };
 		OBJ_869 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* Content.swift */; };
 		OBJ_870 /* ContentCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* ContentCategory.swift */; };
@@ -447,7 +447,7 @@
 		OBJ_875 /* FeeSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* FeeSchedule.swift */; };
 		OBJ_876 /* FullAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* FullAccount.swift */; };
 		OBJ_877 /* GlobalParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* GlobalParameters.swift */; };
-		OBJ_878 /* GlobalProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* GlobalProperty.swift */; };
+		OBJ_878 /* GlobalProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* GlobalProperties.swift */; };
 		OBJ_879 /* KeyParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_60 /* KeyParts.swift */; };
 		OBJ_880 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* Memo.swift */; };
 		OBJ_881 /* Miner.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_62 /* Miner.swift */; };
@@ -1054,7 +1054,7 @@
 		OBJ_477 /* PrimitiveSequence+Zip+arity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrimitiveSequence+Zip+arity.swift"; sourceTree = "<group>"; };
 		OBJ_478 /* PrimitiveSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimitiveSequence.swift; sourceTree = "<group>"; };
 		OBJ_479 /* PriorityQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueue.swift; sourceTree = "<group>"; };
-		OBJ_48 /* ChainProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainProperty.swift; sourceTree = "<group>"; };
+		OBJ_48 /* ChainProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainProperties.swift; sourceTree = "<group>"; };
 		OBJ_480 /* Producer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Producer.swift; sourceTree = "<group>"; };
 		OBJ_481 /* PublishSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishSubject.swift; sourceTree = "<group>"; };
 		OBJ_482 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
@@ -1174,7 +1174,7 @@
 		OBJ_587 /* RxCollectionViewReactiveArrayDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCollectionViewReactiveArrayDataSource.swift; sourceTree = "<group>"; };
 		OBJ_588 /* RxNavigationControllerDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxNavigationControllerDelegateProxy.swift; sourceTree = "<group>"; };
 		OBJ_589 /* RxPickerViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxPickerViewAdapter.swift; sourceTree = "<group>"; };
-		OBJ_59 /* GlobalProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalProperty.swift; sourceTree = "<group>"; };
+		OBJ_59 /* GlobalProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalProperties.swift; sourceTree = "<group>"; };
 		OBJ_590 /* RxPickerViewDataSourceProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxPickerViewDataSourceProxy.swift; sourceTree = "<group>"; };
 		OBJ_591 /* RxPickerViewDataSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxPickerViewDataSourceType.swift; sourceTree = "<group>"; };
 		OBJ_592 /* RxPickerViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxPickerViewDelegateProxy.swift; sourceTree = "<group>"; };
@@ -1925,7 +1925,7 @@
 				OBJ_46 /* ChainObject.swift */,
 				A1582972223F9413006C0CB3 /* ChainObjectConvertible.swift */,
 				OBJ_47 /* ChainParameters.swift */,
-				OBJ_48 /* ChainProperty.swift */,
+				OBJ_48 /* ChainProperties.swift */,
 				OBJ_49 /* Config.swift */,
 				OBJ_50 /* Content.swift */,
 				OBJ_51 /* ContentCategory.swift */,
@@ -1936,7 +1936,7 @@
 				OBJ_56 /* FeeSchedule.swift */,
 				OBJ_57 /* FullAccount.swift */,
 				OBJ_58 /* GlobalParameters.swift */,
-				OBJ_59 /* GlobalProperty.swift */,
+				OBJ_59 /* GlobalProperties.swift */,
 				OBJ_60 /* KeyParts.swift */,
 				OBJ_61 /* Memo.swift */,
 				A1A2FBB62242CA33003641EA /* Message.swift */,
@@ -2795,7 +2795,7 @@
 				A1D96D7321ED1E22009C0A30 /* BlockHeader.swift in Sources */,
 				A1D96D7421ED1E22009C0A30 /* ChainObject.swift in Sources */,
 				A1D96D7521ED1E22009C0A30 /* ChainParameters.swift in Sources */,
-				A1D96D7621ED1E22009C0A30 /* ChainProperty.swift in Sources */,
+				A1D96D7621ED1E22009C0A30 /* ChainProperties.swift in Sources */,
 				A1D96D7721ED1E22009C0A30 /* Config.swift in Sources */,
 				A1D96D7821ED1E22009C0A30 /* Content.swift in Sources */,
 				A1D96D7921ED1E22009C0A30 /* ContentCategory.swift in Sources */,
@@ -2806,7 +2806,7 @@
 				A1D96D7E21ED1E22009C0A30 /* FeeSchedule.swift in Sources */,
 				A1D96D7F21ED1E22009C0A30 /* FullAccount.swift in Sources */,
 				A1D96D8021ED1E22009C0A30 /* GlobalParameters.swift in Sources */,
-				A1D96D8121ED1E22009C0A30 /* GlobalProperty.swift in Sources */,
+				A1D96D8121ED1E22009C0A30 /* GlobalProperties.swift in Sources */,
 				A1D96D8221ED1E22009C0A30 /* KeyParts.swift in Sources */,
 				A1D96D8321ED1E22009C0A30 /* Memo.swift in Sources */,
 				A16032D721F375EF00674FEF /* CancelContentOperation.swift in Sources */,
@@ -3106,7 +3106,7 @@
 				A1A2FBBA2242D3D5003641EA /* MessagesConvertible.swift in Sources */,
 				OBJ_865 /* ChainObject.swift in Sources */,
 				OBJ_866 /* ChainParameters.swift in Sources */,
-				OBJ_867 /* ChainProperty.swift in Sources */,
+				OBJ_867 /* ChainProperties.swift in Sources */,
 				A13D09D5223155C5000CAE17 /* CertificatePinValidator.swift in Sources */,
 				OBJ_868 /* Config.swift in Sources */,
 				OBJ_869 /* Content.swift in Sources */,
@@ -3118,7 +3118,7 @@
 				OBJ_875 /* FeeSchedule.swift in Sources */,
 				OBJ_876 /* FullAccount.swift in Sources */,
 				OBJ_877 /* GlobalParameters.swift in Sources */,
-				OBJ_878 /* GlobalProperty.swift in Sources */,
+				OBJ_878 /* GlobalProperties.swift in Sources */,
 				OBJ_879 /* KeyParts.swift in Sources */,
 				A1B00ED82200A804002D59F3 /* Date+DCoreExtensionProvider.swift in Sources */,
 				A1B13BF222043A59006B59BF /* UnknownOperation.swift in Sources */,

@@ -10,6 +10,8 @@ struct SearchAccounts: BaseRequestConvertible {
          id: ChainObject = ObjectType.nullObject.genericId,
          limit: Int = 1000) {
         
+        precondition(id.objectType == .nullObject || id.objectType == .accountObject, "Not valid account object id")
+        
         self.base = SearchAccounts.toBase(
             .database,
             api: "search_accounts",
