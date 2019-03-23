@@ -77,9 +77,9 @@ public protocol AssetApi: BaseApi {
      - Throws: `DCoreException.Network.notFound`
      if asset data does not exist.
      
-     - Returns: Array `[AssetData]` of asset data.
+     - Returns: `AssetData` of asset data.
      */
-    func getData(byAssetId id: ChainObjectConvertible) -> Single<AssetData>
+    func getData(byAssetDataId id: ChainObjectConvertible) -> Single<AssetData>
     
     /**
      Get all asset dynamic data by ids.
@@ -89,7 +89,7 @@ public protocol AssetApi: BaseApi {
      
      - Returns: Array `[AssetData]` of asset data.
      */
-    func getAllData(byAssetIds ids: [ChainObjectConvertible]) -> Single<[AssetData]>
+    func getAllData(byAssetDataIds ids: [ChainObjectConvertible]) -> Single<[AssetData]>
     
     /**
      Converts DCT amount to asset by id,
@@ -161,13 +161,13 @@ extension AssetApi {
         return GetRealSupply().base.toResponse(api.core)
     }
     
-    public func getData(byAssetId id: ChainObjectConvertible) -> Single<AssetData> {
-        return getAllData(byAssetIds: [id]).map {
+    public func getData(byAssetDataId id: ChainObjectConvertible) -> Single<AssetData> {
+        return getAllData(byAssetDataIds: [id]).map {
             try $0.first.orThrow(DCoreException.network(.notFound))
         }
     }
     
-    public func getAllData(byAssetIds ids: [ChainObjectConvertible]) -> Single<[AssetData]> {
+    public func getAllData(byAssetDataIds ids: [ChainObjectConvertible]) -> Single<[AssetData]> {
         return Single.deferred {
             return GetAssetsData(try ids.map { try $0.asChainObject() }).base.toResponse(self.api.core)
         }

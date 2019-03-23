@@ -116,12 +116,12 @@ public protocol AccountApi: BaseApi {
     /**
      Get names and ids for registered accounts.
      
-     - Parameter lowerBound: Bound of the first name to return.
+     - Parameter bound: Lower bound of the first name to return.
      - Parameter limit: Number of items to get, max/default `1000`
      
      - Returns: Map `[String: ChainObject]` of account names to corresponding ids.
      */
-    func findAllRelative(byLowerBound lowerBound: String, limit: Int) -> Single<[String: ChainObject]>
+    func findAllRelative(byLower bound: String, limit: Int) -> Single<[String: ChainObject]>
     
     /**
      Get accounts that match lookup expression.
@@ -131,7 +131,7 @@ public protocol AccountApi: BaseApi {
      - Parameter id: Object id to start searching from, default `0.0.0`.
      - Parameter limit: Number of items to get, max/default `1000`.
      
-     - Returns: Map `[String: ChainObject]` of account names to corresponding ids.
+     - Returns: Array `[Account]` of accounts.
      */
     func findAll(by expression: String,
                  order: SearchOrder.Accounts,
@@ -327,7 +327,7 @@ extension AccountApi {
         return GetAccountReferences(id).base.toResponse(api.core)
     }
     
-    public func findAllRelative(byLowerBound bound: String, limit: Int = DCore.Limits.account) -> Single<[String: ChainObject]> {
+    public func findAllRelative(byLower bound: String, limit: Int = DCore.Limits.account) -> Single<[String: ChainObject]> {
         return LookupAccounts(bound, limit: limit).base.toResponse(api.core)
     }
     
