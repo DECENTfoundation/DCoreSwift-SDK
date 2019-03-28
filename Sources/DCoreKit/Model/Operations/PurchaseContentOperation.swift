@@ -1,7 +1,7 @@
 import Foundation
 import BigInt
 
-public struct BuyContentOperation: Operation {
+public struct PurchaseContentOperation: Operation {
     
     public var uri: String {
         willSet { precondition(Content.hasValid(uri: uri), "Unsupported uri scheme") }
@@ -16,7 +16,7 @@ public struct BuyContentOperation: Operation {
     }
     
     public var publicElGamal: PubKey = PubKey()
-    public var regionCode: Int = Regions.none.id
+    public var regionCode: Int = Regions.all.id
     
     public let type: OperationType = .requestToBuyOperation
     public var fee: AssetAmount  = .unset
@@ -41,13 +41,13 @@ public struct BuyContentOperation: Operation {
     }
 }
 
-extension BuyContentOperation {
-    public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> BuyContentOperation {
+extension PurchaseContentOperation {
+    public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> PurchaseContentOperation {
         return self
     }
 }
 
-extension BuyContentOperation: DataConvertible {
+extension PurchaseContentOperation: DataConvertible {
     public func asData() -> Data {
         
         var data = Data()

@@ -126,6 +126,15 @@ final class SerializationTests: XCTestCase {
         XCTAssertEqual("1.2.66534".dcore.chainObject!.asData().toHex(), "e68704")
     }
     
+    
+    
+    func testVoteIdSerialization() {
+        let vote = "0:2".asVoteData()
+        let votes = Set(["0:2"]).asVoteData()
+        XCTAssertTrue("0002000000000000" == vote.toHex())
+        XCTAssertTrue("010002000000000000" == votes.toHex())
+    }
+    
     static var allTests = [
         ("testGetAccountHistoryJsonSerialization", testGetAccountHistoryJsonSerialization),
         ("testGetRelativeAccountHistoryJsonSerialization", testGetRelativeAccountHistoryJsonSerialization),
@@ -137,5 +146,7 @@ final class SerializationTests: XCTestCase {
         ("testChainObjectHashing", testChainObjectHashing),
         ("testBlockDataSerialization", testBlockDataSerialization),
         ("testMemoSerialization", testMemoSerialization),
+        ("testChainObjectSerialization", testChainObjectSerialization),
+        ("testVoteIdSerialization", testVoteIdSerialization),
     ]
 }

@@ -2,32 +2,105 @@ import Foundation
 import RxSwift
 
 public protocol SubscriptionApi: BaseApi {
-    func cancelAllSubscriptions() -> Completable
-    func setBlockAppliedCallback() -> Observable<String>
-    func setContentUpdateCallback(uri: String) -> Observable<Void>
-    func setPendingTransactionCallback() -> Observable<Void>
-    func setSubscribeCallback(clearFilter: Bool) -> Observable<Void>
+    /**
+     Get a subscription object by id.
+     
+     - Parameter id: Subscription object id, eg. 2.15.*,
+     as `ChainObject` or `String` format.
+     
+     - Throws: `DCoreException.Network.notFound`
+     if subscription does not exist.
+     
+     - Returns: `Subscription` object.
+     */
+    func get(byId id: ChainObjectConvertible) -> Single<Subscription>
+    
+    /**
+     Check if the account exist.
+     
+     - Parameter id: Consumer account object id, eg. 1.2.*,
+     as `ChainObject` or `String` format.
+     - Parameter limit: Maximum number of subscription objects to fetch,
+     must not exceed 100.
+     
+     - Returns: `true` if account exist.
+     */
+    func getAllActive(byConsumerId id: ChainObjectConvertible, limit: Int) -> Single<[Subscription]>
+    
+    /**
+     Check if the account exist.
+     
+     - Parameter id: Author account object id, eg. 1.2.*,
+     as `ChainObject` or `String` format.
+     - Parameter limit: Maximum number of subscription objects to fetch,
+     must not exceed 100.
+     
+     - Returns: `true` if account exist.
+     */
+    func getAllActive(byAuthorId id: ChainObjectConvertible, limit: Int) -> Single<[Subscription]>
+    
+    /**
+     Check if the account exist.
+     
+     - Parameter id: Consumer account object id, eg. 1.2.*,
+     as `ChainObject` or `String` format.
+     - Parameter limit: Maximum number of subscription objects to fetch,
+     must not exceed 100.
+     
+     - Returns: `true` if account exist.
+     */
+    func getAll(byConsumerId id: ChainObjectConvertible, limit: Int) -> Single<[Subscription]>
+    
+    /**
+     Check if the account exist.
+     
+     - Parameter id: Author account object id, eg. 1.2.*,
+     as `ChainObject` or `String` format.
+     - Parameter limit: Maximum number of subscription objects to fetch,
+     must not exceed 100.
+     
+     - Returns: `true` if account exist.
+     */
+    func getAll(byAuthorId id: ChainObjectConvertible, limit: Int) -> Single<[Subscription]>
 }
 
 extension SubscriptionApi {
-    public func cancelAllSubscriptions() -> Completable {
-        return CancelAllSubscriptions().base.toResponse(api.core).asCompletable()
+    public func get(byId id: ChainObjectConvertible) -> Single<Subscription> {
+        return Single.deferred {
+            return GetSubscription(try id.asChainObject()).base.toResponse(self.api.core)
+        }
     }
     
-    public func setBlockAppliedCallback() -> Observable<String> {
-        return SetBlockAppliedCallback().base.toStreamResponse(api.core)
+    public func getAllActive(byConsumerId id: ChainObjectConvertible, limit: Int = DCore.Limits.subscriber) -> Single<[Subscription]> {
+        return Single.deferred {
+            return ListActiveSubscriptionsByConsumer(try id.asChainObject(), count: try limit.limited(by: DCore.Limits.subscriber))
+                .base
+                .toResponse(self.api.core)
+        }
     }
     
-    public func setContentUpdateCallback(uri: String) -> Observable<Void> {
-        return SetContentUpdateCallback(uri).base.toStreamResponse(api.core).map { _ in () }
+    public func getAllActive(byAuthorId id: ChainObjectConvertible, limit: Int = DCore.Limits.subscriber) -> Single<[Subscription]> {
+        return Single.deferred {
+            return ListActiveSubscriptionsByAuthor(try id.asChainObject(), count: try limit.limited(by: DCore.Limits.subscriber))
+                .base
+                .toResponse(self.api.core)
+        }
     }
     
-    public func setPendingTransactionCallback() -> Observable<Void> {
-        return SetPendingTransactionCallback().base.toStreamResponse(api.core).map { _ in () }
+    public func getAll(byConsumerId id: ChainObjectConvertible, limit: Int = DCore.Limits.subscriber) -> Single<[Subscription]> {
+        return Single.deferred {
+            return ListSubscriptionsByConsumer(try id.asChainObject(), count: try limit.limited(by: DCore.Limits.subscriber))
+                .base
+                .toResponse(self.api.core)
+        }
     }
     
-    public func setSubscribeCallback(clearFilter: Bool) -> Observable<Void> {
-        return SetSubscribeCallback(clearFilter).base.toStreamResponse(api.core).map { _ in () }
+    public func getAll(byAuthorId id: ChainObjectConvertible, limit: Int = DCore.Limits.subscriber) -> Single<[Subscription]> {
+        return Single.deferred {
+            return ListSubscriptionsByAuthor(try id.asChainObject(), count: try limit.limited(by: DCore.Limits.subscriber))
+                .base
+                .toResponse(self.api.core)
+        }
     }
 }
 

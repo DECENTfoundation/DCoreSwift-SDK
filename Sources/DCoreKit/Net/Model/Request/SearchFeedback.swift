@@ -10,6 +10,9 @@ struct SearchFeedback: BaseRequestConvertible {
          startId: ChainObject = ObjectType.nullObject.genericId,
          count: Int) {
         
+        precondition(user.isNil() || Account.hasValid(name: user!), "Not valid account object name")
+        precondition(startId.objectType == .nullObject || startId.objectType == .purchaseObject, "Not a valid null or purchase object id")
+        
         self.base = SearchFeedback.toBase(
             .database,
             api: "search_feedback",

@@ -2,12 +2,12 @@ import Foundation
 
 struct GetGlobalProperties: BaseRequestConvertible {
     
-    typealias Output = GlobalProperty
-    private(set) var base: BaseRequest<GlobalProperty>
+    typealias Output = GlobalProperties
+    private(set) var base: BaseRequest<GlobalProperties>
     
     init() {
         self.base = GetGlobalProperties.toBase(
-            .database, api: "get_global_properties", returnType: GlobalProperty.self
+            .database, api: "get_global_properties", returnType: GlobalProperties.self
         )
     }
 }
