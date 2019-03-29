@@ -11,6 +11,10 @@ Set of APIs for accessing the DCore Blockchain.
 * Swift 4.0+
 * automake & libtool (for building library dependecies - openssl, secp256k1)
 
+### Supported Platforms
+
+* iOS 10.0+
+
 ### Installation
 
 Use `homebrew` for OSX to install prerequisites
@@ -41,33 +45,7 @@ git "git@bitbucket.org:DECENTGroup/dcoreswift-sdk.git" ~> 0.2.1
 and then use
 
 ```bash
-$ carthage update
-```
-
-### [Swift Package Manager](https://github.com/apple/swift-package-manager)
-
-**Tested with `swift build --version`: `Swift 4.2.0 (swiftpm-14460.2)`**
-
-Create a `Package.swift` file.
-
-```swift
-// swift-tools-version:4.0
-
-import PackageDescription
-
-let package = Package(
-  name: "DCoreProject",
-  dependencies: [
-    .package(url: "https://bitbucket.org/DECENTGroup/dcoreswift-sdk.git", .from("0.2.1"))
-  ],
-  targets: [
-    .target(name: "DCoreProject", dependencies: ["DCoreKit"])
-  ]
-)
-```
-
-```bash
-$ swift build
+$ carthage update --platform iOS
 ```
 
 To test a module with DCoreKitTest
@@ -78,27 +56,27 @@ $ swift test
 
 ## Usage
 
-Access api using rest
+Access api using rest (Get account object)
 
 ```swift
 import DCoreKit
 
-let api = DCore.Sdk.create(forRest: "https://stagesocket.decentgo.com:8090/rpc")
-let disposable = api.account.getAccount(byName: "u961279ec8b7ae7bd62f304f7c1c3d345").subscribe { 
+let api = DCore.Sdk.create(forRest: "https://testnet-api.dcore.io/rpc")
+let disposable = api.account.get(byName: "u961279ec8b7ae7bd62f304f7c1c3d345").subscribe { 
 	account in
 
 	print(account.id) 
 }
 ```
 
-Access api using socket
+Access api using socket (Transfer amount between accounts)
 
 ```swift
 import DCoreKit
 
 let creds = try? Credentials("1.2.17".chain.chainObject!, wif: "....pk....")
-let api = DCore.Sdk.create(forWss: "wss://stagesocket.decentgo.com:8090")
-let disposable = api.operation.transfer(creds!, to: "1.2.34", amount: AssetAmount(1000000)).subscribe { 
+let api = DCore.Sdk.create(forWss: "wss://testnet-api.dcore.io")
+let disposable = api.account.transfer(from: creds!, to: "1.2.34", amount: AssetAmount(1000000)).subscribe { 
 	confirmation in
 
 	print(confirmation.blockNum) 
