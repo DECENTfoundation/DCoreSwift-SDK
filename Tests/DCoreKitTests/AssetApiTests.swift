@@ -6,7 +6,7 @@ import RxBlocking
 
 final class AssetApiTests: XCTestCase {
 
-    private let rest = DCore.Sdk.create(forRest: "https://stagesocket.decentgo.com:8090/rpc")
+    private let rest = DCore.Sdk.create(forRest: "https://api.decent.ch/rpc")
     
     func testGetAssetById() {
         let asset = try? rest.asset.get(byId: "1.3.0").debug().toBlocking().single()
@@ -65,6 +65,11 @@ final class AssetApiTests: XCTestCase {
         XCTAssertEqual(formatted, "-1 DCT")
     }
     
+    func testGetAssetsByBoundary() {
+        let assets = try? rest.asset.findAllRelative(byLower: "", limit: 100).debug().toBlocking().single()
+        XCTAssertNotNil(assets)
+    }
+    
     func testGetAssetsByBoundaryAndWrongLimit() {
         XCTAssertThrowsError(try rest.asset.findAllRelative(byLower: "a", limit: 1000).debug().toBlocking().single())
     }
@@ -88,6 +93,7 @@ final class AssetApiTests: XCTestCase {
         ("testFormatAssetAmountFormattedString", testFormatAssetAmountFormattedString),
         ("testFormatAssetAmountFormattedStringFromNegative", testFormatAssetAmountFormattedStringFromNegative),     
         ("testGetAssetsByBoundaryAndWrongLimit", testGetAssetsByBoundaryAndWrongLimit),
+        ("testGetAssetsByBoundary", testGetAssetsByBoundary),
     ]
 
 }
