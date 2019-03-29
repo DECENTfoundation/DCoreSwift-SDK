@@ -19,7 +19,7 @@ final class AssetApiTests: XCTestCase {
     }
     
     func testGetAssetsBySymbols() {
-        let assets = try? rest.asset.getAll(bySymbols: [.alat, .alxt, .dct]).debug().toBlocking().single()
+        let assets = try? rest.asset.getAll(bySymbols: [.aia, .alx, .dct]).debug().toBlocking().single()
         XCTAssertEqual(assets?.count, 3)
     }
 
@@ -75,7 +75,7 @@ final class AssetApiTests: XCTestCase {
     }
     
     func testChainObjectHashing() {
-        let assets = try? rest.asset.getAll(bySymbols: [.alat, .alxt, .dct]).debug().toBlocking().single()
+        let assets = try? rest.asset.getAll(bySymbols: [.aia, .alx, .dct]).debug().toBlocking().single()
         XCTAssertNotNil(assets)
         let a = [assets!, assets!].joined()
         

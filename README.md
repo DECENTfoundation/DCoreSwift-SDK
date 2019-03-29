@@ -31,7 +31,7 @@ $ brew install libtool
 Add this to `Cartfile`
 
 ```
-git "git@bitbucket.org:DECENTGroup/dcoreswift-sdk.git" ~> 0.2.1
+git "git@bitbucket.org:DECENTGroup/dcoreswift-sdk.git" ~> 2.0.1
 ```
 
 and then use
@@ -48,7 +48,7 @@ Access api using rest (Get an account object)
 import DCoreKit
 
 let api = DCore.Sdk.create(forRest: "https://testnet-api.dcore.io/rpc")
-let disposable = api.account.get(byName: "u961279ec8b7ae7bd62f304f7c1c3d345").subscribe { 
+let disposable = api.account.get(byName: "public-account-2").subscribe { 
 	account in
 
 	print(account.id) 
@@ -60,9 +60,9 @@ Access api using socket (Transfer amount between accounts)
 ```swift
 import DCoreKit
 
-let creds = try? Credentials("1.2.17".chain.chainObject!, wif: "....pk....")
+let creds = try? Credentials("1.2.19".chain.chainObject!, wif: "5KfatbpE1zVdnHgFydT7Cg9hJmUVLN7vQXJkBbzGrNSND3uFmAa")
 let api = DCore.Sdk.create(forWss: "wss://testnet-api.dcore.io")
-let disposable = api.account.transfer(from: creds!, to: "1.2.34", amount: AssetAmount(1000000)).subscribe { 
+let disposable = api.account.transfer(from: creds!, to: "1.2.20", amount: AssetAmount(1000000)).subscribe { 
 	confirmation in
 
 	print(confirmation.blockNum) 
