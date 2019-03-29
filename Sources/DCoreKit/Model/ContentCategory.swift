@@ -2,6 +2,12 @@ import Foundation
 
 public enum ContentCategory {
 
+    public static let standard: ContentCategory = .id(.decentCore, .none)
+    
+    public var objectId: ChainObject? {
+         return self.description.dcore.chainObject
+    }
+    
     public enum Application: Int, Codable {
         case
         decentCore = 0,

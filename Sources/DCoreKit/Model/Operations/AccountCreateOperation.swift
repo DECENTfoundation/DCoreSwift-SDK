@@ -7,9 +7,9 @@ public struct AccountCreateOperation: Operation {
         willSet { precondition(Account.hasValid(name: name), "Not a valid name") }
     }
     
-    public var owner: Authority
-    public var active: Authority
-    public var options: Options
+    public let owner: Authority
+    public let active: Authority
+    public let options: Options
     
     public var registrar: ChainObject {
         willSet { precondition(registrar.objectType == ObjectType.accountObject, "Not an account object id") }
@@ -18,12 +18,12 @@ public struct AccountCreateOperation: Operation {
     public let type: OperationType = .accountCreateOperation
     public var fee: AssetAmount  = .unset
     
-    public init(_ registrar: ChainObject, name: String, address: Address, fee: AssetAmount = .unset) {
+    public init(_ account: SubmitAccount, registrar: ChainObject, fee: AssetAmount = .unset) {
+        self.name = account.name
+        self.owner = account.owner
+        self.active = account.active
+        self.options = account.options
         self.registrar = registrar
-        self.name = name
-        self.owner = Authority(from: address)
-        self.active = Authority(from: address)
-        self.options = Options(from: address)
         self.fee = fee
     }
     
@@ -62,4 +62,39 @@ extension AccountCreateOperation {
         })
         return data
     }
+}
+
+public enum SubmitAccount {
+    
+    var name: String {
+        switch self {
+        case .with(let name, _): return name
+        case .withKeyPair(let name, _): return name
+        }
+    }
+    
+    fileprivate var owner: Authority {
+        switch self {
+        case .with(_, let address): return Authority(from: address)
+        case .withKeyPair(_, let keyPair): return Authority(from: keyPair.address)
+        }
+    }
+    
+    fileprivate var active: Authority {
+        switch self {
+        case .with(_, let address): return Authority(from: address)
+        case .withKeyPair(_, let keyPair): return Authority(from: keyPair.address)
+        }
+    }
+    
+    fileprivate var options: Options {
+        switch self {
+        case .with(_, let address): return Options(from: address)
+        case .withKeyPair(_, let keyPair): return Options(from: keyPair.address)
+        }
+    }
+    
+    case
+    with(name: String, address: Address),
+    withKeyPair(name: String, keyPair: ECKeyPair)
 }

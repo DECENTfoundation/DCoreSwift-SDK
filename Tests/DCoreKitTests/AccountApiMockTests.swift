@@ -17,7 +17,7 @@ class AccountApiMockTests: MockTestCase {
      
         mock(using: url, data: data)
         
-        let account = try? rest.account.getAccount(byId: "1.2.35".dcore.chainObject!).debug().toBlocking().single()
+        let account = try? rest.account.get(byId: "1.2.35".dcore.chainObject!).debug().toBlocking().single()
         XCTAssertEqual(account?.id, "1.2.35".dcore.chainObject)
     }
     
@@ -30,7 +30,7 @@ class AccountApiMockTests: MockTestCase {
         
         mock(using: url, data: data)
         
-        let account = try? rest.account.getAccount(byName: "u961279ec8b7ae7bd62f304f7c1c3d345").debug().toBlocking().single()
+        let account = try? rest.account.get(byName: "u961279ec8b7ae7bd62f304f7c1c3d345").debug().toBlocking().single()
         XCTAssertEqual(account?.id, "1.2.34".dcore.chainObject)
     }
 }

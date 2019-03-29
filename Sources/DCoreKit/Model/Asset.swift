@@ -1,6 +1,10 @@
 import Foundation
 import BigInt
 
+private extension Decimal {
+    static let zero: Decimal = 0
+}
+
 public struct Asset: Codable, AssetFormatting, Equatable {
     
     public var id: ChainObject = ObjectType.assetObject.genericId {
@@ -13,6 +17,7 @@ public struct Asset: Codable, AssetFormatting, Equatable {
     public var description: String = ""
     public var options: Asset.Options = Asset.Options()
     public var dataId: ChainObject = ObjectType.nullObject.genericId
+    public var monitoredOptions: AnyValue?
     
     private enum CodingKeys: String, CodingKey {
         case
@@ -22,20 +27,44 @@ public struct Asset: Codable, AssetFormatting, Equatable {
         issuer,
         description,
         options,
-        dataId = "dynamic_asset_data_id"
+        dataId = "dynamic_asset_data_id",
+        monitoredOptions = "monitored_asset_opts"
     }
     
-    public func convert(from assetAmount: AssetAmount) throws -> AssetAmount {
-        if options.exchangeRate.base.assetId == assetAmount.assetId {
-            let amount = options.exchangeRate.quote.amount / options.exchangeRate.base.amount * assetAmount.amount
-            return AssetAmount(amount, assetId: id)
-        }
-        if options.exchangeRate.quote.assetId == assetAmount.assetId {
-            let amount = options.exchangeRate.base.amount / options.exchangeRate.quote.amount * assetAmount.amount
-            return AssetAmount(amount, assetId: id)
+    /// Converts DCT [amount] according conversion rate.
+    public func convert(fromDct amount: BigInt, rounding: Decimal.RoundingMode) throws -> AssetAmount {
+        return try convert(amount, to: id, rounding: rounding)
+    }
+    
+    /// Converts asset [amount] to DCT according conversion rate.
+    public func convert(toDct amount: BigInt, rounding: Decimal.RoundingMode) throws -> AssetAmount {
+        return try convert(amount, to: DCore.Constant.dct, rounding: rounding)
+    }
+    
+    private func convert(_ amount: BigInt, to assetId: ChainObject, rounding: Decimal.RoundingMode) throws -> AssetAmount {
+        var quote = Decimal(string: options.exchangeRate.quote.amount.description).or(.zero)
+        var base = Decimal(string: options.exchangeRate.base.amount.description).or(.zero)
+        let value = Decimal(string: amount.description).or(.zero)
+        
+        precondition(assetId.objectType == .assetObject, "Not valid asset id")
+        precondition(quote > .zero, "Quote amount \(quote) must be greater then zero")
+        precondition(base > .zero, "Base amount \(base) must be greater then zero")
+        
+        var result: Decimal = .zero
+        var error: Decimal.CalculationError = .divideByZero
+        
+        if options.exchangeRate.quote.assetId == assetId {
+            var fragment = quote * value
+            error = NSDecimalDivide(&result, &fragment, &base, rounding)
+        } else if options.exchangeRate.base.assetId == assetId {
+            var fragment = base * value
+            error = NSDecimalDivide(&result, &fragment, &quote, rounding)
         }
         
-        throw DCoreException.chain(.failConvert("Cannot convert \(assetAmount.assetId) with \(symbol):\(id)"))
+        guard case .noError = error, let converted = BigInt(result.description) else {
+             throw DCoreException.chain(.failConvert("Cannot convert \(amount) to asset id \(assetId)"))
+        }
+        return AssetAmount(converted, assetId: assetId)
     }
 }
 

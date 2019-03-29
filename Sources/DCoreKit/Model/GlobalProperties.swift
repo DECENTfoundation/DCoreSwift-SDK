@@ -1,6 +1,6 @@
 import Foundation
 
-public struct GlobalProperty: Codable {
+public struct GlobalProperties: Codable {
     
     public let id: ChainObject
     public let parameters: GlobalParameters

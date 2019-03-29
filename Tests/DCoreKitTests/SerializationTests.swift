@@ -70,9 +70,8 @@ final class SerializationTests: XCTestCase {
 
     func testAccountCreateOperationSerialization() {
         let bytes = "0100000000000000000022086d696b656565656501000000000102a01c045821676cfc191832ad22cc5c9ade0ea1760131c87ff2dd3fed2f13dd33010001000000000102a01c045821676cfc191832ad22cc5c9ade0ea1760131c87ff2dd3fed2f13dd33010002a01c045821676cfc191832ad22cc5c9ade0ea1760131c87ff2dd3fed2f13dd330300000000000000000000000000000000000000"
-        let op = AccountCreateOperation("1.2.34".dcore.chainObject!,
-                                        name: "mikeeeee",
-                                        address: "DCT6718kUCCksnkeYD1YySWkXb1VLpzjkFfHHMirCRPexp5gDPJLU".dcore.address!)
+        let op = AccountCreateOperation(.with(name: "mikeeeee", address: "DCT6718kUCCksnkeYD1YySWkXb1VLpzjkFfHHMirCRPexp5gDPJLU".dcore.address!),
+                                        registrar: "1.2.34".dcore.chainObject!)
         
         let serialized = op.asData().toHex()
         XCTAssertEqual(serialized, bytes)
@@ -127,6 +126,15 @@ final class SerializationTests: XCTestCase {
         XCTAssertEqual("1.2.66534".dcore.chainObject!.asData().toHex(), "e68704")
     }
     
+    
+    
+    func testVoteIdSerialization() {
+        let vote = "0:2".asVoteData()
+        let votes = Set(["0:2"]).asVoteData()
+        XCTAssertTrue("0002000000000000" == vote.toHex())
+        XCTAssertTrue("010002000000000000" == votes.toHex())
+    }
+    
     static var allTests = [
         ("testGetAccountHistoryJsonSerialization", testGetAccountHistoryJsonSerialization),
         ("testGetRelativeAccountHistoryJsonSerialization", testGetRelativeAccountHistoryJsonSerialization),
@@ -138,5 +146,7 @@ final class SerializationTests: XCTestCase {
         ("testChainObjectHashing", testChainObjectHashing),
         ("testBlockDataSerialization", testBlockDataSerialization),
         ("testMemoSerialization", testMemoSerialization),
+        ("testChainObjectSerialization", testChainObjectSerialization),
+        ("testVoteIdSerialization", testVoteIdSerialization),
     ]
 }

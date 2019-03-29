@@ -10,6 +10,10 @@ extension Single {
         return self.asObservable().mapTo(value).asSingle()
     }
     
+    func mapVoid() -> PrimitiveSequence<SingleTrait, Void> {
+        return mapTo(())
+    }
+    
     func asObservableMapTo<T>(_ value: T) -> Observable<T> {
         return self.asObservable().mapTo(value)
     }
@@ -88,6 +92,10 @@ extension ObservableType {
     
     func mapTo<T>(_ value: T) -> Observable<T> {
         return map { _ in value }
+    }
+    
+    func mapVoid() -> Observable<Void> {
+        return mapTo(())
     }
     
     func flatMapSync<O: CustomOperator>(_ transform: @escaping (E) -> O) -> Observable<O.Result> {

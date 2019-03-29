@@ -10,21 +10,21 @@ final class BalanceApiTests: XCTestCase {
     
     func testGetBalanceByAccountId() {
    
-        let balance = try? rest.balance.getBalance(byAccountId: "1.2.34".dcore.chainObject!).debug().toBlocking().single()
+        let balance = try? rest.balance.getWithAsset(byAccountId: "1.2.34".dcore.chainObject!).debug().toBlocking().single()
         XCTAssertEqual(balance?.asset.id, DCore.Constant.dct)
         XCTAssertEqual(balance?.amount.assetId, DCore.Constant.dct)
     }
     
     func testGetBalanceByAccountIdAndAssetId() {
         
-        let balance = try? rest.balance.getBalance(byAccountId: "1.2.34".dcore.chainObject!, asset: DCore.Constant.dct).debug().toBlocking().single()
+        let balance = try? rest.balance.get(byAccountId: "1.2.34".dcore.chainObject!, asset: DCore.Constant.dct).debug().toBlocking().single()
         XCTAssertEqual(balance?.assetId, DCore.Constant.dct)
     }
     
     func testGetBalanceByAccountIdOnMainnet() {
         let id = "1.2.11368".dcore.chainObject!
         
-        let balance = try? restMain.balance.getBalance(byAccountId: id).debug().toBlocking().single()
+        let balance = try? restMain.balance.getWithAsset(byAccountId: id).debug().toBlocking().single()
         XCTAssertEqual(balance?.asset.id, DCore.Constant.dct)
         XCTAssertEqual(balance?.amount.assetId, DCore.Constant.dct)
     }

@@ -12,20 +12,18 @@ extension OperationUnkeyedDecodable {
         switch type {
         case .transferOperation, .transferTwoOperation:
             return try unkeyed.decode(TransferOperation.self)
-            
-        // TODO: https://decentplatform.atlassian.net/browse/DSDK-569
-        /*
         case .contentSubmitOperation:
             return try unkeyed.decode(SubmitContentOperation.self)
         case .contentCancellationOperation:
             return try unkeyed.decode(CancelContentOperation.self)
         case .requestToBuyOperation:
-            return try unkeyed.decode(BuyContentOperation.self)
+            return try unkeyed.decode(PurchaseContentOperation.self)
         case .accountCreateOperation:
             return try unkeyed.decode(AccountCreateOperation.self)
         case .accountUpdateOperation:
             return try unkeyed.decode(AccountUpdateOperation.self)
-        */
+        case .customOperation:
+            return try unkeyed.decode(AnyCustomOperation.self)
         default:
             return try unkeyed.decode(UnknownOperation.self)
         }

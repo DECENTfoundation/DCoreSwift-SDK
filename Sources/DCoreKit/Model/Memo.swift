@@ -16,7 +16,17 @@ public struct Memo: Codable {
         message,
         nonce
     }
-
+    
+    public init(_ message: String,
+                credentials: Credentials,
+                recipient: Account
+        ) throws {
+        
+        try self.init(message,
+                      keyPair: credentials.keyPair,
+                      recipient: recipient.options.memoKey)
+    }
+    
     public init(_ message: String,
                 keyPair: ECKeyPair? = nil,
                 recipient: Address? = nil,

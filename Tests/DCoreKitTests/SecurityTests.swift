@@ -12,7 +12,7 @@ class SecurityTests: XCTestCase {
     func testStandardServerTrustUsingRest() {
         let id = "1.2.11368".dcore.chainObject!
         let validator = StandardValidator()
-        let result = try? rest.security.trusted(by: validator).history.getBalanceHistory(for: id).toBlocking().single()
+        let result = try? rest.security.trusted(by: validator).history.findAll(byAccountId: id).toBlocking().single()
         XCTAssertNotNil(result)
     }
     
@@ -20,7 +20,7 @@ class SecurityTests: XCTestCase {
         let id = "1.2.11368".dcore.chainObject!
         
         let validator = CertificatePinValidator(pin: Pair("api.decent.ch", "YivQjKihLWYpXWlacN7pYXyt+DzbTLep4vGrg4jBSZA="))
-        let result = try? wss.security.trusted(by: validator).history.getBalanceHistory(for: id).toBlocking().single()
+        let result = try? wss.security.trusted(by: validator).history.findAll(byAccountId: id).toBlocking().single()
         XCTAssertNotNil(result)
     }
     
@@ -28,7 +28,7 @@ class SecurityTests: XCTestCase {
         let id = "1.2.11368".dcore.chainObject!
         
         let validator = CertificatePinValidator(pin: Pair("api.decent.ch", "YivQjKihLWYpXWlacN7pYXyt+DzbTLep4vGrg4jBSZA="))
-        let result = try? rest.security.trusted(by: validator).history.getBalanceHistory(for: id, assets: [DCore.Constant.dct]).toBlocking().single()
+        let result = try? rest.security.trusted(by: validator).history.findAll(byAccountId: id, assets: [DCore.Constant.dct]).toBlocking().single()
         XCTAssertNotNil(result)
     }
     
@@ -36,14 +36,14 @@ class SecurityTests: XCTestCase {
         let id = "1.2.11368".dcore.chainObject!
         
         let validator = CertificatePinValidator(pin: Pair("api.decent.ch", "invalid"))
-        XCTAssertThrowsError(try rest.security.trusted(by: validator).history.getBalanceHistory(for: id, assets: [DCore.Constant.dct]).toBlocking().single())
+        XCTAssertThrowsError(try rest.security.trusted(by: validator).history.findAll(byAccountId: id, assets: [DCore.Constant.dct]).toBlocking().single())
     }
     
     func testInvalidCertificatePinServerTrustUsingWss() {
         let id = "1.2.11368".dcore.chainObject!
         
         let validator = CertificatePinValidator(pin: Pair("api.decent.ch", "invalid"))
-        XCTAssertThrowsError(try wss.security.trusted(by: validator).history.getBalanceHistory(for: id, assets: [DCore.Constant.dct]).toBlocking().single())
+        XCTAssertThrowsError(try wss.security.trusted(by: validator).history.findAll(byAccountId: id, assets: [DCore.Constant.dct]).toBlocking().single())
     }
     
     static var allTests = [
