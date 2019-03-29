@@ -6,7 +6,7 @@ import RxBlocking
 
 class MessagingApiTests: XCTestCase {
     
-    private let wss = DCore.Sdk.create(forWss: "wss://stagesocket.decentgo.com:8090")
+    private let wss = DCore.Sdk.create(forWss: "wss://testnet-api.dcore.io")
     private let restMain = DCore.Sdk.create(forRest: "https://api.decent.ch/rpc")
     
     func testGetAllResponsesUsingWss() {
