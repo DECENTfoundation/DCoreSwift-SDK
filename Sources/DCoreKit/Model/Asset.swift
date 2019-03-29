@@ -17,6 +17,7 @@ public struct Asset: Codable, AssetFormatting, Equatable {
     public var description: String = ""
     public var options: Asset.Options = Asset.Options()
     public var dataId: ChainObject = ObjectType.nullObject.genericId
+    public var monitoredOptions: AnyValue?
     
     private enum CodingKeys: String, CodingKey {
         case
@@ -26,7 +27,8 @@ public struct Asset: Codable, AssetFormatting, Equatable {
         issuer,
         description,
         options,
-        dataId = "dynamic_asset_data_id"
+        dataId = "dynamic_asset_data_id",
+        monitoredOptions = "monitored_asset_opts"
     }
     
     /// Converts DCT [amount] according conversion rate.
