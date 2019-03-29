@@ -31,7 +31,7 @@ $ brew install libtool
 Add this to `Cartfile`
 
 ```
-git "git@bitbucket.org:DECENTGroup/dcoreswift-sdk.git" ~> 2.0.0
+git "git@bitbucket.org:DECENTGroup/dcoreswift-sdk.git" ~> 2.0.1
 ```
 
 and then use
