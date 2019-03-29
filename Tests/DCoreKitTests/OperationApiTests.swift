@@ -5,7 +5,7 @@ import RxBlocking
 
 class OperationApiTests: XCTestCase {
 
-    private let wss = DCore.Sdk.create(forWss: "wss://stagesocket.decentgo.com:8090")
+    private let wss = DCore.Sdk.create(forWss: "wss://testnet-api.dcore.io")
     
     override func setUp() {
         super.setUp()
@@ -13,21 +13,18 @@ class OperationApiTests: XCTestCase {
     }
     
     func testTransferOperation() {
-        let pk = "5J1HnqK3gajNzDWj9Na6fo3gxtphv6MHLE5YLgRmQv8tC8e3rEd"
-        let creds = try? Credentials("1.2.17".dcore.chainObject!, wif: pk)
-
-        let op = SendMessageOperation("ahoj", payee: creds!.accountId)
-        print(op.type)
-        let confirm = try? wss.account.transfer(from: creds!, to: "1.2.34", amount: AssetAmount(1), message: "Ahoj",
+        let pk = "5JMpT5C75rcAmuUB81mqVBXbmL1BKea4MYwVK6voMQLvigLKfrE"
+        let creds = try? Credentials("1.2.28".dcore.chainObject!, wif: pk)
+        let confirm = try? wss.account.transfer(from: creds!, to: "1.2.22", amount: AssetAmount(1), message: "Ahoj",
                                                 encrypted: false).debug().toBlocking().single()
         XCTAssertNotNil(confirm)
     }
     
     func testTransferOperationToChainObjectWithOtherVarInt() {
-        let pk = "5J1HnqK3gajNzDWj9Na6fo3gxtphv6MHLE5YLgRmQv8tC8e3rEd"
-        let creds = try? Credentials("1.2.17".dcore.chainObject!, wif: pk)
+        let pk = "5JMpT5C75rcAmuUB81mqVBXbmL1BKea4MYwVK6voMQLvigLKfrE"
+        let creds = try? Credentials("1.2.28".dcore.chainObject!, wif: pk)
         
-        let confirm = try? wss.account.transfer(from: creds!, to: "1.2.687", amount: AssetAmount(1), message: "Ahoj",
+        let confirm = try? wss.account.transfer(from: creds!, to: "1.2.22", amount: AssetAmount(1), message: "Ahoj",
                                                 encrypted: false).debug().toBlocking().single()
         XCTAssertNotNil(confirm)
     }
@@ -56,8 +53,8 @@ class OperationApiTests: XCTestCase {
     }
     */
     func testSubmitAccountOperation() {
-        let pk = "5J1HnqK3gajNzDWj9Na6fo3gxtphv6MHLE5YLgRmQv8tC8e3rEd"
-        let creds = try? Credentials("1.2.17".dcore.chainObject!, wif: pk)
+        let pk = "5JMpT5C75rcAmuUB81mqVBXbmL1BKea4MYwVK6voMQLvigLKfrE"
+        let creds = try? Credentials("1.2.28".dcore.chainObject!, wif: pk)
         let address = ECKeyPair().address
         let name = "ios\(CryptoUtils.secureRandom().prefix(upTo: 10).toHex())"
         

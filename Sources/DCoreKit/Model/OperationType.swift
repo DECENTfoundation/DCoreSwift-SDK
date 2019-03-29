@@ -43,12 +43,13 @@ public enum OperationType: Int, Codable {
     updateMonitoredAssetOperation,
     readyToPublishTwoOperation,
     transferTwoOperation,
-    disallowAutomaticRenewalOfSubscriptionOperation,    // swiftlint:disable:this identifier_name // VIRTUAL 40
+    updateUserIssuedAssetAdvancedOperation,             // VIRTUAL 40
+    disallowAutomaticRenewalOfSubscriptionOperation,    // swiftlint:disable:this identifier_name VIRTUAL
     returnEscrowSubmissionOperation,                    // VIRTUAL
     returnEscrowBuyingOperation,                        // VIRTUAL
     paySeederOperation,                                 // VIRTUAL
-    finishBuyingOperation,                              // VIRTUAL
-    renewalOfSubscriptionOperation                      // VIRTUAL 45
+    finishBuyingOperation,                              // VIRTUAL 45
+    renewalOfSubscriptionOperation                      // VIRTUAL
 }
 
 extension OperationType: DataConvertible {

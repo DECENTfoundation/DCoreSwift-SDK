@@ -6,7 +6,7 @@ import RxBlocking
 
 class BlockApiTests: XCTestCase {
     
-    private let rest = DCore.Sdk.create(forRest: "https://stagesocket.decentgo.com:8090/rpc")
+    private let rest = DCore.Sdk.create(forRest: "https://testnet-api.dcore.io/rpc")
     
     func testGetBlockHeaderUsingRest() {
         let num: UInt64 = 1000
