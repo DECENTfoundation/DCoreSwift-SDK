@@ -24,14 +24,6 @@ $ brew install automake
 $ brew install libtool
 ```
 
-or on Linux
-
-```bash
-$ apt-get install automake
-$ apt-get install libtool
-```
-
-
 ### [Carthage](https://github.com/Carthage/Carthage)
 
 **Tested with `carthage version`: `0.31.2`**
@@ -48,15 +40,9 @@ and then use
 $ carthage update --platform iOS
 ```
 
-To test a module with DCoreKitTest
-
-```bash
-$ swift test
-```
-
 ## Usage
 
-Access api using rest (Get account object)
+Access api using rest (Get an account object)
 
 ```swift
 import DCoreKit
