@@ -14,10 +14,10 @@ extension DCore {
                              restUri: URLConvertible? = nil,
                              session: URLSession? = nil,
                              delegate: ServerTrustDelegate? = nil,
-                             validator: ServerTrustValidation? = nil) {
-        
-            if let path = restUri, let url = path.asURL() { rest = RestService(url, session: session, delegate: delegate) }
-            if let path = wssUri, let url = path.asURL() { wss = WssService(url, timeout: Constant.timeout) }
+                             validator: ServerTrustValidation? = nil,
+                             timeout: TimeInterval = Constant.timeout) {
+            if let path = restUri, let url = path.asURL() { rest = RestService(url, session: session, delegate: delegate, timeout: timeout) }
+            if let path = wssUri, let url = path.asURL() { wss = WssService(url, timeout: timeout) }
             
             precondition(rest != nil || wss != nil, "At least one uri have to be set correctly")
             secured(by: validator)
@@ -28,20 +28,24 @@ extension DCore {
         public static func create(forRest uri: URLConvertible,
                                   session: URLSession? = nil,
                                   delegate: ServerTrustDelegate? = nil,
-                                  validator: ServerTrustValidation? = nil) -> Api {
-            return Api(core: Sdk(restUri: uri, session: session, delegate: delegate, validator: validator))
+                                  validator: ServerTrustValidation? = nil,
+                                  timeout: TimeInterval = Constant.timeout) -> Api {
+            return Api(core: Sdk(restUri: uri, session: session, delegate: delegate, validator: validator, timeout: timeout))
         }
         
-        public static func create(forWss uri: URLConvertible, validator: ServerTrustValidation? = nil) -> Api {
-            return Api(core: Sdk(wssUri: uri, validator: validator))
+        public static func create(forWss uri: URLConvertible,
+                                  validator: ServerTrustValidation? = nil,
+                                  timeout: TimeInterval = Constant.timeout) -> Api {
+            return Api(core: Sdk(wssUri: uri, validator: validator, timeout: timeout))
         }
         
         public static func create(forWss uri: URLConvertible,
                                   andRest restUri: URLConvertible,
                                   session: URLSession? = nil,
                                   delegate: ServerTrustDelegate? = nil,
-                                  validator: ServerTrustValidation? = nil) -> Api {
-            return Api(core: Sdk(wssUri: uri, restUri: restUri, session: session, delegate: delegate, validator: validator))
+                                  validator: ServerTrustValidation? = nil,
+                                  timeout: TimeInterval = Constant.timeout) -> Api {
+            return Api(core: Sdk(wssUri: uri, restUri: restUri, session: session, delegate: delegate, validator: validator, timeout: timeout))
         }
         
         func dispose() {
