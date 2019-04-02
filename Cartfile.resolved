@@ -1,5 +1,5 @@
 github "JanGorman/Hippolyte" "0.5.0"
-github "ReactiveX/RxSwift" "4.4.0"
+github "ReactiveX/RxSwift" "4.4.2"
 github "SwiftyJSON/SwiftyJSON" "4.2.0"
 github "attaswift/SipHash" "v1.2.2"
 github "daltoniam/Starscream" "3.0.6"
