@@ -9,7 +9,7 @@ before_install:
 before_script:
 - carthage bootstrap --platform iOS --cache-builds
 script:
-- carthage build --no-skip-current
+- travis_wait 40 carthage build --no-skip-current --platform iOS
 - carthage archive
 deploy:
   provider: releases
