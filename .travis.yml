@@ -18,3 +18,4 @@ deploy:
   file: DCoreKit.framework.zip
   on:
     repo: DECENTfoundation/DCoreSwift-SDK
+    tags: true
