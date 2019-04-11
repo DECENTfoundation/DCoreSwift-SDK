@@ -8,7 +8,7 @@ public protocol AssetFormatting {
     var precision: Int { get set }
     
     func from(raw value: BigInt) -> Decimal
-    func to(raw value: Decimal) -> BigInt
+    func to(raw value: Decimal) throws -> BigInt
     
     func format(_ value: BigInt, formatter: NumberFormatter?) -> String
 }
@@ -23,8 +23,9 @@ extension AssetFormatting {
         return val / pow(.ten, precision)
     }
     
-    public func to(raw value: Decimal) -> BigInt {
-        guard let val = BigInt((value * pow(.ten, precision)).description) else { preconditionFailure("Value can't be converted to bigint") }
+    public func to(raw value: Decimal) throws -> BigInt {
+        guard let val = BigInt((value * pow(.ten, precision)).description)
+        else { throw DCoreException.chain(.failConvert("Value can't be converted to bigint")) }
         return val
     }
     
@@ -33,17 +34,17 @@ extension AssetFormatting {
         return "\(val) \(symbol)"
     }
     
-    public func amount(_ value: String) -> AssetAmount {
+    public func amount(_ value: String) throws -> AssetAmount {
         guard let val = Decimal(string: value) else { preconditionFailure("Value can't be converted to decimal") }
-        return amount(val)
+        return try amount(val)
     }
     
-    public func amount(_ value: Double) -> AssetAmount {
-        return amount(Decimal(value))
+    public func amount(_ value: Double) throws -> AssetAmount {
+        return try amount(Decimal(value))
     }
     
-    public func amount(_ value: Decimal) -> AssetAmount {
-        return AssetAmount(to(raw: value), assetId: id)
+    public func amount(_ value: Decimal) throws -> AssetAmount {
+        return try AssetAmount(to(raw: value), assetId: id)
     }
     
     private var defaultFormatter: NumberFormatter {

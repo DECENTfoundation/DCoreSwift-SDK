@@ -32,21 +32,26 @@ final class AssetApiTests: XCTestCase {
 
     func testFormatAssetAmountFromDecimal() {
         let asset = try? rest.asset.get(bySymbol: .dct).debug().toBlocking().single()
-        let raw = asset?.to(raw: 1)
+        let raw = try? asset?.to(raw: 1)
         
         XCTAssertEqual(raw, 100000000)
+    }
+
+    func testFormatAssetAmountFromDecimalWhenSmallerThanPrecision() {
+        let asset = try? rest.asset.get(bySymbol: .dct).debug().toBlocking().single()
+        XCTAssertThrowsError(try asset?.to(raw: 0.00000000001))
     }
     
     func testFormatAssetAmountFromString() {
         let asset = try? rest.asset.get(bySymbol: .dct).debug().toBlocking().single()
-        let raw = asset?.amount("1")
+        let raw = try? asset?.amount("1")
         
         XCTAssertEqual(raw, AssetAmount(100000000))
     }
     
     func testFormatAssetAmountFromDouble() {
         let asset = try? rest.asset.get(bySymbol: .dct).debug().toBlocking().single()
-        let raw = asset?.amount(Double(1))
+        let raw = try? asset?.amount(Double(1))
         
         XCTAssertEqual(raw, AssetAmount(100000000))
     }
