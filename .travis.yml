@@ -1,0 +1,22 @@
+language: objective-c
+osx_image: xcode10.1
+cache:
+  directories:
+  - Carthage
+before_install:
+- brew update
+- brew outdated carthage || brew upgrade carthage
+before_script:
+- carthage bootstrap --platform iOS --cache-builds
+script:
+- travis_wait 40 carthage build --no-skip-current --platform iOS
+- carthage archive
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: krkAlBGgZ/ZMxZkPCiHF/FgBonQ1lL9AUbQAu0z0LpsaX+CoqHfIFRUWC1V3y+mBh5FZwU0HiKnCQK7EqNR5USxHCo9oH1qAImSWSUxIkbIIEZ37R9E9RjAHdnfVPy2NM2/3IUPliILhOYr9dBUu0JCy5wV8N1vIXsz6Fu55BlhF01o7ovL+HxionBqS4C2SIGwTP+AzD6NxYcjedlrDS43iulJi/XWxFIT85jJGbcH92VNCqNBXuaKVDPIgliUUU+nGjuTwL6EcjKve5qFl/9KfziJw+LJBEhfJ7UHUKI53Gr4uydqkULNV03cUDTgaI7IOwzRqiCFpPWU+PGv3GaKcsQ1saafeDdDEPZAfcAKsft/R2/SorxCSPPBXC15zPA+DuQZZ87DyzSwF9Z0T+PG0B0uwcMU8gQuSED4JDl89LaASQWWBsMa3skoN1haD44W/S2yu38xQuN6gRDAgKmt/CsYDSb+yjVO00VdHhFOTito+JknZRD9/b9h62syUNIumqotLUhpwadLrsbTTiWAiNRlil2AVtRtKpHsl0DhEjJaXNmALNS1g1xd968Xclc30ksoiZQUNz1XycDOmV7kTt13j+XOG+c76kfDQZJz9mjyXvJKP62uCbvyyIg+rRA4gwStqaPeAAxbx2+RVhq3ewWUxj7KM29y++4WhMFk=
+  file: DCoreKit.framework.zip
+  on:
+    repo: DECENTfoundation/DCoreSwift-SDK
+    tags: true
