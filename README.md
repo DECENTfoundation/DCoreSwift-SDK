@@ -1,8 +1,9 @@
 
-DCoreKit: DCore SDK for Swift
+DCore SDK for Swift
 ======================================
 
-Set of APIs for accessing the DCore Blockchain.
+Set of APIs for accessing the DCore Blockchain. <br>
+If you are looking for other platforms you can find info [below](#official-dcore-sdks-for-other-platforms).
 
 
 ## Requirements
@@ -68,6 +69,13 @@ let disposable = api.account.transfer(from: creds!, to: "1.2.20", amount: AssetA
 	print(confirmation.blockNum) 
 }
 ```
+
+## Official DCore SDKs for other platforms
+
+- [Android/Java/Kotlin](https://github.com/DECENTfoundation/DCoreKt-SDK)
+- [JavaScript/TypeScript/Node.js](https://github.com/DECENTfoundation/DCoreJS-SDK)
+- [PHP](https://github.com/DECENTfoundation/DCorePHP-SDK)
+
 
 ## References
 
