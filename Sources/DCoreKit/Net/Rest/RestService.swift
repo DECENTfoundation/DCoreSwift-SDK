@@ -1,6 +1,5 @@
 import Foundation
 import RxSwift
-import RxCocoa
 
 extension Error {
     fileprivate func asDCoreSecurityException() -> Single<Data> {

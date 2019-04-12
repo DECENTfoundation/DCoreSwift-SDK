@@ -1,6 +1,5 @@
 import Foundation
 import RxSwift
-import RxCocoa
 import Starscream
 
 final class WssService: CoreRequestConvertible, Lifecycle {
