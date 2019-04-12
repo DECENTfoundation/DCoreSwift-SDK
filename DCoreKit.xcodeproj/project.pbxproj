@@ -19,11 +19,9 @@
 		A114B51521F9F5CC009F1BA2 /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B51021F9F5CB009F1BA2 /* BigInt.framework */; };
 		A114B51621F9F5CC009F1BA2 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B51121F9F5CB009F1BA2 /* CryptoSwift.framework */; };
 		A114B51721F9F5CC009F1BA2 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B51221F9F5CB009F1BA2 /* Starscream.framework */; };
-		A114B51821F9F5CC009F1BA2 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B51321F9F5CB009F1BA2 /* RxCocoa.framework */; };
 		A114B51921F9F5CC009F1BA2 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B51421F9F5CB009F1BA2 /* SwiftyJSON.framework */; };
 		A114B51A21F9F5E2009F1BA2 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_237 /* XCTestManifests.swift */; };
 		A11F6D6921ECB61A008C8525 /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6221ECB61A008C8525 /* BigInt.framework */; };
-		A11F6D6A21ECB61A008C8525 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6321ECB61A008C8525 /* RxCocoa.framework */; };
 		A11F6D6B21ECB61A008C8525 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6421ECB61A008C8525 /* Starscream.framework */; };
 		A11F6D6C21ECB61A008C8525 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6521ECB61A008C8525 /* CryptoSwift.framework */; };
 		A11F6D6D21ECB61A008C8525 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F6D6621ECB61A008C8525 /* SwiftyJSON.framework */; };
@@ -1311,7 +1309,6 @@
 				A114B51521F9F5CC009F1BA2 /* BigInt.framework in Frameworks */,
 				A114B51621F9F5CC009F1BA2 /* CryptoSwift.framework in Frameworks */,
 				A114B51721F9F5CC009F1BA2 /* Starscream.framework in Frameworks */,
-				A114B51821F9F5CC009F1BA2 /* RxCocoa.framework in Frameworks */,
 				A114B51921F9F5CC009F1BA2 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1330,7 +1327,6 @@
 			buildActionMask = 0;
 			files = (
 				A11F6D6921ECB61A008C8525 /* BigInt.framework in Frameworks */,
-				A11F6D6A21ECB61A008C8525 /* RxCocoa.framework in Frameworks */,
 				A11F6D6B21ECB61A008C8525 /* Starscream.framework in Frameworks */,
 				A11F6D6C21ECB61A008C8525 /* CryptoSwift.framework in Frameworks */,
 				A11F6D6D21ECB61A008C8525 /* SwiftyJSON.framework in Frameworks */,

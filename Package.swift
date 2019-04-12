@@ -18,7 +18,7 @@ let package = Package(
         .package(url: "https://github.com/SwiftyJSON/SwiftyJSON.git", from: "4.0.0")
     ],
     targets: [
-        .target(name: "DCoreKit", dependencies: ["RxSwift", "RxCocoa", "CryptoSwift", "BigInt", "Starscream", "COpenSSL", "secp256k1", "SwiftyJSON"]),
+        .target(name: "DCoreKit", dependencies: ["RxSwift", "CryptoSwift", "BigInt", "Starscream", "COpenSSL", "secp256k1", "SwiftyJSON"]),
         .testTarget(name: "DCoreKitTests", dependencies: ["DCoreKit", "RxTest", "RxBlocking"]),
     ],
     swiftLanguageVersions: [4]
