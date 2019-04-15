@@ -3,7 +3,7 @@ import RxSwift
 
 public protocol BalanceApi: BaseApi {
     /**
-     Get account balance by id.
+     Get account balance by account id.
      
      - Parameter id: Account id, eg. 1.2.*,
      as `ChainObject` or `String` format.
@@ -18,7 +18,7 @@ public protocol BalanceApi: BaseApi {
     func get(byAccountId id: ChainObjectConvertible, asset: ChainObjectConvertible) -> Single<AssetAmount>
     
     /**
-     Get all account balances by id.
+     Get all account balances by account id.
      
      - Parameter id: Account id, eg. 1.2.*,
      as `ChainObject` or `String` format.
@@ -30,7 +30,7 @@ public protocol BalanceApi: BaseApi {
     func getAll(byAccountId id: ChainObjectConvertible, assets: [ChainObjectConvertible]) -> Single<[AssetAmount]>
     
     /**
-     Get account balance by reference (name or id).
+     Get account balance by account reference (name or id).
      
      - Parameter id: Account id, eg. 1.2.*.
      - Parameter asset: Asset id, eg. 1.3.*,
@@ -44,7 +44,7 @@ public protocol BalanceApi: BaseApi {
     func get(byReference ref: Account.Reference, asset: ChainObjectConvertible) -> Single<AssetAmount>
     
     /**
-     Get all account balances by reference (name or id).
+     Get all account balances by account reference (name or id).
      
      - Parameter id: Account id, eg. 1.2.*.
      - Parameter assets: Asset ids, eg. 1.3.*,
@@ -55,7 +55,7 @@ public protocol BalanceApi: BaseApi {
     func getAll(byReference ref: Account.Reference, assets: [ChainObjectConvertible]) -> Single<[AssetAmount]>
     
     /**
-     Get account balance with asset by id and symbol.
+     Get account balance with asset by account id and symbol.
      
      - Parameter id: Account id, eg. 1.2.*,
      as `ChainObject` or `String` format.
@@ -69,7 +69,7 @@ public protocol BalanceApi: BaseApi {
     func getWithAsset(byAccountId id: ChainObjectConvertible, symbol: Asset.Symbol) -> Single<AssetAmountPair>
     
     /**
-     Get all account balances with asset by id and symbols.
+     Get all account balances with asset by account id and symbols.
      
      - Parameter id: Account id, eg. 1.2.*,
      as `ChainObject` or `String` format.
@@ -80,7 +80,7 @@ public protocol BalanceApi: BaseApi {
     func getAllWithAsset(byAccountId id: ChainObjectConvertible, symbols: [Asset.Symbol]) -> Single<[AssetAmountPair]>
 
     /**
-     Get all account balances with asset by id.
+     Get all account balances with asset by account id.
      
      - Parameter id: Account id, eg. 1.2.*,
      as `ChainObject` or `String` format.
@@ -90,7 +90,7 @@ public protocol BalanceApi: BaseApi {
     func getAllWithAsset(byAccountId id: ChainObjectConvertible) -> Single<[AssetAmountPair]>
    
     /**
-     Get account balance with asset by reference (id or name) and symbol.
+     Get account balance with asset by account reference (id or name) and symbol.
      
      - Parameter ref: Account id or name in string format, eg. 1.2.*.
      - Parameter symbol: Asset symbol, default `Asset.Symbol.dct`.
@@ -103,7 +103,7 @@ public protocol BalanceApi: BaseApi {
     func getWithAsset(byReference ref: Account.Reference, symbol: Asset.Symbol) -> Single<AssetAmountPair>
 
     /**
-     Get all account balances with asset by reference (id or name).
+     Get all account balances with asset by account reference (id or name).
      
      - Parameter ref: Account id or name in string format, eg. 1.2.*.
      
@@ -112,7 +112,7 @@ public protocol BalanceApi: BaseApi {
     func getAllWithAsset(byReference ref: Account.Reference) -> Single<[AssetAmountPair]>
     
     /**
-     Get all account balances with asset by reference (id or name) and symbols.
+     Get all account balances with asset by account reference (id or name) and symbols.
      
      - Parameter ref: Account id or name in string format, eg. 1.2.*.
      - Parameter symbols: Asset symbols, eg. `[Asset.Symbol.dct]`.
@@ -122,7 +122,7 @@ public protocol BalanceApi: BaseApi {
     func getAllWithAsset(byReference ref: Account.Reference, symbols: [Asset.Symbol]) -> Single<[AssetAmountPair]>
     
     /**
-     Get information about a vesting balances.
+     Get information about vesting balances by account id.
      
      - Parameter id: Account id, eg. 1.2.*,
      as `ChainObject` or `String` format.
