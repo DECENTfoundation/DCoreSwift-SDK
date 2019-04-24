@@ -25,7 +25,7 @@ public struct Account: Codable {
         topControlFlags = "top_n_control_flags"
     }
     
-    static func hasValid(name: String) -> Bool {
+    public static func hasValid(name: String) -> Bool {
         return !name.matches(regex: "^(?=.{5,63}$)([a-z][a-z0-9-]+[a-z0-9])(\\.[a-z][a-z0-9-]+[a-z0-9])*$").isEmpty
     }
 }
