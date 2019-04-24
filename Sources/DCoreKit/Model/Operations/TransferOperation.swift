@@ -10,6 +10,7 @@ public struct TransferOperation: Operation {
     
     public var fee: AssetAmount = .unset
     public let type: OperationType = .transferTwoOperation
+    var mutableType: OperationType = .transferTwoOperation
     
     private enum CodingKeys: String, CodingKey {
         case
@@ -18,6 +19,18 @@ public struct TransferOperation: Operation {
         amount,
         memo,
         fee
+    }
+
+    init(from: ChainObject,
+         to: ChainObject,
+         amount: AssetAmount,
+         memo: Memo?,
+         fee: AssetAmount) {
+        self.from = from
+        self.to = to
+        self.amount = amount
+        self.memo = memo
+        self.fee = fee
     }
 }
 
@@ -33,10 +46,10 @@ extension TransferOperation {
     public func asData() -> Data {
         
         var data = Data()
-        data += type.asData()
+        data += mutableType.asData()
         data += fee.asData()
         data += from.asData()
-        data += to.asFullData()
+        data += mutableType == .transferTwoOperation ? to.asFullData() : to.asData()
         data += amount.asData()
         data += memo.asOptionalData()
         data += Data.ofZero

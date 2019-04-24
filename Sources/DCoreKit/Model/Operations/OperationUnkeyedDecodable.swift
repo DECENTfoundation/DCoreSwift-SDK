@@ -11,7 +11,9 @@ extension OperationUnkeyedDecodable {
         let type = try unkeyed.decode(OperationType.self)
         switch type {
         case .transferOperation, .transferTwoOperation:
-            return try unkeyed.decode(TransferOperation.self)
+            var operation = try unkeyed.decode(TransferOperation.self)
+            operation.mutableType = type
+            return operation
         case .contentSubmitOperation:
             return try unkeyed.decode(SubmitContentOperation.self)
         case .contentCancellationOperation:
