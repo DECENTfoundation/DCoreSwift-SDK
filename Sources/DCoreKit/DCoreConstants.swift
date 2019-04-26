@@ -10,6 +10,7 @@ extension DCore {
         public static let expiration: Int = 30 // seconds
         public static let dct: ChainObject = "1.3.0".dcore.chainObject!
         public static let dctQrPrefix = "decent"
+        public static let brainKeyWordCount = 16
     }
     
     /// Limitations
