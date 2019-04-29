@@ -38,7 +38,7 @@ github "DECENTfoundation/DCoreSwift-SDK" ~> 2.2.0
 and then use
 
 ```bash
-$ carthage update --platform iOS
+$ carthage update --platform iOS --no-use-binaries
 ```
 
 ## Usage
