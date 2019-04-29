@@ -19,6 +19,8 @@
 		0721B48A227318BC009931BF /* BrainKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0721B488227318BC009931BF /* BrainKeyTests.swift */; };
 		0721B48C227318D6009931BF /* EnglishWordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0721B48B227318D6009931BF /* EnglishWordList.swift */; };
 		0721B48D227318D6009931BF /* EnglishWordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0721B48B227318D6009931BF /* EnglishWordList.swift */; };
+		07542DCC22770D8100101271 /* SeedDictionary.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0721B4942276FDE4009931BF /* SeedDictionary.txt */; };
+		07542DCE22770D9900101271 /* SeedDictionary.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0721B4942276FDE4009931BF /* SeedDictionary.txt */; };
 		07C36F4C226F6D7A00E9080D /* TransactionApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C36F49226F6D7500E9080D /* TransactionApiTests.swift */; };
 		07C36F4D226F6D7B00E9080D /* TransactionApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C36F49226F6D7500E9080D /* TransactionApiTests.swift */; };
 		A105403B22306B86006D8774 /* SecurityExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A105403A22306B86006D8774 /* SecurityExtensionProvider.swift */; };
@@ -601,6 +603,7 @@
 		0721B4832272FEA1009931BF /* BrainKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainKey.swift; sourceTree = "<group>"; };
 		0721B488227318BC009931BF /* BrainKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainKeyTests.swift; sourceTree = "<group>"; };
 		0721B48B227318D6009931BF /* EnglishWordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishWordList.swift; sourceTree = "<group>"; };
+		0721B4942276FDE4009931BF /* SeedDictionary.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SeedDictionary.txt; sourceTree = "<group>"; };
 		07C36F49226F6D7500E9080D /* TransactionApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionApiTests.swift; sourceTree = "<group>"; };
 		A105403A22306B86006D8774 /* SecurityExtensionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityExtensionProvider.swift; sourceTree = "<group>"; };
 		A114B50E21F9F5A8009F1BA2 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
@@ -1374,6 +1377,14 @@
 			path = QR;
 			sourceTree = "<group>";
 		};
+		0721B4932276FDC6009931BF /* Dictionaries */ = {
+			isa = PBXGroup;
+			children = (
+				0721B4942276FDE4009931BF /* SeedDictionary.txt */,
+			);
+			path = Dictionaries;
+			sourceTree = "<group>";
+		};
 		A11F6D6021ECB619008C8525 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1732,6 +1743,7 @@
 		OBJ_26 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				0721B4932276FDC6009931BF /* Dictionaries */,
 				OBJ_27 /* Address.swift */,
 				0721B4832272FEA1009931BF /* BrainKey.swift */,
 				OBJ_28 /* Credentials.swift */,
@@ -2516,6 +2528,7 @@
 				A1D96D5021ED1E22009C0A30 /* Build Libraries */,
 				A1D96D5121ED1E22009C0A30 /* Sources */,
 				A1D96E2421ED1E22009C0A30 /* Frameworks */,
+				07542DCD22770D9000101271 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -2552,6 +2565,7 @@
 				A11F6D5921ECB0CD008C8525 /* Build Libraries */,
 				OBJ_830 /* Sources */,
 				OBJ_1040 /* Frameworks */,
+				07542DCB22770D7B00101271 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -2615,6 +2629,25 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		07542DCB22770D7B00101271 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07542DCC22770D8100101271 /* SeedDictionary.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07542DCD22770D9000101271 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07542DCE22770D9900101271 /* SeedDictionary.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		A112250621FB076E0023E49B /* Carthage */ = {

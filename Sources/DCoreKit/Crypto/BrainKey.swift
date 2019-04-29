@@ -4,6 +4,17 @@ public struct BrainKey: Equatable {
     public let words: [String]
 
     /**
+     Generates random `BrainKey` using default seed dictionary of words.
+
+     - Parameter count: Number of words to put into generated `BrainKey`.
+
+     - Returns: `BrainKey` consisting of random words.
+     */
+    public static func generate(count: Int = DCore.Constant.brainKeyWordCount) -> BrainKey {
+        return generate(usingSeedDictionary: loadDefaultSeedDictionary(), count: count)
+    }
+
+    /**
      Generates random `BrainKey` from provided dictionary of words.
      
      - Parameter seedDictionary: Dictionary of words to use to generate brain key.
@@ -12,7 +23,8 @@ public struct BrainKey: Equatable {
      - Returns: `BrainKey` consisting of random words.
      */
     public static func generate(
-        seedDictionary: [String], count: Int = DCore.Constant.brainKeyWordCount) throws -> BrainKey {
+        usingSeedDictionary seedDictionary: [String],
+        count: Int = DCore.Constant.brainKeyWordCount) -> BrainKey {
         return generate(
             withEntropy: CryptoUtils.secureRandom(), seedDictionary: seedDictionary, count: count)
     }
@@ -31,6 +43,21 @@ public struct BrainKey: Equatable {
         }
 
         return BrainKey(words: words)
+    }
+
+    private static func loadDefaultSeedDictionary() -> [String] {
+        guard let dictionaryPath = Bundle(for: DCore.Api.self).path(forResource: "SeedDictionary", ofType: "txt") else {
+            preconditionFailure("Failed to load brain key seed dictionary")
+        }
+
+        let seedDictionary: [String]
+        do {
+            let fileContent = try String(contentsOfFile: dictionaryPath, encoding: String.Encoding.utf8)
+            seedDictionary = fileContent.components(separatedBy: ",")
+        } catch {
+            preconditionFailure("Failed to load brain key seed dictionary: \(error)")
+        }
+        return seedDictionary
     }
 }
 

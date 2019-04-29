@@ -17,6 +17,15 @@ final class BrainKeyTests: XCTestCase {
         }
     }
 
+    func testGenerateBrainKeyUsingDefaultSeedDictionary() {
+        let brainKey = BrainKey.generate()
+        
+        XCTAssertEqual(DCore.Constant.brainKeyWordCount, brainKey.words.count)
+        brainKey.words.forEach { word in
+            XCTAssertEqual(word, word.lowercased())
+        }
+    }
+
     func testGenerateEcKeyparFromNormalizedBrainKey() {
         let brainKey = BrainKey(words: ["lording", "talar", "zoonal", "pibroch", "muffler", "sorgho", "skirty", "carper", "scrobe", "evens", "esere", "chaute", "acker", "avine", "berhyme", "canions"])
         let expectedPrivateKey = "5J1XV99mVwsd5n6zhwvDV1KnhC17opdxDtnHg3ut57KKVJrGm6m"
