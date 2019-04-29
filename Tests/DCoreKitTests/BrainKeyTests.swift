@@ -11,6 +11,10 @@ final class BrainKeyTests: XCTestCase {
             count: DCore.Constant.brainKeyWordCount)
 
         XCTAssertEqual(DCore.Constant.brainKeyWordCount, brainKey.words.count)
+        XCTAssertEqual(
+            "paddle,recall,dolphin,extend,lens,machine,spirit,teach,tilt,galaxy,multiply,slam,teach,impact,black,unveil",
+            brainKey.words.joined(separator: ",")
+        )
         brainKey.words.forEach { word in
             XCTAssertTrue(EnglishWordList.contains(word))
             XCTAssertEqual(word, word.lowercased())

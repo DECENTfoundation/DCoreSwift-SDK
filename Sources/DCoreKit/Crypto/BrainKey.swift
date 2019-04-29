@@ -37,7 +37,7 @@ public struct BrainKey: Equatable {
             
             // convert into a int between 0 and 1 (inclusive)
             let multiplier = Double(num) / pow(2.0, 16.0)
-            let index = abs(round(Double(seedDictionary.count) * multiplier))
+            let index = round(Double(seedDictionary.count) * multiplier)
 
             words.append(seedDictionary[Int(index)])
         }
