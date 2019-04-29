@@ -52,7 +52,7 @@ public struct BrainKey: Equatable {
 
         let seedDictionary: [String]
         do {
-            let fileContent = try String(contentsOfFile: dictionaryPath, encoding: String.Encoding.utf8)
+            let fileContent = try String(contentsOfFile: dictionaryPath, encoding: .utf8)
             seedDictionary = fileContent.components(separatedBy: ",")
         } catch {
             preconditionFailure("Failed to load brain key seed dictionary: \(error)")

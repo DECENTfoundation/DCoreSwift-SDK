@@ -1,4 +1,4 @@
-let EnglishWordList = [
+let englishWordList = [
     "abandon",
     "ability",
     "able",
