@@ -8,8 +8,8 @@ If you are looking for other platforms you can find info [below](#official-dcore
 
 ## Requirements
 
-* Xcode 10.0+
-* Swift 4.0+
+* Xcode 10.0 - 10.1 (10.2 is unsupported)
+* Swift 4.0 - 4.2 (5.0 is unsupported)
 * automake & libtool (for building library dependecies - openssl, secp256k1)
 
 ### Supported Platforms
