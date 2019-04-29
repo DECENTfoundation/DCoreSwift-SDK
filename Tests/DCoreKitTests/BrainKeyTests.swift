@@ -17,4 +17,17 @@ final class BrainKeyTests: XCTestCase {
         }
     }
 
+    func testGenerateEcKeyparFromNormalizedBrainKey() {
+        let brainKey = BrainKey(words: ["lording", "talar", "zoonal", "pibroch", "muffler", "sorgho", "skirty", "carper", "scrobe", "evens", "esere", "chaute", "acker", "avine", "berhyme", "canions"])
+        let expectedPrivateKey = "5J1XV99mVwsd5n6zhwvDV1KnhC17opdxDtnHg3ut57KKVJrGm6m"
+
+        XCTAssertEqual(expectedPrivateKey, try brainKey.asECKeyPair().privateKey.toWif())
+    }
+
+    func testGenerateEcKeyparFromBrainKey() {
+        let brainKey = BrainKey(words: ["lording", "talar", "zoonal", "pibroch", "muffler", "sorgho", "skirty", "carper", "scrobe", "evens", "esere", "chaute", "acker", "avine", "berhyme", "canions"])
+        let expectedPrivateKey = "5J6npTJWXCr4J4pahKdQstvzifgtsNQGgnAayGxK8AV1m9JHcS8"
+        
+        XCTAssertEqual(expectedPrivateKey, try brainKey.asECKeyPair(normalized: false).privateKey.toWif())
+    }
 }

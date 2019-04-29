@@ -25,3 +25,16 @@ public struct BrainKey: Equatable {
         return BrainKey(words: words)
     }
 }
+
+extension BrainKey: ECKeyPairConvertible {
+    public func asECKeyPair() throws -> ECKeyPair {
+        return try asECKeyPair(normalized: true, sequence: 0)
+    }
+
+    public func asECKeyPair(normalized: Bool = true, sequence: Int = 0) throws -> ECKeyPair {
+        let wordsJoined = words.joined(separator: " ")
+        let phrase = normalized ? wordsJoined.uppercased() : wordsJoined
+        let hash = CryptoUtils.hash256(CryptoUtils.hash512("\(phrase) \(sequence)".asEncoded()))
+        return ECKeyPair(fromPrivateKey: PrivateKey(data: hash, compressed: false))
+    }
+}
