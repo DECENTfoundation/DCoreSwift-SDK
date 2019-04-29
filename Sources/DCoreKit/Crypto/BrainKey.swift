@@ -3,6 +3,14 @@ import Foundation
 public struct BrainKey: Equatable {
     public let words: [String]
 
+    /**
+     Generates random `BrainKey` from provided dictionary of words.
+     
+     - Parameter seedDictionary: Dictionary of words to use to generate brain key.
+     - Parameter count: Number of words to put into generated `BrainKey`.
+
+     - Returns: `BrainKey` consisting of random words.
+     */
     public static func generate(
         seedDictionary: [String], count: Int = DCore.Constant.brainKeyWordCount) throws -> BrainKey {
         return generate(
@@ -31,6 +39,14 @@ extension BrainKey: ECKeyPairConvertible {
         return try asECKeyPair(normalized: true, sequence: 0)
     }
 
+    /**
+     Converts `BrainKey` to `ECKeyPair`
+     
+     - Parameter normalized: Normalized brain key will be uppercased prior to generating key pair.
+     - Parameter sequence: Sequence number to be used to generate the key pair.
+     
+     - Returns: `ECKeyPair`.
+     */
     public func asECKeyPair(normalized: Bool = true, sequence: Int = 0) throws -> ECKeyPair {
         let wordsJoined = words.joined(separator: " ")
         let phrase = normalized ? wordsJoined.uppercased() : wordsJoined
