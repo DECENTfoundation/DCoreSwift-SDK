@@ -67,16 +67,21 @@ struct PrivateKey {
         let signature = UnsafeMutablePointer<secp256k1_ecdsa_recoverable_signature>.allocate(capacity: 1)
         defer { signature.deallocate() }
         
-        let status = message.withUnsafeBytes { (msg: UnsafePointer<UInt8>) in
-            data.withUnsafeBytes { secp256k1_ecdsa_sign_recoverable(ctx, signature, msg, $0, nil, nil) }
+        let status = message.withUnsafeBytes { ptrMessage -> Int32 in
+            guard let addressMessage = ptrMessage.bindMemory(to: UInt8.self).baseAddress else { return 1 }
+            return data.withUnsafeBytes { ptrData -> Int32 in
+                guard let addressData = ptrData.bindMemory(to: UInt8.self).baseAddress else { return 1 }
+                return secp256k1_ecdsa_sign_recoverable(ctx, signature, addressMessage, addressData, nil, nil)
+            }
         }
         
         guard status == 1 else { throw DCoreException.crypto(.failSigning) }
     
         var recovery: Int32 = 0
         var compact = Data(count: 64)
-        guard compact.withUnsafeMutableBytes({ (sig: UnsafeMutablePointer<UInt8>) in
-            return secp256k1_ecdsa_recoverable_signature_serialize_compact(ctx, sig, &recovery, signature)
+        guard (compact.withUnsafeMutableBytes { ptr -> Int32 in
+            guard let address = ptr.bindMemory(to: UInt8.self).baseAddress else { return 1 }
+            return secp256k1_ecdsa_recoverable_signature_serialize_compact(ctx, address, &recovery, signature)
         }) == 1 else {
             throw DCoreException.crypto(.notEnoughSpace)
         }

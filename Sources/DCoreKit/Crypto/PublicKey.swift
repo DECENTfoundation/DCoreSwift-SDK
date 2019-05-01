@@ -21,18 +21,25 @@ struct PublicKey {
         let pubkeyPointer = UnsafeMutablePointer<secp256k1_pubkey>.allocate(capacity: 1)
         defer { pubkeyPointer.deallocate() }
         
-        guard data.withUnsafeBytes({ secp256k1_ec_pubkey_parse(ctx, pubkeyPointer, $0, data.count) }) == 1 else {
+        guard (data.withUnsafeBytes { ptr -> Int32 in
+            guard let address = ptr.bindMemory(to: UInt8.self).baseAddress else { return 1 }
+            return secp256k1_ec_pubkey_parse(ctx, pubkeyPointer, address, ptr.count)
+        }) == 1 else {
             throw DCoreException.crypto(.failMultiply)
         }
         
-        guard privateKey.data.withUnsafeBytes({ secp256k1_ec_pubkey_tweak_mul(ctx, pubkeyPointer, $0) }) == 1 else {
+        guard (privateKey.data.withUnsafeBytes { ptr -> Int32 in
+            guard let address = ptr.bindMemory(to: UInt8.self).baseAddress else { return 1 }
+            return secp256k1_ec_pubkey_tweak_mul(ctx, pubkeyPointer, address)
+        }) == 1 else {
             throw DCoreException.crypto(.failMultiply)
         }
         
         var count: size_t = 33
         var multiplied = Data(count: count)
-        guard multiplied.withUnsafeMutableBytes({ (mul: UnsafeMutablePointer<UInt8>) in
-            return secp256k1_ec_pubkey_serialize(ctx, mul, &count, pubkeyPointer, compressed ?
+        guard (multiplied.withUnsafeMutableBytes { ptr -> Int32 in
+            guard let address = ptr.bindMemory(to: UInt8.self).baseAddress else { return 1 }
+            return secp256k1_ec_pubkey_serialize(ctx, address, &count, pubkeyPointer, compressed ?
                 UInt32(SECP256K1_EC_COMPRESSED) : UInt32(SECP256K1_EC_UNCOMPRESSED)
             )
         }) == 1 else {
@@ -58,8 +65,9 @@ struct PublicKey {
             BN_free(prv)
         }
         
-        privateKey.withUnsafeBytes { (ptr: UnsafePointer<UInt8>) in
-            BN_bin2bn(ptr, Int32(privateKey.count), prv)
+        privateKey.withUnsafeBytes { ptr in
+            guard let address = ptr.bindMemory(to: UInt8.self).baseAddress else { return }
+            BN_bin2bn(address, Int32(ptr.count), prv)
             return
         }
         
