@@ -24,7 +24,7 @@ extension UInt64 {
     }
     
     func asUnsignedVarIntData() -> Data {
-        return Data(bytes: asUnsignedVarIntBytes())
+        return Data(asUnsignedVarIntBytes())
     }
 }
 
@@ -35,7 +35,7 @@ extension Int64 {
     }
     
     func asVarIntData() -> Data {
-        return Data(bytes: asVarIntBytes())
+        return Data(asVarIntBytes())
     }
 }
 

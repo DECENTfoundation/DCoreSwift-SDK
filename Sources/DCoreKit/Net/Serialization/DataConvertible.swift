@@ -162,7 +162,7 @@ extension Data {
     }
     
     static func of(_ bytes: [UInt8]) -> Data {
-        return Data(bytes: bytes)
+        return Data(bytes)
     }
 }
 
@@ -173,7 +173,7 @@ extension Data {
     }
     
     func to<T>(type: T.Type) -> T {
-        return self.withUnsafeBytes { $0.pointee }
+        return self.withUnsafeBytes { $0.load(as: type) }
     }
     
     func to(type: String.Type) -> String {

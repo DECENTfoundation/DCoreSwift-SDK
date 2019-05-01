@@ -77,7 +77,7 @@ final class WssService: CoreRequestConvertible, Lifecycle {
                     case .failure(let error): throw error
                     }
                 })
-                .timeout(self.timeout, scheduler: ConcurrentDispatchQueueScheduler(qos: .default))
+                .timeout(.seconds(Int(self.timeout)), scheduler: ConcurrentDispatchQueueScheduler(qos: .default))
                 .do(onError: { [weak self] error in
                     if case RxError.timeout = error { self?.dispose() }
                 })

@@ -1,6 +1,6 @@
 import XCTest
 import RxBlocking
-
+import BigInt
 
 @testable import DCoreKit
 
@@ -23,6 +23,7 @@ final class AssetApiTests: XCTestCase {
         XCTAssertEqual(assets?.count, 3)
     }
 
+    
     func testFormatAssetAmountToDecimal() {
         let asset = try? rest.asset.get(bySymbol: .dct).debug().toBlocking().single()
         let decimal = asset?.from(raw: 100000000)
@@ -32,7 +33,7 @@ final class AssetApiTests: XCTestCase {
 
     func testFormatAssetAmountFromDecimal() {
         let asset = try? rest.asset.get(bySymbol: .dct).debug().toBlocking().single()
-        let raw = try? asset?.to(raw: 1)
+        let raw = ((try? asset?.to(raw: 1)) as BigInt??)
         
         XCTAssertEqual(raw, 100000000)
     }
@@ -44,14 +45,14 @@ final class AssetApiTests: XCTestCase {
     
     func testFormatAssetAmountFromString() {
         let asset = try? rest.asset.get(bySymbol: .dct).debug().toBlocking().single()
-        let raw = try? asset?.amount("1")
+        let raw = ((try? asset?.amount("1")) as AssetAmount??)
         
         XCTAssertEqual(raw, AssetAmount(100000000))
     }
     
     func testFormatAssetAmountFromDouble() {
         let asset = try? rest.asset.get(bySymbol: .dct).debug().toBlocking().single()
-        let raw = try? asset?.amount(Double(1))
+        let raw = ((try? asset?.amount(Double(1))) as AssetAmount??)
         
         XCTAssertEqual(raw, AssetAmount(100000000))
     }

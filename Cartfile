@@ -1,5 +1,5 @@
-github "ReactiveX/RxSwift" == 4.4.2
-github "krzyzanowskim/CryptoSwift" == 0.13.1
+github "ReactiveX/RxSwift" == 5.0.1
+github "krzyzanowskim/CryptoSwift" == 1.0.0
 github "fl3xman/BigInt" "master"
-github "daltoniam/Starscream" == 3.0.6
-github "SwiftyJSON/SwiftyJSON" == 4.2.0
+github "daltoniam/Starscream" == 3.1.0
+github "SwiftyJSON/SwiftyJSON" == 5.0.0

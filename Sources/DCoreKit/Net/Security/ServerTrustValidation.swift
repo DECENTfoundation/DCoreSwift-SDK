@@ -37,7 +37,7 @@ public protocol ServerTrustValidation {
 }
 
 public extension ServerTrustValidation {
-    public func validate(trust: SecTrust, for host: String) throws {
+    func validate(trust: SecTrust, for host: String) throws {
         try trust.validate(policy: .host(name: host))
         try trust.validate(policy: .standard)
         try custom(trust: trust, for: host)
