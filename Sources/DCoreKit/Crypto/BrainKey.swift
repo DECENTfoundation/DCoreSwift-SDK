@@ -57,7 +57,10 @@ public struct BrainKey: Equatable {
         } catch {
             preconditionFailure("Failed to load brain key seed dictionary: \(error)")
         }
-        return seedDictionary.map { $0.trimmingCharacters(in: .whitespaces) }.filter { !$0.isEmpty }
+        return seedDictionary
+            .map { $0.trimmingCharacters(in: .whitespaces) }
+            .map { $0.replacingOccurrences(of: "\"", with: "") }
+            .filter { !$0.isEmpty }
     }
 }
 

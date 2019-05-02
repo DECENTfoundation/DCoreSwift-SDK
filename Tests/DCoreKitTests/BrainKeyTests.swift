@@ -27,6 +27,7 @@ final class BrainKeyTests: XCTestCase {
         XCTAssertEqual(DCore.Constant.brainKeyWordCount, brainKey.words.count)
         brainKey.words.forEach { word in
             XCTAssertEqual(word, word.lowercased())
+            XCTAssertFalse(word.contains("\""))
         }
     }
 
