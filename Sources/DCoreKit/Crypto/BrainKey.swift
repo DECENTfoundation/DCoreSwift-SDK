@@ -3,6 +3,10 @@ import Foundation
 public struct BrainKey: Equatable {
     public let words: [String]
 
+    public init(words: [String]) {
+        self.words = words
+    }
+
     /**
      Generates random `BrainKey` using default seed dictionary of words.
 
