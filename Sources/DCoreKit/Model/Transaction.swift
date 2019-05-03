@@ -105,7 +105,7 @@ extension Transaction: DataConvertible {
 }
 
 fileprivate extension BlockData {
-    fileprivate func extend() -> BlockData {
+    func extend() -> BlockData {
         var block = self
         block.expiration += 1
         

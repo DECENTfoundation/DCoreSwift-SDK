@@ -8,8 +8,8 @@ If you are looking for other platforms you can find info [below](#official-dcore
 
 ## Requirements
 
-* Xcode 10.0 - 10.1 (10.2 is unsupported)
-* Swift 4.0 - 4.2 (5.0 is unsupported)
+* Xcode 10.2+
+* Swift 5.0+
 * automake & libtool (for building library dependecies - openssl, secp256k1)
 
 ### Supported Platforms
@@ -61,7 +61,7 @@ Access api using socket (Transfer amount between accounts)
 ```swift
 import DCoreKit
 
-let creds = try? Credentials("1.2.19".chain.chainObject!, wif: "5KfatbpE1zVdnHgFydT7Cg9hJmUVLN7vQXJkBbzGrNSND3uFmAa")
+let creds = try? Credentials("1.2.19".dcore.chainObject!, wif: "5KfatbpE1zVdnHgFydT7Cg9hJmUVLN7vQXJkBbzGrNSND3uFmAa")
 let api = DCore.Sdk.create(forWss: "wss://testnet-api.dcore.io")
 let disposable = api.account.transfer(from: creds!, to: "1.2.20", amount: AssetAmount(1000000)).subscribe { 
 	confirmation in

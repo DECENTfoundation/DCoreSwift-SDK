@@ -94,7 +94,7 @@ extension BaseConvertible {
         }
         
         for byte in encodedBytes {
-            str += String(baseAlphabets[String.Index(encodedOffset: Int(byte))])
+            str += String(baseAlphabets[String.Index(utf16Offset: Int(byte), in: baseAlphabets)])
         }
         
         return str
@@ -113,9 +113,9 @@ extension BaseConvertible {
         let size = sizeFromBase(size: string.lengthOfBytes(using: .utf8) - zerosCount)
         var decodedBytes: [UInt8] = Array(repeating: 0, count: size)
         for char in string {
-            guard let baseIndex = baseAlphabets.index(of: char) else { return nil }
+            guard let baseIndex = baseAlphabets.firstIndex(of: char) else { return nil }
             
-            var carry = baseIndex.encodedOffset
+            var carry = baseIndex.utf16Offset(in: string)
             var index = 0
             for decodedIndex in (0...decodedBytes.count - 1).reversed() where carry != 0 || index < length {
                 carry += base * Int(decodedBytes[decodedIndex])

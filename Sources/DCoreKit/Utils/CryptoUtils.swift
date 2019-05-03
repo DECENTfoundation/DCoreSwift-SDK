@@ -8,8 +8,8 @@ public struct CryptoUtils {
     
     static func hash224(_ data: Data) -> Data {
         var result = [UInt8](repeating: 0, count: Int(SHA224_DIGEST_LENGTH))
-        data.withUnsafeBytes { (ptr: UnsafePointer<UInt8>) in
-            SHA224(ptr, data.count, &result)
+        data.withUnsafeBytes { ptr  in
+            SHA224(ptr.bindMemory(to: UInt8.self).baseAddress, ptr.count, &result)
             return
         }
         return Data(result)
@@ -17,8 +17,8 @@ public struct CryptoUtils {
     
     static func hash256(_ data: Data) -> Data {
         var result = [UInt8](repeating: 0, count: Int(SHA256_DIGEST_LENGTH))
-        data.withUnsafeBytes { (ptr: UnsafePointer<UInt8>) in
-            SHA256(ptr, data.count, &result)
+        data.withUnsafeBytes { ptr in
+            SHA256(ptr.bindMemory(to: UInt8.self).baseAddress, ptr.count, &result)
             return
         }
         return Data(result)
@@ -30,8 +30,8 @@ public struct CryptoUtils {
     
     static func ripemd160(_ data: Data) -> Data {
         var result = [UInt8](repeating: 0, count: Int(RIPEMD160_DIGEST_LENGTH))
-        data.withUnsafeBytes { (ptr: UnsafePointer<UInt8>) in
-            RIPEMD160(ptr, data.count, &result)
+        data.withUnsafeBytes { ptr in
+            RIPEMD160(ptr.bindMemory(to: UInt8.self).baseAddress, ptr.count, &result)
             return
         }
         return Data(result)
@@ -39,8 +39,8 @@ public struct CryptoUtils {
     
     static func hash512(_ data: Data) -> Data {
         var result = [UInt8](repeating: 0, count: Int(SHA512_DIGEST_LENGTH))
-        data.withUnsafeBytes { (ptr: UnsafePointer<UInt8>) in
-            SHA512(ptr, data.count, &result)
+        data.withUnsafeBytes { ptr in
+            SHA512(ptr.bindMemory(to: UInt8.self).baseAddress, ptr.count, &result)
             return
         }
         return Data(result)
@@ -100,10 +100,11 @@ public struct CryptoUtils {
     
     static func secureRandom(_ count: Int = 32) -> Data {
         var bytes = Data(count: count)
-        let result = bytes.withUnsafeMutableBytes { SecRandomCopyBytes(kSecRandomDefault, count, $0) }
+        let result = bytes.withUnsafeMutableBytes { ptr in
+            return ptr.baseAddress.map { SecRandomCopyBytes(kSecRandomDefault, count, $0) }.or(1)
+        }
         
         precondition(result == 0, "Cannot generate secure random bytes")
-
         return bytes
     }
 

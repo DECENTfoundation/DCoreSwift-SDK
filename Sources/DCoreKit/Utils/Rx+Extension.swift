@@ -24,7 +24,7 @@ extension Single {
 }
 
 extension AsyncSubject {
-    func applySingle(_ value: E) {
+    func applySingle(_ value: Element) {
         onNext(value)
         onCompleted()
     }
@@ -98,7 +98,7 @@ extension ObservableType {
         return mapTo(())
     }
     
-    func flatMapSync<O: CustomOperator>(_ transform: @escaping (E) -> O) -> Observable<O.Result> {
+    func flatMapSync<O: CustomOperator>(_ transform: @escaping (Element) -> O) -> Observable<O.Result> {
         return Observable.create { observer in
             return self.subscribe { event in
                 switch event {
@@ -110,17 +110,17 @@ extension ObservableType {
         }
     }
     
-    func filterMap<T>(_ transform: @escaping (E) -> FilterMap<T>) -> Observable<T> {
+    func filterMap<T>(_ transform: @escaping (Element) -> FilterMap<T>) -> Observable<T> {
         return flatMapSync { transform($0).asOperator }
     }
     
-    func catchErrorJustComplete() -> Observable<E> {
+    func catchErrorJustComplete() -> Observable<Element> {
         return catchError { _ in
             return Observable.empty()
         }
     }
 
-    func firstOrError() -> Single<E> {
+    func firstOrError() -> Single<Element> {
         return take(1).asSingle()
     }
 }
