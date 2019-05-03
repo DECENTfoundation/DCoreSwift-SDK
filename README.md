@@ -9,7 +9,7 @@ If you are looking for other platforms you can find info [below](#official-dcore
 ## Requirements
 
 * Xcode 10.2+
-* Swift 5.0+
+* Swift 5.0+ (from version 3.0.0+), Swift 4.0+ (from version 2.0.0+)
 * automake & libtool (for building library dependecies - openssl, secp256k1)
 
 ### Supported Platforms
@@ -41,6 +41,30 @@ and then use
 $ carthage update --platform iOS --no-use-binaries
 ```
 
+Link following frameworks from `Carthage/Build/iOS` folder to your app:
+```
+BigInt.framework
+CryptoSwift.framework
+DCoreKit.framework
+RxSwift.framework
+SipHash.framework
+Starscream.framework
+SwiftyJSON.framework
+```
+
+To link these frameworks to the app, please follow instructions specified in documentation of [Carthage](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application)
+
+Head over to your project's Build Settings and ensure your `Framework Search Paths` are set to: 
+```
+$(PROJECT_DIR)/Carthage/Build/iOS
+```
+
+Furthermore, set your `Header Search Paths` to:
+```
+$(PROJECT_DIR)/Carthage/Checkouts/dcoreswift-sdk/Libraries/openssl/include
+$(PROJECT_DIR)/Carthage/Checkouts/dcoreswift-sdk/Libraries/secp256k1/include
+```
+
 ## Usage
 
 Access api using rest (Get an account object)
@@ -49,11 +73,11 @@ Access api using rest (Get an account object)
 import DCoreKit
 
 let api = DCore.Sdk.create(forRest: "https://testnet-api.dcore.io/rpc")
-let disposable = api.account.get(byName: "public-account-2").subscribe { 
+let disposable = api.account.get(byName: "public-account-2").subscribe(onSuccess: { 
 	account in
 
 	print(account.id) 
-}
+})
 ```
 
 Access api using socket (Transfer amount between accounts)
@@ -63,11 +87,11 @@ import DCoreKit
 
 let creds = try? Credentials("1.2.19".dcore.chainObject!, wif: "5KfatbpE1zVdnHgFydT7Cg9hJmUVLN7vQXJkBbzGrNSND3uFmAa")
 let api = DCore.Sdk.create(forWss: "wss://testnet-api.dcore.io")
-let disposable = api.account.transfer(from: creds!, to: "1.2.20", amount: AssetAmount(1000000)).subscribe { 
+let disposable = api.account.transfer(from: creds!, to: "1.2.20", amount: AssetAmount(1000000)).subscribe(onSuccess: { 
 	confirmation in
 
 	print(confirmation.blockNum) 
-}
+})
 ```
 
 ## Official DCore SDKs for other platforms
