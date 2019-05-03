@@ -9,7 +9,7 @@ If you are looking for other platforms you can find info [below](#official-dcore
 ## Requirements
 
 * Xcode 10.2+
-* Swift 5.0+ (from version 3.0.0+), Swift 4.2 (from version 2.0.0+)
+* Swift 5.0+ (from version 3.0.0+), Swift 4.2 (for versions 2.X.X)
 * automake & libtool (for building library dependecies - openssl, secp256k1)
 
 ### Supported Platforms
