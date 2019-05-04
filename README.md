@@ -27,12 +27,12 @@ $ brew install libtool
 
 ### [Carthage](https://github.com/Carthage/Carthage)
 
-**Tested with `carthage version`: `0.31.2`**
+**Tested with `carthage version`: `0.33.0`**
 
 Add this to `Cartfile`
 
 ```
-github "DECENTfoundation/DCoreSwift-SDK" ~> 2.2.0
+github "DECENTfoundation/DCoreSwift-SDK" ~> 3.0.0
 ```
 
 and then use
