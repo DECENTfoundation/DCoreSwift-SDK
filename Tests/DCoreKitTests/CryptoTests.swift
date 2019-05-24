@@ -46,6 +46,10 @@ final class CryptoTests: XCTestCase {
         )
     }
 
+    func testCredentialFromInvalidWifFailToDecode() {
+        XCTAssertThrowsError(try Credentials("1.2.35".dcore.chainObject!, wif: "d23"))
+    }
+
     func testValidateSignedTransaction() {
         let pk = "5J1HnqK3gajNzDWj9Na6fo3gxtphv6MHLE5YLgRmQv8tC8e3rEd"
         let creds = try! Credentials("1.2.17".dcore.chainObject!, wif: pk)

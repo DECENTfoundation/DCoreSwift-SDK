@@ -10,7 +10,7 @@ struct PrivateKey {
     let compressed: Bool
     
     init(fromWif wif: String) throws {
-        guard let decoded = Base58.decode(wif) else {
+        guard let decoded = Base58.decode(wif), decoded.count > 3 else {
             throw DCoreException.crypto(.failDecode("Wif \(wif) has invalid format"))
         }
         
