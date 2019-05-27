@@ -50,6 +50,11 @@ public enum OperationType: Int, Codable {
     paySeederOperation,                                 // VIRTUAL
     finishBuyingOperation,                              // VIRTUAL 45
     renewalOfSubscriptionOperation                      // VIRTUAL
+
+    public init(from aDecoder: Decoder) throws {
+        let container = try aDecoder.singleValueContainer()
+        self = OperationType(rawValue: try container.decode(Int.self)) ?? .unknown
+    }
 }
 
 extension OperationType: DataConvertible {
