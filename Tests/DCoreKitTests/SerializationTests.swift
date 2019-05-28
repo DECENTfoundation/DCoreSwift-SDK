@@ -124,6 +124,7 @@ final class SerializationTests: XCTestCase {
         XCTAssertEqual("1.2.1564".dcore.chainObject!.asData().toHex(), "9c0c")
         XCTAssertEqual("1.2.65534".dcore.chainObject!.asData().toHex(), "feff03")
         XCTAssertEqual("1.2.66534".dcore.chainObject!.asData().toHex(), "e68704")
+        XCTAssertEqual("3.90.66534".dcore.chainObject!.asData().toHex(), "e68704")
     }
     
     
