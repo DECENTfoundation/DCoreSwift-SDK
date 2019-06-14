@@ -1,0 +1,13 @@
+output: docs
+theme: apple
+clean: true
+sdk: iphone
+author: Decent
+author_url: https://decent.ch
+github_url: https://github.com/DECENTfoundation/DCoreSwift-SDK
+github_file_prefix: https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1
+module: DCoreKit
+module_version: 3.0.1
+min_acl: public
+root_url: https://decentfoundation.github.io/DCoreSwift-SDK/
+copyright: Copyright © 2018-2019 DECENT. All Rights Reserved

@@ -1,0 +1,3458 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Structures  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Section/Structures" class="dashAnchor"></a>
+    <a title="Structures  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">DCoreKit Docs</a> (23% documented)</p>
+        <p class="header-right"><a href="https://github.com/DECENTfoundation/DCoreSwift-SDK"><img src="img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fdecentfoundation%2Egithub%2Eio%2FDCoreSwift%2DSDK%2Fdocsets%2FDCoreKit%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">DCoreKit Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Structures  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/ServerTrustDelegate.html">ServerTrustDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/AnyValue.html">AnyValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/ContentCategory.html">ContentCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/ContentCategory/Application.html">– Application</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/ContentCategory/Category.html">– Category</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/CustomOperationType.html">CustomOperationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/DCoreException.html">DCoreException</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/DCoreException/Network.html">– Network</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/DCoreException/Chain.html">– Chain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/DCoreException/Crypto.html">– Crypto</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Http.html">Http</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Http/Header.html">– Header</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Http/Method.html">– Method</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/LoggerCategory.html">LoggerCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/ObjectType.html">ObjectType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/OperationType.html">OperationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Pagination.html">Pagination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Regions.html">Regions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Scheme.html">Scheme</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/SearchOrder.html">SearchOrder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/SearchOrder/AccountHistory.html">– AccountHistory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/SearchOrder/Content.html">– Content</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/SearchOrder/Purchases.html">– Purchases</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/SearchOrder/Accounts.html">– Accounts</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/SearchOrder/MinerVoting.html">– MinerVoting</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/SubmitAccount.html">SubmitAccount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/SubmitContent.html">SubmitContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/UnitValue.html">UnitValue</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/BigInt.html">BigInt</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Bool.html">Bool</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/CaseIterable.html">CaseIterable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Data.html">Data</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Encodable.html">Encodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Error.html">Error</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/FeeOperation.html">FeeOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/JSONDecoder.html">JSONDecoder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/JSONEncoder.html">JSONEncoder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/OSLogType.html">OSLogType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Optional.html">Optional</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/RawRepresentable.html">RawRepresentable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Sequence.html">Sequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Set.html">Set</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Substring.html">Substring</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/URL.html">URL</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/AccountApi.html">AccountApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/AnyOperationConvertible.html">AnyOperationConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/AssetApi.html">AssetApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/AssetFormatting.html">AssetFormatting</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/BalanceApi.html">BalanceApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/BaseApi.html">BaseApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/BlockApi.html">BlockApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/BroadcastApi.html">BroadcastApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/CallbackApi.html">CallbackApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ChainObjectConvertible.html">ChainObjectConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/CipherConvertible.html">CipherConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ContentApi.html">ContentApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/CustomOperation.html">CustomOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/DCoreExtensionProvider.html">DCoreExtensionProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/DataConvertible.html">DataConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/DataEncodable.html">DataEncodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ECKeyPairConvertible.html">ECKeyPairConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/GeneralApi.html">GeneralApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/HasOperation.html">HasOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/HistoryApi.html">HistoryApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/JsonConvertible.html">JsonConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/LoggerConvertible.html">LoggerConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/MessagingApi.html">MessagingApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/MiningApi.html">MiningApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/Operation.html">Operation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/OperationUnkeyedEncodable.html">OperationUnkeyedEncodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/PurchaseApi.html">PurchaseApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/QrTransferConvertible.html">QrTransferConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/SchemeConvertible.html">SchemeConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/SecurityExtensionProvider.html">SecurityExtensionProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/SecurityProvider.html">SecurityProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/SeedersApi.html">SeedersApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ServerTrustValidation.html">ServerTrustValidation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/SubscriptionApi.html">SubscriptionApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/SynopsisConvertible.html">SynopsisConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/TransactionApi.html">TransactionApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/TypedOperationConvertible.html">TypedOperationConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/URLConvertible.html">URLConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ValidationApi.html">ValidationApi</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/Account.html">Account</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/AccountBalance.html">AccountBalance</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/AccountCreateOperation.html">AccountCreateOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/AccountStatistics.html">AccountStatistics</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/AccountUpdateOperation.html">AccountUpdateOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Address.html">Address</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/AnyCustomOperation.html">AnyCustomOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/AnyOperation.html">AnyOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ApiProvider.html">ApiProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Asset.html">Asset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Asset/Symbol.html">– Symbol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Asset/ExchangeRate.html">– ExchangeRate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Asset/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/AssetAmount.html">AssetAmount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/AssetData.html">AssetData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/AuthMap.html">AuthMap</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Authority.html">Authority</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Balance.html">Balance</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/BalanceChange.html">BalanceChange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Base58.html">Base58</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/BlockData.html">BlockData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/BlockHeader.html">BlockHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/BrainKey.html">BrainKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/CancelContentOperation.html">CancelContentOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/CertificatePinValidator.html">CertificatePinValidator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ChainObject.html">ChainObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ChainParameters.html">ChainParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ChainProperties.html">ChainProperties</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/CompositeValidator.html">CompositeValidator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Config.html">Config</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Content.html">Content</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ContentKeys.html">ContentKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Credentials.html">Credentials</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/CryptoUtils.html">CryptoUtils</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/CustodyData.html">CustodyData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DCore.html">DCore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DCore/Api.html">– Api</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DCore/Constant.html">– Constant</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DCore/Limits.html">– Limits</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DCore/Sdk.html">– Sdk</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DCore.html#/s:8DCoreKit0A0V6LoggerO">– Logger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DCoreExtension.html">DCoreExtension</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DynamicGlobalProps.html">DynamicGlobalProps</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ECKeyPair.html">ECKeyPair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ElGamalKeyPair.html">ElGamalKeyPair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/FeeParameter.html">FeeParameter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/FeeSchedule.html">FeeSchedule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/FullAccount.html">FullAccount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/GlobalParameters.html">GlobalParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/GlobalProperties.html">GlobalProperties</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/KeyParts.html">KeyParts</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Memo.html">Memo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Message.html">Message</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/MessagePayload.html">MessagePayload</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/MessagePayloadReceiver.html">MessagePayloadReceiver</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/MessageReceiver.html">MessageReceiver</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/MessageResponse.html">MessageResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Miner.html">Miner</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/MinerId.html">MinerId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/MinerRewardInput.html">MinerRewardInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/MinerVotes.html">MinerVotes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/MinerVotingInfo.html">MinerVotingInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/OperationHistory.html">OperationHistory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Options.html">Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Pair.html">Pair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/PricePerRegion.html">PricePerRegion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ProcessedTransaction.html">ProcessedTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/PubKey.html">PubKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/PublicKeyPinValidator.html">PublicKeyPinValidator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/PublicKeysValidator.html">PublicKeysValidator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Publishing.html">Publishing</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Purchase.html">Purchase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/PurchaseContentOperation.html">PurchaseContentOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/QrTransfer.html">QrTransfer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/RealSupply.html">RealSupply</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/RegionalPrice.html">RegionalPrice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/SecurityExtension.html">SecurityExtension</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Seeder.html">Seeder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/SendMessageOperation.html">SendMessageOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/SignedBlock.html">SignedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/StandardValidator.html">StandardValidator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/SubmitContentOperation.html">SubmitContentOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Subscription.html">Subscription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Synopsis.html">Synopsis</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Transaction.html">Transaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/TransactionConfirmation.html">TransactionConfirmation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/TransactionDetail.html">TransactionDetail</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/TransferOperation.html">TransferOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/UnknownOperation.html">UnknownOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/VestingBalance.html">VestingBalance</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:8DCoreKit15AssetAmountPaira">AssetAmountPair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:8DCoreKit13CipherCodablea">CipherCodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:8DCoreKit6VoteIda">VoteId</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Structures</h1>
+            <p>The following structures are available globally.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit11ApiProviderV"></a>
+                    <a name="//apple_ref/swift/Struct/ApiProvider" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit11ApiProviderV">ApiProvider</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/ApiProvider.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ApiProvider</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Api/ApiProvider.swift#L3-L9">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit7AddressV"></a>
+                    <a name="//apple_ref/swift/Struct/Address" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit7AddressV">Address</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Address.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Address</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Crypto/Address.swift#L3-L39">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit0A9ExtensionV"></a>
+                    <a name="//apple_ref/swift/Struct/DCoreExtension" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit0A9ExtensionV">DCoreExtension</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/DCoreExtension.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DCoreExtension</span><span class="o">&lt;</span><span class="kt">Base</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/DCoreExtensionProvider.swift#L15-L21">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit8BrainKeyV"></a>
+                    <a name="//apple_ref/swift/Struct/BrainKey" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit8BrainKeyV">BrainKey</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/BrainKey.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">BrainKey</span> <span class="p">:</span> <span class="kt">Equatable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Crypto/BrainKey.swift#L3-L69">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit11CredentialsV"></a>
+                    <a name="//apple_ref/swift/Struct/Credentials" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit11CredentialsV">Credentials</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Credentials.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Credentials</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Crypto/Credentials.swift#L3-L23">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit9ECKeyPairV"></a>
+                    <a name="//apple_ref/swift/Struct/ECKeyPair" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit9ECKeyPairV">ECKeyPair</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/ECKeyPair.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ECKeyPair</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Crypto/ECKeyPair.swift#L4-L39">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit14ElGamalKeyPairV"></a>
+                    <a name="//apple_ref/swift/Struct/ElGamalKeyPair" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit14ElGamalKeyPairV">ElGamalKeyPair</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/ElGamalKeyPair.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ElGamalKeyPair</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Crypto/ElGamalKeyPair.swift#L10-L26">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit0A0V"></a>
+                    <a name="//apple_ref/swift/Struct/DCore" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit0A0V">DCore</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/DCore.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DCore</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Namespace.swift#L3-L8">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit17SecurityExtensionV"></a>
+                    <a name="//apple_ref/swift/Struct/SecurityExtension" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit17SecurityExtensionV">SecurityExtension</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/SecurityExtension.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SecurityExtension</span><span class="o">&lt;</span><span class="kt">Base</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Net/Security/SecurityExtensionProvider.swift#L11-L17">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit7AccountV"></a>
+                    <a name="//apple_ref/swift/Struct/Account" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit7AccountV">Account</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Account.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Account</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Account.swift#L3-L31">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit14AccountBalanceV"></a>
+                    <a name="//apple_ref/swift/Struct/AccountBalance" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit14AccountBalanceV">AccountBalance</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/AccountBalance.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AccountBalance</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/AccountBalance.swift#L4-L18">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit17AccountStatisticsV"></a>
+                    <a name="//apple_ref/swift/Struct/AccountStatistics" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit17AccountStatisticsV">AccountStatistics</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/AccountStatistics.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AccountStatistics</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/AccountStatistics.swift#L4-L24">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit5AssetV"></a>
+                    <a name="//apple_ref/swift/Struct/Asset" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit5AssetV">Asset</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Asset.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Asset</span> <span class="p">:</span> <span class="kt">Codable</span><span class="p">,</span> <span class="kt"><a href="Protocols/AssetFormatting.html">AssetFormatting</a></span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Asset.swift#L8-L69">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit11AssetAmountV"></a>
+                    <a name="//apple_ref/swift/Struct/AssetAmount" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit11AssetAmountV">AssetAmount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/AssetAmount.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AssetAmount</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/AssetAmount.swift#L4-L42">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit9AssetDataV"></a>
+                    <a name="//apple_ref/swift/Struct/AssetData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit9AssetDataV">AssetData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/AssetData.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AssetData</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/AssetData.swift#L4-L17">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit9AuthorityV"></a>
+                    <a name="//apple_ref/swift/Struct/Authority" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit9AuthorityV">Authority</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Authority.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Authority</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Authority.swift#L3-L21">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit7AuthMapV"></a>
+                    <a name="//apple_ref/swift/Struct/AuthMap" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit7AuthMapV">AuthMap</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/AuthMap.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AuthMap</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Authority.swift#L23-L51">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit13BalanceChangeV"></a>
+                    <a name="//apple_ref/swift/Struct/BalanceChange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit13BalanceChangeV">BalanceChange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/BalanceChange.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">BalanceChange</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/BalanceChange.swift#L4-L16">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit7BalanceV"></a>
+                    <a name="//apple_ref/swift/Struct/Balance" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit7BalanceV">Balance</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Balance.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Balance</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/BalanceChange.swift#L39-L49">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit9BlockDataV"></a>
+                    <a name="//apple_ref/swift/Struct/BlockData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit9BlockDataV">BlockData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/BlockData.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">BlockData</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/BlockData.swift#L3-L29">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit11BlockHeaderV"></a>
+                    <a name="//apple_ref/swift/Struct/BlockHeader" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit11BlockHeaderV">BlockHeader</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/BlockHeader.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">BlockHeader</span> <span class="p">:</span> <span class="kt">Codable</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/BlockHeader.swift#L3-L27">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit11ChainObjectV"></a>
+                    <a name="//apple_ref/swift/Struct/ChainObject" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit11ChainObjectV">ChainObject</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/ChainObject.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ChainObject</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/ChainObject.swift#L3-L26">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit15ChainParametersV"></a>
+                    <a name="//apple_ref/swift/Struct/ChainParameters" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit15ChainParametersV">ChainParameters</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/ChainParameters.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ChainParameters</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/ChainParameters.swift#L3-L15">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit15ChainPropertiesV"></a>
+                    <a name="//apple_ref/swift/Struct/ChainProperties" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit15ChainPropertiesV">ChainProperties</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/ChainProperties.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ChainProperties</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/ChainProperties.swift#L3-L15">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6ConfigV"></a>
+                    <a name="//apple_ref/swift/Struct/Config" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6ConfigV">Config</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Config.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Config</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Config.swift#L4-L152">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit7ContentV"></a>
+                    <a name="//apple_ref/swift/Struct/Content" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit7ContentV">Content</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Content.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Content</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Content.swift#L3-L42">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit11ContentKeysV"></a>
+                    <a name="//apple_ref/swift/Struct/ContentKeys" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit11ContentKeysV">ContentKeys</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/ContentKeys.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ContentKeys</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/ContentKeys.swift#L3-L13">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit11CustodyDataV"></a>
+                    <a name="//apple_ref/swift/Struct/CustodyData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit11CustodyDataV">CustodyData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/CustodyData.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CustodyData</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/CustodyData.swift#L3-L15">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit18DynamicGlobalPropsV"></a>
+                    <a name="//apple_ref/swift/Struct/DynamicGlobalProps" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit18DynamicGlobalPropsV">DynamicGlobalProps</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/DynamicGlobalProps.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DynamicGlobalProps</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/DynamicGlobalProps.swift#L4-L44">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit12FeeParameterV"></a>
+                    <a name="//apple_ref/swift/Struct/FeeParameter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit12FeeParameterV">FeeParameter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/FeeParameter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">FeeParameter</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/FeeParameter.swift#L4-L23">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit11FeeScheduleV"></a>
+                    <a name="//apple_ref/swift/Struct/FeeSchedule" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit11FeeScheduleV">FeeSchedule</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/FeeSchedule.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">FeeSchedule</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/FeeSchedule.swift#L3-L13">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit11FullAccountV"></a>
+                    <a name="//apple_ref/swift/Struct/FullAccount" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit11FullAccountV">FullAccount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/FullAccount.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">FullAccount</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/FullAccount.swift#L3-L23">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit16GlobalParametersV"></a>
+                    <a name="//apple_ref/swift/Struct/GlobalParameters" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit16GlobalParametersV">GlobalParameters</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/GlobalParameters.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GlobalParameters</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/GlobalParameters.swift#L4-L44">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit16GlobalPropertiesV"></a>
+                    <a name="//apple_ref/swift/Struct/GlobalProperties" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit16GlobalPropertiesV">GlobalProperties</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/GlobalProperties.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GlobalProperties</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/GlobalProperties.swift#L3-L17">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit8KeyPartsV"></a>
+                    <a name="//apple_ref/swift/Struct/KeyParts" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit8KeyPartsV">KeyParts</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/KeyParts.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">KeyParts</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/KeyParts.swift#L3-L13">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit4MemoV"></a>
+                    <a name="//apple_ref/swift/Struct/Memo" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit4MemoV">Memo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Memo.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Memo</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Memo.swift#L4-L43">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit7MessageV"></a>
+                    <a name="//apple_ref/swift/Struct/Message" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit7MessageV">Message</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Message.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Message</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Message.swift#L4-L14">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit15MessageResponseV"></a>
+                    <a name="//apple_ref/swift/Struct/MessageResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit15MessageResponseV">MessageResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/MessageResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">MessageResponse</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Message.swift#L32-L49">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit15MessageReceiverV"></a>
+                    <a name="//apple_ref/swift/Struct/MessageReceiver" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit15MessageReceiverV">MessageReceiver</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/MessageReceiver.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">MessageReceiver</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Message.swift#L51-L64">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit14MessagePayloadV"></a>
+                    <a name="//apple_ref/swift/Struct/MessagePayload" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit14MessagePayloadV">MessagePayload</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/MessagePayload.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">MessagePayload</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Message.swift#L66-L91">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit22MessagePayloadReceiverV"></a>
+                    <a name="//apple_ref/swift/Struct/MessagePayloadReceiver" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit22MessagePayloadReceiverV">MessagePayloadReceiver</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/MessagePayloadReceiver.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">MessagePayloadReceiver</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Message.swift#L93-L106">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit5MinerV"></a>
+                    <a name="//apple_ref/swift/Struct/Miner" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit5MinerV">Miner</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Miner.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Miner</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Miner.swift#L4-L30">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit7MinerIdV"></a>
+                    <a name="//apple_ref/swift/Struct/MinerId" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit7MinerIdV">MinerId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/MinerId.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">MinerId</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/MinerId.swift#L3-L13">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit16MinerRewardInputV"></a>
+                    <a name="//apple_ref/swift/Struct/MinerRewardInput" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit16MinerRewardInputV">MinerRewardInput</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/MinerRewardInput.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">MinerRewardInput</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/MinerRewardInput.swift#L4-L16">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit10MinerVotesV"></a>
+                    <a name="//apple_ref/swift/Struct/MinerVotes" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit10MinerVotesV">MinerVotes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/MinerVotes.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">MinerVotes</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/MinerVotes.swift#L4-L14">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit15MinerVotingInfoV"></a>
+                    <a name="//apple_ref/swift/Struct/MinerVotingInfo" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit15MinerVotingInfoV">MinerVotingInfo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/MinerVotingInfo.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">MinerVotingInfo</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/MinerVotingInfo.swift#L4-L20">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit16OperationHistoryV"></a>
+                    <a name="//apple_ref/swift/Struct/OperationHistory" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit16OperationHistoryV">OperationHistory</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/OperationHistory.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">OperationHistory</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/OperationHistory.swift#L4-L13">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit22AccountCreateOperationV"></a>
+                    <a name="//apple_ref/swift/Struct/AccountCreateOperation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit22AccountCreateOperationV">AccountCreateOperation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/AccountCreateOperation.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AccountCreateOperation</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Operation.html">Operation</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Operations/AccountCreateOperation.swift#L4-L39">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit22AccountUpdateOperationV"></a>
+                    <a name="//apple_ref/swift/Struct/AccountUpdateOperation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit22AccountUpdateOperationV">AccountUpdateOperation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/AccountUpdateOperation.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AccountUpdateOperation</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Operation.html">Operation</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Operations/AccountUpdateOperation.swift#L4-L27">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit18AnyCustomOperationV"></a>
+                    <a name="//apple_ref/swift/Struct/AnyCustomOperation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit18AnyCustomOperationV">AnyCustomOperation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/AnyCustomOperation.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AnyCustomOperation</span> <span class="p">:</span> <span class="kt"><a href="Protocols/CustomOperation.html">CustomOperation</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Operations/AnyCustomOperation.swift#L3-L20">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit12AnyOperationV"></a>
+                    <a name="//apple_ref/swift/Struct/AnyOperation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit12AnyOperationV">AnyOperation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/AnyOperation.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AnyOperation</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Operation.html">Operation</a></span><span class="p">,</span> <span class="kt">OperationUnkeyedDecodable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Operations/AnyOperation.swift#L4-L28">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit22CancelContentOperationV"></a>
+                    <a name="//apple_ref/swift/Struct/CancelContentOperation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit22CancelContentOperationV">CancelContentOperation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/CancelContentOperation.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CancelContentOperation</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Operation.html">Operation</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Operations/CancelContentOperation.swift#L4-L17">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit24PurchaseContentOperationV"></a>
+                    <a name="//apple_ref/swift/Struct/PurchaseContentOperation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit24PurchaseContentOperationV">PurchaseContentOperation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/PurchaseContentOperation.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PurchaseContentOperation</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Operation.html">Operation</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Operations/PurchaseContentOperation.swift#L4-L42">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit20SendMessageOperationV"></a>
+                    <a name="//apple_ref/swift/Struct/SendMessageOperation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit20SendMessageOperationV">SendMessageOperation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/SendMessageOperation.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SendMessageOperation</span> <span class="p">:</span> <span class="kt"><a href="Protocols/CustomOperation.html">CustomOperation</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Operations/SendMessageOperation.swift#L3-L26">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit22SubmitContentOperationV"></a>
+                    <a name="//apple_ref/swift/Struct/SubmitContentOperation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit22SubmitContentOperationV">SubmitContentOperation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/SubmitContentOperation.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SubmitContentOperation</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Operation.html">Operation</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift#L4-L82">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit17TransferOperationV"></a>
+                    <a name="//apple_ref/swift/Struct/TransferOperation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit17TransferOperationV">TransferOperation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/TransferOperation.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TransferOperation</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Operation.html">Operation</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Operations/TransferOperation.swift#L4-L35">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit16UnknownOperationV"></a>
+                    <a name="//apple_ref/swift/Struct/UnknownOperation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit16UnknownOperationV">UnknownOperation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/UnknownOperation.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">UnknownOperation</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Operation.html">Operation</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Operations/UnknownOperation.swift#L4-L19">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit7OptionsV"></a>
+                    <a name="//apple_ref/swift/Struct/Options" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit7OptionsV">Options</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Options.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Options</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Options.swift#L3-L42">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit4PairV"></a>
+                    <a name="//apple_ref/swift/Struct/Pair" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit4PairV">Pair</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Pair.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Pair</span><span class="o">&lt;</span><span class="kt">A</span><span class="p">,</span> <span class="kt">B</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Pair.swift#L1-L9">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit13RegionalPriceV"></a>
+                    <a name="//apple_ref/swift/Struct/RegionalPrice" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit13RegionalPriceV">RegionalPrice</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/RegionalPrice.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">RegionalPrice</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/PricePerRegion.swift#L3-L20">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit14PricePerRegionV"></a>
+                    <a name="//apple_ref/swift/Struct/PricePerRegion" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit14PricePerRegionV">PricePerRegion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/PricePerRegion.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PricePerRegion</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/PricePerRegion.swift#L35-L43">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit20ProcessedTransactionV"></a>
+                    <a name="//apple_ref/swift/Struct/ProcessedTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit20ProcessedTransactionV">ProcessedTransaction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/ProcessedTransaction.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ProcessedTransaction</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/ProcessedTransaction.swift#L3-L18">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6PubKeyV"></a>
+                    <a name="//apple_ref/swift/Struct/PubKey" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6PubKeyV">PubKey</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/PubKey.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PubKey</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/PubKey.swift#L4-L32">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit10PublishingV"></a>
+                    <a name="//apple_ref/swift/Struct/Publishing" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit10PublishingV">Publishing</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Publishing.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Publishing</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Publishing.swift#L3-L15">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit8PurchaseV"></a>
+                    <a name="//apple_ref/swift/Struct/Purchase" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit8PurchaseV">Purchase</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Purchase.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Purchase</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Purchase.swift#L3-L51">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit10RealSupplyV"></a>
+                    <a name="//apple_ref/swift/Struct/RealSupply" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit10RealSupplyV">RealSupply</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/RealSupply.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">RealSupply</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/RealSupply.swift#L4-L18">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6SeederV"></a>
+                    <a name="//apple_ref/swift/Struct/Seeder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6SeederV">Seeder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Seeder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Seeder</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Seeder.swift#L4-L28">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit11SignedBlockV"></a>
+                    <a name="//apple_ref/swift/Struct/SignedBlock" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit11SignedBlockV">SignedBlock</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/SignedBlock.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SignedBlock</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/SignedBlock.swift#L3-L23">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit12SubscriptionV"></a>
+                    <a name="//apple_ref/swift/Struct/Subscription" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit12SubscriptionV">Subscription</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Subscription.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Subscription</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Subscription.swift#L3-L17">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit8SynopsisV"></a>
+                    <a name="//apple_ref/swift/Struct/Synopsis" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit8SynopsisV">Synopsis</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Synopsis.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Synopsis</span> <span class="p">:</span> <span class="kt"><a href="Protocols/SynopsisConvertible.html">SynopsisConvertible</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Synopsis.swift#L3-L23">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit11TransactionV"></a>
+                    <a name="//apple_ref/swift/Struct/Transaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit11TransactionV">Transaction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Transaction.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Transaction</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Transaction.swift#L3-L54">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit23TransactionConfirmationV"></a>
+                    <a name="//apple_ref/swift/Struct/TransactionConfirmation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit23TransactionConfirmationV">TransactionConfirmation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/TransactionConfirmation.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TransactionConfirmation</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/TransactionConfirmation.swift#L3-L17">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit17TransactionDetailV"></a>
+                    <a name="//apple_ref/swift/Struct/TransactionDetail" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit17TransactionDetailV">TransactionDetail</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/TransactionDetail.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TransactionDetail</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/TransactionDetail.swift#L3-L27">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit14VestingBalanceV"></a>
+                    <a name="//apple_ref/swift/Struct/VestingBalance" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit14VestingBalanceV">VestingBalance</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/VestingBalance.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">VestingBalance</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/VestingBalance.swift#L3-L15">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit23CertificatePinValidatorV"></a>
+                    <a name="//apple_ref/swift/Struct/CertificatePinValidator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit23CertificatePinValidatorV">CertificatePinValidator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/CertificatePinValidator.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CertificatePinValidator</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ServerTrustValidation.html">ServerTrustValidation</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Net/Security/CertificatePinValidator.swift#L3-L21">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit18CompositeValidatorV"></a>
+                    <a name="//apple_ref/swift/Struct/CompositeValidator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit18CompositeValidatorV">CompositeValidator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/CompositeValidator.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CompositeValidator</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ServerTrustValidation.html">ServerTrustValidation</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Net/Security/CompositeValidator.swift#L3-L13">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit21PublicKeyPinValidatorV"></a>
+                    <a name="//apple_ref/swift/Struct/PublicKeyPinValidator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit21PublicKeyPinValidatorV">PublicKeyPinValidator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/PublicKeyPinValidator.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PublicKeyPinValidator</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ServerTrustValidation.html">ServerTrustValidation</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Net/Security/PublicKeyPinValidator.swift#L3-L22">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit19PublicKeysValidatorV"></a>
+                    <a name="//apple_ref/swift/Struct/PublicKeysValidator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit19PublicKeysValidatorV">PublicKeysValidator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/PublicKeysValidator.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PublicKeysValidator</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ServerTrustValidation.html">ServerTrustValidation</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Net/Security/PublicKeysValidator.swift#L3-L21">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit17StandardValidatorV"></a>
+                    <a name="//apple_ref/swift/Struct/StandardValidator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit17StandardValidatorV">StandardValidator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/StandardValidator.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StandardValidator</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ServerTrustValidation.html">ServerTrustValidation</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Net/Security/StandardValidator.swift#L3-L5">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit10QrTransferV"></a>
+                    <a name="//apple_ref/swift/Struct/QrTransfer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit10QrTransferV">QrTransfer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/QrTransfer.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">QrTransfer</span> <span class="p">:</span> <span class="kt">Equatable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/QR/QrTransfer.swift#L3-L20">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6Base58V"></a>
+                    <a name="//apple_ref/swift/Struct/Base58" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6Base58V">Base58</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/Base58.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Base58</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Utils/BaseConvertible.swift#L144-L167">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit11CryptoUtilsV"></a>
+                    <a name="//apple_ref/swift/Struct/CryptoUtils" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit11CryptoUtilsV">CryptoUtils</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Structs/CryptoUtils.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CryptoUtils</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Utils/CryptoUtils.swift#L7-L117">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Copyright © 2018-2019 DECENT. All Rights Reserved</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
