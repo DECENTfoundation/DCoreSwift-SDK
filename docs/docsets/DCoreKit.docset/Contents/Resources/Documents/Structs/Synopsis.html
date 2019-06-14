@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Synopsis Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/Synopsis" class="dashAnchor"></a>
+    <a title="Synopsis Structure Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">DCoreKit Docs</a> (23% documented)</p>
+        <p class="header-right"><a href="https://github.com/DECENTfoundation/DCoreSwift-SDK"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fdecentfoundation%2Egithub%2Eio%2FDCoreSwift%2DSDK%2Fdocsets%2FDCoreKit%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">DCoreKit Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Synopsis Structure Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ServerTrustDelegate.html">ServerTrustDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AnyValue.html">AnyValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ContentCategory.html">ContentCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ContentCategory/Application.html">– Application</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ContentCategory/Category.html">– Category</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CustomOperationType.html">CustomOperationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DCoreException.html">DCoreException</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DCoreException/Network.html">– Network</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DCoreException/Chain.html">– Chain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DCoreException/Crypto.html">– Crypto</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Http.html">Http</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Http/Header.html">– Header</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Http/Method.html">– Method</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LoggerCategory.html">LoggerCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ObjectType.html">ObjectType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/OperationType.html">OperationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Pagination.html">Pagination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Regions.html">Regions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Scheme.html">Scheme</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SearchOrder.html">SearchOrder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SearchOrder/AccountHistory.html">– AccountHistory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SearchOrder/Content.html">– Content</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SearchOrder/Purchases.html">– Purchases</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SearchOrder/Accounts.html">– Accounts</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SearchOrder/MinerVoting.html">– MinerVoting</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SubmitAccount.html">SubmitAccount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SubmitContent.html">SubmitContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UnitValue.html">UnitValue</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/BigInt.html">BigInt</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Bool.html">Bool</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/CaseIterable.html">CaseIterable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Data.html">Data</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Encodable.html">Encodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Error.html">Error</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/FeeOperation.html">FeeOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/JSONDecoder.html">JSONDecoder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/JSONEncoder.html">JSONEncoder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/OSLogType.html">OSLogType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Optional.html">Optional</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/RawRepresentable.html">RawRepresentable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Sequence.html">Sequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Set.html">Set</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Substring.html">Substring</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URL.html">URL</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AccountApi.html">AccountApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AnyOperationConvertible.html">AnyOperationConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AssetApi.html">AssetApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AssetFormatting.html">AssetFormatting</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/BalanceApi.html">BalanceApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/BaseApi.html">BaseApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/BlockApi.html">BlockApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/BroadcastApi.html">BroadcastApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CallbackApi.html">CallbackApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ChainObjectConvertible.html">ChainObjectConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CipherConvertible.html">CipherConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ContentApi.html">ContentApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CustomOperation.html">CustomOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/DCoreExtensionProvider.html">DCoreExtensionProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/DataConvertible.html">DataConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/DataEncodable.html">DataEncodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ECKeyPairConvertible.html">ECKeyPairConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/GeneralApi.html">GeneralApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/HasOperation.html">HasOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/HistoryApi.html">HistoryApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JsonConvertible.html">JsonConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/LoggerConvertible.html">LoggerConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MessagingApi.html">MessagingApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MiningApi.html">MiningApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Operation.html">Operation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/OperationUnkeyedEncodable.html">OperationUnkeyedEncodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/PurchaseApi.html">PurchaseApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/QrTransferConvertible.html">QrTransferConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SchemeConvertible.html">SchemeConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SecurityExtensionProvider.html">SecurityExtensionProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SecurityProvider.html">SecurityProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SeedersApi.html">SeedersApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ServerTrustValidation.html">ServerTrustValidation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SubscriptionApi.html">SubscriptionApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SynopsisConvertible.html">SynopsisConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TransactionApi.html">TransactionApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TypedOperationConvertible.html">TypedOperationConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLConvertible.html">URLConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ValidationApi.html">ValidationApi</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Account.html">Account</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AccountBalance.html">AccountBalance</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AccountCreateOperation.html">AccountCreateOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AccountStatistics.html">AccountStatistics</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AccountUpdateOperation.html">AccountUpdateOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Address.html">Address</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AnyCustomOperation.html">AnyCustomOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AnyOperation.html">AnyOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ApiProvider.html">ApiProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Asset.html">Asset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Asset/Symbol.html">– Symbol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Asset/ExchangeRate.html">– ExchangeRate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Asset/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AssetAmount.html">AssetAmount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AssetData.html">AssetData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AuthMap.html">AuthMap</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Authority.html">Authority</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Balance.html">Balance</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BalanceChange.html">BalanceChange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Base58.html">Base58</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BlockData.html">BlockData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BlockHeader.html">BlockHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BrainKey.html">BrainKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CancelContentOperation.html">CancelContentOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CertificatePinValidator.html">CertificatePinValidator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ChainObject.html">ChainObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ChainParameters.html">ChainParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ChainProperties.html">ChainProperties</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CompositeValidator.html">CompositeValidator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Config.html">Config</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Content.html">Content</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ContentKeys.html">ContentKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Credentials.html">Credentials</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CryptoUtils.html">CryptoUtils</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CustodyData.html">CustodyData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DCore.html">DCore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DCore/Api.html">– Api</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DCore/Constant.html">– Constant</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DCore/Limits.html">– Limits</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DCore/Sdk.html">– Sdk</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DCore.html#/s:8DCoreKit0A0V6LoggerO">– Logger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DCoreExtension.html">DCoreExtension</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DynamicGlobalProps.html">DynamicGlobalProps</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ECKeyPair.html">ECKeyPair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ElGamalKeyPair.html">ElGamalKeyPair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FeeParameter.html">FeeParameter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FeeSchedule.html">FeeSchedule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FullAccount.html">FullAccount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/GlobalParameters.html">GlobalParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/GlobalProperties.html">GlobalProperties</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/KeyParts.html">KeyParts</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Memo.html">Memo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Message.html">Message</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MessagePayload.html">MessagePayload</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MessagePayloadReceiver.html">MessagePayloadReceiver</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MessageReceiver.html">MessageReceiver</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MessageResponse.html">MessageResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Miner.html">Miner</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MinerId.html">MinerId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MinerRewardInput.html">MinerRewardInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MinerVotes.html">MinerVotes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MinerVotingInfo.html">MinerVotingInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OperationHistory.html">OperationHistory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Options.html">Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Pair.html">Pair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PricePerRegion.html">PricePerRegion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ProcessedTransaction.html">ProcessedTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PubKey.html">PubKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PublicKeyPinValidator.html">PublicKeyPinValidator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PublicKeysValidator.html">PublicKeysValidator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Publishing.html">Publishing</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Purchase.html">Purchase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PurchaseContentOperation.html">PurchaseContentOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/QrTransfer.html">QrTransfer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RealSupply.html">RealSupply</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RegionalPrice.html">RegionalPrice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SecurityExtension.html">SecurityExtension</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Seeder.html">Seeder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SendMessageOperation.html">SendMessageOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SignedBlock.html">SignedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/StandardValidator.html">StandardValidator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SubmitContentOperation.html">SubmitContentOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Subscription.html">Subscription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Synopsis.html">Synopsis</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Transaction.html">Transaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TransactionConfirmation.html">TransactionConfirmation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TransactionDetail.html">TransactionDetail</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TransferOperation.html">TransferOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UnknownOperation.html">UnknownOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VestingBalance.html">VestingBalance</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:8DCoreKit15AssetAmountPaira">AssetAmountPair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:8DCoreKit13CipherCodablea">CipherCodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:8DCoreKit6VoteIda">VoteId</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Synopsis</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Synopsis</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/SynopsisConvertible.html">SynopsisConvertible</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit8SynopsisV5titleSSvp"></a>
+                    <a name="//apple_ref/swift/Property/title" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit8SynopsisV5titleSSvp">title</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">title</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Synopsis.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit8SynopsisV11descriptionSSvp"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit8SynopsisV11descriptionSSvp">description</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Synopsis.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit8SynopsisV4typeAA11ChainObjectVvp"></a>
+                    <a name="//apple_ref/swift/Property/type" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit8SynopsisV4typeAA11ChainObjectVvp">type</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Structs/ChainObject.html">ChainObject</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Synopsis.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit8SynopsisV5title11description4typeACSS_SSAA11ChainObjectVtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(title:description:type:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit8SynopsisV5title11description4typeACSS_SSAA11ChainObjectVtcfc">init(title:description:type:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+            <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+            <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Structs/ChainObject.html">ChainObject</a></span> <span class="o">=</span> <span class="kt"><a href="../Enums/ContentCategory.html">ContentCategory</a></span><span class="o">.</span><span class="n">standard</span><span class="o">.</span><span class="n">objectId</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Model/Synopsis.swift#L9-L15">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Copyright © 2018-2019 DECENT. All Rights Reserved</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
