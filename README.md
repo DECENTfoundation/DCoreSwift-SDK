@@ -38,7 +38,7 @@ github "DECENTfoundation/DCoreSwift-SDK" ~> 3.0.0
 and then use
 
 ```bash
-$ carthage update --platform iOS --no-use-binaries
+$ carthage update --platform iOS
 ```
 
 Link following frameworks from `Carthage/Build/iOS` folder to your app:
