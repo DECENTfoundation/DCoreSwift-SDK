@@ -38,7 +38,7 @@ github "DECENTfoundation/DCoreSwift-SDK" ~> 3.0.0
 and then use
 
 ```bash
-$ carthage update --platform iOS --no-use-binaries
+$ carthage update --platform iOS
 ```
 
 Link following frameworks from `Carthage/Build/iOS` folder to your app:
@@ -57,12 +57,6 @@ To link these frameworks to the app, please follow instructions specified in doc
 Head over to your project's Build Settings and ensure your `Framework Search Paths` are set to: 
 ```
 $(PROJECT_DIR)/Carthage/Build/iOS
-```
-
-Furthermore, set your `Header Search Paths` to:
-```
-$(PROJECT_DIR)/Carthage/Checkouts/dcoreswift-sdk/Libraries/openssl/include
-$(PROJECT_DIR)/Carthage/Checkouts/dcoreswift-sdk/Libraries/secp256k1/include
 ```
 
 ## Usage
