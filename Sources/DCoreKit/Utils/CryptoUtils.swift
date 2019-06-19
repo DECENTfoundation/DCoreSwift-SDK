@@ -1,7 +1,7 @@
 import Foundation
 import CryptoSwift
-import COpenSSL
-import secp256k1
+import DCoreKit.COpenSSL
+import DCoreKit.secp256k1
 import BigInt
 
 public struct CryptoUtils {

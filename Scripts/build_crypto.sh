@@ -33,4 +33,6 @@ cp -rf $TDIR/openssl-$OPENSSL_VERSION/include "$SCRIPT_DIR/../Libraries/openssl/
 cd -
 rm -rf $TDIR
 
+sed -E -i '' 's/#[[:space:]]*include <openssl\/(.*).h>/#include \"\1\.h"/' $SCRIPT_DIR/../Libraries/openssl/include/openssl/*.h
+
 exit 0

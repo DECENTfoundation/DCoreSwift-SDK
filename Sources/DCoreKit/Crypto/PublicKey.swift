@@ -1,6 +1,6 @@
 import Foundation
-import COpenSSL
-import secp256k1
+import DCoreKit.COpenSSL
+import DCoreKit.secp256k1
 
 struct PublicKey {
 

@@ -1,0 +1,44 @@
+framework module DCoreKit {
+    umbrella header "DCoreKit.h"
+    requires objc
+
+    export *
+    module * { export * }
+
+    explicit module COpenSSL [system] {
+        header "shim.h"
+
+        header "aes.h"
+        header "asn1_mac.h"
+        header "asn1t.h"
+        header "blowfish.h"
+        header "camellia.h"
+        header "cast.h"
+        header "cmac.h"
+        header "cms.h"
+        header "conf_api.h"
+        header "dso.h"
+        header "ebcdic.h"
+        header "krb5_asn.h"
+        header "mdc2.h"
+        header "modes.h"
+        header "ocsp.h"
+        header "rc2.h"
+        header "rc4.h"
+        header "seed.h"
+        header "ts.h"
+        header "txt_db.h"
+        header "whrlpool.h"
+
+        link "ssl"
+        link "crypto"
+        export *
+    }
+
+    explicit module secp256k1 {
+        header "secp256k1.h"
+        header "secp256k1_recovery.h"
+        link "secp256k1"
+        export *
+    }
+}
