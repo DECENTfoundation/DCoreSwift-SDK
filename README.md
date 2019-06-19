@@ -59,12 +59,6 @@ Head over to your project's Build Settings and ensure your `Framework Search Pat
 $(PROJECT_DIR)/Carthage/Build/iOS
 ```
 
-Furthermore, set your `Header Search Paths` to:
-```
-$(PROJECT_DIR)/Carthage/Checkouts/dcoreswift-sdk/Libraries/openssl/include
-$(PROJECT_DIR)/Carthage/Checkouts/dcoreswift-sdk/Libraries/secp256k1/include
-```
-
 ## Usage
 
 You can find **developer documentation** for latest release [here](https://decentfoundation.github.io/DCoreSwift-SDK/).
