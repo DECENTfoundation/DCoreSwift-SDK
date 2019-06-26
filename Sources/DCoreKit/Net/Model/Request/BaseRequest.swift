@@ -57,7 +57,7 @@ extension BaseRequest: Encodable {
         // json rpc group and api
         var unkeyed = keyed.nestedUnkeyedContainer(forKey: .params)
         
-        try unkeyed.encode(group.id)
+        try unkeyed.encode(group.name)
         try unkeyed.encode(api)
         
         // json rpc params
