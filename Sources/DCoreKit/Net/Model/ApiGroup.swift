@@ -17,7 +17,7 @@ enum ApiGroup {
     static let history: ApiGroup =      ApiGroup(group: .history)
     static let crypto: ApiGroup =       ApiGroup(group: .crypto)
     static let messaging: ApiGroup =    ApiGroup(group: .messaging)
-    static let node: ApiGroup =         ApiGroup(group: .network)
+    static let node: ApiGroup =         ApiGroup(group: .node)
     static let monitoring: ApiGroup =   ApiGroup(group: .monitoring)
 
     private enum Category: String, CaseIterable {
@@ -33,21 +33,15 @@ enum ApiGroup {
     }
     
     private init(group: Category) {
-        self = .from(group.rawValue, group.offset!)
+        self = .from(group.rawValue)
     }
     
     case
-    from(String, Int)
+    from(String)
     
     var name: String {
         switch self {
-        case .from(let name, _): return name
-        }
-    }
-    
-    var id: Int {
-        switch self {
-        case .from(_, let id): return id
+        case .from(let name): return name
         }
     }
 }
