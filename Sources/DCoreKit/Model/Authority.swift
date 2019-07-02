@@ -2,7 +2,7 @@ import Foundation
 
 public struct Authority: Codable {
     
-    public let weightThreshold: Int
+    public let weightThreshold: Int32
     public let accountAuths: AnyValue?
     public let keyAuths: [AuthMap]
     
