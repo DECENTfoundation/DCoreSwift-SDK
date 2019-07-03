@@ -2,21 +2,28 @@ import Foundation
 import RxSwift
 
 public protocol MessagingApi: BaseApi {
-    
+
     /**
-     Get all messages.
-     
+     Get all messages by sender.
+
      - Parameter sender: Filter by sender account id,
      as `ChainObject` or `String` format.
+     - Parameter limit: Max items to return.
+
+     - Returns: `[Message]`.
+     */
+    func getAll(bySender sender: ChainObjectConvertible, limit: Int) -> Single<[Message]>
+
+    /**
+     Get all messages by receiver.
+
      - Parameter receiver: Filter by receiver account id,
      as `ChainObject` or `String` format.
      - Parameter limit: Max items to return.
-     
+
      - Returns: `[Message]`.
      */
-    func getAll(_ sender: ChainObjectConvertible?,
-                receiver: ChainObjectConvertible?,
-                limit: Int) -> Single<[Message]>
+    func getAll(byReceiver receiver: ChainObjectConvertible, limit: Int) -> Single<[Message]>
     
     /**
      Get all messages decrypted by sender.
@@ -39,21 +46,28 @@ public protocol MessagingApi: BaseApi {
      - Returns: `[Message]`.
      */
     func getAllReceiverDecrypted(_ credentials: Credentials, limit: Int) -> Single<[Message]>
-    
+
     /**
      Get all messages responses.
-     
+
      - Parameter sender: Filter by sender account id,
      as `ChainObject` or `String` format.
+     - Parameter limit: Max items to return.
+
+     - Returns: `[MessageResponse]`.
+     */
+    func getAllResponses(bySender sender: ChainObjectConvertible, limit: Int) -> Single<[MessageResponse]>
+
+    /**
+     Get all messages responses.
+
      - Parameter receiver: Filter by receiver account id,
      as `ChainObject` or `String` format.
      - Parameter limit: Max items to return.
-     
+
      - Returns: `[MessageResponse]`.
      */
-    func getAllResponses(_ sender: ChainObjectConvertible?,
-                         receiver: ChainObjectConvertible?,
-                         limit: Int) -> Single<[MessageResponse]>
+    func getAllResponses(byReceiver receiver: ChainObjectConvertible, limit: Int) -> Single<[MessageResponse]>
 
     /**
      Create message operation, send a message to one receiver.
@@ -129,9 +143,19 @@ public protocol MessagingApi: BaseApi {
 }
 
 extension MessagingApi {
-    public func getAll(_ sender: ChainObjectConvertible? = nil,
-                       receiver: ChainObjectConvertible? = nil,
+    public func getAll(bySender sender: ChainObjectConvertible,
                        limit: Int = DCore.Limits.messaging) -> Single<[Message]> {
+        return getAll(sender, limit: limit)
+    }
+
+    public func getAll(byReceiver receiver: ChainObjectConvertible,
+                       limit: Int = DCore.Limits.messaging) -> Single<[Message]> {
+        return getAll(receiver: receiver, limit: limit)
+    }
+
+    private func getAll(_ sender: ChainObjectConvertible? = nil,
+                        receiver: ChainObjectConvertible? = nil,
+                        limit: Int = DCore.Limits.messaging) -> Single<[Message]> {
         return getAllResponses(sender, receiver: receiver, limit: limit)
             .map { responses in Array( responses.map { $0.asMessages() }.joined()) }
     }
@@ -146,9 +170,19 @@ extension MessagingApi {
             .map { responses in Array(responses.map {$0.asMessages(decrypt: credentials) }.joined()) }
     }
 
-    public func getAllResponses(_ sender: ChainObjectConvertible? = nil,
-                                receiver: ChainObjectConvertible? = nil,
+    public func getAllResponses(bySender sender: ChainObjectConvertible,
                                 limit: Int = DCore.Limits.messaging) -> Single<[MessageResponse]> {
+        return getAllResponses(sender, limit: limit)
+    }
+
+    public func getAllResponses(byReceiver receiver: ChainObjectConvertible,
+                                limit: Int = DCore.Limits.messaging) -> Single<[MessageResponse]> {
+        return getAllResponses(receiver: receiver, limit: limit)
+    }
+
+    private func getAllResponses(_ sender: ChainObjectConvertible? = nil,
+                                 receiver: ChainObjectConvertible? = nil,
+                                 limit: Int = DCore.Limits.messaging) -> Single<[MessageResponse]> {
         return Single.deferred {
             return GetMessageObjects(try sender?.asChainObject(), receiver: try receiver?.asChainObject(), limit: limit)
                 .base
