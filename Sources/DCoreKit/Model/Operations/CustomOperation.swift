@@ -10,3 +10,23 @@ public protocol CustomOperation: Operation {
 extension CustomOperation {
     public var type: OperationType { return .customOperation }
 }
+
+extension CustomOperation {
+    public func asData() -> Data {
+        var dataBytes = data.unhex() ?? Data()
+
+        var data = Data()
+        data += type.asData()
+        data += fee.asData()
+        data += payee.asData()
+        data += requiredAuths.asData()
+        data += id.asData()
+        data += UInt64(dataBytes.count).asUnsignedVarIntData()
+        data += dataBytes
+        
+        DCore.Logger.debug(crypto: "CustomOperationOperation binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)"
+        })
+        return data
+    }
+}
