@@ -9,7 +9,7 @@ public struct Options: Codable {
     public var extensions: AnyValue?
     public let allowSubscription: Bool
     public let pricePerSubscribe: AssetAmount
-    public let subscriptionPeriod: Int
+    public let subscriptionPeriod: UInt32
     
     private enum CodingKeys: String, CodingKey {
         case
