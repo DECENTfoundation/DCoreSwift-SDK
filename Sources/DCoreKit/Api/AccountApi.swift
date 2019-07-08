@@ -188,6 +188,26 @@ public protocol AccountApi: BaseApi {
      - Returns: `TransactionConfirmation` that account was created.
      */
     func create(_ account: SubmitAccount, registrar: Credentials, fee: AssetAmount) -> Single<TransactionConfirmation>
+
+    /**
+     Update account.
+     
+     - Parameter credentials: Credentials of account to update.
+     - Parameter options: new account options.
+     - Parameter active: new active authority.
+     - Parameter owner: new owner authority.
+     - Parameter fee: `AssetAmount` fee for the operation,
+     if left `AssetAmount.unset` the fee will be computed in DCT asset,
+     default `AssetAmount.unset`.
+     
+     - Returns: `TransactionConfirmation` that account was updated.
+     */
+    func update(
+        credentials: Credentials,
+        options: Options?,
+        active: Authority?,
+        owner: Authority?,
+        fee: AssetAmount) -> Single<TransactionConfirmation>
     
     /**
      Create transfer operation between two accounts using credentails.
@@ -357,6 +377,20 @@ extension AccountApi {
             return self.api.broadcast.broadcastWithCallback(AccountCreateOperation(
                 account, registrar: registrar.accountId, fee: fee
             ), keypair: registrar.keyPair)
+        }
+    }
+
+    public func update(
+        credentials: Credentials,
+        options: Options? = nil,
+        active: Authority? = nil,
+        owner: Authority? = nil,
+        fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
+        return get(byId: credentials.accountId).flatMap { account in
+            self.api.broadcast.broadcastWithCallback(
+                AccountUpdateOperation(account, active: active, owner: owner, options: options, fee: fee),
+                keypair: credentials.keyPair
+            )
         }
     }
     
