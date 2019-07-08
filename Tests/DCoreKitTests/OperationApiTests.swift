@@ -61,6 +61,16 @@ class OperationApiTests: XCTestCase {
         let confirm = try? wss.account.create(.with(name: name, address: address), registrar: creds!).debug().toBlocking().single()
         XCTAssertNotNil(confirm)
     }
+
+    func testUpdateAccountOperation() {
+        let pk = "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
+        let creds = try? Credentials("1.2.27".dcore.chainObject!, wif: pk)
+        let newAuthority = "DCT5PwcSiigfTPTwubadt85enxMFC18TtVoti3gnTbG7TN9f9R3Fp"
+        let confirm = try? wss.account.update(
+            credentials: creds!, active: Authority(from: Address(from: newAuthority))
+        ).debug().toBlocking().single()
+        XCTAssertNotNil(confirm)
+    }
     
     static var allTests = [
         ("testTransferOperation", testTransferOperation),

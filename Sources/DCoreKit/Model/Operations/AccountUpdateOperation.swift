@@ -4,16 +4,37 @@ import BigInt
 public struct AccountUpdateOperation: Operation {
     
     public let accountId: ChainObject
-    public var owner: Authority?
-    public var active: Authority?
-    public var options: Options?
+    public let owner: Authority?
+    public let active: Authority?
+    public let options: Options?
     
     public let type: OperationType = .accountUpdateOperation
     public var fee: AssetAmount  = .unset
+
+    public init(
+        _ account: Account,
+        active: Authority? = nil,
+        owner: Authority? = nil,
+        options: Options? = nil,
+        fee: AssetAmount = .unset) {
+        accountId = account.id
+        self.options = options
+        self.active = active
+        self.owner = owner
+        self.fee = fee
+    }
     
-    public init(_ account: Account, votes: Set<VoteId>) {
+    public init(
+        _ account: Account,
+        active: Authority? = nil,
+        owner: Authority? = nil,
+        votes: Set<VoteId> = [],
+        fee: AssetAmount = .unset) {
         accountId = account.id
         options = account.options.apply(votes: votes)
+        self.active = active
+        self.owner = owner
+        self.fee = fee
     }
     
     private enum CodingKeys: String, CodingKey {
