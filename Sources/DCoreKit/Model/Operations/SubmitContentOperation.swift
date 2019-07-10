@@ -18,7 +18,7 @@ public struct SubmitContentOperation: Operation {
     public var hash: String {
         willSet { precondition(newValue.unhex()?.count == 20, "Invalid hash, should be 40 chars, hex encoded") }
     }
-    public var quorum: Int {
+    public var quorum: UInt32 {
         willSet { precondition(newValue >= .unset, "Invalid seeders count") }
     }
     public var size: UInt64 {
@@ -99,10 +99,10 @@ extension SubmitContentOperation {
         data += uri.asData()
         data += quorum
         data += price.asData()
-        data += hash.unhex().asData()
+        data += hash.unhex() ?? Data.ofZero
         data += seeders.asData()
         data += keyParts.asData()
-        data += Int(expiration.timeIntervalSince1970)
+        data += Int32(expiration.timeIntervalSince1970).littleEndian
         data += publishingFee.asData()
         data += synopsis.asData()
         data += custodyData.asOptionalData()
@@ -116,6 +116,10 @@ extension SubmitContentOperation {
 
 extension UInt64 {
     fileprivate static let unset: UInt64 = 1
+}
+
+extension UInt32 {
+    fileprivate static let unset: UInt32 = 0
 }
 
 extension Int {
@@ -183,7 +187,7 @@ public enum SubmitContent<Input> where Input: SynopsisConvertible {
         }
     }
     
-    fileprivate var quorum: Int { return .unset }
+    fileprivate var quorum: UInt32 { return .unset }
     fileprivate var size: UInt64 { return .unset }
     fileprivate var seeders: [ChainObject] { return [] }
     fileprivate var keyParts: [KeyParts] { return [] }

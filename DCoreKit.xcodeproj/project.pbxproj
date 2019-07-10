@@ -15,6 +15,8 @@
 		071AE04F2212FE66008AE077 /* AssetAmountPair+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AE04E2212FE66008AE077 /* AssetAmountPair+Extension.swift */; };
 		07C36F4C226F6D7A00E9080D /* TransactionApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C36F49226F6D7500E9080D /* TransactionApiTests.swift */; };
 		07C36F4D226F6D7B00E9080D /* TransactionApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C36F49226F6D7500E9080D /* TransactionApiTests.swift */; };
+		07DDCE3C22D5DA2A00610AF0 /* ContentApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DDCE3B22D5DA2A00610AF0 /* ContentApiTests.swift */; };
+		07DDCE3D22D5DA2A00610AF0 /* ContentApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DDCE3B22D5DA2A00610AF0 /* ContentApiTests.swift */; };
 		A105403B22306B86006D8774 /* SecurityExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A105403A22306B86006D8774 /* SecurityExtensionProvider.swift */; };
 		A105403C22306B86006D8774 /* SecurityExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A105403A22306B86006D8774 /* SecurityExtensionProvider.swift */; };
 		A114B50F21F9F5A8009F1BA2 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A114B50E21F9F5A8009F1BA2 /* RxSwift.framework */; };
@@ -593,6 +595,7 @@
 		071AE04C2212FD9D008AE077 /* Pair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pair.swift; sourceTree = "<group>"; };
 		071AE04E2212FE66008AE077 /* AssetAmountPair+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetAmountPair+Extension.swift"; sourceTree = "<group>"; };
 		07C36F49226F6D7500E9080D /* TransactionApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionApiTests.swift; sourceTree = "<group>"; };
+		07DDCE3B22D5DA2A00610AF0 /* ContentApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentApiTests.swift; sourceTree = "<group>"; };
 		A105403A22306B86006D8774 /* SecurityExtensionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityExtensionProvider.swift; sourceTree = "<group>"; };
 		A114B50E21F9F5A8009F1BA2 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
 		A114B51021F9F5CB009F1BA2 /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BigInt.framework; path = Carthage/Build/Mac/BigInt.framework; sourceTree = "<group>"; };
@@ -1614,6 +1617,7 @@
 				A1EF306722392935002D2F39 /* ConnectivityTests.swift */,
 				A1A2FBBF2242ECC4003641EA /* MessagingApiTests.swift */,
 				07C36F49226F6D7500E9080D /* TransactionApiTests.swift */,
+				07DDCE3B22D5DA2A00610AF0 /* ContentApiTests.swift */,
 			);
 			name = DCoreKitTests;
 			path = Tests/DCoreKitTests;
@@ -3016,6 +3020,7 @@
 				A1673B5021EF3CC3008FF560 /* OperationApiTests.swift in Sources */,
 				A1D96E3521ED2025009C0A30 /* AssetApiTests.swift in Sources */,
 				A1673B5321EF43CA008FF560 /* GeneralApiTests.swift in Sources */,
+				07DDCE3D22D5DA2A00610AF0 /* ContentApiTests.swift in Sources */,
 				071AE0462212CD0F008AE077 /* QrTransferTests.swift in Sources */,
 				A13D09CB223078E5000CAE17 /* SecurityTests.swift in Sources */,
 				A1676782221C43720024A4D6 /* BlockApiTests.swift in Sources */,
@@ -3050,6 +3055,7 @@
 				A19D4CF721F1B4D70069B6CA /* MockBuilder.swift in Sources */,
 				A19D4CFA21F1B64B0069B6CA /* MockTestCase.swift in Sources */,
 				A13D09CA223078E5000CAE17 /* SecurityTests.swift in Sources */,
+				07DDCE3C22D5DA2A00610AF0 /* ContentApiTests.swift in Sources */,
 				OBJ_1089 /* BalanceApiTests.swift in Sources */,
 				OBJ_1090 /* CryptoTests.swift in Sources */,
 				OBJ_1091 /* SerializationTests.swift in Sources */,
