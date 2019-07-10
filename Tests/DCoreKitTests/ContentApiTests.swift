@@ -12,7 +12,7 @@ class ContentApiTests: XCTestCase {
         DCore.Logger.xcode(filterCategories: [.network])
     }
 
-    func testSubmitCdnContentOperation() {
+    func testSubmitCdnContentOperationAndRemove() {
         let creds = try? Credentials(
             "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
         )
@@ -26,6 +26,9 @@ class ContentApiTests: XCTestCase {
             publishingFee: .unset,
             fee: .unset).debug().toBlocking().single()
         XCTAssertNotNil(confirm)
+
+        let remove = try? wss.content.delete(byReference: uri, author: creds!).debug().toBlocking().single()
+        XCTAssertNotNil(remove)
     }
 
      func testSubmitCdnWithPriceContentOperation() {
@@ -46,7 +49,7 @@ class ContentApiTests: XCTestCase {
      }
 
     static var allTests = [
-        ("testSubmitCdnContentOperation", testSubmitCdnContentOperation),
+        ("testSubmitCdnContentOperationAndRemove", testSubmitCdnContentOperationAndRemove),
         ("testSubmitCdnWithPriceContentOperation", testSubmitCdnWithPriceContentOperation),
         ]
 }
