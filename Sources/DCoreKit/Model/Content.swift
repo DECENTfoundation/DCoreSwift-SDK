@@ -4,8 +4,9 @@ public struct Content: Codable {
     
     public let id: ChainObject
     public let author: String
+    public let coAuthors: [Pair<ChainObject, Int>]?
     public let regionalPrice: PricePerRegion
-    public let synopsis: String
+    public let synopsisJson: String
     public let uri: String
     public let hash: String
     public let rating: Int
@@ -18,8 +19,9 @@ public struct Content: Codable {
         case
         id,
         author,
+        coAuthors = "co_authors",
         regionalPrice = "price",
-        synopsis,
+        synopsisJson = "synopsis",
         uri = "URI",
         hash = "_hash",
         rating = "AVG_rating",
@@ -35,6 +37,10 @@ public struct Content: Codable {
         }
         return value
     }
+
+    public func synopsis<S: SynopsisConvertible>() throws -> S? {
+        return try JSONDecoder().decode(S.self, from: synopsisJson.data(using: .utf8)!)
+    }
     
     static func hasValid(uri: String) -> Bool {
         return !uri.matches(regex: "^(https?|ipfs|magnet):.*").isEmpty
@@ -43,4 +49,28 @@ public struct Content: Codable {
 
 extension Content {
     public typealias Reference = String
+}
+
+extension Content {
+    func modifiedSubmitContent<Input>(
+        by newSynopsis: Input? = nil,
+        newPrice: AssetAmount? = nil,
+        newCoAuthors: [Pair<ChainObject, Int>]? = nil) throws -> SubmitContent<Input> where Input: SynopsisConvertible {
+        guard let updatedSynopsis: Input = try newSynopsis ?? synopsis() else {
+            throw DCoreException.unexpected("Unable to decode synopsis")
+        }
+        if let coAuths = newCoAuthors ?? coAuthors {
+            return .cdnWithSharedPrice(
+                url: uri,
+                expiration: expiration,
+                price: newPrice ?? price,
+                synopsis: updatedSynopsis,
+                coauthors: coAuths
+            )
+        } else if let price = newPrice {
+            return .cdnWithPrice(url: uri, expiration: expiration, price: price, synopsis: updatedSynopsis)
+        } else {
+            return .cdn(url: uri, expiration: expiration, synopsis: updatedSynopsis)
+        }
+    }
 }
