@@ -22,7 +22,7 @@ public protocol ContentApi: BaseApi {
      as `URL` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`
-     if account does not exist.
+     if content does not exist.
      
      - Returns: `Content`.
      */
@@ -34,7 +34,7 @@ public protocol ContentApi: BaseApi {
      - Parameter ref: Reference (id or URL in String format).
      
      - Throws: `DCoreException.Network.notFound`
-     if account does not exist.
+     if content does not exist.
      
      - Returns: `Content`.
      */
@@ -131,6 +131,30 @@ public protocol ContentApi: BaseApi {
                        author: Credentials,
                        publishingFee: AssetAmount,
                        fee: AssetAmount) -> Single<TransactionConfirmation> where Input: SynopsisConvertible
+
+    /**
+     Update content.
+     
+     - Parameter reference: Content reference (id or uri) of object to update.
+     - Parameter credentials: Credentials of owner account, which will pay operation fee.
+     - Parameter newSynopsis: Updated synopsis.
+     - Parameter newPrice: Updated price.
+     - Parameter newCoAuthors: Updated coauthors.
+     - Parameter fee: `AssetAmount` fee for the operation,
+     if left `AssetAmount.unset` the fee will be computed in DCT asset,
+     default `AssetAmount.unset`.
+     
+     - Throws: `DCoreException.Network.notFound`
+     if content with given reference does not exist.
+     
+     - Returns: `TransactionConfirmation` that content was updated.
+     */
+    func update<Input>(on reference: Content.Reference,
+                       credentials: Credentials,
+                       newSynopsis: Input?,
+                       newPrice: AssetAmount?,
+                       newCoAuthors: [Pair<ChainObject, Int>]?,
+                       fee: AssetAmount) -> Single<TransactionConfirmation> where Input: SynopsisConvertible
     /**
      Delete content by reference (id or uri).
      
@@ -141,8 +165,8 @@ public protocol ContentApi: BaseApi {
      if left `AssetAmount.unset` the fee will be computed in DCT asset,
      default `AssetAmount.unset`.
      
-     - Throws: `DCoreException.Network.alreadyFound`
-     if content with given uri already exist.
+     - Throws: `DCoreException.Network.notFound`
+     if content with given reference does not exist.
      
      - Returns: `TransactionConfirmation` that content was deleted.
      */
@@ -159,7 +183,7 @@ public protocol ContentApi: BaseApi {
      default `AssetAmount.unset`.
      
      - Throws: `DCoreException.Network.notFound`
-     if content with given id not exist.
+     if content with given id does not exist.
      
      - Returns: `TransactionConfirmation` that content was deleted.
      */
@@ -176,7 +200,7 @@ public protocol ContentApi: BaseApi {
      default `AssetAmount.unset`.
      
      - Throws: `DCoreException.Network.notFound`
-     if content with given uri not exist.
+     if content with given uri does not exist.
      
      - Returns: `TransactionConfirmation` that content was deleted.
      */
@@ -189,7 +213,7 @@ public protocol ContentApi: BaseApi {
      - Parameter consumer: Account credentials.
      
      - Throws: `DCoreException.Network.notFound`
-     if content with given id not exist.
+     if content with given id does not exist.
      
      - Returns: `PurchaseContentOperation`.
      */
@@ -202,7 +226,7 @@ public protocol ContentApi: BaseApi {
      - Parameter consumer: Account credentials.
      
      - Throws: `DCoreException.Network.notFound`
-     if content with given id not exist.
+     if content with given id does not exist.
      
      - Returns: `PurchaseContentOperation`.
      */
@@ -367,6 +391,26 @@ extension ContentApi {
             return self.api.broadcast.broadcastWithCallback(SubmitContentOperation(
                 content, author: author, publishingFee: publishingFee, fee: fee
             ), keypair: author.keyPair)
+        }
+    }
+
+    public func update<Input>(on reference: Content.Reference,
+                              credentials: Credentials,
+                              newSynopsis: Input?,
+                              newPrice: AssetAmount?,
+                              newCoAuthors: [Pair<ChainObject, Int>]?,
+                              fee: AssetAmount) -> Single<TransactionConfirmation> where Input: SynopsisConvertible {
+        return get(byReference: reference).flatMap { originalContent in
+            self.api.broadcast.broadcastWithCallback(SubmitContentOperation(
+                try originalContent.modifiedSubmitContent(
+                    by: newSynopsis,
+                    newPrice: newPrice,
+                    newCoAuthors: newCoAuthors
+                ),
+                author: credentials,
+                publishingFee: .unset,
+                fee: fee
+            ), keypair: credentials.keyPair)
         }
     }
     

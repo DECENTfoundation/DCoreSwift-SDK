@@ -40,6 +40,11 @@ public struct PricePerRegion: Codable {
         case
         prices = "map_price"
     }
+
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.container(keyedBy: CodingKeys.self).nestedUnkeyedContainer(forKey: .prices)
+        self.prices = try container.decode([UInt32: AssetAmount].self)
+    }
 }
 
 public enum Regions {
