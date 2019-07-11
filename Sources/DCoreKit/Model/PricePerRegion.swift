@@ -5,9 +5,9 @@ public struct RegionalPrice: Codable {
     public static let unset = RegionalPrice(.unset)
     
     public let price: AssetAmount
-    public let region: Int
+    public let region: UInt32
     
-    init(_ price: AssetAmount, region: Int = Regions.null.id) {
+    init(_ price: AssetAmount, region: UInt32 = Regions.all.id) {
         self.price = price
         self.region = region
     }
@@ -34,7 +34,7 @@ extension RegionalPrice: DataConvertible {
 
 public struct PricePerRegion: Codable {
     
-    public let prices: [Int: AssetAmount]
+    public let prices: [UInt32: AssetAmount]
     
     private enum CodingKeys: String, CodingKey {
         case
@@ -48,9 +48,9 @@ public enum Regions {
     public static let none: Regions = Regions.code("", 1)
     public static let all: Regions = Regions.code("default", 2)
     
-    case code(String, Int)
+    case code(String, UInt32)
     
-    public var id: Int {
+    public var id: UInt32 {
         switch self {
         case let .code(_, value): return value
         }
