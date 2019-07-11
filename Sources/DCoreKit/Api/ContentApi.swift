@@ -136,10 +136,10 @@ public protocol ContentApi: BaseApi {
      Update content.
      
      - Parameter reference: Content reference (id or uri) of object to update.
+     - Parameter synopsis: Updated synopsis.
+     - Parameter price: Updated price.
+     - Parameter coAuthors: Updated coauthors.
      - Parameter credentials: Credentials of owner account, which will pay operation fee.
-     - Parameter newSynopsis: Updated synopsis.
-     - Parameter newPrice: Updated price.
-     - Parameter newCoAuthors: Updated coauthors.
      - Parameter fee: `AssetAmount` fee for the operation,
      if left `AssetAmount.unset` the fee will be computed in DCT asset,
      default `AssetAmount.unset`.
@@ -150,10 +150,10 @@ public protocol ContentApi: BaseApi {
      - Returns: `TransactionConfirmation` that content was updated.
      */
     func update<Input>(on reference: Content.Reference,
+                       synopsis: Input?,
+                       price: AssetAmount?,
+                       coAuthors: [Pair<ChainObject, Int>]?,
                        credentials: Credentials,
-                       newSynopsis: Input?,
-                       newPrice: AssetAmount?,
-                       newCoAuthors: [Pair<ChainObject, Int>]?,
                        fee: AssetAmount) -> Single<TransactionConfirmation> where Input: SynopsisConvertible
     /**
      Delete content by reference (id or uri).
@@ -395,17 +395,17 @@ extension ContentApi {
     }
 
     public func update<Input>(on reference: Content.Reference,
+                              synopsis: Input?,
+                              price: AssetAmount?,
+                              coAuthors: [Pair<ChainObject, Int>]?,
                               credentials: Credentials,
-                              newSynopsis: Input?,
-                              newPrice: AssetAmount?,
-                              newCoAuthors: [Pair<ChainObject, Int>]?,
                               fee: AssetAmount) -> Single<TransactionConfirmation> where Input: SynopsisConvertible {
         return get(byReference: reference).flatMap { originalContent in
             self.api.broadcast.broadcastWithCallback(SubmitContentOperation(
                 try originalContent.modifiedSubmitContent(
-                    by: newSynopsis,
-                    newPrice: newPrice,
-                    newCoAuthors: newCoAuthors
+                    by: synopsis,
+                    newPrice: price,
+                    newCoAuthors: coAuthors
                 ),
                 author: credentials,
                 publishingFee: .unset,

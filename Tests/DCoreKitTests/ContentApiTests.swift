@@ -57,10 +57,10 @@ class ContentApiTests: XCTestCase {
 
         let update = try? wss.content.update(
             on: uri,
+            synopsis: Synopsis(title: "foofoo", description: "barbar"),
+            price: AssetAmount(110000),
+            coAuthors: [Pair("1.2.28".asChainObject(), 1000)],
             credentials: creds!,
-            newSynopsis: Synopsis(title: "foofoo", description: "barbar"),
-            newPrice: AssetAmount(110000),
-            newCoAuthors: [Pair("1.2.28".asChainObject(), 1000)],
             fee: .unset).debug().toBlocking().single()
         XCTAssertNotNil(update)
      }
