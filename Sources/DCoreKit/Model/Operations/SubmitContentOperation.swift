@@ -95,11 +95,11 @@ extension SubmitContentOperation {
         data += fee.asData()
         data += size.littleEndian
         data += author.asData()
-        data += Data.ofZero
+        data += serializeCoAuthors()
         data += uri.asData()
         data += quorum
         data += price.asData()
-        data += hash.unhex() ?? Data.ofZero
+        data += hash.unhex().or(Data.ofZero)
         data += seeders.asData()
         data += keyParts.asData()
         data += Int32(expiration.timeIntervalSince1970).littleEndian
@@ -110,6 +110,17 @@ extension SubmitContentOperation {
         DCore.Logger.debug(crypto: "SubmitContentOperation binary: %{private}s", args: {
             "\(data.toHex()) (\(data)) \(data.bytes)"
         })
+        return data
+    }
+
+    private func serializeCoAuthors() -> Data {
+        guard let coauthors = coauthors else { return Data.ofZero }
+        var data = Data()
+        data += UInt64(coauthors.count).asUnsignedVarIntData()
+        coauthors.forEach {
+            data += $0.first.asData()
+            data += UInt32($0.second).littleEndian
+        }
         return data
     }
 }
