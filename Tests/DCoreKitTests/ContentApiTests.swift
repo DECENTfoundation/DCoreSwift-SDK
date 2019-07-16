@@ -12,6 +12,14 @@ class ContentApiTests: XCTestCase {
         DCore.Logger.xcode(filterCategories: [.network])
     }
 
+    func testGetContent() {
+        let content = try? wss.content.get(byReference: "http://hello.world.io")
+            .debug()
+            .toBlocking()
+            .single()
+        XCTAssertNotNil(content)
+    }
+
     func testSubmitCdnContentOperationAndRemove() {
         let creds = try? Credentials(
             "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
@@ -31,7 +39,7 @@ class ContentApiTests: XCTestCase {
         XCTAssertNotNil(remove)
     }
 
-     func testSubmitCdnWithPriceContentOperation() {
+     func testUpdateContentOperation() {
         let creds = try? Credentials(
             "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
         )
@@ -46,10 +54,20 @@ class ContentApiTests: XCTestCase {
             publishingFee: .unset,
             fee: .unset).debug().toBlocking().single()
         XCTAssertNotNil(confirm)
+
+        let update = try? wss.content.update(
+            on: uri,
+            synopsis: Synopsis(title: "foofoo", description: "barbar"),
+            price: AssetAmount(110000),
+            coAuthors: [Pair("1.2.28".asChainObject(), 1000)],
+            credentials: creds!,
+            fee: .unset).debug().toBlocking().single()
+        XCTAssertNotNil(update)
      }
 
     static var allTests = [
+        ("testGetContent", testGetContent),
         ("testSubmitCdnContentOperationAndRemove", testSubmitCdnContentOperationAndRemove),
-        ("testSubmitCdnWithPriceContentOperation", testSubmitCdnWithPriceContentOperation),
+        ("testUpdateContentOperation", testUpdateContentOperation),
         ]
 }
