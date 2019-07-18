@@ -6,7 +6,29 @@ import RxBlocking
 
 class MessagingApiTests: XCTestCase {
     
-    private let wss = DCore.Sdk.create(forWss: "wss://testnet-api.dcore.io")
+    private let wss = DCore.Sdk.create(forWss: DCore.TestConstant.wsUrl)
+
+    func testDoSendUnencryptedMessage() {
+        let result = try? wss.messaging.sendUnencrypted(
+            to: "1.2.28",
+            message: "test123",
+            credentials: Credentials(
+                "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
+            )
+        ).debug().toBlocking().single()
+        XCTAssertNotNil(result)
+    }
+    
+    func testDoSendEncryptedMessage() {
+        let result = try? wss.messaging.send(
+            to: "1.2.28",
+            message: "testEncrypted",
+            credentials: Credentials(
+                "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
+            )
+        ).debug().toBlocking().single()
+        XCTAssertNotNil(result)
+    }
 
     func testGetAllMessagesByReceiverUsingWss() {
         
@@ -55,36 +77,15 @@ class MessagingApiTests: XCTestCase {
             ).debug().toBlocking().single()
         XCTAssertTrue(result?.isEmpty ?? false)
     }
-
-    func testSendUnencryptedMessage() {
-        let result = try? wss.messaging.sendUnencrypted(
-            to: "1.2.28",
-            message: "test123",
-            credentials: Credentials(
-                "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
-            )
-        ).debug().toBlocking().single()
-        XCTAssertNotNil(result)
-    }
-
-    func testSendEncryptedMessage() {
-        let result = try? wss.messaging.send(
-            to: "1.2.28",
-            message: "testEncrypted",
-            credentials: Credentials(
-                "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
-            )
-        ).debug().toBlocking().single()
-        XCTAssertNotNil(result)
-    }
     
     static var allTests = [
+        ("testDoSendUnencryptedMessage", testDoSendUnencryptedMessage),
+        ("testDoSendEncryptedMessage", testDoSendEncryptedMessage),
         ("testGetAllMessagesByReceiverUsingWss", testGetAllMessagesByReceiverUsingWss),
         ("testGetAllMessagesBySenderUsingWss", testGetAllMessagesBySenderUsingWss),
         ("testGetAllResponsesByReceiverUsingWss", testGetAllResponsesByReceiverUsingWss),
         ("testGetAllResponsesBySenderUsingWss", testGetAllResponsesBySenderUsingWss),
         ("testGetAllDecryptedMessagesBySenderUsingWss", testGetAllDecryptedMessagesBySenderUsingWss),
         ("testGetAllDecryptedMessagesBySenderUsingWrongCredentialsUsingWss", testGetAllDecryptedMessagesBySenderUsingWrongCredentialsUsingWss),
-        ("testSendUnencryptedMessage", testSendUnencryptedMessage),
-        ]
+    ]
 }

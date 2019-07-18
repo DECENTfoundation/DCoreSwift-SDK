@@ -5,7 +5,7 @@ import RxBlocking
 
 class SubscriptionApiTests: XCTestCase {
 
-    private let rest = DCore.Sdk.create(forRest: "https://testnet-api.dcore.io/rpc")
+    private let rest = DCore.Sdk.create(forRest: DCore.TestConstant.httpUrl)
     
     func testSetBlockAppliedCallbackNotAllowedUsingRest() {
         XCTAssertThrowsError(

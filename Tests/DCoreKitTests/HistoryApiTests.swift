@@ -6,9 +6,16 @@ import RxBlocking
 
 class HistoryApiTests: XCTestCase {
     
-    private let rest = DCore.Sdk.create(forRest: "https://testnet-api.dcore.io/rpc")
-    private let wss = DCore.Sdk.create(forWss: "wss://testnet-api.dcore.io")
-    private let restMain = DCore.Sdk.create(forRest: "https://api.decent.ch/rpc")
+    private let rest = DCore.Sdk.create(forRest: DCore.TestConstant.httpUrl)
+    private let wss = DCore.Sdk.create(forWss: DCore.TestConstant.wsUrl)
+
+    override func setUp() {
+        super.setUp()
+
+        let pk = "5JMpT5C75rcAmuUB81mqVBXbmL1BKea4MYwVK6voMQLvigLKfrE"
+        let creds = try? Credentials("1.2.28".dcore.chainObject!, wif: pk)
+        _ = try? wss.account.transfer(from: creds!, to: "1.2.27", amount: AssetAmount(1)).toBlocking().single()
+    }
     
     func testGetBalanceHistoryUsingWss() {
         let id = "1.2.28".dcore.chainObject!
@@ -30,20 +37,8 @@ class HistoryApiTests: XCTestCase {
         XCTAssert(result!.first!.history.operation.is(type: TransferOperation.self))
     }
     
-    func testGetBalanceHistoryCheckOnMainnetUsingRest() {
-        let id = "1.2.28".dcore.chainObject!
-        
-        let result = try? restMain.history.findAll(byAccountId: id,
-                                                   assets: [],
-                                                   recipientId: nil,
-                                                   pagination: (.ignore as Pagination).update(limit:2000)
-            ).toBlocking().single()
-        XCTAssertNotNil(result)
-    }
-    
     static var allTests = [
         ("testGetBalanceHistoryUsingWss", testGetBalanceHistoryUsingWss),
         ("testGetBalanceHistoryCheckTransferUsingRest", testGetBalanceHistoryCheckTransferUsingRest),
-        ("testGetBalanceHistoryCheckOnMainnetUsingRest", testGetBalanceHistoryCheckOnMainnetUsingRest),
         ]
 }

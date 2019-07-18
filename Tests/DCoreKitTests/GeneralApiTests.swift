@@ -5,11 +5,11 @@ import RxBlocking
 
 class GeneralApiTests: XCTestCase {
     
-    private let wss = DCore.Sdk.create(forWss: "wss://testnet-api.dcore.io")
+    private let wss = DCore.Sdk.create(forWss: DCore.TestConstant.wsUrl)
     
     func testChainIdUsingWss() {
         let id = try? wss.general.getChainId().debug().toBlocking().single()
-        XCTAssertEqual(id, "a76a2db75f7a8018d41f2d648c766fdb0ddc79ac77104d243074ebdd5186bfbe")
+        XCTAssertEqual(id, "fdeb8d3eeedb7fbbcfed25d81318f1de7820a1056e3a864d14c520e5fafc4019")
     }
     
     func testDynamicGlobalPropsUsingWss() {
