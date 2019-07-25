@@ -19,6 +19,8 @@
 		0721B48A227318BC009931BF /* BrainKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0721B488227318BC009931BF /* BrainKeyTests.swift */; };
 		0721B48C227318D6009931BF /* EnglishWordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0721B48B227318D6009931BF /* EnglishWordList.swift */; };
 		0721B48D227318D6009931BF /* EnglishWordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0721B48B227318D6009931BF /* EnglishWordList.swift */; };
+		07302CA822DE14AB008A4E5D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07302CA722DE14AB008A4E5D /* Constants.swift */; };
+		07302CA922DE14AB008A4E5D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07302CA722DE14AB008A4E5D /* Constants.swift */; };
 		07542DCC22770D8100101271 /* SeedDictionary.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0721B4942276FDE4009931BF /* SeedDictionary.txt */; };
 		07542DCE22770D9900101271 /* SeedDictionary.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0721B4942276FDE4009931BF /* SeedDictionary.txt */; };
 		07871B1222D5FE0900177B31 /* ContentApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07871B1122D5FE0900177B31 /* ContentApiTests.swift */; };
@@ -683,6 +685,7 @@
 		0721B488227318BC009931BF /* BrainKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainKeyTests.swift; sourceTree = "<group>"; };
 		0721B48B227318D6009931BF /* EnglishWordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishWordList.swift; sourceTree = "<group>"; };
 		0721B4942276FDE4009931BF /* SeedDictionary.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SeedDictionary.txt; sourceTree = "<group>"; };
+		07302CA722DE14AB008A4E5D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		07871B1122D5FE0900177B31 /* ContentApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentApiTests.swift; sourceTree = "<group>"; };
 		07C36F49226F6D7500E9080D /* TransactionApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionApiTests.swift; sourceTree = "<group>"; };
 		07ECC50822B271F200B8A216 /* DCoreKit.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = DCoreKit.modulemap; sourceTree = "<group>"; };
@@ -1868,6 +1871,7 @@
 			children = (
 				071AE0422212CCC3008AE077 /* QR */,
 				A19D4CF521F1B4BD0069B6CA /* Utils */,
+				07302CA722DE14AB008A4E5D /* Constants.swift */,
 				OBJ_231 /* AccountApiTests.swift */,
 				A19D4CF221F1AE960069B6CA /* AccountApiMockTests.swift */,
 				A1673B4E21EF3CC3008FF560 /* OperationApiTests.swift */,
@@ -2924,6 +2928,7 @@
 				OBJ_1086 /* Sources */,
 				A112250621FB076E0023E49B /* Carthage */,
 				OBJ_1094 /* Frameworks */,
+				078312EA22DF15B100B22BCE /* Start DCore */,
 			);
 			buildRules = (
 			);
@@ -2992,6 +2997,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		078312EA22DF15B100B22BCE /* Start DCore */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start DCore";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh \"$SRCROOT/Scripts/stop_dcore.sh\"\nsh \"$SRCROOT/Scripts/start_dcore.sh\"\n";
+		};
 		A112250621FB076E0023E49B /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -3418,6 +3441,7 @@
 				A181489821F859320053F9BE /* ValidationApiTests.swift in Sources */,
 				A1EF306922392935002D2F39 /* ConnectivityTests.swift in Sources */,
 				A114B51A21F9F5E2009F1BA2 /* XCTestManifests.swift in Sources */,
+				07302CA922DE14AB008A4E5D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3431,6 +3455,7 @@
 				A19D4CF321F1AE960069B6CA /* AccountApiMockTests.swift in Sources */,
 				A1A2FBC02242ECC4003641EA /* MessagingApiTests.swift in Sources */,
 				A1673B4F21EF3CC3008FF560 /* OperationApiTests.swift in Sources */,
+				07302CA822DE14AB008A4E5D /* Constants.swift in Sources */,
 				OBJ_1088 /* AssetApiTests.swift in Sources */,
 				07871B1222D5FE0900177B31 /* ContentApiTests.swift in Sources */,
 				A1673B5221EF43CA008FF560 /* GeneralApiTests.swift in Sources */,

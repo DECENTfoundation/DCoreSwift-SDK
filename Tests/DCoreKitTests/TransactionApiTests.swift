@@ -6,14 +6,18 @@ import RxBlocking
 
 class TransactionApiTests: XCTestCase {
 
-    private let restMain = DCore.Sdk.create(forRest: "https://api.decent.ch/rpc")
+    private let rest = DCore.Sdk.create(forRest: DCore.TestConstant.httpUrl)
 
-    func testGetTransactionByBlockOnMainnetUsingRest() {
-        let result = try? restMain.transaction.get(byBlockNum: 11343032, positionInBlock: 0).toBlocking().single().id
-        XCTAssertEqual("2e81adea1469bbb62ef1bd4581d5399c66f33ba9", result)
+    func testGetTransaction() {
+        let transaction = try? rest.history.get(byAccountId: "1.2.27", operationId: "1.7.0")
+            .flatMap { self.rest.transaction.get(byBlockNum: $0.history.blockNum, positionInBlock: 0) }
+            .flatMap { self.rest.transaction.get(byId: $0.id) }
+            .toBlocking()
+            .single()
+        XCTAssertNotNil(transaction)
     }
 
     static var allTests = [
-        ("testGetTransactionByBlockOnMainnetUsingRest", testGetTransactionByBlockOnMainnetUsingRest),
+        ("testGetTransaction", testGetTransaction),
     ]
 }

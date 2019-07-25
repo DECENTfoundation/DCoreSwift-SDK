@@ -5,19 +5,11 @@ import RxBlocking
 
 class ContentApiTests: XCTestCase {
     
-    private let wss = DCore.Sdk.create(forWss: "wss://testnet-api.dcore.io")
+    private let wss = DCore.Sdk.create(forWss: DCore.TestConstant.wsUrl)
     
     override func setUp() {
         super.setUp()
         DCore.Logger.xcode(filterCategories: [.network])
-    }
-
-    func testGetContent() {
-        let content = try? wss.content.get(byReference: "http://hello.world.io")
-            .debug()
-            .toBlocking()
-            .single()
-        XCTAssertNotNil(content)
     }
 
     func testSubmitCdnContentOperationAndRemove() {
@@ -34,6 +26,12 @@ class ContentApiTests: XCTestCase {
             publishingFee: .unset,
             fee: .unset).debug().toBlocking().single()
         XCTAssertNotNil(confirm)
+
+        let content = try? wss.content.get(byReference: uri)
+            .debug()
+            .toBlocking()
+            .single()
+        XCTAssertNotNil(content)
 
         let remove = try? wss.content.delete(byReference: uri, author: creds!).debug().toBlocking().single()
         XCTAssertNotNil(remove)
@@ -66,7 +64,6 @@ class ContentApiTests: XCTestCase {
      }
 
     static var allTests = [
-        ("testGetContent", testGetContent),
         ("testSubmitCdnContentOperationAndRemove", testSubmitCdnContentOperationAndRemove),
         ("testUpdateContentOperation", testUpdateContentOperation),
         ]

@@ -5,7 +5,7 @@ import RxBlocking
 
 class OperationApiTests: XCTestCase {
 
-    private let wss = DCore.Sdk.create(forWss: "wss://testnet-api.dcore.io")
+    private let wss = DCore.Sdk.create(forWss: DCore.TestConstant.wsUrl)
     
     override func setUp() {
         super.setUp()

@@ -6,10 +6,10 @@ import RxBlocking
 
 class ConnectivityTests: XCTestCase {
     
-    private let wss = DCore.Sdk.create(forWss: "wss://api.decent.ch")
+    private let wss = DCore.Sdk.create(forWss: DCore.TestConstant.wsUrl)
     
     func testWebSocketReconnection() {
-        let id = "1.2.11368".dcore.chainObject!
+        let id = "1.2.28".dcore.chainObject!
         _ = try? wss.account.get(byId: id).debug().toBlocking().single()
         wss.core.dispose()
         

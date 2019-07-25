@@ -6,7 +6,7 @@ import RxBlocking
 
 class AccountApiMockTests: MockTestCase {
 
-    private let url = "https://testnet-api.dcore.io/rpc"
+    private let url = DCore.TestConstant.httpUrl
 
     func testGetAccountByIdUsingRest() {
         

@@ -5,8 +5,8 @@ import RxBlocking
 
 final class AccountApiTests: XCTestCase {
 
-    private let rest = DCore.Sdk.create(forRest: "https://testnet-api.dcore.io/rpc")
-    private let wss = DCore.Sdk.create(forWss: "wss://testnet-api.dcore.io")
+    private let rest = DCore.Sdk.create(forRest: DCore.TestConstant.httpUrl)
+    private let wss = DCore.Sdk.create(forWss: DCore.TestConstant.wsUrl)
     
     func testGetAccountByNameUsingRest() {
         let account = try? rest.account.get(byName: "public-account-10").debug().toBlocking().single()
@@ -28,7 +28,7 @@ final class AccountApiTests: XCTestCase {
     }
     
     func testGetAccountIdsByAddressUsingRest() {
-        let ids = try? rest.account.findAllReferences(byKeys: ["DCT51ojM7TUGVpFNUJWX8wi5dYp4iA4brRG16zWfcteVZRZHnkWCF".dcore.address!]).debug().toBlocking().single()
+        let ids = try? rest.account.findAllReferences(byKeys: ["DCT5PwcSiigfTPTwubadt85enxMFC18TtVoti3gnTbG7TN9f9R3Fp".dcore.address!]).debug().toBlocking().single()
         XCTAssert(ids?.first?.contains("1.2.28".dcore.chainObject!) ?? false)
     }
     
