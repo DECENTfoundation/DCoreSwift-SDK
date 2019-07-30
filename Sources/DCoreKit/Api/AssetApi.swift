@@ -124,6 +124,15 @@ public protocol AssetApi: BaseApi {
     func convert(toDct amount: BigInt, from assetId: ChainObjectConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount>
 
     /**
+     Check if the asset exists.
+     
+     - Parameter symbol: Asset symbol.
+     
+     - Returns: `true` if asset exist.
+     */
+    func exist(bySymbol symbol: Asset.Symbol) -> Single<Bool>
+
+    /**
      Create asset.
      
      - Parameter credentials: account credentials issuing the asset.
@@ -207,7 +216,7 @@ extension AssetApi {
         return get(byId: assetId).map { try $0.convert(toDct: amount, rounding: rounding) }
     }
 
-    private func exist(bySymbol symbol: Asset.Symbol) -> Single<Bool> {
+    public func exist(bySymbol symbol: Asset.Symbol) -> Single<Bool> {
         return get(bySymbol: symbol).map({ _ in true }).catchErrorJustReturn(false)
     }
 
