@@ -11,6 +11,9 @@ extension DCore {
         public static let dct: ChainObject = "1.3.0".dcore.chainObject!
         public static let dctQrPrefix = "decent"
         public static let brainKeyWordCount = 16
+        public static let maxShareSupply: Int64 = 7319777577456890
+        public static let maxAssetPrecision = 12
+        public static let uiaDescriptionMaxChars = 1000
     }
     
     /// Limitations

@@ -25,6 +25,8 @@
 		07542DCE22770D9900101271 /* SeedDictionary.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0721B4942276FDE4009931BF /* SeedDictionary.txt */; };
 		07871B1222D5FE0900177B31 /* ContentApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07871B1122D5FE0900177B31 /* ContentApiTests.swift */; };
 		07871B1322D5FE0900177B31 /* ContentApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07871B1122D5FE0900177B31 /* ContentApiTests.swift */; };
+		07BA637222E83EBE006E1D07 /* AssetCreateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA637122E83EBE006E1D07 /* AssetCreateOperation.swift */; };
+		07BA637322E83EBE006E1D07 /* AssetCreateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA637122E83EBE006E1D07 /* AssetCreateOperation.swift */; };
 		07C36F4C226F6D7A00E9080D /* TransactionApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C36F49226F6D7500E9080D /* TransactionApiTests.swift */; };
 		07C36F4D226F6D7B00E9080D /* TransactionApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C36F49226F6D7500E9080D /* TransactionApiTests.swift */; };
 		07ECC65F22B90AA300B8A216 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ECC50922B2721D00B8A216 /* libcrypto.a */; };
@@ -687,6 +689,7 @@
 		0721B4942276FDE4009931BF /* SeedDictionary.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SeedDictionary.txt; sourceTree = "<group>"; };
 		07302CA722DE14AB008A4E5D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		07871B1122D5FE0900177B31 /* ContentApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentApiTests.swift; sourceTree = "<group>"; };
+		07BA637122E83EBE006E1D07 /* AssetCreateOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCreateOperation.swift; sourceTree = "<group>"; };
 		07C36F49226F6D7500E9080D /* TransactionApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionApiTests.swift; sourceTree = "<group>"; };
 		07ECC50822B271F200B8A216 /* DCoreKit.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = DCoreKit.modulemap; sourceTree = "<group>"; };
 		07ECC50922B2721D00B8A216 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = Libraries/openssl/lib/libcrypto.a; sourceTree = "<group>"; };
@@ -2701,6 +2704,7 @@
 				A1A9854E223BAECC007CFB04 /* CustomOperation.swift */,
 				A1A98554223BE6C4007CFB04 /* AnyCustomOperation.swift */,
 				A1A98551223BAEEC007CFB04 /* SendMessageOperation.swift */,
+				07BA637122E83EBE006E1D07 /* AssetCreateOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -3252,6 +3256,7 @@
 				A1D96D9F21ED1E22009C0A30 /* TransactionDetail.swift in Sources */,
 				A1D96DA021ED1E22009C0A30 /* VestingBalance.swift in Sources */,
 				A1D96DA121ED1E22009C0A30 /* VoteId.swift in Sources */,
+				07BA637322E83EBE006E1D07 /* AssetCreateOperation.swift in Sources */,
 				A1D96DA321ED1E22009C0A30 /* BaseRequestConvertible.swift in Sources */,
 				A1D96DA421ED1E22009C0A30 /* CoreRequestConvertible.swift in Sources */,
 				A1D96DA521ED1E22009C0A30 /* CoreResponseConvertible.swift in Sources */,
@@ -3557,6 +3562,7 @@
 				OBJ_889 /* Operation.swift in Sources */,
 				A13D09D222314226000CAE17 /* Certificate+Extensions.swift in Sources */,
 				OBJ_890 /* PurchaseContentOperation.swift in Sources */,
+				07BA637222E83EBE006E1D07 /* AssetCreateOperation.swift in Sources */,
 				OBJ_891 /* AnyOperation.swift in Sources */,
 				OBJ_892 /* TransferOperation.swift in Sources */,
 				OBJ_893 /* Options.swift in Sources */,
