@@ -6,7 +6,8 @@ import BigInt
 
 final class AssetApiTests: XCTestCase {
 
-    private let rest = DCore.Sdk.create(forRest: "https://api.decent.ch/rpc")
+    private let rest = DCore.Sdk.create(forRest: DCore.TestConstant.httpUrl)
+    private let wss = DCore.Sdk.create(forWss: DCore.TestConstant.wsUrl)
     
     func testGetAssetById() {
         let asset = try? rest.asset.get(byId: "1.3.0").debug().toBlocking().single()
@@ -18,9 +19,17 @@ final class AssetApiTests: XCTestCase {
         XCTAssertEqual(asset?.id, DCore.Constant.dct)
     }
     
-    func testGetAssetsBySymbols() {
-        let assets = try? rest.asset.getAll(bySymbols: [.aia, .alx, .dct]).debug().toBlocking().single()
-        XCTAssertEqual(assets?.count, 3)
+    func testCreateAssetAndGetBySymbols() {
+        let creds = try? Credentials(
+            "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
+        )
+        let create = try? wss.asset.create(
+            credentials: creds!, symbol: Asset.Symbol.alx.description, precision: 6, description: "ALX"
+        ).debug().toBlocking().single()
+        XCTAssertNotNil(create)
+
+        let assets = try? rest.asset.getAll(bySymbols: [.alx, .dct]).debug().toBlocking().single()
+        XCTAssertEqual(assets?.count, 2)
     }
 
     
@@ -81,17 +90,25 @@ final class AssetApiTests: XCTestCase {
     }
     
     func testChainObjectHashing() {
-        let assets = try? rest.asset.getAll(bySymbols: [.aia, .alx, .dct]).debug().toBlocking().single()
+        let creds = try? Credentials(
+            "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
+        )
+        let create = try? wss.asset.create(
+            credentials: creds!, symbol: Asset.Symbol.aia.description, precision: 6, description: "ALX"
+        ).debug().toBlocking().single()
+        XCTAssertNotNil(create)
+
+        let assets = try? rest.asset.getAll(bySymbols: [.aia, .dct]).debug().toBlocking().single()
         XCTAssertNotNil(assets)
         let a = [assets!, assets!].joined()
         
-        XCTAssertTrue(Set(a).count == 3)
+        XCTAssertTrue(Set(a).count == 2)
     }
     
     static var allTests = [
         ("testGetAssetById", testGetAssetById),
         ("testGetAssetBySymbol", testGetAssetBySymbol),
-        ("testGetAssetsBySymbols", testGetAssetsBySymbols),
+        ("testCreateAssetAndGetBySymbols", testCreateAssetAndGetBySymbols),
         ("testFormatAssetAmountToDecimal", testFormatAssetAmountToDecimal),
         ("testFormatAssetAmountFromDecimal", testFormatAssetAmountFromDecimal),
         ("testFormatAssetAmountFromString", testFormatAssetAmountFromString),
@@ -100,6 +117,7 @@ final class AssetApiTests: XCTestCase {
         ("testFormatAssetAmountFormattedStringFromNegative", testFormatAssetAmountFormattedStringFromNegative),     
         ("testGetAssetsByBoundaryAndWrongLimit", testGetAssetsByBoundaryAndWrongLimit),
         ("testGetAssetsByBoundary", testGetAssetsByBoundary),
+        ("testChainObjectHashing", testChainObjectHashing),
     ]
 
 }

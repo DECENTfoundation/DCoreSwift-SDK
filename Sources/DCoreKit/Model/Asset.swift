@@ -66,6 +66,10 @@ public struct Asset: Codable, AssetFormatting, Equatable {
         }
         return AssetAmount(converted, assetId: assetId)
     }
+
+    public static func hasValid(symbol: String) -> Bool {
+        return !symbol.matches(regex: "(?=.{3,16}$)^[A-Z][A-Z0-9]+(\\.[A-Z0-9]*)?[A-Z]$").isEmpty
+    }
 }
 
 extension Asset: Hashable {
@@ -116,8 +120,9 @@ extension Asset {
         }
     }
     
-    public struct ExchangeRate: Codable, Equatable {
-        
+    public struct ExchangeRate: Codable, Equatable, DataConvertible {
+        public static let empty: ExchangeRate = ExchangeRate(base: AssetAmount(0), quote: AssetAmount(0))
+
         public var base: AssetAmount = AssetAmount(with: 1)
         public var quote: AssetAmount = AssetAmount(with: 1)
         
@@ -126,14 +131,41 @@ extension Asset {
             base,
             quote
         }
+
+        public func asData() -> Data {
+            var data = Data()
+            data += base.asData()
+            data += quote.asData()
+            
+            DCore.Logger.debug(crypto: "Asset.ExchangeRate binary: %{private}s", args: {
+                "\(data.toHex()) (\(data)) \(data.bytes)"
+            })
+            return data
+        }
+
+        /**
+         quote & base asset ids cannot be the same, for quote any id can be used since it is modified to created
+         asset id upon creation
+         
+         - Parameter dct: base value in DCT
+         - Parameter uia: quote value in UIA
+
+         - Returns: `ExchangeRate`
+         */
+        public static func forCreateOperation(dct: BigInt, uia: BigInt) -> ExchangeRate {
+            return ExchangeRate(
+                base: AssetAmount(dct),
+                quote: AssetAmount(uia, assetId: (try? "1.3.1".asChainObject()) ?? ChainObject(from: .assetObject))
+            )
+        }
     }
     
-    public struct Options: Codable, Equatable {
-        
+    public struct Options: Codable, Equatable, DataConvertible {
+
         public var maxSupply: BigInt = 0
         public var exchangeRate: ExchangeRate = ExchangeRate()
         public var exchangeable: Bool = false
-        public var extensions: AnyValue?
+        public var extensions: FixedMaxSupply?
         
         private enum CodingKeys: String, CodingKey {
             case
@@ -144,5 +176,106 @@ extension Asset {
         }
         
         public init() {}
+
+        public init(maxSupply: BigInt, exchangeRate: ExchangeRate, exchangeable: Bool, extensions: FixedMaxSupply?) {
+            self.maxSupply = maxSupply
+            self.exchangeRate = exchangeRate
+            self.exchangeable = exchangeable
+            self.extensions = extensions
+        }
+
+        public func asData() -> Data {
+            var data = Data()
+            data += Int64(maxSupply).littleEndian
+            data += exchangeRate.asData()
+            data += exchangeable.asData()
+            data += (extensions != nil).asData()
+            if let extensions = extensions {
+                data += extensions.index
+                data += extensions.isFixedMaxSupply.asData()
+            }
+            
+            DCore.Logger.debug(crypto: "Asset.Options binary: %{private}s", args: {
+                "\(data.toHex()) (\(data)) \(data.bytes)"
+            })
+            return data
+        }
+
+        public struct FixedMaxSupply: Codable, Equatable, DataConvertible {
+            public let isFixedMaxSupply: Bool
+            public let index: UInt8 = 1
+
+            private enum CodingKeys: String, CodingKey {
+                case
+                isFixedMaxSupply = "is_fixed_max_supply"
+            }
+
+            public init(isFixedMaxSupply: Bool) {
+                self.isFixedMaxSupply = isFixedMaxSupply
+            }
+
+            public init(from decoder: Decoder) throws {
+                var mainContainer = try decoder.unkeyedContainer()
+                if mainContainer.count.or(0) > 0 {
+                    var nestedContainer = try mainContainer.nestedUnkeyedContainer()
+                    _ = try nestedContainer.decode(Int.self)
+                    let valueContainer = try nestedContainer.nestedContainer(keyedBy: CodingKeys.self)
+                    self.isFixedMaxSupply = try valueContainer.decode(Bool.self, forKey: CodingKeys.isFixedMaxSupply)
+                } else {
+                    self.isFixedMaxSupply = false
+                }
+            }
+
+            public func encode(to encoder: Encoder) throws {
+                var mainContainer = encoder.unkeyedContainer()
+                var nestedContainer = mainContainer.nestedUnkeyedContainer()
+                try nestedContainer.encode(index)
+                var valueContainer = nestedContainer.nestedContainer(keyedBy: CodingKeys.self)
+                try valueContainer.encode(isFixedMaxSupply, forKey: CodingKeys.isFixedMaxSupply)
+            }
+        }
+    }
+
+    public struct MonitoredAssetOptions: Codable, Equatable, DataConvertible {
+        public var feeds: AnyValue?
+        public var currentFeed: PriceFeed = PriceFeed()
+        public var currentFeedPublicationTime: Date = Date()
+        public var feedLifeTimeSec: UInt32 = 24 * 60 * 60 // 1 day
+        public var minimumFeeds: UInt8 = 1
+        
+        private enum CodingKeys: String, CodingKey {
+            case
+            feeds,
+            currentFeed = "current_feed",
+            currentFeedPublicationTime = "current_feed_publication_time",
+            feedLifeTimeSec = "feed_lifetime_sec",
+            minimumFeeds = "minimum_feeds"
+        }
+        
+        public init() {}
+
+        public struct PriceFeed: Codable, Equatable {
+            public var coreExchangeRate: ExchangeRate = ExchangeRate.empty
+
+            private enum CodingKeys: String, CodingKey {
+                case
+                coreExchangeRate = "core_exchange_rate"
+            }
+        }
+
+        public func asData() -> Data {
+            var data = Data()
+            if !feeds.isNil() {
+                data += Data.ofOne
+            }
+            data += currentFeed.coreExchangeRate.asData()
+            data += Int32(currentFeedPublicationTime.timeIntervalSince1970).littleEndian
+            data += minimumFeeds
+            
+            DCore.Logger.debug(crypto: "Asset.MonitoredAssetOptions binary: %{private}s", args: {
+                "\(data.toHex()) (\(data)) \(data.bytes)"
+            })
+            return data
+        }
     }
 }

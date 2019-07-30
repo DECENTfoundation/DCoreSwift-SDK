@@ -122,6 +122,41 @@ public protocol AssetApi: BaseApi {
      - Returns: `AssetAmount` in DCT.
      */
     func convert(toDct amount: BigInt, from assetId: ChainObjectConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount>
+
+    /**
+     Check if the asset exists.
+     
+     - Parameter symbol: Asset symbol.
+     
+     - Returns: `true` if asset exist.
+     */
+    func exist(bySymbol symbol: Asset.Symbol) -> Single<Bool>
+
+    /**
+     Create asset.
+     
+     - Parameter credentials: account credentials issuing the asset.
+     - Parameter symbol: the string symbol, 3-16 uppercase chars.
+     - Parameter precision: base unit precision, decimal places used in string representation.
+     - Parameter description: optional description
+     - Parameter options: asset options
+     - Parameter fee: `AssetAmount` fee for the operation,
+     if left `AssetAmount.unset` the fee will be computed in DCT asset,
+     default `AssetAmount.unset`.
+     
+     - Throws: `DCoreException.Network.alreadyFound`
+     if asset with given symbol already exists.
+     
+     - Returns: `TransactionConfirmation` that asset was created.
+     */
+    func create(
+        credentials: Credentials,
+        symbol: String,
+        precision: UInt8,
+        description: String,
+        options: Asset.Options,
+        fee: AssetAmount
+    ) -> Single<TransactionConfirmation>
     
 }
 
@@ -179,6 +214,40 @@ extension AssetApi {
     
     public func convert(toDct amount: BigInt, from assetId: ChainObjectConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount> {
         return get(byId: assetId).map { try $0.convert(toDct: amount, rounding: rounding) }
+    }
+
+    public func exist(bySymbol symbol: Asset.Symbol) -> Single<Bool> {
+        return get(bySymbol: symbol).map({ _ in true }).catchErrorJustReturn(false)
+    }
+
+    public func create(
+        credentials: Credentials,
+        symbol: String,
+        precision: UInt8,
+        description: String,
+        options: Asset.Options = Asset.Options(
+            maxSupply: BigInt(DCore.Constant.maxShareSupply),
+            exchangeRate: Asset.ExchangeRate.forCreateOperation(dct: 1, uia: 1),
+            exchangeable: true,
+            extensions: Asset.Options.FixedMaxSupply(isFixedMaxSupply: false)
+        ),
+        fee: AssetAmount = .unset
+    ) -> Single<TransactionConfirmation> {
+        return exist(bySymbol: Asset.Symbol.from(symbol)).flatMap { result in
+            guard !result else { return Single.error(DCoreException.network(.alreadyFound)) }
+            return self.api.broadcast.broadcastWithCallback(
+                AssetCreateOperation(
+                    issuer: credentials.accountId,
+                    symbol: symbol,
+                    precision: precision,
+                    description: description,
+                    options: options,
+                    monitoredOptions: nil,
+                    fee: fee
+                ),
+                keypair: credentials.keyPair
+            )
+        }
     }
 }
 
