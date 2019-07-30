@@ -16,11 +16,11 @@ class ValidationApiTests: XCTestCase {
     
     func testVerifyAccountAuthorityUsingValidAddress() {
         let rest = DCore.Sdk.create(forRest: DCore.TestConstant.httpUrl)
-        let id = "1.2.27"
+        let id = "1.2.28"
         let address = "DCT5PwcSiigfTPTwubadt85enxMFC18TtVoti3gnTbG7TN9f9R3Fp".dcore.address!
         let result = try? rest.validation.verifyAccountAuthority(byReference: id, key: address).debug().toBlocking().single()
         
-        XCTAssertFalse(result ?? true)
+        XCTAssertTrue(result ?? false)
     }
     
     static var allTests = [
