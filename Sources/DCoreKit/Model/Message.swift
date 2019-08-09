@@ -10,13 +10,13 @@ public struct Message {
     public var receiverAddress: Address?
     public var message: String
     public var nonce: BigInt = 0
-    public var encrypted: Bool { return !senderAddress.isNil() && !receiverAddress.isNil() }
+    public var encrypted: Bool { return !senderAddress.isEmptyAddress() && !receiverAddress.isEmptyAddress() }
 }
 
 extension Message: CipherConvertible {
     public func decrypt(_ credentials: Credentials, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> Message {
         guard let senderAddress = senderAddress, let receiverAddress = receiverAddress, encrypted else {
-            return try decrypt(credentials.keyPair)
+            return self
         }
         return try decrypt(credentials.keyPair, address: credentials.accountId == sender ? receiverAddress : senderAddress, nonce: self.nonce)
     }
@@ -102,5 +102,11 @@ public struct MessagePayloadReceiver: Codable {
         data,
         toAddress = "pub_to",
         nonce
+    }
+}
+
+private extension Optional where Wrapped == Address {
+    func isEmptyAddress() -> Bool {
+        return isNil() || self?.publicKey.data.allSatisfy { $0 == 0x00 } ?? true
     }
 }

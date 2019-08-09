@@ -70,12 +70,16 @@ class MessagingApiTests: XCTestCase {
         XCTAssertTrue(!(result?.isEmpty ?? true))
     }
 
-    func testGetAllDecryptedMessagesBySenderUsingWrongCredentialsUsingWss() {
-        
-        let result = try? wss.messaging.getAllSenderDecrypted(
-            Credentials("1.2.27".asChainObject(), wif: "5JMpT5C75rcAmuUB81mqVBXbmL1BKea4MYwVK6voMQLvigLKfrE")
-            ).debug().toBlocking().single()
-        XCTAssertTrue(result?.isEmpty ?? false)
+    func testZLastGetAllDecryptedMessagesBySenderUsingWrongCredentialsUsingWss() {
+        let correctCredentialsResult = try? wss.messaging.getAllSenderDecrypted(
+            Credentials("1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt")
+        ).debug().toBlocking().single()
+
+        let wrongCredentialsResult = try? wss.messaging.getAllSenderDecrypted(
+            Credentials("1.2.27".asChainObject(), wif: "5KNdLJzt6A5soo2RHBHbi7FksexxMGPh19gD75tfCwUKuEN2tth")
+        ).debug().toBlocking().single()
+
+        XCTAssertGreaterThan(correctCredentialsResult?.count ?? 0, wrongCredentialsResult?.count ?? 0)
     }
     
     static var allTests = [
@@ -86,6 +90,6 @@ class MessagingApiTests: XCTestCase {
         ("testGetAllResponsesByReceiverUsingWss", testGetAllResponsesByReceiverUsingWss),
         ("testGetAllResponsesBySenderUsingWss", testGetAllResponsesBySenderUsingWss),
         ("testGetAllDecryptedMessagesBySenderUsingWss", testGetAllDecryptedMessagesBySenderUsingWss),
-        ("testGetAllDecryptedMessagesBySenderUsingWrongCredentialsUsingWss", testGetAllDecryptedMessagesBySenderUsingWrongCredentialsUsingWss),
+        ("testZLastGetAllDecryptedMessagesBySenderUsingWrongCredentialsUsingWss", testZLastGetAllDecryptedMessagesBySenderUsingWrongCredentialsUsingWss),
     ]
 }
