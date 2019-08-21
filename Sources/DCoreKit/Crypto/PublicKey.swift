@@ -96,6 +96,10 @@ struct PublicKey {
             return Data(result)
         }
     }
+
+    func isEmpty() -> Bool {
+        return data.allSatisfy { $0 == 0x00 }
+    }
 }
 
 extension PublicKey: Equatable {}

@@ -107,6 +107,6 @@ public struct MessagePayloadReceiver: Codable {
 
 private extension Optional where Wrapped == Address {
     func isEmptyAddress() -> Bool {
-        return isNil() || self?.publicKey.data.allSatisfy { $0 == 0x00 } ?? true
+        return isNil() || self?.publicKey.isEmpty() ?? true
     }
 }
