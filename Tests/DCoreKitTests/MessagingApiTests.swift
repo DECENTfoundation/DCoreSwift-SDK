@@ -7,73 +7,77 @@ import RxBlocking
 class MessagingApiTests: XCTestCase {
     
     private let wss = DCore.Sdk.create(forWss: DCore.TestConstant.wsUrl)
+    private let creds = try! Credentials(
+        "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
+    )
 
-    func testDoSendUnencryptedMessage() {
+    func sendUnencryptedMessage() {
         let result = try? wss.messaging.sendUnencrypted(
             to: "1.2.28",
             message: "test123",
-            credentials: Credentials(
-                "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
-            )
+            credentials: creds
         ).debug().toBlocking().single()
         XCTAssertNotNil(result)
     }
     
-    func testDoSendEncryptedMessage() {
+    func sendEncryptedMessage() {
         let result = try? wss.messaging.send(
             to: "1.2.28",
             message: "testEncrypted",
-            credentials: Credentials(
-                "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
-            )
+            credentials: creds
         ).debug().toBlocking().single()
         XCTAssertNotNil(result)
     }
 
     func testGetAllMessagesByReceiverUsingWss() {
-        
+        sendEncryptedMessage()
+        sendUnencryptedMessage()
         let result = try? wss.messaging.getAll(byReceiver: "1.2.28").debug().toBlocking().single()
         XCTAssertNotNil(result)
     }
     
     func testGetAllMessagesBySenderUsingWss() {
-        
+        sendEncryptedMessage()
+        sendUnencryptedMessage()
         let result = try? wss.messaging.getAll(bySender: "1.2.27").debug().toBlocking().single()
         XCTAssertNotNil(result)
     }
 
     func testGetAllResponsesByReceiverUsingWss() {
-
+        sendEncryptedMessage()
+        sendUnencryptedMessage()
         let result = try? wss.messaging.getAllResponses(byReceiver: "1.2.28").debug().toBlocking().single()
         XCTAssertTrue(!(result?.isEmpty ?? true))
     }
     
     func testGetAllResponsesBySenderUsingWss() {
-
+        sendEncryptedMessage()
+        sendUnencryptedMessage()
         let result = try? wss.messaging.getAllResponses(bySender: "1.2.27").debug().toBlocking().single()
         XCTAssertTrue(!(result?.isEmpty ?? true))
     }
 
     func testGetAllDecryptedMessagesByReceiverUsingWss() {
+        sendEncryptedMessage()
         
         let result = try? wss.messaging.getAllReceiverDecrypted(
             Credentials("1.2.28".asChainObject(), wif: "5JMpT5C75rcAmuUB81mqVBXbmL1BKea4MYwVK6voMQLvigLKfrE")
-            ).debug().toBlocking().single()
+        ).debug().toBlocking().single()
         XCTAssertTrue(!(result?.isEmpty ?? true))
     }
 
     func testGetAllDecryptedMessagesBySenderUsingWss() {
+        sendEncryptedMessage()
         
-        let result = try? wss.messaging.getAllSenderDecrypted(
-            Credentials("1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt")
-        ).debug().toBlocking().single()
+        let result = try? wss.messaging.getAllSenderDecrypted(creds).debug().toBlocking().single()
         XCTAssertTrue(!(result?.isEmpty ?? true))
     }
 
-    func testZLastGetAllDecryptedMessagesBySenderUsingWrongCredentialsUsingWss() {
-        let correctCredentialsResult = try? wss.messaging.getAllSenderDecrypted(
-            Credentials("1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt")
-        ).debug().toBlocking().single()
+    func testGetAllDecryptedMessagesBySenderUsingWrongCredentialsUsingWss() {
+        sendEncryptedMessage()
+        sendUnencryptedMessage()
+        
+        let correctCredentialsResult = try? wss.messaging.getAllSenderDecrypted(creds).debug().toBlocking().single()
 
         let wrongCredentialsResult = try? wss.messaging.getAllSenderDecrypted(
             Credentials("1.2.27".asChainObject(), wif: "5KNdLJzt6A5soo2RHBHbi7FksexxMGPh19gD75tfCwUKuEN2tth")
@@ -83,13 +87,11 @@ class MessagingApiTests: XCTestCase {
     }
     
     static var allTests = [
-        ("testDoSendUnencryptedMessage", testDoSendUnencryptedMessage),
-        ("testDoSendEncryptedMessage", testDoSendEncryptedMessage),
         ("testGetAllMessagesByReceiverUsingWss", testGetAllMessagesByReceiverUsingWss),
         ("testGetAllMessagesBySenderUsingWss", testGetAllMessagesBySenderUsingWss),
         ("testGetAllResponsesByReceiverUsingWss", testGetAllResponsesByReceiverUsingWss),
         ("testGetAllResponsesBySenderUsingWss", testGetAllResponsesBySenderUsingWss),
         ("testGetAllDecryptedMessagesBySenderUsingWss", testGetAllDecryptedMessagesBySenderUsingWss),
-        ("testZLastGetAllDecryptedMessagesBySenderUsingWrongCredentialsUsingWss", testZLastGetAllDecryptedMessagesBySenderUsingWrongCredentialsUsingWss),
+        ("testGetAllDecryptedMessagesBySenderUsingWrongCredentialsUsingWss", testGetAllDecryptedMessagesBySenderUsingWrongCredentialsUsingWss),
     ]
 }
