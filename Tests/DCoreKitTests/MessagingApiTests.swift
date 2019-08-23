@@ -10,11 +10,13 @@ class MessagingApiTests: XCTestCase {
     private let creds = try! Credentials(
         "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
     )
+    private let unencryptedMessage = "test123"
+    private let encryptedMessage = "testEncrypted"
 
     func sendUnencryptedMessage() {
         let result = try? wss.messaging.sendUnencrypted(
             to: "1.2.28",
-            message: "test123",
+            message: unencryptedMessage,
             credentials: creds
         ).debug().toBlocking().single()
         XCTAssertNotNil(result)
@@ -23,7 +25,7 @@ class MessagingApiTests: XCTestCase {
     func sendEncryptedMessage() {
         let result = try? wss.messaging.send(
             to: "1.2.28",
-            message: "testEncrypted",
+            message: encryptedMessage,
             credentials: creds
         ).debug().toBlocking().single()
         XCTAssertNotNil(result)
@@ -68,9 +70,12 @@ class MessagingApiTests: XCTestCase {
 
     func testGetAllDecryptedMessagesBySenderUsingWss() {
         sendEncryptedMessage()
+        sendUnencryptedMessage()
         
         let result = try? wss.messaging.getAllSenderDecrypted(creds).debug().toBlocking().single()
-        XCTAssertTrue(!(result?.isEmpty ?? true))
+        XCTAssertGreaterThanOrEqual(result?.count ?? 0, 2) // 2 messages sent above in this test
+        XCTAssertEqual(unencryptedMessage, result?.first?.message)
+        XCTAssertEqual(encryptedMessage, result?[1].message)
     }
 
     func testGetAllDecryptedMessagesBySenderUsingWrongCredentialsUsingWss() {
