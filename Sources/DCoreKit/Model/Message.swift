@@ -16,7 +16,9 @@ public struct Message {
 extension Message: CipherConvertible {
     public func decrypt(_ credentials: Credentials, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> Message {
         guard let senderAddress = senderAddress, let receiverAddress = receiverAddress, encrypted else {
-            return self
+            var container = self
+            container.message = message.dropFirst(8).unhex().map { String(data: $0, encoding: .utf8) ?? "" } ?? ""
+            return container
         }
         return try decrypt(credentials.keyPair, address: credentials.accountId == sender ? receiverAddress : senderAddress, nonce: self.nonce)
     }
