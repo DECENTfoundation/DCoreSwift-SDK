@@ -6,12 +6,16 @@ public struct BalanceChange: Codable {
     public var history: OperationHistory
     public let balance: Balance
     public let fee: AssetAmount
+    public let timestamp: Date
+    public let transactionId: String
     
     private enum CodingKeys: String, CodingKey {
         case
         history = "hist_object",
         balance,
-        fee
+        fee,
+        timestamp,
+        transactionId = "transaction_id"
     }
 }
 
