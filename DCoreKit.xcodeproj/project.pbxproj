@@ -47,6 +47,8 @@
 		07D28CA2234B61C400B8698A /* NftOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D28CA0234B61C400B8698A /* NftOptions.swift */; };
 		07D28CA4234B771400B8698A /* NftDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D28CA3234B771400B8698A /* NftDataType.swift */; };
 		07D28CA5234B771400B8698A /* NftDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D28CA3234B771400B8698A /* NftDataType.swift */; };
+		07D28CA7234C771800B8698A /* NftUpdateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D28CA6234C771800B8698A /* NftUpdateOperation.swift */; };
+		07D28CA8234C771800B8698A /* NftUpdateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D28CA6234C771800B8698A /* NftUpdateOperation.swift */; };
 		07ECC65F22B90AA300B8A216 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ECC50922B2721D00B8A216 /* libcrypto.a */; };
 		07ECC66122B90BB200B8A216 /* libsecp256k1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ECC66022B90BB200B8A216 /* libsecp256k1.a */; };
 		07ECC66422B917EA00B8A216 /* shim.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECC66322B917EA00B8A216 /* shim.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -718,6 +720,7 @@
 		07C36F49226F6D7500E9080D /* TransactionApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionApiTests.swift; sourceTree = "<group>"; };
 		07D28CA0234B61C400B8698A /* NftOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftOptions.swift; sourceTree = "<group>"; };
 		07D28CA3234B771400B8698A /* NftDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftDataType.swift; sourceTree = "<group>"; };
+		07D28CA6234C771800B8698A /* NftUpdateOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftUpdateOperation.swift; sourceTree = "<group>"; };
 		07ECC50822B271F200B8A216 /* DCoreKit.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = DCoreKit.modulemap; sourceTree = "<group>"; };
 		07ECC50922B2721D00B8A216 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = Libraries/openssl/lib/libcrypto.a; sourceTree = "<group>"; };
 		07ECC50F22B27BEB00B8A216 /* DCoreKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCoreKit.h; sourceTree = "<group>"; };
@@ -2741,6 +2744,7 @@
 				07937AF023476E87007661BB /* AssetClaimFeesOperation.swift */,
 				07937AF323477B43007661BB /* AssetUpdateAdvancedOperation.swift */,
 				07937AF623477DB5007661BB /* NftCreateOperation.swift */,
+				07D28CA6234C771800B8698A /* NftUpdateOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -3301,6 +3305,7 @@
 				A1D96DA621ED1E22009C0A30 /* CoreResponseParser.swift in Sources */,
 				A1D96DA721ED1E22009C0A30 /* HttpConfigurable.swift in Sources */,
 				A1D96DA821ED1E22009C0A30 /* ApiGroup.swift in Sources */,
+				07D28CA8234C771800B8698A /* NftUpdateOperation.swift in Sources */,
 				A169C1D92230524100FAA818 /* CompositeValidator.swift in Sources */,
 				A1D96DA921ED1E22009C0A30 /* ApiMethod.swift in Sources */,
 				A1D96DAA21ED1E22009C0A30 /* Http.swift in Sources */,
@@ -3704,6 +3709,7 @@
 				OBJ_968 /* GetSubscription.swift in Sources */,
 				OBJ_969 /* GetTimeToMaintenance.swift in Sources */,
 				OBJ_970 /* GetTransaction.swift in Sources */,
+				07D28CA7234C771800B8698A /* NftUpdateOperation.swift in Sources */,
 				OBJ_971 /* GetTransactionById.swift in Sources */,
 				OBJ_972 /* GetTransactionHex.swift in Sources */,
 				OBJ_973 /* GetVestingBalances.swift in Sources */,
