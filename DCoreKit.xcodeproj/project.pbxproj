@@ -37,10 +37,16 @@
 		07937AF223476E87007661BB /* AssetClaimFeesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07937AF023476E87007661BB /* AssetClaimFeesOperation.swift */; };
 		07937AF423477B43007661BB /* AssetUpdateAdvancedOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07937AF323477B43007661BB /* AssetUpdateAdvancedOperation.swift */; };
 		07937AF523477B43007661BB /* AssetUpdateAdvancedOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07937AF323477B43007661BB /* AssetUpdateAdvancedOperation.swift */; };
+		07937AF723477DB5007661BB /* NftCreateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07937AF623477DB5007661BB /* NftCreateOperation.swift */; };
+		07937AF823477DB5007661BB /* NftCreateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07937AF623477DB5007661BB /* NftCreateOperation.swift */; };
 		07BA637222E83EBE006E1D07 /* AssetCreateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA637122E83EBE006E1D07 /* AssetCreateOperation.swift */; };
 		07BA637322E83EBE006E1D07 /* AssetCreateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA637122E83EBE006E1D07 /* AssetCreateOperation.swift */; };
 		07C36F4C226F6D7A00E9080D /* TransactionApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C36F49226F6D7500E9080D /* TransactionApiTests.swift */; };
 		07C36F4D226F6D7B00E9080D /* TransactionApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C36F49226F6D7500E9080D /* TransactionApiTests.swift */; };
+		07D28CA1234B61C400B8698A /* NftOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D28CA0234B61C400B8698A /* NftOptions.swift */; };
+		07D28CA2234B61C400B8698A /* NftOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D28CA0234B61C400B8698A /* NftOptions.swift */; };
+		07D28CA4234B771400B8698A /* NftDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D28CA3234B771400B8698A /* NftDataType.swift */; };
+		07D28CA5234B771400B8698A /* NftDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D28CA3234B771400B8698A /* NftDataType.swift */; };
 		07ECC65F22B90AA300B8A216 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ECC50922B2721D00B8A216 /* libcrypto.a */; };
 		07ECC66122B90BB200B8A216 /* libsecp256k1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ECC66022B90BB200B8A216 /* libsecp256k1.a */; };
 		07ECC66422B917EA00B8A216 /* shim.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECC66322B917EA00B8A216 /* shim.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -707,8 +713,11 @@
 		07937AEC23476DD4007661BB /* AssetReserveOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetReserveOperation.swift; sourceTree = "<group>"; };
 		07937AF023476E87007661BB /* AssetClaimFeesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetClaimFeesOperation.swift; sourceTree = "<group>"; };
 		07937AF323477B43007661BB /* AssetUpdateAdvancedOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetUpdateAdvancedOperation.swift; sourceTree = "<group>"; };
+		07937AF623477DB5007661BB /* NftCreateOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftCreateOperation.swift; sourceTree = "<group>"; };
 		07BA637122E83EBE006E1D07 /* AssetCreateOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCreateOperation.swift; sourceTree = "<group>"; };
 		07C36F49226F6D7500E9080D /* TransactionApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionApiTests.swift; sourceTree = "<group>"; };
+		07D28CA0234B61C400B8698A /* NftOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftOptions.swift; sourceTree = "<group>"; };
+		07D28CA3234B771400B8698A /* NftDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftDataType.swift; sourceTree = "<group>"; };
 		07ECC50822B271F200B8A216 /* DCoreKit.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = DCoreKit.modulemap; sourceTree = "<group>"; };
 		07ECC50922B2721D00B8A216 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = Libraries/openssl/lib/libcrypto.a; sourceTree = "<group>"; };
 		07ECC50F22B27BEB00B8A216 /* DCoreKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCoreKit.h; sourceTree = "<group>"; };
@@ -2270,6 +2279,8 @@
 				OBJ_90 /* TransactionDetail.swift */,
 				OBJ_91 /* VestingBalance.swift */,
 				OBJ_92 /* VoteId.swift */,
+				07D28CA0234B61C400B8698A /* NftOptions.swift */,
+				07D28CA3234B771400B8698A /* NftDataType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2729,6 +2740,7 @@
 				07937AEC23476DD4007661BB /* AssetReserveOperation.swift */,
 				07937AF023476E87007661BB /* AssetClaimFeesOperation.swift */,
 				07937AF323477B43007661BB /* AssetUpdateAdvancedOperation.swift */,
+				07937AF623477DB5007661BB /* NftCreateOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -3361,6 +3373,7 @@
 				A1D96DE521ED1E22009C0A30 /* ListAssets.swift in Sources */,
 				A1D96DE621ED1E22009C0A30 /* ListPublishingManagers.swift in Sources */,
 				A1D96DE721ED1E22009C0A30 /* ListSeedersByPrice.swift in Sources */,
+				07D28CA5234B771400B8698A /* NftDataType.swift in Sources */,
 				A1D96DE821ED1E22009C0A30 /* ListSeedersByRating.swift in Sources */,
 				A1D96DE921ED1E22009C0A30 /* ListSeedersByRegion.swift in Sources */,
 				A1D96DEA21ED1E22009C0A30 /* ListSeedersByUpload.swift in Sources */,
@@ -3369,6 +3382,7 @@
 				A1D96DED21ED1E22009C0A30 /* Login.swift in Sources */,
 				071AE0472212CDB8008AE077 /* QrTransfer.swift in Sources */,
 				A1D96DEE21ED1E22009C0A30 /* LookupAccountNames.swift in Sources */,
+				07D28CA2234B61C400B8698A /* NftOptions.swift in Sources */,
 				A169C1CB223011C800FAA818 /* SecurityProvider.swift in Sources */,
 				A1A98556223BE6C4007CFB04 /* AnyCustomOperation.swift in Sources */,
 				A1D96DEF21ED1E22009C0A30 /* LookupAccounts.swift in Sources */,
@@ -3408,6 +3422,7 @@
 				A1D96E0521ED1E22009C0A30 /* Rpc.swift in Sources */,
 				A1D96E0621ED1E22009C0A30 /* RestConvertible.swift in Sources */,
 				A1D96E0721ED1E22009C0A30 /* RestService.swift in Sources */,
+				07937AF823477DB5007661BB /* NftCreateOperation.swift in Sources */,
 				A1A2FBB52242C993003641EA /* MessagingApi.swift in Sources */,
 				A1D96E0821ED1E22009C0A30 /* AnyEncodable.swift in Sources */,
 				A1D96E0921ED1E22009C0A30 /* AnyValue.swift in Sources */,
@@ -3677,6 +3692,7 @@
 				A122E3CE222EA5EC00D5FB5D /* ServerTrustDelegate.swift in Sources */,
 				OBJ_961 /* GetProposedTransactions.swift in Sources */,
 				OBJ_962 /* GetRealSupply.swift in Sources */,
+				07D28CA1234B61C400B8698A /* NftOptions.swift in Sources */,
 				OBJ_963 /* GetRecentTransactionById.swift in Sources */,
 				A1A9854F223BAECC007CFB04 /* CustomOperation.swift in Sources */,
 				071AE0412212CBD7008AE077 /* QrTransfer.swift in Sources */,
@@ -3700,6 +3716,7 @@
 				OBJ_980 /* ListSeedersByPrice.swift in Sources */,
 				OBJ_981 /* ListSeedersByRating.swift in Sources */,
 				OBJ_982 /* ListSeedersByRegion.swift in Sources */,
+				07937AF723477DB5007661BB /* NftCreateOperation.swift in Sources */,
 				OBJ_983 /* ListSeedersByUpload.swift in Sources */,
 				A1AF06F32237F241002CA4F7 /* SynopsisConvertible.swift in Sources */,
 				A13D09CF223121E9000CAE17 /* StandardValidator.swift in Sources */,
@@ -3710,6 +3727,7 @@
 				OBJ_986 /* Login.swift in Sources */,
 				A1A2FBB42242C993003641EA /* MessagingApi.swift in Sources */,
 				07937AEB234763D4007661BB /* AssetFundPoolsOperation.swift in Sources */,
+				07D28CA4234B771400B8698A /* NftDataType.swift in Sources */,
 				OBJ_987 /* LookupAccountNames.swift in Sources */,
 				OBJ_988 /* LookupAccounts.swift in Sources */,
 				OBJ_989 /* LookupAssets.swift in Sources */,

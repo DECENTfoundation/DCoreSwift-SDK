@@ -14,6 +14,7 @@ extension DCore {
         public static let maxShareSupply: Int64 = 7319777577456890
         public static let maxAssetPrecision = 12
         public static let uiaDescriptionMaxChars = 1000
+        public static let nftNameMaxChars = 32
     }
     
     /// Limitations

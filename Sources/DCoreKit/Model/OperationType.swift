@@ -43,12 +43,17 @@ public enum OperationType: Int, Codable {
     updateMonitoredAssetOperation,
     readyToPublishTwoOperation,
     transferTwoOperation,
-    updateUserIssuedAssetAdvancedOperation,             // VIRTUAL 40
+    updateUserIssuedAssetAdvancedOperation,     // 40
+    nftCreateDefinition,
+    nftUpdateDefinition,
+    nftIssue,
+    nftTransfer,
+    nftUpdateData,       // 45
     disallowAutomaticRenewalOfSubscriptionOperation,    // swiftlint:disable:this identifier_name VIRTUAL
     returnEscrowSubmissionOperation,                    // VIRTUAL
     returnEscrowBuyingOperation,                        // VIRTUAL
     paySeederOperation,                                 // VIRTUAL
-    finishBuyingOperation,                              // VIRTUAL 45
+    finishBuyingOperation,                              // VIRTUAL 50
     renewalOfSubscriptionOperation                      // VIRTUAL
 
     public init(from aDecoder: Decoder) throws {

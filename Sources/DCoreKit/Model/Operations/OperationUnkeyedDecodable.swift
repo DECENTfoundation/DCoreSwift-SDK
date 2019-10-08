@@ -40,6 +40,8 @@ extension OperationUnkeyedDecodable {
             return try unkeyed.decode(AssetClaimFeesOperation.self)
         case .updateUserIssuedAssetAdvancedOperation:
             return try unkeyed.decode(AssetUpdateAdvancedOperation.self)
+        case .nftCreateDefinition:
+            return try unkeyed.decode(NftCreateOperation.self)
         default:
             return try unkeyed.decode(UnknownOperation.self)
         }
