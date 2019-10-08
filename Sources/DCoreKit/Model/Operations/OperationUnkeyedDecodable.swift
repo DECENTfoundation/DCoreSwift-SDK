@@ -47,6 +47,8 @@ extension OperationUnkeyedDecodable {
             return try unkeyed.decode(NftUpdateOperation.self)
         case .nftIssue:
             return try unkeyed.decode(NftIssueOperation.self)
+        case .nftTransfer:
+            return try unkeyed.decode(NftTransferOperation.self)
         default:
             return try unkeyed.decode(UnknownOperation.self)
         }
