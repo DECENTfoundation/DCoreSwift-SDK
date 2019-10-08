@@ -13,6 +13,8 @@
 		071AE0472212CDB8008AE077 /* QrTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AE0402212CBD7008AE077 /* QrTransfer.swift */; };
 		071AE04D2212FD9D008AE077 /* Pair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AE04C2212FD9D008AE077 /* Pair.swift */; };
 		071AE04F2212FE66008AE077 /* AssetAmountPair+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AE04E2212FE66008AE077 /* AssetAmountPair+Extension.swift */; };
+		071FC839234CC51C006959A9 /* NftUpdateDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071FC838234CC51C006959A9 /* NftUpdateDataOperation.swift */; };
+		071FC83A234CC51C006959A9 /* NftUpdateDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071FC838234CC51C006959A9 /* NftUpdateDataOperation.swift */; };
 		0721B4842272FEA1009931BF /* BrainKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0721B4832272FEA1009931BF /* BrainKey.swift */; };
 		0721B4852272FEAB009931BF /* BrainKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0721B4832272FEA1009931BF /* BrainKey.swift */; };
 		0721B489227318BC009931BF /* BrainKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0721B488227318BC009931BF /* BrainKeyTests.swift */; };
@@ -707,6 +709,7 @@
 		071AE0432212CCDD008AE077 /* QrTransferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrTransferTests.swift; sourceTree = "<group>"; };
 		071AE04C2212FD9D008AE077 /* Pair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pair.swift; sourceTree = "<group>"; };
 		071AE04E2212FE66008AE077 /* AssetAmountPair+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetAmountPair+Extension.swift"; sourceTree = "<group>"; };
+		071FC838234CC51C006959A9 /* NftUpdateDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftUpdateDataOperation.swift; sourceTree = "<group>"; };
 		0721B4832272FEA1009931BF /* BrainKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainKey.swift; sourceTree = "<group>"; };
 		0721B488227318BC009931BF /* BrainKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainKeyTests.swift; sourceTree = "<group>"; };
 		0721B48B227318D6009931BF /* EnglishWordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishWordList.swift; sourceTree = "<group>"; };
@@ -2753,6 +2756,7 @@
 				07D28CA6234C771800B8698A /* NftUpdateOperation.swift */,
 				07456A16234CAF4B00FBBA0A /* NftIssueOperation.swift */,
 				07456A19234CBD5300FBBA0A /* NftTransferOperation.swift */,
+				071FC838234CC51C006959A9 /* NftUpdateDataOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -3465,6 +3469,7 @@
 				A143170922085C8700EE656C /* OperationUnkeyedDecodable.swift in Sources */,
 				A1A2FBB82242CA34003641EA /* Message.swift in Sources */,
 				0742BEE323473A560012A6C8 /* AssetIssueOperation.swift in Sources */,
+				071FC83A234CC51C006959A9 /* NftUpdateDataOperation.swift in Sources */,
 				A1D96E1C21ED1E22009C0A30 /* Enum+Extension.swift in Sources */,
 				A1D96E1D21ED1E22009C0A30 /* LoggerConvertible.swift in Sources */,
 				A1D96E1E21ED1E22009C0A30 /* Rx+Extension.swift in Sources */,
@@ -3635,6 +3640,7 @@
 				OBJ_898 /* Publishing.swift in Sources */,
 				OBJ_899 /* Purchase.swift in Sources */,
 				OBJ_900 /* RealSupply.swift in Sources */,
+				071FC839234CC51C006959A9 /* NftUpdateDataOperation.swift in Sources */,
 				A159C4C221FDFF4F008BE73E /* CipherConvertible.swift in Sources */,
 				A169C1CF2230208800FAA818 /* ServerTrustValidation.swift in Sources */,
 				OBJ_902 /* Seeder.swift in Sources */,
