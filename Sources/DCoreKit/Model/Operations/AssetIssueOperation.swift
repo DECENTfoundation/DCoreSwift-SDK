@@ -27,7 +27,10 @@ public struct AssetIssueOperation: Operation {
 
 extension AssetIssueOperation {
     public func decrypt(_ keyPair: ECKeyPair, address: Address? = nil, nonce: BigInt = CryptoUtils.generateNonce()) throws -> AssetIssueOperation {
-        return self
+        var op = self
+        op.memo = try memo?.decrypt(keyPair, address: address, nonce: nonce)
+        
+        return op
     }
 }
 
