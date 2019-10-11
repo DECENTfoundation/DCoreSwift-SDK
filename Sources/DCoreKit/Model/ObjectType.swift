@@ -27,7 +27,9 @@ public enum ObjectType {
         proposalObject,
         operationHistoryObject,
         withdrawPermissionObject,
-        vestingBalanceObject
+        vestingBalanceObject,
+        nftObject, // 10
+        nftDataObject
 
         func toObjectType() -> ObjectType {
             switch self {
@@ -41,6 +43,8 @@ public enum ObjectType {
             case .operationHistoryObject: return .operationHistoryObject
             case .withdrawPermissionObject: return .withdrawPermissionObject
             case .vestingBalanceObject: return .vestingBalanceObject
+            case .nftObject: return .nftObject
+            case .nftDataObject: return .nftDataObject
             }
         }
     }
@@ -108,6 +112,8 @@ public enum ObjectType {
     operationHistoryObject,
     withdrawPermissionObject,
     vestingBalanceObject,
+    nftObject,
+    nftDataObject,
     
     //  enum impl_object_type, space = 2
     globalPropertyObject,

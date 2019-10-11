@@ -5,6 +5,7 @@ protocol OperationUnkeyedDecodable {
 }
 
 extension OperationUnkeyedDecodable {
+    // swiftlint:disable:next cyclomatic_complexity
     static func decodeUnkeyed(from container: UnkeyedDecodingContainer) throws -> Operation {
         var unkeyed = container
         
@@ -40,6 +41,16 @@ extension OperationUnkeyedDecodable {
             return try unkeyed.decode(AssetClaimFeesOperation.self)
         case .updateUserIssuedAssetAdvancedOperation:
             return try unkeyed.decode(AssetUpdateAdvancedOperation.self)
+        case .nftCreateDefinition:
+            return try unkeyed.decode(NftCreateOperation.self)
+        case .nftUpdateDefinition:
+            return try unkeyed.decode(NftUpdateOperation.self)
+        case .nftIssue:
+            return try unkeyed.decode(NftIssueOperation.self)
+        case .nftTransfer:
+            return try unkeyed.decode(NftTransferOperation.self)
+        case .nftUpdateData:
+            return try unkeyed.decode(NftUpdateDataOperation.self)
         default:
             return try unkeyed.decode(UnknownOperation.self)
         }
