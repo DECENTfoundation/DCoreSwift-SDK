@@ -1,7 +1,7 @@
 import Foundation
 
 public struct NftDataType: Codable {
-    public let type: DataType
+    public let type: TypeLiteral
     public let unique: Bool
     public let modifiable: ModifiableBy
     public let name: String?
@@ -23,7 +23,7 @@ public struct NftDataType: Codable {
         }
     }
 
-    public enum DataType: String, Codable {
+    public enum TypeLiteral: String, Codable {
         case
         string,
         integer,
