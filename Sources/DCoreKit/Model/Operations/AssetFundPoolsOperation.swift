@@ -29,13 +29,13 @@ extension AssetFundPoolsOperation {
 
 extension AssetFundPoolsOperation {
     public func asData() -> Data {
-        // TODO: Test and fix this method if necessary
         var data = Data()
         data += type.asData()
         data += fee.asData()
         data += fromAccount.asData()
         data += uiaAsset.asData()
         data += dctAsset.asData()
+        data += Data.ofZero
         
         DCore.Logger.debug(crypto: "AssetFundPoolsOperation binary: %{private}s", args: {
             "\(data.toHex()) (\(data)) \(data.bytes)"

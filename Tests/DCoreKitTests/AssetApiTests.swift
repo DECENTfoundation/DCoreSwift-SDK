@@ -52,6 +52,20 @@ final class AssetApiTests: XCTestCase {
         ), keypair: creds!.keyPair).debug().toBlocking().single()
         XCTAssertNotNil(issue)
     }
+
+    func testCreateAssetAndFundPool() {
+        let creds = try? Credentials(
+            "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
+        )
+        let asset = createAsset(credentials: creds!, symbol: "FUNDPOOL")
+
+        let issue = try? wss.broadcast.broadcastWithCallback(AssetFundPoolsOperation(
+            fromAccount: creds!.accountId,
+            uiaAsset: AssetAmount(0, assetId: asset.id),
+            dctAsset: AssetAmount(with: 100000)
+        ), keypair: creds!.keyPair).debug().toBlocking().single()
+        XCTAssertNotNil(issue)
+    }
     
     func testFormatAssetAmountToDecimal() {
         let asset = try? rest.asset.get(bySymbol: .dct).debug().toBlocking().single()
@@ -130,6 +144,7 @@ final class AssetApiTests: XCTestCase {
         ("testGetAssetBySymbol", testGetAssetBySymbol),
         ("testCreateAssetAndGetBySymbols", testCreateAssetAndGetBySymbols),
         ("testCreateAssetAndIssueAsset", testCreateAssetAndIssueAsset),
+        ("testCreateAssetAndFundPool", testCreateAssetAndFundPool),
         ("testFormatAssetAmountToDecimal", testFormatAssetAmountToDecimal),
         ("testFormatAssetAmountFromDecimal", testFormatAssetAmountFromDecimal),
         ("testFormatAssetAmountFromString", testFormatAssetAmountFromString),
