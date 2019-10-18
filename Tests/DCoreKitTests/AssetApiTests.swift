@@ -18,20 +18,40 @@ final class AssetApiTests: XCTestCase {
         let asset = try? rest.asset.get(bySymbol: .dct).debug().toBlocking().single()
         XCTAssertEqual(asset?.id, DCore.Constant.dct)
     }
+
+    private func createAsset(credentials: Credentials, symbol: String) -> Asset {
+        let create = try? wss.asset.create(
+            credentials: credentials, symbol: symbol, precision: 6, description: symbol
+        ).debug().toBlocking().single()
+        XCTAssertNotNil(create)
+
+        return try! rest.asset.get(bySymbol: Asset.Symbol.from(symbol)).debug().toBlocking().single()
+    }
     
     func testCreateAssetAndGetBySymbols() {
         let creds = try? Credentials(
             "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
         )
-        let create = try? wss.asset.create(
-            credentials: creds!, symbol: Asset.Symbol.alx.description, precision: 6, description: "ALX"
-        ).debug().toBlocking().single()
-        XCTAssertNotNil(create)
+        let _ = createAsset(credentials: creds!, symbol: Asset.Symbol.alx.description)
 
         let assets = try? rest.asset.getAll(bySymbols: [.alx, .dct]).debug().toBlocking().single()
         XCTAssertEqual(assets?.count, 2)
     }
 
+    func testCreateAssetAndIssueAsset() {
+        let creds = try? Credentials(
+            "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
+        )
+        let asset = createAsset(credentials: creds!, symbol: "ISSUE")
+
+        let issue = try? wss.broadcast.broadcastWithCallback(AssetIssueOperation(
+            issuer: creds!.accountId,
+            assetToIssue: AssetAmount(with: 6000000, assetId: asset.id.description),
+            issueToAccount: creds!.accountId,
+            memo: Memo("message")
+        ), keypair: creds!.keyPair).debug().toBlocking().single()
+        XCTAssertNotNil(issue)
+    }
     
     func testFormatAssetAmountToDecimal() {
         let asset = try? rest.asset.get(bySymbol: .dct).debug().toBlocking().single()
@@ -109,6 +129,7 @@ final class AssetApiTests: XCTestCase {
         ("testGetAssetById", testGetAssetById),
         ("testGetAssetBySymbol", testGetAssetBySymbol),
         ("testCreateAssetAndGetBySymbols", testCreateAssetAndGetBySymbols),
+        ("testCreateAssetAndIssueAsset", testCreateAssetAndIssueAsset),
         ("testFormatAssetAmountToDecimal", testFormatAssetAmountToDecimal),
         ("testFormatAssetAmountFromDecimal", testFormatAssetAmountFromDecimal),
         ("testFormatAssetAmountFromString", testFormatAssetAmountFromString),
