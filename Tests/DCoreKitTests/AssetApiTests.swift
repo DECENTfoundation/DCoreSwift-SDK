@@ -53,12 +53,12 @@ final class AssetApiTests: XCTestCase {
     func testCreateAssetAndFundPool() {
         let asset = createAsset(credentials: creds!, symbol: "FUNDPOOL")
 
-        let issue = try? wss.broadcast.broadcastWithCallback(AssetFundPoolsOperation(
+        let fundPools = try? wss.broadcast.broadcastWithCallback(AssetFundPoolsOperation(
             fromAccount: creds!.accountId,
             uiaAsset: AssetAmount(0, assetId: asset.id),
             dctAsset: AssetAmount(with: 100000)
         ), keypair: creds!.keyPair).debug().toBlocking().single()
-        XCTAssertNotNil(issue)
+        XCTAssertNotNil(fundPools)
     }
 
     func testAssetReserveOperation() {
@@ -66,6 +66,31 @@ final class AssetApiTests: XCTestCase {
             payer: creds!.accountId, amountToReserve: AssetAmount(1)
         ), keypair: creds!.keyPair).debug().toBlocking().single()
         XCTAssertNotNil(assetReserve)
+    }
+
+    func testAssetClaimFeesOperation() {
+        let asset = createAsset(credentials: creds!, symbol: "CLAIMFEES")
+        let _ = try? wss.broadcast.broadcastWithCallback(AssetIssueOperation(
+            issuer: creds!.accountId,
+            assetToIssue: AssetAmount(99999999999, assetId: asset.id),
+            issueToAccount: creds!.accountId,
+            memo: Memo("message")
+        ), keypair: creds!.keyPair).debug().toBlocking().single()
+
+        let _ = try? wss.broadcast.broadcastWithCallback(AssetFundPoolsOperation(
+            fromAccount: creds!.accountId,
+            uiaAsset: AssetAmount(9999999999, assetId: asset.id),
+            dctAsset: AssetAmount(with: 9999999999)
+        ), keypair: creds!.keyPair).debug().toBlocking().single()
+
+        let _ = try? wss.account.transfer(
+            from: creds!, to: "1.2.28", amount: AssetAmount(1), fee: AssetAmount(100000, assetId: asset.id)
+        ).debug().toBlocking().single()
+
+        let assetClaimFees = try? wss.broadcast.broadcastWithCallback(AssetClaimFeesOperation(
+            issuer: creds!.accountId, uiaAsset: AssetAmount(1, assetId: asset.id), dctAsset: AssetAmount(1)
+        ), keypair: creds!.keyPair).debug().toBlocking().single()
+        XCTAssertNotNil(assetClaimFees)
     }
 
     func testFormatAssetAmountToDecimal() {
@@ -144,6 +169,7 @@ final class AssetApiTests: XCTestCase {
         ("testCreateAssetAndIssueAsset", testCreateAssetAndIssueAsset),
         ("testCreateAssetAndFundPool", testCreateAssetAndFundPool),
         ("testAssetReserveOperation", testAssetReserveOperation),
+        ("testAssetClaimFeesOperation", testAssetClaimFeesOperation),
         ("testFormatAssetAmountToDecimal", testFormatAssetAmountToDecimal),
         ("testFormatAssetAmountFromDecimal", testFormatAssetAmountFromDecimal),
         ("testFormatAssetAmountFromString", testFormatAssetAmountFromString),

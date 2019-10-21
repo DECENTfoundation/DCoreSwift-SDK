@@ -29,13 +29,13 @@ extension AssetClaimFeesOperation {
 
 extension AssetClaimFeesOperation {
     public func asData() -> Data {
-        // TODO: Test and fix this method if necessary
         var data = Data()
         data += type.asData()
         data += fee.asData()
         data += issuer.asData()
         data += uiaAsset.asData()
         data += dctAsset.asData()
+        data += Data.ofZero
         
         DCore.Logger.debug(crypto: "AssetClaimFeesOperation binary: %{private}s", args: {
             "\(data.toHex()) (\(data)) \(data.bytes)"
