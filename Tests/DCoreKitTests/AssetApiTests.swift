@@ -8,6 +8,9 @@ final class AssetApiTests: XCTestCase {
 
     private let rest = DCore.Sdk.create(forRest: DCore.TestConstant.httpUrl)
     private let wss = DCore.Sdk.create(forWss: DCore.TestConstant.wsUrl)
+    private let creds = try? Credentials(
+        "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
+    )
     
     func testGetAssetById() {
         let asset = try? rest.asset.get(byId: "1.3.0").debug().toBlocking().single()
@@ -29,9 +32,6 @@ final class AssetApiTests: XCTestCase {
     }
     
     func testCreateAssetAndGetBySymbols() {
-        let creds = try? Credentials(
-            "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
-        )
         let _ = createAsset(credentials: creds!, symbol: Asset.Symbol.alx.description)
 
         let assets = try? rest.asset.getAll(bySymbols: [.alx, .dct]).debug().toBlocking().single()
@@ -39,9 +39,6 @@ final class AssetApiTests: XCTestCase {
     }
 
     func testCreateAssetAndIssueAsset() {
-        let creds = try? Credentials(
-            "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
-        )
         let asset = createAsset(credentials: creds!, symbol: "ISSUE")
 
         let issue = try? wss.broadcast.broadcastWithCallback(AssetIssueOperation(
@@ -54,9 +51,6 @@ final class AssetApiTests: XCTestCase {
     }
 
     func testCreateAssetAndFundPool() {
-        let creds = try? Credentials(
-            "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
-        )
         let asset = createAsset(credentials: creds!, symbol: "FUNDPOOL")
 
         let issue = try? wss.broadcast.broadcastWithCallback(AssetFundPoolsOperation(
@@ -66,7 +60,14 @@ final class AssetApiTests: XCTestCase {
         ), keypair: creds!.keyPair).debug().toBlocking().single()
         XCTAssertNotNil(issue)
     }
-    
+
+    func testAssetReserveOperation() {
+        let assetReserve = try? wss.broadcast.broadcastWithCallback(AssetReserveOperation(
+            payer: creds!.accountId, amountToReserve: AssetAmount(1)
+        ), keypair: creds!.keyPair).debug().toBlocking().single()
+        XCTAssertNotNil(assetReserve)
+    }
+
     func testFormatAssetAmountToDecimal() {
         let asset = try? rest.asset.get(bySymbol: .dct).debug().toBlocking().single()
         let decimal = asset?.from(raw: 100000000)
@@ -124,9 +125,6 @@ final class AssetApiTests: XCTestCase {
     }
     
     func testChainObjectHashing() {
-        let creds = try? Credentials(
-            "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
-        )
         let create = try? wss.asset.create(
             credentials: creds!, symbol: Asset.Symbol.aia.description, precision: 6, description: "ALX"
         ).debug().toBlocking().single()
@@ -145,6 +143,7 @@ final class AssetApiTests: XCTestCase {
         ("testCreateAssetAndGetBySymbols", testCreateAssetAndGetBySymbols),
         ("testCreateAssetAndIssueAsset", testCreateAssetAndIssueAsset),
         ("testCreateAssetAndFundPool", testCreateAssetAndFundPool),
+        ("testAssetReserveOperation", testAssetReserveOperation),
         ("testFormatAssetAmountToDecimal", testFormatAssetAmountToDecimal),
         ("testFormatAssetAmountFromDecimal", testFormatAssetAmountFromDecimal),
         ("testFormatAssetAmountFromString", testFormatAssetAmountFromString),
