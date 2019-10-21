@@ -28,11 +28,11 @@ final class AssetApiTests: XCTestCase {
         ).debug().toBlocking().single()
         XCTAssertNotNil(create)
 
-        return try! rest.asset.get(bySymbol: Asset.Symbol.from(symbol)).debug().toBlocking().single()
+        return (try? rest.asset.get(bySymbol: Asset.Symbol.from(symbol)).debug().toBlocking().single())!
     }
     
     func testCreateAssetAndGetBySymbols() {
-        let _ = createAsset(credentials: creds!, symbol: Asset.Symbol.alx.description)
+        _ = createAsset(credentials: creds!, symbol: Asset.Symbol.alx.description)
 
         let assets = try? rest.asset.getAll(bySymbols: [.alx, .dct]).debug().toBlocking().single()
         XCTAssertEqual(assets?.count, 2)
@@ -70,20 +70,20 @@ final class AssetApiTests: XCTestCase {
 
     func testAssetClaimFeesOperation() {
         let asset = createAsset(credentials: creds!, symbol: "CLAIMFEES")
-        let _ = try? wss.broadcast.broadcastWithCallback(AssetIssueOperation(
+        _ = try? wss.broadcast.broadcastWithCallback(AssetIssueOperation(
             issuer: creds!.accountId,
             assetToIssue: AssetAmount(99999999999, assetId: asset.id),
             issueToAccount: creds!.accountId,
             memo: Memo("message")
         ), keypair: creds!.keyPair).debug().toBlocking().single()
 
-        let _ = try? wss.broadcast.broadcastWithCallback(AssetFundPoolsOperation(
+        _ = try? wss.broadcast.broadcastWithCallback(AssetFundPoolsOperation(
             fromAccount: creds!.accountId,
             uiaAsset: AssetAmount(9999999999, assetId: asset.id),
             dctAsset: AssetAmount(with: 9999999999)
         ), keypair: creds!.keyPair).debug().toBlocking().single()
 
-        let _ = try? wss.account.transfer(
+        _ = try? wss.account.transfer(
             from: creds!, to: "1.2.28", amount: AssetAmount(1), fee: AssetAmount(100000, assetId: asset.id)
         ).debug().toBlocking().single()
 
