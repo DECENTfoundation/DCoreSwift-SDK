@@ -40,7 +40,6 @@ extension AssetUpdateAdvancedOperation {
 
 extension AssetUpdateAdvancedOperation {
     public func asData() -> Data {
-        // TODO: Test and fix this method if necessary
         var data = Data()
         data += type.asData()
         data += fee.asData()
@@ -48,6 +47,7 @@ extension AssetUpdateAdvancedOperation {
         data += assetToUpdate.asData()
         data += precision
         data += fixedMaxSupply.asData()
+        data += Data.ofZero
         
         DCore.Logger.debug(crypto: "AssetUpdateAdvancedOperation binary: %{private}s", args: {
             "\(data.toHex()) (\(data)) \(data.bytes)"

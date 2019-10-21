@@ -93,6 +93,15 @@ final class AssetApiTests: XCTestCase {
         XCTAssertNotNil(assetClaimFees)
     }
 
+    func testAssetUpdateAdvancedOperation() {
+        let asset = createAsset(credentials: creds!, symbol: "UPDATEADVANCED")
+
+        let updateAdvanced = try? wss.broadcast.broadcastWithCallback(AssetUpdateAdvancedOperation(
+            issuer: creds!.accountId, assetToUpdate: asset.id, precision: 6, fixedMaxSupply: true
+        ), keypair: creds!.keyPair).debug().toBlocking().single()
+        XCTAssertNotNil(updateAdvanced)
+    }
+
     func testFormatAssetAmountToDecimal() {
         let asset = try? rest.asset.get(bySymbol: .dct).debug().toBlocking().single()
         let decimal = asset?.from(raw: 100000000)
@@ -170,6 +179,7 @@ final class AssetApiTests: XCTestCase {
         ("testCreateAssetAndFundPool", testCreateAssetAndFundPool),
         ("testAssetReserveOperation", testAssetReserveOperation),
         ("testAssetClaimFeesOperation", testAssetClaimFeesOperation),
+        ("testAssetUpdateAdvancedOperation", testAssetUpdateAdvancedOperation),
         ("testFormatAssetAmountToDecimal", testFormatAssetAmountToDecimal),
         ("testFormatAssetAmountFromDecimal", testFormatAssetAmountFromDecimal),
         ("testFormatAssetAmountFromString", testFormatAssetAmountFromString),
