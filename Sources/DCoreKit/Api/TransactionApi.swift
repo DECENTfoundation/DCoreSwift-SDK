@@ -3,19 +3,6 @@ import RxSwift
 
 public protocol TransactionApi: BaseApi {
     /**
-     If the transaction has not expired,
-     this method will return the transaction for the given id.
-     
-     - Parameter id: Transaction id.
-     
-     - Throws: `DCoreException.Network.notFound`
-     if transaction does not exist.
-     
-     - Returns: `ProcessedTransaction` if found.
-     */
-    func getRecent(byId id: String) -> Single<ProcessedTransaction>
-    
-    /**
      Get transaction for the given id.
      
      - Parameter id: Transaction id.
@@ -101,10 +88,6 @@ public protocol TransactionApi: BaseApi {
 }
 
 extension TransactionApi {
-    public func getRecent(byId id: String) -> Single<ProcessedTransaction> {
-        return GetRecentTransactionById(id).base.toResponse(api.core)
-    }
-    
     public func get(byId id: String) -> Single<ProcessedTransaction> {
         return GetTransactionById(id).base.toResponse(api.core)
     }
