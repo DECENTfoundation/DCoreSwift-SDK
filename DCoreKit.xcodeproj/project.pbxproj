@@ -3849,6 +3849,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MARKETING_VERSION = 3.3.0;
 				MODULEMAP_FILE = "";
 				MODULEMAP_PRIVATE_FILE = "";
 				ONLY_ACTIVE_ARCH = YES;
@@ -3886,6 +3887,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MARKETING_VERSION = 3.3.0;
 				MODULEMAP_FILE = "";
 				MODULEMAP_PRIVATE_FILE = "";
 				OTHER_CFLAGS = "$(inherited)";
@@ -4160,6 +4162,7 @@
 					"$(PROJECT_DIR)/Libraries/openssl/lib",
 					"$(PROJECT_DIR)/Libraries/secp256k1/lib",
 				);
+				MARKETING_VERSION = 3.3.0;
 				MODULEMAP_FILE = $SRCROOT/DCoreKit.modulemap;
 				MODULEMAP_PRIVATE_FILE = "";
 				ONLY_ACTIVE_ARCH = YES;
@@ -4200,6 +4203,7 @@
 					"$(PROJECT_DIR)/Libraries/openssl/lib",
 					"$(PROJECT_DIR)/Libraries/secp256k1/lib",
 				);
+				MARKETING_VERSION = 3.3.0;
 				MODULEMAP_FILE = $SRCROOT/DCoreKit.modulemap;
 				MODULEMAP_PRIVATE_FILE = "";
 				OTHER_CFLAGS = "$(inherited)";
