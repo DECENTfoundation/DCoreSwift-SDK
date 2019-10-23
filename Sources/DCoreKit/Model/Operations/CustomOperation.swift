@@ -13,7 +13,7 @@ extension CustomOperation {
 
 extension CustomOperation {
     public func asData() -> Data {
-        var dataBytes = data.unhex() ?? Data()
+        let dataBytes = data.unhex().or(Data.empty)
 
         var data = Data()
         data += type.asData()

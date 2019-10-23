@@ -36,14 +36,14 @@ extension AssetIssueOperation {
 
 extension AssetIssueOperation {
     public func asData() -> Data {
-        // TODO: Test and fix this method if necessary
         var data = Data()
         data += type.asData()
         data += fee.asData()
         data += issuer.asData()
         data += assetToIssue.asData()
         data += issueToAccount.asData()
-        data += memo.asData()
+        data += memo.asOptionalData()
+        data += Data.ofZero
         
         DCore.Logger.debug(crypto: "AssetIssueOperation binary: %{private}s", args: {
             "\(data.toHex()) (\(data)) \(data.bytes)"

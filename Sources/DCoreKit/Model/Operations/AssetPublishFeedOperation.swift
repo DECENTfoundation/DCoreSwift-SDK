@@ -1,6 +1,11 @@
 import Foundation
 import BigInt
 
+/**
+* skip, cannot create monitored asset, also only miner account can publish feeds
+* asset_create_op has account_id_type fee_payer()const { return monitored_asset_opts.valid() ? account_id_type() : issuer; }
+* therefore throws Missing Active Authority
+*/
 public struct AssetPublishFeedOperation: Operation {
     
     public var publisher: ChainObject {
@@ -31,13 +36,13 @@ extension AssetPublishFeedOperation {
 
 extension AssetPublishFeedOperation {
     public func asData() -> Data {
-        // TODO: Test and fix this method if necessary
         var data = Data()
         data += type.asData()
         data += fee.asData()
         data += publisher.asData()
         data += assetId.asData()
         data += feed.coreExchangeRate.asData()
+        data += Data.ofZero
         
         DCore.Logger.debug(crypto: "AssetPublishFeedOperation binary: %{private}s", args: {
             "\(data.toHex()) (\(data)) \(data.bytes)"

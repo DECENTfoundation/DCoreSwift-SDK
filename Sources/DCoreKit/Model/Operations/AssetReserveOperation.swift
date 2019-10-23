@@ -27,12 +27,12 @@ extension AssetReserveOperation {
 
 extension AssetReserveOperation {
     public func asData() -> Data {
-        // TODO: Test and fix this method if necessary
         var data = Data()
         data += type.asData()
         data += fee.asData()
         data += payer.asData()
         data += amountToReserve.asData()
+        data += Data.ofZero
         
         DCore.Logger.debug(crypto: "AssetReserveOperation binary: %{private}s", args: {
             "\(data.toHex()) (\(data)) \(data.bytes)"
