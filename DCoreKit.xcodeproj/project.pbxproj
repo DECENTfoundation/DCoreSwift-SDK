@@ -390,7 +390,6 @@
 		A1D96DD321ED1E22009C0A30 /* GetPotentialSignatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_145 /* GetPotentialSignatures.swift */; };
 		A1D96DD421ED1E22009C0A30 /* GetProposedTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_146 /* GetProposedTransactions.swift */; };
 		A1D96DD521ED1E22009C0A30 /* GetRealSupply.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_147 /* GetRealSupply.swift */; };
-		A1D96DD621ED1E22009C0A30 /* GetRecentTransactionById.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_148 /* GetRecentTransactionById.swift */; };
 		A1D96DD721ED1E22009C0A30 /* GetRelativeAccountHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_149 /* GetRelativeAccountHistory.swift */; };
 		A1D96DD821ED1E22009C0A30 /* GetRequiredFees.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_150 /* GetRequiredFees.swift */; };
 		A1D96DD921ED1E22009C0A30 /* GetRequiredSignatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_151 /* GetRequiredSignatures.swift */; };
@@ -648,7 +647,6 @@
 		OBJ_960 /* GetPotentialSignatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_145 /* GetPotentialSignatures.swift */; };
 		OBJ_961 /* GetProposedTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_146 /* GetProposedTransactions.swift */; };
 		OBJ_962 /* GetRealSupply.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_147 /* GetRealSupply.swift */; };
-		OBJ_963 /* GetRecentTransactionById.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_148 /* GetRecentTransactionById.swift */; };
 		OBJ_964 /* GetRelativeAccountHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_149 /* GetRelativeAccountHistory.swift */; };
 		OBJ_965 /* GetRequiredFees.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_150 /* GetRequiredFees.swift */; };
 		OBJ_966 /* GetRequiredSignatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_151 /* GetRequiredSignatures.swift */; };
@@ -939,7 +937,6 @@
 		OBJ_145 /* GetPotentialSignatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPotentialSignatures.swift; sourceTree = "<group>"; };
 		OBJ_146 /* GetProposedTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProposedTransactions.swift; sourceTree = "<group>"; };
 		OBJ_147 /* GetRealSupply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRealSupply.swift; sourceTree = "<group>"; };
-		OBJ_148 /* GetRecentTransactionById.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecentTransactionById.swift; sourceTree = "<group>"; };
 		OBJ_149 /* GetRelativeAccountHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRelativeAccountHistory.swift; sourceTree = "<group>"; };
 		OBJ_15 /* BroadcastApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastApi.swift; sourceTree = "<group>"; };
 		OBJ_150 /* GetRequiredFees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRequiredFees.swift; sourceTree = "<group>"; };
@@ -1792,7 +1789,6 @@
 				OBJ_145 /* GetPotentialSignatures.swift */,
 				OBJ_146 /* GetProposedTransactions.swift */,
 				OBJ_147 /* GetRealSupply.swift */,
-				OBJ_148 /* GetRecentTransactionById.swift */,
 				OBJ_149 /* GetRelativeAccountHistory.swift */,
 				OBJ_150 /* GetRequiredFees.swift */,
 				OBJ_151 /* GetRequiredSignatures.swift */,
@@ -3372,7 +3368,6 @@
 				A1D96DD321ED1E22009C0A30 /* GetPotentialSignatures.swift in Sources */,
 				A1D96DD421ED1E22009C0A30 /* GetProposedTransactions.swift in Sources */,
 				A1D96DD521ED1E22009C0A30 /* GetRealSupply.swift in Sources */,
-				A1D96DD621ED1E22009C0A30 /* GetRecentTransactionById.swift in Sources */,
 				A1D96DD721ED1E22009C0A30 /* GetRelativeAccountHistory.swift in Sources */,
 				A1D96DD821ED1E22009C0A30 /* GetRequiredFees.swift in Sources */,
 				A1D96DD921ED1E22009C0A30 /* GetRequiredSignatures.swift in Sources */,
@@ -3715,7 +3710,6 @@
 				OBJ_961 /* GetProposedTransactions.swift in Sources */,
 				OBJ_962 /* GetRealSupply.swift in Sources */,
 				07D28CA1234B61C400B8698A /* NftOptions.swift in Sources */,
-				OBJ_963 /* GetRecentTransactionById.swift in Sources */,
 				A1A9854F223BAECC007CFB04 /* CustomOperation.swift in Sources */,
 				071AE0412212CBD7008AE077 /* QrTransfer.swift in Sources */,
 				OBJ_964 /* GetRelativeAccountHistory.swift in Sources */,
@@ -3855,6 +3849,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MARKETING_VERSION = 3.3.0;
 				MODULEMAP_FILE = "";
 				MODULEMAP_PRIVATE_FILE = "";
 				ONLY_ACTIVE_ARCH = YES;
@@ -3892,6 +3887,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MARKETING_VERSION = 3.3.0;
 				MODULEMAP_FILE = "";
 				MODULEMAP_PRIVATE_FILE = "";
 				OTHER_CFLAGS = "$(inherited)";
@@ -4166,6 +4162,7 @@
 					"$(PROJECT_DIR)/Libraries/openssl/lib",
 					"$(PROJECT_DIR)/Libraries/secp256k1/lib",
 				);
+				MARKETING_VERSION = 3.3.0;
 				MODULEMAP_FILE = $SRCROOT/DCoreKit.modulemap;
 				MODULEMAP_PRIVATE_FILE = "";
 				ONLY_ACTIVE_ARCH = YES;
@@ -4206,6 +4203,7 @@
 					"$(PROJECT_DIR)/Libraries/openssl/lib",
 					"$(PROJECT_DIR)/Libraries/secp256k1/lib",
 				);
+				MARKETING_VERSION = 3.3.0;
 				MODULEMAP_FILE = $SRCROOT/DCoreKit.modulemap;
 				MODULEMAP_PRIVATE_FILE = "";
 				OTHER_CFLAGS = "$(inherited)";

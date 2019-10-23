@@ -14,7 +14,7 @@
     <a title="MessagingApi Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">DCoreKit Docs</a> (23% documented)</p>
+        <p><a href="../index.html">DCoreKit 3.3.0 Docs</a> (21% documented)</p>
         <p class="header-right"><a href="https://github.com/DECENTfoundation/DCoreSwift-SDK"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Fdecentfoundation%2Egithub%2Eio%2FDCoreSwift%2DSDK%2Fdocsets%2FDCoreKit%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -347,10 +347,34 @@
                 <a href="../Structs/Asset/Options.html">– Options</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/Asset/MonitoredAssetOptions.html">– MonitoredAssetOptions</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/AssetAmount.html">AssetAmount</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/AssetClaimFeesOperation.html">AssetClaimFeesOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AssetCreateOperation.html">AssetCreateOperation</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/AssetData.html">AssetData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AssetFundPoolsOperation.html">AssetFundPoolsOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AssetIssueOperation.html">AssetIssueOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AssetPublishFeedOperation.html">AssetPublishFeedOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AssetReserveOperation.html">AssetReserveOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AssetUpdateAdvancedOperation.html">AssetUpdateAdvancedOperation</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/AuthMap.html">AuthMap</a>
@@ -494,6 +518,33 @@
                 <a href="../Structs/MinerVotingInfo.html">MinerVotingInfo</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/NftCreateOperation.html">NftCreateOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NftDataType.html">NftDataType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NftDataType/ModifiableBy.html">– ModifiableBy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NftDataType/TypeLiteral.html">– TypeLiteral</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NftIssueOperation.html">NftIssueOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NftOptions.html">NftOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NftTransferOperation.html">NftTransferOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NftUpdateDataOperation.html">NftUpdateDataOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NftUpdateOperation.html">NftUpdateOperation</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/OperationHistory.html">OperationHistory</a>
               </li>
               <li class="nav-group-task">
@@ -614,9 +665,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8DCoreKit12MessagingApiP6getAll_8receiver5limit7RxSwift17PrimitiveSequenceVyAG11SingleTraitOSayAA7MessageVGGAA22ChainObjectConvertible_pSg_AQSitF"></a>
-                    <a name="//apple_ref/swift/Method/getAll(_:receiver:limit:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8DCoreKit12MessagingApiP6getAll_8receiver5limit7RxSwift17PrimitiveSequenceVyAG11SingleTraitOSayAA7MessageVGGAA22ChainObjectConvertible_pSg_AQSitF">getAll(_:receiver:limit:)</a>
+                    <a name="/s:8DCoreKit12MessagingApiP6getAll8bySender5limit7RxSwift17PrimitiveSequenceVyAG11SingleTraitOSayAA7MessageVGGAA22ChainObjectConvertible_p_SitF"></a>
+                    <a name="//apple_ref/swift/Method/getAll(bySender:limit:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit12MessagingApiP6getAll8bySender5limit7RxSwift17PrimitiveSequenceVyAG11SingleTraitOSayAA7MessageVGGAA22ChainObjectConvertible_p_SitF">getAll(bySender:limit:)</a>
                     </code>
                       <span class="declaration-note">
                         Default implementation
@@ -627,7 +678,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get all messages.</p>
+                        <p>Get all messages by sender.</p>
 
                       </div>
                       <h4>Default Implementation</h4>
@@ -638,7 +689,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getAll</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ChainObjectConvertible.html">ChainObjectConvertible</a></span><span class="p">?,</span> <span class="nv">receiver</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ChainObjectConvertible.html">ChainObjectConvertible</a></span><span class="p">?,</span> <span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Message.html">Message</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getAll</span><span class="p">(</span><span class="n">bySender</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ChainObjectConvertible.html">ChainObjectConvertible</a></span><span class="p">,</span> <span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Message.html">Message</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -659,6 +710,66 @@ as <code><a href="../Structs/ChainObject.html">ChainObject</a></code> or <code>S
                                 </div>
                               </td>
                             </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>limit</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Max items to return.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>[Message]</code>.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.3.0/Sources/DCoreKit/Api/MessagingApi.swift#L15">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit12MessagingApiP6getAll10byReceiver5limit7RxSwift17PrimitiveSequenceVyAG11SingleTraitOSayAA7MessageVGGAA22ChainObjectConvertible_p_SitF"></a>
+                    <a name="//apple_ref/swift/Method/getAll(byReceiver:limit:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit12MessagingApiP6getAll10byReceiver5limit7RxSwift17PrimitiveSequenceVyAG11SingleTraitOSayAA7MessageVGGAA22ChainObjectConvertible_p_SitF">getAll(byReceiver:limit:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get all messages by receiver.</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getAll</span><span class="p">(</span><span class="n">byReceiver</span> <span class="nv">receiver</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ChainObjectConvertible.html">ChainObjectConvertible</a></span><span class="p">,</span> <span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Message.html">Message</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
                             <tr>
                               <td>
                                 <code>
@@ -692,7 +803,7 @@ as <code><a href="../Structs/ChainObject.html">ChainObject</a></code> or <code>S
                         <p><code>[Message]</code>.</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Api/MessagingApi.swift#L17">Show on GitHub</a>
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.3.0/Sources/DCoreKit/Api/MessagingApi.swift#L26">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -765,7 +876,7 @@ as <code><a href="../Structs/ChainObject.html">ChainObject</a></code> or <code>S
                         <p><code>[Message]</code>.</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Api/MessagingApi.swift#L30">Show on GitHub</a>
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.3.0/Sources/DCoreKit/Api/MessagingApi.swift#L37">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -838,7 +949,7 @@ as <code><a href="../Structs/ChainObject.html">ChainObject</a></code> or <code>S
                         <p><code>[Message]</code>.</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Api/MessagingApi.swift#L41">Show on GitHub</a>
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.3.0/Sources/DCoreKit/Api/MessagingApi.swift#L48">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -846,9 +957,9 @@ as <code><a href="../Structs/ChainObject.html">ChainObject</a></code> or <code>S
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8DCoreKit12MessagingApiP15getAllResponses_8receiver5limit7RxSwift17PrimitiveSequenceVyAG11SingleTraitOSayAA15MessageResponseVGGAA22ChainObjectConvertible_pSg_AQSitF"></a>
-                    <a name="//apple_ref/swift/Method/getAllResponses(_:receiver:limit:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8DCoreKit12MessagingApiP15getAllResponses_8receiver5limit7RxSwift17PrimitiveSequenceVyAG11SingleTraitOSayAA15MessageResponseVGGAA22ChainObjectConvertible_pSg_AQSitF">getAllResponses(_:receiver:limit:)</a>
+                    <a name="/s:8DCoreKit12MessagingApiP15getAllResponses8bySender5limit7RxSwift17PrimitiveSequenceVyAG11SingleTraitOSayAA15MessageResponseVGGAA22ChainObjectConvertible_p_SitF"></a>
+                    <a name="//apple_ref/swift/Method/getAllResponses(bySender:limit:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit12MessagingApiP15getAllResponses8bySender5limit7RxSwift17PrimitiveSequenceVyAG11SingleTraitOSayAA15MessageResponseVGGAA22ChainObjectConvertible_p_SitF">getAllResponses(bySender:limit:)</a>
                     </code>
                       <span class="declaration-note">
                         Default implementation
@@ -870,7 +981,7 @@ as <code><a href="../Structs/ChainObject.html">ChainObject</a></code> or <code>S
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getAllResponses</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ChainObjectConvertible.html">ChainObjectConvertible</a></span><span class="p">?,</span> <span class="nv">receiver</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ChainObjectConvertible.html">ChainObjectConvertible</a></span><span class="p">?,</span> <span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/MessageResponse.html">MessageResponse</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getAllResponses</span><span class="p">(</span><span class="n">bySender</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ChainObjectConvertible.html">ChainObjectConvertible</a></span><span class="p">,</span> <span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/MessageResponse.html">MessageResponse</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -891,6 +1002,66 @@ as <code><a href="../Structs/ChainObject.html">ChainObject</a></code> or <code>S
                                 </div>
                               </td>
                             </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>limit</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Max items to return.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>[MessageResponse]</code>.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.3.0/Sources/DCoreKit/Api/MessagingApi.swift#L59">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit12MessagingApiP15getAllResponses10byReceiver5limit7RxSwift17PrimitiveSequenceVyAG11SingleTraitOSayAA15MessageResponseVGGAA22ChainObjectConvertible_p_SitF"></a>
+                    <a name="//apple_ref/swift/Method/getAllResponses(byReceiver:limit:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit12MessagingApiP15getAllResponses10byReceiver5limit7RxSwift17PrimitiveSequenceVyAG11SingleTraitOSayAA15MessageResponseVGGAA22ChainObjectConvertible_p_SitF">getAllResponses(byReceiver:limit:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get all messages responses.</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getAllResponses</span><span class="p">(</span><span class="n">byReceiver</span> <span class="nv">receiver</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ChainObjectConvertible.html">ChainObjectConvertible</a></span><span class="p">,</span> <span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/MessageResponse.html">MessageResponse</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
                             <tr>
                               <td>
                                 <code>
@@ -924,7 +1095,7 @@ as <code><a href="../Structs/ChainObject.html">ChainObject</a></code> or <code>S
                         <p><code>[MessageResponse]</code>.</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Api/MessagingApi.swift#L54">Show on GitHub</a>
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.3.0/Sources/DCoreKit/Api/MessagingApi.swift#L70">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1009,7 +1180,7 @@ as <code><a href="../Structs/ChainObject.html">ChainObject</a></code> or <code>S
                         <p><code><a href="../Structs/SendMessageOperation.html">SendMessageOperation</a></code>.</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Api/MessagingApi.swift#L68">Show on GitHub</a>
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.3.0/Sources/DCoreKit/Api/MessagingApi.swift#L82">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1083,7 +1254,7 @@ and message.</p>
                         <p><code><a href="../Structs/SendMessageOperation.html">SendMessageOperation</a></code>.</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Api/MessagingApi.swift#L80">Show on GitHub</a>
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.3.0/Sources/DCoreKit/Api/MessagingApi.swift#L94">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1168,7 +1339,7 @@ as <code><a href="../Structs/ChainObject.html">ChainObject</a></code> or <code>S
                         <p><code><a href="../Structs/SendMessageOperation.html">SendMessageOperation</a></code>.</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Api/MessagingApi.swift#L92">Show on GitHub</a>
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.3.0/Sources/DCoreKit/Api/MessagingApi.swift#L106">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1253,7 +1424,7 @@ as <code><a href="../Structs/ChainObject.html">ChainObject</a></code> or <code>S
                         <p><code><a href="../Structs/SendMessageOperation.html">SendMessageOperation</a></code>.</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Api/MessagingApi.swift#L104">Show on GitHub</a>
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.3.0/Sources/DCoreKit/Api/MessagingApi.swift#L118">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1327,7 +1498,7 @@ and message.</p>
                         <p><code><a href="../Structs/SendMessageOperation.html">SendMessageOperation</a></code>.</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Api/MessagingApi.swift#L116">Show on GitHub</a>
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.3.0/Sources/DCoreKit/Api/MessagingApi.swift#L130">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1412,7 +1583,7 @@ as <code><a href="../Structs/ChainObject.html">ChainObject</a></code> or <code>S
                         <p><code><a href="../Structs/SendMessageOperation.html">SendMessageOperation</a></code>.</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.0.1/Sources/DCoreKit/Api/MessagingApi.swift#L128">Show on GitHub</a>
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/3.3.0/Sources/DCoreKit/Api/MessagingApi.swift#L142">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1423,7 +1594,7 @@ as <code><a href="../Structs/ChainObject.html">ChainObject</a></code> or <code>S
         </section>
         <section id="footer">
           <p>Copyright © 2018-2019 DECENT. All Rights Reserved</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
