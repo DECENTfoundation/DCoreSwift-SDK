@@ -3,6 +3,29 @@ import RxSwift
 
 public protocol NftApi: BaseApi {
     /**
+     Get NFT by id.
+     
+     - Parameter id: NFT object id,
+     as `ChainObject` or `String` format.
+     
+     - Throws: `DCoreException.Network.notFound`
+     if NFT does not exist.
+     
+     - Returns: `Nft`.
+     */
+    func get(byId id: ChainObjectConvertible) -> Single<Nft>
+
+    /**
+     Get NFTs by id
+
+     - Parameter ids: NFT object ids,
+     as `ChainObject` or `String` format.
+
+     - Returns: Array of `Nft` objects
+     */
+    func getAll(byIds ids: [ChainObjectConvertible]) -> Single<[Nft]>
+
+    /**
      Create NFT.
      
      - Parameter credentials: account credentials issuing the NFT.
@@ -31,6 +54,18 @@ public protocol NftApi: BaseApi {
 }
 
 extension NftApi {
+    public func get(byId id: ChainObjectConvertible) -> Single<Nft> {
+        return getAll(byIds: [id]).map {
+            try $0.first.orThrow(DCoreException.network(.notFound))
+        }
+    }
+
+    public func getAll(byIds ids: [ChainObjectConvertible]) -> Single<[Nft]> {
+        return Single.deferred {
+            GetNfts(try ids.map { try $0.asChainObject() }).base.toResponse(self.api.core)
+        }
+    }
+
     public func create<T: NftModel>(
         credentials: Credentials,
         symbol: String,
