@@ -19,10 +19,9 @@ public struct NftOptions: Codable {
 
 extension NftOptions: DataConvertible {
     public func asData() -> Data {
-        // TODO: Test and fix this method if necessary
         var data = Data()
         data += issuer.asData()
-        data += maxSupply
+        data += maxSupply.littleEndian
         data += fixedMaxSupply.asData()
         data += description.asData()
         

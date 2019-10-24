@@ -5,6 +5,7 @@ public enum AnyValue: Codable, Equatable {
     case
     string(String),
     int(Int),
+    uint64(UInt64),
     double(Double),
     bool(Bool),
     object([String:AnyValue]),
@@ -17,6 +18,8 @@ public enum AnyValue: Codable, Equatable {
             self = .string(value)
         } else if let value = try? container.decode(Int.self) {
             self = .int(value)
+        } else if let value = try? container.decode(UInt64.self) {
+            self = .uint64(value)
         } else if let value = try? container.decode(Double.self) {
             self = .double(value)
         } else if let value = try? container.decode(Bool.self) {
@@ -39,6 +42,7 @@ public enum AnyValue: Codable, Equatable {
         switch self {
         case .string(let value): try container.encode(value)
         case .int(let value): try container.encode(value)
+        case .uint64(let value): try container.encode(value)
         case .double(let value): try container.encode(value)
         case .bool(let value): try container.encode(value)
         case .object(let value): try container.encode(value)
@@ -53,6 +57,7 @@ extension AnyValue: CustomStringConvertible {
         switch self {
         case .string(let value): return value
         case .int(let value): return "\(value)"
+        case .uint64(let value): return "\(value)"
         case .double(let value): return "\(value)"
         case .bool(let value): return "\(value)"
         case .object(let value): return "\(value)"
