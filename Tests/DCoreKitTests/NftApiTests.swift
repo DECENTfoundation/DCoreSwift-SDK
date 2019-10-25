@@ -66,9 +66,23 @@ class NftApiTests: XCTestCase {
         XCTAssertEqual(PUPPY, nfts?[1].symbol)
     }
 
+    func testGetNftByReferenceChainId() {
+        let nft = try? wss.nft.get(byReference: "1.10.0").debug().toBlocking().single()
+        XCTAssertNotNil(nft)
+        XCTAssertEqual(KITTEN, nft?.symbol)
+    }
+
+    func testGetNftByReferenceSymbol() {
+        let nft = try? wss.nft.get(byReference: KITTEN).debug().toBlocking().single()
+        XCTAssertNotNil(nft)
+        XCTAssertEqual(KITTEN, nft?.symbol)
+    }
+
     static var allTests = [
         ("testGetNftById", testGetNftById),
         ("testGetNftByIdNonexisting", testGetNftByIdNonexisting),
         ("testGetAllNft", testGetAllNft),
+        ("testGetNftByReferenceChainId", testGetNftByReferenceChainId),
+        ("testGetNftByReferenceSymbol", testGetNftByReferenceSymbol),
         ]
 }

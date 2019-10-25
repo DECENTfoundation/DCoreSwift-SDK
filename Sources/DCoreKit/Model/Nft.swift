@@ -29,3 +29,7 @@ public struct Nft: Codable {
         currentSupply = "current_supply"
     }
 }
+
+extension Nft {
+    public typealias Reference = String
+}

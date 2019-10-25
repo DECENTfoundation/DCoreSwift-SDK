@@ -16,7 +16,7 @@ public protocol NftApi: BaseApi {
     func get(byId id: ChainObjectConvertible) -> Single<Nft>
 
     /**
-     Get NFTs by id
+     Get NFTs by id.
 
      - Parameter ids: NFT object ids,
      as `ChainObject` or `String` format.
@@ -24,6 +24,42 @@ public protocol NftApi: BaseApi {
      - Returns: Array of `Nft` objects
      */
     func getAll(byIds ids: [ChainObjectConvertible]) -> Single<[Nft]>
+
+    /**
+     Get NFT by reference.
+     
+     - Parameter reference: NFT object id or symbol,
+     as `String` format.
+     
+     - Throws: `DCoreException.Network.notFound`
+     if NFT does not exist.
+     
+     - Returns: `Nft`.
+     */
+    func get(byReference reference: Nft.Reference) -> Single<Nft>
+
+    /**
+     Get NFT by symbol.
+     
+     - Parameter symbol: NFT symbol,
+     as `String` format.
+     
+     - Throws: `DCoreException.Network.notFound`
+     if NFT does not exist.
+     
+     - Returns: `Nft`.
+     */
+    func get(bySymbol symbol: String) -> Single<Nft>
+
+    /**
+     Get NFTs by references.
+
+     - Parameter symbols: NFT symbols,
+     as `String` format.
+
+     - Returns: Array of `Nft` objects
+     */
+    func getAll(bySymbols symbols: [String]) -> Single<[Nft]>
 
     /**
      Create NFT.
@@ -63,6 +99,26 @@ extension NftApi {
     public func getAll(byIds ids: [ChainObjectConvertible]) -> Single<[Nft]> {
         return Single.deferred {
             GetNfts(try ids.map { try $0.asChainObject() }).base.toResponse(self.api.core)
+        }
+    }
+
+    public func get(byReference reference: Nft.Reference) -> Single<Nft> {
+        if let id = reference.dcore.chainObject {
+            return get(byId: id)
+        } else {
+            return get(bySymbol: reference)
+        }
+    }
+
+    public func get(bySymbol symbol: String) -> Single<Nft> {
+        return getAll(bySymbols: [symbol]).map {
+            try $0.first.orThrow(DCoreException.network(.notFound))
+        }
+    }
+
+    public func getAll(bySymbols symbols: [String]) -> Single<[Nft]> {
+        return Single.deferred {
+            GetNftsBySymbol(symbols).base.toResponse(self.api.core)
         }
     }
 
