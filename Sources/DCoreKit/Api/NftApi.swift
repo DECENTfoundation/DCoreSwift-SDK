@@ -62,6 +62,29 @@ public protocol NftApi: BaseApi {
     func getAll(bySymbols symbols: [String]) -> Single<[Nft]>
 
     /**
+     Get NFT data instance with raw model.
+     
+     - Parameter id: NFT data object id,
+     as `ChainObject` or `String` format.
+     
+     - Throws: `DCoreException.Network.notFound`
+     if NFT does not exist.
+     
+     - Returns: `NftData<RawNft>` object.
+     */
+    func getDataRaw(byId id: ChainObjectConvertible) -> Single<NftData<RawNft>>
+
+    /**
+     Get NFT data instances with raw model.
+     
+     - Parameter ids: NFT data object ids,
+     as `ChainObject` or `String` format.
+     
+     - Returns: Array of `NftData<RawNft>` object.
+     */
+    func getAllDataRaw(byIds ids: [ChainObjectConvertible]) -> Single<[NftData<RawNft>]>
+
+    /**
      Create NFT.
      
      - Parameter credentials: account credentials issuing the NFT.
@@ -113,6 +136,18 @@ public protocol NftApi: BaseApi {
 }
 
 extension NftApi {
+    public func getDataRaw(byId id: ChainObjectConvertible) -> Single<NftData<RawNft>> {
+        return getAllDataRaw(byIds: [id]).map {
+            try $0.first.orThrow(DCoreException.network(.notFound))
+        }
+    }
+
+    public func getAllDataRaw(byIds ids: [ChainObjectConvertible]) -> Single<[NftData<RawNft>]> {
+        return Single.deferred {
+            GetNftData(try ids.map { try $0.asChainObject() }).base.toResponse(self.api.core)
+        }
+    }
+
     public func get(byId id: ChainObjectConvertible) -> Single<Nft> {
         return getAll(byIds: [id]).map {
             try $0.first.orThrow(DCoreException.network(.notFound))

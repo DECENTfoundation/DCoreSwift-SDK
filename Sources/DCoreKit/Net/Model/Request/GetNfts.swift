@@ -1,6 +1,3 @@
-import Foundation
-import BigInt
-
 struct GetNfts: BaseRequestConvertible {
     
     typealias Output = [Nft]

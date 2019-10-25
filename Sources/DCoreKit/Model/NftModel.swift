@@ -5,6 +5,7 @@ import Foundation
  Its properties can be converted to array of `NftDataType`, for `NftCreateOperation`.
  Properties of model conforming to `NftModel` can use `NftProperty` property wrapper to specify further parameters of a given property.
  Data types conforming to `NftModel` must be `public`.
+ Order of properties is crucial because it is relied upon when parsing model from `RawNft`.
  */
 public protocol NftModel: Codable {
     init()
@@ -56,5 +57,21 @@ private extension NftProperty {
         return NftDataType(
             type: getTypeLiteral(value: wrappedValue), unique: unique, modifiable: modifiableBy, name: name
         )
+    }
+}
+
+/**
+ RawNft data model that only contains values of properties.
+ This model should be converted to a specific `NftModel` that contains specification for each property
+ */
+public struct RawNft: NftModel {
+    public let values: [AnyValue]
+
+    public init() {
+        values = []
+    }
+
+    public init(from decoder: Decoder) throws {
+        self.values = try decoder.singleValueContainer().decode([AnyValue].self)
     }
 }

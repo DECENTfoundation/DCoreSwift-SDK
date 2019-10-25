@@ -88,6 +88,17 @@ class NftApiTests: XCTestCase {
         XCTAssertNotNil(issue)
     }
 
+    func testGetNftDataRawById() {
+        _ = try? wss.nft.issue(
+            credentials: creds!,
+            reference: KITTEN,
+            to: creds!.accountId,
+            data: Kitten(male: true, name: "Mr. Cat", weight: 5, owner: "Another Owner")).debug().toBlocking().single()
+
+        let nftData = try? wss.nft.getDataRaw(byId: "1.11.0").debug().toBlocking().single()
+        XCTAssertNotNil(nftData)
+    }
+
     static var allTests = [
         ("testGetNftById", testGetNftById),
         ("testGetNftByIdNonexisting", testGetNftByIdNonexisting),
