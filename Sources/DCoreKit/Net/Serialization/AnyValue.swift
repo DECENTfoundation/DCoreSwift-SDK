@@ -66,3 +66,45 @@ extension AnyValue: CustomStringConvertible {
         }
     }
 }
+
+extension AnyValue: DataConvertible {
+    private enum AnyValueTypeId: UInt8 {
+        case
+        null,
+        int64,
+        uint64,
+        double,
+        bool,
+        string,
+        array,
+        object,
+        blob
+    }
+
+    public func asData() -> Data {
+        var data = Data()
+        switch self {
+        case .string(let value):
+            data += AnyValueTypeId.string.rawValue
+            data += value.asData()
+        case .int(let value):
+            data += value < 0 ? AnyValueTypeId.int64.rawValue : AnyValueTypeId.uint64.rawValue
+            data += value.littleEndian
+        case .uint64(let value):
+            data += AnyValueTypeId.uint64.rawValue
+            data += value.littleEndian
+        case .double: preconditionFailure("Unsupported type double")
+        case .bool(let value):
+            data += AnyValueTypeId.bool.rawValue
+            data += value.asData()
+        case .object: preconditionFailure("Unsupported type object")
+        case .array: preconditionFailure("Unsupported type array")
+        case .null: preconditionFailure("Unsupported type null")
+        }
+        
+        DCore.Logger.debug(crypto: "AnyValue binary: %{private}s", args: {
+            "\(data.toHex()) (\(data)) \(data.bytes)"
+        })
+        return data
+    }
+}

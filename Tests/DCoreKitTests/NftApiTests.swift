@@ -78,11 +78,22 @@ class NftApiTests: XCTestCase {
         XCTAssertEqual(KITTEN, nft?.symbol)
     }
 
+    func testIssueNft() {
+        let issue = try? wss.nft.issue(
+            credentials: creds!,
+            reference: KITTEN,
+            to: creds!.accountId,
+            data: Kitten(male: true, name: "Mr. Cat", weight: 5, owner: "Owner"),
+            memo: Memo("memo")).debug().toBlocking().single()
+        XCTAssertNotNil(issue)
+    }
+
     static var allTests = [
         ("testGetNftById", testGetNftById),
         ("testGetNftByIdNonexisting", testGetNftByIdNonexisting),
         ("testGetAllNft", testGetAllNft),
         ("testGetNftByReferenceChainId", testGetNftByReferenceChainId),
         ("testGetNftByReferenceSymbol", testGetNftByReferenceSymbol),
+        ("testIssueNft", testIssueNft),
         ]
 }

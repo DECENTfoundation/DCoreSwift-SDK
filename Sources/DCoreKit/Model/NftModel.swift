@@ -3,13 +3,27 @@ import Foundation
 /**
  NFT specification must conform to this protocol.
  Its properties can be converted to array of `NftDataType`, for `NftCreateOperation`.
- Properties of model conforming to `NftModel` can use `NftProperty` property wrapper to specify further parameters of a given property
+ Properties of model conforming to `NftModel` can use `NftProperty` property wrapper to specify further parameters of a given property.
+ Data types conforming to `NftModel` must be `public`.
  */
 public protocol NftModel: Codable {
     init()
 }
 
+private func convertToAnyEncodable(any: Any) -> AnyEncodable? {
+    guard let encodable = (any as? Encodable) else { return nil }
+    return AnyEncodable(encodable)
+}
+
 extension NftModel {
+    func values() throws -> [AnyValue] {
+        return try Mirror(reflecting: self).children
+            .map { $0.value }
+            .compactMap(convertToAnyEncodable)
+            .map { try JSONEncoder.codingContext().encode($0) }
+            .map { try JSONDecoder.codingContext().decode(AnyValue.self, from: $0) }
+    }
+
     func createDefinitions() -> [NftDataType] {
         return Mirror(reflecting: self).children.map { child in
             switch child.value {

@@ -87,6 +87,29 @@ public protocol NftApi: BaseApi {
         nftModel: T.Type,
         transferable: Bool,
         fee: AssetAmount) -> Single<TransactionConfirmation>
+
+    /**
+     Issue NFT. Creates a NFT data instance.
+     
+     - Parameter credentials: account credentials issuing the NFT.
+     - Parameter reference: NFT object id or symbol.
+     - Parameter to: account object id receiving the NFT data instance
+     as `ChainObject` or `String` format.
+     - Parameter data: data model with values.
+     - Parameter memo: optional message.
+     - Parameter fee: `AssetAmount` fee for the operation,
+     if left `AssetAmount.unset` the fee will be computed in DCT asset,
+     default `AssetAmount.unset`.
+     
+     - Returns: `TransactionConfirmation` that NFT was issued.
+     */
+    func issue<T: NftModel>(
+        credentials: Credentials,
+        reference: Nft.Reference,
+        to: ChainObjectConvertible,
+        data: T?,
+        memo: Memo?,
+        fee: AssetAmount) -> Single<TransactionConfirmation>
 }
 
 extension NftApi {
@@ -143,6 +166,27 @@ extension NftApi {
                     definitions: nftModel.init().createDefinitions(),
                     transferable: transferable,
                     fee: fee
+                ),
+                keypair: credentials.keyPair
+            )
+        }
+    }
+
+    public func issue<T: NftModel>(
+        credentials: Credentials,
+        reference: Nft.Reference,
+        to: ChainObjectConvertible,
+        data: T? = nil,
+        memo: Memo? = nil,
+        fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
+        return get(byReference: reference).flatMap { nft in
+            self.api.broadcast.broadcastWithCallback(
+                NftIssueOperation(
+                    issuer: credentials.accountId,
+                    nftId: nft.id,
+                    to: try to.asChainObject(),
+                    data: (try data?.values()).or([]),
+                    memo: memo
                 ),
                 keypair: credentials.keyPair
             )
