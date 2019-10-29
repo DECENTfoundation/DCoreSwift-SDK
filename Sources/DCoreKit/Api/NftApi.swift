@@ -144,15 +144,14 @@ public protocol NftApi: BaseApi {
      - Returns: `TransactionConfirmation` that NFT was created.
      */
     // swiftlint:disable:next function_parameter_count
-    func create<T: NftModel>(
-        credentials: Credentials,
-        symbol: String,
-        maxSupply: UInt32,
-        fixedMaxSupply: Bool,
-        description: String,
-        nftModel: T.Type,
-        transferable: Bool,
-        fee: AssetAmount) -> Single<TransactionConfirmation>
+    func create<T: NftModel>(credentials: Credentials,
+                             symbol: String,
+                             maxSupply: UInt32,
+                             fixedMaxSupply: Bool,
+                             description: String,
+                             nftModel: T.Type,
+                             transferable: Bool,
+                             fee: AssetAmount) -> Single<TransactionConfirmation>
 
     /**
      Issue NFT. Creates a NFT data instance.
@@ -243,15 +242,15 @@ extension NftApi {
         return listDataRaw(byNftId: nftId).map { try $0.toParsedNftData() }
     }
 
-    public func create<T: NftModel>(
-        credentials: Credentials,
-        symbol: String,
-        maxSupply: UInt32,
-        fixedMaxSupply: Bool,
-        description: String,
-        nftModel: T.Type,
-        transferable: Bool,
-        fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
+    // swiftlint:disable:next function_parameter_count
+    public func create<T: NftModel>(credentials: Credentials,
+                                    symbol: String,
+                                    maxSupply: UInt32,
+                                    fixedMaxSupply: Bool,
+                                    description: String,
+                                    nftModel: T.Type,
+                                    transferable: Bool,
+                                    fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
         return Single.deferred {
             self.api.broadcast.broadcastWithCallback(
                 NftCreateOperation(
