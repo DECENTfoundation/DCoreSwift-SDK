@@ -80,9 +80,32 @@ public protocol NftApi: BaseApi {
      - Parameter ids: NFT data object ids,
      as `ChainObject` or `String` format.
      
-     - Returns: Array of `NftData<RawNft>` object.
+     - Returns: Array of `NftData<RawNft>` objects.
      */
     func getAllDataRaw(byIds ids: [ChainObjectConvertible]) -> Single<[NftData<RawNft>]>
+
+    /**
+     Get NFT data instance with parsed model.
+     
+     - Parameter id: NFT data object id,
+     as `ChainObject` or `String` format.
+     
+     - Throws: `DCoreException.Network.notFound`
+     if NFT does not exist.
+     
+     - Returns: `NftData` object.
+     */
+    func getData<T: NftModel>(byId id: ChainObjectConvertible) -> Single<NftData<T>>
+
+    /**
+     Get NFT data instances with parsed model.
+     
+     - Parameter ids: NFT data object ids,
+     as `ChainObject` or `String` format.
+     
+     - Returns: Array of `NftData` objects.
+     */
+    func getAllData<T: NftModel>(byIds ids: [ChainObjectConvertible]) -> Single<[NftData<T>]>
 
     /**
      Create NFT.
@@ -145,6 +168,25 @@ extension NftApi {
     public func getAllDataRaw(byIds ids: [ChainObjectConvertible]) -> Single<[NftData<RawNft>]> {
         return Single.deferred {
             GetNftData(try ids.map { try $0.asChainObject() }).base.toResponse(self.api.core)
+        }
+    }
+
+    public func getData<T: NftModel>(byId id: ChainObjectConvertible) -> Single<NftData<T>> {
+        return getAllData(byIds: [id]).map {
+            try $0.first.orThrow(DCoreException.network(.notFound))
+        }
+    }
+
+    public func getAllData<T: NftModel>(byIds ids: [ChainObjectConvertible]) -> Single<[NftData<T>]> {
+        return getAllDataRaw(byIds: ids).map { allDataRaw -> [NftData<T>] in
+            try allDataRaw.map { rawData -> NftData<T> in
+                NftData(
+                    id: rawData.id,
+                    nftId: rawData.nftId,
+                    owner: rawData.owner,
+                    data: try rawData.data?.toNftModel()
+                )
+            }
         }
     }
 

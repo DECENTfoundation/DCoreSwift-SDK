@@ -36,8 +36,15 @@ class NftApiTests: XCTestCase {
                     description: "A puppy NFT",
                     nftModel: Puppy.self,
                     transferable: true).debug().toBlocking().single()
+                let issue = try? wss.nft.issue(
+                    credentials: creds!,
+                    reference: KITTEN,
+                    to: creds!.accountId,
+                    data: Kitten(male: true, name: "Mr. Cat", weight: 5, owner: "Owner"),
+                    memo: Memo("memo")).debug().toBlocking().single()
                 XCTAssertNotNil(createKitten)
                 XCTAssertNotNil(createPuppy)
+                XCTAssertNotNil(issue)
             } else {
                 XCTAssert(false, "Unexpected error: \(error.asDCoreException())")
             }
@@ -78,25 +85,14 @@ class NftApiTests: XCTestCase {
         XCTAssertEqual(KITTEN, nft?.symbol)
     }
 
-    func testIssueNft() {
-        let issue = try? wss.nft.issue(
-            credentials: creds!,
-            reference: KITTEN,
-            to: creds!.accountId,
-            data: Kitten(male: true, name: "Mr. Cat", weight: 5, owner: "Owner"),
-            memo: Memo("memo")).debug().toBlocking().single()
-        XCTAssertNotNil(issue)
-    }
-
     func testGetNftDataRawById() {
-        _ = try? wss.nft.issue(
-            credentials: creds!,
-            reference: KITTEN,
-            to: creds!.accountId,
-            data: Kitten(male: true, name: "Mr. Cat", weight: 5, owner: "Another Owner")).debug().toBlocking().single()
-
         let nftData = try? wss.nft.getDataRaw(byId: "1.11.0").debug().toBlocking().single()
         XCTAssertNotNil(nftData)
+    }
+
+    func testGetNftDataByIdWithParsedModel() {
+        let kitten: NftData<Kitten>? = try? wss.nft.getData(byId: "1.11.0").debug().toBlocking().single()
+        XCTAssertNotNil(kitten)
     }
 
     static var allTests = [
@@ -105,6 +101,7 @@ class NftApiTests: XCTestCase {
         ("testGetAllNft", testGetAllNft),
         ("testGetNftByReferenceChainId", testGetNftByReferenceChainId),
         ("testGetNftByReferenceSymbol", testGetNftByReferenceSymbol),
-        ("testIssueNft", testIssueNft),
+        ("testGetNftDataRawById", testGetNftDataRawById),
+        ("testGetNftDataByIdWithParsedModel", testGetNftDataByIdWithParsedModel),
         ]
 }

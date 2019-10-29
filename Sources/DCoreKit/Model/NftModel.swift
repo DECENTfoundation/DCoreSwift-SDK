@@ -74,4 +74,21 @@ public struct RawNft: NftModel {
     public init(from decoder: Decoder) throws {
         self.values = try decoder.singleValueContainer().decode([AnyValue].self)
     }
+
+    func toNftModel<T: NftModel>() throws -> T {
+        let mirror = Mirror(reflecting: T())
+        let pairs = mirror.children.enumerated().map {
+            ($0.element.label?.dropFirst_() ?? "", values[$0.offset])
+        }
+        let dictionary = pairs.reduce(into: [:]) { $0[$1.0] = $1.1 }
+        let anyValue = AnyValue.object(dictionary)
+        let encoded = try JSONEncoder().encode(anyValue)
+        return try JSONDecoder().decode(T.self, from: encoded)
+    }
+}
+
+private extension String {
+    func dropFirst_() -> String {
+        return first == "_" ? String(dropFirst()) : self
+    }
 }
