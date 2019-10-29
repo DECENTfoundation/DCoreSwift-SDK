@@ -128,6 +128,20 @@ public protocol NftApi: BaseApi {
     func listData<T: NftModel>(byNftId nftId: ChainObjectConvertible) -> Single<[NftData<T>]>
 
     /**
+     Count all NFTs
+
+     - Returns: count of NFT definitions
+     */
+    func countAllNft() -> Single<UInt64>
+
+    /**
+     Count all NFT data instances
+
+     - Returns: count of NFT data instances
+     */
+    func countAllNftData() -> Single<UInt64>
+
+    /**
      Create NFT.
      
      - Parameter credentials: account credentials issuing the NFT.
@@ -240,6 +254,14 @@ extension NftApi {
 
     public func listData<T: NftModel>(byNftId nftId: ChainObjectConvertible) -> Single<[NftData<T>]> {
         return listDataRaw(byNftId: nftId).map { try $0.toParsedNftData() }
+    }
+
+    public func countAllNft() -> Single<UInt64> {
+        return Single.deferred { GetNftCount().base.toResponse(self.api.core) }
+    }
+
+    public func countAllNftData() -> Single<UInt64> {
+        return Single.deferred { GetNftDataCount().base.toResponse(self.api.core) }
     }
 
     // swiftlint:disable:next function_parameter_count

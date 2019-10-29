@@ -45,6 +45,10 @@ class NftApiTests: XCTestCase {
                 XCTAssertNotNil(createKitten)
                 XCTAssertNotNil(createPuppy)
                 XCTAssertNotNil(issue)
+                let nftCount = try? wss.nft.countAllNft().debug().toBlocking().single()
+                let nftDataCount = try? wss.nft.countAllNftData().debug().toBlocking().single()
+                XCTAssertEqual(2, nftCount)
+                XCTAssertEqual(1, nftDataCount)
             } else {
                 XCTAssert(false, "Unexpected error: \(error.asDCoreException())")
             }
