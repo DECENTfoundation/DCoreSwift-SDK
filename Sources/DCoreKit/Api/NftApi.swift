@@ -108,6 +108,26 @@ public protocol NftApi: BaseApi {
     func getAllData<T: NftModel>(byIds ids: [ChainObjectConvertible]) -> Single<[NftData<T>]>
 
     /**
+     Get NFT data instances with raw model.
+
+     - Parameter nftId: NFT object id
+     as `ChainObject` or `String` format.
+
+     - Returns: Array of `NftData<RawNft>` objects.
+     */
+    func listDataRaw(byNftId nftId: ChainObjectConvertible) -> Single<[NftData<RawNft>]>
+
+    /**
+     Get NFT data instances with parsed model.
+
+     - Parameter nftId: NFT object id
+     as `ChainObject` or `String` format.
+
+     - Returns: Array of `NftData` objects.
+     */
+    func listData<T: NftModel>(byNftId nftId: ChainObjectConvertible) -> Single<[NftData<T>]>
+
+    /**
      Create NFT.
      
      - Parameter credentials: account credentials issuing the NFT.
@@ -159,37 +179,6 @@ public protocol NftApi: BaseApi {
 }
 
 extension NftApi {
-    public func getDataRaw(byId id: ChainObjectConvertible) -> Single<NftData<RawNft>> {
-        return getAllDataRaw(byIds: [id]).map {
-            try $0.first.orThrow(DCoreException.network(.notFound))
-        }
-    }
-
-    public func getAllDataRaw(byIds ids: [ChainObjectConvertible]) -> Single<[NftData<RawNft>]> {
-        return Single.deferred {
-            GetNftData(try ids.map { try $0.asChainObject() }).base.toResponse(self.api.core)
-        }
-    }
-
-    public func getData<T: NftModel>(byId id: ChainObjectConvertible) -> Single<NftData<T>> {
-        return getAllData(byIds: [id]).map {
-            try $0.first.orThrow(DCoreException.network(.notFound))
-        }
-    }
-
-    public func getAllData<T: NftModel>(byIds ids: [ChainObjectConvertible]) -> Single<[NftData<T>]> {
-        return getAllDataRaw(byIds: ids).map { allDataRaw -> [NftData<T>] in
-            try allDataRaw.map { rawData -> NftData<T> in
-                NftData(
-                    id: rawData.id,
-                    nftId: rawData.nftId,
-                    owner: rawData.owner,
-                    data: try rawData.data?.toNftModel()
-                )
-            }
-        }
-    }
-
     public func get(byId id: ChainObjectConvertible) -> Single<Nft> {
         return getAll(byIds: [id]).map {
             try $0.first.orThrow(DCoreException.network(.notFound))
@@ -220,6 +209,38 @@ extension NftApi {
         return Single.deferred {
             GetNftsBySymbol(symbols).base.toResponse(self.api.core)
         }
+    }
+
+    public func getDataRaw(byId id: ChainObjectConvertible) -> Single<NftData<RawNft>> {
+        return getAllDataRaw(byIds: [id]).map {
+            try $0.first.orThrow(DCoreException.network(.notFound))
+        }
+    }
+
+    public func getAllDataRaw(byIds ids: [ChainObjectConvertible]) -> Single<[NftData<RawNft>]> {
+        return Single.deferred {
+            GetNftData(try ids.map { try $0.asChainObject() }).base.toResponse(self.api.core)
+        }
+    }
+
+    public func getData<T: NftModel>(byId id: ChainObjectConvertible) -> Single<NftData<T>> {
+        return getAllData(byIds: [id]).map {
+            try $0.first.orThrow(DCoreException.network(.notFound))
+        }
+    }
+
+    public func getAllData<T: NftModel>(byIds ids: [ChainObjectConvertible]) -> Single<[NftData<T>]> {
+        return getAllDataRaw(byIds: ids).map { try $0.toParsedNftData() }
+    }
+
+    public func listDataRaw(byNftId nftId: ChainObjectConvertible) -> Single<[NftData<RawNft>]> {
+        return Single.deferred {
+            ListNftData(try nftId.asChainObject()).base.toResponse(self.api.core)
+        }
+    }
+
+    public func listData<T: NftModel>(byNftId nftId: ChainObjectConvertible) -> Single<[NftData<T>]> {
+        return listDataRaw(byNftId: nftId).map { try $0.toParsedNftData() }
     }
 
     public func create<T: NftModel>(
@@ -272,3 +293,16 @@ extension NftApi {
 }
 
 extension ApiProvider: NftApi {}
+
+private extension Array where Element == NftData<RawNft> {
+    func toParsedNftData<T: NftModel>() throws -> [NftData<T>] {
+        try map { rawData -> NftData<T> in
+            NftData(
+                id: rawData.id,
+                nftId: rawData.nftId,
+                owner: rawData.owner,
+                data: try rawData.data?.toNftModel()
+            )
+        }
+    }
+}

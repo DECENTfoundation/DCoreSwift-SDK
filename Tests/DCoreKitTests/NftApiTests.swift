@@ -95,6 +95,21 @@ class NftApiTests: XCTestCase {
         XCTAssertNotNil(kitten)
     }
 
+    func testListNftData() {
+        _ = try? wss.nft.issue(
+            credentials: creds!, reference: PUPPY, to: creds!.accountId, data: Puppy(
+                male: true, name: "Puppy", weight: 5, owner: "Owner"
+        )).debug().toBlocking().single()
+        _ = try? wss.nft.issue(
+            credentials: creds!, reference: PUPPY, to: creds!.accountId, data: Puppy(
+                male: true, name: "Puppy 2", weight: 5, owner: "Owner 2"
+        )).debug().toBlocking().single()
+
+        let puppies: [NftData<Puppy>]? = try? wss.nft.listData(byNftId: "1.10.1").debug().toBlocking().single()
+        XCTAssertEqual("Puppy", puppies?[0].data?.name)
+        XCTAssertEqual("Puppy 2", puppies?[1].data?.name)
+    }
+
     static var allTests = [
         ("testGetNftById", testGetNftById),
         ("testGetNftByIdNonexisting", testGetNftByIdNonexisting),
@@ -103,5 +118,6 @@ class NftApiTests: XCTestCase {
         ("testGetNftByReferenceSymbol", testGetNftByReferenceSymbol),
         ("testGetNftDataRawById", testGetNftDataRawById),
         ("testGetNftDataByIdWithParsedModel", testGetNftDataByIdWithParsedModel),
+        ("testListNftData", testListNftData),
         ]
 }
