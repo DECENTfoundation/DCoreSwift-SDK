@@ -125,6 +125,21 @@ class NftApiTests: XCTestCase {
         XCTAssertTrue((operations?.count ?? 0) > 0)
     }
 
+    func testUpdateNft() {
+        let newMaxSupply: UInt32 = 20
+        let update = try? wss.nft.update(
+            credentials: creds!,
+            reference: KITTEN,
+            maxSupply: newMaxSupply,
+            fixedMaxSupply: false,
+            description: "A Kitten NFT"
+        ).debug().toBlocking().single()
+        XCTAssertNotNil(update)
+
+        let kittenNft = try? wss.nft.get(byId: "1.10.0").debug().toBlocking().single()
+        XCTAssertEqual(kittenNft?.options.maxSupply, newMaxSupply)
+    }
+
     static var allTests = [
         ("testGetNftById", testGetNftById),
         ("testGetNftByIdNonexisting", testGetNftByIdNonexisting),
@@ -136,5 +151,6 @@ class NftApiTests: XCTestCase {
         ("testListNftData", testListNftData),
         ("testListNftRelative", testListNftRelative),
         ("testSearchNftHistory", testSearchNftHistory),
+        ("testUpdateNft", testUpdateNft),
         ]
 }

@@ -188,6 +188,27 @@ public protocol NftApi: BaseApi {
                              fee: AssetAmount) -> Single<TransactionConfirmation>
 
     /**
+     Update NFT
+
+     - Parameter credentials: issuer account credentials.
+     - Parameter reference: NFT object id or symbol.
+     - Parameter maxSupply: update NFT max suppy.
+     - Parameter fixedMaxSupply: update NFT max supply is fixed.
+     - Parameter description: update text description.
+     - Parameter fee: `AssetAmount` fee for the operation,
+     if left `AssetAmount.unset` the fee will be computed in DCT asset,
+     default `AssetAmount.unset`.
+     
+     - Returns: `TransactionConfirmation` that NFT was created.
+     */
+    func update(credentials: Credentials,
+                reference: Nft.Reference,
+                maxSupply: UInt32?,
+                fixedMaxSupply: Bool?,
+                description: String?,
+                fee: AssetAmount) -> Single<TransactionConfirmation>
+
+    /**
      Issue NFT. Creates a NFT data instance.
      
      - Parameter credentials: account credentials issuing the NFT.
@@ -321,6 +342,26 @@ extension NftApi {
         }
     }
 
+    public func update(credentials: Credentials,
+                       reference: Nft.Reference,
+                       maxSupply: UInt32? = nil,
+                       fixedMaxSupply: Bool? = nil,
+                       description: String? = nil,
+                       fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
+        return get(byReference: reference).flatMap { nft in
+            self.api.broadcast.broadcastWithCallback(
+                NftUpdateOperation(
+                    issuer: credentials.accountId,
+                    nftId: nft.id,
+                    options: nft.options.updated(
+                        byMaxSupply: maxSupply, fixedMaxSupply: fixedMaxSupply, description: description),
+                    fee: fee
+                ),
+                keypair: credentials.keyPair
+            )
+        }
+    }
+
     public func issue<T: NftModel>(
         credentials: Credentials,
         reference: Nft.Reference,
@@ -335,7 +376,8 @@ extension NftApi {
                     nftId: nft.id,
                     to: try to.asChainObject(),
                     data: (try data?.values()).or([]),
-                    memo: memo
+                    memo: memo,
+                    fee: fee
                 ),
                 keypair: credentials.keyPair
             )

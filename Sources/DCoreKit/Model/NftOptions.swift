@@ -1,6 +1,6 @@
 import Foundation
 
-public struct NftOptions: Codable {
+public struct NftOptions: Equatable, Codable {
     public var issuer: ChainObject {
         willSet { precondition(issuer.objectType == .accountObject, "not a valid account object id") }
     }
@@ -14,6 +14,21 @@ public struct NftOptions: Codable {
         maxSupply = "max_supply",
         fixedMaxSupply = "fixed_max_supply",
         description
+    }
+
+    func updated(
+        byMaxSupply maxSupply: UInt32? = nil, fixedMaxSupply: Bool? = nil, description: String? = nil) -> NftOptions {
+        let newOptions = NftOptions(
+            issuer: issuer,
+            maxSupply: maxSupply ?? self.maxSupply,
+            fixedMaxSupply: fixedMaxSupply ?? self.fixedMaxSupply,
+            description: description ?? self.description
+        )
+        precondition((maxSupply ?? 0) >= self.maxSupply, "Max supply must be at least \(self.maxSupply)")
+        precondition(fixedMaxSupply == self.fixedMaxSupply || !self.fixedMaxSupply, "Max supply must remain fixed")
+        precondition(maxSupply == self.maxSupply || !self.fixedMaxSupply, "Can not change max supply (it's fixed)")
+        precondition(self != newOptions, "no new values to update")
+        return newOptions
     }
 }
 

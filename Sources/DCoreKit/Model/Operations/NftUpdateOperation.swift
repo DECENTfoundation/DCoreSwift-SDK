@@ -39,7 +39,6 @@ extension NftUpdateOperation {
 
 extension NftUpdateOperation {
     public func asData() -> Data {
-        // TODO: Test and fix this method if necessary
         var data = Data()
         data += type.asData()
         data += fee.asData()
