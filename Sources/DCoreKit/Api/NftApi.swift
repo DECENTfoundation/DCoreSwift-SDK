@@ -57,9 +57,19 @@ public protocol NftApi: BaseApi {
      - Parameter symbols: NFT symbols,
      as `String` format.
 
-     - Returns: Array of `Nft` objects
+     - Returns: Array of `Nft` objects.
      */
     func getAll(bySymbols symbols: [String]) -> Single<[Nft]>
+
+    /**
+     Get NFTs alphabetically by symbol name
+
+     - Parameter bound: lower bound of symbol names to retrieve
+     - Parameter limit: maximum number of NFTs to fetch (must not exceed 100)
+
+     - Returns: Array of found `Nft` objects.
+     */
+    func listAllRelative(byLower bound: String, limit: Int) -> Single<[Nft]>
 
     /**
      Get NFT data instance with raw model.
@@ -221,6 +231,12 @@ extension NftApi {
     public func getAll(bySymbols symbols: [String]) -> Single<[Nft]> {
         return Single.deferred {
             GetNftsBySymbol(symbols).base.toResponse(self.api.core)
+        }
+    }
+
+    public func listAllRelative(byLower bound: String, limit: Int = DCore.Limits.nft) -> Single<[Nft]> {
+        return Single.deferred {
+            ListNfts(bound, limit: limit).base.toResponse(self.api.core)
         }
     }
 

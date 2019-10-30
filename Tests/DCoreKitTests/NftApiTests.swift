@@ -114,6 +114,12 @@ class NftApiTests: XCTestCase {
         XCTAssertEqual("Puppy 2", puppies?[1].data?.name)
     }
 
+    func testListNftRelative() {
+        let nfts = try? wss.nft.listAllRelative(byLower: "K").debug().toBlocking().single()
+        XCTAssertEqual(KITTEN, nfts?[0].symbol)
+        XCTAssertEqual(PUPPY, nfts?[1].symbol)
+    }
+
     static var allTests = [
         ("testGetNftById", testGetNftById),
         ("testGetNftByIdNonexisting", testGetNftByIdNonexisting),
@@ -123,5 +129,6 @@ class NftApiTests: XCTestCase {
         ("testGetNftDataRawById", testGetNftDataRawById),
         ("testGetNftDataByIdWithParsedModel", testGetNftDataByIdWithParsedModel),
         ("testListNftData", testListNftData),
+        ("testListNftRelative", testListNftRelative),
         ]
 }
