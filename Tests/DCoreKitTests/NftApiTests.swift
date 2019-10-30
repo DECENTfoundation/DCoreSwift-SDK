@@ -120,6 +120,11 @@ class NftApiTests: XCTestCase {
         XCTAssertEqual(PUPPY, nfts?[1].symbol)
     }
 
+    func testSearchNftHistory() {
+        let operations = try? wss.nft.searchNftHistory(byNftDataId: "1.11.0").debug().toBlocking().single()
+        XCTAssertTrue((operations?.count ?? 0) > 0)
+    }
+
     static var allTests = [
         ("testGetNftById", testGetNftById),
         ("testGetNftByIdNonexisting", testGetNftByIdNonexisting),
@@ -130,5 +135,6 @@ class NftApiTests: XCTestCase {
         ("testGetNftDataByIdWithParsedModel", testGetNftDataByIdWithParsedModel),
         ("testListNftData", testListNftData),
         ("testListNftRelative", testListNftRelative),
+        ("testSearchNftHistory", testSearchNftHistory),
         ]
 }

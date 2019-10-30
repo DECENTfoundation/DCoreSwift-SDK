@@ -138,6 +138,16 @@ public protocol NftApi: BaseApi {
     func listData<T: NftModel>(byNftId nftId: ChainObjectConvertible) -> Single<[NftData<T>]>
 
     /**
+     Search NFT history, lists transfer and issue operations for NFT data instance object id.
+
+     - Parameter nftDataId: NFT data object id,
+     as `ChainObject` or `String` format.
+
+     - Returns: Array of `TransactionDetail` objects representing transfer and issue operations.
+     */
+    func searchNftHistory(byNftDataId nftDataId: ChainObjectConvertible) -> Single<[TransactionDetail]>
+
+    /**
      Count all NFTs
 
      - Returns: count of NFT definitions
@@ -270,6 +280,10 @@ extension NftApi {
 
     public func listData<T: NftModel>(byNftId nftId: ChainObjectConvertible) -> Single<[NftData<T>]> {
         return listDataRaw(byNftId: nftId).map { try $0.toParsedNftData() }
+    }
+
+    public func searchNftHistory(byNftDataId nftDataId: ChainObjectConvertible) -> Single<[TransactionDetail]> {
+        return Single.deferred { SearchNftHistory(try nftDataId.asChainObject()).base.toResponse(self.api.core) }
     }
 
     public func countAllNft() -> Single<UInt64> {
