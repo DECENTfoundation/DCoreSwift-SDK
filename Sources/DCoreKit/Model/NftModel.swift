@@ -105,7 +105,13 @@ public struct RawNft: NftModel {
         self.values = try decoder.singleValueContainer().decode([AnyValue].self)
     }
 
-    func toNftModel<T: NftModel>() throws -> T {
+    /**
+     Binds values from RawNft to properties of NftModel specified by generic parameter.
+     Binding is based on order of parameters specified in the source code of the model.
+
+     Returns: Instance of specified type conforming to `NftModel`
+     */
+    public func toNftModel<T: NftModel>() throws -> T {
         let mirror = Mirror(reflecting: T())
         let pairs = mirror.children.enumerated().map {
             ($0.element.label?.dropFirst_() ?? "", values[$0.offset])
