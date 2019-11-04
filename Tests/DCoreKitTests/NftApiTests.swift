@@ -140,6 +140,19 @@ class NftApiTests: XCTestCase {
         XCTAssertEqual(kittenNft?.options.maxSupply, newMaxSupply)
     }
 
+    func testUpdateDataNft() {
+        let newName = "Kittie"
+        let newOwner = "Kitten owner"
+        let update = try? wss.nft.updateData(
+            credentials: creds!, id: "1.11.0", newData: Kitten(male: true, name: newName, weight: 5, owner: newOwner)
+        ).debug().toBlocking().single()
+        XCTAssertNotNil(update)
+
+        let kitten: NftData<Kitten>? = try? wss.nft.getData(byId: "1.11.0").debug().toBlocking().single()
+        XCTAssertEqual(kitten?.data?.name, newName)
+        XCTAssertEqual(kitten?.data?.owner, newOwner)
+    }
+
     static var allTests = [
         ("testGetNftById", testGetNftById),
         ("testGetNftByIdNonexisting", testGetNftByIdNonexisting),
@@ -152,5 +165,6 @@ class NftApiTests: XCTestCase {
         ("testListNftRelative", testListNftRelative),
         ("testSearchNftHistory", testSearchNftHistory),
         ("testUpdateNft", testUpdateNft),
+        ("testUpdateDataNft", testUpdateDataNft),
         ]
 }

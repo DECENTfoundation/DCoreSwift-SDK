@@ -11,18 +11,45 @@ public protocol NftModel: Codable {
     init()
 }
 
-private func convertToAnyEncodable(any: Any) -> AnyEncodable? {
+private func convertToAnyEncodable(_ any: Any) -> AnyEncodable? {
     guard let encodable = (any as? Encodable) else { return nil }
     return AnyEncodable(encodable)
+}
+
+private func convertToAnyValue(_ any: Any) throws -> AnyValue? {
+    guard let encodable = convertToAnyEncodable(any) else { return nil }
+    let encoded = try JSONEncoder.codingContext().encode(encodable)
+    return try JSONDecoder.codingContext().decode(AnyValue.self, from: encoded)
+}
+
+private func isPropertyModifiable(_ any: Any) -> Bool {
+    switch any {
+    case let property as NftProperty<String>: return property.modifiableBy != .nobody
+    case let property as NftProperty<Int>: return property.modifiableBy != .nobody
+    case let property as NftProperty<UInt8>: return property.modifiableBy != .nobody
+    case let property as NftProperty<UInt32>: return property.modifiableBy != .nobody
+    case let property as NftProperty<UInt64>: return property.modifiableBy != .nobody
+    case let property as NftProperty<Bool>: return property.modifiableBy != .nobody
+    default: return false
+    }
 }
 
 extension NftModel {
     func values() throws -> [AnyValue] {
         return try Mirror(reflecting: self).children
             .map { $0.value }
-            .compactMap(convertToAnyEncodable)
-            .map { try JSONEncoder.codingContext().encode($0) }
-            .map { try JSONDecoder.codingContext().decode(AnyValue.self, from: $0) }
+            .compactMap(convertToAnyValue)
+    }
+
+    func createUpdate() throws -> [Pair<String, AnyValue>] {
+        return try Mirror(reflecting: self).children
+            .filter { isPropertyModifiable($0.value) }
+            .compactMap { property -> (String, AnyValue)? in
+                guard let name = property.label, let anyValue = try convertToAnyValue(property.value)
+                else { return nil }
+                return (name.dropFirst_(), anyValue)
+            }
+        .map { Pair($0.0, $0.1) }
     }
 
     func createDefinitions() -> [NftDataType] {

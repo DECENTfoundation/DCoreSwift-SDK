@@ -209,6 +209,24 @@ public protocol NftApi: BaseApi {
                 fee: AssetAmount) -> Single<TransactionConfirmation>
 
     /**
+     Update NFT data instance
+
+     - Parameter credentials: issuer account credentials.
+     - Parameter id: NFT data object id,
+     as `ChainObject` or `String` format.
+     - Parameter newData: data model with values.
+     - Parameter fee: `AssetAmount` fee for the operation,
+     if left `AssetAmount.unset` the fee will be computed in DCT asset,
+     default `AssetAmount.unset`.
+
+     - Returns: `TransactionConfirmation` that NFT data instance was updated.
+     */
+    func updateData<T: NftModel>(credentials: Credentials,
+                                 id: ChainObjectConvertible,
+                                 newData: T,
+                                 fee: AssetAmount) -> Single<TransactionConfirmation>
+
+    /**
      Issue NFT. Creates a NFT data instance.
      
      - Parameter credentials: account credentials issuing the NFT.
@@ -355,6 +373,23 @@ extension NftApi {
                     nftId: nft.id,
                     options: nft.options.updated(
                         byMaxSupply: maxSupply, fixedMaxSupply: fixedMaxSupply, description: description),
+                    fee: fee
+                ),
+                keypair: credentials.keyPair
+            )
+        }
+    }
+
+    public func updateData<T: NftModel>(credentials: Credentials,
+                                        id: ChainObjectConvertible,
+                                        newData: T,
+                                        fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
+        return Single.deferred {
+            self.api.broadcast.broadcastWithCallback(
+                NftUpdateDataOperation(
+                    modifier: credentials.accountId,
+                    nftDataId: try id.asChainObject(),
+                    data: try newData.createUpdate(),
                     fee: fee
                 ),
                 keypair: credentials.keyPair
