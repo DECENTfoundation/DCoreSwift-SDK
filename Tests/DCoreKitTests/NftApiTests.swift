@@ -158,6 +158,10 @@ class NftApiTests: XCTestCase {
             credentials: creds!, to: "1.2.28", id: "1.11.0", memo: Memo("transfer")
         ).debug().toBlocking().single()
         XCTAssertNotNil(transfer)
+
+        let balances: [NftData<Kitten>]? = try? wss.nft.getNftBalances(account: "1.2.28", nftIds: ["1.10.0"])
+            .debug().toBlocking().single()
+        XCTAssertFalse(balances?.isEmpty ?? true)
     }
 
     static var allTests = [

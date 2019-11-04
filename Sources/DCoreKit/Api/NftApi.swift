@@ -162,6 +162,32 @@ public protocol NftApi: BaseApi {
     func countAllNftData() -> Single<UInt64>
 
     /**
+     Get NFT balances per account with raw model
+
+     - Parameter account: Account object id,
+     as `ChainObject` or `String` format.
+     - Parameter nftIds: NFT object ids to filter, or empty list to fetch all,
+     as `ChainObject` or `String` format.
+
+     - Returns: NFT data instances with raw model
+     */
+    func getNftBalancesRaw(
+        account: ChainObjectConvertible, nftIds: [ChainObjectConvertible]) -> Single<[NftData<RawNft>]>
+
+    /**
+     Get NFT balances per account with parsed model
+
+     - Parameter account: Account object id,
+     as `ChainObject` or `String` format.
+     - Parameter nftIds: NFT object ids to filter, or empty list to fetch all,
+     as `ChainObject` or `String` format.
+
+     - Returns: NFT data instances with parsed model
+     */
+    func getNftBalances<T: NftModel>(
+        account: ChainObjectConvertible, nftIds: [ChainObjectConvertible]) -> Single<[NftData<T>]>
+
+    /**
      Create NFT.
      
      - Parameter credentials: account credentials issuing the NFT.
@@ -199,7 +225,7 @@ public protocol NftApi: BaseApi {
      if left `AssetAmount.unset` the fee will be computed in DCT asset,
      default `AssetAmount.unset`.
      
-     - Returns: `TransactionConfirmation` that NFT was created.
+     - Returns: `TransactionConfirmation` that NFT was updated.
      */
     func update(credentials: Credentials,
                 reference: Nft.Reference,
@@ -353,6 +379,19 @@ extension NftApi {
 
     public func countAllNftData() -> Single<UInt64> {
         return Single.deferred { GetNftDataCount().base.toResponse(self.api.core) }
+    }
+
+    public func getNftBalancesRaw(
+        account: ChainObjectConvertible, nftIds: [ChainObjectConvertible] = []) -> Single<[NftData<RawNft>]> {
+        return Single.deferred {
+            GetNftsBalances(try account.asChainObject(), try nftIds.map { try $0.asChainObject() })
+                .base.toResponse(self.api.core)
+        }
+    }
+
+    public func getNftBalances<T: NftModel>(
+        account: ChainObjectConvertible, nftIds: [ChainObjectConvertible] = []) -> Single<[NftData<T>]> {
+        return getNftBalancesRaw(account: account, nftIds: nftIds).map { try $0.toParsedNftData() }
     }
 
     // swiftlint:disable:next function_parameter_count
