@@ -248,6 +248,28 @@ public protocol NftApi: BaseApi {
         data: T?,
         memo: Memo?,
         fee: AssetAmount) -> Single<TransactionConfirmation>
+
+    /**
+     Transfer NFT data instance.
+     
+     - Parameter credentials: NFT data instance owner credentials.
+     - Parameter to: account object id receiving the NFT data instance
+     as `ChainObject` or `String` format.
+     - Parameter id: NFT data object id,
+     as `ChainObject` or `String` format.
+     - Parameter memo: optional message.
+     - Parameter fee: `AssetAmount` fee for the operation,
+     if left `AssetAmount.unset` the fee will be computed in DCT asset,
+     default `AssetAmount.unset`.
+     
+     - Returns: `TransactionConfirmation` that NFT was transfered.
+     */
+    func transfer(
+        credentials: Credentials,
+        to: ChainObjectConvertible,
+        id: ChainObjectConvertible,
+        memo: Memo?,
+        fee: AssetAmount) -> Single<TransactionConfirmation>
 }
 
 extension NftApi {
@@ -411,6 +433,26 @@ extension NftApi {
                     nftId: nft.id,
                     to: try to.asChainObject(),
                     data: (try data?.values()).or([]),
+                    memo: memo,
+                    fee: fee
+                ),
+                keypair: credentials.keyPair
+            )
+        }
+    }
+
+    public func transfer(
+        credentials: Credentials,
+        to: ChainObjectConvertible,
+        id: ChainObjectConvertible,
+        memo: Memo? = nil,
+        fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
+        return Single.deferred {
+            self.api.broadcast.broadcastWithCallback(
+                NftTransferOperation(
+                    from: credentials.accountId,
+                    to: try to.asChainObject(),
+                    nftDataId: try id.asChainObject(),
                     memo: memo,
                     fee: fee
                 ),

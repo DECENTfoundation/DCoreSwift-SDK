@@ -153,6 +153,13 @@ class NftApiTests: XCTestCase {
         XCTAssertEqual(kitten?.data?.owner, newOwner)
     }
 
+    func testTransferNft() {
+        let transfer = try? wss.nft.transfer(
+            credentials: creds!, to: "1.2.28", id: "1.11.0", memo: Memo("transfer")
+        ).debug().toBlocking().single()
+        XCTAssertNotNil(transfer)
+    }
+
     static var allTests = [
         ("testGetNftById", testGetNftById),
         ("testGetNftByIdNonexisting", testGetNftByIdNonexisting),
@@ -166,5 +173,6 @@ class NftApiTests: XCTestCase {
         ("testSearchNftHistory", testSearchNftHistory),
         ("testUpdateNft", testUpdateNft),
         ("testUpdateDataNft", testUpdateDataNft),
+        ("testTransferNft", testTransferNft),
         ]
 }
