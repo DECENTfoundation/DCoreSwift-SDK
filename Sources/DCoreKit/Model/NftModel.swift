@@ -55,7 +55,10 @@ private func getTypeLiteral(value: Any) -> NftDataType.TypeLiteral {
 private extension NftProperty {
     func asNftDataType(name: String?) -> NftDataType {
         return NftDataType(
-            type: getTypeLiteral(value: wrappedValue), unique: unique, modifiable: modifiableBy, name: name
+            type: getTypeLiteral(value: wrappedValue),
+            unique: unique,
+            modifiable: modifiableBy,
+            name: name?.dropFirst_()
         )
     }
 }
