@@ -11,14 +11,12 @@ public struct AccountCreateOperation: Operation {
     public let active: Authority
     public let options: Options
     
-    public var registrar: ChainObject {
-        willSet { precondition(registrar.objectType == ObjectType.accountObject, "Not an account object id") }
-    }
+    public var registrar: AccountObjectId
     
     public let type: OperationType = .accountCreateOperation
     public var fee: AssetAmount  = .unset
     
-    public init(_ account: SubmitAccount, registrar: ChainObject, fee: AssetAmount = .unset) {
+    public init(_ account: SubmitAccount, registrar: AccountObjectId, fee: AssetAmount = .unset) {
         self.name = account.name
         self.owner = account.owner
         self.active = account.active

@@ -3,9 +3,7 @@ import BigInt
 
 public struct AssetReserveOperation: Operation {
     
-    public var payer: ChainObject {
-        willSet { precondition(payer.objectType == .accountObject, "not a valid account object id") }
-    }
+    public var payer: AccountObjectId
     public var amountToReserve: AssetAmount
     
     public let type: OperationType = .assetReserveOperation

@@ -4,7 +4,7 @@ public struct SignedBlock: Codable {
 
     public let previous: String
     public let timestamp: Date
-    public let miner: ChainObject
+    public let miner: MinerObjectId
     public let transactionMerkleRoot: String
     public let minerSignature: String
     public let transactions: [ProcessedTransaction]

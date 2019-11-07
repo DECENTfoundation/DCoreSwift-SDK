@@ -7,7 +7,7 @@ struct GetFullAccounts: BaseRequestConvertible {
     
     init(_ namesOrIds: [String], subscribe: Bool) {
         precondition(namesOrIds.allSatisfy {
-            Account.hasValid(name: $0) || ((try? $0.asChainObject().objectType) == .accountObject)
+            Account.hasValid(name: $0) || ((try? $0.asObjectId()) is AccountObjectId)
         }, "Not a valid account object id or name")
         
         self.base = GetFullAccounts.toBase(

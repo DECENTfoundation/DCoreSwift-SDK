@@ -10,39 +10,39 @@ public protocol HistoryApi: BaseApi {
      Get balance operation change by account id and operation id.
      
      - Parameter id: Account id,
-     as `ChainObject` or `String` format.
+     as `AccountObjectId` or `String` format.
      - Parameter operationId: Operation id,
-     as `ChainObject` or `String` format.
+     as `OperationHistoryObjectId` or `String` format.
      
      - Returns: `BalanceChange`.
      */
-    func get(byAccountId id: ChainObjectConvertible,
-             operationId: ChainObjectConvertible) -> Single<BalanceChange>
+    func get(byAccountId id: ObjectIdConvertible,
+             operationId: ObjectIdConvertible) -> Single<BalanceChange>
     
     /**
      Get account history of operations.
      
      - Parameter id: Account id,
-     as `ChainObject` or `String` format.
+     as `AccountObjectId` or `String` format.
      - Parameter pagination: `Pagination` object.
      
      - Returns: Array `[OperationHistory]` of operations,
      performed by account, ordered from most recent to oldest.
      */
-    func getAll(byAccountId id: ChainObjectConvertible,
+    func getAll(byAccountId id: ObjectIdConvertible,
                 pagination: Pagination) -> Single<[OperationHistory]>
     
     /**
      Get account history of operations.
      
      - Parameter id: Account id,
-     as `ChainObject` or `String` format.
+     as `AccountObjectId` or `String` format.
      - Parameter pagination: `Pagination` object.
      
      - Returns: Array `[OperationHistory]` of operations,
      performed by account, ordered from most recent to oldest.
      */
-    func getAllRelative(byAccountId id: ChainObjectConvertible,
+    func getAllRelative(byAccountId id: ObjectIdConvertible,
                         pagination: Pagination) -> Single<[OperationHistory]>
     
     /**
@@ -51,68 +51,68 @@ public protocol HistoryApi: BaseApi {
      which describe activity on the account.
      
      - Parameter id: Account id,
-     as `ChainObject` or `String` format.
+     as `AccountObjectId` or `String` format.
      - Parameter assets: Assets ids,
      default `[]` for all assets.
      - Parameter recipientId: Partner account object id,
      to filter transfers to specific account,
-     default `nil`, as `ChainObject` or `String` format.
-     as `ChainObject` or `String` format.
+     default `nil`, as `AccountObjectId` or `String` format.
      - Parameter pagination: `Pagination` object.
      
      - Returns: Array `[BalanceChange]` of balance changes.
      */
-    func findAll(byAccountId id: ChainObjectConvertible,
-                 assets: [ChainObjectConvertible],
-                 recipientId: ChainObjectConvertible?,
+    func findAll(byAccountId id: ObjectIdConvertible,
+                 assets: [ObjectIdConvertible],
+                 recipientId: ObjectIdConvertible?,
                  pagination: Pagination) -> Single<[BalanceChange]>
 }
 
 extension HistoryApi {
-    public func get(byAccountId id: ChainObjectConvertible,
-                    operationId: ChainObjectConvertible) -> Single<BalanceChange> {
+    public func get(byAccountId id: ObjectIdConvertible,
+                    operationId: ObjectIdConvertible) -> Single<BalanceChange> {
         return Single.deferred {
             return GetAccountBalanceForTransaction(
-                try id.asChainObject(), operationId: try operationId.asChainObject()
+                try id.asObjectId(), operationId: try operationId.asObjectId()
             ).base.toResponse(self.api.core)
         }
     }
     
-    public func getAll(byAccountId id: ChainObjectConvertible,
+    public func getAll(byAccountId id: ObjectIdConvertible,
                        pagination: Pagination = .unsetHistoryObject) -> Single<[OperationHistory]> {
         return Single.deferred {
-            guard case .pageObject(let bounds, let limit) = pagination else {
-                return Single.error(DCoreException.unexpected("Unsupported pagination use pageObject."))
-            }
-            return GetAccountHistory(try id.asChainObject(), stopId: bounds.upperBound, limit: limit, startId: bounds.lowerBound)
+            guard case .pageObject(let bounds, let limit) = pagination,
+                let upperBound = bounds.upperBound as? OperationHistoryObjectId,
+                let lowerBound = bounds.lowerBound as? OperationHistoryObjectId
+            else { return Single.error(DCoreException.unexpected("Unsupported pagination use pageObject.")) }
+            return GetAccountHistory(try id.asObjectId(), stopId: upperBound, limit: limit, startId: lowerBound)
                 .base
                 .toResponse(self.api.core)
         }
     }
     
-    public func getAllRelative(byAccountId id: ChainObjectConvertible,
+    public func getAllRelative(byAccountId id: ObjectIdConvertible,
                                pagination: Pagination = .ignore) -> Single<[OperationHistory]> {
         return Single.deferred {
             guard case .page(let bounds, _, let limit) = pagination else {
                 return Single.error(DCoreException.unexpected("Unsupported pagination use page."))
             }
-            return GetRelativeAccountHistory(try id.asChainObject(), stop: 0, limit: limit, start: bounds.lowerBound)
+            return GetRelativeAccountHistory(try id.asObjectId(), stop: 0, limit: limit, start: bounds.lowerBound)
                 .base
                 .toResponse(self.api.core)
         }
     }
     
-    public func findAll(byAccountId id: ChainObjectConvertible,
-                        assets: [ChainObjectConvertible] = [],
-                        recipientId: ChainObjectConvertible? = nil,
+    public func findAll(byAccountId id: ObjectIdConvertible,
+                        assets: [ObjectIdConvertible] = [],
+                        recipientId: ObjectIdConvertible? = nil,
                         pagination: Pagination = .ignore) -> Single<[BalanceChange]> {
         return Single.deferred {
             guard case .page(let bounds, let offset, let limit) = pagination else {
                 return Single.error(DCoreException.unexpected("Unsupported pagination use page."))
             }
-            return SearchAccountBalanceHistory(try id.asChainObject(),
-                                               assets: try assets.map { try $0.asChainObject() },
-                                               recipientAccount: try recipientId?.asChainObject(),
+            return SearchAccountBalanceHistory(try id.asObjectId(),
+                                               assets: try assets.map { try $0.asObjectId() },
+                                               recipientAccount: try recipientId?.asObjectId(),
                                                fromBlock: bounds.lowerBound,
                                                toBlock: bounds.upperBound,
                                                startOffset: offset, limit: limit).base.toResponse(self.api.core)

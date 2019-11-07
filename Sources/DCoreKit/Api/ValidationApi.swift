@@ -82,22 +82,22 @@ public protocol ValidationApi: BaseApi {
      
      - Parameter operations: List of operations.
      - Parameter assetId: Asset id eg. DCT id is 1.3.0,
-     as `ChainObject` or `String` format.
+     as `AssetObjectId` or `String` format.
      
      - Returns: Arrray `[AssetAmount]` of fee asset amounts
      */
-    func getFees(for operations: [Operation], assetId: ChainObjectConvertible) -> Single<[AssetAmount]>
+    func getFees(for operations: [Operation], assetId: ObjectIdConvertible) -> Single<[AssetAmount]>
     
     /**
      Get fees for operation.
      
      - Parameter operation: Operation.
      - Parameter assetId: Asset id eg. DCT id is 1.3.0,
-     as `ChainObject` or `String` format.
+     as `AssetObjectId` or `String` format.
      
      - Returns: `AssetAmount` fee.
      */
-    func getFee(for operation: Operation, assetId: ChainObjectConvertible) -> Single<AssetAmount>
+    func getFee(for operation: Operation, assetId: ObjectIdConvertible) -> Single<AssetAmount>
     
     /**
      Get fees for operation type.
@@ -110,11 +110,11 @@ public protocol ValidationApi: BaseApi {
 
      - Parameter type: Operation type.
      - Parameter assetId: Asset id eg. DCT id is 1.3.0,
-     as `ChainObject` or `String` format.
+     as `AssetObjectId` or `String` format.
      
      - Returns: `AssetAmount` fee.
      */
-    func getFee(forType type: OperationType, assetId: ChainObjectConvertible) -> Single<AssetAmount>
+    func getFee(forType type: OperationType, assetId: ObjectIdConvertible) -> Single<AssetAmount>
 }
 
 extension ValidationApi {
@@ -142,24 +142,24 @@ extension ValidationApi {
     }
     
     public func verifyAccountAuthority(_ credentials: Credentials) -> Single<Bool> {
-        return verifyAccountAuthority(byReference: credentials.accountId.objectId, key: credentials.keyPair.address)
+        return verifyAccountAuthority(byReference: credentials.accountId.asString(), key: credentials.keyPair.address)
     }
     
     public func validate(byTransaction trx: Transaction) -> Single<ProcessedTransaction> {
         return ValidateTransaction(trx).base.toResponse(api.core)
     }
     
-    public func getFees(for operations: [Operation], assetId: ChainObjectConvertible = DCore.Constant.dct) -> Single<[AssetAmount]> {
+    public func getFees(for operations: [Operation], assetId: ObjectIdConvertible = DCore.Constant.dct) -> Single<[AssetAmount]> {
         return Single.deferred {
-            return GetRequiredFees(operations, assetId: try assetId.asChainObject()).base.toResponse(self.api.core)
+            return GetRequiredFees(operations, assetId: try assetId.asObjectId()).base.toResponse(self.api.core)
         }
     }
     
-    public func getFee(for operation: Operation, assetId: ChainObjectConvertible = DCore.Constant.dct) -> Single<AssetAmount> {
+    public func getFee(for operation: Operation, assetId: ObjectIdConvertible = DCore.Constant.dct) -> Single<AssetAmount> {
         return getFees(for: [operation], assetId: assetId).map { try $0.first.orThrow(DCoreException.network(.notFound)) }
     }
     
-    public func getFee(forType type: OperationType, assetId: ChainObjectConvertible = DCore.Constant.dct) -> Single<AssetAmount> {
+    public func getFee(forType type: OperationType, assetId: ObjectIdConvertible = DCore.Constant.dct) -> Single<AssetAmount> {
         precondition(![
             .proposalCreateOperation,
             .proposalUpdateOperation,

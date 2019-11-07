@@ -9,11 +9,10 @@ struct SearchMinerVoting: BaseRequestConvertible {
          searchTerm: String,
          onlyMyVotes: Bool = false,
          order: SearchOrder.MinerVoting = .nameDesc,
-         id: ChainObject?,
+         id: MinerObjectId?,
          limit: Int = 1000) {
         
         precondition(user.isNil() || Account.hasValid(name: user!), "Not valid account object name")
-        precondition(id.isNil() || id?.objectType == .minerObject, "Not valid miner object id")
         
         self.base = SearchMinerVoting.toBase(
             .database, api: "search_miner_voting", returnType: [MinerVotingInfo].self, params: [

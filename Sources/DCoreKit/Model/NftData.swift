@@ -7,9 +7,9 @@
  - Parameter data: Data of the NFT parsed as model specified by generic parameter
  */
 public struct NftData<T: NftModel>: Codable {
-    public let id: ChainObject
-    public let nftId: ChainObject
-    public let owner: ChainObject
+    public let id: NftDataObjectId
+    public let nftId: NftObjectId
+    public let owner: AccountObjectId
     public let data: T?
 
     private enum CodingKeys: String, CodingKey {

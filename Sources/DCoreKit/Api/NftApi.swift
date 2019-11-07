@@ -6,24 +6,24 @@ public protocol NftApi: BaseApi {
      Get NFT by id.
      
      - Parameter id: NFT object id,
-     as `ChainObject` or `String` format.
+     as `NftObjectId` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`
      if NFT does not exist.
      
      - Returns: `Nft`.
      */
-    func get(byId id: ChainObjectConvertible) -> Single<Nft>
+    func get(byId id: ObjectIdConvertible) -> Single<Nft>
 
     /**
      Get NFTs by id.
 
      - Parameter ids: NFT object ids,
-     as `ChainObject` or `String` format.
+     as `NftObjectId` or `String` format.
 
      - Returns: Array of `Nft` objects
      */
-    func getAll(byIds ids: [ChainObjectConvertible]) -> Single<[Nft]>
+    func getAll(byIds ids: [ObjectIdConvertible]) -> Single<[Nft]>
 
     /**
      Get NFT by reference.
@@ -75,77 +75,77 @@ public protocol NftApi: BaseApi {
      Get NFT data instance with raw model.
      
      - Parameter id: NFT data object id,
-     as `ChainObject` or `String` format.
+     as `NftDataObjectId` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`
      if NFT does not exist.
      
      - Returns: `NftData<RawNft>` object.
      */
-    func getDataRaw(byId id: ChainObjectConvertible) -> Single<NftData<RawNft>>
+    func getDataRaw(byId id: ObjectIdConvertible) -> Single<NftData<RawNft>>
 
     /**
      Get NFT data instances with raw model.
      
      - Parameter ids: NFT data object ids,
-     as `ChainObject` or `String` format.
+     as `NftDataObjectId` or `String` format.
      
      - Returns: Array of `NftData<RawNft>` objects.
      */
-    func getAllDataRaw(byIds ids: [ChainObjectConvertible]) -> Single<[NftData<RawNft>]>
+    func getAllDataRaw(byIds ids: [ObjectIdConvertible]) -> Single<[NftData<RawNft>]>
 
     /**
      Get NFT data instance with parsed model.
      
      - Parameter id: NFT data object id,
-     as `ChainObject` or `String` format.
+     as `NftDataObjectId` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`
      if NFT does not exist.
      
      - Returns: `NftData` object.
      */
-    func getData<T: NftModel>(byId id: ChainObjectConvertible) -> Single<NftData<T>>
+    func getData<T: NftModel>(byId id: ObjectIdConvertible) -> Single<NftData<T>>
 
     /**
      Get NFT data instances with parsed model.
      
      - Parameter ids: NFT data object ids,
-     as `ChainObject` or `String` format.
+     as `NftDataObjectId` or `String` format.
      
      - Returns: Array of `NftData` objects.
      */
-    func getAllData<T: NftModel>(byIds ids: [ChainObjectConvertible]) -> Single<[NftData<T>]>
+    func getAllData<T: NftModel>(byIds ids: [ObjectIdConvertible]) -> Single<[NftData<T>]>
 
     /**
      Get NFT data instances with raw model.
 
      - Parameter nftId: NFT object id
-     as `ChainObject` or `String` format.
+     as `NftObjectId` or `String` format.
 
      - Returns: Array of `NftData<RawNft>` objects.
      */
-    func listDataRaw(byNftId nftId: ChainObjectConvertible) -> Single<[NftData<RawNft>]>
+    func listDataRaw(byNftId nftId: ObjectIdConvertible) -> Single<[NftData<RawNft>]>
 
     /**
      Get NFT data instances with parsed model.
 
      - Parameter nftId: NFT object id
-     as `ChainObject` or `String` format.
+     as `NftObjectId` or `String` format.
 
      - Returns: Array of `NftData` objects.
      */
-    func listData<T: NftModel>(byNftId nftId: ChainObjectConvertible) -> Single<[NftData<T>]>
+    func listData<T: NftModel>(byNftId nftId: ObjectIdConvertible) -> Single<[NftData<T>]>
 
     /**
      Search NFT history, lists transfer and issue operations for NFT data instance object id.
 
      - Parameter nftDataId: NFT data object id,
-     as `ChainObject` or `String` format.
+     as `NftDataObjectId` or `String` format.
 
      - Returns: Array of `TransactionDetail` objects representing transfer and issue operations.
      */
-    func searchNftHistory(byNftDataId nftDataId: ChainObjectConvertible) -> Single<[TransactionDetail]>
+    func searchNftHistory(byNftDataId nftDataId: ObjectIdConvertible) -> Single<[TransactionDetail]>
 
     /**
      Count all NFTs
@@ -165,27 +165,27 @@ public protocol NftApi: BaseApi {
      Get NFT balances per account with raw model
 
      - Parameter account: Account object id,
-     as `ChainObject` or `String` format.
+     as `AccountObjectId` or `String` format.
      - Parameter nftIds: NFT object ids to filter, or empty list to fetch all,
-     as `ChainObject` or `String` format.
+     as `NftObjectId` or `String` format.
 
      - Returns: NFT data instances with raw model
      */
     func getNftBalancesRaw(
-        account: ChainObjectConvertible, nftIds: [ChainObjectConvertible]) -> Single<[NftData<RawNft>]>
+        account: ObjectIdConvertible, nftIds: [ObjectIdConvertible]) -> Single<[NftData<RawNft>]>
 
     /**
      Get NFT balances per account with parsed model
 
      - Parameter account: Account object id,
-     as `ChainObject` or `String` format.
+     as `AccountObjectId` or `String` format.
      - Parameter nftIds: NFT object ids to filter, or empty list to fetch all,
-     as `ChainObject` or `String` format.
+     as `NftObjectId` or `String` format.
 
      - Returns: NFT data instances with parsed model
      */
     func getNftBalances<T: NftModel>(
-        account: ChainObjectConvertible, nftIds: [ChainObjectConvertible]) -> Single<[NftData<T>]>
+        account: ObjectIdConvertible, nftIds: [ObjectIdConvertible]) -> Single<[NftData<T>]>
 
     /**
      Create NFT.
@@ -239,7 +239,7 @@ public protocol NftApi: BaseApi {
 
      - Parameter credentials: issuer account credentials.
      - Parameter id: NFT data object id,
-     as `ChainObject` or `String` format.
+     as `NftDataObjectId` or `String` format.
      - Parameter newData: data model with values.
      - Parameter fee: `AssetAmount` fee for the operation,
      if left `AssetAmount.unset` the fee will be computed in DCT asset,
@@ -248,7 +248,7 @@ public protocol NftApi: BaseApi {
      - Returns: `TransactionConfirmation` that NFT data instance was updated.
      */
     func updateData<T: NftModel>(credentials: Credentials,
-                                 id: ChainObjectConvertible,
+                                 id: ObjectIdConvertible,
                                  newData: T,
                                  fee: AssetAmount) -> Single<TransactionConfirmation>
 
@@ -258,7 +258,7 @@ public protocol NftApi: BaseApi {
      - Parameter credentials: account credentials issuing the NFT.
      - Parameter reference: NFT object id or symbol.
      - Parameter to: account object id receiving the NFT data instance
-     as `ChainObject` or `String` format.
+     as `AccountObjectId` or `String` format.
      - Parameter data: data model with values.
      - Parameter memo: optional message.
      - Parameter fee: `AssetAmount` fee for the operation,
@@ -270,7 +270,7 @@ public protocol NftApi: BaseApi {
     func issue<T: NftModel>(
         credentials: Credentials,
         reference: Nft.Reference,
-        to: ChainObjectConvertible,
+        to: ObjectIdConvertible,
         data: T?,
         memo: Memo?,
         fee: AssetAmount) -> Single<TransactionConfirmation>
@@ -280,9 +280,9 @@ public protocol NftApi: BaseApi {
      
      - Parameter credentials: NFT data instance owner credentials.
      - Parameter to: account object id receiving the NFT data instance
-     as `ChainObject` or `String` format.
+     as `AccountObjectId` or `String` format.
      - Parameter id: NFT data object id,
-     as `ChainObject` or `String` format.
+     as `NftDataObjectId` or `String` format.
      - Parameter memo: optional message.
      - Parameter fee: `AssetAmount` fee for the operation,
      if left `AssetAmount.unset` the fee will be computed in DCT asset,
@@ -292,27 +292,27 @@ public protocol NftApi: BaseApi {
      */
     func transfer(
         credentials: Credentials,
-        to: ChainObjectConvertible,
-        id: ChainObjectConvertible,
+        to: ObjectIdConvertible,
+        id: ObjectIdConvertible,
         memo: Memo?,
         fee: AssetAmount) -> Single<TransactionConfirmation>
 }
 
 extension NftApi {
-    public func get(byId id: ChainObjectConvertible) -> Single<Nft> {
+    public func get(byId id: ObjectIdConvertible) -> Single<Nft> {
         return getAll(byIds: [id]).map {
             try $0.first.orThrow(DCoreException.network(.notFound))
         }
     }
 
-    public func getAll(byIds ids: [ChainObjectConvertible]) -> Single<[Nft]> {
+    public func getAll(byIds ids: [ObjectIdConvertible]) -> Single<[Nft]> {
         return Single.deferred {
-            GetNfts(try ids.map { try $0.asChainObject() }).base.toResponse(self.api.core)
+            GetNfts(try ids.map { try $0.asObjectId() }).base.toResponse(self.api.core)
         }
     }
 
     public func get(byReference reference: Nft.Reference) -> Single<Nft> {
-        if let id = reference.dcore.chainObject {
+        if let id: NftObjectId = reference.dcore.objectId() {
             return get(byId: id)
         } else {
             return get(bySymbol: reference)
@@ -337,40 +337,40 @@ extension NftApi {
         }
     }
 
-    public func getDataRaw(byId id: ChainObjectConvertible) -> Single<NftData<RawNft>> {
+    public func getDataRaw(byId id: ObjectIdConvertible) -> Single<NftData<RawNft>> {
         return getAllDataRaw(byIds: [id]).map {
             try $0.first.orThrow(DCoreException.network(.notFound))
         }
     }
 
-    public func getAllDataRaw(byIds ids: [ChainObjectConvertible]) -> Single<[NftData<RawNft>]> {
+    public func getAllDataRaw(byIds ids: [ObjectIdConvertible]) -> Single<[NftData<RawNft>]> {
         return Single.deferred {
-            GetNftData(try ids.map { try $0.asChainObject() }).base.toResponse(self.api.core)
+            GetNftData(try ids.map { try $0.asObjectId() }).base.toResponse(self.api.core)
         }
     }
 
-    public func getData<T: NftModel>(byId id: ChainObjectConvertible) -> Single<NftData<T>> {
+    public func getData<T: NftModel>(byId id: ObjectIdConvertible) -> Single<NftData<T>> {
         return getAllData(byIds: [id]).map {
             try $0.first.orThrow(DCoreException.network(.notFound))
         }
     }
 
-    public func getAllData<T: NftModel>(byIds ids: [ChainObjectConvertible]) -> Single<[NftData<T>]> {
+    public func getAllData<T: NftModel>(byIds ids: [ObjectIdConvertible]) -> Single<[NftData<T>]> {
         return getAllDataRaw(byIds: ids).map { try $0.toParsedNftData() }
     }
 
-    public func listDataRaw(byNftId nftId: ChainObjectConvertible) -> Single<[NftData<RawNft>]> {
+    public func listDataRaw(byNftId nftId: ObjectIdConvertible) -> Single<[NftData<RawNft>]> {
         return Single.deferred {
-            ListNftData(try nftId.asChainObject()).base.toResponse(self.api.core)
+            ListNftData(try nftId.asObjectId()).base.toResponse(self.api.core)
         }
     }
 
-    public func listData<T: NftModel>(byNftId nftId: ChainObjectConvertible) -> Single<[NftData<T>]> {
+    public func listData<T: NftModel>(byNftId nftId: ObjectIdConvertible) -> Single<[NftData<T>]> {
         return listDataRaw(byNftId: nftId).map { try $0.toParsedNftData() }
     }
 
-    public func searchNftHistory(byNftDataId nftDataId: ChainObjectConvertible) -> Single<[TransactionDetail]> {
-        return Single.deferred { SearchNftHistory(try nftDataId.asChainObject()).base.toResponse(self.api.core) }
+    public func searchNftHistory(byNftDataId nftDataId: ObjectIdConvertible) -> Single<[TransactionDetail]> {
+        return Single.deferred { SearchNftHistory(try nftDataId.asObjectId()).base.toResponse(self.api.core) }
     }
 
     public func countAllNft() -> Single<UInt64> {
@@ -382,15 +382,15 @@ extension NftApi {
     }
 
     public func getNftBalancesRaw(
-        account: ChainObjectConvertible, nftIds: [ChainObjectConvertible] = []) -> Single<[NftData<RawNft>]> {
+        account: ObjectIdConvertible, nftIds: [ObjectIdConvertible] = []) -> Single<[NftData<RawNft>]> {
         return Single.deferred {
-            GetNftsBalances(try account.asChainObject(), try nftIds.map { try $0.asChainObject() })
+            GetNftsBalances(try account.asObjectId(), try nftIds.map { try $0.asObjectId() })
                 .base.toResponse(self.api.core)
         }
     }
 
     public func getNftBalances<T: NftModel>(
-        account: ChainObjectConvertible, nftIds: [ChainObjectConvertible] = []) -> Single<[NftData<T>]> {
+        account: ObjectIdConvertible, nftIds: [ObjectIdConvertible] = []) -> Single<[NftData<T>]> {
         return getNftBalancesRaw(account: account, nftIds: nftIds).map { try $0.toParsedNftData() }
     }
 
@@ -442,14 +442,14 @@ extension NftApi {
     }
 
     public func updateData<T: NftModel>(credentials: Credentials,
-                                        id: ChainObjectConvertible,
+                                        id: ObjectIdConvertible,
                                         newData: T,
                                         fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
         return Single.deferred {
             self.api.broadcast.broadcastWithCallback(
                 NftUpdateDataOperation(
                     modifier: credentials.accountId,
-                    nftDataId: try id.asChainObject(),
+                    nftDataId: try id.asObjectId(),
                     data: try newData.createUpdate(),
                     fee: fee
                 ),
@@ -461,7 +461,7 @@ extension NftApi {
     public func issue<T: NftModel>(
         credentials: Credentials,
         reference: Nft.Reference,
-        to: ChainObjectConvertible,
+        to: ObjectIdConvertible,
         data: T? = nil,
         memo: Memo? = nil,
         fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
@@ -470,7 +470,7 @@ extension NftApi {
                 NftIssueOperation(
                     issuer: credentials.accountId,
                     nftId: nft.id,
-                    to: try to.asChainObject(),
+                    to: try to.asObjectId(),
                     data: (try data?.values()).or([]),
                     memo: memo,
                     fee: fee
@@ -482,16 +482,16 @@ extension NftApi {
 
     public func transfer(
         credentials: Credentials,
-        to: ChainObjectConvertible,
-        id: ChainObjectConvertible,
+        to: ObjectIdConvertible,
+        id: ObjectIdConvertible,
         memo: Memo? = nil,
         fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
         return Single.deferred {
             self.api.broadcast.broadcastWithCallback(
                 NftTransferOperation(
                     from: credentials.accountId,
-                    to: try to.asChainObject(),
-                    nftDataId: try id.asChainObject(),
+                    to: try to.asObjectId(),
+                    nftDataId: try id.asObjectId(),
                     memo: memo,
                     fee: fee
                 ),

@@ -10,14 +10,14 @@ class SecurityTests: XCTestCase {
     private let wss = DCore.Sdk.create(forWss: "wss://api.decent.ch")
     
     func testStandardServerTrustUsingRest() {
-        let id = "1.2.11368".dcore.chainObject!
+        let id = "1.2.11368"
         let validator = StandardValidator()
         let result = try? rest.security.trusted(by: validator).history.findAll(byAccountId: id).toBlocking().single()
         XCTAssertNotNil(result)
     }
     
     func testCertificatePinServerTrustUsingWss() {
-        let id = "1.2.11368".dcore.chainObject!
+        let id = "1.2.11368"
 
         let validator = CertificatePinValidator(pin: Pair("api.decent.ch", "CcFx9cc7Vtv38Lyf81QFOv+GC/38PKYKBSOH+PZtCoI="))
         let result = try? wss.security.trusted(by: validator).history.findAll(byAccountId: id).toBlocking().single()
@@ -25,7 +25,7 @@ class SecurityTests: XCTestCase {
     }
     
     func testCertificatePinServerTrustUsingRest() {
-        let id = "1.2.11368".dcore.chainObject!
+        let id = "1.2.11368"
 
         let validator = CertificatePinValidator(pin: Pair("api.decent.ch", "CcFx9cc7Vtv38Lyf81QFOv+GC/38PKYKBSOH+PZtCoI="))
         let result = try? rest.security.trusted(by: validator).history.findAll(byAccountId: id, assets: [DCore.Constant.dct]).toBlocking().single()
@@ -33,14 +33,14 @@ class SecurityTests: XCTestCase {
     }
     
     func testInvalidCertificatePinServerTrustUsingRest() {
-        let id = "1.2.11368".dcore.chainObject!
+        let id = "1.2.11368"
         
         let validator = CertificatePinValidator(pin: Pair("api.decent.ch", "invalid"))
         XCTAssertThrowsError(try rest.security.trusted(by: validator).history.findAll(byAccountId: id, assets: [DCore.Constant.dct]).toBlocking().single())
     }
     
     func testInvalidCertificatePinServerTrustUsingWss() {
-        let id = "1.2.11368".dcore.chainObject!
+        let id = "1.2.11368"
         
         let validator = CertificatePinValidator(pin: Pair("api.decent.ch", "invalid"))
         XCTAssertThrowsError(try wss.security.trusted(by: validator).history.findAll(byAccountId: id, assets: [DCore.Constant.dct]).toBlocking().single())

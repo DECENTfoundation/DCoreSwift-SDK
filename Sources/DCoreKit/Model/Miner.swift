@@ -3,11 +3,11 @@ import BigInt
 
 public struct Miner: Codable {
     
-    public let id: ChainObject
-    public let minerAccount: ChainObject
+    public let id: MinerObjectId
+    public let minerAccount: AccountObjectId
     public let lastAslot: Int
     public let signingKey: Address
-    public let payVb: ChainObject
+    public let payVb: VestingBalanceObjectId
     public let voteId: String
     public let totalVotes: BigInt
     public let url: String

@@ -12,7 +12,7 @@ import Foundation
  */
 
 public struct Nft: Codable {
-    let id: ChainObject
+    let id: NftObjectId
     let symbol: String
     let options: NftOptions
     let definitions: [NftDataType]

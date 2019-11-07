@@ -3,8 +3,8 @@ import BigInt
 
 public struct TransferOperation: Operation {
     
-    public let from: ChainObject
-    public let to: ChainObject
+    public let from: AccountObjectId
+    public let to: ObjectId
     public let amount: AssetAmount
     public var memo: Memo?
     
@@ -21,8 +21,8 @@ public struct TransferOperation: Operation {
         fee
     }
 
-    init(from: ChainObject,
-         to: ChainObject,
+    init(from: AccountObjectId,
+         to: ObjectId,
          amount: AssetAmount,
          memo: Memo?,
          fee: AssetAmount) {

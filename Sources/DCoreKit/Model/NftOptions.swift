@@ -1,9 +1,7 @@
 import Foundation
 
 public struct NftOptions: Equatable, Codable {
-    public var issuer: ChainObject {
-        willSet { precondition(issuer.objectType == .accountObject, "not a valid account object id") }
-    }
+    public var issuer: AccountObjectId
     public let maxSupply: UInt32
     public let fixedMaxSupply: Bool
     public let description: String

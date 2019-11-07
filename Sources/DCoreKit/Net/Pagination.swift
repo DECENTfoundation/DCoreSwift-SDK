@@ -19,6 +19,6 @@ public enum Pagination: Equatable {
     }
     
     case
-    pageObject(bounds: Range<ChainObject>, limit: UInt64),
+    pageObject(bounds: Range<ObjectId>, limit: UInt64),
     page(bounds: Range<UInt64>, offset: UInt64, limit: UInt64)
 }

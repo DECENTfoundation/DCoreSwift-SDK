@@ -7,16 +7,13 @@ struct SearchAccounts: BaseRequestConvertible {
     
     init(_ term: String,
          order: SearchOrder.Accounts = .nameDesc,
-         id: ChainObject = ObjectType.nullObject.genericId,
+         id: AccountObjectId? = nil,
          limit: Int = 1000) {
-        
-        precondition(id.objectType == .nullObject || id.objectType == .accountObject, "Not valid account object id")
-        
         self.base = SearchAccounts.toBase(
             .database,
             api: "search_accounts",
             returnType: [Account].self,
-            params: [term, order, id, limit]
+            params: [term, order, id.or(ObjectType.accountObject.genericId()), limit]
         )
     }
 }

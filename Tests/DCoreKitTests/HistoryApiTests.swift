@@ -13,19 +13,19 @@ class HistoryApiTests: XCTestCase {
         super.setUp()
 
         let pk = "5JMpT5C75rcAmuUB81mqVBXbmL1BKea4MYwVK6voMQLvigLKfrE"
-        let creds = try? Credentials("1.2.28".dcore.chainObject!, wif: pk)
+        let creds = try? Credentials("1.2.28".dcore.objectId()!, wif: pk)
         _ = try? wss.account.transfer(from: creds!, to: "1.2.27", amount: AssetAmount(1)).toBlocking().single()
     }
     
     func testGetBalanceHistoryUsingWss() {
-        let id = "1.2.28".dcore.chainObject!
+        let id = "1.2.28"
     
         let result = try? wss.history.findAll(byAccountId: id).toBlocking().single()
         XCTAssertNotNil(result)
     }
     
     func testGetBalanceHistoryCheckTransferUsingRest() {
-        let id = "1.2.28".dcore.chainObject!
+        let id = "1.2.28"
         
         let result = try? rest.history.findAll(byAccountId: id,
                                                assets: [DCore.Constant.dct],

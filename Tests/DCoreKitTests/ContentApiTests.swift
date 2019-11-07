@@ -14,7 +14,7 @@ class ContentApiTests: XCTestCase {
 
     func testSubmitCdnContentOperationAndRemove() {
         let creds = try? Credentials(
-            "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
+            "1.2.27".asObjectId(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
         )
         let uri = "https://foofoo.com/foo?v\(UUID().uuidString)"
         let exp = NSCalendar.current.date(byAdding: .month, value: 10, to: Date())!
@@ -39,7 +39,7 @@ class ContentApiTests: XCTestCase {
 
      func testUpdateContentOperation() {
         let creds = try? Credentials(
-            "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
+            "1.2.27".asObjectId(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
         )
         let uri = "https://foofoo.com/foo?v\(UUID().uuidString)"
         let exp = NSCalendar.current.date(byAdding: .month, value: 10, to: Date())!
@@ -57,7 +57,7 @@ class ContentApiTests: XCTestCase {
             on: uri,
             synopsis: Synopsis(title: "foofoo", description: "barbar"),
             price: AssetAmount(110000),
-            coAuthors: [Pair("1.2.28".asChainObject(), 1000)],
+            coAuthors: [Pair("1.2.28".asObjectId(), 1000)],
             credentials: creds!,
             fee: .unset).debug().toBlocking().single()
         XCTAssertNotNil(update)

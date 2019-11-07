@@ -200,8 +200,8 @@
 		A14C66D722004E6400D0A0EF /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A14C66D622004E6400D0A0EF /* RxBlocking.framework */; };
 		A14F7C3421FF046400E161C5 /* DCoreException.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_218 /* DCoreException.swift */; };
 		A14F7C3521FF046600E161C5 /* DCoreExceptionConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_219 /* DCoreExceptionConvertible.swift */; };
-		A1582973223F9413006C0CB3 /* ChainObjectConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1582972223F9413006C0CB3 /* ChainObjectConvertible.swift */; };
-		A1582974223F9413006C0CB3 /* ChainObjectConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1582972223F9413006C0CB3 /* ChainObjectConvertible.swift */; };
+		A1582973223F9413006C0CB3 /* ObjectIdConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1582972223F9413006C0CB3 /* ObjectIdConvertible.swift */; };
+		A1582974223F9413006C0CB3 /* ObjectIdConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1582972223F9413006C0CB3 /* ObjectIdConvertible.swift */; };
 		A159C4C221FDFF4F008BE73E /* CipherConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A159C4C121FDFF4F008BE73E /* CipherConvertible.swift */; };
 		A159C4C321FDFF4F008BE73E /* CipherConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A159C4C121FDFF4F008BE73E /* CipherConvertible.swift */; };
 		A16032AF21F3560700674FEF /* AccountUpdateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16032AE21F3560700674FEF /* AccountUpdateOperation.swift */; };
@@ -325,7 +325,7 @@
 		A1D96D7121ED1E22009C0A30 /* BalanceChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* BalanceChange.swift */; };
 		A1D96D7221ED1E22009C0A30 /* BlockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* BlockData.swift */; };
 		A1D96D7321ED1E22009C0A30 /* BlockHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* BlockHeader.swift */; };
-		A1D96D7421ED1E22009C0A30 /* ChainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* ChainObject.swift */; };
+		A1D96D7421ED1E22009C0A30 /* ObjectId.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* ObjectId.swift */; };
 		A1D96D7521ED1E22009C0A30 /* ChainParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* ChainParameters.swift */; };
 		A1D96D7621ED1E22009C0A30 /* ChainProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* ChainProperties.swift */; };
 		A1D96D7721ED1E22009C0A30 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* Config.swift */; };
@@ -581,7 +581,7 @@
 		OBJ_862 /* BalanceChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* BalanceChange.swift */; };
 		OBJ_863 /* BlockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* BlockData.swift */; };
 		OBJ_864 /* BlockHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* BlockHeader.swift */; };
-		OBJ_865 /* ChainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* ChainObject.swift */; };
+		OBJ_865 /* ObjectId.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* ObjectId.swift */; };
 		OBJ_866 /* ChainParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* ChainParameters.swift */; };
 		OBJ_867 /* ChainProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* ChainProperties.swift */; };
 		OBJ_868 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* Config.swift */; };
@@ -877,7 +877,7 @@
 		A143170722085C8700EE656C /* OperationUnkeyedDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OperationUnkeyedDecodable.swift; path = Sources/DcoreKit/Model/Operations/OperationUnkeyedDecodable.swift; sourceTree = SOURCE_ROOT; };
 		A143170A220869EF00EE656C /* OperationUnkeyedEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OperationUnkeyedEncodable.swift; path = Sources/DcoreKit/Model/Operations/OperationUnkeyedEncodable.swift; sourceTree = SOURCE_ROOT; };
 		A14C66D622004E6400D0A0EF /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/Mac/RxBlocking.framework; sourceTree = "<group>"; };
-		A1582972223F9413006C0CB3 /* ChainObjectConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChainObjectConvertible.swift; path = Sources/DcoreKit/Model/ChainObjectConvertible.swift; sourceTree = SOURCE_ROOT; };
+		A1582972223F9413006C0CB3 /* ObjectIdConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ObjectIdConvertible.swift; path = Sources/DcoreKit/Model/ObjectIdConvertible.swift; sourceTree = SOURCE_ROOT; };
 		A159C4C121FDFF4F008BE73E /* CipherConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CipherConvertible.swift; path = Sources/DcoreKit/Crypto/CipherConvertible.swift; sourceTree = SOURCE_ROOT; };
 		A16032AE21F3560700674FEF /* AccountUpdateOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUpdateOperation.swift; sourceTree = "<group>"; };
 		A16032B121F3563D00674FEF /* SubmitContentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitContentOperation.swift; sourceTree = "<group>"; };
@@ -1290,7 +1290,7 @@
 		OBJ_457 /* MainScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScheduler.swift; sourceTree = "<group>"; };
 		OBJ_458 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		OBJ_459 /* Materialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Materialize.swift; sourceTree = "<group>"; };
-		OBJ_46 /* ChainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainObject.swift; sourceTree = "<group>"; };
+		OBJ_46 /* ObjectId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectId.swift; sourceTree = "<group>"; };
 		OBJ_460 /* Maybe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maybe.swift; sourceTree = "<group>"; };
 		OBJ_461 /* Merge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Merge.swift; sourceTree = "<group>"; };
 		OBJ_462 /* Multicast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multicast.swift; sourceTree = "<group>"; };
@@ -2294,8 +2294,6 @@
 				OBJ_43 /* BalanceChange.swift */,
 				OBJ_44 /* BlockData.swift */,
 				OBJ_45 /* BlockHeader.swift */,
-				OBJ_46 /* ChainObject.swift */,
-				A1582972223F9413006C0CB3 /* ChainObjectConvertible.swift */,
 				OBJ_47 /* ChainParameters.swift */,
 				OBJ_48 /* ChainProperties.swift */,
 				OBJ_49 /* Config.swift */,
@@ -2318,6 +2316,8 @@
 				OBJ_64 /* MinerRewardInput.swift */,
 				OBJ_65 /* MinerVotes.swift */,
 				OBJ_66 /* MinerVotingInfo.swift */,
+				OBJ_46 /* ObjectId.swift */,
+				A1582972223F9413006C0CB3 /* ObjectIdConvertible.swift */,
 				OBJ_67 /* ObjectType.swift */,
 				OBJ_68 /* OperationHistory.swift */,
 				OBJ_69 /* OperationType.swift */,
@@ -3272,7 +3272,7 @@
 			files = (
 				A1D96DA221ED1E22009C0A30 /* Namespace.swift in Sources */,
 				A1D96D5221ED1E22009C0A30 /* AccountApi.swift in Sources */,
-				A1582974223F9413006C0CB3 /* ChainObjectConvertible.swift in Sources */,
+				A1582974223F9413006C0CB3 /* ObjectIdConvertible.swift in Sources */,
 				A1A2FBAC224185B7003641EA /* SubscriptionApi.swift in Sources */,
 				A1D96D5321ED1E22009C0A30 /* AssetApi.swift in Sources */,
 				A1D96D5421ED1E22009C0A30 /* BalanceApi.swift in Sources */,
@@ -3315,7 +3315,7 @@
 				A1D96D7221ED1E22009C0A30 /* BlockData.swift in Sources */,
 				A1D96D7321ED1E22009C0A30 /* BlockHeader.swift in Sources */,
 				07937AEF23476DDA007661BB /* AssetReserveOperation.swift in Sources */,
-				A1D96D7421ED1E22009C0A30 /* ChainObject.swift in Sources */,
+				A1D96D7421ED1E22009C0A30 /* ObjectId.swift in Sources */,
 				A1D96D7521ED1E22009C0A30 /* ChainParameters.swift in Sources */,
 				A1D96D7621ED1E22009C0A30 /* ChainProperties.swift in Sources */,
 				A1D96D7721ED1E22009C0A30 /* Config.swift in Sources */,
@@ -3654,7 +3654,7 @@
 				OBJ_854 /* DCoreSdk.swift in Sources */,
 				OBJ_855 /* Account.swift in Sources */,
 				OBJ_856 /* AccountBalance.swift in Sources */,
-				A1582973223F9413006C0CB3 /* ChainObjectConvertible.swift in Sources */,
+				A1582973223F9413006C0CB3 /* ObjectIdConvertible.swift in Sources */,
 				OBJ_857 /* AccountStatistics.swift in Sources */,
 				071AE04F2212FE66008AE077 /* AssetAmountPair+Extension.swift in Sources */,
 				OBJ_858 /* Asset.swift in Sources */,
@@ -3666,7 +3666,7 @@
 				OBJ_863 /* BlockData.swift in Sources */,
 				OBJ_864 /* BlockHeader.swift in Sources */,
 				A1A2FBBA2242D3D5003641EA /* MessagesConvertible.swift in Sources */,
-				OBJ_865 /* ChainObject.swift in Sources */,
+				OBJ_865 /* ObjectId.swift in Sources */,
 				OBJ_866 /* ChainParameters.swift in Sources */,
 				OBJ_867 /* ChainProperties.swift in Sources */,
 				A13D09D5223155C5000CAE17 /* CertificatePinValidator.swift in Sources */,

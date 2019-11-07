@@ -3,15 +3,9 @@ import BigInt
 
 public struct NftTransferOperation: Operation {
     
-    public var from: ChainObject {
-        willSet { precondition(from.objectType == .accountObject, "not a valid account object id") }
-    }
-    public var to: ChainObject {
-        willSet { precondition(to.objectType == .accountObject, "not a valid account object id") }
-    }
-    public var nftDataId: ChainObject {
-        willSet { precondition(nftDataId.objectType == .nftDataObject, "not a valid nft data object id") }
-    }
+    public var from: AccountObjectId
+    public var to: AccountObjectId
+    public var nftDataId: NftDataObjectId
     public var memo: Memo?
     
     public let type: OperationType = .nftTransfer

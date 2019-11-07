@@ -3,13 +3,13 @@ import BigInt
 
 public struct Seeder: Codable {
     
-    public let id: ChainObject
+    public let id: PublisherObjectId
     public let freeSpace: BigInt
     public let price: AssetAmount
     public let expiration: Date
     public let pubKey: PubKey
     public let ipfsId: String
-    public let stats: ChainObject
+    public let stats: SeedingStatsObjectId
     public let rating: Int
     public let regionCode: String
     

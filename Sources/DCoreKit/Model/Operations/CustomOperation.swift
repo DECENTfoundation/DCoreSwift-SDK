@@ -2,8 +2,8 @@ import Foundation
 
 public protocol CustomOperation: Operation {
     var id: CustomOperationType { get }
-    var payee: ChainObject { get }
-    var requiredAuths: [ChainObject] { get }
+    var payer: AccountObjectId { get }
+    var requiredAuths: [AccountObjectId] { get }
     var data: String { get }
 }
 
@@ -18,7 +18,7 @@ extension CustomOperation {
         var data = Data()
         data += type.asData()
         data += fee.asData()
-        data += payee.asData()
+        data += payer.asData()
         data += requiredAuths.asData()
         data += id.asData()
         data += UInt64(dataBytes.count).asUnsignedVarIntData()

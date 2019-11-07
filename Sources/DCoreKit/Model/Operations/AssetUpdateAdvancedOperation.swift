@@ -3,12 +3,8 @@ import BigInt
 
 public struct AssetUpdateAdvancedOperation: Operation {
     
-    public var issuer: ChainObject {
-        willSet { precondition(issuer.objectType == .accountObject, "not a valid account object id") }
-    }
-    public var assetToUpdate: ChainObject {
-        willSet { precondition(assetToUpdate.objectType == .assetObject, "not a valid asset object id") }
-    }
+    public var issuer: AccountObjectId
+    public var assetToUpdate: AssetObjectId
     public var precision: UInt8 {
         willSet {
             precondition(

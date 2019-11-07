@@ -3,9 +3,7 @@ import BigInt
 
 public struct AssetCreateOperation: Operation {
 
-    public var issuer: ChainObject {
-        willSet { precondition(issuer.objectType == .accountObject, "not a valid account object id") }
-    }
+    public var issuer: AccountObjectId
     public var symbol: String {
         willSet { precondition(Asset.hasValid(symbol: symbol), "invalid asset symbol: \(symbol)") }
     }

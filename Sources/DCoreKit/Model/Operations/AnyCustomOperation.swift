@@ -3,8 +3,8 @@ import Foundation
 public struct AnyCustomOperation: CustomOperation {
     
     public let id: CustomOperationType
-    public let payee: ChainObject
-    public let requiredAuths: [ChainObject]
+    public let payer: AccountObjectId
+    public let requiredAuths: [AccountObjectId]
     public let data: String
     
     public var fee: AssetAmount = .unset
@@ -12,7 +12,7 @@ public struct AnyCustomOperation: CustomOperation {
     private enum CodingKeys: String, CodingKey {
         case
         id,
-        payee = "payer",
+        payer,
         requiredAuths = "required_auths",
         data,
         fee

@@ -3,11 +3,11 @@ import BigInt
 
 public struct DynamicGlobalProps: Codable {
     
-    public let id: ChainObject
+    public let id: DynamicGlobalPropertyObjectId
     public let headBlockNumber: UInt64
     public let headBlockId: String
     public let time: Date
-    public let currentMiner: ChainObject
+    public let currentMiner: MinerObjectId
     public let nextMaintenanceTime: Date
     public let lastBudgetTime: Date
     public let unspentFeeBudget: BigInt

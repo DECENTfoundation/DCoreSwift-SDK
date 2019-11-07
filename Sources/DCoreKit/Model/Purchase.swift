@@ -2,14 +2,14 @@ import Foundation
 
 public struct Purchase: Codable {
     
-    public let id: ChainObject
+    public let id: PurchaseObjectId
     public let author: String
     public let uri: String
     public let synopsisJson: String
     public let price: AssetAmount
     public let priceBefore: AssetAmount
     public let priceAfter: AssetAmount
-    public let seedersAnswered: [ChainObject]
+    public let seedersAnswered: [AccountObjectId]
     public let size: Int
     public let comment: String
     public let expiration: Date

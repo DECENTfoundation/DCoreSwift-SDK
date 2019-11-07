@@ -2,14 +2,14 @@ import Foundation
 
 struct GetAccountReferences: BaseRequestConvertible {
     
-    typealias Output = [ChainObject]
-    private(set) var base: BaseRequest<[ChainObject]>
+    typealias Output = [AccountObjectId]
+    private(set) var base: BaseRequest<[AccountObjectId]>
     
-    init(_ accountId: ChainObject) {
+    init(_ accountId: AccountObjectId) {
         self.base = GetAccountReferences.toBase(
             .database,
             api: "get_account_references",
-            returnType: [ChainObject].self,
+            returnType: [AccountObjectId].self,
             params: [accountId]
         )
     }

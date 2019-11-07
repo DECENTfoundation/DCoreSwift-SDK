@@ -14,15 +14,15 @@ class OperationApiTests: XCTestCase {
     
     func testTransferOperation() {
         let pk = "5JMpT5C75rcAmuUB81mqVBXbmL1BKea4MYwVK6voMQLvigLKfrE"
-        let creds = try? Credentials("1.2.28".dcore.chainObject!, wif: pk)
+        let creds = try? Credentials("1.2.28".dcore.objectId()!, wif: pk)
         let confirm = try? wss.account.transfer(from: creds!, to: "1.2.22", amount: AssetAmount(1), message: "Ahoj",
                                                 encrypted: false).debug().toBlocking().single()
         XCTAssertNotNil(confirm)
     }
     
-    func testTransferOperationToChainObjectWithOtherVarInt() {
+    func testTransferOperationToObjectIdWithOtherVarInt() {
         let pk = "5JMpT5C75rcAmuUB81mqVBXbmL1BKea4MYwVK6voMQLvigLKfrE"
-        let creds = try? Credentials("1.2.28".dcore.chainObject!, wif: pk)
+        let creds = try? Credentials("1.2.28".dcore.objectId()!, wif: pk)
         
         let confirm = try? wss.account.transfer(from: creds!, to: "1.2.22", amount: AssetAmount(1), message: "Ahoj",
                                                 encrypted: false).debug().toBlocking().single()
@@ -31,7 +31,7 @@ class OperationApiTests: XCTestCase {
 
     func testSubmitAccountOperation() {
         let pk = "5JMpT5C75rcAmuUB81mqVBXbmL1BKea4MYwVK6voMQLvigLKfrE"
-        let creds = try? Credentials("1.2.28".dcore.chainObject!, wif: pk)
+        let creds = try? Credentials("1.2.28".dcore.objectId()!, wif: pk)
         let address = ECKeyPair().address
         let name = "ios\(CryptoUtils.secureRandom().prefix(upTo: 10).toHex())"
         
@@ -41,7 +41,7 @@ class OperationApiTests: XCTestCase {
 
     func testUpdateAccountOperation() {
         let pk = "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
-        let creds = try? Credentials("1.2.27".dcore.chainObject!, wif: pk)
+        let creds = try? Credentials("1.2.27".dcore.objectId()!, wif: pk)
         let newAuthority = "DCT5PwcSiigfTPTwubadt85enxMFC18TtVoti3gnTbG7TN9f9R3Fp"
         let confirm = try? wss.account.update(
             credentials: creds!, active: Authority(from: Address(from: newAuthority))
@@ -51,7 +51,7 @@ class OperationApiTests: XCTestCase {
     
     static var allTests = [
         ("testTransferOperation", testTransferOperation),
-        ("testTransferOperationToChainObjectWithOtherVarInt", testTransferOperationToChainObjectWithOtherVarInt),
+        ("testTransferOperationToObjectIdWithOtherVarInt", testTransferOperationToObjectIdWithOtherVarInt),
         ("testSubmitAccountOperation", testSubmitAccountOperation),
     ]
 }

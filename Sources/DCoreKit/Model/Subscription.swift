@@ -1,14 +1,16 @@
 import Foundation
 
 public struct Subscription: Codable {
-    
-    public let from: ChainObject
-    public let to: ChainObject
+
+    public let id: SubscriptionObjectId
+    public let from: AccountObjectId
+    public let to: AccountObjectId
     public let expiration: Date
     public let renewal: Bool
     
     private enum CodingKeys: String, CodingKey {
         case
+        id,
         from,
         to,
         expiration,

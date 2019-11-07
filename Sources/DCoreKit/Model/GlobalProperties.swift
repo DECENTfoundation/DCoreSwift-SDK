@@ -1,11 +1,10 @@
 import Foundation
 
 public struct GlobalProperties: Codable {
-    
-    public let id: ChainObject
+    public let id: GlobalPropertyObjectId
     public let parameters: GlobalParameters
     public let nextAvailableVoteId: UInt64
-    public let activeMiners: [ChainObject]
+    public let activeMiners: [MinerObjectId]
     
     private enum CodingKeys: String, CodingKey {
         case

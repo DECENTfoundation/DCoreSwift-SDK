@@ -2,8 +2,8 @@ import Foundation
 
 public enum ObjectType {
     
-    public static let unset: ChainObject = ObjectType.nullObject.genericId
-    public static let unsetHistory: ChainObject = ObjectType.operationHistoryObject.genericId
+    public static let unset: ObjectId = ObjectId.nullObjectId
+    public static let unsetHistory: OperationHistoryObjectId = ObjectType.operationHistoryObject.genericId()
     
     public init(fromSpace space: Int, type: Int) {
         let unknown = ObjectType.unknown(UInt8(space), UInt8(type))
@@ -167,8 +167,8 @@ public enum ObjectType {
         }
     }
     
-    public var genericId: ChainObject {
-        return ChainObject(from: self)
+    public func genericId<T: ObjectId>() -> T {
+        return T(instance: 0)
     }
 }
 

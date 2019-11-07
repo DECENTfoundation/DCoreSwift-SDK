@@ -7,9 +7,7 @@ public struct PurchaseContentOperation: Operation {
         willSet { precondition(Content.hasValid(uri: uri), "Unsupported uri scheme") }
     }
     
-    public var consumer: ChainObject {
-        willSet { precondition(consumer.objectType == ObjectType.accountObject, "Not an account object id") }
-    }
+    public var consumer: AccountObjectId
     
     public var price: AssetAmount {
         willSet { precondition(price >= 0, "Price must be >= 0") }

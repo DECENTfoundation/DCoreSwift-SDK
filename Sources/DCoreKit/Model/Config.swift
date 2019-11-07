@@ -71,9 +71,9 @@ public struct Config: Codable {
     public let grapheneDefaultMinerPayPerBlock: Int
     public let grapheneDefaultMinerPayVestingSeconds: Int
     public let grapheneMaxInterestApr: Int
-    public let grapheneMinerAccount: ChainObject
-    public let grapheneNullAccount: ChainObject
-    public let grapheneTempAccount: ChainObject
+    public let grapheneMinerAccount: AccountObjectId
+    public let grapheneNullAccount: AccountObjectId
+    public let grapheneTempAccount: AccountObjectId
     
     private enum CodingKeys: String, CodingKey {
         case

@@ -3,9 +3,7 @@ import BigInt
 
 public struct AssetFundPoolsOperation: Operation {
     
-    public var fromAccount: ChainObject {
-        willSet { precondition(fromAccount.objectType == .accountObject, "not a valid account object id") }
-    }
+    public var fromAccount: AccountObjectId
     public var uiaAsset: AssetAmount
     public var dctAsset: AssetAmount
     

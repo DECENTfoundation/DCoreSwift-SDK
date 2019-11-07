@@ -51,14 +51,14 @@ public protocol TransactionApi: BaseApi {
     /**
      Get the set of proposed transactions relevant to the specified account id.
      
-     - Parameter id: Account id as `ChainObject` or `String` format.
+     - Parameter id: Account id as `AccountObjectId` or `String` format.
     
      - Throws: `DCoreException.Network.notFound`
      if transaction does not exist.
      
      - Returns: `ProcessedTransaction` if found.
      */
-    func getAllProposed(byAccountId id: ChainObjectConvertible) -> Single<AnyValue>
+    func getAllProposed(byAccountId id: ObjectIdConvertible) -> Single<AnyValue>
     
     /**
      Create unsigned transaction.
@@ -104,9 +104,9 @@ extension TransactionApi {
         return GetTransactionHex(trx).base.toResponse(api.core)
     }
     
-    public func getAllProposed(byAccountId id: ChainObjectConvertible) -> Single<AnyValue> {
+    public func getAllProposed(byAccountId id: ObjectIdConvertible) -> Single<AnyValue> {
         return Single.deferred {
-            return GetProposedTransactions(try id.asChainObject()).base.toResponse(self.api.core)
+            return GetProposedTransactions(try id.asObjectId()).base.toResponse(self.api.core)
         }
     }
     

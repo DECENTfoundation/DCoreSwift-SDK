@@ -6,7 +6,7 @@ public struct AssetAmount: Codable {
     public static let unset = AssetAmount(0)
     
     public let amount: BigInt
-    public let assetId: ChainObject
+    public let assetId: AssetObjectId
     
     private enum CodingKeys: String, CodingKey {
         case
@@ -14,7 +14,7 @@ public struct AssetAmount: Codable {
         assetId = "asset_id"
     }
     
-    public init(_ amount: BigInt, assetId: ChainObject = DCore.Constant.dct) {
+    public init(_ amount: BigInt, assetId: AssetObjectId = DCore.Constant.dct) {
         precondition(amount >= 0, "Amount must be greater or equal to 0")
         precondition(assetId.objectType == ObjectType.assetObject, "Object type is not an asset")
         
@@ -27,7 +27,9 @@ public struct AssetAmount: Codable {
     }
     
     public init(with amount: UInt64, assetId: String) {
-        guard let id = assetId.dcore.chainObject else { preconditionFailure("Not valid asset id \(assetId)") }
+        guard let id: AssetObjectId = assetId.dcore.objectId() else {
+            preconditionFailure("Not valid asset id \(assetId)")
+        }
         self.init(BigInt(amount), assetId: id)
     }
     
@@ -36,7 +38,9 @@ public struct AssetAmount: Codable {
     }
     
     public init(with amount: String, assetId: String) {
-        guard let id = assetId.dcore.chainObject else { preconditionFailure("Not valid asset id \(assetId)") }
+        guard let id: AssetObjectId = assetId.dcore.objectId() else {
+            preconditionFailure("Not valid asset id \(assetId)")
+        }
         self.init(BigInt(amount)!, assetId: id)
     }
 }

@@ -4,11 +4,11 @@ public struct Synopsis: SynopsisConvertible {
     
     public let title: String
     public let description: String
-    public let type: ChainObject
+    public let type: String
     
     public init(title: String,
                 description: String,
-                type: ChainObject = ContentCategory.standard.objectId!) {
+                type: String = ContentCategory.standard.description) {
         self.title = title
         self.description = description
         self.type = type

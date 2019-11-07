@@ -15,11 +15,11 @@ public protocol AccountApi: BaseApi {
     /**
      Check if the account exist.
      
-     - Parameter id: Account id as `ChainObject` or `String` format.
+     - Parameter id: Account id as `AccountObjectId` or `String` format.
      
      - Returns: `true` if account exist.
      */
-    func exist(byId id: ChainObjectConvertible) -> Single<Bool>
+    func exist(byId id: ObjectIdConvertible) -> Single<Bool>
     
     /**
      Check if the account exist.
@@ -45,14 +45,14 @@ public protocol AccountApi: BaseApi {
     /**
      Get account by id.
      
-     - Parameter id: Account id as `ChainObject` or `String` format.
+     - Parameter id: Account id as `AccountObjectId` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`
      if account does not exist.
      
      - Returns: An `Account` if exist.
      */
-    func get(byId id: ChainObjectConvertible) -> Single<Account>
+    func get(byId id: ObjectIdConvertible) -> Single<Account>
     
     /**
      Get account by reference (id or name) in `String` format.
@@ -69,11 +69,11 @@ public protocol AccountApi: BaseApi {
     /**
      Get accounts by ids.
      
-     - Parameter ids: Account ids as `ChainObject` or `String` format.
+     - Parameter ids: Account ids as `AccountObjectId` or `String` format.
 
      - Returns: An `[Account]` array.
      */
-    func getAll(byIds ids: [ChainObjectConvertible]) -> Single<[Account]>
+    func getAll(byIds ids: [ObjectIdConvertible]) -> Single<[Account]>
     
     /**
      Get accounts by names.
@@ -100,18 +100,18 @@ public protocol AccountApi: BaseApi {
      - Parameter keys: Formatted public keys of the account,
      eg. DCT5j2bMj7XVWLxUW7AXeMiYPambYFZfCcMroXDvbCfX1VoswcZG4.
      
-     - Returns: All `[[ChainObject]]` account references by given keys.
+     - Returns: All `[[AccountObjectId]]` account references by given keys.
      */
-    func findAllReferences(byKeys keys: [Address]) -> Single<[[ChainObject]]>
+    func findAllReferences(byKeys keys: [Address]) -> Single<[[AccountObjectId]]>
     
     /**
      Get all accounts that refer to the account id in their owner or active authorities.
      
      - Parameter id: Account id.
      
-     - Returns: All `[[ChainObject]]` account references by given keys.
+     - Returns: All `[[AccountObjectId]]` account references by given keys.
      */
-    func findAllReferences(byId id: ChainObject) -> Single<[ChainObject]>
+    func findAllReferences(byId id: AccountObjectId) -> Single<[AccountObjectId]>
 
     /**
      Get names and ids for registered accounts.
@@ -119,9 +119,9 @@ public protocol AccountApi: BaseApi {
      - Parameter bound: Lower bound of the first name to return.
      - Parameter limit: Number of items to get, max/default `1000`
      
-     - Returns: Map `[String: ChainObject]` of account names to corresponding ids.
+     - Returns: Map `[String: AccountObjectId]` of account names to corresponding ids.
      */
-    func findAllRelative(byLower bound: String, limit: Int) -> Single<[String: ChainObject]>
+    func findAllRelative(byLower bound: String, limit: Int) -> Single<[String: AccountObjectId]>
     
     /**
      Get accounts that match lookup expression.
@@ -135,7 +135,7 @@ public protocol AccountApi: BaseApi {
      */
     func findAll(by expression: String,
                  order: SearchOrder.Accounts,
-                 id: ChainObject,
+                 id: AccountObjectId,
                  limit: Int) -> Single<[Account]>
     
     /**
@@ -295,7 +295,7 @@ extension AccountApi {
         return get(byName: name).map({ _ in true }).catchErrorJustReturn(false)
     }
     
-    public func exist(byId id: ChainObjectConvertible) -> Single<Bool> {
+    public func exist(byId id: ObjectIdConvertible) -> Single<Bool> {
         return get(byId: id).map({ _ in true }).catchErrorJustReturn(false)
     }
     
@@ -307,7 +307,7 @@ extension AccountApi {
         return GetAccountByName(name).base.toResponse(api.core)
     }
     
-    public func get(byId id: ChainObjectConvertible) -> Single<Account> {
+    public func get(byId id: ObjectIdConvertible) -> Single<Account> {
         return getAll(byIds: [id]).map {
             try $0.first.orThrow(DCoreException.network(.notFound))
         }
@@ -315,7 +315,7 @@ extension AccountApi {
     
     public func get(byReference ref: Account.Reference) -> Single<Account> {
         return Single.deferred {
-            if let id = ref.dcore.chainObject {
+            if let id: AccountObjectId = ref.dcore.objectId() {
                 return self.get(byId: id)
             }
             if Account.hasValid(name: ref) {
@@ -325,9 +325,9 @@ extension AccountApi {
         }
     }
     
-    public func getAll(byIds ids: [ChainObjectConvertible]) -> Single<[Account]> {
+    public func getAll(byIds ids: [ObjectIdConvertible]) -> Single<[Account]> {
         return Single.deferred {
-            return GetAccountById(try ids.map { try $0.asChainObject() }).base.toResponse(self.api.core)
+            return GetAccountById(try ids.map { try $0.asObjectId() }).base.toResponse(self.api.core)
         }
     }
     
@@ -339,21 +339,21 @@ extension AccountApi {
         return GetFullAccounts(refs, subscribe: subscribe).base.toResponse(api.core)
     }
     
-    public func findAllReferences(byKeys keys: [Address]) -> Single<[[ChainObject]]> {
+    public func findAllReferences(byKeys keys: [Address]) -> Single<[[AccountObjectId]]> {
         return GetKeyReferences(keys).base.toResponse(api.core)
     }
     
-    public func findAllReferences(byId id: ChainObject) -> Single<[ChainObject]> {
+    public func findAllReferences(byId id: AccountObjectId) -> Single<[AccountObjectId]> {
         return GetAccountReferences(id).base.toResponse(api.core)
     }
     
-    public func findAllRelative(byLower bound: String, limit: Int = DCore.Limits.account) -> Single<[String: ChainObject]> {
+    public func findAllRelative(byLower bound: String, limit: Int = DCore.Limits.account) -> Single<[String: AccountObjectId]> {
         return LookupAccounts(bound, limit: limit).base.toResponse(api.core)
     }
     
     public func findAll(by expression: String,
                         order: SearchOrder.Accounts = .nameDesc,
-                        id: ChainObject = ObjectType.nullObject.genericId,
+                        id: AccountObjectId = ObjectType.accountObject.genericId(),
                         limit: Int = DCore.Limits.account) -> Single<[Account]> {
         
         return SearchAccounts(expression, order: order, id: id, limit: limit).base.toResponse(api.core)

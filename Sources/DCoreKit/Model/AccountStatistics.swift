@@ -3,9 +3,9 @@ import BigInt
 
 public struct AccountStatistics: Codable {
     
-    public let id: ChainObject
-    public let owner: ChainObject
-    public let mostRecentOp: ChainObject
+    public let id: AccountStatsObjectId
+    public let owner: AccountObjectId
+    public let mostRecentOp: AccountTransactionObjectId
     public let totalOps: UInt64
     public let totalCoreInOrders: BigInt
     public let pendingFees: BigInt
