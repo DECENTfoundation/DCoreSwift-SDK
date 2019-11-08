@@ -6,9 +6,9 @@ struct GetAccountHistory: BaseRequestConvertible {
     private(set) var base: BaseRequest<[OperationHistory]>
     
     init(_ accountId: AccountObjectId,
-         stopId: OperationHistoryObjectId = ObjectType.operationHistoryObject.genericId(),
+         stopId: OperationHistoryObjectId = .genericId(),
          limit: UInt64 = 100,
-         startId: OperationHistoryObjectId = ObjectType.operationHistoryObject.genericId()
+         startId: OperationHistoryObjectId = .genericId()
         ) {        
         self.base = GetAccountHistory.toBase(
             .history, api: "get_account_history", returnType: [OperationHistory].self, params: [

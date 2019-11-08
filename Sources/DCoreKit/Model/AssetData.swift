@@ -2,7 +2,7 @@ import Foundation
 import BigInt
 
 public struct AssetData: Codable {
-    public var id: AssetObjectId = ObjectType.assetObject.genericId()
+    public var id: AssetObjectId = .genericId()
     public let currentSupply: BigInt
     public let assetPool: BigInt
     public let corePool: BigInt

@@ -7,14 +7,14 @@ private extension Decimal {
 
 public struct Asset: Codable, AssetFormatting, Equatable {
     
-    public var id: AssetObjectId = ObjectType.assetObject.genericId()
+    public var id: AssetObjectId = .genericId()
     
     public var symbol: String = "UIA"
     public var precision: Int = 0
-    public var issuer: AccountObjectId = ObjectType.accountObject.genericId()
+    public var issuer: AccountObjectId = .genericId()
     public var description: String = ""
     public var options: Asset.Options = Asset.Options()
-    public var dataId: AssetDataObjectId = ObjectType.assetDynamicData.genericId()
+    public var dataId: AssetDataObjectId = .genericId()
     public var monitoredOptions: AnyValue?
     
     private enum CodingKeys: String, CodingKey {
@@ -149,7 +149,7 @@ extension Asset {
         public static func forCreateOperation(dct: BigInt, uia: BigInt) -> ExchangeRate {
             return ExchangeRate(
                 base: AssetAmount(dct),
-                quote: AssetAmount(uia, assetId: (try? "1.3.1".asObjectId()).or(ObjectType.assetObject.genericId()))
+                quote: AssetAmount(uia, assetId: (try? "1.3.1".asAssetObjectId()).or(.genericId()))
             )
         }
     }

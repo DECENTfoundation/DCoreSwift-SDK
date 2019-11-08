@@ -2,7 +2,7 @@ import Foundation
 
 public struct Credentials {
     
-    static let null = Credentials(ObjectType.accountObject.genericId(), keyPair: ECKeyPair())
+    static let null = Credentials(.genericId(), keyPair: ECKeyPair())
     
     public let accountId: AccountObjectId
     public let keyPair: ECKeyPair

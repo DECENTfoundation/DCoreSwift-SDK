@@ -353,7 +353,7 @@ extension AccountApi {
     
     public func findAll(by expression: String,
                         order: SearchOrder.Accounts = .nameDesc,
-                        id: AccountObjectId = ObjectType.accountObject.genericId(),
+                        id: AccountObjectId = .genericId(),
                         limit: Int = DCore.Limits.account) -> Single<[Account]> {
         
         return SearchAccounts(expression, order: order, id: id, limit: limit).base.toResponse(api.core)

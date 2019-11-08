@@ -2,6 +2,9 @@ import Foundation
 
 public class ObjectId: Codable {
     public static let nullObjectId: ObjectId = ObjectId(instance: 0)
+    public static func genericId() -> Self {
+        return Self(instance: 0)
+    }
 
     public private(set) var objectType: ObjectType = .nullObject
     public let instance: UInt64
