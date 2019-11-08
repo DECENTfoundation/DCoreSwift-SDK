@@ -14,7 +14,7 @@ public protocol AssetApi: BaseApi {
      
      - Returns: `Asset`.
      */
-    func get(byId id: ObjectIdConvertible) -> Single<Asset>
+    func get(byId id: AssetObjectIdConvertible) -> Single<Asset>
     
     /**
      Get all assets by ids.
@@ -24,7 +24,7 @@ public protocol AssetApi: BaseApi {
      
      - Returns: Array `[Asset]` of assets.
      */
-    func getAll(byIds ids: [ObjectIdConvertible]) -> Single<[Asset]>
+    func getAll(byIds ids: [AssetObjectIdConvertible]) -> Single<[Asset]>
     
     /**
      Get assets by symbol.
@@ -105,7 +105,7 @@ public protocol AssetApi: BaseApi {
      
      - Returns: `AssetAmount` in DCT.
      */
-    func convert(fromDct amount: BigInt, to assetId: ObjectIdConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount>
+    func convert(fromDct amount: BigInt, to assetId: AssetObjectIdConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount>
     
     /**
      Converts from asset by id to DCT,
@@ -121,7 +121,7 @@ public protocol AssetApi: BaseApi {
      
      - Returns: `AssetAmount` in DCT.
      */
-    func convert(toDct amount: BigInt, from assetId: ObjectIdConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount>
+    func convert(toDct amount: BigInt, from assetId: AssetObjectIdConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount>
 
     /**
      Check if the asset exists.
@@ -161,15 +161,15 @@ public protocol AssetApi: BaseApi {
 }
 
 extension AssetApi {
-    public func get(byId id: ObjectIdConvertible) -> Single<Asset> {
+    public func get(byId id: AssetObjectIdConvertible) -> Single<Asset> {
         return getAll(byIds: [id]).map {
             try $0.first.orThrow(DCoreException.network(.notFound))
         }
     }
     
-    public func getAll(byIds ids: [ObjectIdConvertible]) -> Single<[Asset]> {
+    public func getAll(byIds ids: [AssetObjectIdConvertible]) -> Single<[Asset]> {
         return Single.deferred {
-            return GetAssets(try ids.map { try $0.asObjectId() }).base.toResponse(self.api.core)
+            return GetAssets(try ids.map { try $0.asAssetObjectId() }).base.toResponse(self.api.core)
         }
     }
     
@@ -208,11 +208,11 @@ extension AssetApi {
         }
     }
     
-    public func convert(fromDct amount: BigInt, to assetId: ObjectIdConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount> {
+    public func convert(fromDct amount: BigInt, to assetId: AssetObjectIdConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount> {
         return get(byId: assetId).map { try $0.convert(fromDct: amount, rounding: rounding) }
     }
     
-    public func convert(toDct amount: BigInt, from assetId: ObjectIdConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount> {
+    public func convert(toDct amount: BigInt, from assetId: AssetObjectIdConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount> {
         return get(byId: assetId).map { try $0.convert(toDct: amount, rounding: rounding) }
     }
 

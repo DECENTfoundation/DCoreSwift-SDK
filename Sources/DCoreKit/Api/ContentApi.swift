@@ -97,7 +97,7 @@ public protocol ContentApi: BaseApi {
      
      - Returns: Generated key and key parts.
      */
-    func generateKeys(forSeeders ids: [ObjectIdConvertible]) -> Single<ContentKeys>
+    func generateKeys(forSeeders ids: [AccountObjectIdConvertible]) -> Single<ContentKeys>
 
     /**
      Restores encryption key from key parts stored in buying object.
@@ -370,9 +370,9 @@ extension ContentApi {
         }
     }
     
-    public func generateKeys(forSeeders ids: [ObjectIdConvertible]) -> Single<ContentKeys> {
+    public func generateKeys(forSeeders ids: [AccountObjectIdConvertible]) -> Single<ContentKeys> {
         return Single.deferred {
-            return GenerateContentKeys(try ids.map { try $0.asObjectId() }).base.toResponse(self.api.core)
+            return GenerateContentKeys(try ids.map { try $0.asAccountObjectId() }).base.toResponse(self.api.core)
         }
     }
     

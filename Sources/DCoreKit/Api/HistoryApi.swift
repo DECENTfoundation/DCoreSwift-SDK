@@ -16,7 +16,7 @@ public protocol HistoryApi: BaseApi {
      
      - Returns: `BalanceChange`.
      */
-    func get(byAccountId id: ObjectIdConvertible,
+    func get(byAccountId id: AccountObjectIdConvertible,
              operationId: ObjectIdConvertible) -> Single<BalanceChange>
     
     /**
@@ -29,7 +29,7 @@ public protocol HistoryApi: BaseApi {
      - Returns: Array `[OperationHistory]` of operations,
      performed by account, ordered from most recent to oldest.
      */
-    func getAll(byAccountId id: ObjectIdConvertible,
+    func getAll(byAccountId id: AccountObjectIdConvertible,
                 pagination: Pagination) -> Single<[OperationHistory]>
     
     /**
@@ -42,7 +42,7 @@ public protocol HistoryApi: BaseApi {
      - Returns: Array `[OperationHistory]` of operations,
      performed by account, ordered from most recent to oldest.
      */
-    func getAllRelative(byAccountId id: ObjectIdConvertible,
+    func getAllRelative(byAccountId id: AccountObjectIdConvertible,
                         pagination: Pagination) -> Single<[OperationHistory]>
     
     /**
@@ -61,58 +61,59 @@ public protocol HistoryApi: BaseApi {
      
      - Returns: Array `[BalanceChange]` of balance changes.
      */
-    func findAll(byAccountId id: ObjectIdConvertible,
-                 assets: [ObjectIdConvertible],
-                 recipientId: ObjectIdConvertible?,
+    func findAll(byAccountId id: AccountObjectIdConvertible,
+                 assets: [AssetObjectIdConvertible],
+                 recipientId: AccountObjectIdConvertible?,
                  pagination: Pagination) -> Single<[BalanceChange]>
 }
 
 extension HistoryApi {
-    public func get(byAccountId id: ObjectIdConvertible,
+    public func get(byAccountId id: AccountObjectIdConvertible,
                     operationId: ObjectIdConvertible) -> Single<BalanceChange> {
         return Single.deferred {
             return GetAccountBalanceForTransaction(
-                try id.asObjectId(), operationId: try operationId.asObjectId()
+                try id.asAccountObjectId(), operationId: try operationId.asObjectId()
             ).base.toResponse(self.api.core)
         }
     }
     
-    public func getAll(byAccountId id: ObjectIdConvertible,
+    public func getAll(byAccountId id: AccountObjectIdConvertible,
                        pagination: Pagination = .unsetHistoryObject) -> Single<[OperationHistory]> {
         return Single.deferred {
             guard case .pageObject(let bounds, let limit) = pagination,
                 let upperBound = bounds.upperBound as? OperationHistoryObjectId,
                 let lowerBound = bounds.lowerBound as? OperationHistoryObjectId
             else { return Single.error(DCoreException.unexpected("Unsupported pagination use pageObject.")) }
-            return GetAccountHistory(try id.asObjectId(), stopId: upperBound, limit: limit, startId: lowerBound)
+            return GetAccountHistory(try id.asAccountObjectId(), stopId: upperBound, limit: limit, startId: lowerBound)
                 .base
                 .toResponse(self.api.core)
         }
     }
     
-    public func getAllRelative(byAccountId id: ObjectIdConvertible,
+    public func getAllRelative(byAccountId id: AccountObjectIdConvertible,
                                pagination: Pagination = .ignore) -> Single<[OperationHistory]> {
         return Single.deferred {
             guard case .page(let bounds, _, let limit) = pagination else {
                 return Single.error(DCoreException.unexpected("Unsupported pagination use page."))
             }
-            return GetRelativeAccountHistory(try id.asObjectId(), stop: 0, limit: limit, start: bounds.lowerBound)
+            return GetRelativeAccountHistory(
+                try id.asAccountObjectId(), stop: 0, limit: limit, start: bounds.lowerBound)
                 .base
                 .toResponse(self.api.core)
         }
     }
     
-    public func findAll(byAccountId id: ObjectIdConvertible,
-                        assets: [ObjectIdConvertible] = [],
-                        recipientId: ObjectIdConvertible? = nil,
+    public func findAll(byAccountId id: AccountObjectIdConvertible,
+                        assets: [AssetObjectIdConvertible] = [],
+                        recipientId: AccountObjectIdConvertible? = nil,
                         pagination: Pagination = .ignore) -> Single<[BalanceChange]> {
         return Single.deferred {
             guard case .page(let bounds, let offset, let limit) = pagination else {
                 return Single.error(DCoreException.unexpected("Unsupported pagination use page."))
             }
-            return SearchAccountBalanceHistory(try id.asObjectId(),
-                                               assets: try assets.map { try $0.asObjectId() },
-                                               recipientAccount: try recipientId?.asObjectId(),
+            return SearchAccountBalanceHistory(try id.asAccountObjectId(),
+                                               assets: try assets.map { try $0.asAssetObjectId() },
+                                               recipientAccount: try recipientId?.asAccountObjectId(),
                                                fromBlock: bounds.lowerBound,
                                                toBlock: bounds.upperBound,
                                                startOffset: offset, limit: limit).base.toResponse(self.api.core)

@@ -74,10 +74,11 @@ public struct MessagePayload: Codable {
         self.fromAddress = fromAddress
     }
     
-    init(_ from: AccountObjectId, messages: [Pair<ObjectIdConvertible, String>]) throws {
+    init(_ from: AccountObjectId, messages: [Pair<AccountObjectIdConvertible, String>]) throws {
         self.from = from
         self.receivers = try messages.map {
-            MessagePayloadReceiver(to: try $0.first.asObjectId(), data: try Memo($0.second).message, toAddress: nil, nonce: nil)
+            MessagePayloadReceiver(
+                to: try $0.first.asAccountObjectId(), data: try Memo($0.second).message, toAddress: nil, nonce: nil)
         }
 
     }

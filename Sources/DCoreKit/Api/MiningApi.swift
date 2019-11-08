@@ -13,7 +13,7 @@ public protocol MiningApi: BaseApi {
      
      - Returns: An `Miner` if exist.
      */
-    func get(byAccountId id: ObjectIdConvertible) -> Single<Miner>
+    func get(byAccountId id: AccountObjectIdConvertible) -> Single<Miner>
     
     /**
      Get first 1000 miners by their name to miner account.
@@ -56,7 +56,7 @@ public protocol MiningApi: BaseApi {
      
      - Returns: Array of price feeds published by the miner.
      */
-    func getAllFeeds(byAccountId id: ObjectIdConvertible, limit: UInt64) -> Single<AnyValue>
+    func getAllFeeds(byAccountId id: AccountObjectIdConvertible, limit: UInt64) -> Single<AnyValue>
     
     /**
      Get the number of votes each miner actually has.
@@ -139,9 +139,9 @@ public protocol MiningApi: BaseApi {
 }
 
 extension MiningApi {
-    public func get(byAccountId id: ObjectIdConvertible) -> Single<Miner> {
+    public func get(byAccountId id: AccountObjectIdConvertible) -> Single<Miner> {
         return Single.deferred {
-            return GetMinerByAccount(try id.asObjectId()).base.toResponse(self.api.core)
+            return GetMinerByAccount(try id.asAccountObjectId()).base.toResponse(self.api.core)
         }
     }
     
@@ -169,9 +169,9 @@ extension MiningApi {
         return GetMinerCount().base.toResponse(api.core)
     }
     
-    public func getAllFeeds(byAccountId id: ObjectIdConvertible, limit: UInt64 = 100) -> Single<AnyValue> {
+    public func getAllFeeds(byAccountId id: AccountObjectIdConvertible, limit: UInt64 = 100) -> Single<AnyValue> {
         return Single.deferred {
-            return GetFeedsByMiner(try id.asObjectId(), count: limit).base.toResponse(self.api.core)
+            return GetFeedsByMiner(try id.asAccountObjectId(), count: limit).base.toResponse(self.api.core)
         }
     }
     

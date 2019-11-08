@@ -15,7 +15,7 @@ public protocol BalanceApi: BaseApi {
      
      - Returns: Amount for asset.
      */
-    func get(byAccountId id: ObjectIdConvertible, asset: ObjectIdConvertible) -> Single<AssetAmount>
+    func get(byAccountId id: AccountObjectIdConvertible, asset: AssetObjectIdConvertible) -> Single<AssetAmount>
     
     /**
      Get all account balances by account id.
@@ -27,7 +27,7 @@ public protocol BalanceApi: BaseApi {
      
      - Returns: Array `[AssetAmount]` of amount for different assets.
      */
-    func getAll(byAccountId id: ObjectIdConvertible, assets: [ObjectIdConvertible]) -> Single<[AssetAmount]>
+    func getAll(byAccountId id: AccountObjectIdConvertible, assets: [AssetObjectIdConvertible]) -> Single<[AssetAmount]>
     
     /**
      Get account balance by account reference (name or id).
@@ -41,7 +41,7 @@ public protocol BalanceApi: BaseApi {
      
      - Returns: Array `[AssetAmount]` of amount for different assets.
      */
-    func get(byReference ref: Account.Reference, asset: ObjectIdConvertible) -> Single<AssetAmount>
+    func get(byReference ref: Account.Reference, asset: AssetObjectIdConvertible) -> Single<AssetAmount>
     
     /**
      Get all account balances by account reference (name or id).
@@ -52,7 +52,7 @@ public protocol BalanceApi: BaseApi {
      
      - Returns: Array `[AssetAmount]` of amount for different assets.
      */
-    func getAll(byReference ref: Account.Reference, assets: [ObjectIdConvertible]) -> Single<[AssetAmount]>
+    func getAll(byReference ref: Account.Reference, assets: [AssetObjectIdConvertible]) -> Single<[AssetAmount]>
     
     /**
      Get account balance with asset by account id and symbol.
@@ -66,7 +66,7 @@ public protocol BalanceApi: BaseApi {
      
      - Returns: `AssetAmountPair` asset pair with amount.
      */
-    func getWithAsset(byAccountId id: ObjectIdConvertible, symbol: Asset.Symbol) -> Single<AssetAmountPair>
+    func getWithAsset(byAccountId id: AccountObjectIdConvertible, symbol: Asset.Symbol) -> Single<AssetAmountPair>
     
     /**
      Get all account balances with asset by account id and symbols.
@@ -77,7 +77,7 @@ public protocol BalanceApi: BaseApi {
      
      - Returns: Array `[AssetAmountPair]` of asset pairs with amounts.
      */
-    func getAllWithAsset(byAccountId id: ObjectIdConvertible, symbols: [Asset.Symbol]) -> Single<[AssetAmountPair]>
+    func getAllWithAsset(byAccountId id: AccountObjectIdConvertible, symbols: [Asset.Symbol]) -> Single<[AssetAmountPair]>
 
     /**
      Get all account balances with asset by account id.
@@ -87,7 +87,7 @@ public protocol BalanceApi: BaseApi {
      
      - Returns: Array `[AssetAmountPair]` of asset pairs with amounts.
      */
-    func getAllWithAsset(byAccountId id: ObjectIdConvertible) -> Single<[AssetAmountPair]>
+    func getAllWithAsset(byAccountId id: AccountObjectIdConvertible) -> Single<[AssetAmountPair]>
    
     /**
      Get account balance with asset by account reference (id or name) and symbol.
@@ -129,32 +129,33 @@ public protocol BalanceApi: BaseApi {
      
      - Returns: Array `[VestingBalance]` vesting balances with additional information.
      */
-    func getAllVesting(byAccountId id: ObjectIdConvertible) -> Single<[VestingBalance]>
+    func getAllVesting(byAccountId id: AccountObjectIdConvertible) -> Single<[VestingBalance]>
 }
 
 extension BalanceApi {
-    public func get(byAccountId id: ObjectIdConvertible, asset: ObjectIdConvertible) -> Single<AssetAmount> {
+    public func get(byAccountId id: AccountObjectIdConvertible, asset: AssetObjectIdConvertible) -> Single<AssetAmount> {
         return getAll(byAccountId: id, assets: [asset]).map {
             try $0.first.orThrow(DCoreException.network(.notFound))
         }
     }
     
-    public func getAll(byAccountId id: ObjectIdConvertible, assets: [ObjectIdConvertible] = []) -> Single<[AssetAmount]> {
+    public func getAll(byAccountId id: AccountObjectIdConvertible, assets: [AssetObjectIdConvertible] = []) -> Single<[AssetAmount]> {
         return Single.deferred {
-            return GetAccountBalances(try id.asObjectId(), assets: try assets.map {
-                try $0.asObjectId()
+            return GetAccountBalances(try id.asAccountObjectId(), assets: try assets.map {
+                try $0.asAssetObjectId()
             }).base.toResponse(self.api.core)
         }
     }
     
-    public func get(byReference ref: Account.Reference, asset: ObjectIdConvertible) -> Single<AssetAmount> {
+    public func get(byReference ref: Account.Reference, asset: AssetObjectIdConvertible) -> Single<AssetAmount> {
         return getAll(byReference: ref, assets: [asset]).map { $0.first! }
     }
     
-    public func getAll(byReference ref: Account.Reference, assets: [ObjectIdConvertible] = []) -> Single<[AssetAmount]> {
+    public func getAll(byReference ref: Account.Reference, assets: [AssetObjectIdConvertible] = []) -> Single<[AssetAmount]> {
         return Single.deferred {
             if Account.hasValid(name: ref) {
-                return GetNamedAccountBalances(ref, assets: try assets.map { try $0.asObjectId() }).base.toResponse(self.api.core)
+                return GetNamedAccountBalances(
+                    ref, assets: try assets.map { try $0.asAssetObjectId() }).base.toResponse(self.api.core)
             }
             
             return self.api.account.get(byReference: ref).flatMap { account in
@@ -163,13 +164,13 @@ extension BalanceApi {
         }
     }
     
-    public func getWithAsset(byAccountId id: ObjectIdConvertible, symbol: Asset.Symbol = .dct) -> Single<AssetAmountPair> {
+    public func getWithAsset(byAccountId id: AccountObjectIdConvertible, symbol: Asset.Symbol = .dct) -> Single<AssetAmountPair> {
         return getAllWithAsset(byAccountId: id, symbols: [symbol]).map {
             try $0.first.orThrow(DCoreException.network(.notFound))
         }
     }
 
-    public func getAllWithAsset(byAccountId id: ObjectIdConvertible) -> Single<[AssetAmountPair]> {
+    public func getAllWithAsset(byAccountId id: AccountObjectIdConvertible) -> Single<[AssetAmountPair]> {
         return self.getAll(byAccountId: id).flatMap { amounts in
             self.api.asset.getAll(byIds: amounts.map { $0.assetId }).map { assets in
                 amounts.map { amount in
@@ -179,7 +180,7 @@ extension BalanceApi {
         }
     }
 
-    public func getAllWithAsset(byAccountId id: ObjectIdConvertible, symbols: [Asset.Symbol]) -> Single<[AssetAmountPair]> {
+    public func getAllWithAsset(byAccountId id: AccountObjectIdConvertible, symbols: [Asset.Symbol]) -> Single<[AssetAmountPair]> {
         return api.asset.getAll(bySymbols: symbols).flatMap { assets in
             return self.getAll(byAccountId: id, assets: assets.map { $0.id }).map { amounts in
                 return amounts.map { amount in
@@ -207,9 +208,9 @@ extension BalanceApi {
         }
     }
     
-    public func getAllVesting(byAccountId id: ObjectIdConvertible) -> Single<[VestingBalance]> {
+    public func getAllVesting(byAccountId id: AccountObjectIdConvertible) -> Single<[VestingBalance]> {
         return Single.deferred {
-            return GetVestingBalances(try id.asObjectId()).base.toResponse(self.api.core)
+            return GetVestingBalances(try id.asAccountObjectId()).base.toResponse(self.api.core)
         }
     }
 }

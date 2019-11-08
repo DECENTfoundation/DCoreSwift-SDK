@@ -20,3 +20,31 @@ extension String: ObjectIdConvertible {
         )
     }
 }
+
+public protocol AccountObjectIdConvertible: ObjectIdConvertible {
+    func asAccountObjectId() throws -> AccountObjectId
+}
+
+extension AccountObjectIdConvertible {
+    public func asAccountObjectId() throws -> AccountObjectId {
+        return try asObjectId()
+    }
+}
+
+extension AccountObjectId: AccountObjectIdConvertible {}
+
+extension String: AccountObjectIdConvertible {}
+
+public protocol AssetObjectIdConvertible: ObjectIdConvertible {
+    func asAssetObjectId() throws -> AssetObjectId
+}
+
+extension AssetObjectIdConvertible {
+    public func asAssetObjectId() throws -> AssetObjectId {
+        return try asObjectId()
+    }
+}
+
+extension AssetObjectId: AssetObjectIdConvertible {}
+
+extension String: AssetObjectIdConvertible {}

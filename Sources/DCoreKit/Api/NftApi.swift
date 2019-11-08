@@ -172,7 +172,7 @@ public protocol NftApi: BaseApi {
      - Returns: NFT data instances with raw model
      */
     func getNftBalancesRaw(
-        account: ObjectIdConvertible, nftIds: [ObjectIdConvertible]) -> Single<[NftData<RawNft>]>
+        account: AccountObjectIdConvertible, nftIds: [ObjectIdConvertible]) -> Single<[NftData<RawNft>]>
 
     /**
      Get NFT balances per account with parsed model
@@ -185,7 +185,7 @@ public protocol NftApi: BaseApi {
      - Returns: NFT data instances with parsed model
      */
     func getNftBalances<T: NftModel>(
-        account: ObjectIdConvertible, nftIds: [ObjectIdConvertible]) -> Single<[NftData<T>]>
+        account: AccountObjectIdConvertible, nftIds: [ObjectIdConvertible]) -> Single<[NftData<T>]>
 
     /**
      Create NFT.
@@ -270,7 +270,7 @@ public protocol NftApi: BaseApi {
     func issue<T: NftModel>(
         credentials: Credentials,
         reference: Nft.Reference,
-        to: ObjectIdConvertible,
+        to: AccountObjectIdConvertible,
         data: T?,
         memo: Memo?,
         fee: AssetAmount) -> Single<TransactionConfirmation>
@@ -292,7 +292,7 @@ public protocol NftApi: BaseApi {
      */
     func transfer(
         credentials: Credentials,
-        to: ObjectIdConvertible,
+        to: AccountObjectIdConvertible,
         id: ObjectIdConvertible,
         memo: Memo?,
         fee: AssetAmount) -> Single<TransactionConfirmation>
@@ -382,15 +382,15 @@ extension NftApi {
     }
 
     public func getNftBalancesRaw(
-        account: ObjectIdConvertible, nftIds: [ObjectIdConvertible] = []) -> Single<[NftData<RawNft>]> {
+        account: AccountObjectIdConvertible, nftIds: [ObjectIdConvertible] = []) -> Single<[NftData<RawNft>]> {
         return Single.deferred {
-            GetNftsBalances(try account.asObjectId(), try nftIds.map { try $0.asObjectId() })
+            GetNftsBalances(try account.asAccountObjectId(), try nftIds.map { try $0.asObjectId() })
                 .base.toResponse(self.api.core)
         }
     }
 
     public func getNftBalances<T: NftModel>(
-        account: ObjectIdConvertible, nftIds: [ObjectIdConvertible] = []) -> Single<[NftData<T>]> {
+        account: AccountObjectIdConvertible, nftIds: [ObjectIdConvertible] = []) -> Single<[NftData<T>]> {
         return getNftBalancesRaw(account: account, nftIds: nftIds).map { try $0.toParsedNftData() }
     }
 
@@ -461,7 +461,7 @@ extension NftApi {
     public func issue<T: NftModel>(
         credentials: Credentials,
         reference: Nft.Reference,
-        to: ObjectIdConvertible,
+        to: AccountObjectIdConvertible,
         data: T? = nil,
         memo: Memo? = nil,
         fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
@@ -470,7 +470,7 @@ extension NftApi {
                 NftIssueOperation(
                     issuer: credentials.accountId,
                     nftId: nft.id,
-                    to: try to.asObjectId(),
+                    to: try to.asAccountObjectId(),
                     data: (try data?.values()).or([]),
                     memo: memo,
                     fee: fee
@@ -482,7 +482,7 @@ extension NftApi {
 
     public func transfer(
         credentials: Credentials,
-        to: ObjectIdConvertible,
+        to: AccountObjectIdConvertible,
         id: ObjectIdConvertible,
         memo: Memo? = nil,
         fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
@@ -490,7 +490,7 @@ extension NftApi {
             self.api.broadcast.broadcastWithCallback(
                 NftTransferOperation(
                     from: credentials.accountId,
-                    to: try to.asObjectId(),
+                    to: try to.asAccountObjectId(),
                     nftDataId: try id.asObjectId(),
                     memo: memo,
                     fee: fee

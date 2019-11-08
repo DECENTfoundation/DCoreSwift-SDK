@@ -58,7 +58,7 @@ public protocol TransactionApi: BaseApi {
      
      - Returns: `ProcessedTransaction` if found.
      */
-    func getAllProposed(byAccountId id: ObjectIdConvertible) -> Single<AnyValue>
+    func getAllProposed(byAccountId id: AccountObjectIdConvertible) -> Single<AnyValue>
     
     /**
      Create unsigned transaction.
@@ -104,9 +104,9 @@ extension TransactionApi {
         return GetTransactionHex(trx).base.toResponse(api.core)
     }
     
-    public func getAllProposed(byAccountId id: ObjectIdConvertible) -> Single<AnyValue> {
+    public func getAllProposed(byAccountId id: AccountObjectIdConvertible) -> Single<AnyValue> {
         return Single.deferred {
-            return GetProposedTransactions(try id.asObjectId()).base.toResponse(self.api.core)
+            return GetProposedTransactions(try id.asAccountObjectId()).base.toResponse(self.api.core)
         }
     }
     

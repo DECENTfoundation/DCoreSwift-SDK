@@ -19,7 +19,7 @@ public protocol AccountApi: BaseApi {
      
      - Returns: `true` if account exist.
      */
-    func exist(byId id: ObjectIdConvertible) -> Single<Bool>
+    func exist(byId id: AccountObjectIdConvertible) -> Single<Bool>
     
     /**
      Check if the account exist.
@@ -52,7 +52,7 @@ public protocol AccountApi: BaseApi {
      
      - Returns: An `Account` if exist.
      */
-    func get(byId id: ObjectIdConvertible) -> Single<Account>
+    func get(byId id: AccountObjectIdConvertible) -> Single<Account>
     
     /**
      Get account by reference (id or name) in `String` format.
@@ -73,7 +73,7 @@ public protocol AccountApi: BaseApi {
 
      - Returns: An `[Account]` array.
      */
-    func getAll(byIds ids: [ObjectIdConvertible]) -> Single<[Account]>
+    func getAll(byIds ids: [AccountObjectIdConvertible]) -> Single<[Account]>
     
     /**
      Get accounts by names.
@@ -295,7 +295,7 @@ extension AccountApi {
         return get(byName: name).map({ _ in true }).catchErrorJustReturn(false)
     }
     
-    public func exist(byId id: ObjectIdConvertible) -> Single<Bool> {
+    public func exist(byId id: AccountObjectIdConvertible) -> Single<Bool> {
         return get(byId: id).map({ _ in true }).catchErrorJustReturn(false)
     }
     
@@ -307,7 +307,7 @@ extension AccountApi {
         return GetAccountByName(name).base.toResponse(api.core)
     }
     
-    public func get(byId id: ObjectIdConvertible) -> Single<Account> {
+    public func get(byId id: AccountObjectIdConvertible) -> Single<Account> {
         return getAll(byIds: [id]).map {
             try $0.first.orThrow(DCoreException.network(.notFound))
         }
@@ -325,9 +325,9 @@ extension AccountApi {
         }
     }
     
-    public func getAll(byIds ids: [ObjectIdConvertible]) -> Single<[Account]> {
+    public func getAll(byIds ids: [AccountObjectIdConvertible]) -> Single<[Account]> {
         return Single.deferred {
-            return GetAccountById(try ids.map { try $0.asObjectId() }).base.toResponse(self.api.core)
+            return GetAccountById(try ids.map { try $0.asAccountObjectId() }).base.toResponse(self.api.core)
         }
     }
     

@@ -15,7 +15,7 @@ public protocol PurchaseApi: BaseApi {
      
      - Returns: `Purchase`.
      */
-    func get(byConsumerId id: ObjectIdConvertible, url: URLConvertible) -> Single<Purchase>
+    func get(byConsumerId id: AccountObjectIdConvertible, url: URLConvertible) -> Single<Purchase>
     
     /**
      Get a list of open purchases.
@@ -42,7 +42,7 @@ public protocol PurchaseApi: BaseApi {
      
      - Returns: Array `[Purchase]` of open purchases.
      */
-    func getAllOpen(byAccountId id: ObjectIdConvertible) -> Single<[Purchase]>
+    func getAllOpen(byAccountId id: AccountObjectIdConvertible) -> Single<[Purchase]>
     
     /**
      Get a list of historical purchases for consumer id.
@@ -55,7 +55,7 @@ public protocol PurchaseApi: BaseApi {
      
      - Returns: Array `[Purchase]` of historical purchases.
      */
-    func getAllHistorical(byAccountId id: ObjectIdConvertible) -> Single<[Purchase]>
+    func getAllHistorical(byAccountId id: AccountObjectIdConvertible) -> Single<[Purchase]>
     
     /**
      Search consumer open and historical purchases.
@@ -72,7 +72,7 @@ public protocol PurchaseApi: BaseApi {
      
      - Returns: Array `[Purchase]` of purchases.
      */
-    func findAll(byConsumerId id: ObjectIdConvertible,
+    func findAll(byConsumerId id: AccountObjectIdConvertible,
                  expression: String,
                  from: ObjectIdConvertible,
                  order: SearchOrder.Purchases,
@@ -99,10 +99,10 @@ public protocol PurchaseApi: BaseApi {
 }
 
 extension PurchaseApi {
-    public func get(byConsumerId id: ObjectIdConvertible, url: URLConvertible) -> Single<Purchase> {
+    public func get(byConsumerId id: AccountObjectIdConvertible, url: URLConvertible) -> Single<Purchase> {
         return Single.deferred {
             return GetBuyingByUri(
-                try id.asObjectId(), uri: try url.asURI { Content.hasValid(uri: $0) }
+                try id.asAccountObjectId(), uri: try url.asURI { Content.hasValid(uri: $0) }
             ).base.toResponse(self.api.core)
         }
     }
@@ -117,25 +117,26 @@ extension PurchaseApi {
         }
     }
     
-    public func getAllOpen(byAccountId id: ObjectIdConvertible) -> Single<[Purchase]> {
+    public func getAllOpen(byAccountId id: AccountObjectIdConvertible) -> Single<[Purchase]> {
         return Single.deferred {
-            return GetOpenBuyingsByConsumer(try id.asObjectId()).base.toResponse(self.api.core)
+            return GetOpenBuyingsByConsumer(try id.asAccountObjectId()).base.toResponse(self.api.core)
         }
     }
     
-    public func getAllHistorical(byAccountId id: ObjectIdConvertible) -> Single<[Purchase]> {
+    public func getAllHistorical(byAccountId id: AccountObjectIdConvertible) -> Single<[Purchase]> {
         return Single.deferred {
-            return GetHistoryBuyingsByConsumer(try id.asObjectId()).base.toResponse(self.api.core)
+            return GetHistoryBuyingsByConsumer(try id.asAccountObjectId()).base.toResponse(self.api.core)
         }
     }
     
-    public func findAll(byConsumerId id: ObjectIdConvertible,
+    public func findAll(byConsumerId id: AccountObjectIdConvertible,
                         expression: String = "",
                         from: ObjectIdConvertible = ObjectId.nullObjectId,
                         order: SearchOrder.Purchases = .purchasedDesc,
                         limit: Int = 100) -> Single<[Purchase]> {
         return Single.deferred {
-            return SearchBuyings(try id.asObjectId(), order: order, startId: try from.asObjectId(), term: expression, limit: limit)
+            return SearchBuyings(
+                try id.asAccountObjectId(), order: order, startId: try from.asObjectId(), term: expression, limit: limit)
                 .base
                 .toResponse(self.api.core)
         }

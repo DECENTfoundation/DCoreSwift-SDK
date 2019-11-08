@@ -25,7 +25,7 @@ public protocol SubscriptionApi: BaseApi {
      
      - Returns: `true` if account exist.
      */
-    func getAllActive(byConsumerId id: ObjectIdConvertible, limit: Int) -> Single<[Subscription]>
+    func getAllActive(byConsumerId id: AccountObjectIdConvertible, limit: Int) -> Single<[Subscription]>
     
     /**
      Check if the account exist.
@@ -37,7 +37,7 @@ public protocol SubscriptionApi: BaseApi {
      
      - Returns: `true` if account exist.
      */
-    func getAllActive(byAuthorId id: ObjectIdConvertible, limit: Int) -> Single<[Subscription]>
+    func getAllActive(byAuthorId id: AccountObjectIdConvertible, limit: Int) -> Single<[Subscription]>
     
     /**
      Check if the account exist.
@@ -49,7 +49,7 @@ public protocol SubscriptionApi: BaseApi {
      
      - Returns: `true` if account exist.
      */
-    func getAll(byConsumerId id: ObjectIdConvertible, limit: Int) -> Single<[Subscription]>
+    func getAll(byConsumerId id: AccountObjectIdConvertible, limit: Int) -> Single<[Subscription]>
     
     /**
      Check if the account exist.
@@ -61,7 +61,7 @@ public protocol SubscriptionApi: BaseApi {
      
      - Returns: `true` if account exist.
      */
-    func getAll(byAuthorId id: ObjectIdConvertible, limit: Int) -> Single<[Subscription]>
+    func getAll(byAuthorId id: AccountObjectIdConvertible, limit: Int) -> Single<[Subscription]>
 }
 
 extension SubscriptionApi {
@@ -71,33 +71,37 @@ extension SubscriptionApi {
         }
     }
     
-    public func getAllActive(byConsumerId id: ObjectIdConvertible, limit: Int = DCore.Limits.subscriber) -> Single<[Subscription]> {
+    public func getAllActive(byConsumerId id: AccountObjectIdConvertible, limit: Int = DCore.Limits.subscriber) -> Single<[Subscription]> {
         return Single.deferred {
-            return ListActiveSubscriptionsByConsumer(try id.asObjectId(), count: try limit.limited(by: DCore.Limits.subscriber))
+            return ListActiveSubscriptionsByConsumer(
+                try id.asAccountObjectId(), count: try limit.limited(by: DCore.Limits.subscriber))
                 .base
                 .toResponse(self.api.core)
         }
     }
     
-    public func getAllActive(byAuthorId id: ObjectIdConvertible, limit: Int = DCore.Limits.subscriber) -> Single<[Subscription]> {
+    public func getAllActive(byAuthorId id: AccountObjectIdConvertible, limit: Int = DCore.Limits.subscriber) -> Single<[Subscription]> {
         return Single.deferred {
-            return ListActiveSubscriptionsByAuthor(try id.asObjectId(), count: try limit.limited(by: DCore.Limits.subscriber))
+            return ListActiveSubscriptionsByAuthor(
+                try id.asAccountObjectId(), count: try limit.limited(by: DCore.Limits.subscriber))
                 .base
                 .toResponse(self.api.core)
         }
     }
     
-    public func getAll(byConsumerId id: ObjectIdConvertible, limit: Int = DCore.Limits.subscriber) -> Single<[Subscription]> {
+    public func getAll(byConsumerId id: AccountObjectIdConvertible, limit: Int = DCore.Limits.subscriber) -> Single<[Subscription]> {
         return Single.deferred {
-            return ListSubscriptionsByConsumer(try id.asObjectId(), count: try limit.limited(by: DCore.Limits.subscriber))
+            return ListSubscriptionsByConsumer(
+                try id.asAccountObjectId(), count: try limit.limited(by: DCore.Limits.subscriber))
                 .base
                 .toResponse(self.api.core)
         }
     }
     
-    public func getAll(byAuthorId id: ObjectIdConvertible, limit: Int = DCore.Limits.subscriber) -> Single<[Subscription]> {
+    public func getAll(byAuthorId id: AccountObjectIdConvertible, limit: Int = DCore.Limits.subscriber) -> Single<[Subscription]> {
         return Single.deferred {
-            return ListSubscriptionsByAuthor(try id.asObjectId(), count: try limit.limited(by: DCore.Limits.subscriber))
+            return ListSubscriptionsByAuthor(
+                try id.asAccountObjectId(), count: try limit.limited(by: DCore.Limits.subscriber))
                 .base
                 .toResponse(self.api.core)
         }

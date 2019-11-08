@@ -86,7 +86,7 @@ public protocol ValidationApi: BaseApi {
      
      - Returns: Arrray `[AssetAmount]` of fee asset amounts
      */
-    func getFees(for operations: [Operation], assetId: ObjectIdConvertible) -> Single<[AssetAmount]>
+    func getFees(for operations: [Operation], assetId: AssetObjectIdConvertible) -> Single<[AssetAmount]>
     
     /**
      Get fees for operation.
@@ -97,7 +97,7 @@ public protocol ValidationApi: BaseApi {
      
      - Returns: `AssetAmount` fee.
      */
-    func getFee(for operation: Operation, assetId: ObjectIdConvertible) -> Single<AssetAmount>
+    func getFee(for operation: Operation, assetId: AssetObjectIdConvertible) -> Single<AssetAmount>
     
     /**
      Get fees for operation type.
@@ -114,7 +114,7 @@ public protocol ValidationApi: BaseApi {
      
      - Returns: `AssetAmount` fee.
      */
-    func getFee(forType type: OperationType, assetId: ObjectIdConvertible) -> Single<AssetAmount>
+    func getFee(forType type: OperationType, assetId: AssetObjectIdConvertible) -> Single<AssetAmount>
 }
 
 extension ValidationApi {
@@ -149,17 +149,17 @@ extension ValidationApi {
         return ValidateTransaction(trx).base.toResponse(api.core)
     }
     
-    public func getFees(for operations: [Operation], assetId: ObjectIdConvertible = DCore.Constant.dct) -> Single<[AssetAmount]> {
+    public func getFees(for operations: [Operation], assetId: AssetObjectIdConvertible = DCore.Constant.dct) -> Single<[AssetAmount]> {
         return Single.deferred {
-            return GetRequiredFees(operations, assetId: try assetId.asObjectId()).base.toResponse(self.api.core)
+            return GetRequiredFees(operations, assetId: try assetId.asAssetObjectId()).base.toResponse(self.api.core)
         }
     }
     
-    public func getFee(for operation: Operation, assetId: ObjectIdConvertible = DCore.Constant.dct) -> Single<AssetAmount> {
+    public func getFee(for operation: Operation, assetId: AssetObjectIdConvertible = DCore.Constant.dct) -> Single<AssetAmount> {
         return getFees(for: [operation], assetId: assetId).map { try $0.first.orThrow(DCoreException.network(.notFound)) }
     }
     
-    public func getFee(forType type: OperationType, assetId: ObjectIdConvertible = DCore.Constant.dct) -> Single<AssetAmount> {
+    public func getFee(forType type: OperationType, assetId: AssetObjectIdConvertible = DCore.Constant.dct) -> Single<AssetAmount> {
         precondition(![
             .proposalCreateOperation,
             .proposalUpdateOperation,

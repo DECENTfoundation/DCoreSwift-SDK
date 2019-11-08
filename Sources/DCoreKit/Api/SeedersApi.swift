@@ -13,7 +13,7 @@ public protocol SeedersApi: BaseApi {
      
      - Returns: `Seeder`.
      */
-    func get(byAccountId id: ObjectIdConvertible) -> Single<Seeder>
+    func get(byAccountId id: AccountObjectIdConvertible) -> Single<Seeder>
     
     /**
      Get a list of seeders by price, in increasing order.
@@ -57,9 +57,9 @@ public protocol SeedersApi: BaseApi {
 }
 
 extension SeedersApi {
-    public func get(byAccountId id: ObjectIdConvertible) -> Single<Seeder> {
+    public func get(byAccountId id: AccountObjectIdConvertible) -> Single<Seeder> {
         return Single.deferred {
-            return GetSeeder(try id.asObjectId()).base.toResponse(self.api.core)
+            return GetSeeder(try id.asAccountObjectId()).base.toResponse(self.api.core)
         }
     }
     

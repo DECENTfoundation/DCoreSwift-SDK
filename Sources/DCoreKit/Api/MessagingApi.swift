@@ -56,7 +56,7 @@ public protocol MessagingApi: BaseApi {
 
      - Returns: `[Message]`.
      */
-    func findAll(bySender sender: ObjectIdConvertible, limit: Int) -> Single<[Message]>
+    func findAll(bySender sender: AccountObjectIdConvertible, limit: Int) -> Single<[Message]>
 
     /**
      Find all messages by receiver.
@@ -68,7 +68,7 @@ public protocol MessagingApi: BaseApi {
      - Returns: `[Message]`.
      */
     
-    func findAll(byReceiver receiver: ObjectIdConvertible, limit: Int) -> Single<[Message]>
+    func findAll(byReceiver receiver: AccountObjectIdConvertible, limit: Int) -> Single<[Message]>
     
     /**
      Find all messages decrypted by sender.
@@ -101,7 +101,7 @@ public protocol MessagingApi: BaseApi {
 
      - Returns: `[MessageResponse]`.
      */
-    func findAllResponses(bySender sender: ObjectIdConvertible, limit: Int) -> Single<[MessageResponse]>
+    func findAllResponses(bySender sender: AccountObjectIdConvertible, limit: Int) -> Single<[MessageResponse]>
 
     /**
      Find all messages responses.
@@ -112,7 +112,7 @@ public protocol MessagingApi: BaseApi {
 
      - Returns: `[MessageResponse]`.
      */
-    func findAllResponses(byReceiver receiver: ObjectIdConvertible, limit: Int) -> Single<[MessageResponse]>
+    func findAllResponses(byReceiver receiver: AccountObjectIdConvertible, limit: Int) -> Single<[MessageResponse]>
 
     /**
      Create message operation, send a message to one receiver.
@@ -124,7 +124,7 @@ public protocol MessagingApi: BaseApi {
      
      - Returns: `SendMessageOperation`.
      */
-    func createMessage(to: ObjectIdConvertible, message: String, credentials: Credentials) -> Single<SendMessageOperation>
+    func createMessage(to: AccountObjectIdConvertible, message: String, credentials: Credentials) -> Single<SendMessageOperation>
     
     /**
      Create message operation, send messages to multiple receivers.
@@ -136,7 +136,7 @@ public protocol MessagingApi: BaseApi {
      
      - Returns: `SendMessageOperation`.
      */
-    func createMessage(_ payloads: [Pair<ObjectIdConvertible, String>], credentials: Credentials) -> Single<SendMessageOperation>
+    func createMessage(_ payloads: [Pair<AccountObjectIdConvertible, String>], credentials: Credentials) -> Single<SendMessageOperation>
     
     /**
      Send a message to one receiver.
@@ -148,7 +148,7 @@ public protocol MessagingApi: BaseApi {
      
      - Returns: `SendMessageOperation`.
      */
-    func send(to: ObjectIdConvertible, message: String, credentials: Credentials) -> Single<TransactionConfirmation>
+    func send(to: AccountObjectIdConvertible, message: String, credentials: Credentials) -> Single<TransactionConfirmation>
     
     /**
      Create unencrypted message operation, send a message to one receiver.
@@ -160,7 +160,7 @@ public protocol MessagingApi: BaseApi {
      
      - Returns: `SendMessageOperation`.
      */
-    func createUnencryptedMessage(to: ObjectIdConvertible, message: String, credentials: Credentials) -> Single<SendMessageOperation>
+    func createUnencryptedMessage(to: AccountObjectIdConvertible, message: String, credentials: Credentials) -> Single<SendMessageOperation>
     
     /**
      Create unencrypted message operation, send messages to multiple receivers.
@@ -172,7 +172,7 @@ public protocol MessagingApi: BaseApi {
      
      - Returns: `SendMessageOperation`.
      */
-    func createUnencryptedMessage(_ payloads: [Pair<ObjectIdConvertible, String>], credentials: Credentials) -> Single<SendMessageOperation>
+    func createUnencryptedMessage(_ payloads: [Pair<AccountObjectIdConvertible, String>], credentials: Credentials) -> Single<SendMessageOperation>
     
     /**
      Send unencrypted message to one receiver.
@@ -184,7 +184,7 @@ public protocol MessagingApi: BaseApi {
      
      - Returns: `SendMessageOperation`.
      */
-    func sendUnencrypted(to: ObjectIdConvertible, message: String, credentials: Credentials) -> Single<TransactionConfirmation>
+    func sendUnencrypted(to: AccountObjectIdConvertible, message: String, credentials: Credentials) -> Single<TransactionConfirmation>
 }
 
 extension MessagingApi {
@@ -206,25 +206,25 @@ extension MessagingApi {
         }
     }
     
-    public func findAll(bySender sender: ObjectIdConvertible,
+    public func findAll(bySender sender: AccountObjectIdConvertible,
                         limit: Int = DCore.Limits.messaging) -> Single<[Message]> {
         return findAll(sender, limit: limit)
     }
 
-    public func findAll(byReceiver receiver: ObjectIdConvertible,
+    public func findAll(byReceiver receiver: AccountObjectIdConvertible,
                         limit: Int = DCore.Limits.messaging) -> Single<[Message]> {
         return findAll(receiver: receiver, limit: limit)
     }
 
-    private func getAll(_ sender: ObjectIdConvertible? = nil,
-                        receiver: ObjectIdConvertible? = nil,
+    private func getAll(_ sender: AccountObjectIdConvertible? = nil,
+                        receiver: AccountObjectIdConvertible? = nil,
                         limit: Int = DCore.Limits.messaging) -> Single<[Message]> {
         return findAllResponses(sender, receiver: receiver, limit: limit)
             .map { responses in Array( responses.map { $0.asMessages() }.joined()) }
     }
     
-    private func findAll(_ sender: ObjectIdConvertible? = nil,
-                         receiver: ObjectIdConvertible? = nil,
+    private func findAll(_ sender: AccountObjectIdConvertible? = nil,
+                         receiver: AccountObjectIdConvertible? = nil,
                          limit: Int = DCore.Limits.messaging) -> Single<[Message]> {
         return findAllResponses(sender, receiver: receiver, limit: limit)
             .map { responses in Array( responses.map { $0.asMessages() }.joined()) }
@@ -240,21 +240,22 @@ extension MessagingApi {
             .map { responses in Array(responses.map {$0.asMessages(decrypt: credentials) }.joined()) }
     }
 
-    public func findAllResponses(bySender sender: ObjectIdConvertible,
+    public func findAllResponses(bySender sender: AccountObjectIdConvertible,
                                  limit: Int = DCore.Limits.messaging) -> Single<[MessageResponse]> {
         return findAllResponses(sender, limit: limit)
     }
 
-    public func findAllResponses(byReceiver receiver: ObjectIdConvertible,
+    public func findAllResponses(byReceiver receiver: AccountObjectIdConvertible,
                                  limit: Int = DCore.Limits.messaging) -> Single<[MessageResponse]> {
         return findAllResponses(receiver: receiver, limit: limit)
     }
 
-    private func findAllResponses(_ sender: ObjectIdConvertible? = nil,
-                                  receiver: ObjectIdConvertible? = nil,
+    private func findAllResponses(_ sender: AccountObjectIdConvertible? = nil,
+                                  receiver: AccountObjectIdConvertible? = nil,
                                   limit: Int = DCore.Limits.messaging) -> Single<[MessageResponse]> {
         return Single.deferred {
-            return GetMessageObjects(try sender?.asObjectId(), receiver: try receiver?.asObjectId(), limit: limit)
+            return GetMessageObjects(
+                try sender?.asAccountObjectId(), receiver: try receiver?.asAccountObjectId(), limit: limit)
                 .base
                 .toResponse(self.api.core)
         }
@@ -268,13 +269,13 @@ extension MessagingApi {
         }
     }
     
-    public func createMessage(to: ObjectIdConvertible, message: String, credentials: Credentials) -> Single<SendMessageOperation> {
+    public func createMessage(to: AccountObjectIdConvertible, message: String, credentials: Credentials) -> Single<SendMessageOperation> {
         return createMessage([Pair(to, message)], credentials: credentials)
     }
     
-    public func createMessage(_ payloads: [Pair<ObjectIdConvertible, String>], credentials: Credentials) -> Single<SendMessageOperation> {
+    public func createMessage(_ payloads: [Pair<AccountObjectIdConvertible, String>], credentials: Credentials) -> Single<SendMessageOperation> {
         return Single.deferred {
-            let recipients = Single.zip(try payloads.map { self.api.account.get(byId: try $0.first) })
+            let recipients = Single.zip(try payloads.map { self.api.account.get(byId: $0.first) })
             return Single
                 .zip(self.api.account.get(byId: credentials.accountId), recipients)
                 .map { (sender, recipients) in
@@ -293,17 +294,17 @@ extension MessagingApi {
         }
     }
     
-    public func send(to: ObjectIdConvertible, message: String, credentials: Credentials) -> Single<TransactionConfirmation> {
+    public func send(to: AccountObjectIdConvertible, message: String, credentials: Credentials) -> Single<TransactionConfirmation> {
         return createMessage(to: to, message: message, credentials: credentials).flatMap {
             self.api.broadcast.broadcastWithCallback($0, keypair: credentials.keyPair)
         }
     }
     
-    public func createUnencryptedMessage(to: ObjectIdConvertible, message: String, credentials: Credentials) -> Single<SendMessageOperation> {
+    public func createUnencryptedMessage(to: AccountObjectIdConvertible, message: String, credentials: Credentials) -> Single<SendMessageOperation> {
         return createUnencryptedMessage([Pair(to, message)], credentials: credentials)
     }
     
-    public func createUnencryptedMessage(_ payloads: [Pair<ObjectIdConvertible, String>], credentials: Credentials) -> Single<SendMessageOperation> {
+    public func createUnencryptedMessage(_ payloads: [Pair<AccountObjectIdConvertible, String>], credentials: Credentials) -> Single<SendMessageOperation> {
         return Single.deferred {
             guard let data = try MessagePayload(credentials.accountId, messages: payloads).asJson() else {
                 throw DCoreException.network(.failEncode("Failed to encode message"))
@@ -312,7 +313,7 @@ extension MessagingApi {
         }
     }
     
-    public func sendUnencrypted(to: ObjectIdConvertible, message: String, credentials: Credentials) -> Single<TransactionConfirmation> {
+    public func sendUnencrypted(to: AccountObjectIdConvertible, message: String, credentials: Credentials) -> Single<TransactionConfirmation> {
         return createUnencryptedMessage(to: to, message: message, credentials: credentials).flatMap {
             self.api.broadcast.broadcastWithCallback($0, keypair: credentials.keyPair)
         }
