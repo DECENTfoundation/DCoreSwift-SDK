@@ -37,16 +37,14 @@ public struct MessageResponse: Codable {
     public let sender: ChainObject
     public var senderAddress: Address?
     public let receivers: [MessageReceiver]
-    public let text: String
-    
+
     private enum CodingKeys: String, CodingKey {
         case
         id,
         created,
         sender,
         senderAddress = "sender_pubkey",
-        receivers = "receivers_data",
-        text
+        receivers = "receivers_data"
     }
 }
 
