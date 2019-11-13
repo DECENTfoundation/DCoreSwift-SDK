@@ -19,8 +19,12 @@ public class ObjectId: Codable {
         
         let parts = id.components(separatedBy: ".")
 
-        objectType = ObjectType(fromSpace: Int(parts[0]).or(0), type: Int(parts[1]).or(0))
+        let newObjectType = ObjectType(fromSpace: Int(parts[0]).or(0), type: Int(parts[1]).or(0))
+        objectType = newObjectType
         instance = UInt64(parts[2]).or(0)
+        guard asString() == id else {
+            throw DCoreException.unexpected("Unexpected object type: \(newObjectType)")
+        }
     }
 
     required public convenience init(from decoder: Decoder) throws {

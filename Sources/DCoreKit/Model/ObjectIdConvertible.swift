@@ -5,12 +5,7 @@ public protocol ObjectIdConvertible {
 }
 
 extension ObjectId: ObjectIdConvertible {
-    public func asObjectId<T: ObjectId>() throws -> T {
-        guard let objectId = self as? T else {
-            throw DCoreException.unexpected("Failed to convert \(self) into \(T.self)")
-        }
-        return objectId
-    }
+    public func asObjectId<T: ObjectId>() throws -> T { try T(from: asString()) }
 }
 
 extension String: ObjectIdConvertible {
