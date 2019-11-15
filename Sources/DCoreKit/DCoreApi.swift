@@ -22,6 +22,7 @@ extension DCore {
         public lazy var callback: CallbackApi =         ApiProvider(using: self)
         public lazy var subscription: SubscriptionApi = ApiProvider(using: self)
         public lazy var transaction: TransactionApi =   ApiProvider(using: self)
+        public lazy var nft: NftApi =                   ApiProvider(using: self)
         
         let core: Sdk
         

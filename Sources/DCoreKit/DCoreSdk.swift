@@ -8,7 +8,7 @@ extension DCore {
         private var rest: RestService?
         private var wss: WssService?
         
-        private lazy var chainId = GetChainId().base.toResponse(self).cache()
+        private lazy var chainId: Single<String> = GetChainId().base.toResponse(self).cache()
         
         public required init(wssUri: URLConvertible? = nil,
                              restUri: URLConvertible? = nil,

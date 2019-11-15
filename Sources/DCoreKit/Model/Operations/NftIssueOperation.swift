@@ -40,14 +40,13 @@ extension NftIssueOperation {
 
 extension NftIssueOperation {
     public func asData() -> Data {
-        // TODO: Test and fix this method if necessary
         var data = Data()
         data += type.asData()
         data += fee.asData()
         data += issuer.asData()
         data += to.asData()
         data += nftId.asData()
-        data += UInt64(self.data.count).asUnsignedVarIntData()
+        data += self.data.asData()
         data += memo.asOptionalData()
         data += Data.ofZero
         
