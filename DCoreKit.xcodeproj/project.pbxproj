@@ -351,7 +351,6 @@
 		A1D96DAC21ED1E22009C0A30 /* BroadcastTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_106 /* BroadcastTransaction.swift */; };
 		A1D96DAD21ED1E22009C0A30 /* BroadcastTransactionSynchronous.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_107 /* BroadcastTransactionSynchronous.swift */; };
 		A1D96DAE21ED1E22009C0A30 /* BroadcastTransactionWithCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_108 /* BroadcastTransactionWithCallback.swift */; };
-		A1D96DAF21ED1E22009C0A30 /* CancelAllSubscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_109 /* CancelAllSubscriptions.swift */; };
 		A1D96DB021ED1E22009C0A30 /* GenerateContentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_110 /* GenerateContentKeys.swift */; };
 		A1D96DB121ED1E22009C0A30 /* GetAccountBalanceForTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_111 /* GetAccountBalanceForTransaction.swift */; };
 		A1D96DB221ED1E22009C0A30 /* GetAccountBalances.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_112 /* GetAccountBalances.swift */; };
@@ -432,7 +431,6 @@
 		A1D96DFE21ED1E22009C0A30 /* SetBlockAppliedCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_188 /* SetBlockAppliedCallback.swift */; };
 		A1D96DFF21ED1E22009C0A30 /* SetContentUpdateCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_189 /* SetContentUpdateCallback.swift */; };
 		A1D96E0021ED1E22009C0A30 /* SetPendingTransactionCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_190 /* SetPendingTransactionCallback.swift */; };
-		A1D96E0121ED1E22009C0A30 /* SetSubscribeCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_191 /* SetSubscribeCallback.swift */; };
 		A1D96E0221ED1E22009C0A30 /* ValidateTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_192 /* ValidateTransaction.swift */; };
 		A1D96E0321ED1E22009C0A30 /* VerifyAccountAuthority.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_193 /* VerifyAccountAuthority.swift */; };
 		A1D96E0421ED1E22009C0A30 /* VerifyAuthority.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_194 /* VerifyAuthority.swift */; };
@@ -481,7 +479,6 @@
 		OBJ_1003 /* SetBlockAppliedCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_188 /* SetBlockAppliedCallback.swift */; };
 		OBJ_1004 /* SetContentUpdateCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_189 /* SetContentUpdateCallback.swift */; };
 		OBJ_1005 /* SetPendingTransactionCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_190 /* SetPendingTransactionCallback.swift */; };
-		OBJ_1006 /* SetSubscribeCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_191 /* SetSubscribeCallback.swift */; };
 		OBJ_1007 /* ValidateTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_192 /* ValidateTransaction.swift */; };
 		OBJ_1008 /* VerifyAccountAuthority.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_193 /* VerifyAccountAuthority.swift */; };
 		OBJ_1009 /* VerifyAuthority.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_194 /* VerifyAuthority.swift */; };
@@ -608,7 +605,6 @@
 		OBJ_921 /* BroadcastTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_106 /* BroadcastTransaction.swift */; };
 		OBJ_922 /* BroadcastTransactionSynchronous.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_107 /* BroadcastTransactionSynchronous.swift */; };
 		OBJ_923 /* BroadcastTransactionWithCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_108 /* BroadcastTransactionWithCallback.swift */; };
-		OBJ_924 /* CancelAllSubscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_109 /* CancelAllSubscriptions.swift */; };
 		OBJ_925 /* GenerateContentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_110 /* GenerateContentKeys.swift */; };
 		OBJ_926 /* GetAccountBalanceForTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_111 /* GetAccountBalanceForTransaction.swift */; };
 		OBJ_927 /* GetAccountBalances.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_112 /* GetAccountBalances.swift */; };
@@ -894,7 +890,6 @@
 		OBJ_106 /* BroadcastTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastTransaction.swift; sourceTree = "<group>"; };
 		OBJ_107 /* BroadcastTransactionSynchronous.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastTransactionSynchronous.swift; sourceTree = "<group>"; };
 		OBJ_108 /* BroadcastTransactionWithCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastTransactionWithCallback.swift; sourceTree = "<group>"; };
-		OBJ_109 /* CancelAllSubscriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelAllSubscriptions.swift; sourceTree = "<group>"; };
 		OBJ_11 /* AssetApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetApi.swift; sourceTree = "<group>"; };
 		OBJ_110 /* GenerateContentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateContentKeys.swift; sourceTree = "<group>"; };
 		OBJ_111 /* GetAccountBalanceForTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAccountBalanceForTransaction.swift; sourceTree = "<group>"; };
@@ -984,7 +979,6 @@
 		OBJ_189 /* SetContentUpdateCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetContentUpdateCallback.swift; sourceTree = "<group>"; };
 		OBJ_19 /* MiningApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningApi.swift; sourceTree = "<group>"; };
 		OBJ_190 /* SetPendingTransactionCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPendingTransactionCallback.swift; sourceTree = "<group>"; };
-		OBJ_191 /* SetSubscribeCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSubscribeCallback.swift; sourceTree = "<group>"; };
 		OBJ_192 /* ValidateTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateTransaction.swift; sourceTree = "<group>"; };
 		OBJ_193 /* VerifyAccountAuthority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAccountAuthority.swift; sourceTree = "<group>"; };
 		OBJ_194 /* VerifyAuthority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAuthority.swift; sourceTree = "<group>"; };
@@ -1748,7 +1742,6 @@
 				OBJ_106 /* BroadcastTransaction.swift */,
 				OBJ_107 /* BroadcastTransactionSynchronous.swift */,
 				OBJ_108 /* BroadcastTransactionWithCallback.swift */,
-				OBJ_109 /* CancelAllSubscriptions.swift */,
 				OBJ_110 /* GenerateContentKeys.swift */,
 				OBJ_111 /* GetAccountBalanceForTransaction.swift */,
 				OBJ_112 /* GetAccountBalances.swift */,
@@ -1831,7 +1824,6 @@
 				OBJ_188 /* SetBlockAppliedCallback.swift */,
 				OBJ_189 /* SetContentUpdateCallback.swift */,
 				OBJ_190 /* SetPendingTransactionCallback.swift */,
-				OBJ_191 /* SetSubscribeCallback.swift */,
 				OBJ_192 /* ValidateTransaction.swift */,
 				OBJ_193 /* VerifyAccountAuthority.swift */,
 				OBJ_194 /* VerifyAuthority.swift */,
@@ -3322,7 +3314,6 @@
 				A1D96DAC21ED1E22009C0A30 /* BroadcastTransaction.swift in Sources */,
 				A1D96DAD21ED1E22009C0A30 /* BroadcastTransactionSynchronous.swift in Sources */,
 				A1D96DAE21ED1E22009C0A30 /* BroadcastTransactionWithCallback.swift in Sources */,
-				A1D96DAF21ED1E22009C0A30 /* CancelAllSubscriptions.swift in Sources */,
 				A1D96DB021ED1E22009C0A30 /* GenerateContentKeys.swift in Sources */,
 				A1B51C0D21EE0059006277F9 /* BaseApi.swift in Sources */,
 				A1D96DB121ED1E22009C0A30 /* GetAccountBalanceForTransaction.swift in Sources */,
@@ -3427,7 +3418,6 @@
 				A19052EB2243DD57007CE820 /* GetAssetData.swift in Sources */,
 				0721B4852272FEAB009931BF /* BrainKey.swift in Sources */,
 				A1D96E0021ED1E22009C0A30 /* SetPendingTransactionCallback.swift in Sources */,
-				A1D96E0121ED1E22009C0A30 /* SetSubscribeCallback.swift in Sources */,
 				A1D96E0221ED1E22009C0A30 /* ValidateTransaction.swift in Sources */,
 				A1D96E0321ED1E22009C0A30 /* VerifyAccountAuthority.swift in Sources */,
 				A16032B021F3560700674FEF /* AccountUpdateOperation.swift in Sources */,
@@ -3662,7 +3652,6 @@
 				OBJ_922 /* BroadcastTransactionSynchronous.swift in Sources */,
 				OBJ_923 /* BroadcastTransactionWithCallback.swift in Sources */,
 				A189709321F217B700602F81 /* AccountCreateOperation.swift in Sources */,
-				OBJ_924 /* CancelAllSubscriptions.swift in Sources */,
 				OBJ_925 /* GenerateContentKeys.swift in Sources */,
 				OBJ_926 /* GetAccountBalanceForTransaction.swift in Sources */,
 				A143170B220869EF00EE656C /* OperationUnkeyedEncodable.swift in Sources */,
@@ -3770,7 +3759,6 @@
 				OBJ_1003 /* SetBlockAppliedCallback.swift in Sources */,
 				OBJ_1004 /* SetContentUpdateCallback.swift in Sources */,
 				OBJ_1005 /* SetPendingTransactionCallback.swift in Sources */,
-				OBJ_1006 /* SetSubscribeCallback.swift in Sources */,
 				OBJ_1007 /* ValidateTransaction.swift in Sources */,
 				OBJ_1008 /* VerifyAccountAuthority.swift in Sources */,
 				OBJ_1009 /* VerifyAuthority.swift in Sources */,
