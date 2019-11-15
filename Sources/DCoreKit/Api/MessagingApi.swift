@@ -275,7 +275,7 @@ extension MessagingApi {
     
     public func createMessage(_ payloads: [Pair<AccountObjectIdConvertible, String>], credentials: Credentials) -> Single<SendMessageOperation> {
         return Single.deferred {
-            let recipients = Single.zip(try payloads.map { self.api.account.get(byId: $0.first) })
+            let recipients = Single.zip(payloads.map { self.api.account.get(byId: $0.first) })
             return Single
                 .zip(self.api.account.get(byId: credentials.accountId), recipients)
                 .map { (sender, recipients) in
