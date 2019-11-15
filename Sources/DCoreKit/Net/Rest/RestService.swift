@@ -53,6 +53,11 @@ final class RestService: CoreRequestConvertible, Lifecycle {
             return self.session.rx
                 .asData(request: req.asRest(self.url, timeout: self.timeout), queue: self.queue)
                 .catchError { $0.asDCoreSecurityException() }
+                .do(onSuccess: { res in
+                    DCore.Logger.debug(network: "RPC rest response:\n%{private}s") {
+                        String(data: res, encoding: .utf8)
+                    }
+                })
                 .map { res in
                     do { return try res.parse(response: req) } catch let error {
                         throw error.asDCoreException()

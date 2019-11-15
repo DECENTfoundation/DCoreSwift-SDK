@@ -65,6 +65,7 @@ final class WssService: CoreRequestConvertible, Lifecycle {
                 ])
                 .observeOn(self.queue)
                 .ofType(OnMessageEvent.self)
+                .do(onNext: { res in DCore.Logger.debug(network: "RPC wss response:\n%{private}s") { res.value } })
                 .filterMap({ res -> FilterMap<ResponseResult<Output>> in
                     let (valid, result) = res.value.asEncoded().parse(validResponse: req)
                     guard valid else { return .ignore }
