@@ -368,7 +368,7 @@
 		A1D96DBE21ED1E22009C0A30 /* GetBuyingByUri.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_124 /* GetBuyingByUri.swift */; };
 		A1D96DBF21ED1E22009C0A30 /* GetChainId.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_125 /* GetChainId.swift */; };
 		A1D96DC021ED1E22009C0A30 /* GetChainProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_126 /* GetChainProperties.swift */; };
-		A1D96DC121ED1E22009C0A30 /* GetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_127 /* GetConfig.swift */; };
+		A1D96DC121ED1E22009C0A30 /* GetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_127 /* GetConfiguration.swift */; };
 		A1D96DC221ED1E22009C0A30 /* GetContentById.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_128 /* GetContentById.swift */; };
 		A1D96DC321ED1E22009C0A30 /* GetContentByUri.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_129 /* GetContentByUri.swift */; };
 		A1D96DC421ED1E22009C0A30 /* GetDynamicGlobalProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_130 /* GetDynamicGlobalProps.swift */; };
@@ -622,7 +622,7 @@
 		OBJ_939 /* GetBuyingByUri.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_124 /* GetBuyingByUri.swift */; };
 		OBJ_940 /* GetChainId.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_125 /* GetChainId.swift */; };
 		OBJ_941 /* GetChainProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_126 /* GetChainProperties.swift */; };
-		OBJ_942 /* GetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_127 /* GetConfig.swift */; };
+		OBJ_942 /* GetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_127 /* GetConfiguration.swift */; };
 		OBJ_943 /* GetContentById.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_128 /* GetContentById.swift */; };
 		OBJ_944 /* GetContentByUri.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_129 /* GetContentByUri.swift */; };
 		OBJ_945 /* GetDynamicGlobalProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_130 /* GetDynamicGlobalProps.swift */; };
@@ -909,7 +909,7 @@
 		OBJ_124 /* GetBuyingByUri.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBuyingByUri.swift; sourceTree = "<group>"; };
 		OBJ_125 /* GetChainId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChainId.swift; sourceTree = "<group>"; };
 		OBJ_126 /* GetChainProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChainProperties.swift; sourceTree = "<group>"; };
-		OBJ_127 /* GetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetConfig.swift; sourceTree = "<group>"; };
+		OBJ_127 /* GetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetConfiguration.swift; sourceTree = "<group>"; };
 		OBJ_128 /* GetContentById.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetContentById.swift; sourceTree = "<group>"; };
 		OBJ_129 /* GetContentByUri.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetContentByUri.swift; sourceTree = "<group>"; };
 		OBJ_13 /* ApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProvider.swift; sourceTree = "<group>"; };
@@ -1760,7 +1760,7 @@
 				OBJ_124 /* GetBuyingByUri.swift */,
 				OBJ_125 /* GetChainId.swift */,
 				OBJ_126 /* GetChainProperties.swift */,
-				OBJ_127 /* GetConfig.swift */,
+				OBJ_127 /* GetConfiguration.swift */,
 				OBJ_128 /* GetContentById.swift */,
 				OBJ_129 /* GetContentByUri.swift */,
 				OBJ_130 /* GetDynamicGlobalProps.swift */,
@@ -3337,7 +3337,7 @@
 				A1D96DBE21ED1E22009C0A30 /* GetBuyingByUri.swift in Sources */,
 				A1D96DBF21ED1E22009C0A30 /* GetChainId.swift in Sources */,
 				A1D96DC021ED1E22009C0A30 /* GetChainProperties.swift in Sources */,
-				A1D96DC121ED1E22009C0A30 /* GetConfig.swift in Sources */,
+				A1D96DC121ED1E22009C0A30 /* GetConfiguration.swift in Sources */,
 				A1D96DC221ED1E22009C0A30 /* GetContentById.swift in Sources */,
 				A1D96DC321ED1E22009C0A30 /* GetContentByUri.swift in Sources */,
 				A1D96DC421ED1E22009C0A30 /* GetDynamicGlobalProps.swift in Sources */,
@@ -3673,7 +3673,7 @@
 				OBJ_939 /* GetBuyingByUri.swift in Sources */,
 				OBJ_940 /* GetChainId.swift in Sources */,
 				OBJ_941 /* GetChainProperties.swift in Sources */,
-				OBJ_942 /* GetConfig.swift in Sources */,
+				OBJ_942 /* GetConfiguration.swift in Sources */,
 				OBJ_943 /* GetContentById.swift in Sources */,
 				OBJ_944 /* GetContentByUri.swift in Sources */,
 				A105403B22306B86006D8774 /* SecurityExtensionProvider.swift in Sources */,
