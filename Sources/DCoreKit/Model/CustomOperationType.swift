@@ -4,7 +4,8 @@ public enum CustomOperationType: Int16, Codable {
     case
     unknown = -1,
     null,
-    messaging
+    messaging,
+    plaintext
 
     public init(from aDecoder: Decoder) throws {
         let container = try aDecoder.singleValueContainer()
