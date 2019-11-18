@@ -475,6 +475,8 @@
 		A1EF306922392935002D2F39 /* ConnectivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF306722392935002D2F39 /* ConnectivityTests.swift */; };
 		A1EF306B223A38CC002D2F39 /* Lifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF306A223A38CC002D2F39 /* Lifecycle.swift */; };
 		A1EF306C223A38CC002D2F39 /* Lifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF306A223A38CC002D2F39 /* Lifecycle.swift */; };
+		E86FDCC92382D697008126A6 /* OperationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86FDCC82382D697008126A6 /* OperationResult.swift */; };
+		E86FDCCA2382D697008126A6 /* OperationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86FDCC82382D697008126A6 /* OperationResult.swift */; };
 		OBJ_1000 /* SearchContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* SearchContent.swift */; };
 		OBJ_1001 /* SearchFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_186 /* SearchFeedback.swift */; };
 		OBJ_1002 /* SearchMinerVoting.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_187 /* SearchMinerVoting.swift */; };
@@ -886,6 +888,7 @@
 		A1EF306A223A38CC002D2F39 /* Lifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Lifecycle.swift; path = Sources/DcoreKit/Utils/Lifecycle.swift; sourceTree = SOURCE_ROOT; };
 		"DCoreKit::DCoreKit::Product" /* DCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DCoreKit::DCoreKitTests::Product" /* DCoreKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = DCoreKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E86FDCC82382D697008126A6 /* OperationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationResult.swift; sourceTree = "<group>"; };
 		OBJ_10 /* AccountApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountApi.swift; sourceTree = "<group>"; };
 		OBJ_101 /* ApiGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGroup.swift; sourceTree = "<group>"; };
 		OBJ_102 /* ApiMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMethod.swift; sourceTree = "<group>"; };
@@ -2801,6 +2804,7 @@
 				OBJ_24 /* TransactionApi.swift */,
 				OBJ_25 /* ValidationApi.swift */,
 				A1A2FBAA224185B7003641EA /* SubscriptionApi.swift */,
+				E86FDCC82382D697008126A6 /* OperationResult.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -3217,6 +3221,7 @@
 				A1D96D5321ED1E22009C0A30 /* AssetApi.swift in Sources */,
 				A1D96D5421ED1E22009C0A30 /* BalanceApi.swift in Sources */,
 				A13D09D322314226000CAE17 /* Certificate+Extensions.swift in Sources */,
+				E86FDCCA2382D697008126A6 /* OperationResult.swift in Sources */,
 				A1D96D5521ED1E22009C0A30 /* ApiProvider.swift in Sources */,
 				A1D96D5621ED1E22009C0A30 /* BlockApi.swift in Sources */,
 				A12E82FF22288713008D7440 /* VarInt.swift in Sources */,
@@ -3696,6 +3701,7 @@
 				A1A98555223BE6C4007CFB04 /* AnyCustomOperation.swift in Sources */,
 				A16032B221F3563D00674FEF /* SubmitContentOperation.swift in Sources */,
 				OBJ_950 /* GetKeyReferences.swift in Sources */,
+				E86FDCC92382D697008126A6 /* OperationResult.swift in Sources */,
 				OBJ_951 /* GetMinerByAccount.swift in Sources */,
 				OBJ_952 /* GetMinerCount.swift in Sources */,
 				OBJ_953 /* GetMiners.swift in Sources */,

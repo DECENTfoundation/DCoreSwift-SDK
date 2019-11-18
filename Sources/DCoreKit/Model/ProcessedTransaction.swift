@@ -8,7 +8,7 @@ public struct ProcessedTransaction {
     public let expiration: Date
     public let refBlockNum: Int
     public let refBlockPrefix: UInt64
-    public let opResults: AnyValue?
+    public let opResults: OperationResult?
     
     fileprivate var blockData: BlockData {
         return BlockData(refBlockNum: refBlockNum,
@@ -38,7 +38,7 @@ extension ProcessedTransaction: Codable {
         expiration =        try container.decode(Date.self, forKey: .expiration)
         refBlockNum =       try container.decode(Int.self, forKey: .refBlockNum)
         refBlockPrefix =    try container.decode(UInt64.self, forKey: .refBlockPrefix)
-        opResults =         try container.decodeIfPresent(AnyValue.self, forKey: .opResults)
+        opResults =         try container.decodeIfPresent(OperationResult.self, forKey: .opResults)
         
         operations = try container.decode([AnyOperation].self, forKey: .operations).asOperations()
     }
