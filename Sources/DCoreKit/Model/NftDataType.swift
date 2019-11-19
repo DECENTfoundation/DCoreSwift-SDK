@@ -13,7 +13,7 @@ public struct NftDataType: Codable {
         owner,
         both
 
-        var ordinal: Int {
+        var ordinal: Int64 {
             switch self {
             case .nobody: return 0
             case .issuer: return 1
@@ -29,7 +29,7 @@ public struct NftDataType: Codable {
         integer,
         boolean
 
-        var ordinal: Int {
+        var ordinal: Int64 {
             switch self {
             case .string: return 0
             case .integer: return 1
@@ -41,11 +41,10 @@ public struct NftDataType: Codable {
 
 extension NftDataType: DataConvertible {
     public func asData() -> Data {
-        // TODO: Test and fix this method if necessary
         var data = Data()
         data += unique.asData()
-        data += UInt64(modifiable.ordinal)
-        data += UInt64(type.ordinal)
+        data += modifiable.ordinal.littleEndian
+        data += type.ordinal.littleEndian
         data += name.asOptionalData()
         
         DCore.Logger.debug(crypto: "NftDataType binary: %{private}s", args: {

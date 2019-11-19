@@ -50,7 +50,6 @@ extension NftCreateOperation {
 
 extension NftCreateOperation {
     public func asData() -> Data {
-        // TODO: Test and fix this method if necessary
         var data = Data()
         data += type.asData()
         data += fee.asData()
@@ -58,6 +57,7 @@ extension NftCreateOperation {
         data += options.asData()
         data += definitions.asData()
         data += transferable.asData()
+        data += Data.ofZero
         
         DCore.Logger.debug(crypto: "NftCreateOperation binary: %{private}s", args: {
             "\(data.toHex()) (\(data)) \(data.bytes)"

@@ -21,10 +21,16 @@ class GeneralApiTests: XCTestCase {
         let props = try? wss.general.getGlobalProperties().debug().toBlocking().single()
         XCTAssertNotNil(props)
     }
+
+    func testGetConfiguration() {
+        let config = try? wss.general.getConfiguration().debug().toBlocking().single()
+        XCTAssertNotNil(config)
+    }
     
     static var allTests = [
         ("testChainIdUsingWss", testChainIdUsingWss),
         ("testDynamicGlobalPropsUsingWss", testDynamicGlobalPropsUsingWss),
         ("testGlobalPropertiesUsingWss", testGlobalPropertiesUsingWss),
+        ("testGetConfiguration", testGetConfiguration),
     ]
 }

@@ -27,5 +27,6 @@ extension DCore {
         public static let seeders: Int = 100
         public static let purchase: Int = 100
         public static let messaging: Int = 1000
+        public static let nft: Int = 100
     }
 }

@@ -1,12 +1,7 @@
 import Foundation
 import RxSwift
 
-public protocol CallbackApi: BaseApi {
-    /**
-     Stop receiving any notifications.
-     */
-    func cancelAll() -> Completable
-    
+public protocol CallbackApi: BaseApi {    
     /**
      Receive new block notifications. Cannot be cancelled.
      */
@@ -23,20 +18,9 @@ public protocol CallbackApi: BaseApi {
      Receive notifications on pending transactions. Cannot be cancelled.
      */
     func onPendingTransaction() -> Observable<Void>
-    
-    /**
-     Subscribe to callbacks. Can be cancelled.
-     
-     - Parameter clearFilter: Clear current subscriptions.
-     */
-    func onGlobal(clearFilter: Bool) -> Observable<Void>
 }
 
 extension CallbackApi {
-    public func cancelAll() -> Completable {
-        return CancelAllSubscriptions().base.toResponse(api.core).asCompletable()
-    }
-    
     public func onBlockApplied() -> Observable<String> {
         return SetBlockAppliedCallback().base.toStreamResponse(api.core)
     }
@@ -52,10 +36,6 @@ extension CallbackApi {
     
     public func onPendingTransaction() -> Observable<Void> {
         return SetPendingTransactionCallback().base.toStreamResponse(api.core).mapVoid()
-    }
-    
-    public func onGlobal(clearFilter: Bool) -> Observable<Void> {
-        return SetSubscribeCallback(clearFilter).base.toStreamResponse(api.core).mapVoid()
     }
 }
 

@@ -30,7 +30,7 @@ public protocol GeneralApi: BaseApi {
   
      - Returns: `Config` with configured constants.
      */
-    func getConfig() -> Single<Config>
+    func getConfiguration() -> Single<Config>
     
     /**
      Get the chain id.
@@ -71,8 +71,8 @@ extension GeneralApi {
         return GetGlobalProperties().base.toResponse(api.core)
     }
     
-    public func getConfig() -> Single<Config> {
-        return GetConfig().base.toResponse(api.core)
+    public func getConfiguration() -> Single<Config> {
+        return GetConfiguration().base.toResponse(api.core)
     }
     
     public func getChainId() -> Single<String> {

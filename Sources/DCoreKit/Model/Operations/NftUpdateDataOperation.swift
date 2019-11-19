@@ -9,10 +9,10 @@ public struct NftUpdateDataOperation: Operation {
     public var nftDataId: ChainObject {
         willSet { precondition(nftDataId.objectType == .nftDataObject, "not a valid nft data object id") }
     }
-    public var data: [String: AnyValue] {
+    public var data: [Pair<String, AnyValue>] {
         willSet {
             precondition(
-                !data.isEmpty && data.keys.allSatisfy { !$0.isEmpty }, "data cannot be empty or have empty keys"
+                !data.isEmpty && data.allSatisfy { !$0.first.isEmpty }, "data cannot be empty or have empty keys"
             )
         }
     }
@@ -37,13 +37,12 @@ extension NftUpdateDataOperation {
 
 extension NftUpdateDataOperation {
     public func asData() -> Data {
-        // TODO: Test and fix this method if necessary
         var data = Data()
         data += type.asData()
         data += fee.asData()
         data += modifier.asData()
         data += nftDataId.asData()
-        data += UInt64(self.data.count).asUnsignedVarIntData()
+        data += self.data.asData()
         data += Data.ofZero
         
         DCore.Logger.debug(crypto: "NftUpdateDataOperation binary: %{private}s", args: {
