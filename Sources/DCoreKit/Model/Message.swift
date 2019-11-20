@@ -37,7 +37,7 @@ public struct MessageResponse: Codable {
     public let sender: ChainObject
     public var senderAddress: Address?
     public let receivers: [MessageReceiver]
-
+  
     private enum CodingKeys: String, CodingKey {
         case
         id,

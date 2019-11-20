@@ -2,9 +2,53 @@ import Foundation
 import RxSwift
 
 public protocol MessagingApi: BaseApi {
-
+    
     /**
-     Get all messages by sender.
+     Get all messages by ids.
+
+     - Parameter ids: Filter by message ids,
+     as `[ChainObject]` or `[String]` format.
+
+     - Returns: `[Message]`.
+     */
+    func getAll(byIds ids: [ChainObjectConvertible]) -> Single<[Message]>
+    
+    /**
+     Get message by id.
+
+     - Parameter id: Filter by message id,
+     as `ChainObject` or `String` format.
+
+     - Returns: `Message`.
+     */
+    func get(byId id: ChainObjectConvertible) -> Single<Message>
+    
+    /**
+     Get all messages by ids decrypted.
+     
+     - Parameter ids: Filter by message ids,
+     as `[ChainObject]` or `[String]` format.
+     - Parameter credentials: Account credenials,
+     as `ChainObject` or `String` format.
+
+     - Returns: `[Message]`.
+     */
+    func getAllDecrypted(byIds ids: [ChainObjectConvertible], credentials: Credentials) -> Single<[Message]>
+    
+    /**
+     Get message by id decrypted.
+     
+     - Parameter id: Filter by message id,
+     as `ChainObject` or `String` format.
+     - Parameter credentials: Account credenials,
+     as `ChainObject` or `String` format.
+
+     - Returns: `Message`.
+     */
+    func getDecrypted(byId id: ChainObjectConvertible, credentials: Credentials) -> Single<Message>
+    
+    /**
+     Find all messages by sender.
 
      - Parameter sender: Filter by sender account id,
      as `ChainObject` or `String` format.
@@ -12,10 +56,10 @@ public protocol MessagingApi: BaseApi {
 
      - Returns: `[Message]`.
      */
-    func getAll(bySender sender: ChainObjectConvertible, limit: Int) -> Single<[Message]>
+    func findAll(bySender sender: ChainObjectConvertible, limit: Int) -> Single<[Message]>
 
     /**
-     Get all messages by receiver.
+     Find all messages by receiver.
 
      - Parameter receiver: Filter by receiver account id,
      as `ChainObject` or `String` format.
@@ -23,10 +67,11 @@ public protocol MessagingApi: BaseApi {
 
      - Returns: `[Message]`.
      */
-    func getAll(byReceiver receiver: ChainObjectConvertible, limit: Int) -> Single<[Message]>
+    
+    func findAll(byReceiver receiver: ChainObjectConvertible, limit: Int) -> Single<[Message]>
     
     /**
-     Get all messages decrypted by sender.
+     Find all messages decrypted by sender.
      
      - Parameter credentials: Account credenials,
      as `ChainObject` or `String` format.
@@ -34,10 +79,10 @@ public protocol MessagingApi: BaseApi {
      
      - Returns: `[Message]`.
      */
-    func getAllSenderDecrypted(_ credentials: Credentials, limit: Int) -> Single<[Message]>
+    func findAllSenderDecrypted(_ credentials: Credentials, limit: Int) -> Single<[Message]>
     
     /**
-     Get all messages decrypted by receiver.
+     Find all messages decrypted by receiver.
      
      - Parameter credentials: Account credenials,
      as `ChainObject` or `String` format.
@@ -45,10 +90,10 @@ public protocol MessagingApi: BaseApi {
      
      - Returns: `[Message]`.
      */
-    func getAllReceiverDecrypted(_ credentials: Credentials, limit: Int) -> Single<[Message]>
+    func findAllReceiverDecrypted(_ credentials: Credentials, limit: Int) -> Single<[Message]>
 
     /**
-     Get all messages responses.
+     Find all messages responses.
 
      - Parameter sender: Filter by sender account id,
      as `ChainObject` or `String` format.
@@ -56,10 +101,10 @@ public protocol MessagingApi: BaseApi {
 
      - Returns: `[MessageResponse]`.
      */
-    func getAllResponses(bySender sender: ChainObjectConvertible, limit: Int) -> Single<[MessageResponse]>
+    func findAllResponses(bySender sender: ChainObjectConvertible, limit: Int) -> Single<[MessageResponse]>
 
     /**
-     Get all messages responses.
+     Find all messages responses.
 
      - Parameter receiver: Filter by receiver account id,
      as `ChainObject` or `String` format.
@@ -67,7 +112,7 @@ public protocol MessagingApi: BaseApi {
 
      - Returns: `[MessageResponse]`.
      */
-    func getAllResponses(byReceiver receiver: ChainObjectConvertible, limit: Int) -> Single<[MessageResponse]>
+    func findAllResponses(byReceiver receiver: ChainObjectConvertible, limit: Int) -> Single<[MessageResponse]>
 
     /**
      Create message operation, send a message to one receiver.
@@ -143,48 +188,79 @@ public protocol MessagingApi: BaseApi {
 }
 
 extension MessagingApi {
-    public func getAll(bySender sender: ChainObjectConvertible,
-                       limit: Int = DCore.Limits.messaging) -> Single<[Message]> {
-        return getAll(sender, limit: limit)
+    public func getAll(byIds ids: [ChainObjectConvertible]) -> Single<[Message]> {
+        return getAll(ids).map { responses in Array( responses.map { $0.asMessages() }.joined()) }
+    }
+    
+    public func get(byId id: ChainObjectConvertible) -> Single<Message> {
+        return getAll(byIds: [id]).map { try $0.first.orThrow(DCoreException.network(.notFound)) }
+    }
+    
+    public func getAllDecrypted(byIds ids: [ChainObjectConvertible], credentials: Credentials) -> Single<[Message]> {
+        return getAll(ids).map { responses in Array( responses.map { $0.asMessages(decrypt: credentials) }.joined()) }
+    }
+    
+    public func getDecrypted(byId id: ChainObjectConvertible, credentials: Credentials) -> Single<Message> {
+        return getAllDecrypted(byIds: [id], credentials: credentials).map { try $0.first.orThrow(DCoreException.network(.notFound)) }
+    }
+    
+    public func findAll(bySender sender: ChainObjectConvertible,
+                        limit: Int = DCore.Limits.messaging) -> Single<[Message]> {
+        return findAll(sender, limit: limit)
     }
 
-    public func getAll(byReceiver receiver: ChainObjectConvertible,
-                       limit: Int = DCore.Limits.messaging) -> Single<[Message]> {
-        return getAll(receiver: receiver, limit: limit)
+    public func findAll(byReceiver receiver: ChainObjectConvertible,
+                        limit: Int = DCore.Limits.messaging) -> Single<[Message]> {
+        return findAll(receiver: receiver, limit: limit)
     }
 
     private func getAll(_ sender: ChainObjectConvertible? = nil,
                         receiver: ChainObjectConvertible? = nil,
                         limit: Int = DCore.Limits.messaging) -> Single<[Message]> {
-        return getAllResponses(sender, receiver: receiver, limit: limit)
+        return findAllResponses(sender, receiver: receiver, limit: limit)
             .map { responses in Array( responses.map { $0.asMessages() }.joined()) }
     }
     
-    public func getAllSenderDecrypted(_ credentials: Credentials, limit: Int = DCore.Limits.messaging) -> Single<[Message]> {
-        return getAllResponses(credentials.accountId, limit: limit)
+    private func findAll(_ sender: ChainObjectConvertible? = nil,
+                         receiver: ChainObjectConvertible? = nil,
+                         limit: Int = DCore.Limits.messaging) -> Single<[Message]> {
+        return findAllResponses(sender, receiver: receiver, limit: limit)
+            .map { responses in Array( responses.map { $0.asMessages() }.joined()) }
+    }
+    
+    public func findAllSenderDecrypted(_ credentials: Credentials, limit: Int = DCore.Limits.messaging) -> Single<[Message]> {
+        return findAllResponses(credentials.accountId, limit: limit)
             .map { responses in Array(responses.map { $0.asMessages(decrypt: credentials) }.joined()) }
     }
     
-    public func getAllReceiverDecrypted(_ credentials: Credentials, limit: Int = DCore.Limits.messaging) -> Single<[Message]> {
-        return getAllResponses(nil, receiver: credentials.accountId, limit: limit)
+    public func findAllReceiverDecrypted(_ credentials: Credentials, limit: Int = DCore.Limits.messaging) -> Single<[Message]> {
+        return findAllResponses(nil, receiver: credentials.accountId, limit: limit)
             .map { responses in Array(responses.map {$0.asMessages(decrypt: credentials) }.joined()) }
     }
 
-    public func getAllResponses(bySender sender: ChainObjectConvertible,
-                                limit: Int = DCore.Limits.messaging) -> Single<[MessageResponse]> {
-        return getAllResponses(sender, limit: limit)
-    }
-
-    public func getAllResponses(byReceiver receiver: ChainObjectConvertible,
-                                limit: Int = DCore.Limits.messaging) -> Single<[MessageResponse]> {
-        return getAllResponses(receiver: receiver, limit: limit)
-    }
-
-    private func getAllResponses(_ sender: ChainObjectConvertible? = nil,
-                                 receiver: ChainObjectConvertible? = nil,
+    public func findAllResponses(bySender sender: ChainObjectConvertible,
                                  limit: Int = DCore.Limits.messaging) -> Single<[MessageResponse]> {
+        return findAllResponses(sender, limit: limit)
+    }
+
+    public func findAllResponses(byReceiver receiver: ChainObjectConvertible,
+                                 limit: Int = DCore.Limits.messaging) -> Single<[MessageResponse]> {
+        return findAllResponses(receiver: receiver, limit: limit)
+    }
+
+    private func findAllResponses(_ sender: ChainObjectConvertible? = nil,
+                                  receiver: ChainObjectConvertible? = nil,
+                                  limit: Int = DCore.Limits.messaging) -> Single<[MessageResponse]> {
         return Single.deferred {
             return GetMessageObjects(try sender?.asChainObject(), receiver: try receiver?.asChainObject(), limit: limit)
+                .base
+                .toResponse(self.api.core)
+        }
+    }
+    
+    private func getAll(_ ids: [ChainObjectConvertible]) -> Single<[MessageResponse]> {
+        return Single.deferred {
+            return GetMessages(try ids.map {try $0.asChainObject() })
                 .base
                 .toResponse(self.api.core)
         }
