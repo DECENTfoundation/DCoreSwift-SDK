@@ -2,14 +2,14 @@ import Foundation
 
 struct LookupMiners: BaseRequestConvertible {
     
-    typealias Output = [String: ChainObject]
-    private(set) var base: BaseRequest<[String: ChainObject]>
+    typealias Output = [String: MinerObjectId]
+    private(set) var base: BaseRequest<[String: MinerObjectId]>
     
     init(_ bound: String, limit: Int = 1000) {
         self.base = LookupMiners.toBase(
             .database,
             api: "lookup_miners",
-            returnType: [String: ChainObject].self,
+            returnType: [String: MinerObjectId].self,
             params: [bound, limit]
         )
     }

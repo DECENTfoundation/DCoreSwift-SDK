@@ -9,7 +9,7 @@ final class AssetApiTests: XCTestCase {
     private let rest = DCore.Sdk.create(forRest: DCore.TestConstant.httpUrl)
     private let wss = DCore.Sdk.create(forWss: DCore.TestConstant.wsUrl)
     private let creds = try? Credentials(
-        "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
+        "1.2.27".asObjectId(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
     )
     
     func testGetAssetById() {
@@ -158,7 +158,7 @@ final class AssetApiTests: XCTestCase {
         XCTAssertThrowsError(try rest.asset.findAllRelative(byLower: "a", limit: 1000).debug().toBlocking().single())
     }
     
-    func testChainObjectHashing() {
+    func testObjectIdHashing() {
         let create = try? wss.asset.create(
             credentials: creds!, symbol: Asset.Symbol.aia.description, precision: 6, description: "ALX"
         ).debug().toBlocking().single()
@@ -188,7 +188,7 @@ final class AssetApiTests: XCTestCase {
         ("testFormatAssetAmountFormattedStringFromNegative", testFormatAssetAmountFormattedStringFromNegative),     
         ("testGetAssetsByBoundaryAndWrongLimit", testGetAssetsByBoundaryAndWrongLimit),
         ("testGetAssetsByBoundary", testGetAssetsByBoundary),
-        ("testChainObjectHashing", testChainObjectHashing),
+        ("testObjectIdHashing", testObjectIdHashing),
     ]
 
 }

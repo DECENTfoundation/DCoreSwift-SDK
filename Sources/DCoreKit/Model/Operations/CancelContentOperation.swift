@@ -3,7 +3,7 @@ import BigInt
 
 public struct CancelContentOperation: Operation {
     
-    public let author: ChainObject
+    public let author: AccountObjectId
     public let uri: String
     public let type: OperationType = .contentCancellationOperation
     public var fee: AssetAmount  = .unset

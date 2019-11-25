@@ -3,7 +3,7 @@ import BigInt
 
 public struct MinerVotingInfo: Codable {
     
-    public let id: ChainObject
+    public let id: MinerObjectId
     public let name: String
     public let url: String
     public let votes: BigInt

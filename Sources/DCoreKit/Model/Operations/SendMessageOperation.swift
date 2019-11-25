@@ -3,22 +3,22 @@ import Foundation
 public struct SendMessageOperation: CustomOperation {
     
     public let id: CustomOperationType = .messaging
-    public let payee: ChainObject
-    public let requiredAuths: [ChainObject]
+    public let payer: AccountObjectId
+    public let requiredAuths: [AccountObjectId]
     public let data: String
     
     public var fee: AssetAmount = .unset
     
-    public init(_ data: String, payee: ChainObject) {
+    public init(_ data: String, payer: AccountObjectId) {
         self.data = data.asEncoded().toHex()
-        self.payee = payee
-        self.requiredAuths = [payee]
+        self.payer = payer
+        self.requiredAuths = [payer]
     }
     
     private enum CodingKeys: String, CodingKey {
         case
         id,
-        payee = "payer",
+        payer,
         requiredAuths = "required_auths",
         data,
         fee

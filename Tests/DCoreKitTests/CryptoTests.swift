@@ -32,7 +32,7 @@ final class CryptoTests: XCTestCase {
     func testCredentialFromEncryptedWif() {
         let wif = "d2c7e8dd3e34265f7959dfbdb780381f4e2e51ac215b57b94826c18c108e3cd426392b5ccd12bbf9c6a70a6bbe99fc433eaa051d27d25d698b184d4f8d7f7025"
         let pass = "quick brown fox jumped over a lazy dog"
-        let creds = try? Credentials("1.2.35".dcore.chainObject!, encryptedWif: wif, passphrase: pass)
+        let creds = try? Credentials("1.2.35".dcore.objectId()!, encryptedWif: wif, passphrase: pass)
         
         XCTAssertEqual(creds?.keyPair, "5Jd7zdvxXYNdUfnEXt5XokrE3zwJSs734yQ36a1YaqioRTGGLtn".dcore.keyPair)
     }
@@ -42,17 +42,17 @@ final class CryptoTests: XCTestCase {
         let pass = "wrong password"
     
         XCTAssertThrowsError(
-            try Credentials("1.2.35".dcore.chainObject!, encryptedWif: wif, passphrase: pass)
+            try Credentials("1.2.35".dcore.objectId()!, encryptedWif: wif, passphrase: pass)
         )
     }
 
     func testCredentialFromInvalidWifFailToDecode() {
-        XCTAssertThrowsError(try Credentials("1.2.35".dcore.chainObject!, wif: "d23"))
+        XCTAssertThrowsError(try Credentials("1.2.35".dcore.objectId()!, wif: "d23"))
     }
 
     func testValidateSignedTransaction() {
         let pk = "5J1HnqK3gajNzDWj9Na6fo3gxtphv6MHLE5YLgRmQv8tC8e3rEd"
-        let creds = try! Credentials("1.2.17".dcore.chainObject!, wif: pk)
+        let creds = try! Credentials("1.2.17".dcore.objectId()!, wif: pk)
         
         let transaction = Transaction.init(
             BlockData(
@@ -63,7 +63,7 @@ final class CryptoTests: XCTestCase {
             operations: [
                 TransferOperation(
                     from: creds.accountId,
-                    to: "1.2.34".dcore.chainObject!,
+                    to: "1.2.34".dcore.objectId()!,
                     amount: AssetAmount(1),
                     memo: try! Memo("Ahoj", keyPair: nil, recipient: nil, nonce: 0),
                     fee: AssetAmount.unset

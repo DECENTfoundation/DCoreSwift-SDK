@@ -2,7 +2,7 @@ import Foundation
 
 public struct ChainProperties: Codable {
     
-    public var id: ChainObject
+    public var id: ChainPropertyObjectId
     public var chainId: String
     public var parameters: ChainParameters
     

@@ -8,12 +8,8 @@ import BigInt
 */
 public struct AssetPublishFeedOperation: Operation {
     
-    public var publisher: ChainObject {
-        willSet { precondition(publisher.objectType == .accountObject, "not a valid account object id") }
-    }
-    public var assetId: ChainObject {
-        willSet { precondition(assetId.objectType == .assetObject, "not a valid asset object id") }
-    }
+    public var publisher: AccountObjectId
+    public var assetId: AssetObjectId
     public var feed: Asset.MonitoredAssetOptions.PriceFeed
     
     public let type: OperationType = .assetPublishFeedOperation

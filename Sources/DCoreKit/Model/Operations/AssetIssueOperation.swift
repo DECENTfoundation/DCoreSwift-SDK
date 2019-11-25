@@ -3,11 +3,11 @@ import BigInt
 
 public struct AssetIssueOperation: Operation {
     
-    public var issuer: ChainObject {
+    public var issuer: AccountObjectId {
         willSet { precondition(issuer.objectType == .accountObject, "not a valid account object id") }
     }
     public var assetToIssue: AssetAmount
-    public var issueToAccount: ChainObject {
+    public var issueToAccount: AccountObjectId {
         willSet { precondition(issueToAccount.objectType == .accountObject, "not a valid account object id") }
     }
     public var memo: Memo?

@@ -6,7 +6,7 @@ public protocol PurchaseApi: BaseApi {
      Get consumer purchase by content url.
      
      - Parameter id: Consumer object id of the account, eg. 1.2.*,
-     as `ChainObject` or `String` format.
+     as `AccountObjectId` or `String` format.
      - Parameter url: A url of the content,
      as `URL` or `String` format.
      
@@ -15,7 +15,7 @@ public protocol PurchaseApi: BaseApi {
      
      - Returns: `Purchase`.
      */
-    func get(byConsumerId id: ChainObjectConvertible, url: URLConvertible) -> Single<Purchase>
+    func get(byConsumerId id: AccountObjectIdConvertible, url: URLConvertible) -> Single<Purchase>
     
     /**
      Get a list of open purchases.
@@ -38,43 +38,43 @@ public protocol PurchaseApi: BaseApi {
      Get a list of open purchases for consumer id.
      
      - Parameter id: Consumer object id of the account, eg. 1.2.*,
-     as `ChainObject` or `String` format.
+     as `AccountObjectId` or `String` format.
      
      - Returns: Array `[Purchase]` of open purchases.
      */
-    func getAllOpen(byAccountId id: ChainObjectConvertible) -> Single<[Purchase]>
+    func getAllOpen(byAccountId id: AccountObjectIdConvertible) -> Single<[Purchase]>
     
     /**
      Get a list of historical purchases for consumer id.
      
      - Parameter id: Consumer object id of the account, eg. 1.2.*,
-     as `ChainObject` or `String` format.
+     as `AccountObjectId` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`
      if no matching block was found.
      
      - Returns: Array `[Purchase]` of historical purchases.
      */
-    func getAllHistorical(byAccountId id: ChainObjectConvertible) -> Single<[Purchase]>
+    func getAllHistorical(byAccountId id: AccountObjectIdConvertible) -> Single<[Purchase]>
     
     /**
      Search consumer open and historical purchases.
      
      - Parameter id: Consumer object id of the account, eg. 1.2.*,
-     as `ChainObject` or `String` format.
+     as `AccountObjectId` or `String` format.
      - Parameter expression: Search expression.
      - Parameter from: From object id of the history object to start from,
-     as `ChainObject` or `String` format,
-     default `ObjectType.nullObject.genericId`.
+     as `PurchaseObjectId` or `String` format,
+     default `ObjectId.nullObjectId`.
      - Parameter order: Sort purchases,
      default `SearchOrder.Purchases.purchasedDesc`.
      - Parameter limit: Limit number of entries, max/default `100`.
      
      - Returns: Array `[Purchase]` of purchases.
      */
-    func findAll(byConsumerId id: ChainObjectConvertible,
+    func findAll(byConsumerId id: AccountObjectIdConvertible,
                  expression: String,
-                 from: ChainObjectConvertible,
+                 from: ObjectIdConvertible,
                  order: SearchOrder.Purchases,
                  limit: Int) -> Single<[Purchase]>
 
@@ -86,23 +86,23 @@ public protocol PurchaseApi: BaseApi {
      - Parameter author: Feedback author account name,
      default `nil`.
      - Parameter startId: Id of feedback object to start searching from,
-     as `ChainObject` or `String` format,
-     default `ObjectType.nullObject.genericId`.
+     as `PurchaseObjectId` or `String` format,
+     default `ObjectId.nullObjectId()`.
      - Parameter limit: Limit number of entries, max/default `100`.
      
      - Returns: Array `[Purchase]` of purchases.
      */
     func findAllFeedback(byUrl url: URLConvertible,
                          author: String?,
-                         startId: ChainObjectConvertible,
+                         startId: ObjectIdConvertible,
                          limit: Int) -> Single<[Purchase]>
 }
 
 extension PurchaseApi {
-    public func get(byConsumerId id: ChainObjectConvertible, url: URLConvertible) -> Single<Purchase> {
+    public func get(byConsumerId id: AccountObjectIdConvertible, url: URLConvertible) -> Single<Purchase> {
         return Single.deferred {
             return GetBuyingByUri(
-                try id.asChainObject(), uri: try url.asURI { Content.hasValid(uri: $0) }
+                try id.asAccountObjectId(), uri: try url.asURI { Content.hasValid(uri: $0) }
             ).base.toResponse(self.api.core)
         }
     }
@@ -117,25 +117,26 @@ extension PurchaseApi {
         }
     }
     
-    public func getAllOpen(byAccountId id: ChainObjectConvertible) -> Single<[Purchase]> {
+    public func getAllOpen(byAccountId id: AccountObjectIdConvertible) -> Single<[Purchase]> {
         return Single.deferred {
-            return GetOpenBuyingsByConsumer(try id.asChainObject()).base.toResponse(self.api.core)
+            return GetOpenBuyingsByConsumer(try id.asAccountObjectId()).base.toResponse(self.api.core)
         }
     }
     
-    public func getAllHistorical(byAccountId id: ChainObjectConvertible) -> Single<[Purchase]> {
+    public func getAllHistorical(byAccountId id: AccountObjectIdConvertible) -> Single<[Purchase]> {
         return Single.deferred {
-            return GetHistoryBuyingsByConsumer(try id.asChainObject()).base.toResponse(self.api.core)
+            return GetHistoryBuyingsByConsumer(try id.asAccountObjectId()).base.toResponse(self.api.core)
         }
     }
     
-    public func findAll(byConsumerId id: ChainObjectConvertible,
+    public func findAll(byConsumerId id: AccountObjectIdConvertible,
                         expression: String = "",
-                        from: ChainObjectConvertible = ObjectType.nullObject.genericId,
+                        from: ObjectIdConvertible = ObjectId.nullObjectId,
                         order: SearchOrder.Purchases = .purchasedDesc,
                         limit: Int = 100) -> Single<[Purchase]> {
         return Single.deferred {
-            return SearchBuyings(try id.asChainObject(), order: order, startId: try from.asChainObject(), term: expression, limit: limit)
+            return SearchBuyings(
+                try id.asAccountObjectId(), order: order, startId: try from.asObjectId(), term: expression, limit: limit)
                 .base
                 .toResponse(self.api.core)
         }
@@ -144,10 +145,10 @@ extension PurchaseApi {
     
     public func findAllFeedback(byUrl url: URLConvertible,
                                 author: String? = nil,
-                                startId: ChainObjectConvertible = ObjectType.nullObject.genericId,
+                                startId: ObjectIdConvertible = ObjectId.nullObjectId,
                                 limit: Int = 100) -> Single<[Purchase]> {
         return Single.deferred {
-            return SearchFeedback(author, uri: try url.asURI(), startId: try startId.asChainObject(), count: limit)
+            return SearchFeedback(author, uri: try url.asURI(), startId: try startId.asObjectId(), count: limit)
                 .base
                 .toResponse(self.api.core)
         }

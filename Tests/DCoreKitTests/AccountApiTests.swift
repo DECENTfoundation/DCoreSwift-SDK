@@ -10,12 +10,12 @@ final class AccountApiTests: XCTestCase {
     
     func testGetAccountByNameUsingRest() {
         let account = try? rest.account.get(byName: "public-account-10").debug().toBlocking().single()
-        XCTAssertEqual(account?.id, "1.2.28".dcore.chainObject)
+        XCTAssertEqual(account?.id, "1.2.28".dcore.objectId())
     }
     
     func testGetAccountByIdUsingRest() {
         let account = try? rest.account.get(byId: "1.2.28").debug().toBlocking().single()
-        XCTAssertEqual(account?.id, "1.2.28".dcore.chainObject)
+        XCTAssertEqual(account?.id, "1.2.28".dcore.objectId())
     }
     
     func testGetAccountByReferenceUsingRest() {
@@ -29,11 +29,11 @@ final class AccountApiTests: XCTestCase {
     
     func testGetAccountIdsByAddressUsingRest() {
         let ids = try? rest.account.findAllReferences(byKeys: ["DCT5PwcSiigfTPTwubadt85enxMFC18TtVoti3gnTbG7TN9f9R3Fp".dcore.address!]).debug().toBlocking().single()
-        XCTAssert(ids?.first?.contains("1.2.28".dcore.chainObject!) ?? false)
+        XCTAssert(ids?.first?.contains("1.2.28".dcore.objectId()!) ?? false)
     }
     
     func testGetAccountByIdsUsingRest() {
-        let accounts = try? rest.account.getAll(byIds: ["1.2.27".dcore.chainObject!, "1.2.28".dcore.chainObject!]).debug().toBlocking().single()
+        let accounts = try? rest.account.getAll(byIds: ["1.2.27", "1.2.28"]).debug().toBlocking().single()
         XCTAssert(Set(["1.2.27", "1.2.28"]).isSuperset(of: Set(accounts!.map({ $0.id.description }))))
     }
     
@@ -51,7 +51,7 @@ final class AccountApiTests: XCTestCase {
     
     func testGetAccountByNameUsingWss() {
         let account = try? wss.account.get(byName: "public-account-10").debug().toBlocking().single()
-        XCTAssertEqual(account?.id, "1.2.28".dcore.chainObject)
+        XCTAssertEqual(account?.id, "1.2.28".dcore.objectId())
     }
     
     func testGetAccountByReferenceUsingWss() {

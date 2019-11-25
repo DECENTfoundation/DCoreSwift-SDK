@@ -2,14 +2,14 @@ import Foundation
 
 public struct Account: Codable {
     
-    public let id: ChainObject
-    public let registrar: ChainObject
+    public let id: AccountObjectId
+    public let registrar: AccountObjectId
     public let name: String
     public let owner: Authority
     public let active: Authority
     public let options: Options
     public let rightsToPublish: Publishing
-    public let statistics: ChainObject
+    public let statistics: AccountStatsObjectId
     public let topControlFlags: Int
     
     private enum CodingKeys: String, CodingKey {

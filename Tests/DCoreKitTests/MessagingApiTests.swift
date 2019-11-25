@@ -8,7 +8,7 @@ class MessagingApiTests: XCTestCase {
     
     private let wss = DCore.Sdk.create(forWss: DCore.TestConstant.wsUrl)
     private let creds = try! Credentials(
-        "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
+        "1.2.27".asObjectId(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
     )
     private let unencryptedMessage = "test123"
     private let encryptedMessage = "testEncrypted"
@@ -103,7 +103,7 @@ class MessagingApiTests: XCTestCase {
         sendEncryptedMessage()
         
         let result = try? wss.messaging.findAllReceiverDecrypted(
-            Credentials("1.2.28".asChainObject(), wif: "5JMpT5C75rcAmuUB81mqVBXbmL1BKea4MYwVK6voMQLvigLKfrE")
+            Credentials("1.2.28".asObjectId(), wif: "5JMpT5C75rcAmuUB81mqVBXbmL1BKea4MYwVK6voMQLvigLKfrE")
         ).debug().toBlocking().single()
         XCTAssertTrue(!(result?.isEmpty ?? true))
     }
@@ -125,7 +125,7 @@ class MessagingApiTests: XCTestCase {
         let correctCredentialsResult = try? wss.messaging.findAllSenderDecrypted(creds).debug().toBlocking().single()
 
         let wrongCredentialsResult = try? wss.messaging.findAllSenderDecrypted(
-            Credentials("1.2.27".asChainObject(), wif: "5KNdLJzt6A5soo2RHBHbi7FksexxMGPh19gD75tfCwUKuEN2tth")
+            Credentials("1.2.27".asObjectId(), wif: "5KNdLJzt6A5soo2RHBHbi7FksexxMGPh19gD75tfCwUKuEN2tth")
         ).debug().toBlocking().single()
 
         XCTAssertGreaterThan(correctCredentialsResult?.count ?? 0, wrongCredentialsResult?.count ?? 0)

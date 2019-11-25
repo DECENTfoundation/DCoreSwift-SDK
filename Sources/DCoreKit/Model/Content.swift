@@ -2,9 +2,9 @@ import Foundation
 
 public struct Content: Codable {
     
-    public let id: ChainObject
+    public let id: ContentObjectId
     public let author: String
-    public let coAuthors: [Pair<ChainObject, Int>]?
+    public let coAuthors: [Pair<AccountObjectId, Int>]?
     public let regionalPrice: PricePerRegion
     public let synopsisJson: String
     public let uri: String
@@ -55,7 +55,8 @@ extension Content {
     func modifiedSubmitContent<Input>(
         by newSynopsis: Input? = nil,
         newPrice: AssetAmount? = nil,
-        newCoAuthors: [Pair<ChainObject, Int>]? = nil) throws -> SubmitContent<Input> where Input: SynopsisConvertible {
+        newCoAuthors: [Pair<AccountObjectId, Int>]? = nil
+    ) throws -> SubmitContent<Input> where Input: SynopsisConvertible {
         guard let updatedSynopsis: Input = try newSynopsis ?? synopsis() else {
             throw DCoreException.unexpected("Unable to decode synopsis")
         }

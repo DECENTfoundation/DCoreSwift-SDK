@@ -6,14 +6,14 @@ public protocol MiningApi: BaseApi {
     /**
      Get miner by account id.
      
-     - Parameter id: Account id as `ChainObject` or `String` format.
+     - Parameter id: Account id as `AccountObjectId` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`
      if account does not exist.
      
      - Returns: An `Miner` if exist.
      */
-    func get(byAccountId id: ChainObjectConvertible) -> Single<Miner>
+    func get(byAccountId id: AccountObjectIdConvertible) -> Single<Miner>
     
     /**
      Get first 1000 miners by their name to miner account.
@@ -25,11 +25,11 @@ public protocol MiningApi: BaseApi {
     /**
      Get list of miners by their ids.
      
-     - Parameter ids: Miner ids as `ChainObject` or `String` format.
+     - Parameter ids: Miner ids as `MinerObjectId` or `String` format.
    
      - Returns: Array `[Miner]` of miners.
      */
-    func getAll(byIds ids: [ChainObjectConvertible]) -> Single<[Miner]>
+    func getAll(byIds ids: [ObjectIdConvertible]) -> Single<[Miner]>
     
     /**
      Get names and ids for registered miners.
@@ -51,12 +51,12 @@ public protocol MiningApi: BaseApi {
     /**
      Get a list of published price feeds by a miner.
      
-     - Parameter id: Account id as `ChainObject` or `String` format.
+     - Parameter id: Account id as `AccountObjectId` or `String` format.
      - Parameter limit: Maximum number of price feeds to fetch, max/default `100`.
      
      - Returns: Array of price feeds published by the miner.
      */
-    func getAllFeeds(byAccountId id: ChainObjectConvertible, limit: UInt64) -> Single<AnyValue>
+    func getAllFeeds(byAccountId id: AccountObjectIdConvertible, limit: UInt64) -> Single<AnyValue>
     
     /**
      Get the number of votes each miner actually has.
@@ -83,7 +83,7 @@ public protocol MiningApi: BaseApi {
      - Parameter order: Order, default `SearchOrder.MinerVoting.nameDesc`.
      - Parameter id: The object id of the miner to start searching from,
      1.4.* or null when start from beginning, default `nil`,
-     as `ChainObject` or `String` format.
+     as `MinerObjectId` or `String` format.
      - Parameter accountName: Account name or null when searching without account.
      - Parameter onlyMyVotes: When true it selects only votes given by account.
      - Parameter limit: Maximum number of miners info to fetch, max/default `1000`.
@@ -92,7 +92,7 @@ public protocol MiningApi: BaseApi {
      */
     func findAllVotingInfos(by expression: String,
                             order: SearchOrder.MinerVoting,
-                            id: ChainObjectConvertible?,
+                            id: ObjectIdConvertible?,
                             accountName: String?,
                             onlyMyVotes: Bool,
                             limit: Int) -> Single<[MinerVotingInfo]>
@@ -119,29 +119,29 @@ public protocol MiningApi: BaseApi {
      Create vote for miner operation.
      
      - Parameter ids: The object ids of the miners,
-     eg. 1.4.*, as `ChainObject` or `String` format.
+     eg. 1.4.*, as `MinerObjectId` or `String` format.
      - Parameter credentials: Account credentials.
      
      - Returns: `AccountUpdateOperation`.
      */
-    func createVote(forMinerIds ids: [ChainObjectConvertible], credentials: Credentials) -> Single<AccountUpdateOperation>
+    func createVote(forMinerIds ids: [ObjectIdConvertible], credentials: Credentials) -> Single<AccountUpdateOperation>
     
     /**
      Make vote for miner.
      
      - Parameter ids: The object ids of the miners,
-     eg. 1.4.*, as `ChainObject` or `String` format.
+     eg. 1.4.*, as `MinerObjectId` or `String` format.
      - Parameter credentials: Account credentials.
      
      - Returns: `TransactionConfirmation`.
      */
-    func vote(forMinerIds ids: [ChainObjectConvertible], credentials: Credentials) -> Single<TransactionConfirmation>
+    func vote(forMinerIds ids: [ObjectIdConvertible], credentials: Credentials) -> Single<TransactionConfirmation>
 }
 
 extension MiningApi {
-    public func get(byAccountId id: ChainObjectConvertible) -> Single<Miner> {
+    public func get(byAccountId id: AccountObjectIdConvertible) -> Single<Miner> {
         return Single.deferred {
-            return GetMinerByAccount(try id.asChainObject()).base.toResponse(self.api.core)
+            return GetMinerByAccount(try id.asAccountObjectId()).base.toResponse(self.api.core)
         }
     }
     
@@ -155,9 +155,9 @@ extension MiningApi {
         }
     }
     
-    public func getAll(byIds ids: [ChainObjectConvertible]) -> Single<[Miner]> {
+    public func getAll(byIds ids: [ObjectIdConvertible]) -> Single<[Miner]> {
         return Single.deferred {
-            return GetMiners(try ids.map { try $0.asChainObject() }).base.toResponse(self.api.core)
+            return GetMiners(try ids.map { try $0.asObjectId() }).base.toResponse(self.api.core)
         }
     }
     
@@ -169,9 +169,9 @@ extension MiningApi {
         return GetMinerCount().base.toResponse(api.core)
     }
     
-    public func getAllFeeds(byAccountId id: ChainObjectConvertible, limit: UInt64 = 100) -> Single<AnyValue> {
+    public func getAllFeeds(byAccountId id: AccountObjectIdConvertible, limit: UInt64 = 100) -> Single<AnyValue> {
         return Single.deferred {
-            return GetFeedsByMiner(try id.asChainObject(), count: limit).base.toResponse(self.api.core)
+            return GetFeedsByMiner(try id.asAccountObjectId(), count: limit).base.toResponse(self.api.core)
         }
     }
     
@@ -185,7 +185,7 @@ extension MiningApi {
     
     public func findAllVotingInfos(by expression: String,
                                    order: SearchOrder.MinerVoting = .nameDesc,
-                                   id: ChainObjectConvertible? = nil,
+                                   id: ObjectIdConvertible? = nil,
                                    accountName: String? = nil,
                                    onlyMyVotes: Bool = false,
                                    limit: Int = 1000) -> Single<[MinerVotingInfo]> {
@@ -194,7 +194,7 @@ extension MiningApi {
                                      searchTerm: expression,
                                      onlyMyVotes: onlyMyVotes,
                                      order: order,
-                                     id: try id?.asChainObject(),
+                                     id: try id?.asObjectId(),
                                      limit: limit).base.toResponse(self.api.core)
         }
     }
@@ -207,13 +207,13 @@ extension MiningApi {
         return GetAssetPerBlock(num).base.toResponse(api.core)
     }
     
-    public func createVote(forMinerIds ids: [ChainObjectConvertible], credentials: Credentials) -> Single<AccountUpdateOperation> {
+    public func createVote(forMinerIds ids: [ObjectIdConvertible], credentials: Credentials) -> Single<AccountUpdateOperation> {
         return Single.zip(api.account.get(byId: credentials.accountId), getAll(byIds: ids)).map { (account, miners) in
             return AccountUpdateOperation(account, votes: Set(miners.map { $0.voteId }))
         }
     }
     
-    public func vote(forMinerIds ids: [ChainObjectConvertible], credentials: Credentials) -> Single<TransactionConfirmation> {
+    public func vote(forMinerIds ids: [ObjectIdConvertible], credentials: Credentials) -> Single<TransactionConfirmation> {
         return createVote(forMinerIds: ids, credentials: credentials).flatMap {
             return self.api.broadcast.broadcastWithCallback($0, keypair: credentials.keyPair)
         }

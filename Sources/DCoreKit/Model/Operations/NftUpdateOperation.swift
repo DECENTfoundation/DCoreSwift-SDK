@@ -3,12 +3,8 @@ import BigInt
 
 public struct NftUpdateOperation: Operation {
     
-    public var issuer: ChainObject {
-        willSet { precondition(issuer.objectType == .accountObject, "not a valid account object id") }
-    }
-    public var nftId: ChainObject {
-        willSet { precondition(nftId.objectType == .nftObject, "not a valid nft object id") }
-    }
+    public var issuer: AccountObjectId
+    public var nftId: NftObjectId
     public var options: NftOptions {
         willSet {
             precondition(

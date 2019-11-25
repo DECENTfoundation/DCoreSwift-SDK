@@ -2,9 +2,7 @@ import Foundation
 import BigInt
 
 public struct SubmitContentOperation: Operation {
-    public var author: ChainObject {
-        willSet { precondition(newValue.objectType == .accountObject, "Not an account object id") }
-    }
+    public var author: AccountObjectId
     public var uri: String {
         willSet { precondition(Content.hasValid(uri: newValue), "Invalid uri scheme") }
     }
@@ -24,9 +22,9 @@ public struct SubmitContentOperation: Operation {
     public var size: UInt64 {
         willSet { precondition(newValue > 0, "Invalid file size") }
     }
-    public let seeders: [ChainObject]
+    public let seeders: [AccountObjectId]
     public let keyParts: [KeyParts]
-    public var coauthors: [Pair<ChainObject, Int>]?
+    public var coauthors: [Pair<AccountObjectId, Int>]?
     public var custodyData: CustodyData?
     public let publishingFee: AssetAmount
     public var fee: AssetAmount  = .unset
@@ -43,7 +41,7 @@ public struct SubmitContentOperation: Operation {
     }
     
     init<Input>(_ content: SubmitContent<Input>,
-                author: ChainObject,
+                author: AccountObjectId,
                 publishingFee: AssetAmount = .unset,
                 fee: AssetAmount = .unset) where Input: SynopsisConvertible {
         self.author = author
@@ -189,7 +187,7 @@ public enum SubmitContent<Input> where Input: SynopsisConvertible {
         }
     }
     
-    fileprivate func coauthors(without author: ChainObject) -> [Pair<ChainObject, Int>]? {
+    fileprivate func coauthors(without author: AccountObjectId) -> [Pair<AccountObjectId, Int>]? {
         switch self {
         case .cdnWithSharedPrice(_, _, _, _, let coauthors):
             precondition(coauthors.allSatisfy { $0.first != author }, "Author can't be part of co-authors")
@@ -200,11 +198,11 @@ public enum SubmitContent<Input> where Input: SynopsisConvertible {
     
     fileprivate var quorum: UInt32 { return .unset }
     fileprivate var size: UInt64 { return .unset }
-    fileprivate var seeders: [ChainObject] { return [] }
+    fileprivate var seeders: [AccountObjectId] { return [] }
     fileprivate var keyParts: [KeyParts] { return [] }
     
     case
-    cdnWithSharedPrice(url: URLConvertible, expiration: Date, price: AssetAmount, synopsis: Input, coauthors: [Pair<ChainObject, Int>]),
+    cdnWithSharedPrice(url: URLConvertible, expiration: Date, price: AssetAmount, synopsis: Input, coauthors: [Pair<AccountObjectId, Int>]),
     cdnWithPrice(url: URLConvertible, expiration: Date, price: AssetAmount, synopsis: Input),
     cdn(url: URLConvertible, expiration: Date, synopsis: Input)
 }

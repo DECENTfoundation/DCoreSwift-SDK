@@ -3,7 +3,7 @@ import BigInt
 
 public protocol AssetFormatting {
     
-    var id: ChainObject { get set }
+    var id: AssetObjectId { get set }
     var symbol: String { get set }
     var precision: Int { get set }
     

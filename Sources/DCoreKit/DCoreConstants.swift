@@ -8,7 +8,7 @@ extension DCore {
         
         public static let timeout: TimeInterval = 30 // seconds
         public static let expiration: Int = 30 // seconds
-        public static let dct: ChainObject = "1.3.0".dcore.chainObject!
+        public static let dct: AssetObjectId = AssetObjectId(instance: 0)
         public static let dctQrPrefix = "decent"
         public static let brainKeyWordCount = 16
         public static let maxShareSupply: Int64 = 7319777577456890

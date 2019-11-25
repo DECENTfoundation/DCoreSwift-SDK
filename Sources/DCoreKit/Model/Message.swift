@@ -2,11 +2,11 @@ import Foundation
 import BigInt
 
 public struct Message {
-    public let id: ChainObject
+    public let id: MessagingObjectId
     public let created: Date
-    public let sender: ChainObject
+    public let sender: AccountObjectId
     public var senderAddress: Address?
-    public let receiver: ChainObject
+    public let receiver: AccountObjectId
     public var receiverAddress: Address?
     public var message: String
     public var nonce: BigInt = 0
@@ -32,9 +32,9 @@ extension Message: CipherConvertible {
 }
 
 public struct MessageResponse: Codable {
-    public let id: ChainObject
+    public let id: MessagingObjectId
     public let created: Date
-    public let sender: ChainObject
+    public let sender: AccountObjectId
     public var senderAddress: Address?
     public let receivers: [MessageReceiver]
   
@@ -49,7 +49,7 @@ public struct MessageResponse: Codable {
 }
 
 public struct MessageReceiver: Codable {
-    public let receiver: ChainObject
+    public let receiver: AccountObjectId
     public var receiverAddress: Address?
     public let nonce: BigInt
     public let data: String
@@ -64,20 +64,21 @@ public struct MessageReceiver: Codable {
 }
 
 public struct MessagePayload: Codable {
-    public let from: ChainObject
+    public let from: AccountObjectId
     public let receivers: [MessagePayloadReceiver]
     public var fromAddress: Address?
     
-    init(_ from: ChainObject, receivers: [MessagePayloadReceiver], fromAddress: Address?) {
+    init(_ from: AccountObjectId, receivers: [MessagePayloadReceiver], fromAddress: Address?) {
         self.from = from
         self.receivers = receivers
         self.fromAddress = fromAddress
     }
     
-    init(_ from: ChainObject, messages: [Pair<ChainObjectConvertible, String>]) throws {
+    init(_ from: AccountObjectId, messages: [Pair<AccountObjectIdConvertible, String>]) throws {
         self.from = from
         self.receivers = try messages.map {
-            MessagePayloadReceiver(to: try $0.first.asChainObject(), data: try Memo($0.second).message, toAddress: nil, nonce: nil)
+            MessagePayloadReceiver(
+                to: try $0.first.asAccountObjectId(), data: try Memo($0.second).message, toAddress: nil, nonce: nil)
         }
 
     }
@@ -91,7 +92,7 @@ public struct MessagePayload: Codable {
 }
 
 public struct MessagePayloadReceiver: Codable {
-    public let to: ChainObject
+    public let to: AccountObjectId
     public let data: String
     public var toAddress: Address?
     public var nonce: BigInt?

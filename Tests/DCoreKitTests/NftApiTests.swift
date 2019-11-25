@@ -7,7 +7,7 @@ class NftApiTests: XCTestCase {
     
     private let wss = DCore.Sdk.create(forWss: DCore.TestConstant.wsUrl)
     let creds = try? Credentials(
-        "1.2.27".asChainObject(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
+        "1.2.27".asObjectId(), wif: "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
     )
     private let KITTEN = "KITTEN"
     private let PUPPY = "PUPPY"

@@ -6,14 +6,14 @@ public protocol ContentApi: BaseApi {
      Get content by id.
      
      - Parameter id: Content id, eg. 2.13.*,
-     as `ChainObject` or `String` format.
+     as `ContentObjectId` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`
      if account does not exist.
      
      - Returns: `Content`.
      */
-    func get(byId id: ChainObjectConvertible) -> Single<Content>
+    func get(byId id: ObjectIdConvertible) -> Single<Content>
     
     /**
      Get content by url.
@@ -63,7 +63,7 @@ public protocol ContentApi: BaseApi {
      - Parameter type: Application and content type to be filtered,
      default `ContentCategory.id(.decentCore, .none)`.
      - Parameter startId: Id of content object to start searching from,
-     as `ChainObject` or `String` format.
+     as `ContentObjectId` or `String` format.
      - Parameter limit: Maximum number of contents to fetch, max/default `100`.
    
      - Returns: Array `[Content]` of lookup contents.
@@ -74,7 +74,7 @@ public protocol ContentApi: BaseApi {
                  author: Account.Reference,
                  regionCode: String,
                  type: String,
-                 startId id: ChainObjectConvertible,
+                 startId id: ObjectIdConvertible,
                  limit: Int) -> Single<[Content]>
     
     /**
@@ -86,9 +86,9 @@ public protocol ContentApi: BaseApi {
      - Parameter limit: Maximum number of accounts to return,
      max/default `100`.
      
-     - Returns: Array `[ChainObject]` of publishing managers.
+     - Returns: Array `[AccountObjectId]` of publishing managers.
      */
-    func findAllPublishersRelative(byLower bound: String, limit: Int) -> Single<[ChainObject]>
+    func findAllPublishersRelative(byLower bound: String, limit: Int) -> Single<[AccountObjectId]>
     
     /**
      Generate keys for new content submission.
@@ -97,7 +97,7 @@ public protocol ContentApi: BaseApi {
      
      - Returns: Generated key and key parts.
      */
-    func generateKeys(forSeeders ids: [ChainObjectConvertible]) -> Single<ContentKeys>
+    func generateKeys(forSeeders ids: [AccountObjectIdConvertible]) -> Single<ContentKeys>
 
     /**
      Restores encryption key from key parts stored in buying object.
@@ -107,7 +107,7 @@ public protocol ContentApi: BaseApi {
      
      - Returns: AES encryption key.
      */
-    func restoreKey(byElGamal privateKey: PubKey, purchaseId id: ChainObjectConvertible) -> Single<String>
+    func restoreKey(byElGamal privateKey: PubKey, purchaseId id: ObjectIdConvertible) -> Single<String>
     
     /**
      Create content.
@@ -152,7 +152,7 @@ public protocol ContentApi: BaseApi {
     func update<Input>(on reference: Content.Reference,
                        synopsis: Input?,
                        price: AssetAmount?,
-                       coAuthors: [Pair<ChainObject, Int>]?,
+                       coAuthors: [Pair<AccountObjectId, Int>]?,
                        credentials: Credentials,
                        fee: AssetAmount) -> Single<TransactionConfirmation> where Input: SynopsisConvertible
     /**
@@ -175,7 +175,7 @@ public protocol ContentApi: BaseApi {
     /**
      Delete content by id.
      
-     - Parameter id: Content id, as `ChainObject` or `String` format.
+     - Parameter id: Content id, as `ContentObjectId` or `String` format.
      - Parameter author: Credentials of account which will pay operation fee,
      will owner of content.
      - Parameter fee: `AssetAmount` fee for the operation,
@@ -187,7 +187,7 @@ public protocol ContentApi: BaseApi {
      
      - Returns: `TransactionConfirmation` that content was deleted.
      */
-    func delete(byId id: ChainObjectConvertible, author: Credentials, fee: AssetAmount) -> Single<TransactionConfirmation>
+    func delete(byId id: ObjectIdConvertible, author: Credentials, fee: AssetAmount) -> Single<TransactionConfirmation>
     
     /**
      Delete content by url (URL or String).
@@ -209,7 +209,7 @@ public protocol ContentApi: BaseApi {
     /**
      Create a purchase content operation.
      
-     - Parameter id: Content id, as `ChainObject` or `String` format.
+     - Parameter id: Content id, as `ContentObjectId` or `String` format.
      - Parameter consumer: Account credentials.
      
      - Throws: `DCoreException.Network.notFound`
@@ -217,7 +217,7 @@ public protocol ContentApi: BaseApi {
      
      - Returns: `PurchaseContentOperation`.
      */
-    func createPurchase(byId id: ChainObjectConvertible, consumer: Credentials) -> Single<PurchaseContentOperation>
+    func createPurchase(byId id: ObjectIdConvertible, consumer: Credentials) -> Single<PurchaseContentOperation>
     
     /**
      Create a purchase content operation.
@@ -235,7 +235,7 @@ public protocol ContentApi: BaseApi {
     /**
      Make a content purchase.
      
-     - Parameter id: Content id, as `ChainObject` or `String` format.
+     - Parameter id: Content id, as `ContentObjectId` or `String` format.
      - Parameter consumer: Account credentials.
      
      - Throws: `DCoreException.Network.notFound`
@@ -243,7 +243,7 @@ public protocol ContentApi: BaseApi {
      
      - Returns: `TransactionConfirmation` of successfull purchase.
      */
-    func purchase(byId id: ChainObjectConvertible, consumer: Credentials) -> Single<TransactionConfirmation>
+    func purchase(byId id: ObjectIdConvertible, consumer: Credentials) -> Single<TransactionConfirmation>
     
     /**
      Make a content purchase.
@@ -314,9 +314,9 @@ public protocol ContentApi: BaseApi {
 }
 
 extension ContentApi {
-    public func get(byId id: ChainObjectConvertible) -> Single<Content> {
+    public func get(byId id: ObjectIdConvertible) -> Single<Content> {
         return Single.deferred {
-            return GetContentById(try id.asChainObject()).base.toResponse(self.api.core).map {
+            return GetContentById(try id.asObjectId()).base.toResponse(self.api.core).map {
                 try $0.first.orThrow(DCoreException.network(.notFound))
             }
         }
@@ -334,7 +334,7 @@ extension ContentApi {
             if Content.hasValid(uri: ref) {
                 return self.get(byUrl: ref)
             }
-            return self.get(byId: try ref.asChainObject())
+            return self.get(byId: try ref.asObjectId())
         }
     }
     
@@ -347,7 +347,7 @@ extension ContentApi {
                         author: Account.Reference = "",
                         regionCode: String = Regions.all.code,
                         type: String = ContentCategory.id(.decentCore, .none).description,
-                        startId id: ChainObjectConvertible = ObjectType.nullObject.genericId,
+                        startId id: ObjectIdConvertible = ObjectId.nullObjectId,
                         limit: Int = DCore.Limits.content) -> Single<[Content]> {
         return Single.deferred {
             return SearchContent(expression,
@@ -355,14 +355,14 @@ extension ContentApi {
                                  user: author,
                                  regionCode: regionCode,
                                  type: type,
-                                 startId: try id.asChainObject(),
+                                 startId: try id.asObjectId(),
                                  limit: try limit.limited(by: DCore.Limits.content))
                 .base
                 .toResponse(self.api.core)
         }
     }
         
-    public func findAllPublishersRelative(byLower bound: String, limit: Int = DCore.Limits.publisher) -> Single<[ChainObject]> {
+    public func findAllPublishersRelative(byLower bound: String, limit: Int = DCore.Limits.publisher) -> Single<[AccountObjectId]> {
         return Single.deferred {
             return ListPublishingManagers(bound, limit: try limit.limited(by: DCore.Limits.publisher))
                 .base
@@ -370,15 +370,15 @@ extension ContentApi {
         }
     }
     
-    public func generateKeys(forSeeders ids: [ChainObjectConvertible]) -> Single<ContentKeys> {
+    public func generateKeys(forSeeders ids: [AccountObjectIdConvertible]) -> Single<ContentKeys> {
         return Single.deferred {
-            return GenerateContentKeys(try ids.map { try $0.asChainObject() }).base.toResponse(self.api.core)
+            return GenerateContentKeys(try ids.map { try $0.asAccountObjectId() }).base.toResponse(self.api.core)
         }
     }
     
-    public func restoreKey(byElGamal privateKey: PubKey, purchaseId id: ChainObjectConvertible) -> Single<String> {
+    public func restoreKey(byElGamal privateKey: PubKey, purchaseId id: ObjectIdConvertible) -> Single<String> {
         return Single.deferred {
-            return RestoreEncryptionKey(privateKey, purchaseId: try id.asChainObject()).base.toResponse(self.api.core)
+            return RestoreEncryptionKey(privateKey, purchaseId: try id.asObjectId()).base.toResponse(self.api.core)
         }
     }
     
@@ -397,7 +397,7 @@ extension ContentApi {
     public func update<Input>(on reference: Content.Reference,
                               synopsis: Input?,
                               price: AssetAmount?,
-                              coAuthors: [Pair<ChainObject, Int>]?,
+                              coAuthors: [Pair<AccountObjectId, Int>]?,
                               credentials: Credentials,
                               fee: AssetAmount) -> Single<TransactionConfirmation> where Input: SynopsisConvertible {
         return get(byReference: reference).flatMap { originalContent in
@@ -416,7 +416,7 @@ extension ContentApi {
     
     public func delete(byReference ref: Content.Reference, author: Credentials, fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
         return Single.deferred {
-            if let id = ref.dcore.chainObject {
+            if let id = ref.dcore.objectId() {
                 return self.delete(byId: id, author: author, fee: fee)
             }
             if Content.hasValid(uri: ref) {
@@ -426,7 +426,7 @@ extension ContentApi {
         }
     }
     
-    public func delete(byId id: ChainObjectConvertible, author: Credentials, fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
+    public func delete(byId id: ObjectIdConvertible, author: Credentials, fee: AssetAmount = .unset) -> Single<TransactionConfirmation> {
         return get(byId: id).flatMap {
             self.delete(byUrl: $0.uri, author: author, fee: fee)
         }
@@ -440,7 +440,7 @@ extension ContentApi {
         }
     }
     
-    public func createPurchase(byId id: ChainObjectConvertible,
+    public func createPurchase(byId id: ObjectIdConvertible,
                                consumer: Credentials) -> Single<PurchaseContentOperation> {
         return get(byId: id).map { PurchaseContentOperation(consumer, content: $0) }
     }
@@ -450,7 +450,7 @@ extension ContentApi {
         return get(byUrl: url).map { PurchaseContentOperation(consumer, content: $0) }
     }
     
-    public func purchase(byId id: ChainObjectConvertible,
+    public func purchase(byId id: ObjectIdConvertible,
                          consumer: Credentials) -> Single<TransactionConfirmation> {
         return createPurchase(byId: id, consumer: consumer).flatMap {
             self.api.broadcast.broadcastWithCallback($0, keypair: consumer.keyPair)

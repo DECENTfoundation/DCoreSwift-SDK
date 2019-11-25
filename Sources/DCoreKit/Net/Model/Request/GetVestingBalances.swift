@@ -5,9 +5,7 @@ struct GetVestingBalances: BaseRequestConvertible {
     typealias Output = [VestingBalance]
     private(set) var base: BaseRequest<[VestingBalance]>
     
-    init(_ accountId: ChainObject) {
-        
-        precondition(accountId.objectType == .accountObject, "Not a valid account object id")
+    init(_ accountId: AccountObjectId) {
         self.base = GetVestingBalances.toBase(
             .database,
             api: "get_vesting_balances",

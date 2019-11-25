@@ -5,8 +5,7 @@ struct GetProposedTransactions: BaseRequestConvertible {
     typealias Output = AnyValue
     private(set) var base: BaseRequest<AnyValue>
     
-    init(_ accountId: ChainObject) {
-        precondition(accountId.objectType == .accountObject, "Not a valid account object id")
+    init(_ accountId: AccountObjectId) {
         self.base = GetProposedTransactions.toBase(
             .database, api: "get_proposed_transactions", returnType: AnyValue.self, params: [accountId]
         )

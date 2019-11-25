@@ -2,9 +2,9 @@ import Foundation
 
 public struct TransactionDetail: Codable {
     
-    public let id: ChainObject
-    public let from: ChainObject
-    public let to: ChainObject
+    public let id: TransactionDetailObjectId
+    public let from: AccountObjectId
+    public let to: AccountObjectId
     public let type: Int
     public let amount: AssetAmount
     public var memo: Memo?

@@ -3,7 +3,7 @@ import BigInt
 
 public struct AccountUpdateOperation: Operation {
     
-    public let accountId: ChainObject
+    public let accountId: AccountObjectId
     public let owner: Authority?
     public let active: Authority?
     public let options: Options?

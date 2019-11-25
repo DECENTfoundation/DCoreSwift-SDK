@@ -2,12 +2,12 @@ import Foundation
 
 struct GetKeyReferences: BaseRequestConvertible {
     
-    typealias Output = [[ChainObject]]
-    private(set) var base: BaseRequest<[[ChainObject]]>
+    typealias Output = [[AccountObjectId]]
+    private(set) var base: BaseRequest<[[AccountObjectId]]>
     
     init(_ references: [Address]) {
         self.base = GetKeyReferences.toBase(
-            .database, api: "get_key_references", returnType: [[ChainObject]].self, params: [references]
+            .database, api: "get_key_references", returnType: [[AccountObjectId]].self, params: [references]
         )
     }
 }

@@ -5,8 +5,7 @@ struct GetSubscription: BaseRequestConvertible {
     typealias Output = Subscription
     private(set) var base: BaseRequest<Subscription>
     
-    init(_ subscriptionId: ChainObject) {
-        precondition(subscriptionId.objectType == .subscriptionObject, "Not a valid subscription object id")
+    init(_ subscriptionId: SubscriptionObjectId) {
         self.base = GetSubscription.toBase(
             .database,
             api: "get_subscription",

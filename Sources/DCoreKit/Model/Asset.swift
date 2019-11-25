@@ -7,16 +7,14 @@ private extension Decimal {
 
 public struct Asset: Codable, AssetFormatting, Equatable {
     
-    public var id: ChainObject = ObjectType.assetObject.genericId {
-        willSet { precondition(newValue.objectType == ObjectType.assetObject, "Asset id \(newValue) is not object asset type") }
-    }
+    public var id: AssetObjectId = .genericId()
     
     public var symbol: String = "UIA"
     public var precision: Int = 0
-    public var issuer: ChainObject = ObjectType.nullObject.genericId
+    public var issuer: AccountObjectId = .genericId()
     public var description: String = ""
     public var options: Asset.Options = Asset.Options()
-    public var dataId: ChainObject = ObjectType.nullObject.genericId
+    public var dataId: AssetDataObjectId = .genericId()
     public var monitoredOptions: AnyValue?
     
     private enum CodingKeys: String, CodingKey {
@@ -41,7 +39,7 @@ public struct Asset: Codable, AssetFormatting, Equatable {
         return try convert(amount, to: DCore.Constant.dct, rounding: rounding)
     }
     
-    private func convert(_ amount: BigInt, to assetId: ChainObject, rounding: Decimal.RoundingMode) throws -> AssetAmount {
+    private func convert(_ amount: BigInt, to assetId: AssetObjectId, rounding: Decimal.RoundingMode) throws -> AssetAmount {
         var quote = Decimal(string: options.exchangeRate.quote.amount.description).or(.zero)
         var base = Decimal(string: options.exchangeRate.base.amount.description).or(.zero)
         let value = Decimal(string: amount.description).or(.zero)
@@ -110,10 +108,6 @@ extension Asset {
             }
         }
         
-        public var chainObject: ChainObject {
-            return description.dcore.chainObject!
-        }
-        
         public func encode(to encoder: Encoder) throws {
             var container = encoder.singleValueContainer()
             try container.encode(self.description)
@@ -155,7 +149,7 @@ extension Asset {
         public static func forCreateOperation(dct: BigInt, uia: BigInt) -> ExchangeRate {
             return ExchangeRate(
                 base: AssetAmount(dct),
-                quote: AssetAmount(uia, assetId: (try? "1.3.1".asChainObject()) ?? ChainObject(from: .assetObject))
+                quote: AssetAmount(uia, assetId: (try? "1.3.1".asAssetObjectId()).or(.genericId()))
             )
         }
     }

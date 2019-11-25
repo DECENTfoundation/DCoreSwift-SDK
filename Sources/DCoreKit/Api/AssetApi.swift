@@ -7,24 +7,24 @@ public protocol AssetApi: BaseApi {
      Get asset by id.
      
      - Parameter id: Asset id, eg. 1.3.*,
-     as `ChainObject` or `String` format.
+     as `AssetObjectId` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`
      if asset does not exist.
      
      - Returns: `Asset`.
      */
-    func get(byId id: ChainObjectConvertible) -> Single<Asset>
+    func get(byId id: AssetObjectIdConvertible) -> Single<Asset>
     
     /**
      Get all assets by ids.
      
      - Parameter ids: Asset ids, eg. [1.3.*],
-     as `ChainObject` or `String` format.
+     as `AssetObjectId` or `String` format.
      
      - Returns: Array `[Asset]` of assets.
      */
-    func getAll(byIds ids: [ChainObjectConvertible]) -> Single<[Asset]>
+    func getAll(byIds ids: [AssetObjectIdConvertible]) -> Single<[Asset]>
     
     /**
      Get assets by symbol.
@@ -72,24 +72,24 @@ public protocol AssetApi: BaseApi {
      Get asset dynamic data by id.
      
      - Parameter id: Asset dynamic data id, eg. DCT id is 2.3.0,
-     as `ChainObject` or `String` format.
+     as `AssetDataObjectId` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`
      if asset data does not exist.
      
      - Returns: `AssetData` of asset data.
      */
-    func getData(byAssetDataId id: ChainObjectConvertible) -> Single<AssetData>
+    func getData(byAssetDataId id: ObjectIdConvertible) -> Single<AssetData>
     
     /**
      Get all asset dynamic data by ids.
      
      - Parameter ids: Asset dynamic data ids, eg. DCT id is 2.3.0,
-     as `ChainObject` or `String` format.
+     as `AssetDataObjectId` or `String` format.
      
      - Returns: Array `[AssetData]` of asset data.
      */
-    func getAllData(byAssetDataIds ids: [ChainObjectConvertible]) -> Single<[AssetData]>
+    func getAllData(byAssetDataIds ids: [ObjectIdConvertible]) -> Single<[AssetData]>
     
     /**
      Converts DCT amount to asset by id,
@@ -105,7 +105,7 @@ public protocol AssetApi: BaseApi {
      
      - Returns: `AssetAmount` in DCT.
      */
-    func convert(fromDct amount: BigInt, to assetId: ChainObjectConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount>
+    func convert(fromDct amount: BigInt, to assetId: AssetObjectIdConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount>
     
     /**
      Converts from asset by id to DCT,
@@ -121,7 +121,7 @@ public protocol AssetApi: BaseApi {
      
      - Returns: `AssetAmount` in DCT.
      */
-    func convert(toDct amount: BigInt, from assetId: ChainObjectConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount>
+    func convert(toDct amount: BigInt, from assetId: AssetObjectIdConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount>
 
     /**
      Check if the asset exists.
@@ -161,15 +161,15 @@ public protocol AssetApi: BaseApi {
 }
 
 extension AssetApi {
-    public func get(byId id: ChainObjectConvertible) -> Single<Asset> {
+    public func get(byId id: AssetObjectIdConvertible) -> Single<Asset> {
         return getAll(byIds: [id]).map {
             try $0.first.orThrow(DCoreException.network(.notFound))
         }
     }
     
-    public func getAll(byIds ids: [ChainObjectConvertible]) -> Single<[Asset]> {
+    public func getAll(byIds ids: [AssetObjectIdConvertible]) -> Single<[Asset]> {
         return Single.deferred {
-            return GetAssets(try ids.map { try $0.asChainObject() }).base.toResponse(self.api.core)
+            return GetAssets(try ids.map { try $0.asAssetObjectId() }).base.toResponse(self.api.core)
         }
     }
     
@@ -196,23 +196,23 @@ extension AssetApi {
         return GetRealSupply().base.toResponse(api.core)
     }
     
-    public func getData(byAssetDataId id: ChainObjectConvertible) -> Single<AssetData> {
+    public func getData(byAssetDataId id: ObjectIdConvertible) -> Single<AssetData> {
         return getAllData(byAssetDataIds: [id]).map {
             try $0.first.orThrow(DCoreException.network(.notFound))
         }
     }
     
-    public func getAllData(byAssetDataIds ids: [ChainObjectConvertible]) -> Single<[AssetData]> {
+    public func getAllData(byAssetDataIds ids: [ObjectIdConvertible]) -> Single<[AssetData]> {
         return Single.deferred {
-            return GetAssetsData(try ids.map { try $0.asChainObject() }).base.toResponse(self.api.core)
+            return GetAssetsData(try ids.map { try $0.asObjectId() }).base.toResponse(self.api.core)
         }
     }
     
-    public func convert(fromDct amount: BigInt, to assetId: ChainObjectConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount> {
+    public func convert(fromDct amount: BigInt, to assetId: AssetObjectIdConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount> {
         return get(byId: assetId).map { try $0.convert(fromDct: amount, rounding: rounding) }
     }
     
-    public func convert(toDct amount: BigInt, from assetId: ChainObjectConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount> {
+    public func convert(toDct amount: BigInt, from assetId: AssetObjectIdConvertible, rounding: Decimal.RoundingMode) -> Single<AssetAmount> {
         return get(byId: assetId).map { try $0.convert(toDct: amount, rounding: rounding) }
     }
 

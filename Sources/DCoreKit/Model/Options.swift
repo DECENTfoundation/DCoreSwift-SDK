@@ -3,7 +3,7 @@ import Foundation
 public struct Options: Codable {
     
     public let memoKey: Address
-    public let votingAccount: ChainObject
+    public let votingAccount: AccountObjectId
     public let numMiner: UInt16
     public var votes: Set<VoteId>
     public var extensions: AnyValue?
@@ -25,7 +25,7 @@ public struct Options: Codable {
     
     public init(from address: Address) {
         memoKey = address
-        votingAccount = "1.2.3".dcore.chainObject!
+        votingAccount = AccountObjectId(instance: 3)
         numMiner = 0
         votes = Set<VoteId>([])
         extensions = .array([])

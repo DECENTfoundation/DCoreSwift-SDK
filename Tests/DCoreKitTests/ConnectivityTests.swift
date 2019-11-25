@@ -9,7 +9,7 @@ class ConnectivityTests: XCTestCase {
     private let wss = DCore.Sdk.create(forWss: DCore.TestConstant.wsUrl)
     
     func testWebSocketReconnection() {
-        let id = "1.2.28".dcore.chainObject!
+        let id: AccountObjectId = "1.2.28".dcore.objectId()!
         _ = try? wss.account.get(byId: id).debug().toBlocking().single()
         wss.core.dispose()
         

@@ -6,14 +6,14 @@ public protocol SeedersApi: BaseApi {
      Get a seeder by id.
      
      - Parameter id: Seeder account object id, eg. 1.2.*,
-     as `ChainObject` or `String` format.
+     as `AccountObjectId` or `String` format.
      
      - Throws: `DCoreException.Network.notFound`
      if no matching was found.
      
      - Returns: `Seeder`.
      */
-    func get(byAccountId id: ChainObjectConvertible) -> Single<Seeder>
+    func get(byAccountId id: AccountObjectIdConvertible) -> Single<Seeder>
     
     /**
      Get a list of seeders by price, in increasing order.
@@ -57,9 +57,9 @@ public protocol SeedersApi: BaseApi {
 }
 
 extension SeedersApi {
-    public func get(byAccountId id: ChainObjectConvertible) -> Single<Seeder> {
+    public func get(byAccountId id: AccountObjectIdConvertible) -> Single<Seeder> {
         return Single.deferred {
-            return GetSeeder(try id.asChainObject()).base.toResponse(self.api.core)
+            return GetSeeder(try id.asAccountObjectId()).base.toResponse(self.api.core)
         }
     }
     

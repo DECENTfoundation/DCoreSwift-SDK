@@ -3,7 +3,7 @@ import BigInt
 
 public struct OperationHistory {
     
-    public let id: ChainObject
+    public let id: OperationHistoryObjectId
     public var operation: Operation
     public let result: AnyValue?
     public let blockNum: UInt64
@@ -28,7 +28,7 @@ extension OperationHistory: Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        id =                try container.decode(ChainObject.self, forKey: .id)
+        id =                try container.decode(OperationHistoryObjectId.self, forKey: .id)
         result =            try container.decodeIfPresent(AnyValue.self, forKey: .result)
         blockNum =          try container.decode(UInt64.self, forKey: .blockNum)
         trxInBlock =        try container.decode(UInt64.self, forKey: .trxInBlock)
