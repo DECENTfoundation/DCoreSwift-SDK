@@ -107,11 +107,11 @@ public protocol AccountApi: BaseApi {
     /**
      Get all accounts that refer to the account id in their owner or active authorities.
      
-     - Parameter id: Account id.
+     - Parameter id: Account id as `AccountObjectId` or `String` format.
      
      - Returns: All `[[AccountObjectId]]` account references by given keys.
      */
-    func findAllReferences(byId id: AccountObjectId) -> Single<[AccountObjectId]>
+    func findAllReferences(byId id: AccountObjectIdConvertible) -> Single<[AccountObjectId]>
 
     /**
      Get names and ids for registered accounts.
@@ -343,8 +343,10 @@ extension AccountApi {
         return GetKeyReferences(keys).base.toResponse(api.core)
     }
     
-    public func findAllReferences(byId id: AccountObjectId) -> Single<[AccountObjectId]> {
-        return GetAccountReferences(id).base.toResponse(api.core)
+    public func findAllReferences(byId id: AccountObjectIdConvertible) -> Single<[AccountObjectId]> {
+        return Single.deferred {
+            GetAccountReferences(try id.asAccountObjectId()).base.toResponse(self.api.core)
+        }
     }
     
     public func findAllRelative(byLower bound: String, limit: Int = DCore.Limits.account) -> Single<[String: AccountObjectId]> {
