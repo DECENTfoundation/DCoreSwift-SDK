@@ -2,6 +2,8 @@
 DCore SDK for Swift
 ======================================
 
+[![Travis CI](https://travis-ci.org/DECENTfoundation/DCoreSwift-SDK.svg?branch=master)](https://travis-ci.org/DECENTfoundation/DCoreSwift-SDK) ![platforms](https://img.shields.io/badge/platforms-iOS%20%7C%20macOS-333333.svg) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 Set of APIs for accessing the DCore Blockchain. <br>
 If you are looking for other platforms you can find info [below](#official-dcore-sdks-for-other-platforms).
 
