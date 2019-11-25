@@ -142,7 +142,7 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Api/CallbackApi.swift",
-      "line": 35,
+      "line": 23,
       "symbol": "CallbackApi",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
@@ -205,7 +205,7 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Api/HistoryApi.swift",
-      "line": 71,
+      "line": 70,
       "symbol": "HistoryApi",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
@@ -219,7 +219,7 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Api/MessagingApi.swift",
-      "line": 145,
+      "line": 190,
       "symbol": "MessagingApi",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
@@ -236,6 +236,34 @@
       "line": 141,
       "symbol": "MiningApi",
       "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Api/NftApi.swift",
+      "line": 4,
+      "symbol": "NftApi",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Api/NftApi.swift",
+      "line": 207,
+      "symbol": "NftApi.create(credentials:symbol:maxSupply:fixedMaxSupply:description:nftModel:transferable:fee:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Api/NftApi.swift",
+      "line": 301,
+      "symbol": "NftApi",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Api/NftApi.swift",
+      "line": 398,
+      "symbol": "NftApi.create(credentials:symbol:maxSupply:fixedMaxSupply:description:nftModel:transferable:fee:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
@@ -772,14 +800,21 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/DCoreApi.swift",
-      "line": 28,
+      "line": 25,
+      "symbol": "DCore.Api.nft",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/DCoreApi.swift",
+      "line": 29,
       "symbol": "DCore.Api.init(core:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/DCoreApi.swift",
-      "line": 41,
+      "line": 42,
       "symbol": "SecurityExtension.trusted(by:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -900,6 +935,13 @@
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/DCoreConstants.swift",
       "line": 29,
       "symbol": "DCore.Limits.messaging",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/DCoreConstants.swift",
+      "line": 30,
+      "symbol": "DCore.Limits.nft",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
@@ -1199,7 +1241,7 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/DCoreExtensionProvider.swift",
-      "line": 92,
+      "line": 93,
       "symbol": "DCoreExtension",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
@@ -1444,63 +1486,70 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 14,
+      "line": 12,
       "symbol": "Asset.symbol",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 15,
+      "line": 13,
       "symbol": "Asset.precision",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 16,
+      "line": 14,
       "symbol": "Asset.issuer",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 17,
+      "line": 15,
       "symbol": "Asset.description",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 18,
+      "line": 16,
       "symbol": "Asset.options",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 19,
+      "line": 17,
       "symbol": "Asset.dataId",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 20,
+      "line": 18,
       "symbol": "Asset.monitoredOptions",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 70,
+      "line": 68,
       "symbol": "Asset.hasValid(symbol:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 75,
+      "line": 73,
+      "symbol": "Asset",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
+      "line": 79,
       "symbol": "Asset",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
@@ -1508,251 +1557,237 @@
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
       "line": 81,
-      "symbol": "Asset",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 83,
       "symbol": "Asset.Symbol",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 85,
+      "line": 83,
       "symbol": "Asset.Symbol.alxt",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 86,
+      "line": 84,
       "symbol": "Asset.Symbol.alat",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 87,
+      "line": 85,
       "symbol": "Asset.Symbol.alx",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 88,
+      "line": 86,
       "symbol": "Asset.Symbol.aia",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 89,
+      "line": 87,
       "symbol": "Asset.Symbol.dct",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 105,
+      "line": 103,
       "symbol": "Asset.Symbol.from(_:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 113,
-      "symbol": "Asset.Symbol.chainObject",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 123,
+      "line": 117,
       "symbol": "Asset.ExchangeRate",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 124,
+      "line": 118,
       "symbol": "Asset.ExchangeRate.empty",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 126,
+      "line": 120,
       "symbol": "Asset.ExchangeRate.base",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 127,
+      "line": 121,
       "symbol": "Asset.ExchangeRate.quote",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 135,
+      "line": 129,
       "symbol": "Asset.ExchangeRate.asData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 163,
+      "line": 157,
       "symbol": "Asset.Options",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 165,
+      "line": 159,
       "symbol": "Asset.Options.maxSupply",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 166,
+      "line": 160,
       "symbol": "Asset.Options.exchangeRate",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 167,
+      "line": 161,
       "symbol": "Asset.Options.exchangeable",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 168,
+      "line": 162,
       "symbol": "Asset.Options.extensions",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 178,
+      "line": 172,
       "symbol": "Asset.Options.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 180,
+      "line": 174,
       "symbol": "Asset.Options.init(maxSupply:exchangeRate:exchangeable:extensions:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 187,
+      "line": 181,
       "symbol": "Asset.Options.asData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 204,
+      "line": 198,
       "symbol": "Asset.Options.FixedMaxSupply",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 205,
+      "line": 199,
       "symbol": "Asset.Options.FixedMaxSupply.isFixedMaxSupply",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 206,
+      "line": 200,
       "symbol": "Asset.Options.FixedMaxSupply.index",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 213,
+      "line": 207,
       "symbol": "Asset.Options.FixedMaxSupply.init(isFixedMaxSupply:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 239,
+      "line": 233,
       "symbol": "Asset.MonitoredAssetOptions",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 240,
+      "line": 234,
       "symbol": "Asset.MonitoredAssetOptions.feeds",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 241,
+      "line": 235,
       "symbol": "Asset.MonitoredAssetOptions.currentFeed",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 242,
+      "line": 236,
       "symbol": "Asset.MonitoredAssetOptions.currentFeedPublicationTime",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 243,
+      "line": 237,
       "symbol": "Asset.MonitoredAssetOptions.feedLifeTimeSec",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 244,
+      "line": 238,
       "symbol": "Asset.MonitoredAssetOptions.minimumFeeds",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 255,
+      "line": 249,
       "symbol": "Asset.MonitoredAssetOptions.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 257,
+      "line": 251,
       "symbol": "Asset.MonitoredAssetOptions.PriceFeed",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 258,
+      "line": 252,
       "symbol": "Asset.MonitoredAssetOptions.PriceFeed.coreExchangeRate",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Asset.swift",
-      "line": 266,
+      "line": 260,
       "symbol": "Asset.MonitoredAssetOptions.asData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -1808,77 +1843,77 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/AssetAmount.swift",
-      "line": 34,
+      "line": 36,
       "symbol": "AssetAmount.init(with:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/AssetAmount.swift",
-      "line": 38,
+      "line": 40,
       "symbol": "AssetAmount.init(with:assetId:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/AssetAmount.swift",
-      "line": 44,
+      "line": 48,
       "symbol": "AssetAmount",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/AssetAmount.swift",
-      "line": 50,
+      "line": 54,
       "symbol": "AssetAmount",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/AssetAmount.swift",
-      "line": 71,
+      "line": 75,
       "symbol": "AssetAmount.<(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/AssetAmount.swift",
-      "line": 75,
+      "line": 79,
       "symbol": "AssetAmount.<=(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/AssetAmount.swift",
-      "line": 79,
+      "line": 83,
       "symbol": "AssetAmount.>=(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/AssetAmount.swift",
-      "line": 83,
+      "line": 87,
       "symbol": "AssetAmount.>(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/AssetAmount.swift",
-      "line": 88,
+      "line": 92,
       "symbol": "AssetAmount",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/AssetAmount.swift",
-      "line": 89,
+      "line": 93,
       "symbol": "AssetAmount.asData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/AssetAmount.swift",
-      "line": 101,
+      "line": 105,
       "symbol": "AssetAmountPair",
       "symbol_kind": "source.lang.swift.decl.typealias",
       "warning": "undocumented"
@@ -2273,146 +2308,6 @@
       "line": 10,
       "symbol": "BlockHeader.num",
       "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObject.swift",
-      "line": 3,
-      "symbol": "ChainObject",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObject.swift",
-      "line": 5,
-      "symbol": "ChainObject.objectType",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObject.swift",
-      "line": 6,
-      "symbol": "ChainObject.instance",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObject.swift",
-      "line": 7,
-      "symbol": "ChainObject",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObject.swift",
-      "line": 8,
-      "symbol": "ChainObject.objectId",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObject.swift",
-      "line": 12,
-      "symbol": "ChainObject.init(from:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObject.swift",
-      "line": 17,
-      "symbol": "ChainObject.init(from:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObject.swift",
-      "line": 28,
-      "symbol": "ChainObject",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObject.swift",
-      "line": 34,
-      "symbol": "ChainObject",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObject.swift",
-      "line": 35,
-      "symbol": "ChainObject.asFullData()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObject.swift",
-      "line": 41,
-      "symbol": "ChainObject.asData()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObject.swift",
-      "line": 50,
-      "symbol": "ChainObject",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObject.swift",
-      "line": 56,
-      "symbol": "ChainObject",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObject.swift",
-      "line": 74,
-      "symbol": "ChainObject",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObject.swift",
-      "line": 80,
-      "symbol": "ChainObject",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObject.swift",
-      "line": 93,
-      "symbol": "DCoreExtension.chainObject",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObjectConvertible.swift",
-      "line": 3,
-      "symbol": "ChainObjectConvertible",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObjectConvertible.swift",
-      "line": 4,
-      "symbol": "ChainObjectConvertible.asChainObject()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObjectConvertible.swift",
-      "line": 8,
-      "symbol": "ChainObject.asChainObject()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ChainObjectConvertible.swift",
-      "line": 14,
-      "symbol": "String.asChainObject()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
@@ -3111,125 +3006,118 @@
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ContentCategory.swift",
       "line": 7,
-      "symbol": "ContentCategory.objectId",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ContentCategory.swift",
-      "line": 11,
       "symbol": "ContentCategory.Application",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ContentCategory.swift",
-      "line": 13,
+      "line": 9,
       "symbol": "ContentCategory.Application.decentCore",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ContentCategory.swift",
-      "line": 14,
+      "line": 10,
       "symbol": "ContentCategory.Application.decentGo",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ContentCategory.swift",
-      "line": 15,
+      "line": 11,
       "symbol": "ContentCategory.Application.alax",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ContentCategory.swift",
-      "line": 18,
+      "line": 14,
       "symbol": "ContentCategory.Category",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ContentCategory.swift",
-      "line": 20,
+      "line": 16,
       "symbol": "ContentCategory.Category.none",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ContentCategory.swift",
-      "line": 21,
+      "line": 17,
       "symbol": "ContentCategory.Category.music",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ContentCategory.swift",
-      "line": 22,
+      "line": 18,
       "symbol": "ContentCategory.Category.movie",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ContentCategory.swift",
-      "line": 23,
+      "line": 19,
       "symbol": "ContentCategory.Category.book",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ContentCategory.swift",
-      "line": 24,
+      "line": 20,
       "symbol": "ContentCategory.Category.audioBook",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ContentCategory.swift",
-      "line": 25,
+      "line": 21,
       "symbol": "ContentCategory.Category.software",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ContentCategory.swift",
-      "line": 26,
+      "line": 22,
       "symbol": "ContentCategory.Category.game",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ContentCategory.swift",
-      "line": 27,
+      "line": 23,
       "symbol": "ContentCategory.Category.picture",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ContentCategory.swift",
-      "line": 28,
+      "line": 24,
       "symbol": "ContentCategory.Category.document",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ContentCategory.swift",
-      "line": 31,
+      "line": 27,
       "symbol": "ContentCategory.id(_:_:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ContentCategory.swift",
-      "line": 34,
+      "line": 30,
       "symbol": "ContentCategory",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ContentCategory.swift",
-      "line": 42,
+      "line": 38,
       "symbol": "ContentCategory",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
@@ -3327,14 +3215,21 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/CustomOperationType.swift",
-      "line": 16,
+      "line": 8,
+      "symbol": "CustomOperationType.plaintext",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/CustomOperationType.swift",
+      "line": 17,
       "symbol": "CustomOperationType",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/CustomOperationType.swift",
-      "line": 17,
+      "line": 18,
       "symbol": "CustomOperationType.asData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -3705,28 +3600,28 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/GlobalProperties.swift",
-      "line": 5,
+      "line": 4,
       "symbol": "GlobalProperties.id",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/GlobalProperties.swift",
-      "line": 6,
+      "line": 5,
       "symbol": "GlobalProperties.parameters",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/GlobalProperties.swift",
-      "line": 7,
+      "line": 6,
       "symbol": "GlobalProperties.nextAvailableVoteId",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/GlobalProperties.swift",
-      "line": 8,
+      "line": 7,
       "symbol": "GlobalProperties.activeMiners",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -3978,105 +3873,98 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Message.swift",
-      "line": 40,
-      "symbol": "MessageResponse.text",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Message.swift",
-      "line": 53,
+      "line": 51,
       "symbol": "MessageReceiver",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Message.swift",
-      "line": 54,
+      "line": 52,
       "symbol": "MessageReceiver.receiver",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Message.swift",
-      "line": 55,
+      "line": 53,
       "symbol": "MessageReceiver.receiverAddress",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Message.swift",
-      "line": 56,
+      "line": 54,
       "symbol": "MessageReceiver.nonce",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Message.swift",
-      "line": 57,
+      "line": 55,
       "symbol": "MessageReceiver.data",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Message.swift",
-      "line": 68,
+      "line": 66,
       "symbol": "MessagePayload",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Message.swift",
-      "line": 69,
+      "line": 67,
       "symbol": "MessagePayload.from",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Message.swift",
-      "line": 70,
+      "line": 68,
       "symbol": "MessagePayload.receivers",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Message.swift",
-      "line": 71,
+      "line": 69,
       "symbol": "MessagePayload.fromAddress",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Message.swift",
-      "line": 95,
+      "line": 94,
       "symbol": "MessagePayloadReceiver",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Message.swift",
-      "line": 96,
+      "line": 95,
       "symbol": "MessagePayloadReceiver.to",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Message.swift",
-      "line": 97,
+      "line": 96,
       "symbol": "MessagePayloadReceiver.data",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Message.swift",
-      "line": 98,
+      "line": 97,
       "symbol": "MessagePayloadReceiver.toAddress",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Message.swift",
-      "line": 99,
+      "line": 98,
       "symbol": "MessagePayloadReceiver.nonce",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -4271,6 +4159,41 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Nft.swift",
+      "line": 34,
+      "symbol": "Nft.Reference",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/NftData.swift",
+      "line": 10,
+      "symbol": "NftData.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/NftData.swift",
+      "line": 11,
+      "symbol": "NftData.nftId",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/NftData.swift",
+      "line": 12,
+      "symbol": "NftData.owner",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/NftData.swift",
+      "line": 13,
+      "symbol": "NftData.data",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/NftDataType.swift",
       "line": 3,
       "symbol": "NftDataType",
@@ -4383,6 +4306,27 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/NftModel.swift",
+      "line": 11,
+      "symbol": "NftModel.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/NftModel.swift",
+      "line": 98,
+      "symbol": "RawNft.values",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/NftModel.swift",
+      "line": 100,
+      "symbol": "RawNft.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/NftOptions.swift",
       "line": 3,
       "symbol": "NftOptions",
@@ -4398,36 +4342,659 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/NftOptions.swift",
-      "line": 7,
+      "line": 5,
       "symbol": "NftOptions.maxSupply",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/NftOptions.swift",
-      "line": 8,
+      "line": 6,
       "symbol": "NftOptions.fixedMaxSupply",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/NftOptions.swift",
-      "line": 9,
+      "line": 7,
       "symbol": "NftOptions.description",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/NftOptions.swift",
-      "line": 20,
+      "line": 33,
       "symbol": "NftOptions",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/NftOptions.swift",
-      "line": 21,
+      "line": 34,
       "symbol": "NftOptions.asData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/NftProperty.swift",
+      "line": 9,
+      "symbol": "NftProperty.wrappedValue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 3,
+      "symbol": "ObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 4,
+      "symbol": "ObjectId.nullObjectId",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 5,
+      "symbol": "ObjectId.genericId()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 7,
+      "symbol": "ObjectId",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 9,
+      "symbol": "ObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 10,
+      "symbol": "ObjectId.instance",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 12,
+      "symbol": "ObjectId.init(instance:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 40,
+      "symbol": "ObjectId.asString()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 43,
+      "symbol": "ObjectId",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 47,
+      "symbol": "ObjectId",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 48,
+      "symbol": "ObjectId.asFullData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 54,
+      "symbol": "ObjectId.asData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 63,
+      "symbol": "ObjectId",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 69,
+      "symbol": "ObjectId",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 87,
+      "symbol": "ObjectId",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 94,
+      "symbol": "DCoreExtension.objectId()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 99,
+      "symbol": "BaseObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 100,
+      "symbol": "BaseObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 103,
+      "symbol": "AccountObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 104,
+      "symbol": "AccountObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 107,
+      "symbol": "AssetObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 108,
+      "symbol": "AssetObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 111,
+      "symbol": "MinerObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 112,
+      "symbol": "MinerObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 115,
+      "symbol": "CustomObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 116,
+      "symbol": "CustomObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 119,
+      "symbol": "ProposalObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 120,
+      "symbol": "ProposalObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 123,
+      "symbol": "OperationHistoryObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 124,
+      "symbol": "OperationHistoryObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 127,
+      "symbol": "WithdrawPermissionObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 128,
+      "symbol": "WithdrawPermissionObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 131,
+      "symbol": "VestingBalanceObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 132,
+      "symbol": "VestingBalanceObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 135,
+      "symbol": "NftObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 136,
+      "symbol": "NftObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 139,
+      "symbol": "NftDataObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 140,
+      "symbol": "NftDataObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 143,
+      "symbol": "GlobalPropertyObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 144,
+      "symbol": "GlobalPropertyObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 147,
+      "symbol": "DynamicGlobalPropertyObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 148,
+      "symbol": "DynamicGlobalPropertyObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 151,
+      "symbol": "ReservedObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 152,
+      "symbol": "ReservedObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 155,
+      "symbol": "AssetDataObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 156,
+      "symbol": "AssetDataObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 159,
+      "symbol": "AccountBalanceObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 160,
+      "symbol": "AccountBalanceObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 163,
+      "symbol": "AccountStatsObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 164,
+      "symbol": "AccountStatsObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 167,
+      "symbol": "TransactionObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 168,
+      "symbol": "TransactionObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 171,
+      "symbol": "BlockSummaryObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 172,
+      "symbol": "BlockSummaryObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 175,
+      "symbol": "AccountTransactionObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 176,
+      "symbol": "AccountTransactionObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 179,
+      "symbol": "ChainPropertyObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 180,
+      "symbol": "ChainPropertyObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 183,
+      "symbol": "MinerScheduleObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 184,
+      "symbol": "MinerScheduleObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 187,
+      "symbol": "BudgetRecordObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 188,
+      "symbol": "BudgetRecordObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 191,
+      "symbol": "PurchaseObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 192,
+      "symbol": "PurchaseObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 195,
+      "symbol": "ContentObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 196,
+      "symbol": "ContentObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 199,
+      "symbol": "PublisherObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 200,
+      "symbol": "PublisherObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 203,
+      "symbol": "SubscriptionObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 204,
+      "symbol": "SubscriptionObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 207,
+      "symbol": "SeedingStatsObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 208,
+      "symbol": "SeedingStatsObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 211,
+      "symbol": "TransactionDetailObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 212,
+      "symbol": "TransactionDetailObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 215,
+      "symbol": "MessagingObjectId",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectId.swift",
+      "line": 216,
+      "symbol": "MessagingObjectId.objectType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectIdConvertible.swift",
+      "line": 3,
+      "symbol": "ObjectIdConvertible",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectIdConvertible.swift",
+      "line": 4,
+      "symbol": "ObjectIdConvertible.asObjectId()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectIdConvertible.swift",
+      "line": 8,
+      "symbol": "ObjectId.asObjectId()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectIdConvertible.swift",
+      "line": 12,
+      "symbol": "String.asObjectId()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectIdConvertible.swift",
+      "line": 19,
+      "symbol": "AccountObjectIdConvertible",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectIdConvertible.swift",
+      "line": 20,
+      "symbol": "AccountObjectIdConvertible.asAccountObjectId()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectIdConvertible.swift",
+      "line": 23,
+      "symbol": "AccountObjectIdConvertible",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectIdConvertible.swift",
+      "line": 24,
+      "symbol": "AccountObjectIdConvertible.asAccountObjectId()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectIdConvertible.swift",
+      "line": 33,
+      "symbol": "AssetObjectIdConvertible",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectIdConvertible.swift",
+      "line": 34,
+      "symbol": "AssetObjectIdConvertible.asAssetObjectId()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectIdConvertible.swift",
+      "line": 37,
+      "symbol": "AssetObjectIdConvertible",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectIdConvertible.swift",
+      "line": 38,
+      "symbol": "AssetObjectIdConvertible.asAssetObjectId()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -4699,21 +5266,14 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectType.swift",
-      "line": 170,
-      "symbol": "ObjectType.genericId",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectType.swift",
-      "line": 175,
+      "line": 171,
       "symbol": "ObjectType",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ObjectType.swift",
-      "line": 181,
+      "line": 177,
       "symbol": "ObjectType",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
@@ -5266,70 +5826,70 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AccountCreateOperation.swift",
-      "line": 18,
+      "line": 16,
       "symbol": "AccountCreateOperation.type",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AccountCreateOperation.swift",
-      "line": 19,
+      "line": 17,
       "symbol": "AccountCreateOperation.fee",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AccountCreateOperation.swift",
-      "line": 21,
+      "line": 19,
       "symbol": "AccountCreateOperation.init(_:registrar:fee:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AccountCreateOperation.swift",
-      "line": 41,
+      "line": 39,
       "symbol": "AccountCreateOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AccountCreateOperation.swift",
-      "line": 42,
+      "line": 40,
       "symbol": "AccountCreateOperation.decrypt(_:address:nonce:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AccountCreateOperation.swift",
-      "line": 47,
+      "line": 45,
       "symbol": "AccountCreateOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AccountCreateOperation.swift",
-      "line": 48,
+      "line": 46,
       "symbol": "AccountCreateOperation.asData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AccountCreateOperation.swift",
-      "line": 67,
+      "line": 65,
       "symbol": "SubmitAccount",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AccountCreateOperation.swift",
-      "line": 98,
+      "line": 96,
       "symbol": "SubmitAccount.with(name:address:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AccountCreateOperation.swift",
-      "line": 99,
+      "line": 97,
       "symbol": "SubmitAccount.withKeyPair(name:keyPair:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
@@ -5442,7 +6002,7 @@
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AnyCustomOperation.swift",
       "line": 6,
-      "symbol": "AnyCustomOperation.payee",
+      "symbol": "AnyCustomOperation.payer",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
@@ -5560,56 +6120,56 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetClaimFeesOperation.swift",
-      "line": 9,
+      "line": 7,
       "symbol": "AssetClaimFeesOperation.uiaAsset",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetClaimFeesOperation.swift",
-      "line": 10,
+      "line": 8,
       "symbol": "AssetClaimFeesOperation.dctAsset",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetClaimFeesOperation.swift",
-      "line": 12,
+      "line": 10,
       "symbol": "AssetClaimFeesOperation.type",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetClaimFeesOperation.swift",
-      "line": 13,
+      "line": 11,
       "symbol": "AssetClaimFeesOperation.fee",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetClaimFeesOperation.swift",
-      "line": 24,
+      "line": 22,
       "symbol": "AssetClaimFeesOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetClaimFeesOperation.swift",
-      "line": 25,
+      "line": 23,
       "symbol": "AssetClaimFeesOperation.decrypt(_:address:nonce:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetClaimFeesOperation.swift",
-      "line": 30,
+      "line": 28,
       "symbol": "AssetClaimFeesOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetClaimFeesOperation.swift",
-      "line": 31,
+      "line": 29,
       "symbol": "AssetClaimFeesOperation.asData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -5630,77 +6190,77 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetCreateOperation.swift",
-      "line": 9,
+      "line": 7,
       "symbol": "AssetCreateOperation.symbol",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetCreateOperation.swift",
-      "line": 12,
+      "line": 10,
       "symbol": "AssetCreateOperation.precision",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetCreateOperation.swift",
-      "line": 20,
+      "line": 18,
       "symbol": "AssetCreateOperation.description",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetCreateOperation.swift",
-      "line": 28,
+      "line": 26,
       "symbol": "AssetCreateOperation.options",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetCreateOperation.swift",
-      "line": 31,
+      "line": 29,
       "symbol": "AssetCreateOperation.monitoredOptions",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetCreateOperation.swift",
-      "line": 33,
+      "line": 31,
       "symbol": "AssetCreateOperation.type",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetCreateOperation.swift",
-      "line": 34,
+      "line": 32,
       "symbol": "AssetCreateOperation.fee",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetCreateOperation.swift",
-      "line": 48,
+      "line": 46,
       "symbol": "AssetCreateOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetCreateOperation.swift",
-      "line": 49,
+      "line": 47,
       "symbol": "AssetCreateOperation.decrypt(_:address:nonce:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetCreateOperation.swift",
-      "line": 54,
+      "line": 52,
       "symbol": "AssetCreateOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetCreateOperation.swift",
-      "line": 55,
+      "line": 53,
       "symbol": "AssetCreateOperation.asData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -5721,56 +6281,56 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetFundPoolsOperation.swift",
-      "line": 9,
+      "line": 7,
       "symbol": "AssetFundPoolsOperation.uiaAsset",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetFundPoolsOperation.swift",
-      "line": 10,
+      "line": 8,
       "symbol": "AssetFundPoolsOperation.dctAsset",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetFundPoolsOperation.swift",
-      "line": 12,
+      "line": 10,
       "symbol": "AssetFundPoolsOperation.type",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetFundPoolsOperation.swift",
-      "line": 13,
+      "line": 11,
       "symbol": "AssetFundPoolsOperation.fee",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetFundPoolsOperation.swift",
-      "line": 24,
+      "line": 22,
       "symbol": "AssetFundPoolsOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetFundPoolsOperation.swift",
-      "line": 25,
+      "line": 23,
       "symbol": "AssetFundPoolsOperation.decrypt(_:address:nonce:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetFundPoolsOperation.swift",
-      "line": 30,
+      "line": 28,
       "symbol": "AssetFundPoolsOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetFundPoolsOperation.swift",
-      "line": 31,
+      "line": 29,
       "symbol": "AssetFundPoolsOperation.asData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -5854,70 +6414,49 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetPublishFeedOperation.swift",
-      "line": 4,
-      "symbol": "AssetPublishFeedOperation",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetPublishFeedOperation.swift",
-      "line": 6,
+      "line": 11,
       "symbol": "AssetPublishFeedOperation.publisher",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetPublishFeedOperation.swift",
-      "line": 9,
+      "line": 12,
       "symbol": "AssetPublishFeedOperation.assetId",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetPublishFeedOperation.swift",
-      "line": 12,
+      "line": 13,
       "symbol": "AssetPublishFeedOperation.feed",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetPublishFeedOperation.swift",
-      "line": 14,
+      "line": 15,
       "symbol": "AssetPublishFeedOperation.type",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetPublishFeedOperation.swift",
-      "line": 15,
+      "line": 16,
       "symbol": "AssetPublishFeedOperation.fee",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetPublishFeedOperation.swift",
-      "line": 26,
-      "symbol": "AssetPublishFeedOperation",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetPublishFeedOperation.swift",
-      "line": 27,
+      "line": 28,
       "symbol": "AssetPublishFeedOperation.decrypt(_:address:nonce:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetPublishFeedOperation.swift",
-      "line": 32,
-      "symbol": "AssetPublishFeedOperation",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetPublishFeedOperation.swift",
-      "line": 33,
+      "line": 34,
       "symbol": "AssetPublishFeedOperation.asData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -5938,49 +6477,49 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetReserveOperation.swift",
-      "line": 9,
+      "line": 7,
       "symbol": "AssetReserveOperation.amountToReserve",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetReserveOperation.swift",
-      "line": 11,
+      "line": 9,
       "symbol": "AssetReserveOperation.type",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetReserveOperation.swift",
-      "line": 12,
+      "line": 10,
       "symbol": "AssetReserveOperation.fee",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetReserveOperation.swift",
-      "line": 22,
+      "line": 20,
       "symbol": "AssetReserveOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetReserveOperation.swift",
-      "line": 23,
+      "line": 21,
       "symbol": "AssetReserveOperation.decrypt(_:address:nonce:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetReserveOperation.swift",
-      "line": 28,
+      "line": 26,
       "symbol": "AssetReserveOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetReserveOperation.swift",
-      "line": 29,
+      "line": 27,
       "symbol": "AssetReserveOperation.asData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -6001,63 +6540,63 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetUpdateAdvancedOperation.swift",
-      "line": 9,
+      "line": 7,
       "symbol": "AssetUpdateAdvancedOperation.assetToUpdate",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetUpdateAdvancedOperation.swift",
-      "line": 12,
+      "line": 8,
       "symbol": "AssetUpdateAdvancedOperation.precision",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetUpdateAdvancedOperation.swift",
-      "line": 20,
+      "line": 16,
       "symbol": "AssetUpdateAdvancedOperation.fixedMaxSupply",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetUpdateAdvancedOperation.swift",
-      "line": 22,
+      "line": 18,
       "symbol": "AssetUpdateAdvancedOperation.type",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetUpdateAdvancedOperation.swift",
-      "line": 23,
+      "line": 19,
       "symbol": "AssetUpdateAdvancedOperation.fee",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetUpdateAdvancedOperation.swift",
-      "line": 35,
+      "line": 31,
       "symbol": "AssetUpdateAdvancedOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetUpdateAdvancedOperation.swift",
-      "line": 36,
+      "line": 32,
       "symbol": "AssetUpdateAdvancedOperation.decrypt(_:address:nonce:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetUpdateAdvancedOperation.swift",
-      "line": 41,
+      "line": 37,
       "symbol": "AssetUpdateAdvancedOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/AssetUpdateAdvancedOperation.swift",
-      "line": 42,
+      "line": 38,
       "symbol": "AssetUpdateAdvancedOperation.asData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -6142,7 +6681,7 @@
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/CustomOperation.swift",
       "line": 5,
-      "symbol": "CustomOperation.payee",
+      "symbol": "CustomOperation.payer",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
@@ -6295,70 +6834,70 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftIssueOperation.swift",
-      "line": 9,
+      "line": 7,
       "symbol": "NftIssueOperation.nftId",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftIssueOperation.swift",
-      "line": 12,
+      "line": 8,
       "symbol": "NftIssueOperation.to",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftIssueOperation.swift",
-      "line": 15,
+      "line": 9,
       "symbol": "NftIssueOperation.data",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftIssueOperation.swift",
-      "line": 16,
+      "line": 10,
       "symbol": "NftIssueOperation.memo",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftIssueOperation.swift",
-      "line": 18,
+      "line": 12,
       "symbol": "NftIssueOperation.type",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftIssueOperation.swift",
-      "line": 19,
+      "line": 13,
       "symbol": "NftIssueOperation.fee",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftIssueOperation.swift",
-      "line": 32,
+      "line": 26,
       "symbol": "NftIssueOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftIssueOperation.swift",
-      "line": 33,
+      "line": 27,
       "symbol": "NftIssueOperation.decrypt(_:address:nonce:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftIssueOperation.swift",
-      "line": 41,
+      "line": 35,
       "symbol": "NftIssueOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftIssueOperation.swift",
-      "line": 42,
+      "line": 36,
       "symbol": "NftIssueOperation.asData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -6379,63 +6918,63 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftTransferOperation.swift",
-      "line": 9,
+      "line": 7,
       "symbol": "NftTransferOperation.to",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftTransferOperation.swift",
-      "line": 12,
+      "line": 8,
       "symbol": "NftTransferOperation.nftDataId",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftTransferOperation.swift",
-      "line": 15,
+      "line": 9,
       "symbol": "NftTransferOperation.memo",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftTransferOperation.swift",
-      "line": 17,
+      "line": 11,
       "symbol": "NftTransferOperation.type",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftTransferOperation.swift",
-      "line": 18,
+      "line": 12,
       "symbol": "NftTransferOperation.fee",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftTransferOperation.swift",
-      "line": 30,
+      "line": 24,
       "symbol": "NftTransferOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftTransferOperation.swift",
-      "line": 31,
+      "line": 25,
       "symbol": "NftTransferOperation.decrypt(_:address:nonce:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftTransferOperation.swift",
-      "line": 39,
+      "line": 33,
       "symbol": "NftTransferOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftTransferOperation.swift",
-      "line": 40,
+      "line": 34,
       "symbol": "NftTransferOperation.asData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -6456,56 +6995,56 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftUpdateDataOperation.swift",
-      "line": 9,
+      "line": 7,
       "symbol": "NftUpdateDataOperation.nftDataId",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftUpdateDataOperation.swift",
-      "line": 12,
+      "line": 8,
       "symbol": "NftUpdateDataOperation.data",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftUpdateDataOperation.swift",
-      "line": 20,
+      "line": 16,
       "symbol": "NftUpdateDataOperation.type",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftUpdateDataOperation.swift",
-      "line": 21,
+      "line": 17,
       "symbol": "NftUpdateDataOperation.fee",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftUpdateDataOperation.swift",
-      "line": 32,
+      "line": 28,
       "symbol": "NftUpdateDataOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftUpdateDataOperation.swift",
-      "line": 33,
+      "line": 29,
       "symbol": "NftUpdateDataOperation.decrypt(_:address:nonce:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftUpdateDataOperation.swift",
-      "line": 38,
+      "line": 34,
       "symbol": "NftUpdateDataOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftUpdateDataOperation.swift",
-      "line": 39,
+      "line": 35,
       "symbol": "NftUpdateDataOperation.asData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -6526,56 +7065,56 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftUpdateOperation.swift",
-      "line": 9,
+      "line": 7,
       "symbol": "NftUpdateOperation.nftId",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftUpdateOperation.swift",
-      "line": 12,
+      "line": 8,
       "symbol": "NftUpdateOperation.options",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftUpdateOperation.swift",
-      "line": 22,
+      "line": 18,
       "symbol": "NftUpdateOperation.type",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftUpdateOperation.swift",
-      "line": 23,
+      "line": 19,
       "symbol": "NftUpdateOperation.fee",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftUpdateOperation.swift",
-      "line": 34,
+      "line": 30,
       "symbol": "NftUpdateOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftUpdateOperation.swift",
-      "line": 35,
+      "line": 31,
       "symbol": "NftUpdateOperation.decrypt(_:address:nonce:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftUpdateOperation.swift",
-      "line": 40,
+      "line": 36,
       "symbol": "NftUpdateOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/NftUpdateOperation.swift",
-      "line": 41,
+      "line": 37,
       "symbol": "NftUpdateOperation.asData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -6757,70 +7296,70 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/PurchaseContentOperation.swift",
-      "line": 14,
+      "line": 12,
       "symbol": "PurchaseContentOperation.price",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/PurchaseContentOperation.swift",
-      "line": 18,
+      "line": 16,
       "symbol": "PurchaseContentOperation.publicElGamal",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/PurchaseContentOperation.swift",
-      "line": 19,
+      "line": 17,
       "symbol": "PurchaseContentOperation.regionCode",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/PurchaseContentOperation.swift",
-      "line": 21,
+      "line": 19,
       "symbol": "PurchaseContentOperation.type",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/PurchaseContentOperation.swift",
-      "line": 22,
+      "line": 20,
       "symbol": "PurchaseContentOperation.fee",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/PurchaseContentOperation.swift",
-      "line": 24,
+      "line": 22,
       "symbol": "PurchaseContentOperation.init(_:content:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/PurchaseContentOperation.swift",
-      "line": 44,
+      "line": 42,
       "symbol": "PurchaseContentOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/PurchaseContentOperation.swift",
-      "line": 45,
+      "line": 43,
       "symbol": "PurchaseContentOperation.decrypt(_:address:nonce:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/PurchaseContentOperation.swift",
-      "line": 50,
+      "line": 48,
       "symbol": "PurchaseContentOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/PurchaseContentOperation.swift",
-      "line": 51,
+      "line": 49,
       "symbol": "PurchaseContentOperation.asData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -6842,7 +7381,7 @@
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SendMessageOperation.swift",
       "line": 6,
-      "symbol": "SendMessageOperation.payee",
+      "symbol": "SendMessageOperation.payer",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
@@ -6870,7 +7409,7 @@
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SendMessageOperation.swift",
       "line": 12,
-      "symbol": "SendMessageOperation.init(_:payee:)",
+      "symbol": "SendMessageOperation.init(_:payer:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -6890,154 +7429,154 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 8,
+      "line": 6,
       "symbol": "SubmitContentOperation.uri",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 11,
+      "line": 9,
       "symbol": "SubmitContentOperation.expiration",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 15,
+      "line": 13,
       "symbol": "SubmitContentOperation.price",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 16,
+      "line": 14,
       "symbol": "SubmitContentOperation.synopsis",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 18,
+      "line": 16,
       "symbol": "SubmitContentOperation.hash",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 21,
+      "line": 19,
       "symbol": "SubmitContentOperation.quorum",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 24,
+      "line": 22,
       "symbol": "SubmitContentOperation.size",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 27,
+      "line": 25,
       "symbol": "SubmitContentOperation.seeders",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 28,
+      "line": 26,
       "symbol": "SubmitContentOperation.keyParts",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 29,
+      "line": 27,
       "symbol": "SubmitContentOperation.coauthors",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 30,
+      "line": 28,
       "symbol": "SubmitContentOperation.custodyData",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 31,
+      "line": 29,
       "symbol": "SubmitContentOperation.publishingFee",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 32,
+      "line": 30,
       "symbol": "SubmitContentOperation.fee",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 33,
+      "line": 31,
       "symbol": "SubmitContentOperation.type",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 84,
+      "line": 82,
       "symbol": "SubmitContentOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 85,
+      "line": 83,
       "symbol": "SubmitContentOperation.decrypt(_:address:nonce:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 90,
+      "line": 88,
       "symbol": "SubmitContentOperation",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 91,
+      "line": 89,
       "symbol": "SubmitContentOperation.asData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 150,
+      "line": 148,
       "symbol": "SubmitContent",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 207,
+      "line": 205,
       "symbol": "SubmitContent.cdnWithSharedPrice(url:expiration:price:synopsis:coauthors:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 208,
+      "line": 206,
       "symbol": "SubmitContent.cdnWithPrice(url:expiration:price:synopsis:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Operations/SubmitContentOperation.swift",
-      "line": 209,
+      "line": 207,
       "symbol": "SubmitContent.cdn(url:expiration:synopsis:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
@@ -7569,44 +8108,37 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Pair.swift",
-      "line": 1,
+      "line": 3,
+      "symbol": "Pair",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Pair.swift",
+      "line": 3,
       "symbol": "Pair",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Pair.swift",
-      "line": 2,
+      "line": 4,
       "symbol": "Pair.first",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Pair.swift",
-      "line": 3,
-      "symbol": "Pair",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Pair.swift",
-      "line": 3,
+      "line": 5,
       "symbol": "Pair.second",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Pair.swift",
-      "line": 5,
+      "line": 7,
       "symbol": "Pair.init(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Pair.swift",
-      "line": 11,
-      "symbol": "Pair",
-      "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
@@ -7614,6 +8146,27 @@
       "line": 12,
       "symbol": "Pair",
       "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Pair.swift",
+      "line": 13,
+      "symbol": "Pair",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Pair.swift",
+      "line": 27,
+      "symbol": "Pair",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Pair.swift",
+      "line": 28,
+      "symbol": "Pair.asData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
@@ -7786,21 +8339,21 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ProcessedTransaction.swift",
-      "line": 60,
+      "line": 68,
       "symbol": "ProcessedTransaction",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ProcessedTransaction.swift",
-      "line": 61,
+      "line": 69,
       "symbol": "ProcessedTransaction.id",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/ProcessedTransaction.swift",
-      "line": 63,
+      "line": 71,
       "symbol": "ProcessedTransaction.asData()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -8214,27 +8767,34 @@
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Subscription.swift",
       "line": 5,
-      "symbol": "Subscription.from",
+      "symbol": "Subscription.id",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Subscription.swift",
       "line": 6,
-      "symbol": "Subscription.to",
+      "symbol": "Subscription.from",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Subscription.swift",
       "line": 7,
-      "symbol": "Subscription.expiration",
+      "symbol": "Subscription.to",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Subscription.swift",
       "line": 8,
+      "symbol": "Subscription.expiration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/Subscription.swift",
+      "line": 9,
       "symbol": "Subscription.renewal",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -8508,20 +9068,27 @@
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/VestingBalance.swift",
       "line": 5,
-      "symbol": "VestingBalance.owner",
+      "symbol": "VestingBalance.id",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/VestingBalance.swift",
       "line": 6,
-      "symbol": "VestingBalance.balance",
+      "symbol": "VestingBalance.owner",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/VestingBalance.swift",
       "line": 7,
+      "symbol": "VestingBalance.balance",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Model/VestingBalance.swift",
+      "line": 8,
       "symbol": "VestingBalance.policy",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -8927,7 +9494,7 @@
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Net/Security/SecurityExtensionProvider.swift",
-      "line": 38,
+      "line": 39,
       "symbol": "SecurityExtension",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
@@ -9047,43 +9614,64 @@
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Net/Serialization/AnyValue.swift",
       "line": 8,
-      "symbol": "AnyValue.double(_:)",
+      "symbol": "AnyValue.uint64(_:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Net/Serialization/AnyValue.swift",
       "line": 9,
-      "symbol": "AnyValue.bool(_:)",
+      "symbol": "AnyValue.double(_:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Net/Serialization/AnyValue.swift",
       "line": 10,
-      "symbol": "AnyValue.object(_:)",
+      "symbol": "AnyValue.bool(_:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Net/Serialization/AnyValue.swift",
       "line": 11,
-      "symbol": "AnyValue.array(_:)",
+      "symbol": "AnyValue.object(_:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Net/Serialization/AnyValue.swift",
       "line": 12,
+      "symbol": "AnyValue.array(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Net/Serialization/AnyValue.swift",
+      "line": 13,
       "symbol": "AnyValue.null",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Net/Serialization/AnyValue.swift",
-      "line": 51,
+      "line": 55,
       "symbol": "AnyValue",
       "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Net/Serialization/AnyValue.swift",
+      "line": 70,
+      "symbol": "AnyValue",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lukasvyletel/Documents/ios/dcoreswift-sdk/Sources/DCoreKit/Net/Serialization/AnyValue.swift",
+      "line": 84,
+      "symbol": "AnyValue.asData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
