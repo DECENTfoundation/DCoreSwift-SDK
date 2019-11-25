@@ -20,12 +20,7 @@ class MessagingApiTests: XCTestCase {
             credentials: creds
             ).debug().toBlocking().single()
         XCTAssertNotNil(result)
-        if case .array(let outerArray) = result?.transaction.opResults {
-            if case .array(let innerArray) = outerArray[0] {
-                if case .string(let objectId) = innerArray[1] { return objectId }
-            }
-        }
-        return ""
+        return result?.transaction.opResults.first??.description ?? ""
     }
     
     @discardableResult func sendEncryptedMessage() -> String {
@@ -35,12 +30,7 @@ class MessagingApiTests: XCTestCase {
             credentials: creds
         ).debug().toBlocking().single()
         XCTAssertNotNil(result)
-        if case .array(let outerArray) = result?.transaction.opResults {
-            if case .array(let innerArray) = outerArray[0] {
-                if case .string(let objectId) = innerArray[1] { return objectId }
-            }
-        }
-        return ""
+        return result?.transaction.opResults.first??.description ?? ""
     }
     
     func testGetAllMessagesByIds() {
