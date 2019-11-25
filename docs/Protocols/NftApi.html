@@ -1,0 +1,2349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NftApi Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/NftApi" class="dashAnchor"></a>
+    <a title="NftApi Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">DCoreKit 4.0.0 Docs</a> (23% documented)</p>
+        <p class="header-right"><a href="https://github.com/DECENTfoundation/DCoreSwift-SDK"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fdecentfoundation%2Egithub%2Eio%2FDCoreSwift%2DSDK%2Fdocsets%2FDCoreKit%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">DCoreKit Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        NftApi Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AccountBalanceObjectId.html">AccountBalanceObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AccountObjectId.html">AccountObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AccountStatsObjectId.html">AccountStatsObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AccountTransactionObjectId.html">AccountTransactionObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AssetDataObjectId.html">AssetDataObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AssetObjectId.html">AssetObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BaseObjectId.html">BaseObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BlockSummaryObjectId.html">BlockSummaryObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BudgetRecordObjectId.html">BudgetRecordObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ChainPropertyObjectId.html">ChainPropertyObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ContentObjectId.html">ContentObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CustomObjectId.html">CustomObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DynamicGlobalPropertyObjectId.html">DynamicGlobalPropertyObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GlobalPropertyObjectId.html">GlobalPropertyObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MessagingObjectId.html">MessagingObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MinerObjectId.html">MinerObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MinerScheduleObjectId.html">MinerScheduleObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NftDataObjectId.html">NftDataObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NftObjectId.html">NftObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ObjectId.html">ObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OperationHistoryObjectId.html">OperationHistoryObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProposalObjectId.html">ProposalObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PublisherObjectId.html">PublisherObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PurchaseObjectId.html">PurchaseObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ReservedObjectId.html">ReservedObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SeedingStatsObjectId.html">SeedingStatsObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ServerTrustDelegate.html">ServerTrustDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SubscriptionObjectId.html">SubscriptionObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TransactionDetailObjectId.html">TransactionDetailObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TransactionObjectId.html">TransactionObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VestingBalanceObjectId.html">VestingBalanceObjectId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/WithdrawPermissionObjectId.html">WithdrawPermissionObjectId</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AnyValue.html">AnyValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ContentCategory.html">ContentCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ContentCategory/Application.html">– Application</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ContentCategory/Category.html">– Category</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CustomOperationType.html">CustomOperationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DCoreException.html">DCoreException</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DCoreException/Network.html">– Network</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DCoreException/Chain.html">– Chain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DCoreException/Crypto.html">– Crypto</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Http.html">Http</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Http/Header.html">– Header</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Http/Method.html">– Method</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LoggerCategory.html">LoggerCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ObjectType.html">ObjectType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/OperationType.html">OperationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Pagination.html">Pagination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Regions.html">Regions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Scheme.html">Scheme</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SearchOrder.html">SearchOrder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SearchOrder/AccountHistory.html">– AccountHistory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SearchOrder/Content.html">– Content</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SearchOrder/Purchases.html">– Purchases</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SearchOrder/Accounts.html">– Accounts</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SearchOrder/MinerVoting.html">– MinerVoting</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SubmitAccount.html">SubmitAccount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SubmitContent.html">SubmitContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UnitValue.html">UnitValue</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/BigInt.html">BigInt</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Bool.html">Bool</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/CaseIterable.html">CaseIterable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Data.html">Data</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Encodable.html">Encodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Error.html">Error</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/FeeOperation.html">FeeOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/JSONDecoder.html">JSONDecoder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/JSONEncoder.html">JSONEncoder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/OSLogType.html">OSLogType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Optional.html">Optional</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/RawRepresentable.html">RawRepresentable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Sequence.html">Sequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Set.html">Set</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Substring.html">Substring</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URL.html">URL</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AccountApi.html">AccountApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AccountObjectIdConvertible.html">AccountObjectIdConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AnyOperationConvertible.html">AnyOperationConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AssetApi.html">AssetApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AssetFormatting.html">AssetFormatting</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AssetObjectIdConvertible.html">AssetObjectIdConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/BalanceApi.html">BalanceApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/BaseApi.html">BaseApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/BlockApi.html">BlockApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/BroadcastApi.html">BroadcastApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CallbackApi.html">CallbackApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CipherConvertible.html">CipherConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ContentApi.html">ContentApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CustomOperation.html">CustomOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/DCoreExtensionProvider.html">DCoreExtensionProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/DataConvertible.html">DataConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/DataEncodable.html">DataEncodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ECKeyPairConvertible.html">ECKeyPairConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/GeneralApi.html">GeneralApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/HasOperation.html">HasOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/HistoryApi.html">HistoryApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JsonConvertible.html">JsonConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/LoggerConvertible.html">LoggerConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MessagingApi.html">MessagingApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MiningApi.html">MiningApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NftApi.html">NftApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NftModel.html">NftModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ObjectIdConvertible.html">ObjectIdConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Operation.html">Operation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/OperationUnkeyedEncodable.html">OperationUnkeyedEncodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/PurchaseApi.html">PurchaseApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/QrTransferConvertible.html">QrTransferConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SchemeConvertible.html">SchemeConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SecurityExtensionProvider.html">SecurityExtensionProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SecurityProvider.html">SecurityProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SeedersApi.html">SeedersApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ServerTrustValidation.html">ServerTrustValidation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SubscriptionApi.html">SubscriptionApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SynopsisConvertible.html">SynopsisConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TransactionApi.html">TransactionApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TypedOperationConvertible.html">TypedOperationConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLConvertible.html">URLConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ValidationApi.html">ValidationApi</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Account.html">Account</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AccountBalance.html">AccountBalance</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AccountCreateOperation.html">AccountCreateOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AccountStatistics.html">AccountStatistics</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AccountUpdateOperation.html">AccountUpdateOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Address.html">Address</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AnyCustomOperation.html">AnyCustomOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AnyOperation.html">AnyOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ApiProvider.html">ApiProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Asset.html">Asset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Asset/Symbol.html">– Symbol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Asset/ExchangeRate.html">– ExchangeRate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Asset/Options.html">– Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Asset/MonitoredAssetOptions.html">– MonitoredAssetOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AssetAmount.html">AssetAmount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AssetClaimFeesOperation.html">AssetClaimFeesOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AssetCreateOperation.html">AssetCreateOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AssetData.html">AssetData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AssetFundPoolsOperation.html">AssetFundPoolsOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AssetIssueOperation.html">AssetIssueOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AssetPublishFeedOperation.html">AssetPublishFeedOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AssetReserveOperation.html">AssetReserveOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AssetUpdateAdvancedOperation.html">AssetUpdateAdvancedOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AuthMap.html">AuthMap</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Authority.html">Authority</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Balance.html">Balance</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BalanceChange.html">BalanceChange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Base58.html">Base58</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BlockData.html">BlockData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BlockHeader.html">BlockHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BrainKey.html">BrainKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CancelContentOperation.html">CancelContentOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CertificatePinValidator.html">CertificatePinValidator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ChainParameters.html">ChainParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ChainProperties.html">ChainProperties</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CompositeValidator.html">CompositeValidator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Config.html">Config</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Content.html">Content</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ContentKeys.html">ContentKeys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Credentials.html">Credentials</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CryptoUtils.html">CryptoUtils</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CustodyData.html">CustodyData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DCore.html">DCore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DCore/Api.html">– Api</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DCore/Constant.html">– Constant</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DCore/Limits.html">– Limits</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DCore/Sdk.html">– Sdk</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DCore.html#/s:8DCoreKit0A0V6LoggerO">– Logger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DCoreExtension.html">DCoreExtension</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DynamicGlobalProps.html">DynamicGlobalProps</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ECKeyPair.html">ECKeyPair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ElGamalKeyPair.html">ElGamalKeyPair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FeeParameter.html">FeeParameter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FeeSchedule.html">FeeSchedule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FullAccount.html">FullAccount</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/GlobalParameters.html">GlobalParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/GlobalProperties.html">GlobalProperties</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/KeyParts.html">KeyParts</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Memo.html">Memo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Message.html">Message</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MessagePayload.html">MessagePayload</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MessagePayloadReceiver.html">MessagePayloadReceiver</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MessageReceiver.html">MessageReceiver</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MessageResponse.html">MessageResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Miner.html">Miner</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MinerId.html">MinerId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MinerRewardInput.html">MinerRewardInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MinerVotes.html">MinerVotes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MinerVotingInfo.html">MinerVotingInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Nft.html">Nft</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NftCreateOperation.html">NftCreateOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NftData.html">NftData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NftDataType.html">NftDataType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NftDataType/ModifiableBy.html">– ModifiableBy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NftDataType/TypeLiteral.html">– TypeLiteral</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NftIssueOperation.html">NftIssueOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NftOptions.html">NftOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NftProperty.html">NftProperty</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NftTransferOperation.html">NftTransferOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NftUpdateDataOperation.html">NftUpdateDataOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NftUpdateOperation.html">NftUpdateOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OperationHistory.html">OperationHistory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Options.html">Options</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Pair.html">Pair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PricePerRegion.html">PricePerRegion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ProcessedTransaction.html">ProcessedTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PubKey.html">PubKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PublicKeyPinValidator.html">PublicKeyPinValidator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PublicKeysValidator.html">PublicKeysValidator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Publishing.html">Publishing</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Purchase.html">Purchase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PurchaseContentOperation.html">PurchaseContentOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/QrTransfer.html">QrTransfer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RawNft.html">RawNft</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RealSupply.html">RealSupply</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RegionalPrice.html">RegionalPrice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SecurityExtension.html">SecurityExtension</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Seeder.html">Seeder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SendMessageOperation.html">SendMessageOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SignedBlock.html">SignedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/StandardValidator.html">StandardValidator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SubmitContentOperation.html">SubmitContentOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Subscription.html">Subscription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Synopsis.html">Synopsis</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Transaction.html">Transaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TransactionConfirmation.html">TransactionConfirmation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TransactionDetail.html">TransactionDetail</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TransferOperation.html">TransferOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UnknownOperation.html">UnknownOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VestingBalance.html">VestingBalance</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:8DCoreKit15AssetAmountPaira">AssetAmountPair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:8DCoreKit13CipherCodablea">CipherCodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:8DCoreKit6VoteIda">VoteId</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>NftApi</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">NftApi</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/BaseApi.html">BaseApi</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP3get4byId7RxSwift17PrimitiveSequenceVyAF11SingleTraitOAA0C0VGAA06ObjectG11Convertible_p_tF"></a>
+                    <a name="//apple_ref/swift/Method/get(byId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP3get4byId7RxSwift17PrimitiveSequenceVyAF11SingleTraitOAA0C0VGAA06ObjectG11Convertible_p_tF">get(byId:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get NFT by id.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code><a href="../Enums/DCoreException/Network.html#/s:8DCoreKit0A9ExceptionO7NetworkO8notFoundyA2EmF">DCoreException.Network.notFound</a></code>
+if NFT does not exist.</p>
+
+</div>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="n">byId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ObjectIdConvertible.html">ObjectIdConvertible</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Nft.html">Nft</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NFT object id,
+as <code><a href="../Classes/NftObjectId.html">NftObjectId</a></code> or <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code><a href="../Structs/Nft.html">Nft</a></code>.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L16">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP6getAll5byIds7RxSwift17PrimitiveSequenceVyAF11SingleTraitOSayAA0C0VGGSayAA19ObjectIdConvertible_pG_tF"></a>
+                    <a name="//apple_ref/swift/Method/getAll(byIds:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP6getAll5byIds7RxSwift17PrimitiveSequenceVyAF11SingleTraitOSayAA0C0VGGSayAA19ObjectIdConvertible_pG_tF">getAll(byIds:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get NFTs by id.</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getAll</span><span class="p">(</span><span class="n">byIds</span> <span class="nv">ids</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/ObjectIdConvertible.html">ObjectIdConvertible</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Nft.html">Nft</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>ids</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NFT object ids,
+as <code><a href="../Classes/NftObjectId.html">NftObjectId</a></code> or <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Array of <code><a href="../Structs/Nft.html">Nft</a></code> objects</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L26">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP3get11byReference7RxSwift17PrimitiveSequenceVyAF11SingleTraitOAA0C0VGSS_tF"></a>
+                    <a name="//apple_ref/swift/Method/get(byReference:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP3get11byReference7RxSwift17PrimitiveSequenceVyAF11SingleTraitOAA0C0VGSS_tF">get(byReference:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get NFT by reference.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code><a href="../Enums/DCoreException/Network.html#/s:8DCoreKit0A9ExceptionO7NetworkO8notFoundyA2EmF">DCoreException.Network.notFound</a></code>
+if NFT does not exist.</p>
+
+</div>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="n">byReference</span> <span class="nv">reference</span><span class="p">:</span> <span class="kt"><a href="../Structs/Nft.html">Nft</a></span><span class="o">.</span><span class="kt">Reference</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Nft.html">Nft</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>reference</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NFT object id or symbol,
+as <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code><a href="../Structs/Nft.html">Nft</a></code>.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L39">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP3get8bySymbol7RxSwift17PrimitiveSequenceVyAF11SingleTraitOAA0C0VGSS_tF"></a>
+                    <a name="//apple_ref/swift/Method/get(bySymbol:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP3get8bySymbol7RxSwift17PrimitiveSequenceVyAF11SingleTraitOAA0C0VGSS_tF">get(bySymbol:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get NFT by symbol.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code><a href="../Enums/DCoreException/Network.html#/s:8DCoreKit0A9ExceptionO7NetworkO8notFoundyA2EmF">DCoreException.Network.notFound</a></code>
+if NFT does not exist.</p>
+
+</div>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="n">bySymbol</span> <span class="nv">symbol</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Nft.html">Nft</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>symbol</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NFT symbol,
+as <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code><a href="../Structs/Nft.html">Nft</a></code>.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L52">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP6getAll9bySymbols7RxSwift17PrimitiveSequenceVyAF11SingleTraitOSayAA0C0VGGSaySSG_tF"></a>
+                    <a name="//apple_ref/swift/Method/getAll(bySymbols:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP6getAll9bySymbols7RxSwift17PrimitiveSequenceVyAF11SingleTraitOSayAA0C0VGGSaySSG_tF">getAll(bySymbols:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get NFTs by references.</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getAll</span><span class="p">(</span><span class="n">bySymbols</span> <span class="nv">symbols</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Nft.html">Nft</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>symbols</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NFT symbols,
+as <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Array of <code><a href="../Structs/Nft.html">Nft</a></code> objects.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L62">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP15listAllRelative7byLower5limit7RxSwift17PrimitiveSequenceVyAG11SingleTraitOSayAA0C0VGGSS_SitF"></a>
+                    <a name="//apple_ref/swift/Method/listAllRelative(byLower:limit:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP15listAllRelative7byLower5limit7RxSwift17PrimitiveSequenceVyAG11SingleTraitOSayAA0C0VGGSS_SitF">listAllRelative(byLower:limit:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get NFTs alphabetically by symbol name</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listAllRelative</span><span class="p">(</span><span class="n">byLower</span> <span class="nv">bound</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Nft.html">Nft</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bound</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>lower bound of symbol names to retrieve</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>limit</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>maximum number of NFTs to fetch (must not exceed 100)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Array of found <code><a href="../Structs/Nft.html">Nft</a></code> objects.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L72">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP10getDataRaw4byId7RxSwift17PrimitiveSequenceVyAF11SingleTraitOAA0cF0VyAA0gC0VGGAA06ObjectI11Convertible_p_tF"></a>
+                    <a name="//apple_ref/swift/Method/getDataRaw(byId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP10getDataRaw4byId7RxSwift17PrimitiveSequenceVyAF11SingleTraitOAA0cF0VyAA0gC0VGGAA06ObjectI11Convertible_p_tF">getDataRaw(byId:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get NFT data instance with raw model.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code><a href="../Enums/DCoreException/Network.html#/s:8DCoreKit0A9ExceptionO7NetworkO8notFoundyA2EmF">DCoreException.Network.notFound</a></code>
+if NFT does not exist.</p>
+
+</div>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getDataRaw</span><span class="p">(</span><span class="n">byId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ObjectIdConvertible.html">ObjectIdConvertible</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/NftData.html">NftData</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/RawNft.html">RawNft</a></span><span class="o">&gt;&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NFT data object id,
+as <code><a href="../Classes/NftDataObjectId.html">NftDataObjectId</a></code> or <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code><a href="../Structs/NftData.html">NftData&lt;RawNft&gt;</a></code> object.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L85">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP13getAllDataRaw5byIds7RxSwift17PrimitiveSequenceVyAF11SingleTraitOSayAA0cG0VyAA0hC0VGGGSayAA19ObjectIdConvertible_pG_tF"></a>
+                    <a name="//apple_ref/swift/Method/getAllDataRaw(byIds:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP13getAllDataRaw5byIds7RxSwift17PrimitiveSequenceVyAF11SingleTraitOSayAA0cG0VyAA0hC0VGGGSayAA19ObjectIdConvertible_pG_tF">getAllDataRaw(byIds:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get NFT data instances with raw model.</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getAllDataRaw</span><span class="p">(</span><span class="n">byIds</span> <span class="nv">ids</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/ObjectIdConvertible.html">ObjectIdConvertible</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/NftData.html">NftData</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/RawNft.html">RawNft</a></span><span class="o">&gt;</span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>ids</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NFT data object ids,
+as <code><a href="../Classes/NftDataObjectId.html">NftDataObjectId</a></code> or <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Array of <code><a href="../Structs/NftData.html">NftData&lt;RawNft&gt;</a></code> objects.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L95">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP7getData4byId7RxSwift17PrimitiveSequenceVyAF11SingleTraitOAA0cF0Vyqd__GGAA06ObjectH11Convertible_p_tAA0C5ModelRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/getData(byId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP7getData4byId7RxSwift17PrimitiveSequenceVyAF11SingleTraitOAA0cF0Vyqd__GGAA06ObjectH11Convertible_p_tAA0C5ModelRd__lF">getData(byId:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get NFT data instance with parsed model.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code><a href="../Enums/DCoreException/Network.html#/s:8DCoreKit0A9ExceptionO7NetworkO8notFoundyA2EmF">DCoreException.Network.notFound</a></code>
+if NFT does not exist.</p>
+
+</div>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">getData</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">byId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ObjectIdConvertible.html">ObjectIdConvertible</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/NftData.html">NftData</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;&gt;</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/NftModel.html">NftModel</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NFT data object id,
+as <code><a href="../Classes/NftDataObjectId.html">NftDataObjectId</a></code> or <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code><a href="../Structs/NftData.html">NftData</a></code> object.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L108">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP10getAllData5byIds7RxSwift17PrimitiveSequenceVyAF11SingleTraitOSayAA0cG0Vyqd__GGGSayAA19ObjectIdConvertible_pG_tAA0C5ModelRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/getAllData(byIds:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP10getAllData5byIds7RxSwift17PrimitiveSequenceVyAF11SingleTraitOSayAA0cG0Vyqd__GGGSayAA19ObjectIdConvertible_pG_tAA0C5ModelRd__lF">getAllData(byIds:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get NFT data instances with parsed model.</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">getAllData</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">byIds</span> <span class="nv">ids</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/ObjectIdConvertible.html">ObjectIdConvertible</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/NftData.html">NftData</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">]</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/NftModel.html">NftModel</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>ids</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NFT data object ids,
+as <code><a href="../Classes/NftDataObjectId.html">NftDataObjectId</a></code> or <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Array of <code><a href="../Structs/NftData.html">NftData</a></code> objects.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L118">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP11listDataRaw02byC2Id7RxSwift17PrimitiveSequenceVyAF11SingleTraitOSayAA0cF0VyAA0gC0VGGGAA06ObjectI11Convertible_p_tF"></a>
+                    <a name="//apple_ref/swift/Method/listDataRaw(byNftId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP11listDataRaw02byC2Id7RxSwift17PrimitiveSequenceVyAF11SingleTraitOSayAA0cF0VyAA0gC0VGGGAA06ObjectI11Convertible_p_tF">listDataRaw(byNftId:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get NFT data instances with raw model.</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listDataRaw</span><span class="p">(</span><span class="n">byNftId</span> <span class="nv">nftId</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ObjectIdConvertible.html">ObjectIdConvertible</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/NftData.html">NftData</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/RawNft.html">RawNft</a></span><span class="o">&gt;</span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>nftId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NFT object id
+as <code><a href="../Classes/NftObjectId.html">NftObjectId</a></code> or <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Array of <code><a href="../Structs/NftData.html">NftData&lt;RawNft&gt;</a></code> objects.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L128">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP8listData02byC2Id7RxSwift17PrimitiveSequenceVyAF11SingleTraitOSayAA0cF0Vyqd__GGGAA06ObjectH11Convertible_p_tAA0C5ModelRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/listData(byNftId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP8listData02byC2Id7RxSwift17PrimitiveSequenceVyAF11SingleTraitOSayAA0cF0Vyqd__GGGAA06ObjectH11Convertible_p_tAA0C5ModelRd__lF">listData(byNftId:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get NFT data instances with parsed model.</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">listData</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">byNftId</span> <span class="nv">nftId</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ObjectIdConvertible.html">ObjectIdConvertible</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/NftData.html">NftData</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">]</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/NftModel.html">NftModel</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>nftId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NFT object id
+as <code><a href="../Classes/NftObjectId.html">NftObjectId</a></code> or <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Array of <code><a href="../Structs/NftData.html">NftData</a></code> objects.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L138">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP06searchC7History02byC6DataId7RxSwift17PrimitiveSequenceVyAF11SingleTraitOSayAA17TransactionDetailVGGAA06ObjectI11Convertible_p_tF"></a>
+                    <a name="//apple_ref/swift/Method/searchNftHistory(byNftDataId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP06searchC7History02byC6DataId7RxSwift17PrimitiveSequenceVyAF11SingleTraitOSayAA17TransactionDetailVGGAA06ObjectI11Convertible_p_tF">searchNftHistory(byNftDataId:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Search NFT history, lists transfer and issue operations for NFT data instance object id.</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchNftHistory</span><span class="p">(</span><span class="n">byNftDataId</span> <span class="nv">nftDataId</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ObjectIdConvertible.html">ObjectIdConvertible</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/TransactionDetail.html">TransactionDetail</a></span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>nftDataId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NFT data object id,
+as <code><a href="../Classes/NftDataObjectId.html">NftDataObjectId</a></code> or <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Array of <code><a href="../Structs/TransactionDetail.html">TransactionDetail</a></code> objects representing transfer and issue operations.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L148">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP08countAllC07RxSwift17PrimitiveSequenceVyAE11SingleTraitOs6UInt64VGyF"></a>
+                    <a name="//apple_ref/swift/Method/countAllNft()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP08countAllC07RxSwift17PrimitiveSequenceVyAE11SingleTraitOs6UInt64VGyF">countAllNft()</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Count all NFTs</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">countAllNft</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt">UInt64</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>count of NFT definitions</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L155">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP08countAllC4Data7RxSwift17PrimitiveSequenceVyAE11SingleTraitOs6UInt64VGyF"></a>
+                    <a name="//apple_ref/swift/Method/countAllNftData()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP08countAllC4Data7RxSwift17PrimitiveSequenceVyAE11SingleTraitOs6UInt64VGyF">countAllNftData()</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Count all NFT data instances</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">countAllNftData</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt">UInt64</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>count of NFT data instances</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L162">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP03getC11BalancesRaw7account6nftIds7RxSwift17PrimitiveSequenceVyAG11SingleTraitOSayAA0C4DataVyAA0gC0VGGGAA26AccountObjectIdConvertible_p_SayAA0stU0_pGtF"></a>
+                    <a name="//apple_ref/swift/Method/getNftBalancesRaw(account:nftIds:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP03getC11BalancesRaw7account6nftIds7RxSwift17PrimitiveSequenceVyAG11SingleTraitOSayAA0C4DataVyAA0gC0VGGGAA26AccountObjectIdConvertible_p_SayAA0stU0_pGtF">getNftBalancesRaw(account:nftIds:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get NFT balances per account with raw model</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getNftBalancesRaw</span><span class="p">(</span><span class="nv">account</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AccountObjectIdConvertible.html">AccountObjectIdConvertible</a></span><span class="p">,</span> <span class="nv">nftIds</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/ObjectIdConvertible.html">ObjectIdConvertible</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/NftData.html">NftData</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/RawNft.html">RawNft</a></span><span class="o">&gt;</span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>account</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Account object id,
+as <code><a href="../Classes/AccountObjectId.html">AccountObjectId</a></code> or <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>nftIds</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NFT object ids to filter, or empty list to fetch all,
+as <code><a href="../Classes/NftObjectId.html">NftObjectId</a></code> or <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>NFT data instances with raw model</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L174">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP03getC8Balances7account6nftIds7RxSwift17PrimitiveSequenceVyAG11SingleTraitOSayAA0C4DataVyqd__GGGAA26AccountObjectIdConvertible_p_SayAA0rsT0_pGtAA0C5ModelRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/getNftBalances(account:nftIds:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP03getC8Balances7account6nftIds7RxSwift17PrimitiveSequenceVyAG11SingleTraitOSayAA0C4DataVyqd__GGGAA26AccountObjectIdConvertible_p_SayAA0rsT0_pGtAA0C5ModelRd__lF">getNftBalances(account:nftIds:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get NFT balances per account with parsed model</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">getNftBalances</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">account</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AccountObjectIdConvertible.html">AccountObjectIdConvertible</a></span><span class="p">,</span> <span class="nv">nftIds</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/ObjectIdConvertible.html">ObjectIdConvertible</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/NftData.html">NftData</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">]</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/NftModel.html">NftModel</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>account</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Account object id,
+as <code><a href="../Classes/AccountObjectId.html">AccountObjectId</a></code> or <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>nftIds</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NFT object ids to filter, or empty list to fetch all,
+as <code><a href="../Classes/NftObjectId.html">NftObjectId</a></code> or <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>NFT data instances with parsed model</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L187">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP6create11credentials6symbol9maxSupply08fixedMaxI011description8nftModel12transferable3fee7RxSwift17PrimitiveSequenceVyAM11SingleTraitOAA23TransactionConfirmationVGAA11CredentialsV_SSs6UInt32VSbSSqd__mSbAA11AssetAmountVtAA0cN0Rd__lF"></a>
+                    <a name="//apple_ref/swift/Method/create(credentials:symbol:maxSupply:fixedMaxSupply:description:nftModel:transferable:fee:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP6create11credentials6symbol9maxSupply08fixedMaxI011description8nftModel12transferable3fee7RxSwift17PrimitiveSequenceVyAM11SingleTraitOAA23TransactionConfirmationVGAA11CredentialsV_SSs6UInt32VSbSSqd__mSbAA11AssetAmountVtAA0cN0Rd__lF">create(credentials:symbol:maxSupply:fixedMaxSupply:description:nftModel:transferable:fee:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">create</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">credentials</span><span class="p">:</span> <span class="kt"><a href="../Structs/Credentials.html">Credentials</a></span><span class="p">,</span> <span class="nv">symbol</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">maxSupply</span><span class="p">:</span> <span class="kt">UInt32</span><span class="p">,</span> <span class="nv">fixedMaxSupply</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">nftModel</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span> <span class="nv">transferable</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">fee</span><span class="p">:</span> <span class="kt"><a href="../Structs/AssetAmount.html">AssetAmount</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/TransactionConfirmation.html">TransactionConfirmation</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/NftModel.html">NftModel</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP6update11credentials9reference9maxSupply08fixedMaxI011description3fee7RxSwift17PrimitiveSequenceVyAK11SingleTraitOAA23TransactionConfirmationVGAA11CredentialsV_SSs6UInt32VSgSbSgSSSgAA11AssetAmountVtF"></a>
+                    <a name="//apple_ref/swift/Method/update(credentials:reference:maxSupply:fixedMaxSupply:description:fee:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP6update11credentials9reference9maxSupply08fixedMaxI011description3fee7RxSwift17PrimitiveSequenceVyAK11SingleTraitOAA23TransactionConfirmationVGAA11CredentialsV_SSs6UInt32VSgSbSgSSSgAA11AssetAmountVtF">update(credentials:reference:maxSupply:fixedMaxSupply:description:fee:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Update NFT</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="nv">credentials</span><span class="p">:</span> <span class="kt"><a href="../Structs/Credentials.html">Credentials</a></span><span class="p">,</span> <span class="nv">reference</span><span class="p">:</span> <span class="kt"><a href="../Structs/Nft.html">Nft</a></span><span class="o">.</span><span class="kt">Reference</span><span class="p">,</span> <span class="nv">maxSupply</span><span class="p">:</span> <span class="kt">UInt32</span><span class="p">?,</span> <span class="nv">fixedMaxSupply</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?,</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">fee</span><span class="p">:</span> <span class="kt"><a href="../Structs/AssetAmount.html">AssetAmount</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/TransactionConfirmation.html">TransactionConfirmation</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>credentials</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>issuer account credentials.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>reference</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NFT object id or symbol.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>maxSupply</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>update NFT max suppy.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fixedMaxSupply</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>update NFT max supply is fixed.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>description</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>update text description.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fee</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/AssetAmount.html">AssetAmount</a></code> fee for the operation,
+if left <code><a href="../Structs/AssetAmount.html#/s:8DCoreKit11AssetAmountV5unsetACvpZ">AssetAmount.unset</a></code> the fee will be computed in DCT asset,
+default <code><a href="../Structs/AssetAmount.html#/s:8DCoreKit11AssetAmountV5unsetACvpZ">AssetAmount.unset</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code><a href="../Structs/TransactionConfirmation.html">TransactionConfirmation</a></code> that NFT was updated.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L230">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP10updateData11credentials2id03newF03fee7RxSwift17PrimitiveSequenceVyAI11SingleTraitOAA23TransactionConfirmationVGAA11CredentialsV_AA19ObjectIdConvertible_pqd__AA11AssetAmountVtAA0C5ModelRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/updateData(credentials:id:newData:fee:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP10updateData11credentials2id03newF03fee7RxSwift17PrimitiveSequenceVyAI11SingleTraitOAA23TransactionConfirmationVGAA11CredentialsV_AA19ObjectIdConvertible_pqd__AA11AssetAmountVtAA0C5ModelRd__lF">updateData(credentials:id:newData:fee:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Update NFT data instance</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">updateData</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">credentials</span><span class="p">:</span> <span class="kt"><a href="../Structs/Credentials.html">Credentials</a></span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ObjectIdConvertible.html">ObjectIdConvertible</a></span><span class="p">,</span> <span class="nv">newData</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">fee</span><span class="p">:</span> <span class="kt"><a href="../Structs/AssetAmount.html">AssetAmount</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/TransactionConfirmation.html">TransactionConfirmation</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/NftModel.html">NftModel</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>credentials</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>issuer account credentials.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NFT data object id,
+as <code><a href="../Classes/NftDataObjectId.html">NftDataObjectId</a></code> or <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>newData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>data model with values.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fee</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/AssetAmount.html">AssetAmount</a></code> fee for the operation,
+if left <code><a href="../Structs/AssetAmount.html#/s:8DCoreKit11AssetAmountV5unsetACvpZ">AssetAmount.unset</a></code> the fee will be computed in DCT asset,
+default <code><a href="../Structs/AssetAmount.html#/s:8DCoreKit11AssetAmountV5unsetACvpZ">AssetAmount.unset</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code><a href="../Structs/TransactionConfirmation.html">TransactionConfirmation</a></code> that NFT data instance was updated.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L250">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP5issue11credentials9reference2to4data4memo3fee7RxSwift17PrimitiveSequenceVyAK11SingleTraitOAA23TransactionConfirmationVGAA11CredentialsV_SSAA26AccountObjectIdConvertible_pqd__SgAA4MemoVSgAA11AssetAmountVtAA0C5ModelRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/issue(credentials:reference:to:data:memo:fee:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP5issue11credentials9reference2to4data4memo3fee7RxSwift17PrimitiveSequenceVyAK11SingleTraitOAA23TransactionConfirmationVGAA11CredentialsV_SSAA26AccountObjectIdConvertible_pqd__SgAA4MemoVSgAA11AssetAmountVtAA0C5ModelRd__lF">issue(credentials:reference:to:data:memo:fee:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Issue NFT. Creates a NFT data instance.</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">issue</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">credentials</span><span class="p">:</span> <span class="kt"><a href="../Structs/Credentials.html">Credentials</a></span><span class="p">,</span> <span class="nv">reference</span><span class="p">:</span> <span class="kt"><a href="../Structs/Nft.html">Nft</a></span><span class="o">.</span><span class="kt">Reference</span><span class="p">,</span> <span class="nv">to</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AccountObjectIdConvertible.html">AccountObjectIdConvertible</a></span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">T</span><span class="p">?,</span> <span class="nv">memo</span><span class="p">:</span> <span class="kt"><a href="../Structs/Memo.html">Memo</a></span><span class="p">?,</span> <span class="nv">fee</span><span class="p">:</span> <span class="kt"><a href="../Structs/AssetAmount.html">AssetAmount</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/TransactionConfirmation.html">TransactionConfirmation</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/NftModel.html">NftModel</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>credentials</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>account credentials issuing the NFT.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>reference</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NFT object id or symbol.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>to</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>account object id receiving the NFT data instance
+as <code><a href="../Classes/AccountObjectId.html">AccountObjectId</a></code> or <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>data model with values.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>memo</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optional message.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fee</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/AssetAmount.html">AssetAmount</a></code> fee for the operation,
+if left <code><a href="../Structs/AssetAmount.html#/s:8DCoreKit11AssetAmountV5unsetACvpZ">AssetAmount.unset</a></code> the fee will be computed in DCT asset,
+default <code><a href="../Structs/AssetAmount.html#/s:8DCoreKit11AssetAmountV5unsetACvpZ">AssetAmount.unset</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code><a href="../Structs/TransactionConfirmation.html">TransactionConfirmation</a></code> that NFT was issued.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L270">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8DCoreKit6NftApiP8transfer11credentials2to2id4memo3fee7RxSwift17PrimitiveSequenceVyAJ11SingleTraitOAA23TransactionConfirmationVGAA11CredentialsV_AA26AccountObjectIdConvertible_pAA0uvW0_pAA4MemoVSgAA11AssetAmountVtF"></a>
+                    <a name="//apple_ref/swift/Method/transfer(credentials:to:id:memo:fee:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8DCoreKit6NftApiP8transfer11credentials2to2id4memo3fee7RxSwift17PrimitiveSequenceVyAJ11SingleTraitOAA23TransactionConfirmationVGAA11CredentialsV_AA26AccountObjectIdConvertible_pAA0uvW0_pAA4MemoVSgAA11AssetAmountVtF">transfer(credentials:to:id:memo:fee:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Transfer NFT data instance.</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">transfer</span><span class="p">(</span><span class="nv">credentials</span><span class="p">:</span> <span class="kt"><a href="../Structs/Credentials.html">Credentials</a></span><span class="p">,</span> <span class="nv">to</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AccountObjectIdConvertible.html">AccountObjectIdConvertible</a></span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ObjectIdConvertible.html">ObjectIdConvertible</a></span><span class="p">,</span> <span class="nv">memo</span><span class="p">:</span> <span class="kt"><a href="../Structs/Memo.html">Memo</a></span><span class="p">?,</span> <span class="nv">fee</span><span class="p">:</span> <span class="kt"><a href="../Structs/AssetAmount.html">AssetAmount</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/TransactionConfirmation.html">TransactionConfirmation</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>credentials</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NFT data instance owner credentials.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>to</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>account object id receiving the NFT data instance
+as <code><a href="../Classes/AccountObjectId.html">AccountObjectId</a></code> or <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NFT data object id,
+as <code><a href="../Classes/NftDataObjectId.html">NftDataObjectId</a></code> or <code>String</code> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>memo</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optional message.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fee</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/AssetAmount.html">AssetAmount</a></code> fee for the operation,
+if left <code><a href="../Structs/AssetAmount.html#/s:8DCoreKit11AssetAmountV5unsetACvpZ">AssetAmount.unset</a></code> the fee will be computed in DCT asset,
+default <code><a href="../Structs/AssetAmount.html#/s:8DCoreKit11AssetAmountV5unsetACvpZ">AssetAmount.unset</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code><a href="../Structs/TransactionConfirmation.html">TransactionConfirmation</a></code> that NFT was transfered.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/DECENTfoundation/DCoreSwift-SDK/tree/4.0.0/Sources/DCoreKit/Api/NftApi.swift#L293">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Copyright © 2018-2019 DECENT. All Rights Reserved</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
