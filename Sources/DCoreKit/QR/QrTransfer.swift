@@ -44,6 +44,9 @@ public protocol QrTransferConvertible {
 
 extension String: QrTransferConvertible {
     public func asQrTransfer() -> QrTransfer? {
+        if !contains(DCore.Constant.dctQrPrefix) {
+            return Account.hasValid(name: self) ? QrTransfer(accountName: self) : nil
+        }
         guard let uri = URLComponents(string:
             replacingOccurrences(of: "\(DCore.Constant.dctQrPrefix):", with: "\(DCore.Constant.dctQrPrefix)://")
         ) else { return nil }
