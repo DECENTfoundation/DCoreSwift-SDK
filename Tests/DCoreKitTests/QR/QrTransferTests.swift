@@ -35,6 +35,11 @@ class QrTransferTests: XCTestCase {
                 memo: "some weird test text = and so on % with special chars"
             )
         )
+
+        let name = "dw-testaccount"
+        XCTAssertEqual(name.asQrTransfer(), QrTransfer(accountName: name))
+
+        XCTAssertNil("123".asQrTransfer())
     }
 
     static var allTests = [
