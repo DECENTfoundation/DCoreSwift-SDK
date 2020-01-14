@@ -48,10 +48,23 @@ class OperationApiTests: XCTestCase {
         ).debug().toBlocking().single()
         XCTAssertNotNil(confirm)
     }
+
+    func testAnyCustomOperation() {
+        let pk = "5Hxwqx6JJUBYWjQNt8DomTNJ6r6YK8wDJym4CMAH1zGctFyQtzt"
+        let creds = try? Credentials("1.2.27".dcore.objectId()!, wif: pk)
+
+        let anyCustomOp = try? wss.broadcast.broadcastWithCallback(AnyCustomOperation(
+            id: .plaintext, payer: creds!.accountId, data: "some data"
+        ), keypair: creds!.keyPair).debug().toBlocking().single()
+
+        XCTAssertNotNil(anyCustomOp)
+    }
     
     static var allTests = [
         ("testTransferOperation", testTransferOperation),
         ("testTransferOperationToObjectIdWithOtherVarInt", testTransferOperationToObjectIdWithOtherVarInt),
         ("testSubmitAccountOperation", testSubmitAccountOperation),
+        ("testUpdateAccountOperation", testUpdateAccountOperation),
+        ("testAnyCustomOperation", testAnyCustomOperation),
     ]
 }

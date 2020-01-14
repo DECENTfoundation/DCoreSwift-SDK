@@ -137,10 +137,10 @@ final class SerializationTests: XCTestCase {
     func testCustomOperationSerialization() {
         let payerAcc = try! "1.2.1".asAccountObjectId()
         let operation = AnyCustomOperation(
-            id: .plaintext, payer: payerAcc, requiredAuths: [payerAcc], data: "some data"
+            id: .plaintext, payer: payerAcc, data: "some data"
         )
 
-        let expected = "12000000000000000000010101020000"
+        let expected = "12000000000000000000010101020009736f6d652064617461"
         XCTAssertEqual(expected, operation.asData().toHex())
     }
     
@@ -157,5 +157,6 @@ final class SerializationTests: XCTestCase {
         ("testMemoSerialization", testMemoSerialization),
         ("testObjectIdSerialization", testObjectIdSerialization),
         ("testVoteIdSerialization", testVoteIdSerialization),
+        ("testCustomOperationSerialization", testCustomOperationSerialization),
     ]
 }
