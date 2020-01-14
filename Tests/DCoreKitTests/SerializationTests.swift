@@ -126,14 +126,22 @@ final class SerializationTests: XCTestCase {
         XCTAssertEqual("1.2.66534".dcore.objectId()!.asData().toHex(), "e68704")
         XCTAssertEqual("3.90.66534".dcore.objectId()!.asData().toHex(), "e68704")
     }
-    
-    
-    
+
     func testVoteIdSerialization() {
         let vote = "0:2".asVoteData()
         let votes = Set(["0:2"]).asVoteData()
         XCTAssertTrue("0002000000000000" == vote.toHex())
         XCTAssertTrue("010002000000000000" == votes.toHex())
+    }
+
+    func testCustomOperationSerialization() {
+        let payerAcc = try! "1.2.1".asAccountObjectId()
+        let operation = AnyCustomOperation(
+            id: .plaintext, payer: payerAcc, requiredAuths: [payerAcc], data: "some data"
+        )
+
+        let expected = "12000000000000000000010101020000"
+        XCTAssertEqual(expected, operation.asData().toHex())
     }
     
     static var allTests = [
